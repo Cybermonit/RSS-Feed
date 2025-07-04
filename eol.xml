@@ -27,7 +27,7 @@ Data wydania: 2024-10-01
 Koniec wsparcia (EOL): 2034-10-10
 Wsparcie komercyjne do: 2029-10-09
 Najnowsza wersja w cyklu: 10.0.26100
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows11-release-information#enterprise-and-iot-enterprise-ltsc-editions</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2025 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2025)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows11-release-information#enterprise-and-iot-enterprise-ltsc-editions</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2025 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2025)
 Wersja LTS: Tak
 Data wydania: 2024-11-01
 Koniec wsparcia (EOL): 2034-10-10
@@ -39,7 +39,7 @@ Data wydania: 2024-11-01
 Koniec wsparcia (EOL): 2034-10-10
 Wsparcie komercyjne do: 2029-10-09
 Najnowsza wersja w cyklu: 10.0.26100
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2025 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2025)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2025 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2025)
 Wersja LTS: Tak
 Data wydania: 2024-11-01
 Koniec wsparcia (EOL): 2034-10-10
@@ -162,7 +162,7 @@ Koniec wsparcia (EOL): 2031-10-14
 Link do cyklu: https://learn.microsoft.com/lifecycle/faq/internet-explorer-microsoft-edge</description></item><item><title>EoL: Internet Explorer - Cycle 11-embedded</title><link>https://endoflife.date/internet-explorer</link><pubDate>Tue, 14 Oct 2031 00:00:00 +0000</pubDate><description>Produkt: Internet Explorer (Cykl: 11-embedded)
 Data wydania: 2013-11-13
 Koniec wsparcia (EOL): 2031-10-14
-Link do cyklu: https://learn.microsoft.com/lifecycle/faq/internet-explorer-microsoft-edge</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2022 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 14 Oct 2031 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2022)
+Link do cyklu: https://learn.microsoft.com/lifecycle/faq/internet-explorer-microsoft-edge</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2022 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Oct 2031 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2022)
 Wersja LTS: Tak
 Data wydania: 2021-08-18
 Koniec wsparcia (EOL): 2031-10-14
@@ -174,7 +174,7 @@ Data wydania: 2021-08-18
 Koniec wsparcia (EOL): 2031-10-14
 Wsparcie komercyjne do: 2026-10-13
 Najnowsza wersja w cyklu: 10.0.20348
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2022 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Oct 2031 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2022)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2022 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 14 Oct 2031 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2022)
 Wersja LTS: Tak
 Data wydania: 2021-08-18
 Koniec wsparcia (EOL): 2031-10-14
@@ -628,7 +628,7 @@ Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2029-01-09
 Wsparcie komercyjne do: 2024-01-09
 Najnowsza wersja w cyklu: 10.0.17763
-Link do cyklu: https://learn.microsoft.com/windows/release-health/supported-versions-windows-client#enterprise-and-iot-enterprise-ltsbltsc-editions</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2019 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2019)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/supported-versions-windows-client#enterprise-and-iot-enterprise-ltsbltsc-editions</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2019 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2019)
 Wersja LTS: Tak
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2029-01-09
@@ -640,7 +640,7 @@ Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2029-01-09
 Wsparcie komercyjne do: 2024-01-09
 Najnowsza wersja w cyklu: 10.0.17763
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2019 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2019)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2019 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2019)
 Wersja LTS: Tak
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2029-01-09
@@ -1378,19 +1378,19 @@ Data wydania: 2021-11-16
 Koniec wsparcia (EOL): 2027-01-12
 Wsparcie komercyjne do: 2027-01-12
 Najnowsza wersja w cyklu: 10.0.19044
-Link do cyklu: https://learn.microsoft.com/windows/release-health/release-information#enterprise-and-iot-enterprise-ltsbltsc-editions</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2016 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 12 Jan 2027 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2016)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/release-information#enterprise-and-iot-enterprise-ltsbltsc-editions</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2016 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 12 Jan 2027 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2016)
 Wersja LTS: Tak
 Data wydania: 2016-10-15
 Koniec wsparcia (EOL): 2027-01-12
 Wsparcie komercyjne do: 2022-01-11
 Najnowsza wersja w cyklu: 10.0.14393
-Link do cyklu: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2016 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 12 Jan 2027 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2016)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2016 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 12 Jan 2027 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2016)
 Wersja LTS: Tak
 Data wydania: 2016-10-15
 Koniec wsparcia (EOL): 2027-01-12
 Wsparcie komercyjne do: 2022-01-11
 Najnowsza wersja w cyklu: 10.0.14393
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: AWS Lambda - Cycle dotnet8</title><link>https://endoflife.date/aws-lambda</link><pubDate>Mon, 11 Jan 2027 00:00:00 +0000</pubDate><description>Produkt: AWS Lambda (Cykl: dotnet8)
+Link do cyklu: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle</description></item><item><title>EoL: AWS Lambda - Cycle dotnet8</title><link>https://endoflife.date/aws-lambda</link><pubDate>Mon, 11 Jan 2027 00:00:00 +0000</pubDate><description>Produkt: AWS Lambda (Cykl: dotnet8)
 Data wydania: 2024-02-22
 Koniec wsparcia (EOL): 2027-01-11
 Wsparcie komercyjne do: 2026-11-10
@@ -3823,14 +3823,14 @@ Wsparcie komercyjne do: 2023-10-18
 Najnowsza wersja w cyklu: 18.20.8</description></item><item><title>EoL: pnpm - Cycle 8</title><link>https://endoflife.date/pnpm</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: pnpm (Cykl: 8)
 Data wydania: 2023-03-27
 Koniec wsparcia (EOL): 2025-04-30
-Najnowsza wersja w cyklu: 8.15.9</description></item><item><title>EoL: Pop!_OS - Cycle 20.04 (LTS)</title><link>https://endoflife.date/pop!_os</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Pop!_OS (Cykl: 20.04)
+Najnowsza wersja w cyklu: 8.15.9</description></item><item><title>EoL: Quarkus - Cycle 3.21</title><link>https://endoflife.date/quarkus</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Quarkus (Cykl: 3.21)
+Data wydania: 2025-03-26
+Koniec wsparcia (EOL): 2025-04-30
+Najnowsza wersja w cyklu: 3.21.4</description></item><item><title>EoL: Pop!_OS - Cycle 20.04 (LTS)</title><link>https://endoflife.date/pop!_os</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Pop!_OS (Cykl: 20.04)
 Wersja LTS: Tak
 Data wydania: 2020-04-30
 Koniec wsparcia (EOL): 2025-04-30
-Link do cyklu: https://www.tumblr.com/system76/616861064165031936/whats-new-with-popos-2004-lts</description></item><item><title>EoL: Quarkus - Cycle 3.21</title><link>https://endoflife.date/quarkus</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Quarkus (Cykl: 3.21)
-Data wydania: 2025-03-26
-Koniec wsparcia (EOL): 2025-04-30
-Najnowsza wersja w cyklu: 3.21.4</description></item><item><title>EoL: Rocket.Chat - Cycle 7.0</title><link>https://endoflife.date/rocket-chat</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 7.0)
+Link do cyklu: https://www.tumblr.com/system76/616861064165031936/whats-new-with-popos-2004-lts</description></item><item><title>EoL: Rocket.Chat - Cycle 7.0</title><link>https://endoflife.date/rocket-chat</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 7.0)
 Data wydania: 2024-10-31
 Koniec wsparcia (EOL): 2025-04-30
 Wsparcie komercyjne do: 2024-10-31
@@ -3937,17 +3937,17 @@ Koniec wsparcia (EOL): 2025-04-16
 Najnowsza wersja w cyklu: 10.0.3</description></item><item><title>EoL: Istio - Cycle 1.23</title><link>https://endoflife.date/istio</link><pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Istio (Cykl: 1.23)
 Data wydania: 2024-08-14
 Koniec wsparcia (EOL): 2025-04-16
-Najnowsza wersja w cyklu: 1.23.6</description></item><item><title>EoL: Mandrel - Cycle 24.1</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 24.1)
-Data wydania: 2024-09-23
-Koniec wsparcia (EOL): 2025-04-15
-Najnowsza wersja w cyklu: 24.1.2.0</description></item><item><title>EoL: Mattermost - Cycle 10.4</title><link>https://endoflife.date/mattermost</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Mattermost (Cykl: 10.4)
+Najnowsza wersja w cyklu: 1.23.6</description></item><item><title>EoL: Mattermost - Cycle 10.4</title><link>https://endoflife.date/mattermost</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Mattermost (Cykl: 10.4)
 Data wydania: 2025-01-16
 Koniec wsparcia (EOL): 2025-04-15
 Najnowsza wersja w cyklu: 10.4.5</description></item><item><title>EoL: MySQL - Cycle 9.2</title><link>https://endoflife.date/mysql</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 9.2)
 Data wydania: 2024-12-15
 Koniec wsparcia (EOL): 2025-04-15
 Wsparcie komercyjne do: 2025-04-15
-Najnowsza wersja w cyklu: 9.2.0</description></item><item><title>EoL: Plesk - Cycle 18.0.67</title><link>https://endoflife.date/plesk</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Plesk (Cykl: 18.0.67)
+Najnowsza wersja w cyklu: 9.2.0</description></item><item><title>EoL: Mandrel - Cycle 24.1</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 24.1)
+Data wydania: 2024-09-23
+Koniec wsparcia (EOL): 2025-04-15
+Najnowsza wersja w cyklu: 24.1.2.0</description></item><item><title>EoL: Plesk - Cycle 18.0.67</title><link>https://endoflife.date/plesk</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Plesk (Cykl: 18.0.67)
 Data wydania: 2025-01-21
 Koniec wsparcia (EOL): 2025-04-15
 Najnowsza wersja w cyklu: 18.0.67.3</description></item><item><title>EoL: RabbitMQ - Cycle 4.1</title><link>https://endoflife.date/rabbitmq</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: RabbitMQ (Cykl: 4.1)
@@ -4005,7 +4005,11 @@ Najnowsza wersja w cyklu: 9.0.3
 Link do cyklu: https://www.elastic.co/docs/release-notes/kibana#kibana-__LATEST__-release-notes</description></item><item><title>EoL: Mastodon - Cycle 4.1</title><link>https://endoflife.date/mastodon</link><pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Mastodon (Cykl: 4.1)
 Data wydania: 2023-02-10
 Koniec wsparcia (EOL): 2025-04-08
-Najnowsza wersja w cyklu: 4.1.25</description></item><item><title>EoL: React Native - Cycle 0.79</title><link>https://endoflife.date/react-native</link><pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: React Native (Cykl: 0.79)
+Najnowsza wersja w cyklu: 4.1.25</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-m33-5g</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-m33-5g)
+Data wydania: 2022-04-08
+Koniec wsparcia (EOL): False
+Wsparcie komercyjne do: 2025-04-08
+Link do cyklu: https://doc.samsungmobile.com/SM-M336BU/INS/doc.html</description></item><item><title>EoL: React Native - Cycle 0.79</title><link>https://endoflife.date/react-native</link><pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: React Native (Cykl: 0.79)
 Data wydania: 2025-04-08
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: True
@@ -4013,11 +4017,7 @@ Najnowsza wersja w cyklu: 0.79.5</description></item><item><title>EoL: React Nat
 Data wydania: 2024-10-23
 Koniec wsparcia (EOL): 2025-04-08
 Wsparcie komercyjne do: 2025-02-19
-Najnowsza wersja w cyklu: 0.76.9</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-m33-5g</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-m33-5g)
-Data wydania: 2022-04-08
-Koniec wsparcia (EOL): False
-Wsparcie komercyjne do: 2025-04-08
-Link do cyklu: https://doc.samsungmobile.com/SM-M336BU/INS/doc.html</description></item><item><title>EoL: Dependency-Track - Cycle 4.13</title><link>https://endoflife.date/dependency-track</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Dependency-Track (Cykl: 4.13)
+Najnowsza wersja w cyklu: 0.76.9</description></item><item><title>EoL: Dependency-Track - Cycle 4.13</title><link>https://endoflife.date/dependency-track</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Dependency-Track (Cykl: 4.13)
 Data wydania: 2025-04-07
 Koniec wsparcia (EOL): False
 Najnowsza wersja w cyklu: 4.13.2</description></item><item><title>EoL: Dependency-Track - Cycle 4.12</title><link>https://endoflife.date/dependency-track</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><description>Produkt: Dependency-Track (Cykl: 4.12)
@@ -4753,15 +4753,15 @@ Koniec wsparcia (EOL): 2025-01-22
 Najnowsza wersja w cyklu: 2.25.5</description></item><item><title>EoL: nix - Cycle 2.24</title><link>https://endoflife.date/nix</link><pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate><description>Produkt: nix (Cykl: 2.24)
 Data wydania: 2024-08-01
 Koniec wsparcia (EOL): 2025-01-22
-Najnowsza wersja w cyklu: 2.24.15</description></item><item><title>EoL: Mandrel - Cycle 23.0 (LTS)</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 23.0)
-Wersja LTS: Tak
-Data wydania: 2023-06-14
-Koniec wsparcia (EOL): 2025-01-21
-Najnowsza wersja w cyklu: 23.0.6.0</description></item><item><title>EoL: MySQL - Cycle 9.1</title><link>https://endoflife.date/mysql</link><pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 9.1)
+Najnowsza wersja w cyklu: 2.24.15</description></item><item><title>EoL: MySQL - Cycle 9.1</title><link>https://endoflife.date/mysql</link><pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 9.1)
 Data wydania: 2024-09-24
 Koniec wsparcia (EOL): 2025-01-21
 Wsparcie komercyjne do: 2025-01-21
-Najnowsza wersja w cyklu: 9.1.0</description></item><item><title>EoL: Plesk - Cycle 18.0.65</title><link>https://endoflife.date/plesk</link><pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate><description>Produkt: Plesk (Cykl: 18.0.65)
+Najnowsza wersja w cyklu: 9.1.0</description></item><item><title>EoL: Mandrel - Cycle 23.0 (LTS)</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 23.0)
+Wersja LTS: Tak
+Data wydania: 2023-06-14
+Koniec wsparcia (EOL): 2025-01-21
+Najnowsza wersja w cyklu: 23.0.6.0</description></item><item><title>EoL: Plesk - Cycle 18.0.65</title><link>https://endoflife.date/plesk</link><pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate><description>Produkt: Plesk (Cykl: 18.0.65)
 Data wydania: 2024-10-29
 Koniec wsparcia (EOL): 2025-01-21
 Najnowsza wersja w cyklu: 18.0.65.2</description></item><item><title>EoL: rtpengine - Cycle 13.0</title><link>https://endoflife.date/rtpengine</link><pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate><description>Produkt: rtpengine (Cykl: 13.0)
@@ -4912,15 +4912,15 @@ Data wydania: 2020-04-23
 Koniec wsparcia (EOL): 2024-12-31</description></item><item><title>EoL: Oracle Linux - Cycle 7</title><link>https://endoflife.date/oracle-linux</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Oracle Linux (Cykl: 7)
 Data wydania: 2014-07-23
 Koniec wsparcia (EOL): 2024-12-31
-Najnowsza wersja w cyklu: 7.9</description></item><item><title>EoL: Palo Alto Networks GlobalProtect App - Cycle 5.1</title><link>https://endoflife.date/palo-alto-networks-globalprotect-app</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Palo Alto Networks GlobalProtect App (Cykl: 5.1)
+Najnowsza wersja w cyklu: 7.9</description></item><item><title>EoL: PCI-DSS - Cycle 4.0</title><link>https://endoflife.date/pci-dss</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: PCI-DSS (Cykl: 4.0)
+Data wydania: 2022-03-31
+Koniec wsparcia (EOL): 2024-12-31
+Link do cyklu: https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub</description></item><item><title>EoL: Palo Alto Networks GlobalProtect App - Cycle 5.1</title><link>https://endoflife.date/palo-alto-networks-globalprotect-app</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Palo Alto Networks GlobalProtect App (Cykl: 5.1)
 Data wydania: 2019-12-12
 Koniec wsparcia (EOL): 2024-12-31
 Wsparcie komercyjne do: 2021-03-12
 Najnowsza wersja w cyklu: 5.1.12
-Link do cyklu: https://docs.paloaltonetworks.com/globalprotect/5-1/globalprotect-app-release-notes</description></item><item><title>EoL: PCI-DSS - Cycle 4.0</title><link>https://endoflife.date/pci-dss</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: PCI-DSS (Cykl: 4.0)
-Data wydania: 2022-03-31
-Koniec wsparcia (EOL): 2024-12-31
-Link do cyklu: https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub</description></item><item><title>EoL: Rocket.Chat - Cycle 6.9</title><link>https://endoflife.date/rocket-chat</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 6.9)
+Link do cyklu: https://docs.paloaltonetworks.com/globalprotect/5-1/globalprotect-app-release-notes</description></item><item><title>EoL: Rocket.Chat - Cycle 6.9</title><link>https://endoflife.date/rocket-chat</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 6.9)
 Data wydania: 2024-06-02
 Koniec wsparcia (EOL): 2024-12-31
 Wsparcie komercyjne do: 2024-06-02
@@ -4980,7 +4980,14 @@ Koniec wsparcia (EOL): False
 Najnowsza wersja w cyklu: 0.17.3</description></item><item><title>EoL: Next.js - Cycle 13</title><link>https://endoflife.date/next-js</link><pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Next.js (Cykl: 13)
 Data wydania: 2022-10-25
 Koniec wsparcia (EOL): 2024-12-21
-Najnowsza wersja w cyklu: 13.5.11</description></item><item><title>EoL: Elixir - Cycle 1.18</title><link>https://endoflife.date/elixir</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Elixir (Cykl: 1.18)
+Najnowsza wersja w cyklu: 13.5.11</description></item><item><title>EoL: GitLab - Cycle 17.4</title><link>https://endoflife.date/gitlab</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: GitLab (Cykl: 17.4)
+Data wydania: 2024-09-18
+Koniec wsparcia (EOL): 2024-12-19
+Wsparcie komercyjne do: 2024-10-17
+Najnowsza wersja w cyklu: 17.4.6</description></item><item><title>EoL: Kubernetes CSI Node Driver Registrar - Cycle 2.13</title><link>https://endoflife.date/kubernetes-csi-node-driver-registrar</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Kubernetes CSI Node Driver Registrar (Cykl: 2.13)
+Data wydania: 2024-12-19
+Koniec wsparcia (EOL): False
+Najnowsza wersja w cyklu: 2.13.0</description></item><item><title>EoL: Elixir - Cycle 1.18</title><link>https://endoflife.date/elixir</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Elixir (Cykl: 1.18)
 Data wydania: 2024-12-19
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: True
@@ -4992,14 +4999,7 @@ Najnowsza wersja w cyklu: 1.17.3</description></item><item><title>EoL: Elixir - 
 Data wydania: 2021-12-03
 Koniec wsparcia (EOL): 2024-12-19
 Wsparcie komercyjne do: 2022-09-01
-Najnowsza wersja w cyklu: 1.13.4</description></item><item><title>EoL: GitLab - Cycle 17.4</title><link>https://endoflife.date/gitlab</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: GitLab (Cykl: 17.4)
-Data wydania: 2024-09-18
-Koniec wsparcia (EOL): 2024-12-19
-Wsparcie komercyjne do: 2024-10-17
-Najnowsza wersja w cyklu: 17.4.6</description></item><item><title>EoL: Kubernetes CSI Node Driver Registrar - Cycle 2.13</title><link>https://endoflife.date/kubernetes-csi-node-driver-registrar</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Kubernetes CSI Node Driver Registrar (Cykl: 2.13)
-Data wydania: 2024-12-19
-Koniec wsparcia (EOL): False
-Najnowsza wersja w cyklu: 2.13.0</description></item><item><title>EoL: Matomo - Cycle 4</title><link>https://endoflife.date/matomo</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Matomo (Cykl: 4)
+Najnowsza wersja w cyklu: 1.13.4</description></item><item><title>EoL: Matomo - Cycle 4</title><link>https://endoflife.date/matomo</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Matomo (Cykl: 4)
 Data wydania: 2020-11-24
 Koniec wsparcia (EOL): 2024-12-19
 Wsparcie komercyjne do: 2023-12-18
@@ -5135,13 +5135,13 @@ Link do cyklu: https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-release-note
 Wersja LTS: Tak
 Data wydania: 2019-01-16
 Koniec wsparcia (EOL): 2024-12-01
-Najnowsza wersja w cyklu: 11.0.27</description></item><item><title>EoL: Ansible - Cycle 9</title><link>https://endoflife.date/ansible</link><pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate><description>Produkt: Ansible (Cykl: 9)
-Data wydania: 2023-11-21
-Koniec wsparcia (EOL): 2024-11-30
-Najnowsza wersja w cyklu: 9.13.0</description></item><item><title>EoL: Ansible-core - Cycle 2.15</title><link>https://endoflife.date/ansible-core</link><pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate><description>Produkt: Ansible-core (Cykl: 2.15)
+Najnowsza wersja w cyklu: 11.0.27</description></item><item><title>EoL: Ansible-core - Cycle 2.15</title><link>https://endoflife.date/ansible-core</link><pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate><description>Produkt: Ansible-core (Cykl: 2.15)
 Data wydania: 2023-05-22
 Koniec wsparcia (EOL): 2024-11-30
-Najnowsza wersja w cyklu: 2.15.13</description></item><item><title>EoL: Chef Infra Client - Cycle 17</title><link>https://endoflife.date/chef-infra-client</link><pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate><description>Produkt: Chef Infra Client (Cykl: 17)
+Najnowsza wersja w cyklu: 2.15.13</description></item><item><title>EoL: Ansible - Cycle 9</title><link>https://endoflife.date/ansible</link><pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate><description>Produkt: Ansible (Cykl: 9)
+Data wydania: 2023-11-21
+Koniec wsparcia (EOL): 2024-11-30
+Najnowsza wersja w cyklu: 9.13.0</description></item><item><title>EoL: Chef Infra Client - Cycle 17</title><link>https://endoflife.date/chef-infra-client</link><pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate><description>Produkt: Chef Infra Client (Cykl: 17)
 Data wydania: 2021-04-28
 Koniec wsparcia (EOL): 2024-11-30
 Wsparcie komercyjne do: 2022-01-10
@@ -5516,17 +5516,17 @@ Koniec wsparcia (EOL): 2024-10-15
 Najnowsza wersja w cyklu: 22.0.2.9.1</description></item><item><title>EoL: Electron - Cycle 30</title><link>https://endoflife.date/electron</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: Electron (Cykl: 30)
 Data wydania: 2024-04-16
 Koniec wsparcia (EOL): 2024-10-15
-Najnowsza wersja w cyklu: 30.5.1</description></item><item><title>EoL: Mandrel - Cycle 24.0</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 24.0)
-Data wydania: 2024-03-27
-Koniec wsparcia (EOL): 2024-10-15
-Najnowsza wersja w cyklu: 24.0.2.0</description></item><item><title>EoL: Mattermost - Cycle 9.10</title><link>https://endoflife.date/mattermost</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: Mattermost (Cykl: 9.10)
+Najnowsza wersja w cyklu: 30.5.1</description></item><item><title>EoL: Mattermost - Cycle 9.10</title><link>https://endoflife.date/mattermost</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: Mattermost (Cykl: 9.10)
 Data wydania: 2024-07-16
 Koniec wsparcia (EOL): 2024-10-15
 Najnowsza wersja w cyklu: 9.10.3</description></item><item><title>EoL: MySQL - Cycle 9.0</title><link>https://endoflife.date/mysql</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 9.0)
 Data wydania: 2024-06-07
 Koniec wsparcia (EOL): 2024-10-15
 Wsparcie komercyjne do: 2024-10-15
-Najnowsza wersja w cyklu: 9.0.1</description></item><item><title>EoL: Apache Lucene - Cycle 10</title><link>https://endoflife.date/apache-lucene</link><pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: Apache Lucene (Cykl: 10)
+Najnowsza wersja w cyklu: 9.0.1</description></item><item><title>EoL: Mandrel - Cycle 24.0</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 24.0)
+Data wydania: 2024-03-27
+Koniec wsparcia (EOL): 2024-10-15
+Najnowsza wersja w cyklu: 24.0.2.0</description></item><item><title>EoL: Apache Lucene - Cycle 10</title><link>https://endoflife.date/apache-lucene</link><pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: Apache Lucene (Cykl: 10)
 Data wydania: 2024-10-14
 Koniec wsparcia (EOL): False
 Najnowsza wersja w cyklu: 10.2.2</description></item><item><title>EoL: Apache Lucene - Cycle 8</title><link>https://endoflife.date/apache-lucene</link><pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate><description>Produkt: Apache Lucene (Cykl: 8)
@@ -6150,13 +6150,13 @@ Najnowsza wersja w cyklu: 7.9</description></item><item><title>EoL: Prometheus -
 Wersja LTS: Tak
 Data wydania: 2023-06-23
 Koniec wsparcia (EOL): 2024-07-31
-Najnowsza wersja w cyklu: 2.45.6</description></item><item><title>EoL: Proxmox VE - Cycle 7</title><link>https://endoflife.date/proxmox-ve</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Produkt: Proxmox VE (Cykl: 7)
-Data wydania: 2021-07-06
-Koniec wsparcia (EOL): 2024-07-31
-Najnowsza wersja w cyklu: 7.4</description></item><item><title>EoL: Quarkus - Cycle 3.12</title><link>https://endoflife.date/quarkus</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Produkt: Quarkus (Cykl: 3.12)
+Najnowsza wersja w cyklu: 2.45.6</description></item><item><title>EoL: Quarkus - Cycle 3.12</title><link>https://endoflife.date/quarkus</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Produkt: Quarkus (Cykl: 3.12)
 Data wydania: 2024-06-26
 Koniec wsparcia (EOL): 2024-07-31
-Najnowsza wersja w cyklu: 3.12.3</description></item><item><title>EoL: Shopware - Cycle 5.7</title><link>https://endoflife.date/shopware</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Produkt: Shopware (Cykl: 5.7)
+Najnowsza wersja w cyklu: 3.12.3</description></item><item><title>EoL: Proxmox VE - Cycle 7</title><link>https://endoflife.date/proxmox-ve</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Produkt: Proxmox VE (Cykl: 7)
+Data wydania: 2021-07-06
+Koniec wsparcia (EOL): 2024-07-31
+Najnowsza wersja w cyklu: 7.4</description></item><item><title>EoL: Shopware - Cycle 5.7</title><link>https://endoflife.date/shopware</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Produkt: Shopware (Cykl: 5.7)
 Data wydania: 2021-05-26
 Koniec wsparcia (EOL): 2024-07-31
 Najnowsza wersja w cyklu: 5.7.20
@@ -6505,7 +6505,10 @@ Koniec wsparcia (EOL): False
 Najnowsza wersja w cyklu: 1.19.2</description></item><item><title>EoL: Hashicorp Consul - Cycle 1.16</title><link>https://endoflife.date/hashicorp-consul</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Hashicorp Consul (Cykl: 1.16)
 Data wydania: 2023-06-26
 Koniec wsparcia (EOL): 2024-06-12
-Najnowsza wersja w cyklu: 1.16.7</description></item><item><title>EoL: Elixir - Cycle 1.16</title><link>https://endoflife.date/elixir</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Elixir (Cykl: 1.16)
+Najnowsza wersja w cyklu: 1.16.7</description></item><item><title>EoL: LibreOffice - Cycle 7.6</title><link>https://endoflife.date/libreoffice</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: LibreOffice (Cykl: 7.6)
+Data wydania: 2023-07-10
+Koniec wsparcia (EOL): 2024-06-12
+Najnowsza wersja w cyklu: 7.6.7.2</description></item><item><title>EoL: Elixir - Cycle 1.16</title><link>https://endoflife.date/elixir</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Elixir (Cykl: 1.16)
 Data wydania: 2023-12-22
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: 2024-06-12
@@ -6513,10 +6516,7 @@ Najnowsza wersja w cyklu: 1.16.3</description></item><item><title>EoL: Elixir - 
 Data wydania: 2021-05-19
 Koniec wsparcia (EOL): 2024-06-12
 Wsparcie komercyjne do: 2021-12-03
-Najnowsza wersja w cyklu: 1.12.3</description></item><item><title>EoL: LibreOffice - Cycle 7.6</title><link>https://endoflife.date/libreoffice</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: LibreOffice (Cykl: 7.6)
-Data wydania: 2023-07-10
-Koniec wsparcia (EOL): 2024-06-12
-Najnowsza wersja w cyklu: 7.6.7.2</description></item><item><title>EoL: Nexus Repository - Cycle 3.44</title><link>https://endoflife.date/nexus-repository</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Nexus Repository (Cykl: 3.44)
+Najnowsza wersja w cyklu: 1.12.3</description></item><item><title>EoL: Nexus Repository - Cycle 3.44</title><link>https://endoflife.date/nexus-repository</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Nexus Repository (Cykl: 3.44)
 Data wydania: 2022-12-15
 Koniec wsparcia (EOL): 2024-06-12
 Wsparcie komercyjne do: 2023-12-15
@@ -6907,14 +6907,14 @@ Koniec wsparcia (EOL): 2024-04-24
 Najnowsza wersja w cyklu: 1.19.10</description></item><item><title>EoL: nginx - Cycle 1.24</title><link>https://endoflife.date/nginx</link><pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate><description>Produkt: nginx (Cykl: 1.24)
 Data wydania: 2023-04-11
 Koniec wsparcia (EOL): 2024-04-23
-Najnowsza wersja w cyklu: 1.24.0</description></item><item><title>EoL: React Native - Cycle 0.71</title><link>https://endoflife.date/react-native</link><pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate><description>Produkt: React Native (Cykl: 0.71)
+Najnowsza wersja w cyklu: 1.24.0</description></item><item><title>EoL: Ruby - Cycle 3.0</title><link>https://endoflife.date/ruby</link><pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate><description>Produkt: Ruby (Cykl: 3.0)
+Data wydania: 2020-12-25
+Koniec wsparcia (EOL): 2024-04-23
+Najnowsza wersja w cyklu: 3.0.7</description></item><item><title>EoL: React Native - Cycle 0.71</title><link>https://endoflife.date/react-native</link><pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate><description>Produkt: React Native (Cykl: 0.71)
 Data wydania: 2023-01-12
 Koniec wsparcia (EOL): 2024-04-23
 Wsparcie komercyjne do: 2023-12-07
-Najnowsza wersja w cyklu: 0.71.19</description></item><item><title>EoL: Ruby - Cycle 3.0</title><link>https://endoflife.date/ruby</link><pubDate>Tue, 23 Apr 2024 00:00:00 +0000</pubDate><description>Produkt: Ruby (Cykl: 3.0)
-Data wydania: 2020-12-25
-Koniec wsparcia (EOL): 2024-04-23
-Najnowsza wersja w cyklu: 3.0.7</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-m53-5g</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Mon, 22 Apr 2024 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-m53-5g)
+Najnowsza wersja w cyklu: 0.71.19</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-m53-5g</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Mon, 22 Apr 2024 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-m53-5g)
 Data wydania: 2022-04-22
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: 2024-04-22
@@ -8289,34 +8289,34 @@ Koniec wsparcia (EOL): 2023-10-10
 Najnowsza wersja w cyklu: 4.0</description></item><item><title>EoL: Microsoft PowerShell - Cycle 3.0</title><link>https://endoflife.date/microsoft-powershell</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft PowerShell (Cykl: 3.0)
 Data wydania: 2012-10-01
 Koniec wsparcia (EOL): 2023-10-10
-Najnowsza wersja w cyklu: 3.0</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle compact-2013</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: compact-2013)
-Data wydania: 2013-08-11
-Koniec wsparcia (EOL): 2023-10-10
-Wsparcie komercyjne do: 2018-10-09
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-compact-2013</description></item><item><title>EoL: Microsoft Windows - Cycle 11-21h2-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 11-21h2-w)
+Najnowsza wersja w cyklu: 3.0</description></item><item><title>EoL: Microsoft Windows - Cycle 11-21h2-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 11-21h2-w)
 Data wydania: 2021-10-04
 Koniec wsparcia (EOL): 2023-10-10
 Wsparcie komercyjne do: 2023-10-10
 Najnowsza wersja w cyklu: 10.0.22000
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows11-release-information</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2012-r2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2012-r2)
-Wersja LTS: Tak
-Data wydania: 2013-11-25
-Koniec wsparcia (EOL): 2023-10-10
-Wsparcie komercyjne do: 2018-10-09
-Najnowsza wersja w cyklu: 6.3.9600
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2012-r2</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2012 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2012)
-Wersja LTS: Tak
-Data wydania: 2012-10-30
-Koniec wsparcia (EOL): 2023-10-10
-Wsparcie komercyjne do: 2018-10-09
-Najnowsza wersja w cyklu: 6.2.9200
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2012</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2012-r2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2012-r2)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows11-release-information</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2012-r2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2012-r2)
 Wersja LTS: Tak
 Data wydania: 2013-11-25
 Koniec wsparcia (EOL): 2023-10-10
 Wsparcie komercyjne do: 2018-10-09
 Najnowsza wersja w cyklu: 6.3.9600
 Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2012-r2</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2012 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2012)
+Wersja LTS: Tak
+Data wydania: 2012-10-30
+Koniec wsparcia (EOL): 2023-10-10
+Wsparcie komercyjne do: 2018-10-09
+Najnowsza wersja w cyklu: 6.2.9200
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2012</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle compact-2013</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: compact-2013)
+Data wydania: 2013-08-11
+Koniec wsparcia (EOL): 2023-10-10
+Wsparcie komercyjne do: 2018-10-09
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-compact-2013</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2012-r2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2012-r2)
+Wersja LTS: Tak
+Data wydania: 2013-11-25
+Koniec wsparcia (EOL): 2023-10-10
+Wsparcie komercyjne do: 2018-10-09
+Najnowsza wersja w cyklu: 6.3.9600
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2012-r2</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2012 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2012)
 Wersja LTS: Tak
 Data wydania: 2012-10-30
 Koniec wsparcia (EOL): 2023-10-10
@@ -9068,16 +9068,16 @@ Koniec wsparcia (EOL): 2023-06-22
 Najnowsza wersja w cyklu: 2.9.3</description></item><item><title>EoL: Proxmox VE - Cycle 8</title><link>https://endoflife.date/proxmox-ve</link><pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: Proxmox VE (Cykl: 8)
 Data wydania: 2023-06-22
 Koniec wsparcia (EOL): False
-Najnowsza wersja w cyklu: 8.4</description></item><item><title>EoL: React Native - Cycle 0.69</title><link>https://endoflife.date/react-native</link><pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: React Native (Cykl: 0.69)
-Data wydania: 2022-06-22
-Koniec wsparcia (EOL): 2023-06-22
-Wsparcie komercyjne do: 2023-01-13
-Najnowsza wersja w cyklu: 0.69.12</description></item><item><title>EoL: Svelte - Cycle 3</title><link>https://endoflife.date/svelte</link><pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: Svelte (Cykl: 3)
+Najnowsza wersja w cyklu: 8.4</description></item><item><title>EoL: Svelte - Cycle 3</title><link>https://endoflife.date/svelte</link><pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: Svelte (Cykl: 3)
 Data wydania: 2019-04-21
 Koniec wsparcia (EOL): 2023-06-22
 Wsparcie komercyjne do: 2023-06-22
 Najnowsza wersja w cyklu: 3.59.2
-Link do cyklu: https://github.com/sveltejs/svelte/releases/tag/v__LATEST__</description></item><item><title>EoL: Drupal - Cycle 9.4</title><link>https://endoflife.date/drupal</link><pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: Drupal (Cykl: 9.4)
+Link do cyklu: https://github.com/sveltejs/svelte/releases/tag/v__LATEST__</description></item><item><title>EoL: React Native - Cycle 0.69</title><link>https://endoflife.date/react-native</link><pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: React Native (Cykl: 0.69)
+Data wydania: 2022-06-22
+Koniec wsparcia (EOL): 2023-06-22
+Wsparcie komercyjne do: 2023-01-13
+Najnowsza wersja w cyklu: 0.69.12</description></item><item><title>EoL: Drupal - Cycle 9.4</title><link>https://endoflife.date/drupal</link><pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: Drupal (Cykl: 9.4)
 Data wydania: 2022-06-15
 Koniec wsparcia (EOL): 2023-06-21
 Wsparcie komercyjne do: 2022-12-14
@@ -9598,10 +9598,7 @@ Link do cyklu: https://blog.linuxmint.com/?p=3669</description></item><item><tit
 Wersja LTS: Tak
 Data wydania: 2018-06-29
 Koniec wsparcia (EOL): 2023-04-01
-Link do cyklu: https://blog.linuxmint.com/?p=3597</description></item><item><title>EoL: ROS - Cycle melodic</title><link>https://endoflife.date/ros</link><pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate><description>Produkt: ROS (Cykl: melodic)
-Data wydania: 2018-05-23
-Koniec wsparcia (EOL): 2023-04-01
-Najnowsza wersja w cyklu: melodic</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a50</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a50)
+Link do cyklu: https://blog.linuxmint.com/?p=3597</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a50</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a50)
 Data wydania: 2019-03-18
 Koniec wsparcia (EOL): 2023-04-01
 Wsparcie komercyjne do: 2022-10-01
@@ -9614,7 +9611,10 @@ Koniec wsparcia (EOL): 2023-04-01
 Link do cyklu: https://doc.samsungmobile.com/SM-G975F/XEF/doc.html</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-s10e</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-s10e)
 Data wydania: 2019-02-20
 Koniec wsparcia (EOL): 2023-04-01
-Link do cyklu: https://doc.samsungmobile.com/sm-g970f/dbt/doc.html</description></item><item><title>EoL: VMware Site Recovery Manager - Cycle 8.5</title><link>https://endoflife.date/vmware-site-recovery-manager</link><pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate><description>Produkt: VMware Site Recovery Manager (Cykl: 8.5)
+Link do cyklu: https://doc.samsungmobile.com/sm-g970f/dbt/doc.html</description></item><item><title>EoL: ROS - Cycle melodic</title><link>https://endoflife.date/ros</link><pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate><description>Produkt: ROS (Cykl: melodic)
+Data wydania: 2018-05-23
+Koniec wsparcia (EOL): 2023-04-01
+Najnowsza wersja w cyklu: melodic</description></item><item><title>EoL: VMware Site Recovery Manager - Cycle 8.5</title><link>https://endoflife.date/vmware-site-recovery-manager</link><pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate><description>Produkt: VMware Site Recovery Manager (Cykl: 8.5)
 Data wydania: 2021-10-05
 Koniec wsparcia (EOL): 2023-04-01
 Najnowsza wersja w cyklu: 8.5.0.8
@@ -9986,14 +9986,14 @@ Wsparcie komercyjne do: 2022-10-31
 Najnowsza wersja w cyklu: pc.2022.4.0.2</description></item><item><title>EoL: Prometheus - Cycle 2.41</title><link>https://endoflife.date/prometheus</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Prometheus (Cykl: 2.41)
 Data wydania: 2022-12-20
 Koniec wsparcia (EOL): 2023-01-31
-Najnowsza wersja w cyklu: 2.41.0</description></item><item><title>EoL: Rancher - Cycle 2.5</title><link>https://endoflife.date/rancher</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Rancher (Cykl: 2.5)
+Najnowsza wersja w cyklu: 2.41.0</description></item><item><title>EoL: RabbitMQ - Cycle 3.9</title><link>https://endoflife.date/rabbitmq</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: RabbitMQ (Cykl: 3.9)
+Data wydania: 2021-07-23
+Koniec wsparcia (EOL): 2023-01-31
+Najnowsza wersja w cyklu: 3.9.29</description></item><item><title>EoL: Rancher - Cycle 2.5</title><link>https://endoflife.date/rancher</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Rancher (Cykl: 2.5)
 Data wydania: 2020-10-05
 Koniec wsparcia (EOL): 2023-01-31
 Wsparcie komercyjne do: 2022-01-05
-Najnowsza wersja w cyklu: 2.5.17</description></item><item><title>EoL: RabbitMQ - Cycle 3.9</title><link>https://endoflife.date/rabbitmq</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: RabbitMQ (Cykl: 3.9)
-Data wydania: 2021-07-23
-Koniec wsparcia (EOL): 2023-01-31
-Najnowsza wersja w cyklu: 3.9.29</description></item><item><title>EoL: Rocket.Chat - Cycle 5.0</title><link>https://endoflife.date/rocket-chat</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 5.0)
+Najnowsza wersja w cyklu: 2.5.17</description></item><item><title>EoL: Rocket.Chat - Cycle 5.0</title><link>https://endoflife.date/rocket-chat</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 5.0)
 Data wydania: 2022-07-21
 Koniec wsparcia (EOL): 2023-01-31
 Wsparcie komercyjne do: 2022-09-02
@@ -10107,16 +10107,16 @@ Link do cyklu: https://learn.microsoft.com/troubleshoot/developer/visualstudio/i
 Data wydania: 2012-10-31
 Koniec wsparcia (EOL): 2023-01-10
 Najnowsza wersja w cyklu: Update 4
-Link do cyklu: https://learn.microsoft.com/visualstudio/releasenotes/vs2012-update4-vs</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle 8.1-pro</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: 8.1-pro)
-Data wydania: 2013-11-13
-Koniec wsparcia (EOL): 2023-01-10
-Wsparcie komercyjne do: 2018-01-09
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-81-pro</description></item><item><title>EoL: Microsoft Windows - Cycle 8.1</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 8.1)
+Link do cyklu: https://learn.microsoft.com/visualstudio/releasenotes/vs2012-update4-vs</description></item><item><title>EoL: Microsoft Windows - Cycle 8.1</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 8.1)
 Data wydania: 2013-11-13
 Koniec wsparcia (EOL): 2023-01-10
 Wsparcie komercyjne do: 2018-01-09
 Najnowsza wersja w cyklu: 6.3.9600
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-81</description></item><item><title>EoL: Nexus Repository - Cycle 3.32</title><link>https://endoflife.date/nexus-repository</link><pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Nexus Repository (Cykl: 3.32)
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-81</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle 8.1-pro</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: 8.1-pro)
+Data wydania: 2013-11-13
+Koniec wsparcia (EOL): 2023-01-10
+Wsparcie komercyjne do: 2018-01-09
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-81-pro</description></item><item><title>EoL: Nexus Repository - Cycle 3.32</title><link>https://endoflife.date/nexus-repository</link><pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Nexus Repository (Cykl: 3.32)
 Data wydania: 2021-07-08
 Koniec wsparcia (EOL): 2023-01-08
 Najnowsza wersja w cyklu: 3.32.1
@@ -10534,15 +10534,15 @@ Koniec wsparcia (EOL): 2022-11-01
 Najnowsza wersja w cyklu: 19.0.3</description></item><item><title>EoL: Nokia Mobile - Cycle c3</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: c3)
 Data wydania: 2020-08-13
 Koniec wsparcia (EOL): 2022-11-01
-Link do cyklu: https://www.nokia.com/phones/en_int/nokia-c-3</description></item><item><title>EoL: Wagtail - Cycle 3.0</title><link>https://endoflife.date/wagtail</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Wagtail (Cykl: 3.0)
-Data wydania: 2022-05-16
-Koniec wsparcia (EOL): 2022-11-01
-Wsparcie komercyjne do: 2022-08-31
-Najnowsza wersja w cyklu: 3.0.3</description></item><item><title>EoL: Vuetify - Cycle 3</title><link>https://endoflife.date/vuetify</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Vuetify (Cykl: 3)
+Link do cyklu: https://www.nokia.com/phones/en_int/nokia-c-3</description></item><item><title>EoL: Vuetify - Cycle 3</title><link>https://endoflife.date/vuetify</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Vuetify (Cykl: 3)
 Data wydania: 2022-11-01
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: True
-Najnowsza wersja w cyklu: 3.8.12</description></item><item><title>EoL: WordPress - Cycle 6.0</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: WordPress (Cykl: 6.0)
+Najnowsza wersja w cyklu: 3.8.12</description></item><item><title>EoL: Wagtail - Cycle 3.0</title><link>https://endoflife.date/wagtail</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Wagtail (Cykl: 3.0)
+Data wydania: 2022-05-16
+Koniec wsparcia (EOL): 2022-11-01
+Wsparcie komercyjne do: 2022-08-31
+Najnowsza wersja w cyklu: 3.0.3</description></item><item><title>EoL: WordPress - Cycle 6.0</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: WordPress (Cykl: 6.0)
 Data wydania: 2022-05-24
 Koniec wsparcia (EOL): 2022-11-01
 Najnowsza wersja w cyklu: 6.0.9</description></item><item><title>EoL: Centreon - Cycle 21.04</title><link>https://endoflife.date/centreon</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Produkt: Centreon (Cykl: 21.04)
@@ -10750,13 +10750,13 @@ Koniec wsparcia (EOL): 2022-10-01
 Najnowsza wersja w cyklu: 1.8.31</description></item><item><title>EoL: Nokia Mobile - Cycle 6.2</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: 6.2)
 Data wydania: 2019-10-17
 Koniec wsparcia (EOL): 2022-10-01
-Link do cyklu: https://www.nokia.com/phones/en_int/nokia-6-2</description></item><item><title>EoL: Akeneo PIM - Cycle 5.0</title><link>https://endoflife.date/akeneo-pim</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Akeneo PIM (Cykl: 5.0)
-Data wydania: 2020-12-31
-Koniec wsparcia (EOL): 2022-09-30
-Najnowsza wersja w cyklu: 5.0.120</description></item><item><title>EoL: Amazon Glue - Cycle 1.0-python-3</title><link>https://endoflife.date/amazon-glue</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Amazon Glue (Cykl: 1.0-python-3)
+Link do cyklu: https://www.nokia.com/phones/en_int/nokia-6-2</description></item><item><title>EoL: Amazon Glue - Cycle 1.0-python-3</title><link>https://endoflife.date/amazon-glue</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Amazon Glue (Cykl: 1.0-python-3)
 Data wydania: 2019-07-25
 Koniec wsparcia (EOL): 2022-09-30
-Link do cyklu: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html</description></item><item><title>EoL: Azul Zulu - Cycle 18</title><link>https://endoflife.date/azul-zulu</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Azul Zulu (Cykl: 18)
+Link do cyklu: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html</description></item><item><title>EoL: Akeneo PIM - Cycle 5.0</title><link>https://endoflife.date/akeneo-pim</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Akeneo PIM (Cykl: 5.0)
+Data wydania: 2020-12-31
+Koniec wsparcia (EOL): 2022-09-30
+Najnowsza wersja w cyklu: 5.0.120</description></item><item><title>EoL: Azul Zulu - Cycle 18</title><link>https://endoflife.date/azul-zulu</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Azul Zulu (Cykl: 18)
 Data wydania: 2022-03-12
 Koniec wsparcia (EOL): 2022-09-30
 Najnowsza wersja w cyklu: 18.32.13
@@ -10785,13 +10785,13 @@ Wsparcie komercyjne do: 2021-03-29</description></item><item><title>EoL: Apache 
 Data wydania: 2022-05-09
 Koniec wsparcia (EOL): 2022-09-28
 Najnowsza wersja w cyklu: 3.2.3
-Link do cyklu: https://archive.apache.org/dist/kafka/__LATEST__/RELEASE_NOTES.html</description></item><item><title>EoL: Qt - Cycle 6.3</title><link>https://endoflife.date/qt</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Qt (Cykl: 6.3)
-Data wydania: 2022-04-11
-Koniec wsparcia (EOL): 2022-09-28
-Najnowsza wersja w cyklu: 6.3.2</description></item><item><title>EoL: RabbitMQ - Cycle 3.10</title><link>https://endoflife.date/rabbitmq</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: RabbitMQ (Cykl: 3.10)
+Link do cyklu: https://archive.apache.org/dist/kafka/__LATEST__/RELEASE_NOTES.html</description></item><item><title>EoL: RabbitMQ - Cycle 3.10</title><link>https://endoflife.date/rabbitmq</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: RabbitMQ (Cykl: 3.10)
 Data wydania: 2022-05-03
 Koniec wsparcia (EOL): 2022-09-28
-Najnowsza wersja w cyklu: 3.10.25</description></item><item><title>EoL: Twig - Cycle 1</title><link>https://endoflife.date/twig</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Twig (Cykl: 1)
+Najnowsza wersja w cyklu: 3.10.25</description></item><item><title>EoL: Qt - Cycle 6.3</title><link>https://endoflife.date/qt</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Qt (Cykl: 6.3)
+Data wydania: 2022-04-11
+Koniec wsparcia (EOL): 2022-09-28
+Najnowsza wersja w cyklu: 6.3.2</description></item><item><title>EoL: Twig - Cycle 1</title><link>https://endoflife.date/twig</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Twig (Cykl: 1)
 Data wydania: 2011-03-27
 Koniec wsparcia (EOL): 2022-09-28
 Najnowsza wersja w cyklu: 1.44.8</description></item><item><title>EoL: Electron - Cycle 18</title><link>https://endoflife.date/electron</link><pubDate>Tue, 27 Sep 2022 00:00:00 +0000</pubDate><description>Produkt: Electron (Cykl: 18)
@@ -11051,7 +11051,7 @@ Koniec wsparcia (EOL): False</description></item><item><title>EoL: Apache HBase 
 Data wydania: 2021-06-12
 Koniec wsparcia (EOL): 2022-08-09
 Najnowsza wersja w cyklu: 1.7.2
-Link do cyklu: https://github.com/apache/hbase/blob/rel/__LATEST__/CHANGES.txt</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 20h2</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 20h2)
+Link do cyklu: https://github.com/apache/hbase/blob/rel/__LATEST__/CHANGES.txt</description></item><item><title>EoL: Microsoft Windows Server - Cycle 20h2-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 20h2-sac)
 Data wydania: 2020-10-20
 Koniec wsparcia (EOL): 2022-08-09
 Wsparcie komercyjne do: 2022-08-09
@@ -11061,7 +11061,7 @@ Data wydania: 2020-10-20
 Koniec wsparcia (EOL): 2022-08-09
 Wsparcie komercyjne do: 2022-08-09
 Najnowsza wersja w cyklu: 10.0.19042
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-20h2-retiring</description></item><item><title>EoL: Microsoft Windows Server - Cycle 20h2-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 20h2-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-20h2-retiring</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 20h2</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 20h2)
 Data wydania: 2020-10-20
 Koniec wsparcia (EOL): 2022-08-09
 Wsparcie komercyjne do: 2022-08-09
@@ -11507,17 +11507,17 @@ Wsparcie komercyjne do: 2022-05-24
 Najnowsza wersja w cyklu: 2.6.7</description></item><item><title>EoL: WordPress - Cycle 5.9</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate><description>Produkt: WordPress (Cykl: 5.9)
 Data wydania: 2022-01-25
 Koniec wsparcia (EOL): 2022-05-24
-Najnowsza wersja w cyklu: 5.9.10</description></item><item><title>EoL: Ansible - Cycle 2.9</title><link>https://endoflife.date/ansible</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Produkt: Ansible (Cykl: 2.9)
-Data wydania: 2019-10-31
-Koniec wsparcia (EOL): 2022-05-23
-Najnowsza wersja w cyklu: 2.9.27
-Link do cyklu: https://github.com/ansible/ansible/blob/stable-2.9/changelogs/CHANGELOG-v2.9.rst</description></item><item><title>EoL: Ansible-core - Cycle 2.10</title><link>https://endoflife.date/ansible-core</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Produkt: Ansible-core (Cykl: 2.10)
+Najnowsza wersja w cyklu: 5.9.10</description></item><item><title>EoL: Ansible-core - Cycle 2.10</title><link>https://endoflife.date/ansible-core</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Produkt: Ansible-core (Cykl: 2.10)
 Data wydania: 2020-08-13
 Koniec wsparcia (EOL): 2022-05-23
 Najnowsza wersja w cyklu: 2.10.17</description></item><item><title>EoL: Ansible-core - Cycle 2.9</title><link>https://endoflife.date/ansible-core</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Produkt: Ansible-core (Cykl: 2.9)
 Data wydania: 2019-10-31
 Koniec wsparcia (EOL): 2022-05-23
-Najnowsza wersja w cyklu: 2.9.27</description></item><item><title>EoL: MariaDB - Cycle 10.2</title><link>https://endoflife.date/mariadb</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Produkt: MariaDB (Cykl: 10.2)
+Najnowsza wersja w cyklu: 2.9.27</description></item><item><title>EoL: Ansible - Cycle 2.9</title><link>https://endoflife.date/ansible</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Produkt: Ansible (Cykl: 2.9)
+Data wydania: 2019-10-31
+Koniec wsparcia (EOL): 2022-05-23
+Najnowsza wersja w cyklu: 2.9.27
+Link do cyklu: https://github.com/ansible/ansible/blob/stable-2.9/changelogs/CHANGELOG-v2.9.rst</description></item><item><title>EoL: MariaDB - Cycle 10.2</title><link>https://endoflife.date/mariadb</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Produkt: MariaDB (Cykl: 10.2)
 Data wydania: 2017-05-23
 Koniec wsparcia (EOL): 2022-05-23
 Najnowsza wersja w cyklu: 10.2.44
@@ -12188,14 +12188,14 @@ Najnowsza wersja w cyklu: 21.04</description></item><item><title>EoL: React Nati
 Data wydania: 2021-03-12
 Koniec wsparcia (EOL): 2022-01-19
 Wsparcie komercyjne do: 2021-10-02
-Najnowsza wersja w cyklu: 0.64.4</description></item><item><title>EoL: Mandrel - Cycle 21.2 (LTS)</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 21.2)
+Najnowsza wersja w cyklu: 0.64.4</description></item><item><title>EoL: MongoDB Server - Cycle 5.1</title><link>https://endoflife.date/mongodb-server</link><pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: MongoDB Server (Cykl: 5.1)
+Data wydania: 2021-11-09
+Koniec wsparcia (EOL): 2022-01-18
+Najnowsza wersja w cyklu: 5.1.1</description></item><item><title>EoL: Mandrel - Cycle 21.2 (LTS)</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 21.2)
 Wersja LTS: Tak
 Data wydania: 2021-07-21
 Koniec wsparcia (EOL): 2022-01-18
-Najnowsza wersja w cyklu: 21.2.0.2</description></item><item><title>EoL: MongoDB Server - Cycle 5.1</title><link>https://endoflife.date/mongodb-server</link><pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: MongoDB Server (Cykl: 5.1)
-Data wydania: 2021-11-09
-Koniec wsparcia (EOL): 2022-01-18
-Najnowsza wersja w cyklu: 5.1.1</description></item><item><title>EoL: Mattermost - Cycle 6.0</title><link>https://endoflife.date/mattermost</link><pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Mattermost (Cykl: 6.0)
+Najnowsza wersja w cyklu: 21.2.0.2</description></item><item><title>EoL: Mattermost - Cycle 6.0</title><link>https://endoflife.date/mattermost</link><pubDate>Sat, 15 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Mattermost (Cykl: 6.0)
 Data wydania: 2021-10-08
 Koniec wsparcia (EOL): 2022-01-15
 Najnowsza wersja w cyklu: 6.0.4</description></item><item><title>EoL: Contao - Cycle 4.12</title><link>https://endoflife.date/contao</link><pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Contao (Cykl: 4.12)
@@ -12422,7 +12422,7 @@ Data wydania: 2020-05-27
 Koniec wsparcia (EOL): 2021-12-14
 Wsparcie komercyjne do: 2021-12-14
 Najnowsza wersja w cyklu: 10.0.19041
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-version-2004-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2004</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2004)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-version-2004-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2004-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2004-sac)
 Data wydania: 2020-05-27
 Koniec wsparcia (EOL): 2021-12-14
 Wsparcie komercyjne do: 2021-12-14
@@ -12432,7 +12432,7 @@ Data wydania: 2020-05-27
 Koniec wsparcia (EOL): 2021-12-14
 Wsparcie komercyjne do: 2021-12-14
 Najnowsza wersja w cyklu: 10.0.19041
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-version-2004-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2004-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2004-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-version-2004-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2004</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2004)
 Data wydania: 2020-05-27
 Koniec wsparcia (EOL): 2021-12-14
 Wsparcie komercyjne do: 2021-12-14
@@ -12489,7 +12489,11 @@ Wsparcie komercyjne do: 2019-06-24
 Najnowsza wersja w cyklu: 1.8.2</description></item><item><title>EoL: Rust - Cycle 1.56</title><link>https://endoflife.date/rust</link><pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Rust (Cykl: 1.56)
 Data wydania: 2021-10-21
 Koniec wsparcia (EOL): 2021-12-03
-Najnowsza wersja w cyklu: 1.56.1</description></item><item><title>EoL: Julia - Cycle 1.0</title><link>https://endoflife.date/julia</link><pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Julia (Cykl: 1.0)
+Najnowsza wersja w cyklu: 1.56.1</description></item><item><title>EoL: Amazon CDK - Cycle 2</title><link>https://endoflife.date/amazon-cdk</link><pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Amazon CDK (Cykl: 2)
+Data wydania: 2021-12-01
+Koniec wsparcia (EOL): False
+Wsparcie komercyjne do: True
+Najnowsza wersja w cyklu: 2.203.1</description></item><item><title>EoL: Julia - Cycle 1.0</title><link>https://endoflife.date/julia</link><pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Julia (Cykl: 1.0)
 Data wydania: 2018-08-08
 Koniec wsparcia (EOL): 2021-12-01
 Najnowsza wersja w cyklu: 1.0.5</description></item><item><title>EoL: Matomo - Cycle 3</title><link>https://endoflife.date/matomo</link><pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Matomo (Cykl: 3)
@@ -12511,11 +12515,7 @@ Koniec wsparcia (EOL): 2021-12-01
 Link do cyklu: https://doc.samsungmobile.com/SM-J700F/023395220803/roh.html</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a6+-2018</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a6+-2018)
 Data wydania: 2018-05-01
 Koniec wsparcia (EOL): 2021-12-01
-Link do cyklu: https://doc.samsungmobile.com/SM-A605G/XXV/doc.html</description></item><item><title>EoL: Amazon CDK - Cycle 2</title><link>https://endoflife.date/amazon-cdk</link><pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Amazon CDK (Cykl: 2)
-Data wydania: 2021-12-01
-Koniec wsparcia (EOL): False
-Wsparcie komercyjne do: True
-Najnowsza wersja w cyklu: 2.203.1</description></item><item><title>EoL: Fedora Linux - Cycle 33</title><link>https://endoflife.date/fedora-linux</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><description>Produkt: Fedora Linux (Cykl: 33)
+Link do cyklu: https://doc.samsungmobile.com/SM-A605G/XXV/doc.html</description></item><item><title>EoL: Fedora Linux - Cycle 33</title><link>https://endoflife.date/fedora-linux</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><description>Produkt: Fedora Linux (Cykl: 33)
 Data wydania: 2020-10-27
 Koniec wsparcia (EOL): 2021-11-30
 Najnowsza wersja w cyklu: 33</description></item><item><title>EoL: Looker - Cycle 21.12</title><link>https://endoflife.date/looker</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><description>Produkt: Looker (Cykl: 21.12)
@@ -13047,15 +13047,15 @@ Koniec wsparcia (EOL): False
 Link do cyklu: https://aws.amazon.com/blogs/big-data/introducing-aws-glue-3-0-with-optimized-apache-spark-3-1-runtime-for-faster-data-integration/</description></item><item><title>EoL: Tarantool - Cycle 2.7</title><link>https://endoflife.date/tarantool</link><pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate><description>Produkt: Tarantool (Cykl: 2.7)
 Data wydania: 2020-10-23
 Koniec wsparcia (EOL): 2021-08-19
-Najnowsza wersja w cyklu: 2.7.3</description></item><item><title>EoL: React Native - Cycle 0.62</title><link>https://endoflife.date/react-native</link><pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate><description>Produkt: React Native (Cykl: 0.62)
-Data wydania: 2020-03-26
-Koniec wsparcia (EOL): 2021-08-18
-Wsparcie komercyjne do: 2021-03-13
-Najnowsza wersja w cyklu: 0.62.3</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a03s</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a03s)
+Najnowsza wersja w cyklu: 2.7.3</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a03s</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a03s)
 Data wydania: 2021-08-18
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: True
-Link do cyklu: https://doc.samsungmobile.com/SM-A037F/INS/doc.html</description></item><item><title>EoL: Traefik - Cycle 2.4</title><link>https://endoflife.date/traefik</link><pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate><description>Produkt: Traefik (Cykl: 2.4)
+Link do cyklu: https://doc.samsungmobile.com/SM-A037F/INS/doc.html</description></item><item><title>EoL: React Native - Cycle 0.62</title><link>https://endoflife.date/react-native</link><pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate><description>Produkt: React Native (Cykl: 0.62)
+Data wydania: 2020-03-26
+Koniec wsparcia (EOL): 2021-08-18
+Wsparcie komercyjne do: 2021-03-13
+Najnowsza wersja w cyklu: 0.62.3</description></item><item><title>EoL: Traefik - Cycle 2.4</title><link>https://endoflife.date/traefik</link><pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate><description>Produkt: Traefik (Cykl: 2.4)
 Data wydania: 2021-01-19
 Koniec wsparcia (EOL): 2021-08-17
 Wsparcie komercyjne do: 2021-08-17
@@ -13420,17 +13420,17 @@ Najnowsza wersja w cyklu: 8.2.6</description></item><item><title>EoL: Spring Boo
 Data wydania: 2020-05-15
 Koniec wsparcia (EOL): 2021-05-20
 Najnowsza wersja w cyklu: 2.3.12
-Link do cyklu: https://github.com/spring-projects/spring-boot/releases/tag/v__LATEST__.RELEASE</description></item><item><title>EoL: Elixir - Cycle 1.7</title><link>https://endoflife.date/elixir</link><pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate><description>Produkt: Elixir (Cykl: 1.7)
-Data wydania: 2018-07-25
-Koniec wsparcia (EOL): 2021-05-19
-Wsparcie komercyjne do: 2019-01-14
-Najnowsza wersja w cyklu: 1.7.4</description></item><item><title>EoL: Gerrit - Cycle 3.1</title><link>https://endoflife.date/gerrit</link><pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate><description>Produkt: Gerrit (Cykl: 3.1)
+Link do cyklu: https://github.com/spring-projects/spring-boot/releases/tag/v__LATEST__.RELEASE</description></item><item><title>EoL: Gerrit - Cycle 3.1</title><link>https://endoflife.date/gerrit</link><pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate><description>Produkt: Gerrit (Cykl: 3.1)
 Data wydania: 2019-11-14
 Koniec wsparcia (EOL): 2021-05-19
 Najnowsza wersja w cyklu: 3.1.16</description></item><item><title>EoL: Linux Kernel - Cycle 5.11</title><link>https://endoflife.date/linux-kernel</link><pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate><description>Produkt: Linux Kernel (Cykl: 5.11)
 Data wydania: 2021-02-14
 Koniec wsparcia (EOL): 2021-05-19
-Najnowsza wersja w cyklu: 5.11.22</description></item><item><title>EoL: Apache Camel - Cycle 3.9</title><link>https://endoflife.date/apache-camel</link><pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate><description>Produkt: Apache Camel (Cykl: 3.9)
+Najnowsza wersja w cyklu: 5.11.22</description></item><item><title>EoL: Elixir - Cycle 1.7</title><link>https://endoflife.date/elixir</link><pubDate>Wed, 19 May 2021 00:00:00 +0000</pubDate><description>Produkt: Elixir (Cykl: 1.7)
+Data wydania: 2018-07-25
+Koniec wsparcia (EOL): 2021-05-19
+Wsparcie komercyjne do: 2019-01-14
+Najnowsza wersja w cyklu: 1.7.4</description></item><item><title>EoL: Apache Camel - Cycle 3.9</title><link>https://endoflife.date/apache-camel</link><pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate><description>Produkt: Apache Camel (Cykl: 3.9)
 Data wydania: 2021-03-22
 Koniec wsparcia (EOL): 2021-05-15
 Najnowsza wersja w cyklu: 3.9.0</description></item><item><title>EoL: Red Hat Satellite - Cycle 6.6</title><link>https://endoflife.date/red-hat-satellite</link><pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate><description>Produkt: Red Hat Satellite (Cykl: 6.6)
@@ -13462,7 +13462,7 @@ Data wydania: 2018-04-30
 Koniec wsparcia (EOL): 2021-05-11
 Wsparcie komercyjne do: 2020-05-11
 Najnowsza wersja w cyklu: 10.0.17134
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1803-1809-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1909</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1909)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1803-1809-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1909-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1909-sac)
 Data wydania: 2019-11-12
 Koniec wsparcia (EOL): 2021-05-11
 Wsparcie komercyjne do: 2021-05-11
@@ -13472,7 +13472,7 @@ Data wydania: 2019-11-12
 Koniec wsparcia (EOL): 2021-05-11
 Wsparcie komercyjne do: 2021-05-11
 Najnowsza wersja w cyklu: 10.0.18363
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1909-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1909-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1909-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1909-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1909</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1909)
 Data wydania: 2019-11-12
 Koniec wsparcia (EOL): 2021-05-11
 Wsparcie komercyjne do: 2021-05-11
@@ -13523,12 +13523,12 @@ Data wydania: 2018-04-23
 Koniec wsparcia (EOL): 2021-05-01
 Link do cyklu: https://www.nokia.com/phones/en_int/nokia-8-sirocco</description></item><item><title>EoL: OpenBSD - Cycle 6.7</title><link>https://endoflife.date/openbsd</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><description>Produkt: OpenBSD (Cykl: 6.7)
 Data wydania: 2020-05-19
+Koniec wsparcia (EOL): 2021-05-01</description></item><item><title>EoL: ROS 2 - Cycle dashing</title><link>https://endoflife.date/ros-2</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><description>Produkt: ROS 2 (Cykl: dashing)
+Data wydania: 2019-05-31
 Koniec wsparcia (EOL): 2021-05-01</description></item><item><title>EoL: ROS - Cycle kinetic</title><link>https://endoflife.date/ros</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><description>Produkt: ROS (Cykl: kinetic)
 Data wydania: 2016-05-23
 Koniec wsparcia (EOL): 2021-05-01
-Najnowsza wersja w cyklu: kinetic</description></item><item><title>EoL: ROS 2 - Cycle dashing</title><link>https://endoflife.date/ros-2</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><description>Produkt: ROS 2 (Cykl: dashing)
-Data wydania: 2019-05-31
-Koniec wsparcia (EOL): 2021-05-01</description></item><item><title>EoL: Yocto Project - Cycle 3.2</title><link>https://endoflife.date/yocto-project</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><description>Produkt: Yocto Project (Cykl: 3.2)
+Najnowsza wersja w cyklu: kinetic</description></item><item><title>EoL: Yocto Project - Cycle 3.2</title><link>https://endoflife.date/yocto-project</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><description>Produkt: Yocto Project (Cykl: 3.2)
 Data wydania: 2020-11-03
 Koniec wsparcia (EOL): 2021-05-01
 Najnowsza wersja w cyklu: 3.2.4</description></item><item><title>EoL: Centreon - Cycle 19.10</title><link>https://endoflife.date/centreon</link><pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate><description>Produkt: Centreon (Cykl: 19.10)
@@ -13595,14 +13595,14 @@ Najnowsza wersja w cyklu: 2.6.3</description></item><item><title>EoL: Amazon Cor
 Data wydania: 2020-08-26
 Koniec wsparcia (EOL): 2021-04-20
 Najnowsza wersja w cyklu: 15.0.2.7.1
-Link do cyklu: https://github.com/corretto/corretto-jdk/blob/216fca10a21d6a26ca2846d4ca2861ea644a7a1e/CHANGELOG.md#january-2021-critical-patch-update-corretto-version-150271</description></item><item><title>EoL: Mandrel - Cycle 20.1</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 20.1)
+Link do cyklu: https://github.com/corretto/corretto-jdk/blob/216fca10a21d6a26ca2846d4ca2861ea644a7a1e/CHANGELOG.md#january-2021-critical-patch-update-corretto-version-150271</description></item><item><title>EoL: nginx - Cycle 1.18</title><link>https://endoflife.date/nginx</link><pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate><description>Produkt: nginx (Cykl: 1.18)
+Data wydania: 2020-04-21
+Koniec wsparcia (EOL): 2021-04-20
+Najnowsza wersja w cyklu: 1.18.0</description></item><item><title>EoL: Mandrel - Cycle 20.1</title><link>https://endoflife.date/mandrel</link><pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate><description>Produkt: Mandrel (Cykl: 20.1)
 Data wydania: 2020-08-11
 Koniec wsparcia (EOL): 2021-04-20
 Najnowsza wersja w cyklu: 20.1.0.4
-Link do cyklu: https://github.com/graalvm/mandrel/releases/tag/mandrel-20.1.0.4.Final</description></item><item><title>EoL: nginx - Cycle 1.18</title><link>https://endoflife.date/nginx</link><pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate><description>Produkt: nginx (Cykl: 1.18)
-Data wydania: 2020-04-21
-Koniec wsparcia (EOL): 2021-04-20
-Najnowsza wersja w cyklu: 1.18.0</description></item><item><title>EoL: Plesk - Cycle 17</title><link>https://endoflife.date/plesk</link><pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate><description>Produkt: Plesk (Cykl: 17)
+Link do cyklu: https://github.com/graalvm/mandrel/releases/tag/mandrel-20.1.0.4.Final</description></item><item><title>EoL: Plesk - Cycle 17</title><link>https://endoflife.date/plesk</link><pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate><description>Produkt: Plesk (Cykl: 17)
 Data wydania: 2016-10-11
 Koniec wsparcia (EOL): 2021-04-20
 Najnowsza wersja w cyklu: 17.8.11.95
@@ -14048,7 +14048,17 @@ Data wydania: 2019-05-21
 Koniec wsparcia (EOL): 2020-12-08
 Wsparcie komercyjne do: 2020-12-08
 Najnowsza wersja w cyklu: 10.0.18362
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1903-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1903</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1903)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1903-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1903-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1903-sac)
+Data wydania: 2019-05-21
+Koniec wsparcia (EOL): 2020-12-08
+Wsparcie komercyjne do: 2020-12-08
+Najnowsza wersja w cyklu: 10.0.18362
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-semiannual-channel</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1903</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1903)
+Data wydania: 2019-05-21
+Koniec wsparcia (EOL): 2020-12-08
+Wsparcie komercyjne do: 2020-12-08
+Najnowsza wersja w cyklu: 10.0.18362
+Link do cyklu: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1903</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1903)
 Data wydania: 2019-05-21
 Koniec wsparcia (EOL): 2020-12-08
 Wsparcie komercyjne do: 2020-12-08
@@ -14056,17 +14066,7 @@ Najnowsza wersja w cyklu: 10.0.18362
 Link do cyklu: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle</description></item><item><title>EoL: WordPress - Cycle 5.5</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: WordPress (Cykl: 5.5)
 Data wydania: 2020-08-11
 Koniec wsparcia (EOL): 2020-12-08
-Najnowsza wersja w cyklu: 5.5.15</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1903</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1903)
-Data wydania: 2019-05-21
-Koniec wsparcia (EOL): 2020-12-08
-Wsparcie komercyjne do: 2020-12-08
-Najnowsza wersja w cyklu: 10.0.18362
-Link do cyklu: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1903-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1903-sac)
-Data wydania: 2019-05-21
-Koniec wsparcia (EOL): 2020-12-08
-Wsparcie komercyjne do: 2020-12-08
-Najnowsza wersja w cyklu: 10.0.18362
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-semiannual-channel</description></item><item><title>EoL: Eclipse Jetty - Cycle 9.3</title><link>https://endoflife.date/eclipse-jetty</link><pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Eclipse Jetty (Cykl: 9.3)
+Najnowsza wersja w cyklu: 5.5.15</description></item><item><title>EoL: Eclipse Jetty - Cycle 9.3</title><link>https://endoflife.date/eclipse-jetty</link><pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Eclipse Jetty (Cykl: 9.3)
 Data wydania: 2015-06-01
 Koniec wsparcia (EOL): 2020-12-07
 Wsparcie komercyjne do: 2020-12-07
@@ -14181,7 +14181,7 @@ Data wydania: 2015-04-29
 Koniec wsparcia (EOL): 2020-11-10
 Wsparcie komercyjne do: 2020-11-10
 Najnowsza wersja w cyklu: 10.0.10240
-Link do cyklu: https://learn.microsoft.com/en-us/lifecycle/products/windows-10-iot-core</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1809</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1809)
+Link do cyklu: https://learn.microsoft.com/en-us/lifecycle/products/windows-10-iot-core</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1809-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1809-sac)
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2020-11-10
 Wsparcie komercyjne do: 2020-11-10
@@ -14191,7 +14191,7 @@ Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2020-11-10
 Wsparcie komercyjne do: 2020-11-10
 Najnowsza wersja w cyklu: 10.0.17763
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1809-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1809-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1809-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1809-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1809</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1809)
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2020-11-10
 Wsparcie komercyjne do: 2020-11-10
@@ -14352,16 +14352,16 @@ Najnowsza wersja w cyklu: 14.3.513.0</description></item><item><title>EoL: Micro
 Data wydania: 2010-07-15
 Koniec wsparcia (EOL): 2020-10-13
 Wsparcie komercyjne do: 2015-10-13
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/microsoft-office-2010</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle standard-7-sp1</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: standard-7-sp1)
-Data wydania: 2011-02-28
-Koniec wsparcia (EOL): 2020-10-13
-Wsparcie komercyjne do: 2015-10-13
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-standard-7</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1709-e</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1709-e)
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/microsoft-office-2010</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1709-e</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1709-e)
 Data wydania: 2017-10-17
 Koniec wsparcia (EOL): 2020-10-13
 Wsparcie komercyjne do: 2020-10-13
 Najnowsza wersja w cyklu: 10.0.16299
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1709-end-of-servicing</description></item><item><title>EoL: Fluent Bit - Cycle 1.6</title><link>https://endoflife.date/fluent-bit</link><pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Fluent Bit (Cykl: 1.6)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1709-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle standard-7-sp1</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: standard-7-sp1)
+Data wydania: 2011-02-28
+Koniec wsparcia (EOL): 2020-10-13
+Wsparcie komercyjne do: 2015-10-13
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-standard-7</description></item><item><title>EoL: Fluent Bit - Cycle 1.6</title><link>https://endoflife.date/fluent-bit</link><pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Fluent Bit (Cykl: 1.6)
 Data wydania: 2020-10-08
 Koniec wsparcia (EOL): True
 Najnowsza wersja w cyklu: 1.6.10</description></item><item><title>EoL: Rust - Cycle 1.46</title><link>https://endoflife.date/rust</link><pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Rust (Cykl: 1.46)
@@ -14734,14 +14734,14 @@ Data wydania: 2015-12-24
 Koniec wsparcia (EOL): 2020-06-30
 Wsparcie komercyjne do: 2018-06-23
 Najnowsza wersja w cyklu: 15
-Link do cyklu: https://web.archive.org/web/20160105095436/http://antix.mepis.org/index.php?title=Main_Page</description></item><item><title>EoL: NetBSD - Cycle 7</title><link>https://endoflife.date/netbsd</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: NetBSD (Cykl: 7)
+Link do cyklu: https://web.archive.org/web/20160105095436/http://antix.mepis.org/index.php?title=Main_Page</description></item><item><title>EoL: Nextcloud - Cycle 16</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 16)
+Data wydania: 2019-04-25
+Koniec wsparcia (EOL): 2020-06-30
+Najnowsza wersja w cyklu: 16.0.11</description></item><item><title>EoL: NetBSD - Cycle 7</title><link>https://endoflife.date/netbsd</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: NetBSD (Cykl: 7)
 Data wydania: 2015-09-25
 Koniec wsparcia (EOL): 2020-06-30
 Wsparcie komercyjne do: 2018-07-17
-Najnowsza wersja w cyklu: 7.2</description></item><item><title>EoL: Nextcloud - Cycle 16</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 16)
-Data wydania: 2019-04-25
-Koniec wsparcia (EOL): 2020-06-30
-Najnowsza wersja w cyklu: 16.0.11</description></item><item><title>EoL: Palo Alto Networks PAN-OS - Cycle 7.1</title><link>https://endoflife.date/palo-alto-networks-pan-os</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: Palo Alto Networks PAN-OS (Cykl: 7.1)
+Najnowsza wersja w cyklu: 7.2</description></item><item><title>EoL: Palo Alto Networks PAN-OS - Cycle 7.1</title><link>https://endoflife.date/palo-alto-networks-pan-os</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: Palo Alto Networks PAN-OS (Cykl: 7.1)
 Data wydania: 2016-03-29
 Koniec wsparcia (EOL): 2020-06-30
 Najnowsza wersja w cyklu: 7.1.26
@@ -15233,25 +15233,25 @@ Data wydania: 2011-02-22
 Koniec wsparcia (EOL): 2020-01-14
 Wsparcie komercyjne do: 2015-01-13
 Najnowsza wersja w cyklu: 6.1.7601
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-7</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2008-r2-sp1 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2008-r2-sp1)
-Wersja LTS: Tak
-Data wydania: 2011-02-22
-Koniec wsparcia (EOL): 2020-01-14
-Wsparcie komercyjne do: 2015-01-13
-Najnowsza wersja w cyklu: 6.1.7601
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2008-r2</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2008-sp2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2008-sp2)
-Wersja LTS: Tak
-Data wydania: 2009-04-29
-Koniec wsparcia (EOL): 2020-01-14
-Wsparcie komercyjne do: 2015-01-13
-Najnowsza wersja w cyklu: 6.0.6003
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2008</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2008-r2-sp1 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2008-r2-sp1)
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-7</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2008-r2-sp1 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2008-r2-sp1)
 Wersja LTS: Tak
 Data wydania: 2011-02-22
 Koniec wsparcia (EOL): 2020-01-14
 Wsparcie komercyjne do: 2015-01-13
 Najnowsza wersja w cyklu: 6.1.7601
 Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2008-r2</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2008-sp2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2008-sp2)
+Wersja LTS: Tak
+Data wydania: 2009-04-29
+Koniec wsparcia (EOL): 2020-01-14
+Wsparcie komercyjne do: 2015-01-13
+Najnowsza wersja w cyklu: 6.0.6003
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2008</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2008-r2-sp1 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2008-r2-sp1)
+Wersja LTS: Tak
+Data wydania: 2011-02-22
+Koniec wsparcia (EOL): 2020-01-14
+Wsparcie komercyjne do: 2015-01-13
+Najnowsza wersja w cyklu: 6.1.7601
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-server-2008-r2</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 2008-sp2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 2008-sp2)
 Wersja LTS: Tak
 Data wydania: 2009-04-29
 Koniec wsparcia (EOL): 2020-01-14
@@ -15433,7 +15433,17 @@ Data wydania: 2018-04-30
 Koniec wsparcia (EOL): 2019-11-12
 Wsparcie komercyjne do: 2019-11-12
 Najnowsza wersja w cyklu: 10.0.17134
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1803</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1803)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1803-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1803-sac)
+Data wydania: 2018-04-30
+Koniec wsparcia (EOL): 2019-11-12
+Wsparcie komercyjne do: 2019-11-12
+Najnowsza wersja w cyklu: 10.0.17134
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1803</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1803)
+Data wydania: 2018-04-30
+Koniec wsparcia (EOL): 2019-11-12
+Wsparcie komercyjne do: 2019-11-12
+Najnowsza wersja w cyklu: 10.0.17134
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1803</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1803)
 Data wydania: 2018-04-30
 Koniec wsparcia (EOL): 2019-11-12
 Wsparcie komercyjne do: 2019-11-12
@@ -15441,17 +15451,7 @@ Najnowsza wersja w cyklu: 10.0.17134
 Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing</description></item><item><title>EoL: WordPress - Cycle 5.2</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: WordPress (Cykl: 5.2)
 Data wydania: 2019-05-07
 Koniec wsparcia (EOL): 2019-11-12
-Najnowsza wersja w cyklu: 5.2.21</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1803</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1803)
-Data wydania: 2018-04-30
-Koniec wsparcia (EOL): 2019-11-12
-Wsparcie komercyjne do: 2019-11-12
-Najnowsza wersja w cyklu: 10.0.17134
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1803-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1803-sac)
-Data wydania: 2018-04-30
-Koniec wsparcia (EOL): 2019-11-12
-Wsparcie komercyjne do: 2019-11-12
-Najnowsza wersja w cyklu: 10.0.17134
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing</description></item><item><title>EoL: Roundcube Webmail - Cycle 1.4</title><link>https://endoflife.date/roundcube-webmail</link><pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Roundcube Webmail (Cykl: 1.4)
+Najnowsza wersja w cyklu: 5.2.21</description></item><item><title>EoL: Roundcube Webmail - Cycle 1.4</title><link>https://endoflife.date/roundcube-webmail</link><pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Roundcube Webmail (Cykl: 1.4)
 Data wydania: 2019-11-09
 Koniec wsparcia (EOL): False
 Najnowsza wersja w cyklu: 1.4.16</description></item><item><title>EoL: Gradle - Cycle 5</title><link>https://endoflife.date/gradle</link><pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Gradle (Cykl: 5)
@@ -15991,10 +15991,7 @@ Koniec wsparcia (EOL): 2019-05-02
 Najnowsza wersja w cyklu: 5.8.2</description></item><item><title>EoL: Nokia Mobile - Cycle x71</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: x71)
 Data wydania: 2019-04-17
 Koniec wsparcia (EOL): 2019-05-01
-Link do cyklu: https://www.nokia.com/phones/zh_tw/nokia-x71</description></item><item><title>EoL: ROS - Cycle lunar</title><link>https://endoflife.date/ros</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: ROS (Cykl: lunar)
-Data wydania: 2017-05-23
-Koniec wsparcia (EOL): 2019-05-01
-Najnowsza wersja w cyklu: lunar</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a80</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a80)
+Link do cyklu: https://www.nokia.com/phones/zh_tw/nokia-x71</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a80</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a80)
 Data wydania: 2019-05-01
 Koniec wsparcia (EOL): True
 Link do cyklu: https://doc.samsungmobile.com/SM-A805F/XEH/doc.html</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a70</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a70)
@@ -16012,7 +16009,10 @@ Koniec wsparcia (EOL): 2019-05-01
 Link do cyklu: https://doc.samsungmobile.com/SM-J701M/PET/doc.html</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-c7-pro</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-c7-pro)
 Data wydania: 2017-02-01
 Koniec wsparcia (EOL): 2019-05-01
-Link do cyklu: https://doc.samsungmobile.com/SM-C701F/INS/doc.html</description></item><item><title>EoL: Symfony - Cycle 2.7 (LTS)</title><link>https://endoflife.date/symfony</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: Symfony (Cykl: 2.7)
+Link do cyklu: https://doc.samsungmobile.com/SM-C701F/INS/doc.html</description></item><item><title>EoL: ROS - Cycle lunar</title><link>https://endoflife.date/ros</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: ROS (Cykl: lunar)
+Data wydania: 2017-05-23
+Koniec wsparcia (EOL): 2019-05-01
+Najnowsza wersja w cyklu: lunar</description></item><item><title>EoL: Symfony - Cycle 2.7 (LTS)</title><link>https://endoflife.date/symfony</link><pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate><description>Produkt: Symfony (Cykl: 2.7)
 Wersja LTS: Tak
 Data wydania: 2015-05-30
 Koniec wsparcia (EOL): 2019-05-01
@@ -16080,7 +16080,7 @@ Data wydania: 2016-08-02
 Koniec wsparcia (EOL): 2019-04-09
 Wsparcie komercyjne do: 2019-04-09
 Najnowsza wersja w cyklu: 10.0.14393
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1607-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1709</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1709)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1607-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1709-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1709-sac)
 Data wydania: 2017-10-17
 Koniec wsparcia (EOL): 2019-04-09
 Wsparcie komercyjne do: 2019-04-09
@@ -16090,7 +16090,7 @@ Data wydania: 2017-10-17
 Koniec wsparcia (EOL): 2019-04-09
 Wsparcie komercyjne do: 2019-04-09
 Najnowsza wersja w cyklu: 10.0.16299
-Link do cyklu: https://techcommunity.microsoft.com/t5/windows-server-for-developers/windows-server-version-1709-lifecycle-announcement/m-p/379766</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1709-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1709-sac)
+Link do cyklu: https://techcommunity.microsoft.com/t5/windows-server-for-developers/windows-server-version-1709-lifecycle-announcement/m-p/379766</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1709</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server Core (Cykl: 1709)
 Data wydania: 2017-10-17
 Koniec wsparcia (EOL): 2019-04-09
 Wsparcie komercyjne do: 2019-04-09
