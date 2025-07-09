@@ -21,19 +21,19 @@ Najnowsza wersja w cyklu: 10.0</description></item><item><title>EoL: Rocky Linux
 Data wydania: 2025-06-11
 Koniec wsparcia (EOL): 2035-05-31
 Wsparcie komercyjne do: 2030-05-31
-Najnowsza wersja w cyklu: 10.0</description></item><item><title>EoL: Microsoft Windows - Cycle 11-24h2-iot-lts (LTS)</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 11-24h2-iot-lts)
-Wersja LTS: Tak
-Data wydania: 2024-10-01
-Koniec wsparcia (EOL): 2034-10-10
-Wsparcie komercyjne do: 2029-10-09
-Najnowsza wersja w cyklu: 10.0.26100
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows11-release-information#enterprise-and-iot-enterprise-ltsc-editions</description></item><item><title>EoL: Microsoft Nano Server - Cycle 2025 (LTS)</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 2025)
+Najnowsza wersja w cyklu: 10.0</description></item><item><title>EoL: Microsoft Nano Server - Cycle 2025 (LTS)</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 2025)
 Wersja LTS: Tak
 Data wydania: 2024-11-01
 Koniec wsparcia (EOL): 2034-10-10
 Wsparcie komercyjne do: 2029-10-09
 Najnowsza wersja w cyklu: 10.0.26100
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2025 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2025)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows - Cycle 11-24h2-iot-lts (LTS)</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 11-24h2-iot-lts)
+Wersja LTS: Tak
+Data wydania: 2024-10-01
+Koniec wsparcia (EOL): 2034-10-10
+Wsparcie komercyjne do: 2029-10-09
+Najnowsza wersja w cyklu: 10.0.26100
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows11-release-information#enterprise-and-iot-enterprise-ltsc-editions</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2025 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2034 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2025)
 Wersja LTS: Tak
 Data wydania: 2024-11-01
 Koniec wsparcia (EOL): 2034-10-10
@@ -625,19 +625,19 @@ Wsparcie komercyjne do: 2028-10-31
 Link do cyklu: https://aws.amazon.com/about-aws/whats-new/2023/12/aws-lambda-support-python-3-12/</description></item><item><title>EoL: Microsoft .NET Framework - Cycle 3.5-sp1</title><link>https://endoflife.date/microsoft--net-framework</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft .NET Framework (Cykl: 3.5-sp1)
 Data wydania: 2007-11-19
 Koniec wsparcia (EOL): 2029-01-09
-Link do cyklu: https://support.microsoft.com/en-us/topic/list-of-changes-and-fixed-issues-in-the-net-framework-3-5-service-pack-1-7e580459-9f9a-3f0d-ecb3-ee3ea374044f</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1809-e-lts (LTS)</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1809-e-lts)
+Link do cyklu: https://support.microsoft.com/en-us/topic/list-of-changes-and-fixed-issues-in-the-net-framework-3-5-service-pack-1-7e580459-9f9a-3f0d-ecb3-ee3ea374044f</description></item><item><title>EoL: Microsoft Nano Server - Cycle 2019 (LTS)</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 2019)
 Wersja LTS: Tak
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2029-01-09
 Wsparcie komercyjne do: 2024-01-09
 Najnowsza wersja w cyklu: 10.0.17763
-Link do cyklu: https://learn.microsoft.com/windows/release-health/supported-versions-windows-client#enterprise-and-iot-enterprise-ltsbltsc-editions</description></item><item><title>EoL: Microsoft Nano Server - Cycle 2019 (LTS)</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 2019)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1809-e-lts (LTS)</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1809-e-lts)
 Wersja LTS: Tak
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2029-01-09
 Wsparcie komercyjne do: 2024-01-09
 Najnowsza wersja w cyklu: 10.0.17763
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows-server-release-info</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2019 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2019)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/supported-versions-windows-client#enterprise-and-iot-enterprise-ltsbltsc-editions</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2019 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Jan 2029 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2019)
 Wersja LTS: Tak
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2029-01-09
@@ -4156,17 +4156,7 @@ Wsparcie komercyjne do: 2024-08-27
 Najnowsza wersja w cyklu: 11.1.13</description></item><item><title>EoL: IBM Semeru Runtime - Cycle 23</title><link>https://endoflife.date/ibm-semeru-runtime</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: IBM Semeru Runtime (Cykl: 23)
 Data wydania: 2024-09-18
 Koniec wsparcia (EOL): 2025-03-31
-Najnowsza wersja w cyklu: 23.0.2+7</description></item><item><title>EoL: Apple iOS - Cycle 16</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 16)
-Data wydania: 2022-09-12
-Koniec wsparcia (EOL): 2025-03-31
-Wsparcie komercyjne do: 2023-09-18
-Najnowsza wersja w cyklu: 16.7.11
-Link do cyklu: https://support.apple.com/HT213407</description></item><item><title>EoL: Apple iOS - Cycle 15</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 15)
-Data wydania: 2021-09-20
-Koniec wsparcia (EOL): 2025-03-31
-Wsparcie komercyjne do: 2022-09-12
-Najnowsza wersja w cyklu: 15.8.4
-Link do cyklu: https://support.apple.com/HT212788</description></item><item><title>EoL: Apple iPadOS - Cycle 16</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 16)
+Najnowsza wersja w cyklu: 23.0.2+7</description></item><item><title>EoL: Apple iPadOS - Cycle 16</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 16)
 Data wydania: 2022-10-24
 Koniec wsparcia (EOL): 2025-03-31
 Wsparcie komercyjne do: 2023-09-18
@@ -4176,7 +4166,17 @@ Data wydania: 2021-09-20
 Koniec wsparcia (EOL): 2025-03-31
 Wsparcie komercyjne do: 2022-10-24
 Najnowsza wersja w cyklu: 15.8.4
-Link do cyklu: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes</description></item><item><title>EoL: Apple iPad - Cycle 5</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: 5)
+Link do cyklu: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes</description></item><item><title>EoL: Apple iOS - Cycle 16</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 16)
+Data wydania: 2022-09-12
+Koniec wsparcia (EOL): 2025-03-31
+Wsparcie komercyjne do: 2023-09-18
+Najnowsza wersja w cyklu: 16.7.11
+Link do cyklu: https://support.apple.com/HT213407</description></item><item><title>EoL: Apple iOS - Cycle 15</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 15)
+Data wydania: 2021-09-20
+Koniec wsparcia (EOL): 2025-03-31
+Wsparcie komercyjne do: 2022-09-12
+Najnowsza wersja w cyklu: 15.8.4
+Link do cyklu: https://support.apple.com/HT212788</description></item><item><title>EoL: Apple iPad - Cycle 5</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: 5)
 Data wydania: 2017-03-24
 Koniec wsparcia (EOL): 2025-03-31
 Link do cyklu: https://support.apple.com/kb/SP751</description></item><item><title>EoL: Apple iPad - Cycle pro-1-9</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: pro-1-9)
@@ -4223,11 +4223,7 @@ Link do cyklu: https://www.googlecloudcommunity.com/gc/News-Announcements/Looker
 Data wydania: 2023-08-27
 Koniec wsparcia (EOL): 2025-03-31
 Najnowsza wersja w cyklu: 9
-Link do cyklu: https://wiki.mageia.org/en/Mageia___RELEASE_CYCLE___Release_Notes</description></item><item><title>EoL: MySQL - Cycle 9.3</title><link>https://endoflife.date/mysql</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 9.3)
-Data wydania: 2025-03-31
-Koniec wsparcia (EOL): False
-Wsparcie komercyjne do: True
-Najnowsza wersja w cyklu: 9.3.0</description></item><item><title>EoL: Neos - Cycle 8.2</title><link>https://endoflife.date/neos</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Neos (Cykl: 8.2)
+Link do cyklu: https://wiki.mageia.org/en/Mageia___RELEASE_CYCLE___Release_Notes</description></item><item><title>EoL: Neos - Cycle 8.2</title><link>https://endoflife.date/neos</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Neos (Cykl: 8.2)
 Data wydania: 2022-12-01
 Koniec wsparcia (EOL): 2025-03-31
 Wsparcie komercyjne do: 2024-03-31
@@ -4244,7 +4240,11 @@ Wersja LTS: Tak
 Data wydania: 2021-12-08
 Koniec wsparcia (EOL): 2025-03-31
 Wsparcie komercyjne do: 2024-03-31
-Najnowsza wersja w cyklu: 7.3.21</description></item><item><title>EoL: Prometheus - Cycle 3.2</title><link>https://endoflife.date/prometheus</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Prometheus (Cykl: 3.2)
+Najnowsza wersja w cyklu: 7.3.21</description></item><item><title>EoL: MySQL - Cycle 9.3</title><link>https://endoflife.date/mysql</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 9.3)
+Data wydania: 2025-03-31
+Koniec wsparcia (EOL): False
+Wsparcie komercyjne do: True
+Najnowsza wersja w cyklu: 9.3.0</description></item><item><title>EoL: Prometheus - Cycle 3.2</title><link>https://endoflife.date/prometheus</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Prometheus (Cykl: 3.2)
 Data wydania: 2025-02-17
 Koniec wsparcia (EOL): 2025-03-31
 Najnowsza wersja w cyklu: 3.2.1</description></item><item><title>EoL: Rancher - Cycle 2.11</title><link>https://endoflife.date/rancher</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Rancher (Cykl: 2.11)
@@ -5871,17 +5871,17 @@ Koniec wsparcia (EOL): 2024-09-16
 Link do cyklu: https://support.apple.com/kb/SP808</description></item><item><title>EoL: Apple Watch - Cycle series-4</title><link>https://endoflife.date/apple-watch</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple Watch (Cykl: series-4)
 Data wydania: 2018-09-21
 Koniec wsparcia (EOL): 2024-09-16
-Link do cyklu: https://support.apple.com/kb/SP778</description></item><item><title>EoL: Apple iOS - Cycle 18</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 18)
+Link do cyklu: https://support.apple.com/kb/SP778</description></item><item><title>EoL: Apple iPadOS - Cycle 18</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 18)
 Data wydania: 2024-09-16
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: True
 Najnowsza wersja w cyklu: 18.5
-Link do cyklu: https://support.apple.com/en-us/121161</description></item><item><title>EoL: Apple iPadOS - Cycle 18</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 18)
+Link do cyklu: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-release-notes</description></item><item><title>EoL: Apple iOS - Cycle 18</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 18)
 Data wydania: 2024-09-16
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: True
 Najnowsza wersja w cyklu: 18.5
-Link do cyklu: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-release-notes</description></item><item><title>EoL: Apple iPad - Cycle air-2</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: air-2)
+Link do cyklu: https://support.apple.com/en-us/121161</description></item><item><title>EoL: Apple iPad - Cycle air-2</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: air-2)
 Data wydania: 2014-10-22
 Koniec wsparcia (EOL): 2024-09-16
 Link do cyklu: https://support.apple.com/kb/SP708</description></item><item><title>EoL: Apple macOS - Cycle 15</title><link>https://endoflife.date/apple-macos</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple macOS (Cykl: 15)
@@ -7496,14 +7496,14 @@ Koniec wsparcia (EOL): 2024-02-01
 Wsparcie komercyjne do: 2024-02-01
 Najnowsza wersja w cyklu: 4.1.9</description></item><item><title>EoL: Zentyal - Cycle 7</title><link>https://endoflife.date/zentyal</link><pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate><description>Produkt: Zentyal (Cykl: 7)
 Data wydania: 2021-01-31
-Koniec wsparcia (EOL): 2024-02-01</description></item><item><title>EoL: Amazon Glue - Cycle 2.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Amazon Glue (Cykl: 2.0)
-Data wydania: 2020-08-10
-Koniec wsparcia (EOL): 2024-01-31
-Link do cyklu: https://aws.amazon.com/blogs/aws/aws-glue-version-2-0-featuring-10x-faster-job-start-times-and-1-minute-minimum-billing-duration/</description></item><item><title>EoL: Amazon EKS - Cycle 1.24</title><link>https://endoflife.date/amazon-eks</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Amazon EKS (Cykl: 1.24)
+Koniec wsparcia (EOL): 2024-02-01</description></item><item><title>EoL: Amazon EKS - Cycle 1.24</title><link>https://endoflife.date/amazon-eks</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Amazon EKS (Cykl: 1.24)
 Data wydania: 2022-11-15
 Koniec wsparcia (EOL): 2024-01-31
 Najnowsza wersja w cyklu: 1.24-eks-45
-Link do cyklu: https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html#platform-versions-1-24</description></item><item><title>EoL: Bazel - Cycle 4 (LTS)</title><link>https://endoflife.date/bazel</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Bazel (Cykl: 4)
+Link do cyklu: https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html#platform-versions-1-24</description></item><item><title>EoL: Amazon Glue - Cycle 2.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Amazon Glue (Cykl: 2.0)
+Data wydania: 2020-08-10
+Koniec wsparcia (EOL): 2024-01-31
+Link do cyklu: https://aws.amazon.com/blogs/aws/aws-glue-version-2-0-featuring-10x-faster-job-start-times-and-1-minute-minimum-billing-duration/</description></item><item><title>EoL: Bazel - Cycle 4 (LTS)</title><link>https://endoflife.date/bazel</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Bazel (Cykl: 4)
 Wersja LTS: Tak
 Data wydania: 2021-01-21
 Koniec wsparcia (EOL): 2024-01-31
@@ -8341,16 +8341,16 @@ Koniec wsparcia (EOL): 2023-10-10
 Najnowsza wersja w cyklu: 4.0</description></item><item><title>EoL: Microsoft PowerShell - Cycle 3.0</title><link>https://endoflife.date/microsoft-powershell</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft PowerShell (Cykl: 3.0)
 Data wydania: 2012-10-01
 Koniec wsparcia (EOL): 2023-10-10
-Najnowsza wersja w cyklu: 3.0</description></item><item><title>EoL: Microsoft Windows - Cycle 11-21h2-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 11-21h2-w)
+Najnowsza wersja w cyklu: 3.0</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle compact-2013</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: compact-2013)
+Data wydania: 2013-08-11
+Koniec wsparcia (EOL): 2023-10-10
+Wsparcie komercyjne do: 2018-10-09
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-compact-2013</description></item><item><title>EoL: Microsoft Windows - Cycle 11-21h2-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 11-21h2-w)
 Data wydania: 2021-10-04
 Koniec wsparcia (EOL): 2023-10-10
 Wsparcie komercyjne do: 2023-10-10
 Najnowsza wersja w cyklu: 10.0.22000
-Link do cyklu: https://learn.microsoft.com/windows/release-health/windows11-release-information</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle compact-2013</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: compact-2013)
-Data wydania: 2013-08-11
-Koniec wsparcia (EOL): 2023-10-10
-Wsparcie komercyjne do: 2018-10-09
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-compact-2013</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2012-r2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2012-r2)
+Link do cyklu: https://learn.microsoft.com/windows/release-health/windows11-release-information</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2012-r2 (LTS)</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2012-r2)
 Wersja LTS: Tak
 Data wydania: 2013-11-25
 Koniec wsparcia (EOL): 2023-10-10
@@ -8426,15 +8426,15 @@ Najnowsza wersja w cyklu: 6.0.113</description></item><item><title>EoL: IBM iSer
 Data wydania: 2016-04-15
 Koniec wsparcia (EOL): 2023-09-30
 Najnowsza wersja w cyklu: 7.3.0
-Link do cyklu: https://www.ibm.com/support/pages/customer-notices-and-information-ibm-i-73</description></item><item><title>EoL: Nutanix Files - Cycle 4.1</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Produkt: Nutanix Files (Cykl: 4.1)
-Data wydania: 2022-04-13
-Koniec wsparcia (EOL): 2023-09-30
-Wsparcie komercyjne do: 2022-12-31
-Najnowsza wersja w cyklu: 4.1.0.3</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.9</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2022.9)
+Link do cyklu: https://www.ibm.com/support/pages/customer-notices-and-information-ibm-i-73</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.9</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2022.9)
 Data wydania: 2023-01-23
 Koniec wsparcia (EOL): 2023-09-30
 Wsparcie komercyjne do: 2023-06-30
-Najnowsza wersja w cyklu: pc.2022.9</description></item><item><title>EoL: Oracle JDK - Cycle 11 (LTS)</title><link>https://endoflife.date/oracle-jdk</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Produkt: Oracle JDK (Cykl: 11)
+Najnowsza wersja w cyklu: pc.2022.9</description></item><item><title>EoL: Nutanix Files - Cycle 4.1</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Produkt: Nutanix Files (Cykl: 4.1)
+Data wydania: 2022-04-13
+Koniec wsparcia (EOL): 2023-09-30
+Wsparcie komercyjne do: 2022-12-31
+Najnowsza wersja w cyklu: 4.1.0.3</description></item><item><title>EoL: Oracle JDK - Cycle 11 (LTS)</title><link>https://endoflife.date/oracle-jdk</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Produkt: Oracle JDK (Cykl: 11)
 Wersja LTS: Tak
 Data wydania: 2018-09-25
 Koniec wsparcia (EOL): 2023-09-30
@@ -9241,14 +9241,14 @@ Data wydania: 2021-06-01
 Koniec wsparcia (EOL): 2023-06-01
 Wsparcie komercyjne do: 2022-12-01
 Najnowsza wersja w cyklu: 5.3.4
-Link do cyklu: https://web.archive.org/web/20221203201532/https://docs.paloaltonetworks.com/globalprotect/5-3/globalprotect-app-release-notes/gp-app-release-information</description></item><item><title>EoL: RabbitMQ - Cycle 3.11</title><link>https://endoflife.date/rabbitmq</link><pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: RabbitMQ (Cykl: 3.11)
-Data wydania: 2022-09-26
-Koniec wsparcia (EOL): 2023-06-01
-Najnowsza wersja w cyklu: 3.11.28</description></item><item><title>EoL: Ruby on Rails - Cycle 6.0</title><link>https://endoflife.date/ruby-on-rails</link><pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: Ruby on Rails (Cykl: 6.0)
+Link do cyklu: https://web.archive.org/web/20221203201532/https://docs.paloaltonetworks.com/globalprotect/5-3/globalprotect-app-release-notes/gp-app-release-information</description></item><item><title>EoL: Ruby on Rails - Cycle 6.0</title><link>https://endoflife.date/ruby-on-rails</link><pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: Ruby on Rails (Cykl: 6.0)
 Data wydania: 2019-08-16
 Koniec wsparcia (EOL): 2023-06-01
 Wsparcie komercyjne do: 2021-12-15
-Najnowsza wersja w cyklu: 6.0.6.1</description></item><item><title>EoL: Jenkins - Cycle 2.387</title><link>https://endoflife.date/jenkins</link><pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate><description>Produkt: Jenkins (Cykl: 2.387)
+Najnowsza wersja w cyklu: 6.0.6.1</description></item><item><title>EoL: RabbitMQ - Cycle 3.11</title><link>https://endoflife.date/rabbitmq</link><pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate><description>Produkt: RabbitMQ (Cykl: 3.11)
+Data wydania: 2022-09-26
+Koniec wsparcia (EOL): 2023-06-01
+Najnowsza wersja w cyklu: 3.11.28</description></item><item><title>EoL: Jenkins - Cycle 2.387</title><link>https://endoflife.date/jenkins</link><pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate><description>Produkt: Jenkins (Cykl: 2.387)
 Data wydania: 2023-01-17
 Koniec wsparcia (EOL): 2023-05-31
 Najnowsza wersja w cyklu: 2.387.3</description></item><item><title>EoL: Looker - Cycle 23.0</title><link>https://endoflife.date/looker</link><pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate><description>Produkt: Looker (Cykl: 23.0)
@@ -10018,17 +10018,17 @@ Najnowsza wersja w cyklu: 6.6.6</description></item><item><title>EoL: Google Kub
 Data wydania: 2021-10-01
 Koniec wsparcia (EOL): 2023-01-31
 Wsparcie komercyjne do: 2022-11-01
-Najnowsza wersja w cyklu: 1.21.14-gke.18800</description></item><item><title>EoL: NumPy - Cycle 1.20</title><link>https://endoflife.date/numpy</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: NumPy (Cykl: 1.20)
+Najnowsza wersja w cyklu: 1.21.14-gke.18800</description></item><item><title>EoL: Apache Maven - Cycle 3.9</title><link>https://endoflife.date/apache-maven</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apache Maven (Cykl: 3.9)
+Data wydania: 2023-01-31
+Koniec wsparcia (EOL): False
+Najnowsza wersja w cyklu: 3.9.10</description></item><item><title>EoL: NumPy - Cycle 1.20</title><link>https://endoflife.date/numpy</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: NumPy (Cykl: 1.20)
 Data wydania: 2021-01-30
 Koniec wsparcia (EOL): 2023-01-31
 Najnowsza wersja w cyklu: 1.20.3</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.4</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2022.4)
 Data wydania: 2022-05-16
 Koniec wsparcia (EOL): 2023-01-31
 Wsparcie komercyjne do: 2022-10-31
-Najnowsza wersja w cyklu: pc.2022.4.0.2</description></item><item><title>EoL: Apache Maven - Cycle 3.9</title><link>https://endoflife.date/apache-maven</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apache Maven (Cykl: 3.9)
-Data wydania: 2023-01-31
-Koniec wsparcia (EOL): False
-Najnowsza wersja w cyklu: 3.9.10</description></item><item><title>EoL: Prometheus - Cycle 2.41</title><link>https://endoflife.date/prometheus</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Prometheus (Cykl: 2.41)
+Najnowsza wersja w cyklu: pc.2022.4.0.2</description></item><item><title>EoL: Prometheus - Cycle 2.41</title><link>https://endoflife.date/prometheus</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Prometheus (Cykl: 2.41)
 Data wydania: 2022-12-20
 Koniec wsparcia (EOL): 2023-01-31
 Najnowsza wersja w cyklu: 2.41.0</description></item><item><title>EoL: RabbitMQ - Cycle 3.9</title><link>https://endoflife.date/rabbitmq</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: RabbitMQ (Cykl: 3.9)
@@ -10152,16 +10152,16 @@ Link do cyklu: https://learn.microsoft.com/troubleshoot/developer/visualstudio/i
 Data wydania: 2012-10-31
 Koniec wsparcia (EOL): 2023-01-10
 Najnowsza wersja w cyklu: Update 4
-Link do cyklu: https://learn.microsoft.com/visualstudio/releasenotes/vs2012-update4-vs</description></item><item><title>EoL: Microsoft Windows - Cycle 8.1</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 8.1)
+Link do cyklu: https://learn.microsoft.com/visualstudio/releasenotes/vs2012-update4-vs</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle 8.1-pro</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: 8.1-pro)
+Data wydania: 2013-11-13
+Koniec wsparcia (EOL): 2023-01-10
+Wsparcie komercyjne do: 2018-01-09
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-81-pro</description></item><item><title>EoL: Microsoft Windows - Cycle 8.1</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 8.1)
 Data wydania: 2013-11-13
 Koniec wsparcia (EOL): 2023-01-10
 Wsparcie komercyjne do: 2018-01-09
 Najnowsza wersja w cyklu: 6.3.9600
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-81</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle 8.1-pro</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: 8.1-pro)
-Data wydania: 2013-11-13
-Koniec wsparcia (EOL): 2023-01-10
-Wsparcie komercyjne do: 2018-01-09
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-81-pro</description></item><item><title>EoL: Nexus Repository - Cycle 3.32</title><link>https://endoflife.date/nexus-repository</link><pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Nexus Repository (Cykl: 3.32)
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-81</description></item><item><title>EoL: Nexus Repository - Cycle 3.32</title><link>https://endoflife.date/nexus-repository</link><pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Nexus Repository (Cykl: 3.32)
 Data wydania: 2021-07-08
 Koniec wsparcia (EOL): 2023-01-08
 Najnowsza wersja w cyklu: 3.32.1
@@ -10602,11 +10602,7 @@ Link do cyklu: https://support.claris.com/s/answerview?anum=000035283</descripti
 Data wydania: 2022-02-24
 Koniec wsparcia (EOL): 2022-10-31
 Wsparcie komercyjne do: 2022-07-31
-Najnowsza wersja w cyklu: 6.1.1.5</description></item><item><title>EoL: Nutanix Files - Cycle 3.8</title><link>https://endoflife.date/nutanix-files</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Produkt: Nutanix Files (Cykl: 3.8)
-Data wydania: 2021-01-25
-Koniec wsparcia (EOL): 2022-10-31
-Wsparcie komercyjne do: 2022-01-31
-Najnowsza wersja w cyklu: 3.8.1.3</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.1</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2022.1)
+Najnowsza wersja w cyklu: 6.1.1.5</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.1</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2022.1)
 Data wydania: 2022-02-24
 Koniec wsparcia (EOL): 2022-10-31
 Wsparcie komercyjne do: 2022-07-31
@@ -10614,7 +10610,11 @@ Najnowsza wersja w cyklu: pc.2022.1.0.2</description></item><item><title>EoL: Nu
 Data wydania: 2021-10-06
 Koniec wsparcia (EOL): 2022-10-31
 Wsparcie komercyjne do: 2022-04-30
-Najnowsza wersja w cyklu: pc.2021.9.0.6</description></item><item><title>EoL: Rocket.Chat - Cycle 4.6</title><link>https://endoflife.date/rocket-chat</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 4.6)
+Najnowsza wersja w cyklu: pc.2021.9.0.6</description></item><item><title>EoL: Nutanix Files - Cycle 3.8</title><link>https://endoflife.date/nutanix-files</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Produkt: Nutanix Files (Cykl: 3.8)
+Data wydania: 2021-01-25
+Koniec wsparcia (EOL): 2022-10-31
+Wsparcie komercyjne do: 2022-01-31
+Najnowsza wersja w cyklu: 3.8.1.3</description></item><item><title>EoL: Rocket.Chat - Cycle 4.6</title><link>https://endoflife.date/rocket-chat</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 4.6)
 Data wydania: 2022-04-01
 Koniec wsparcia (EOL): 2022-10-31
 Wsparcie komercyjne do: 2022-05-04
@@ -12170,15 +12170,15 @@ Koniec wsparcia (EOL): 2022-01-31
 Najnowsza wersja w cyklu: 10.6.2</description></item><item><title>EoL: KEDA - Cycle 2.4</title><link>https://endoflife.date/keda</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: KEDA (Cykl: 2.4)
 Data wydania: 2021-08-06
 Koniec wsparcia (EOL): 2022-01-31
-Najnowsza wersja w cyklu: 2.4.0</description></item><item><title>EoL: Nutanix Files - Cycle 3.7</title><link>https://endoflife.date/nutanix-files</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Nutanix Files (Cykl: 3.7)
-Data wydania: 2020-07-22
-Koniec wsparcia (EOL): 2022-01-31
-Wsparcie komercyjne do: 2021-04-30
-Najnowsza wersja w cyklu: 3.7.3.1</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2021.5</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2021.5)
+Najnowsza wersja w cyklu: 2.4.0</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2021.5</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2021.5)
 Data wydania: 2021-06-14
 Koniec wsparcia (EOL): 2022-01-31
 Wsparcie komercyjne do: 2021-10-31
-Najnowsza wersja w cyklu: pc.2021.5.0.1</description></item><item><title>EoL: Rocket.Chat - Cycle 3.17</title><link>https://endoflife.date/rocket-chat</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 3.17)
+Najnowsza wersja w cyklu: pc.2021.5.0.1</description></item><item><title>EoL: Nutanix Files - Cycle 3.7</title><link>https://endoflife.date/nutanix-files</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Nutanix Files (Cykl: 3.7)
+Data wydania: 2020-07-22
+Koniec wsparcia (EOL): 2022-01-31
+Wsparcie komercyjne do: 2021-04-30
+Najnowsza wersja w cyklu: 3.7.3.1</description></item><item><title>EoL: Rocket.Chat - Cycle 3.17</title><link>https://endoflife.date/rocket-chat</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 3.17)
 Data wydania: 2021-07-30
 Koniec wsparcia (EOL): 2022-01-31
 Wsparcie komercyjne do: 2021-08-31
@@ -12462,17 +12462,17 @@ Najnowsza wersja w cyklu: 4.4.57</description></item><item><title>EoL: Apache Lo
 Data wydania: 2019-06-26
 Koniec wsparcia (EOL): 2021-12-14
 Najnowsza wersja w cyklu: 2.12.4
-Link do cyklu: https://github.com/apache/logging-log4j2/blob/rel/__LATEST__/RELEASE-NOTES.md</description></item><item><title>EoL: Microsoft Windows - Cycle 10-2004</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-2004)
+Link do cyklu: https://github.com/apache/logging-log4j2/blob/rel/__LATEST__/RELEASE-NOTES.md</description></item><item><title>EoL: Microsoft Nano Server - Cycle 2004</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 2004)
 Data wydania: 2020-05-27
 Koniec wsparcia (EOL): 2021-12-14
 Wsparcie komercyjne do: 2021-12-14
 Najnowsza wersja w cyklu: 10.0.19041
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-version-2004-end-of-servicing</description></item><item><title>EoL: Microsoft Nano Server - Cycle 2004</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 2004)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-version-2004-end-of-servicing</description></item><item><title>EoL: Microsoft Windows - Cycle 10-2004</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-2004)
 Data wydania: 2020-05-27
 Koniec wsparcia (EOL): 2021-12-14
 Wsparcie komercyjne do: 2021-12-14
 Najnowsza wersja w cyklu: 10.0.19041
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-version-2004-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2004-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2004-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-version-2004-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 2004-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 2004-sac)
 Data wydania: 2020-05-27
 Koniec wsparcia (EOL): 2021-12-14
 Wsparcie komercyjne do: 2021-12-14
@@ -12899,17 +12899,17 @@ Wsparcie komercyjne do: 2021-08-18
 Najnowsza wersja w cyklu: 0.63.5</description></item><item><title>EoL: HAProxy - Cycle 1.7</title><link>https://endoflife.date/haproxy</link><pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><description>Produkt: HAProxy (Cykl: 1.7)
 Data wydania: 2016-11-25
 Koniec wsparcia (EOL): 2021-10-01
-Najnowsza wersja w cyklu: 1.7.14</description></item><item><title>EoL: Apple iOS - Cycle 14</title><link>https://endoflife.date/apple-ios</link><pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 14)
+Najnowsza wersja w cyklu: 1.7.14</description></item><item><title>EoL: Apple iPadOS - Cycle 14</title><link>https://endoflife.date/apple-ipados</link><pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 14)
 Data wydania: 2020-09-16
 Koniec wsparcia (EOL): 2021-10-01
 Wsparcie komercyjne do: 2021-09-20
 Najnowsza wersja w cyklu: 14.8.1
-Link do cyklu: https://support.apple.com/HT211808</description></item><item><title>EoL: Apple iPadOS - Cycle 14</title><link>https://endoflife.date/apple-ipados</link><pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 14)
+Link do cyklu: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-release-notes</description></item><item><title>EoL: Apple iOS - Cycle 14</title><link>https://endoflife.date/apple-ios</link><pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 14)
 Data wydania: 2020-09-16
 Koniec wsparcia (EOL): 2021-10-01
 Wsparcie komercyjne do: 2021-09-20
 Najnowsza wersja w cyklu: 14.8.1
-Link do cyklu: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-release-notes</description></item><item><title>EoL: Nokia Mobile - Cycle 5.1-plus</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: 5.1-plus)
+Link do cyklu: https://support.apple.com/HT211808</description></item><item><title>EoL: Nokia Mobile - Cycle 5.1-plus</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: 5.1-plus)
 Data wydania: 2018-12-05
 Koniec wsparcia (EOL): 2021-10-01
 Link do cyklu: https://www.nokia.com/phones/en_int/nokia-5-plus</description></item><item><title>EoL: Nokia Mobile - Cycle 3.1-plus</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: 3.1-plus)
@@ -13156,15 +13156,15 @@ Link do cyklu: https://www.nokia.com/phones/en_int/nokia-5-1</description></item
 Data wydania: 2021-02-02
 Koniec wsparcia (EOL): 2021-08-01
 Wsparcie komercyjne do: 2021-05-12
-Najnowsza wersja w cyklu: 2.12.6</description></item><item><title>EoL: Nutanix Files - Cycle 3.6</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Produkt: Nutanix Files (Cykl: 3.6)
-Data wydania: 2019-10-17
-Koniec wsparcia (EOL): 2021-07-31
-Wsparcie komercyjne do: 2020-10-31
-Najnowsza wersja w cyklu: 3.6.5</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2020.11</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2020.11)
+Najnowsza wersja w cyklu: 2.12.6</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2020.11</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Produkt: Nutanix Prism Central (Cykl: pc.2020.11)
 Data wydania: 2020-12-16
 Koniec wsparcia (EOL): 2021-07-31
 Wsparcie komercyjne do: 2021-04-30
-Najnowsza wersja w cyklu: pc.2020.11.0.1</description></item><item><title>EoL: Visual COBOL - Cycle 3.0</title><link>https://endoflife.date/visual-cobol</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Produkt: Visual COBOL (Cykl: 3.0)
+Najnowsza wersja w cyklu: pc.2020.11.0.1</description></item><item><title>EoL: Nutanix Files - Cycle 3.6</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Produkt: Nutanix Files (Cykl: 3.6)
+Data wydania: 2019-10-17
+Koniec wsparcia (EOL): 2021-07-31
+Wsparcie komercyjne do: 2020-10-31
+Najnowsza wersja w cyklu: 3.6.5</description></item><item><title>EoL: Visual COBOL - Cycle 3.0</title><link>https://endoflife.date/visual-cobol</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Produkt: Visual COBOL (Cykl: 3.0)
 Data wydania: 2017-07-07
 Koniec wsparcia (EOL): 2021-07-31
 Link do cyklu: https://supportline.microfocus.com/prodavail.aspx?Prod=Visual%20COBOL%20for%20Visual%20Studio&amp;Ver=3.0&amp;Rel=</description></item><item><title>EoL: DaoCloud Enterprise - Cycle 3.0</title><link>https://endoflife.date/daocloud-enterprise</link><pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate><description>Produkt: DaoCloud Enterprise (Cykl: 3.0)
@@ -13488,7 +13488,12 @@ Koniec wsparcia (EOL): 2021-05-12
 Najnowsza wersja w cyklu: 1.8.6</description></item><item><title>EoL: Ansible - Cycle 3</title><link>https://endoflife.date/ansible</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Ansible (Cykl: 3)
 Data wydania: 2021-02-18
 Koniec wsparcia (EOL): 2021-05-11
-Najnowsza wersja w cyklu: 3.4.0</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1909-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1909-w)
+Najnowsza wersja w cyklu: 3.4.0</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1909</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1909)
+Data wydania: 2019-11-12
+Koniec wsparcia (EOL): 2021-05-11
+Wsparcie komercyjne do: 2021-05-11
+Najnowsza wersja w cyklu: 10.0.18363
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1909-end-of-servicing</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1909-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1909-w)
 Data wydania: 2019-11-12
 Koniec wsparcia (EOL): 2021-05-11
 Wsparcie komercyjne do: 2021-05-11
@@ -13503,12 +13508,7 @@ Data wydania: 2018-04-30
 Koniec wsparcia (EOL): 2021-05-11
 Wsparcie komercyjne do: 2020-05-11
 Najnowsza wersja w cyklu: 10.0.17134
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1803-1809-end-of-servicing</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1909</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1909)
-Data wydania: 2019-11-12
-Koniec wsparcia (EOL): 2021-05-11
-Wsparcie komercyjne do: 2021-05-11
-Najnowsza wersja w cyklu: 10.0.18363
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1909-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1909-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1909-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1803-1809-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1909-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1909-sac)
 Data wydania: 2019-11-12
 Koniec wsparcia (EOL): 2021-05-11
 Wsparcie komercyjne do: 2021-05-11
@@ -14084,17 +14084,17 @@ Wersja LTS: Tak
 Data wydania: 2020-05-25
 Koniec wsparcia (EOL): 2020-12-08
 Najnowsza wersja w cyklu: 5.15.17
-Link do cyklu: https://www.qt.io/blog/commercial-lts-qt-5.15.17-released</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1903</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1903)
+Link do cyklu: https://www.qt.io/blog/commercial-lts-qt-5.15.17-released</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1903</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1903)
 Data wydania: 2019-05-21
 Koniec wsparcia (EOL): 2020-12-08
 Wsparcie komercyjne do: 2020-12-08
 Najnowsza wersja w cyklu: 10.0.18362
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1903-end-of-servicing</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1903</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1903)
+Link do cyklu: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1903</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1903)
 Data wydania: 2019-05-21
 Koniec wsparcia (EOL): 2020-12-08
 Wsparcie komercyjne do: 2020-12-08
 Najnowsza wersja w cyklu: 10.0.18362
-Link do cyklu: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1903-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1903-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1903-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1903-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1903-sac)
 Data wydania: 2019-05-21
 Koniec wsparcia (EOL): 2020-12-08
 Wsparcie komercyjne do: 2020-12-08
@@ -14212,7 +14212,12 @@ Koniec wsparcia (EOL): 2020-11-13
 Najnowsza wersja w cyklu: 8.0.0</description></item><item><title>EoL: WeeChat - Cycle 2.9</title><link>https://endoflife.date/weechat</link><pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: WeeChat (Cykl: 2.9)
 Data wydania: 2020-07-18
 Koniec wsparcia (EOL): 2020-11-11
-Najnowsza wersja w cyklu: 2.9</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1809-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1809-w)
+Najnowsza wersja w cyklu: 2.9</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1809</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1809)
+Data wydania: 2018-11-13
+Koniec wsparcia (EOL): 2020-11-10
+Wsparcie komercyjne do: 2020-11-10
+Najnowsza wersja w cyklu: 10.0.17763
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1809-end-of-servicing</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1809-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1809-w)
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2020-11-10
 Wsparcie komercyjne do: 2020-11-10
@@ -14222,12 +14227,7 @@ Data wydania: 2015-04-29
 Koniec wsparcia (EOL): 2020-11-10
 Wsparcie komercyjne do: 2020-11-10
 Najnowsza wersja w cyklu: 10.0.10240
-Link do cyklu: https://learn.microsoft.com/en-us/lifecycle/products/windows-10-iot-core</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1809</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1809)
-Data wydania: 2018-11-13
-Koniec wsparcia (EOL): 2020-11-10
-Wsparcie komercyjne do: 2020-11-10
-Najnowsza wersja w cyklu: 10.0.17763
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1809-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1809-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1809-sac)
+Link do cyklu: https://learn.microsoft.com/en-us/lifecycle/products/windows-10-iot-core</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1809-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1809-sac)
 Data wydania: 2018-11-13
 Koniec wsparcia (EOL): 2020-11-10
 Wsparcie komercyjne do: 2020-11-10
@@ -14393,16 +14393,16 @@ Najnowsza wersja w cyklu: 14.3.513.0</description></item><item><title>EoL: Micro
 Data wydania: 2010-07-15
 Koniec wsparcia (EOL): 2020-10-13
 Wsparcie komercyjne do: 2015-10-13
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/microsoft-office-2010</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1709-e</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1709-e)
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/microsoft-office-2010</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle standard-7-sp1</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: standard-7-sp1)
+Data wydania: 2011-02-28
+Koniec wsparcia (EOL): 2020-10-13
+Wsparcie komercyjne do: 2015-10-13
+Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-standard-7</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1709-e</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1709-e)
 Data wydania: 2017-10-17
 Koniec wsparcia (EOL): 2020-10-13
 Wsparcie komercyjne do: 2020-10-13
 Najnowsza wersja w cyklu: 10.0.16299
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1709-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Embedded - Cycle standard-7-sp1</title><link>https://endoflife.date/microsoft-windows-embedded</link><pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Embedded (Cykl: standard-7-sp1)
-Data wydania: 2011-02-28
-Koniec wsparcia (EOL): 2020-10-13
-Wsparcie komercyjne do: 2015-10-13
-Link do cyklu: https://learn.microsoft.com/lifecycle/products/windows-embedded-standard-7</description></item><item><title>EoL: Fluent Bit - Cycle 1.6</title><link>https://endoflife.date/fluent-bit</link><pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Fluent Bit (Cykl: 1.6)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1709-end-of-servicing</description></item><item><title>EoL: Fluent Bit - Cycle 1.6</title><link>https://endoflife.date/fluent-bit</link><pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Fluent Bit (Cykl: 1.6)
 Data wydania: 2020-10-08
 Koniec wsparcia (EOL): True
 Najnowsza wersja w cyklu: 1.6.10</description></item><item><title>EoL: Rust - Cycle 1.46</title><link>https://endoflife.date/rust</link><pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate><description>Produkt: Rust (Cykl: 1.46)
@@ -14495,17 +14495,17 @@ Koniec wsparcia (EOL): True
 Link do cyklu: https://cloud.google.com/looker/docs/looker-7-changelog#716</description></item><item><title>EoL: Bellsoft Liberica JDK - Cycle 14</title><link>https://endoflife.date/bellsoft-liberica-jdk</link><pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate><description>Produkt: Bellsoft Liberica JDK (Cykl: 14)
 Data wydania: 2020-03-19
 Koniec wsparcia (EOL): 2020-09-16
-Najnowsza wersja w cyklu: 14.0.2+13</description></item><item><title>EoL: Apple iOS - Cycle 13</title><link>https://endoflife.date/apple-ios</link><pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 13)
-Data wydania: 2019-09-19
-Koniec wsparcia (EOL): 2020-09-16
-Wsparcie komercyjne do: 2020-09-16
-Najnowsza wersja w cyklu: 13.7
-Link do cyklu: https://support.apple.com/HT210393</description></item><item><title>EoL: Apple iPadOS - Cycle 13</title><link>https://endoflife.date/apple-ipados</link><pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 13)
+Najnowsza wersja w cyklu: 14.0.2+13</description></item><item><title>EoL: Apple iPadOS - Cycle 13</title><link>https://endoflife.date/apple-ipados</link><pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 13)
 Data wydania: 2019-09-24
 Koniec wsparcia (EOL): 2020-09-16
 Wsparcie komercyjne do: 2020-09-16
 Najnowsza wersja w cyklu: 13.6
-Link do cyklu: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13_1-release-notes</description></item><item><title>EoL: OpenJDK builds from Oracle - Cycle 14</title><link>https://endoflife.date/openjdk-builds-from-oracle</link><pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate><description>Produkt: OpenJDK builds from Oracle (Cykl: 14)
+Link do cyklu: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13_1-release-notes</description></item><item><title>EoL: Apple iOS - Cycle 13</title><link>https://endoflife.date/apple-ios</link><pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 13)
+Data wydania: 2019-09-19
+Koniec wsparcia (EOL): 2020-09-16
+Wsparcie komercyjne do: 2020-09-16
+Najnowsza wersja w cyklu: 13.7
+Link do cyklu: https://support.apple.com/HT210393</description></item><item><title>EoL: OpenJDK builds from Oracle - Cycle 14</title><link>https://endoflife.date/openjdk-builds-from-oracle</link><pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate><description>Produkt: OpenJDK builds from Oracle (Cykl: 14)
 Data wydania: 2020-03-17
 Koniec wsparcia (EOL): 2020-09-16
 Najnowsza wersja w cyklu: 14.0.2</description></item><item><title>EoL: Oracle JDK - Cycle 14</title><link>https://endoflife.date/oracle-jdk</link><pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate><description>Produkt: Oracle JDK (Cykl: 14)
@@ -15341,17 +15341,17 @@ Link do cyklu: https://ark.intel.com/content/www/us/en/ark/products/codename/299
 Data wydania: 2017-05-30
 Koniec wsparcia (EOL): 2019-12-31
 Wsparcie komercyjne do: 2019-01-01
-Najnowsza wersja w cyklu: 8.17.0</description></item><item><title>EoL: phpMyAdmin - Cycle 4.9 (LTS)</title><link>https://endoflife.date/phpmyadmin</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><description>Produkt: phpMyAdmin (Cykl: 4.9)
-Wersja LTS: Tak
-Data wydania: 2019-06-04
-Koniec wsparcia (EOL): False
-Wsparcie komercyjne do: 2019-12-31
-Najnowsza wersja w cyklu: 4.9.11</description></item><item><title>EoL: OpenSSL - Cycle 1.0.2 (LTS)</title><link>https://endoflife.date/openssl</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><description>Produkt: OpenSSL (Cykl: 1.0.2)
+Najnowsza wersja w cyklu: 8.17.0</description></item><item><title>EoL: OpenSSL - Cycle 1.0.2 (LTS)</title><link>https://endoflife.date/openssl</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><description>Produkt: OpenSSL (Cykl: 1.0.2)
 Wersja LTS: Tak
 Data wydania: 2015-01-22
 Koniec wsparcia (EOL): 2019-12-31
 Najnowsza wersja w cyklu: 1.0.2u
-Link do cyklu: https://openssl-library.org/news/vulnerabilities-1.0.2/</description></item><item><title>EoL: Rocket.Chat - Cycle 1.2</title><link>https://endoflife.date/rocket-chat</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 1.2)
+Link do cyklu: https://openssl-library.org/news/vulnerabilities-1.0.2/</description></item><item><title>EoL: phpMyAdmin - Cycle 4.9 (LTS)</title><link>https://endoflife.date/phpmyadmin</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><description>Produkt: phpMyAdmin (Cykl: 4.9)
+Wersja LTS: Tak
+Data wydania: 2019-06-04
+Koniec wsparcia (EOL): False
+Wsparcie komercyjne do: 2019-12-31
+Najnowsza wersja w cyklu: 4.9.11</description></item><item><title>EoL: Rocket.Chat - Cycle 1.2</title><link>https://endoflife.date/rocket-chat</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><description>Produkt: Rocket.Chat (Cykl: 1.2)
 Data wydania: 2019-06-27
 Koniec wsparcia (EOL): 2019-12-31
 Wsparcie komercyjne do: 2019-08-02
@@ -15469,17 +15469,17 @@ Koniec wsparcia (EOL): 2019-11-14
 Najnowsza wersja w cyklu: 7.6.17</description></item><item><title>EoL: Argo CD - Cycle 1.0</title><link>https://endoflife.date/argo-cd</link><pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Argo CD (Cykl: 1.0)
 Data wydania: 2019-05-16
 Koniec wsparcia (EOL): 2019-11-13
-Najnowsza wersja w cyklu: 1.0.2</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1803-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1803-w)
+Najnowsza wersja w cyklu: 1.0.2</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1803</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1803)
 Data wydania: 2018-04-30
 Koniec wsparcia (EOL): 2019-11-12
 Wsparcie komercyjne do: 2019-11-12
 Najnowsza wersja w cyklu: 10.0.17134
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1803</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1803)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1803-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1803-w)
 Data wydania: 2018-04-30
 Koniec wsparcia (EOL): 2019-11-12
 Wsparcie komercyjne do: 2019-11-12
 Najnowsza wersja w cyklu: 10.0.17134
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1803-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1803-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1803-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1803-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1803-sac)
 Data wydania: 2018-04-30
 Koniec wsparcia (EOL): 2019-11-12
 Wsparcie komercyjne do: 2019-11-12
@@ -16068,13 +16068,13 @@ Koniec wsparcia (EOL): 2019-04-30
 Najnowsza wersja w cyklu: 1.7.41</description></item><item><title>EoL: coldfusion - Cycle 11</title><link>https://endoflife.date/coldfusion</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: coldfusion (Cykl: 11)
 Data wydania: 2014-04-29
 Koniec wsparcia (EOL): 2019-04-30
-Najnowsza wersja w cyklu: 11.0.19.314546</description></item><item><title>EoL: NixOS - Cycle 18.09</title><link>https://endoflife.date/nixos</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: NixOS (Cykl: 18.09)
-Data wydania: 2018-10-05
-Koniec wsparcia (EOL): 2019-04-30</description></item><item><title>EoL: Node.js - Cycle 6</title><link>https://endoflife.date/node-js</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Node.js (Cykl: 6)
+Najnowsza wersja w cyklu: 11.0.19.314546</description></item><item><title>EoL: Node.js - Cycle 6</title><link>https://endoflife.date/node-js</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Node.js (Cykl: 6)
 Data wydania: 2016-04-26
 Koniec wsparcia (EOL): 2019-04-30
 Wsparcie komercyjne do: 2018-04-30
-Najnowsza wersja w cyklu: 6.17.1</description></item><item><title>EoL: Nutanix AOS - Cycle 5.9</title><link>https://endoflife.date/nutanix-aos</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Nutanix AOS (Cykl: 5.9)
+Najnowsza wersja w cyklu: 6.17.1</description></item><item><title>EoL: NixOS - Cycle 18.09</title><link>https://endoflife.date/nixos</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: NixOS (Cykl: 18.09)
+Data wydania: 2018-10-05
+Koniec wsparcia (EOL): 2019-04-30</description></item><item><title>EoL: Nutanix AOS - Cycle 5.9</title><link>https://endoflife.date/nutanix-aos</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Nutanix AOS (Cykl: 5.9)
 Data wydania: 2018-10-04
 Koniec wsparcia (EOL): 2019-04-30
 Wsparcie komercyjne do: 2019-01-31
@@ -16111,7 +16111,12 @@ Wsparcie komercyjne do: 2019-03-11</description></item><item><title>EoL: Amazon 
 Data wydania: 2019-04-10
 Koniec wsparcia (EOL): False
 Najnowsza wersja w cyklu: 5.16.10.0.1
-Link do cyklu: https://www.amazon.com/Kindle10Notes</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1709-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1709-w)
+Link do cyklu: https://www.amazon.com/Kindle10Notes</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1709</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1709)
+Data wydania: 2017-10-17
+Koniec wsparcia (EOL): 2019-04-09
+Wsparcie komercyjne do: 2019-04-09
+Najnowsza wersja w cyklu: 10.0.16299
+Link do cyklu: https://techcommunity.microsoft.com/t5/windows-server-for-developers/windows-server-version-1709-lifecycle-announcement/m-p/379766</description></item><item><title>EoL: Microsoft Windows - Cycle 10-1709-w</title><link>https://endoflife.date/microsoft-windows</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows (Cykl: 10-1709-w)
 Data wydania: 2017-10-17
 Koniec wsparcia (EOL): 2019-04-09
 Wsparcie komercyjne do: 2019-04-09
@@ -16121,12 +16126,7 @@ Data wydania: 2016-08-02
 Koniec wsparcia (EOL): 2019-04-09
 Wsparcie komercyjne do: 2019-04-09
 Najnowsza wersja w cyklu: 10.0.14393
-Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1607-end-of-servicing</description></item><item><title>EoL: Microsoft Nano Server - Cycle 1709</title><link>https://endoflife.date/microsoft-nano-server</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Nano Server (Cykl: 1709)
-Data wydania: 2017-10-17
-Koniec wsparcia (EOL): 2019-04-09
-Wsparcie komercyjne do: 2019-04-09
-Najnowsza wersja w cyklu: 10.0.16299
-Link do cyklu: https://techcommunity.microsoft.com/t5/windows-server-for-developers/windows-server-version-1709-lifecycle-announcement/m-p/379766</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1709-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1709-sac)
+Link do cyklu: https://learn.microsoft.com/lifecycle/announcements/windows-10-1607-end-of-servicing</description></item><item><title>EoL: Microsoft Windows Server - Cycle 1709-sac</title><link>https://endoflife.date/microsoft-windows-server</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><description>Produkt: Microsoft Windows Server (Cykl: 1709-sac)
 Data wydania: 2017-10-17
 Koniec wsparcia (EOL): 2019-04-09
 Wsparcie komercyjne do: 2019-04-09
@@ -16347,15 +16347,15 @@ Wsparcie komercyjne do: 2014-11-25
 Najnowsza wersja w cyklu: 11.1.7</description></item><item><title>EoL: IBM AIX - Cycle 7.2.0</title><link>https://endoflife.date/ibm-aix</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Produkt: IBM AIX (Cykl: 7.2.0)
 Data wydania: 2015-12-31
 Koniec wsparcia (EOL): 2018-12-31
-Najnowsza wersja w cyklu: 7.2.0</description></item><item><title>EoL: Icinga - Cycle 1</title><link>https://endoflife.date/icinga</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Produkt: Icinga (Cykl: 1)
-Data wydania: 2009-12-15
-Koniec wsparcia (EOL): 2018-12-31
-Wsparcie komercyjne do: 2014-06-16
-Najnowsza wersja w cyklu: 1.14.2</description></item><item><title>EoL: Icinga Web - Cycle 1</title><link>https://endoflife.date/icinga-web</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Produkt: Icinga Web (Cykl: 1)
+Najnowsza wersja w cyklu: 7.2.0</description></item><item><title>EoL: Icinga Web - Cycle 1</title><link>https://endoflife.date/icinga-web</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Produkt: Icinga Web (Cykl: 1)
 Data wydania: 2010-06-30
 Koniec wsparcia (EOL): 2018-12-31
 Wsparcie komercyjne do: 2015-10-02
-Najnowsza wersja w cyklu: 1.14.1</description></item><item><title>EoL: MySQL - Cycle 5.5</title><link>https://endoflife.date/mysql</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 5.5)
+Najnowsza wersja w cyklu: 1.14.1</description></item><item><title>EoL: Icinga - Cycle 1</title><link>https://endoflife.date/icinga</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Produkt: Icinga (Cykl: 1)
+Data wydania: 2009-12-15
+Koniec wsparcia (EOL): 2018-12-31
+Wsparcie komercyjne do: 2014-06-16
+Najnowsza wersja w cyklu: 1.14.2</description></item><item><title>EoL: MySQL - Cycle 5.5</title><link>https://endoflife.date/mysql</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 5.5)
 Data wydania: 2010-12-03
 Koniec wsparcia (EOL): 2018-12-31
 Wsparcie komercyjne do: 2015-12-31
@@ -16850,13 +16850,13 @@ Koniec wsparcia (EOL): 2018-04-30</description></item><item><title>EoL: IBM iSer
 Data wydania: 2010-04-23
 Koniec wsparcia (EOL): 2018-04-30
 Najnowsza wersja w cyklu: 7.1.0
-Link do cyklu: https://www.ibm.com/support/pages/customer-notices-and-information-ibm-i-71</description></item><item><title>EoL: NixOS - Cycle 17.09</title><link>https://endoflife.date/nixos</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><description>Produkt: NixOS (Cykl: 17.09)
-Data wydania: 2017-09-29
-Koniec wsparcia (EOL): 2018-04-30</description></item><item><title>EoL: Node.js - Cycle 4</title><link>https://endoflife.date/node-js</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><description>Produkt: Node.js (Cykl: 4)
+Link do cyklu: https://www.ibm.com/support/pages/customer-notices-and-information-ibm-i-71</description></item><item><title>EoL: Node.js - Cycle 4</title><link>https://endoflife.date/node-js</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><description>Produkt: Node.js (Cykl: 4)
 Data wydania: 2015-09-09
 Koniec wsparcia (EOL): 2018-04-30
 Wsparcie komercyjne do: 2017-04-01
-Najnowsza wersja w cyklu: 4.9.1</description></item><item><title>EoL: VirtualBox - Cycle 5.1</title><link>https://endoflife.date/virtualbox</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><description>Produkt: VirtualBox (Cykl: 5.1)
+Najnowsza wersja w cyklu: 4.9.1</description></item><item><title>EoL: NixOS - Cycle 17.09</title><link>https://endoflife.date/nixos</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><description>Produkt: NixOS (Cykl: 17.09)
+Data wydania: 2017-09-29
+Koniec wsparcia (EOL): 2018-04-30</description></item><item><title>EoL: VirtualBox - Cycle 5.1</title><link>https://endoflife.date/virtualbox</link><pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate><description>Produkt: VirtualBox (Cykl: 5.1)
 Data wydania: 2016-07-12
 Koniec wsparcia (EOL): 2018-04-30
 Najnowsza wersja w cyklu: 5.1.38</description></item><item><title>EoL: CKEditor - Cycle 5</title><link>https://endoflife.date/ckeditor</link><pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate><description>Produkt: CKEditor (Cykl: 5)
@@ -17682,15 +17682,15 @@ Koniec wsparcia (EOL): 2016-12-15
 Najnowsza wersja w cyklu: 2.0.2</description></item><item><title>EoL: NVIDIA GPUs - Cycle consumer-tesla</title><link>https://endoflife.date/nvidia-gpus</link><pubDate>Wed, 14 Dec 2016 00:00:00 +0000</pubDate><description>Produkt: NVIDIA GPUs (Cykl: consumer-tesla)
 Data wydania: 2006-11-08
 Koniec wsparcia (EOL): 2016-12-14
-Wsparcie komercyjne do: 2016-04-01</description></item><item><title>EoL: Icinga - Cycle 2.5</title><link>https://endoflife.date/icinga</link><pubDate>Tue, 13 Dec 2016 00:00:00 +0000</pubDate><description>Produkt: Icinga (Cykl: 2.5)
-Data wydania: 2016-08-22
-Koniec wsparcia (EOL): 2016-12-13
-Wsparcie komercyjne do: 2016-12-13
-Najnowsza wersja w cyklu: 2.5.4</description></item><item><title>EoL: Icinga Web - Cycle 2.3</title><link>https://endoflife.date/icinga-web</link><pubDate>Tue, 13 Dec 2016 00:00:00 +0000</pubDate><description>Produkt: Icinga Web (Cykl: 2.3)
+Wsparcie komercyjne do: 2016-04-01</description></item><item><title>EoL: Icinga Web - Cycle 2.3</title><link>https://endoflife.date/icinga-web</link><pubDate>Tue, 13 Dec 2016 00:00:00 +0000</pubDate><description>Produkt: Icinga Web (Cykl: 2.3)
 Data wydania: 2016-04-13
 Koniec wsparcia (EOL): 2016-12-13
 Wsparcie komercyjne do: 2016-12-13
-Najnowsza wersja w cyklu: 2.3.4</description></item><item><title>EoL: WordPress - Cycle 4.6</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate><description>Produkt: WordPress (Cykl: 4.6)
+Najnowsza wersja w cyklu: 2.3.4</description></item><item><title>EoL: Icinga - Cycle 2.5</title><link>https://endoflife.date/icinga</link><pubDate>Tue, 13 Dec 2016 00:00:00 +0000</pubDate><description>Produkt: Icinga (Cykl: 2.5)
+Data wydania: 2016-08-22
+Koniec wsparcia (EOL): 2016-12-13
+Wsparcie komercyjne do: 2016-12-13
+Najnowsza wersja w cyklu: 2.5.4</description></item><item><title>EoL: WordPress - Cycle 4.6</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate><description>Produkt: WordPress (Cykl: 4.6)
 Data wydania: 2016-08-16
 Koniec wsparcia (EOL): 2016-12-06
 Najnowsza wersja w cyklu: 4.6.29</description></item><item><title>EoL: Apple macOS - Cycle 10.9</title><link>https://endoflife.date/apple-macos</link><pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate><description>Produkt: Apple macOS (Cykl: 10.9)
@@ -18167,15 +18167,15 @@ Najnowsza wersja w cyklu: 0.8.2.2
 Link do cyklu: https://archive.apache.org/dist/kafka/__LATEST__/RELEASE_NOTES.html</description></item><item><title>EoL: Apache Hadoop - Cycle 2.5</title><link>https://endoflife.date/apache-hadoop</link><pubDate>Thu, 19 Nov 2015 00:00:00 +0000</pubDate><description>Produkt: Apache Hadoop (Cykl: 2.5)
 Data wydania: 2014-09-11
 Koniec wsparcia (EOL): 2015-11-19
-Najnowsza wersja w cyklu: 2.5.2</description></item><item><title>EoL: Icinga - Cycle 2.3</title><link>https://endoflife.date/icinga</link><pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate><description>Produkt: Icinga (Cykl: 2.3)
-Data wydania: 2015-03-09
-Koniec wsparcia (EOL): 2015-11-16
-Wsparcie komercyjne do: 2015-11-16
-Najnowsza wersja w cyklu: 2.3.11</description></item><item><title>EoL: Icinga Web - Cycle 2.0</title><link>https://endoflife.date/icinga-web</link><pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate><description>Produkt: Icinga Web (Cykl: 2.0)
+Najnowsza wersja w cyklu: 2.5.2</description></item><item><title>EoL: Icinga Web - Cycle 2.0</title><link>https://endoflife.date/icinga-web</link><pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate><description>Produkt: Icinga Web (Cykl: 2.0)
 Data wydania: 2015-10-02
 Koniec wsparcia (EOL): 2015-11-16
 Wsparcie komercyjne do: 2015-11-16
-Najnowsza wersja w cyklu: 2.0.0</description></item><item><title>EoL: NetBSD - Cycle 5</title><link>https://endoflife.date/netbsd</link><pubDate>Wed, 11 Nov 2015 00:00:00 +0000</pubDate><description>Produkt: NetBSD (Cykl: 5)
+Najnowsza wersja w cyklu: 2.0.0</description></item><item><title>EoL: Icinga - Cycle 2.3</title><link>https://endoflife.date/icinga</link><pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate><description>Produkt: Icinga (Cykl: 2.3)
+Data wydania: 2015-03-09
+Koniec wsparcia (EOL): 2015-11-16
+Wsparcie komercyjne do: 2015-11-16
+Najnowsza wersja w cyklu: 2.3.11</description></item><item><title>EoL: NetBSD - Cycle 5</title><link>https://endoflife.date/netbsd</link><pubDate>Wed, 11 Nov 2015 00:00:00 +0000</pubDate><description>Produkt: NetBSD (Cykl: 5)
 Data wydania: 2009-04-29
 Koniec wsparcia (EOL): 2015-11-11
 Wsparcie komercyjne do: 2012-10-17
