@@ -1930,14 +1930,14 @@ Koniec wsparcia (EOL): 2026-06-30</description></item><item><title>EoL: Grafana 
 Data wydania: 2025-03-25
 Koniec wsparcia (EOL): 2026-06-30
 Wsparcie komercyjne do: 2025-05-05
-Najnowsza wersja w cyklu: 11.6.3</description></item><item><title>EoL: Mautic - Cycle 5.2</title><link>https://endoflife.date/mautic</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Produkt: Mautic (Cykl: 5.2)
+Najnowsza wersja w cyklu: 11.6.3</description></item><item><title>EoL: MediaWiki - Cycle 1.44</title><link>https://endoflife.date/mediawiki</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Produkt: MediaWiki (Cykl: 1.44)
+Data wydania: 2025-07-02
+Koniec wsparcia (EOL): 2026-06-30
+Najnowsza wersja w cyklu: 1.44.0</description></item><item><title>EoL: Mautic - Cycle 5.2</title><link>https://endoflife.date/mautic</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Produkt: Mautic (Cykl: 5.2)
 Data wydania: 2024-12-02
 Koniec wsparcia (EOL): 2026-06-30
 Wsparcie komercyjne do: 2025-06-30
-Najnowsza wersja w cyklu: 5.2.7</description></item><item><title>EoL: MediaWiki - Cycle 1.44</title><link>https://endoflife.date/mediawiki</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Produkt: MediaWiki (Cykl: 1.44)
-Data wydania: 2025-07-02
-Koniec wsparcia (EOL): 2026-06-30
-Najnowsza wersja w cyklu: 1.44.0</description></item><item><title>EoL: MX Linux - Cycle 21</title><link>https://endoflife.date/mx-linux</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Produkt: MX Linux (Cykl: 21)
+Najnowsza wersja w cyklu: 5.2.7</description></item><item><title>EoL: MX Linux - Cycle 21</title><link>https://endoflife.date/mx-linux</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Produkt: MX Linux (Cykl: 21)
 Data wydania: 2021-10-21
 Koniec wsparcia (EOL): 2026-06-30
 Wsparcie komercyjne do: 2024-06-30
@@ -2667,11 +2667,7 @@ Najnowsza wersja w cyklu: 2.0.5</description></item><item><title>EoL: Nexus Repo
 Data wydania: 2024-05-07
 Koniec wsparcia (EOL): 2025-11-07
 Wsparcie komercyjne do: 2025-05-07
-Najnowsza wersja w cyklu: 3.68.1-02</description></item><item><title>EoL: Alpine Linux - Cycle 3.19</title><link>https://endoflife.date/alpine-linux</link><pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate><description>Produkt: Alpine Linux (Cykl: 3.19)
-Data wydania: 2023-12-07
-Koniec wsparcia (EOL): 2025-11-01
-Najnowsza wersja w cyklu: 3.19.7
-Link do cyklu: https://alpinelinux.org/posts/Alpine-3.17.10-3.18.9-3.19.4-3.20.3-released.html</description></item><item><title>EoL: AWS Lambda - Cycle nodejs18.x</title><link>https://endoflife.date/aws-lambda</link><pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate><description>Produkt: AWS Lambda (Cykl: nodejs18.x)
+Najnowsza wersja w cyklu: 3.68.1-02</description></item><item><title>EoL: AWS Lambda - Cycle nodejs18.x</title><link>https://endoflife.date/aws-lambda</link><pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate><description>Produkt: AWS Lambda (Cykl: nodejs18.x)
 Data wydania: 2022-11-18
 Koniec wsparcia (EOL): 2025-11-01
 Wsparcie komercyjne do: 2025-09-01
@@ -2711,7 +2707,11 @@ Link do cyklu: https://aws.amazon.com/blogs/compute/announcing-go-support-for-aw
 Data wydania: 2015-06-15
 Koniec wsparcia (EOL): 2025-11-01
 Wsparcie komercyjne do: 2024-01-08
-Link do cyklu: https://aws.amazon.com/about-aws/whats-new/2015/06/aws-lambda-supports-java/</description></item><item><title>EoL: Nokia Mobile - Cycle xr20</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: xr20)
+Link do cyklu: https://aws.amazon.com/about-aws/whats-new/2015/06/aws-lambda-supports-java/</description></item><item><title>EoL: Alpine Linux - Cycle 3.19</title><link>https://endoflife.date/alpine-linux</link><pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate><description>Produkt: Alpine Linux (Cykl: 3.19)
+Data wydania: 2023-12-07
+Koniec wsparcia (EOL): 2025-11-01
+Najnowsza wersja w cyklu: 3.19.7
+Link do cyklu: https://alpinelinux.org/posts/Alpine-3.17.10-3.18.9-3.19.4-3.20.3-released.html</description></item><item><title>EoL: Nokia Mobile - Cycle xr20</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: xr20)
 Data wydania: 2021-08-04
 Koniec wsparcia (EOL): 2025-11-01
 Link do cyklu: https://www.nokia.com/phones/en_int/nokia-xr-20</description></item><item><title>EoL: OpenBSD - Cycle 7.6</title><link>https://endoflife.date/openbsd</link><pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate><description>Produkt: OpenBSD (Cykl: 7.6)
@@ -3265,17 +3265,17 @@ Wsparcie komercyjne do: True
 Najnowsza wersja w cyklu: 15.02.2562.017
 Link do cyklu: https://support.microsoft.com/help/5047155</description></item><item><title>EoL: FreeBSD - Cycle 13.4</title><link>https://endoflife.date/freebsd</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: FreeBSD (Cykl: 13.4)
 Data wydania: 2024-09-17
-Koniec wsparcia (EOL): 2025-06-30</description></item><item><title>EoL: Graylog - Cycle 6.3</title><link>https://endoflife.date/graylog</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: Graylog (Cykl: 6.3)
+Koniec wsparcia (EOL): 2025-06-30</description></item><item><title>EoL: Grafana - Cycle 10.4</title><link>https://endoflife.date/grafana</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: Grafana (Cykl: 10.4)
+Data wydania: 2024-03-05
+Koniec wsparcia (EOL): 2025-06-30
+Wsparcie komercyjne do: 2025-06-30
+Najnowsza wersja w cyklu: 10.4.19+security-01</description></item><item><title>EoL: Graylog - Cycle 6.3</title><link>https://endoflife.date/graylog</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: Graylog (Cykl: 6.3)
 Data wydania: 2025-06-30
 Koniec wsparcia (EOL): False
 Najnowsza wersja w cyklu: 6.3.1</description></item><item><title>EoL: Graylog - Cycle 6.1</title><link>https://endoflife.date/graylog</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: Graylog (Cykl: 6.1)
 Data wydania: 2024-10-18
 Koniec wsparcia (EOL): 2025-06-30
-Najnowsza wersja w cyklu: 6.1.13</description></item><item><title>EoL: Grafana - Cycle 10.4</title><link>https://endoflife.date/grafana</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: Grafana (Cykl: 10.4)
-Data wydania: 2024-03-05
-Koniec wsparcia (EOL): 2025-06-30
-Wsparcie komercyjne do: 2025-06-30
-Najnowsza wersja w cyklu: 10.4.19+security-01</description></item><item><title>EoL: Intel Processors - Cycle coffee-lake</title><link>https://endoflife.date/intel-processors</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: Intel Processors (Cykl: coffee-lake)
+Najnowsza wersja w cyklu: 6.1.13</description></item><item><title>EoL: Intel Processors - Cycle coffee-lake</title><link>https://endoflife.date/intel-processors</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: Intel Processors (Cykl: coffee-lake)
 Data wydania: 2017-10-05
 Koniec wsparcia (EOL): 2025-06-30
 Link do cyklu: https://ark.intel.com/content/www/us/en/ark/products/codename/97787/products-formerly-coffee-lake.html</description></item><item><title>EoL: MediaWiki - Cycle 1.42</title><link>https://endoflife.date/mediawiki</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Produkt: MediaWiki (Cykl: 1.42)
@@ -4182,7 +4182,17 @@ Wsparcie komercyjne do: 2024-08-27
 Najnowsza wersja w cyklu: 11.1.13</description></item><item><title>EoL: IBM Semeru Runtime - Cycle 23</title><link>https://endoflife.date/ibm-semeru-runtime</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: IBM Semeru Runtime (Cykl: 23)
 Data wydania: 2024-09-18
 Koniec wsparcia (EOL): 2025-03-31
-Najnowsza wersja w cyklu: 23.0.2+7</description></item><item><title>EoL: Apple iPad - Cycle 5</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: 5)
+Najnowsza wersja w cyklu: 23.0.2+7</description></item><item><title>EoL: Apple iOS - Cycle 16</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 16)
+Data wydania: 2022-09-12
+Koniec wsparcia (EOL): 2025-03-31
+Wsparcie komercyjne do: 2023-09-18
+Najnowsza wersja w cyklu: 16.7.11
+Link do cyklu: https://support.apple.com/HT213407</description></item><item><title>EoL: Apple iOS - Cycle 15</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 15)
+Data wydania: 2021-09-20
+Koniec wsparcia (EOL): 2025-03-31
+Wsparcie komercyjne do: 2022-09-12
+Najnowsza wersja w cyklu: 15.8.4
+Link do cyklu: https://support.apple.com/HT212788</description></item><item><title>EoL: Apple iPad - Cycle 5</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: 5)
 Data wydania: 2017-03-24
 Koniec wsparcia (EOL): 2025-03-31
 Link do cyklu: https://support.apple.com/kb/SP751</description></item><item><title>EoL: Apple iPad - Cycle pro-1-9</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: pro-1-9)
@@ -4194,17 +4204,7 @@ Koniec wsparcia (EOL): 2025-03-31
 Link do cyklu: https://support.apple.com/en-us/112024</description></item><item><title>EoL: Apple iPad - Cycle mini-4</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: mini-4)
 Data wydania: 2015-09-09
 Koniec wsparcia (EOL): 2025-03-31
-Link do cyklu: https://support.apple.com/kb/SP725</description></item><item><title>EoL: Apple iOS - Cycle 16</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 16)
-Data wydania: 2022-09-12
-Koniec wsparcia (EOL): 2025-03-31
-Wsparcie komercyjne do: 2023-09-18
-Najnowsza wersja w cyklu: 16.7.11
-Link do cyklu: https://support.apple.com/HT213407</description></item><item><title>EoL: Apple iOS - Cycle 15</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 15)
-Data wydania: 2021-09-20
-Koniec wsparcia (EOL): 2025-03-31
-Wsparcie komercyjne do: 2022-09-12
-Najnowsza wersja w cyklu: 15.8.4
-Link do cyklu: https://support.apple.com/HT212788</description></item><item><title>EoL: Apple iPadOS - Cycle 16</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 16)
+Link do cyklu: https://support.apple.com/kb/SP725</description></item><item><title>EoL: Apple iPadOS - Cycle 16</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 16)
 Data wydania: 2022-10-24
 Koniec wsparcia (EOL): 2025-03-31
 Wsparcie komercyjne do: 2023-09-18
@@ -4249,11 +4249,7 @@ Link do cyklu: https://www.googlecloudcommunity.com/gc/News-Announcements/Looker
 Data wydania: 2023-08-27
 Koniec wsparcia (EOL): 2025-03-31
 Najnowsza wersja w cyklu: 9
-Link do cyklu: https://wiki.mageia.org/en/Mageia___RELEASE_CYCLE___Release_Notes</description></item><item><title>EoL: MySQL - Cycle 9.3</title><link>https://endoflife.date/mysql</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 9.3)
-Data wydania: 2025-03-31
-Koniec wsparcia (EOL): False
-Wsparcie komercyjne do: True
-Najnowsza wersja w cyklu: 9.3.0</description></item><item><title>EoL: Neos - Cycle 8.2</title><link>https://endoflife.date/neos</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Neos (Cykl: 8.2)
+Link do cyklu: https://wiki.mageia.org/en/Mageia___RELEASE_CYCLE___Release_Notes</description></item><item><title>EoL: Neos - Cycle 8.2</title><link>https://endoflife.date/neos</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Neos (Cykl: 8.2)
 Data wydania: 2022-12-01
 Koniec wsparcia (EOL): 2025-03-31
 Wsparcie komercyjne do: 2024-03-31
@@ -4270,7 +4266,11 @@ Wersja LTS: Tak
 Data wydania: 2021-12-08
 Koniec wsparcia (EOL): 2025-03-31
 Wsparcie komercyjne do: 2024-03-31
-Najnowsza wersja w cyklu: 7.3.21</description></item><item><title>EoL: Prometheus - Cycle 3.2</title><link>https://endoflife.date/prometheus</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Prometheus (Cykl: 3.2)
+Najnowsza wersja w cyklu: 7.3.21</description></item><item><title>EoL: MySQL - Cycle 9.3</title><link>https://endoflife.date/mysql</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 9.3)
+Data wydania: 2025-03-31
+Koniec wsparcia (EOL): False
+Wsparcie komercyjne do: True
+Najnowsza wersja w cyklu: 9.3.0</description></item><item><title>EoL: Prometheus - Cycle 3.2</title><link>https://endoflife.date/prometheus</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Prometheus (Cykl: 3.2)
 Data wydania: 2025-02-17
 Koniec wsparcia (EOL): 2025-03-31
 Najnowsza wersja w cyklu: 3.2.1</description></item><item><title>EoL: Rancher - Cycle 2.11</title><link>https://endoflife.date/rancher</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Rancher (Cykl: 2.11)
@@ -4402,16 +4402,16 @@ Link do cyklu: https://doc.samsungmobile.com/sm-a526b/dbt/doc.html</description>
 Data wydania: 2022-03-16
 Koniec wsparcia (EOL): 2025-03-16
 Wsparcie komercyjne do: 2024-03-16
-Link do cyklu: https://doc.samsungmobile.com/SM-E236B/INS/doc.html</description></item><item><title>EoL: Mattermost - Cycle 10.3</title><link>https://endoflife.date/mattermost</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Mattermost (Cykl: 10.3)
+Link do cyklu: https://doc.samsungmobile.com/SM-E236B/INS/doc.html</description></item><item><title>EoL: Amazon Neptune - Cycle 1.1.0.0</title><link>https://endoflife.date/amazon-neptune</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Amazon Neptune (Cykl: 1.1.0.0)
+Data wydania: 2021-11-19
+Koniec wsparcia (EOL): 2025-03-15
+Najnowsza wersja w cyklu: 1.1.0.0.R2</description></item><item><title>EoL: Mattermost - Cycle 10.3</title><link>https://endoflife.date/mattermost</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Mattermost (Cykl: 10.3)
 Data wydania: 2024-12-16
 Koniec wsparcia (EOL): 2025-03-15
 Najnowsza wersja w cyklu: 10.3.4</description></item><item><title>EoL: Varnish - Cycle 7.5</title><link>https://endoflife.date/varnish</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Varnish (Cykl: 7.5)
 Data wydania: 2024-03-18
 Koniec wsparcia (EOL): 2025-03-15
-Najnowsza wersja w cyklu: 7.5.0</description></item><item><title>EoL: Amazon Neptune - Cycle 1.1.0.0</title><link>https://endoflife.date/amazon-neptune</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Amazon Neptune (Cykl: 1.1.0.0)
-Data wydania: 2021-11-19
-Koniec wsparcia (EOL): 2025-03-15
-Najnowsza wersja w cyklu: 1.1.0.0.R2</description></item><item><title>EoL: Citrix Virtual Apps and Desktops - Cycle 2308</title><link>https://endoflife.date/citrix-virtual-apps-and-desktops</link><pubDate>Fri, 14 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Citrix Virtual Apps and Desktops (Cykl: 2308)
+Najnowsza wersja w cyklu: 7.5.0</description></item><item><title>EoL: Citrix Virtual Apps and Desktops - Cycle 2308</title><link>https://endoflife.date/citrix-virtual-apps-and-desktops</link><pubDate>Fri, 14 Mar 2025 00:00:00 +0000</pubDate><description>Produkt: Citrix Virtual Apps and Desktops (Cykl: 2308)
 Data wydania: 2023-09-14
 Koniec wsparcia (EOL): 2025-03-14
 Wsparcie komercyjne do: 2024-03-14
@@ -4970,14 +4970,14 @@ Link do cyklu: https://lineageos.org/Changelog-29/</description></item><item><ti
 Data wydania: 2024-09-11
 Koniec wsparcia (EOL): 2024-12-31
 Najnowsza wersja w cyklu: 24.16
-Link do cyklu: https://www.googlecloudcommunity.com/gc/News-Announcements/Looker-24-16-Release-Notes/td-p/805026</description></item><item><title>EoL: Mautic - Cycle 4.4</title><link>https://endoflife.date/mautic</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Mautic (Cykl: 4.4)
+Link do cyklu: https://www.googlecloudcommunity.com/gc/News-Announcements/Looker-24-16-Release-Notes/td-p/805026</description></item><item><title>EoL: MediaWiki - Cycle 1.41</title><link>https://endoflife.date/mediawiki</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: MediaWiki (Cykl: 1.41)
+Data wydania: 2023-12-21
+Koniec wsparcia (EOL): 2024-12-31
+Najnowsza wersja w cyklu: 1.41.5</description></item><item><title>EoL: Mautic - Cycle 4.4</title><link>https://endoflife.date/mautic</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Mautic (Cykl: 4.4)
 Data wydania: 2022-06-27
 Koniec wsparcia (EOL): 2024-12-31
 Wsparcie komercyjne do: 2024-01-09
-Najnowsza wersja w cyklu: 4.4.13</description></item><item><title>EoL: MediaWiki - Cycle 1.41</title><link>https://endoflife.date/mediawiki</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: MediaWiki (Cykl: 1.41)
-Data wydania: 2023-12-21
-Koniec wsparcia (EOL): 2024-12-31
-Najnowsza wersja w cyklu: 1.41.5</description></item><item><title>EoL: Nextcloud - Cycle 28</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 28)
+Najnowsza wersja w cyklu: 4.4.13</description></item><item><title>EoL: Nextcloud - Cycle 28</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 28)
 Data wydania: 2023-12-12
 Koniec wsparcia (EOL): 2024-12-31
 Najnowsza wersja w cyklu: 28.0.14</description></item><item><title>EoL: NixOS - Cycle 24.05</title><link>https://endoflife.date/nixos</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Produkt: NixOS (Cykl: 24.05)
@@ -5897,15 +5897,15 @@ Koniec wsparcia (EOL): 2024-09-16
 Link do cyklu: https://support.apple.com/kb/SP808</description></item><item><title>EoL: Apple Watch - Cycle series-4</title><link>https://endoflife.date/apple-watch</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple Watch (Cykl: series-4)
 Data wydania: 2018-09-21
 Koniec wsparcia (EOL): 2024-09-16
-Link do cyklu: https://support.apple.com/kb/SP778</description></item><item><title>EoL: Apple iPad - Cycle air-2</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: air-2)
-Data wydania: 2014-10-22
-Koniec wsparcia (EOL): 2024-09-16
-Link do cyklu: https://support.apple.com/kb/SP708</description></item><item><title>EoL: Apple iOS - Cycle 18</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 18)
+Link do cyklu: https://support.apple.com/kb/SP778</description></item><item><title>EoL: Apple iOS - Cycle 18</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 18)
 Data wydania: 2024-09-16
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: True
 Najnowsza wersja w cyklu: 18.5
-Link do cyklu: https://support.apple.com/en-us/121161</description></item><item><title>EoL: Apple iPadOS - Cycle 18</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 18)
+Link do cyklu: https://support.apple.com/en-us/121161</description></item><item><title>EoL: Apple iPad - Cycle air-2</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: air-2)
+Data wydania: 2014-10-22
+Koniec wsparcia (EOL): 2024-09-16
+Link do cyklu: https://support.apple.com/kb/SP708</description></item><item><title>EoL: Apple iPadOS - Cycle 18</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><description>Produkt: Apple iPadOS (Cykl: 18)
 Data wydania: 2024-09-16
 Koniec wsparcia (EOL): False
 Wsparcie komercyjne do: True
@@ -6432,15 +6432,15 @@ Wsparcie komercyjne do: 2024-04-30
 Najnowsza wersja w cyklu: 1.26.15-gke.1469001</description></item><item><title>EoL: Looker - Cycle 24.4</title><link>https://endoflife.date/looker</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Looker (Cykl: 24.4)
 Data wydania: 2024-03-13
 Koniec wsparcia (EOL): 2024-06-30
-Najnowsza wersja w cyklu: 24.4</description></item><item><title>EoL: MX Linux - Cycle 19</title><link>https://endoflife.date/mx-linux</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: MX Linux (Cykl: 19)
+Najnowsza wersja w cyklu: 24.4</description></item><item><title>EoL: Nextcloud - Cycle 27</title><link>https://endoflife.date/nextcloud</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 27)
+Data wydania: 2023-06-13
+Koniec wsparcia (EOL): 2024-06-30
+Najnowsza wersja w cyklu: 27.1.11</description></item><item><title>EoL: MX Linux - Cycle 19</title><link>https://endoflife.date/mx-linux</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: MX Linux (Cykl: 19)
 Data wydania: 2019-10-22
 Koniec wsparcia (EOL): 2024-06-30
 Wsparcie komercyjne do: 2022-09-10
 Najnowsza wersja w cyklu: 19.4
-Link do cyklu: https://mxlinux.org/blog/mx-19-4-now-available/</description></item><item><title>EoL: Nextcloud - Cycle 27</title><link>https://endoflife.date/nextcloud</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 27)
-Data wydania: 2023-06-13
-Koniec wsparcia (EOL): 2024-06-30
-Najnowsza wersja w cyklu: 27.1.11</description></item><item><title>EoL: NixOS - Cycle 23.11</title><link>https://endoflife.date/nixos</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: NixOS (Cykl: 23.11)
+Link do cyklu: https://mxlinux.org/blog/mx-19-4-now-available/</description></item><item><title>EoL: NixOS - Cycle 23.11</title><link>https://endoflife.date/nixos</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: NixOS (Cykl: 23.11)
 Data wydania: 2023-11-29
 Koniec wsparcia (EOL): 2024-06-30</description></item><item><title>EoL: Nuxt - Cycle 2</title><link>https://endoflife.date/nuxt</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Produkt: Nuxt (Cykl: 2)
 Data wydania: 2018-09-21
@@ -7522,14 +7522,14 @@ Koniec wsparcia (EOL): 2024-02-01
 Wsparcie komercyjne do: 2024-02-01
 Najnowsza wersja w cyklu: 4.1.9</description></item><item><title>EoL: Zentyal - Cycle 7</title><link>https://endoflife.date/zentyal</link><pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate><description>Produkt: Zentyal (Cykl: 7)
 Data wydania: 2021-01-31
-Koniec wsparcia (EOL): 2024-02-01</description></item><item><title>EoL: Amazon Glue - Cycle 2.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Amazon Glue (Cykl: 2.0)
-Data wydania: 2020-08-10
-Koniec wsparcia (EOL): 2024-01-31
-Link do cyklu: https://aws.amazon.com/blogs/aws/aws-glue-version-2-0-featuring-10x-faster-job-start-times-and-1-minute-minimum-billing-duration/</description></item><item><title>EoL: Amazon EKS - Cycle 1.24</title><link>https://endoflife.date/amazon-eks</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Amazon EKS (Cykl: 1.24)
+Koniec wsparcia (EOL): 2024-02-01</description></item><item><title>EoL: Amazon EKS - Cycle 1.24</title><link>https://endoflife.date/amazon-eks</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Amazon EKS (Cykl: 1.24)
 Data wydania: 2022-11-15
 Koniec wsparcia (EOL): 2024-01-31
 Najnowsza wersja w cyklu: 1.24-eks-45
-Link do cyklu: https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html#platform-versions-1-24</description></item><item><title>EoL: Bazel - Cycle 4 (LTS)</title><link>https://endoflife.date/bazel</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Bazel (Cykl: 4)
+Link do cyklu: https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html#platform-versions-1-24</description></item><item><title>EoL: Amazon Glue - Cycle 2.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Amazon Glue (Cykl: 2.0)
+Data wydania: 2020-08-10
+Koniec wsparcia (EOL): 2024-01-31
+Link do cyklu: https://aws.amazon.com/blogs/aws/aws-glue-version-2-0-featuring-10x-faster-job-start-times-and-1-minute-minimum-billing-duration/</description></item><item><title>EoL: Bazel - Cycle 4 (LTS)</title><link>https://endoflife.date/bazel</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Produkt: Bazel (Cykl: 4)
 Wersja LTS: Tak
 Data wydania: 2021-01-21
 Koniec wsparcia (EOL): 2024-01-31
@@ -8209,14 +8209,14 @@ Koniec wsparcia (EOL): 2023-10-31
 Najnowsza wersja w cyklu: 6.5.8</description></item><item><title>EoL: Mastodon - Cycle 4.0</title><link>https://endoflife.date/mastodon</link><pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Mastodon (Cykl: 4.0)
 Data wydania: 2022-11-14
 Koniec wsparcia (EOL): 2023-10-31
-Najnowsza wersja w cyklu: 4.0.15</description></item><item><title>EoL: MySQL - Cycle 5.7</title><link>https://endoflife.date/mysql</link><pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 5.7)
+Najnowsza wersja w cyklu: 4.0.15</description></item><item><title>EoL: Nextcloud - Cycle 25</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 25)
+Data wydania: 2022-10-19
+Koniec wsparcia (EOL): 2023-10-31
+Najnowsza wersja w cyklu: 25.0.13</description></item><item><title>EoL: MySQL - Cycle 5.7</title><link>https://endoflife.date/mysql</link><pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: MySQL (Cykl: 5.7)
 Data wydania: 2015-10-09
 Koniec wsparcia (EOL): 2023-10-31
 Wsparcie komercyjne do: 2020-10-31
-Najnowsza wersja w cyklu: 5.7.44</description></item><item><title>EoL: Nextcloud - Cycle 25</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 25)
-Data wydania: 2022-10-19
-Koniec wsparcia (EOL): 2023-10-31
-Najnowsza wersja w cyklu: 25.0.13</description></item><item><title>EoL: Quarkus - Cycle 2.16</title><link>https://endoflife.date/quarkus</link><pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Quarkus (Cykl: 2.16)
+Najnowsza wersja w cyklu: 5.7.44</description></item><item><title>EoL: Quarkus - Cycle 2.16</title><link>https://endoflife.date/quarkus</link><pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate><description>Produkt: Quarkus (Cykl: 2.16)
 Data wydania: 2023-01-25
 Koniec wsparcia (EOL): 2023-10-31
 Najnowsza wersja w cyklu: 2.16.12
@@ -10122,7 +10122,12 @@ Wsparcie komercyjne do: 2022-07-26
 Najnowsza wersja w cyklu: 8.83.29</description></item><item><title>EoL: GStreamer - Cycle 1.22</title><link>https://endoflife.date/gstreamer</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: GStreamer (Cykl: 1.22)
 Data wydania: 2023-01-23
 Koniec wsparcia (EOL): True
-Najnowsza wersja w cyklu: 1.22.12</description></item><item><title>EoL: Apple iPad - Cycle mini-3</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: mini-3)
+Najnowsza wersja w cyklu: 1.22.12</description></item><item><title>EoL: Apple iOS - Cycle 12</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 12)
+Data wydania: 2018-09-17
+Koniec wsparcia (EOL): 2023-01-23
+Wsparcie komercyjne do: 2019-09-19
+Najnowsza wersja w cyklu: 12.5.7
+Link do cyklu: https://support.apple.com/HT209084</description></item><item><title>EoL: Apple iPad - Cycle mini-3</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: mini-3)
 Data wydania: 2014-10-22
 Koniec wsparcia (EOL): 2023-01-23
 Link do cyklu: https://support.apple.com/kb/SP709</description></item><item><title>EoL: Apple iPad - Cycle mini-2</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: mini-2)
@@ -10131,12 +10136,7 @@ Koniec wsparcia (EOL): 2023-01-23
 Link do cyklu: https://support.apple.com/kb/SP693</description></item><item><title>EoL: Apple iPad - Cycle air-1</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iPad (Cykl: air-1)
 Data wydania: 2013-11-01
 Koniec wsparcia (EOL): 2023-01-23
-Link do cyklu: https://support.apple.com/kb/SP692</description></item><item><title>EoL: Apple iOS - Cycle 12</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iOS (Cykl: 12)
-Data wydania: 2018-09-17
-Koniec wsparcia (EOL): 2023-01-23
-Wsparcie komercyjne do: 2019-09-19
-Najnowsza wersja w cyklu: 12.5.7
-Link do cyklu: https://support.apple.com/HT209084</description></item><item><title>EoL: Apple iPhone - Cycle 6</title><link>https://endoflife.date/apple-iphone</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iPhone (Cykl: 6)
+Link do cyklu: https://support.apple.com/kb/SP692</description></item><item><title>EoL: Apple iPhone - Cycle 6</title><link>https://endoflife.date/apple-iphone</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iPhone (Cykl: 6)
 Data wydania: 2014-09-25
 Koniec wsparcia (EOL): 2023-01-23
 Link do cyklu: https://support.apple.com/kb/SP705</description></item><item><title>EoL: Apple iPhone - Cycle 6-plus</title><link>https://endoflife.date/apple-iphone</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Produkt: Apple iPhone (Cykl: 6-plus)
@@ -10592,14 +10592,14 @@ Data wydania: 2018-03-20
 Koniec wsparcia (EOL): 2022-11-02
 Wsparcie komercyjne do: 2020-11-02
 Najnowsza wersja w cyklu: 4.1.6-20210419
-Link do cyklu: https://archive.docs.mulesoft.com/release-notes/mule-runtime/mule-4.1.6-release-notes</description></item><item><title>EoL: Alpine Linux - Cycle 3.13</title><link>https://endoflife.date/alpine-linux</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Alpine Linux (Cykl: 3.13)
+Link do cyklu: https://archive.docs.mulesoft.com/release-notes/mule-runtime/mule-4.1.6-release-notes</description></item><item><title>EoL: Amazon EKS - Cycle 1.20</title><link>https://endoflife.date/amazon-eks</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Amazon EKS (Cykl: 1.20)
+Data wydania: 2021-05-18
+Koniec wsparcia (EOL): 2022-11-01
+Najnowsza wersja w cyklu: 1.20-eks-14</description></item><item><title>EoL: Alpine Linux - Cycle 3.13</title><link>https://endoflife.date/alpine-linux</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Alpine Linux (Cykl: 3.13)
 Data wydania: 2021-01-14
 Koniec wsparcia (EOL): 2022-11-01
 Najnowsza wersja w cyklu: 3.13.12
-Link do cyklu: https://alpinelinux.org/posts/Alpine-3.12.12-3.13.10-3.14.6-3.15.4-released.html</description></item><item><title>EoL: Amazon EKS - Cycle 1.20</title><link>https://endoflife.date/amazon-eks</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Amazon EKS (Cykl: 1.20)
-Data wydania: 2021-05-18
-Koniec wsparcia (EOL): 2022-11-01
-Najnowsza wersja w cyklu: 1.20-eks-14</description></item><item><title>EoL: Keycloak - Cycle 19.0</title><link>https://endoflife.date/keycloak</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Keycloak (Cykl: 19.0)
+Link do cyklu: https://alpinelinux.org/posts/Alpine-3.12.12-3.13.10-3.14.6-3.15.4-released.html</description></item><item><title>EoL: Keycloak - Cycle 19.0</title><link>https://endoflife.date/keycloak</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Keycloak (Cykl: 19.0)
 Data wydania: 2022-07-27
 Koniec wsparcia (EOL): 2022-11-01
 Najnowsza wersja w cyklu: 19.0.3</description></item><item><title>EoL: Nokia Mobile - Cycle c3</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: c3)
@@ -12030,7 +12030,10 @@ Koniec wsparcia (EOL): False
 Najnowsza wersja w cyklu: 2.8.5</description></item><item><title>EoL: Nokia Mobile - Cycle 9-pureview</title><link>https://endoflife.date/nokia-mobile</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><description>Produkt: Nokia Mobile (Cykl: 9-pureview)
 Data wydania: 2019-03-13
 Koniec wsparcia (EOL): 2022-03-01
-Link do cyklu: https://www.nokia.com/phones/en_int/nokia-9-pureview</description></item><item><title>EoL: NVIDIA Driver - Cycle r418-windows (LTS)</title><link>https://endoflife.date/nvidia-driver</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><description>Produkt: NVIDIA Driver (Cykl: r418-windows)
+Link do cyklu: https://www.nokia.com/phones/en_int/nokia-9-pureview</description></item><item><title>EoL: NVIDIA GPUs - Cycle mobile-professional-kepler</title><link>https://endoflife.date/nvidia-gpus</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><description>Produkt: NVIDIA GPUs (Cykl: mobile-professional-kepler)
+Data wydania: 2012-03-22
+Koniec wsparcia (EOL): 2022-03-01
+Wsparcie komercyjne do: 2019-04-23</description></item><item><title>EoL: NVIDIA Driver - Cycle r418-windows (LTS)</title><link>https://endoflife.date/nvidia-driver</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><description>Produkt: NVIDIA Driver (Cykl: r418-windows)
 Wersja LTS: Tak
 Data wydania: 2019-02-04
 Koniec wsparcia (EOL): 2022-03-01
@@ -12042,10 +12045,7 @@ Data wydania: 2019-01-30
 Koniec wsparcia (EOL): 2022-03-01
 Wsparcie komercyjne do: 2019-03-20
 Najnowsza wersja w cyklu: 418.197.02
-Link do cyklu: https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-418-19702/</description></item><item><title>EoL: NVIDIA GPUs - Cycle mobile-professional-kepler</title><link>https://endoflife.date/nvidia-gpus</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><description>Produkt: NVIDIA GPUs (Cykl: mobile-professional-kepler)
-Data wydania: 2012-03-22
-Koniec wsparcia (EOL): 2022-03-01
-Wsparcie komercyjne do: 2019-04-23</description></item><item><title>EoL: Palo Alto Networks PAN-OS - Cycle 9.0</title><link>https://endoflife.date/palo-alto-networks-pan-os</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><description>Produkt: Palo Alto Networks PAN-OS (Cykl: 9.0)
+Link do cyklu: https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-418-19702/</description></item><item><title>EoL: Palo Alto Networks PAN-OS - Cycle 9.0</title><link>https://endoflife.date/palo-alto-networks-pan-os</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><description>Produkt: Palo Alto Networks PAN-OS (Cykl: 9.0)
 Data wydania: 2019-02-06
 Koniec wsparcia (EOL): 2022-03-01
 Najnowsza wersja w cyklu: 9.0.17-h5
@@ -14173,14 +14173,14 @@ Koniec wsparcia (EOL): 2020-11-30
 Najnowsza wersja w cyklu: 7.5.4</description></item><item><title>EoL: IBM AIX - Cycle 7.2.5</title><link>https://endoflife.date/ibm-aix</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: IBM AIX (Cykl: 7.2.5)
 Data wydania: 2020-11-30
 Koniec wsparcia (EOL): False
-Najnowsza wersja w cyklu: 7.2.5</description></item><item><title>EoL: Mautic - Cycle 3.1</title><link>https://endoflife.date/mautic</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Mautic (Cykl: 3.1)
+Najnowsza wersja w cyklu: 7.2.5</description></item><item><title>EoL: MediaWiki - Cycle 1.34</title><link>https://endoflife.date/mediawiki</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: MediaWiki (Cykl: 1.34)
+Data wydania: 2019-12-19
+Koniec wsparcia (EOL): 2020-11-30
+Najnowsza wersja w cyklu: 1.34.4</description></item><item><title>EoL: Mautic - Cycle 3.1</title><link>https://endoflife.date/mautic</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Mautic (Cykl: 3.1)
 Data wydania: 2020-08-24
 Koniec wsparcia (EOL): 2020-11-30
 Wsparcie komercyjne do: 2020-11-23
-Najnowsza wersja w cyklu: 3.1.2</description></item><item><title>EoL: MediaWiki - Cycle 1.34</title><link>https://endoflife.date/mediawiki</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: MediaWiki (Cykl: 1.34)
-Data wydania: 2019-12-19
-Koniec wsparcia (EOL): 2020-11-30
-Najnowsza wersja w cyklu: 1.34.4</description></item><item><title>EoL: Nutanix AOS - Cycle 5.17</title><link>https://endoflife.date/nutanix-aos</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Nutanix AOS (Cykl: 5.17)
+Najnowsza wersja w cyklu: 3.1.2</description></item><item><title>EoL: Nutanix AOS - Cycle 5.17</title><link>https://endoflife.date/nutanix-aos</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Produkt: Nutanix AOS (Cykl: 5.17)
 Data wydania: 2020-05-01
 Koniec wsparcia (EOL): 2020-11-30
 Wsparcie komercyjne do: 2020-08-31
@@ -14791,7 +14791,14 @@ Data wydania: 2012-04-29
 Koniec wsparcia (EOL): 2020-06-30</description></item><item><title>EoL: MediaWiki - Cycle 1.33</title><link>https://endoflife.date/mediawiki</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: MediaWiki (Cykl: 1.33)
 Data wydania: 2019-07-02
 Koniec wsparcia (EOL): 2020-06-30
-Najnowsza wersja w cyklu: 1.33.4</description></item><item><title>EoL: MX Linux - Cycle 16</title><link>https://endoflife.date/mx-linux</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: MX Linux (Cykl: 16)
+Najnowsza wersja w cyklu: 1.33.4</description></item><item><title>EoL: Nextcloud - Cycle 16</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 16)
+Data wydania: 2019-04-25
+Koniec wsparcia (EOL): 2020-06-30
+Najnowsza wersja w cyklu: 16.0.11</description></item><item><title>EoL: NetBSD - Cycle 7</title><link>https://endoflife.date/netbsd</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: NetBSD (Cykl: 7)
+Data wydania: 2015-09-25
+Koniec wsparcia (EOL): 2020-06-30
+Wsparcie komercyjne do: 2018-07-17
+Najnowsza wersja w cyklu: 7.2</description></item><item><title>EoL: MX Linux - Cycle 16</title><link>https://endoflife.date/mx-linux</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: MX Linux (Cykl: 16)
 Data wydania: 2016-12-14
 Koniec wsparcia (EOL): 2020-06-30
 Wsparcie komercyjne do: 2018-06-23
@@ -14801,14 +14808,7 @@ Data wydania: 2015-12-24
 Koniec wsparcia (EOL): 2020-06-30
 Wsparcie komercyjne do: 2018-06-23
 Najnowsza wersja w cyklu: 15
-Link do cyklu: https://web.archive.org/web/20160105095436/http://antix.mepis.org/index.php?title=Main_Page</description></item><item><title>EoL: NetBSD - Cycle 7</title><link>https://endoflife.date/netbsd</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: NetBSD (Cykl: 7)
-Data wydania: 2015-09-25
-Koniec wsparcia (EOL): 2020-06-30
-Wsparcie komercyjne do: 2018-07-17
-Najnowsza wersja w cyklu: 7.2</description></item><item><title>EoL: Nextcloud - Cycle 16</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: Nextcloud (Cykl: 16)
-Data wydania: 2019-04-25
-Koniec wsparcia (EOL): 2020-06-30
-Najnowsza wersja w cyklu: 16.0.11</description></item><item><title>EoL: Palo Alto Networks PAN-OS - Cycle 7.1</title><link>https://endoflife.date/palo-alto-networks-pan-os</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: Palo Alto Networks PAN-OS (Cykl: 7.1)
+Link do cyklu: https://web.archive.org/web/20160105095436/http://antix.mepis.org/index.php?title=Main_Page</description></item><item><title>EoL: Palo Alto Networks PAN-OS - Cycle 7.1</title><link>https://endoflife.date/palo-alto-networks-pan-os</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Produkt: Palo Alto Networks PAN-OS (Cykl: 7.1)
 Data wydania: 2016-03-29
 Koniec wsparcia (EOL): 2020-06-30
 Najnowsza wersja w cyklu: 7.1.26
@@ -15118,13 +15118,13 @@ Najnowsza wersja w cyklu: 2.1.9</description></item><item><title>EoL: Glasgow Ha
 Data wydania: 2020-03-22
 Koniec wsparcia (EOL): True
 Najnowsza wersja w cyklu: 8.10.7
-Link do cyklu: https://downloads.haskell.org/~ghc/8.10.7/docs/html/users_guide/8.10.7-notes.html</description></item><item><title>EoL: SapMachine - Cycle 13</title><link>https://endoflife.date/sapmachine</link><pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate><description>Produkt: SapMachine (Cykl: 13)
-Data wydania: 2019-09-18
-Koniec wsparcia (EOL): 2020-03-18
-Najnowsza wersja w cyklu: 13.0.2</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a41</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a41)
+Link do cyklu: https://downloads.haskell.org/~ghc/8.10.7/docs/html/users_guide/8.10.7-notes.html</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-a41</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate><description>Produkt: Samsung Mobile (Cykl: galaxy-a41)
 Data wydania: 2020-03-18
 Koniec wsparcia (EOL): True
-Link do cyklu: https://doc.samsungmobile.com/SM-A415F/TMH/doc.html</description></item><item><title>EoL: Bellsoft Liberica JDK - Cycle 13</title><link>https://endoflife.date/bellsoft-liberica-jdk</link><pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate><description>Produkt: Bellsoft Liberica JDK (Cykl: 13)
+Link do cyklu: https://doc.samsungmobile.com/SM-A415F/TMH/doc.html</description></item><item><title>EoL: SapMachine - Cycle 13</title><link>https://endoflife.date/sapmachine</link><pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate><description>Produkt: SapMachine (Cykl: 13)
+Data wydania: 2019-09-18
+Koniec wsparcia (EOL): 2020-03-18
+Najnowsza wersja w cyklu: 13.0.2</description></item><item><title>EoL: Bellsoft Liberica JDK - Cycle 13</title><link>https://endoflife.date/bellsoft-liberica-jdk</link><pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate><description>Produkt: Bellsoft Liberica JDK (Cykl: 13)
 Data wydania: 2019-09-26
 Koniec wsparcia (EOL): 2020-03-17
 Najnowsza wersja w cyklu: 13.0.2+9</description></item><item><title>EoL: OpenJDK builds from Oracle - Cycle 13</title><link>https://endoflife.date/openjdk-builds-from-oracle</link><pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate><description>Produkt: OpenJDK builds from Oracle (Cykl: 13)
@@ -19516,16 +19516,16 @@ Najnowsza wersja w cyklu: 4.73
 Link do cyklu: https://github.com/Exim/exim/releases/tag/exim-4_73</description></item><item><title>EoL: openSUSE - Cycle 11.1</title><link>https://endoflife.date/opensuse</link><pubDate>Fri, 14 Jan 2011 00:00:00 +0000</pubDate><description>Produkt: openSUSE (Cykl: 11.1)
 Data wydania: 2008-12-18
 Koniec wsparcia (EOL): 2011-01-14
-Link do cyklu: https://www.suse.com/releasenotes/x86_64/openSUSE/11.1/index.html</description></item><item><title>EoL: Microsoft Exchange - Cycle 2000</title><link>https://endoflife.date/microsoft-exchange</link><pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate><description>Produkt: Microsoft Exchange (Cykl: 2000)
-Data wydania: 2000-11-29
-Koniec wsparcia (EOL): 2011-01-11
-Wsparcie komercyjne do: 2005-12-31
-Najnowsza wersja w cyklu: 6.0.6620.7</description></item><item><title>EoL: Microsoft SQL Server - Cycle 7.0-sp4</title><link>https://endoflife.date/microsoft-sql-server</link><pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate><description>Produkt: Microsoft SQL Server (Cykl: 7.0-sp4)
+Link do cyklu: https://www.suse.com/releasenotes/x86_64/openSUSE/11.1/index.html</description></item><item><title>EoL: Microsoft SQL Server - Cycle 7.0-sp4</title><link>https://endoflife.date/microsoft-sql-server</link><pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate><description>Produkt: Microsoft SQL Server (Cykl: 7.0-sp4)
 Data wydania: 2002-04-26
 Koniec wsparcia (EOL): 2011-01-11
 Wsparcie komercyjne do: 2005-12-31
 Najnowsza wersja w cyklu: 7.0.1152
-Link do cyklu: https://support.microsoft.com/help/941203</description></item><item><title>EoL: PHP - Cycle 5.2</title><link>https://endoflife.date/php</link><pubDate>Thu, 06 Jan 2011 00:00:00 +0000</pubDate><description>Produkt: PHP (Cykl: 5.2)
+Link do cyklu: https://support.microsoft.com/help/941203</description></item><item><title>EoL: Microsoft Exchange - Cycle 2000</title><link>https://endoflife.date/microsoft-exchange</link><pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate><description>Produkt: Microsoft Exchange (Cykl: 2000)
+Data wydania: 2000-11-29
+Koniec wsparcia (EOL): 2011-01-11
+Wsparcie komercyjne do: 2005-12-31
+Najnowsza wersja w cyklu: 6.0.6620.7</description></item><item><title>EoL: PHP - Cycle 5.2</title><link>https://endoflife.date/php</link><pubDate>Thu, 06 Jan 2011 00:00:00 +0000</pubDate><description>Produkt: PHP (Cykl: 5.2)
 Data wydania: 2006-11-02
 Koniec wsparcia (EOL): 2011-01-06
 Wsparcie komercyjne do: 2008-11-02
