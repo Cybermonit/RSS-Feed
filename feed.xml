@@ -1,664 +1,189 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>Cybermonit Aggregated Feed</title><link>https://cybermonit.com/</link><description>Aggregated cyber security feed (News, Leaks, Ransomware, CVEs)</description><item><title>Treasury sanctions North Koreans involved in IT-worker schemes</title><link>https://www.cybersecuritydive.com/news/north-korea-remote-it-worker-sanctions/754087/</link><pubDate>Fri, 25 Jul 2025 15:38:29 +0000</pubDate><source>Cybersecurity dive</source><description>Treasury sanctions North Koreans involved in IT-worker schemes</description></item><item><title>U.S. Sanctions Firm Behind N. Korean IT Scheme; Arizona Woman Jailed for Running Laptop Farm</title><link>https://thehackernews.com/2025/07/us-sanctions-firm-behind-n-korean-it.html</link><pubDate>Fri, 25 Jul 2025 15:05:00 +0000</pubDate><source>TheHackerNews</source><description>U.S. Sanctions Firm Behind N. Korean IT Scheme; Arizona Woman Jailed for Running Laptop Farm</description></item><item><title>Patchwork Targets Turkish Defense Firms with Spear-Phishing Using Malicious LNK Files</title><link>https://thehackernews.com/2025/07/patchwork-targets-turkish-defense-firms.html</link><pubDate>Fri, 25 Jul 2025 14:15:00 +0000</pubDate><source>TheHackerNews</source><description>Patchwork Targets Turkish Defense Firms with Spear-Phishing Using Malicious LNK Files</description></item><item><title>Why Security Nudges Took Off</title><link>https://www.darkreading.com/cybersecurity-operations/why-security-nudges-took-off</link><pubDate>Fri, 25 Jul 2025 14:00:00 +0000</pubDate><source>DarkReading</source><description>Why Security Nudges Took Off</description></item><item><title>Chatbot od Meta AI pozwalał na dostęp do prywatnych wiadomości i odpowiedzi wygenerowanych dla innych użytkowników</title><link>https://sekurak.pl/chatbot-od-meta-ai-pozwalal-na-dostep-do-prywatnych-wiadomosci-i-odpowiedzi-wygenerowanych-dla-innych-uzytkownikow/</link><pubDate>Fri, 25 Jul 2025 13:46:32 +0000</pubDate><source>Sekurak</source><description>Chatbot od Meta AI pozwalał na dostęp do prywatnych wiadomości i odpowiedzi wygenerowanych dla innych użytkowników</description></item><item><title>Cyfrowa odporność Polski: nowe porozumienie międzyresortowe</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/cyfrowa-odpornosc-polski-nowe-porozumienie-miedzyresortowe</link><pubDate>Fri, 25 Jul 2025 13:33:23 +0000</pubDate><source>Cyberdefence24</source><description>Cyfrowa odporność Polski: nowe porozumienie międzyresortowe</description></item><item><title>Meta rezygnuje z reklam politycznych w Unii Europejskiej</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/meta-rezygnuje-z-reklam-politycznych-w-unii-europejskiej</link><pubDate>Fri, 25 Jul 2025 13:30:05 +0000</pubDate><source>Cyberdefence24</source><description>Meta rezygnuje z reklam politycznych w Unii Europejskiej</description></item><item><title>Chcą ukraść hasło do Facebooka, podsyłają „ofertę pracy”</title><link>https://cert.orange.pl/aktualnosci/chca-ukrasc-haslo-do-facebooka-podsylaja-oferte-pracy/</link><pubDate>Fri, 25 Jul 2025 13:22:54 +0000</pubDate><source>CERT Orange</source><description>Chcą ukraść hasło do Facebooka, podsyłają „ofertę pracy”</description></item><item><title>CVE: CVE-2025-8157 (Score: 6.3, Severity: medium)</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-8157</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>Podatność znaleziono w rejestracji i logowaniu użytkownika Phpgurukul i zarządzaniu użytkownikiem 3.3.Został sklasyfikowany jako krytyczny.Wpływa to na nieznaną część pliku /admin/lasthirtyays-reg-users.php.Manipulacja identyfikatorem argumentu prowadzi do wstrzyknięcia SQL.Możliwe jest zdalnie zainicjowanie ataku.Exploit został ujawniony publicznie i może być używany.</description></item><item><title>CVE: CVE-2025-8156 (Score: 6.3, Severity: medium)</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-8156</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>Podatność znaleziono w rejestracji i logowaniu użytkownika Phpgurukul i zarządzaniu użytkownikiem 3.3 i sklasyfikowane jako krytyczne.Tego problemu wpływa pewna nieznana funkcjonalność pliku /admin/lastsevendays-reg-users.php.Manipulacja identyfikatorem argumentu prowadzi do wstrzyknięcia SQL.Atak może zostać wydany zdalnie.Exploit został ujawniony publicznie i może być używany.</description></item><item><title>CVE: CVE-2025-51411</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-51411</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>Odzwierciedlona podatność skryptowa (XSS) występuje w instytutach-schematów v1.0 za pośrednictwem parametru e-mail w punkcie końcowym /postQueryPublic.Aplikacja nie jest odpowiednio odkażona wejściem użytkownika przed odzwierciedleniem jej w odpowiedzi HTML.Umożliwia to nieautentyczonym atakującym wstrzyknięcie i wykonywanie dowolnego kodu JavaScript w kontekście przeglądarki ofiary, oszukując ich do odwiedzenia wykonanego adresu URL lub składania złośliwego formularza.Udane wykorzystanie może prowadzić do porwania sesji, kradzieży poświadczeń lub innych ataków po stronie klienta.</description></item><item><title>CVE: CVE-2025-43712</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-43712</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>Jhipster przed v.8.9.0 umożliwia eskalację przywileju za pośrednictwem parametru zmodyfikowanego władz.Po zarejestrowaniu się w portalu JHipster i zalogowaniu się jako standardowy użytkownik parametr władz w odpowiedzi z punktu końcowego API/konta zawiera wartość ROLE_USER.Poprzez manipulowanie parametrem władz i zmieniając jego wartość na ROCE_ADMIN, przywilej jest skutecznie eskalowany na poziom administratora.Umożliwiło to dostęp do wszystkich funkcji związanych z administratorem w aplikacji.</description></item><item><title>CVE: CVE-2025-38402</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38402</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-IDPF: zwróć rozmiar 0 dla klucza RSS, jeśli nie jest obsługiwany
-
-Zwracanie -eopnotsupp z funkcji Powrót U32 prowadzi do
-W rezultacie rzucona i nieprawidłowa wartość wielkości.
-
--Eopnotsupp jako rozmiar prawdopodobnie doprowadzi do awarii alokacji.
-
-Polecenie: ETHTOOL -x ETH0
-Jest widoczny na wszystkich urządzeniach, które nie mają zestawu czapek RSS.
-
-[136.615917] Śledzenie połączeń:
-[136.615921] &lt;Dask&gt;
-[136.615927]?__WARN+0x89/0x130
-[136.615942]?__ALLOC_FROZEN_PAGES_NOPROF+0x322/0x330
-[136.615953]?Raport_bug+0x164/0x190
-[136.615968]?Uchwyt_bug+0x58/0x90
-[136.615979]?exc_invalid_op+0x17/0x70
-[136.615987]?ASM_EXC_INVALID_OP+0x1A/0x20
-[136.616001]?RSS_PREPARE_GET.CONSTPROP.0+0xb9/0x170
-[136.616016]?__ALLOC_FROZEN_PAGES_NOPROF+0x322/0x330
-[136.616028] __ALLOC_PAGES_NOPROF+0XE/0x20
-[136.616038] ___ KMALLOC_LARGE_NODE+0x80/0x110
-[136.616072] __kmalloc_large_node_noprof+0x1d/0xa0
-[136.616081] __kmalloc_noprof+0x32c/0x4c0
-[136.616098]?RSS_PREPARE_GET.CONSTPROP.0+0xb9/0x170
-[136.616105] RSS_PREPARE_GET.CONSTPROP.0+0xb9/0x170
-[136.616114] ETNL_DEFAULT_DOIT+0x107/0x3d0
-[136.616131] genl_family_rcv_msg_doit+0x100/0x160
-[136.616147] genl_rcv_msg+0x1b8/0x2c0
-[136.616156]?__pfx_ethnl_default_doit+0x10/0x10
-[136.616168]?__pfx_genl_rcv_msg+0x10/0x10
-[136.616176] NetLink_RCV_SKB+0x58/0x110
-[136.616186] genl_rcv+0x28/0x40
-[136.616195] NetLink_unicast+0x19b/0x290
-[136.616206] NetLink_Sendmsg+0x222/0x490
-[136.616215] __sys_sendto+0x1fd/0x210
-[136.616233] __x64_sys_sendto+0x24/0x30
-[136.616242] do_syscall_64+0x82/0x160
-[136.616252]?__sys_recvmsg+0x83/0xe0
-[136.616265]?SYSCALL_EXIT_TO_USER_MODE+0x10/0x210
-[136.616275]?do_syscall_64+0x8e/0x160
-[136.616282]?__count_memcg_events+0xa1/0x130
-[136.616295]?Count_memcg_events.constprop.0+0x1a/0x30
-[136.616306]?uchwyt_mm_fault+0xae/0x2d0
-[136.616319]?do_user_addr_fault+0x379/0x670
-[136.616328]?Clear_Bhb_Loop+0x45/0xa0
-[136.616340]?Clear_Bhb_Loop+0x45/0xa0
-[136.616349]?Clear_Bhb_Loop+0x45/0xa0
-[136.616359] entry_syscall_64_after_hwframe+0x76/0x7e
-[136.616369] RIP: 0033: 0x7fd30ba7b047
-[136.616376] Kod: 0C 00 F7 D8 64 89 02 48 C7 C0 FF FF FF FF FF FF EB B8 0F 1F 00 F3 0F 1E FA 80 3D BD D5 0C 00 00 41 89 CA 74 10 B8 2C 00 00 00 00 05 &lt;48&gt; 3D 00 F0 FF FF 77 71 C3 55 48 83EC 30 44 89 4C 24 2C 4C 89 44
-[136.616381] RSP: 002B: 00007FFDE1796D68 Eflags: 00000202 Orig_rax: 000000000000002c
-[136.616388] RAX: FFFFFFFFFFFFFFFDA RBX: 000055D7BD89F2A0 RCX: 00007FD30BA7B047
-[136.616392] RDX: 0000000000000028 RSI: 000055D7BD89F3B0 RDI: 0000000000000003
-[136.616396] RBP: 00007FFDE1796E10 R08: 00007FD30BB4E200 R09: 000000000000000C
-[136.616399] R10: 000000000000000000 R11: 0000000000000202 R12: 000055D7BD89F340
-[136.616403] R13: 000055D7BD89F3B0 R14: 000055D78943F200 R15: 000000000000000000</description></item><item><title>CVE: CVE-2025-38401</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38401</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-MTK-SD: Zapobiegaj uszkodzeniu pamięci z awarii mapy DMA
-
-Jeśli msdc_prepare_data () nie mapuje regionu DMA, żądanie jest
-nie przygotowane do otrzymywania danych, ale MSDC_START_DATA () postępuje
-DMA z poprzednim ustawieniem.
-Ponieważ doprowadzi to do uszkodzenia pamięci, musimy zatrzymać
-Żądanie operacji wkrótce po nie udało się nie
-Przygotuj to.</description></item><item><title>CVE: CVE-2025-38400</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38400</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-NFS: Oczyść/proc/net/rpc/nfs, gdy NFS_FS_PROC_NET_INIT () nie powiedzie się.
-
-Syzbot zgłosił ostrzeżenie poniżej [1] po wstrzyknięciu błędu w
-NFS_FS_PROC_NET_INIT ().[0]
-
-Gdy NFS_FS_PROC_NET_INIT () nie udaje się,/proc/net/rpc/nfs nie jest usuwany.
-
-Później rpc_proc_exit () próbuje usunąć/proc/net/rpc i ostrzeżenie
-jest rejestrowany, ponieważ katalog nie jest pusty.
-
-Zajmijmy się błędem NFS_FS_PROC_NET_INIT () poprawnie.
-
-[0]:
-Desc_inction: wymuszanie awarii.
-Nazwa FailSlab, Interval 1, prawdopodobieństwo 0, spacja 0, czasy 0
-CPU: 1 UID: 0 PID: 6120 Comm. 2.27 Nie skażone 6.16.0-RC1-SyZkaller -00010-G2C4A1f3fe03e #0 uprzedz (pełne)
-Nazwa sprzętu: Google Compute Engine/Google Compute Engine, BIOS Google 05/07/2025
-TRACY CALL:
-&lt;Zadanie&gt;
-zrzut_stack_lvl (lib/sup_stack.c: 123)
-powinien_fail_ex (lib/faul intche.
-powinien_failslab (mm/failSlab.C: 46)
-KMEM_CACHE_ALLOC_NOPROF (MM/SLUB.C: 4178 mm/slub.c: 4204)
-__proc_create (fs/proc/generic.c: 427)
-proc_create_reg (fs/proc/generic.c: 554)
-proc_create_net_data (fs/proc/proc_net.c: 120)
-NFS_FS_PROC_NET_INIT (FS/NFS/Client.C: 1409)
-NFS_NET_INIT (FS/NFS/INODE.C: 2600)
-OPS_INIT (net/core/net_namespace.c: 138)
-setup_net (net/core/net_namespace.c: 443)
-copy_net_ns (net/core/net_namespace.c: 576)
-create_new_namespaces (jądro/nsproxy.c: 110)
-unshare_nsproxy_namespaces (jądro/nsproxy.c: 218 (dyskryminator 4)))
-ksys_unshare (jądro/widelec. C: 3123)
-__x64_sys_unshare (jądro/widelec. C: 3190)
-do_syscall_64 (arch/x86/entent/syscall_64.c: 63 arch/x86/entent/syscall_64.c: 94)
-entry_syscall_64_after_hwframe (arch/x86/entent/entent_64.s: 130)
-&lt;/stugania&gt;
-
-[1]:
-remove_proc_entry: Usuwanie nieudanego katalogu „net/rpc”, wyciek przynajmniej „NFS”
-OSTRZEŻENIE: CPU: 1 PID: 6120 w FS/Proc/Generic.C: 727 remove_proc_entry+0x45e/0x530 FS/proc/generic.c: 727
-Moduły połączone w:
-CPU: 1 UID: 0 PID: 6120 Comm. 2.27 Nie skażone 6.16.0-RC1-SyZkaller -00010-G2C4A1f3fe03e #0 uprzedz (pełne)
-Nazwa sprzętu: Google Compute Engine/Google Compute Engine, BIOS Google 05/07/2025
-RIP: 0010: remove_proc_entry+0x45e/0x530 fs/proc/generic.c: 727
-Kod: 3C 02 00 0F 85 85 00 00 00 48 8B 93 D8 00 00 00 4D 89 F0 4C 89 E9 48 C7 C6 40 BA A2 8B 48 C7 C7 60 B9 A2 8B E8 33 81 1D FF 90 &lt;0F&gt; 0B 90 90 E9 5F FE FF FF FF E8 04 69 5E FF 90 48B8 00 00 00 00 00
-RSP: 0018: FFFFC90003637B08 EFLAGS: 00010282
-RAX: 0000000000000000 RBX: FFFF88805F534140 RCX: FFFFFFFF817A92C8
-RDX: FFFF88807DA99E00 RSI: FFFFFFFF817A92D5 RDI: 0000000000000001
-RBP: FFFF888033431AC0 R08: 0000000000000001 R09: 000000000000000000
-R10: 0000000000000001 R11: 0000000000000001 R12: FFFF888033431A00
-R13: FFFF888033431AE4 R14: FFFF888033184724 R15: DFFFFC0000000000
-FS: 0000555580328500 (0000) GS: FFFF888124A62000 (0000) KNLGS: 000000000000000000
-CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007F71733743E0 CR3: 000000007F618000 CR4: 00000000003526F0
-DR0: 0000000000000000 DR1: 000000000000000000 DR2: 000000000000000000
-DR3: 0000000000000000 DR6: 0000000000FFFE0FF0 DR7: 0000000000000400
-TRACY CALL:
-&lt;Zadanie&gt;
-SUNRPC_EXIT_NET+0x46/0x90 net/sunrpc/sunrpc_syms.c: 76
-ops_exit_list net/core/net_namespace.c: 200 [inline]
-OPS_UNDO_LIST+0x2EB/0xab0 net/Core/net_namespace.c: 253
-setup_net+0x2e1/0x510 net/core/net_namespace.c: 457
-copy_net_ns+0x2a6/0x5f0 net/core/net_namespace.c: 574
-create_new_namespaces+0x3ea/0xa90 jądro/nsproxy.c: 110
-unshare_nsproxy_namespaces+0xc0/0x1f0 jądro/nsproxy.c: 218
-ksys_unshare+0x45b/0xa40 jądro/widelec. C: 3121
-__do_sys_unshare jądro/widelec.c: 3192 [inline]
-__se_sys_unshare jądro/widelec.c: 3190 [inline]
-__x64_sys_unshare+0x31/0x40 jądro/widelec. C: 3190
-do_syscall_x64 arch/x86/entent/syscall_64.c: 63 [inline]
-do_syscall_64+0xcd/0x490 arch/x86/entent/syscall_64.c: 94
-entry_syscall_64_after_hwframe+0x77/0x7f
-RIP: 0033: 0x7fa1a6b8e929
-Kod: FF FF C3 66 2E 0F 1F 84 00 00 00 00 00 00 0F 1F 40 00 48 89 F8 48 89 F7 48 89 D6 48 89 CA 4D 89 C2 4D 89 C8 4C 8B 4C 24 08 0F 05 &lt;48&gt; 3D 01 F0 FF FF 73 01 C
----kadłubowy---</description></item><item><title>CVE: CVE-2025-38399</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38399</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-SCSI: Target: Napraw dereference wskaźnika zerowego w core_scsi3_decode_spec_i_port ()
-
-Funkcja core_scsi3_decode_spec_i_port (), na ścieżce kodu błędu,
-bezwarunkowo wywołuje core_scsi3_lunacl_undepend_item () przekazanie
-wskaźnik dest_se_deve, który może być zerowy.
-
-Może to prowadzić do zerowego wskaźnika, jeśli pozostaje dest_se_deve
-nieoprawny.
-
-SPC-3 PR Spec_I_PT: Nie można zlokalizować desty_tpg
-Nie można obsłużyć żądania stronicowania jądra pod adresem wirtualnym DFFF800000000012
-TRACY CALL:
-Core_scsi3_lunacl_undepend_item+0x2c/0xf0 [Target_Core_Mod] (p)
-Core_scsi3_decode_spec_i_port+0x120c/0x1c30 [Target_Core_Mod]
-Core_scsi3_emulate_pro_register+0x6b8/0xcd8 [Target_Core_Mod]
-Target_scsi3_emulate_pr_out+0x56c/0x840 [Target_Core_Mod]
-
-Napraw to, dodając kontrolę NULL przed dzwonieniem
-core_scsi3_lunacl_undepend_item ()</description></item><item><title>CVE: CVE-2025-38398</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38398</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-SPI: SPI-QPIC-SNAND: READLOCOCE BAM Transakcje
-
-Korzystanie z modułu mtd_nandbiterrs do od czasu do czasu testowania sterownika
-powoduje dziwne rzeczy, takie jak poniżej.
-
-1. Mapowanie SWIOTLB nie powiada się z następującą wiadomością:
-
-[85.926216] QCOM_SNAND 79B0000.SPI: Bufor SWIOTLB jest pełny (SZ: 4294967294 bajty), całkowita 512 (szczeliny), używane 0 (szczeliny)
-[85.932937] QCOM_SNAND 79B0000.SPI: Niepowodzenie w mapowaniu DESC
-[87.999314] QCOM_SNAND 79B0000.SPI: Brak pisania strony surowej
-[87.999352] Mtd_nandbiterrs: Błąd: Write_oob nie powiodło się (-110)
-
-Ponowne uruchomienie tablicy po tym powoduje panikę z powodu zerowego wskaźnika
-Dereference.
-
-2. Jeśli mapowanie SWIOTLB nie ulegnie awarii, ponowne uruchomienie tablicy może spowodować
-w innej panice ze względu na złą magię Spinlock:
-
-[256.104459] Bug: Spinlock Bad Magic na CPU#3, PROCD/2241
-[256.104488] Nie można obsłużyć żądania stronicowania jądra pod adresem wirtualnym FFFFFFFF0000049B
-...
-
-Badanie problemu ujawniło, że objawy te są wynikiem
-uszkodzenie pamięci, które jest spowodowane dostępem poza granice w obrębie
-kierowca.
-
-Sterownik używa dynamicznie przydzielonej struktury dla transakcji BAM,
-Która struktura musi mieć wystarczająco dużo miejsca dla wszystkich możliwych odmian
-Różne operacje flash zainicjowane przez sterownik.Wymagana przestrzeń
-w dużej mierze zależy od faktycznej liczby „słów kodowych”, które są obliczane
-ze stron faktycznego układu NAND.
-
-Chociaż funkcja QCOM_NANDC_ALLOC () przydziela pamięć dla BAM
-transakcje podczas sondy, ale od faktycznej liczby „słów kodowych”
-nie wie jeszcze, że alokacja odbywa się tylko dla jednego „słowa kodowego”.
-
-Z tego powodu, ilekroć sterownik wykonuje operację flash i
-Liczba wymaganych transakcji przekracza wielkość przydzielonych
-Tablice sterownik uzyskuje dostęp do pamięci z przydzielonego zakresu.
-
-Aby tego uniknąć, zmień kod, aby uwolnić początkowo przydzielony BAM
-Pamięć transakcji i przydziel nowy raz na rzeczywisty liczba
-Znane są „słody kodowe” wymagane dla danego układu NAND.</description></item><item><title>CVE: CVE-2025-38397</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38397</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-NVME-Multipath: Napraw podejrzane ostrzeżenie o użyciu RCU
-
-Kiedy uruchamiam NVME w teście TCP w Virtme-NG, otrzymuję następujące informacje
-„Podejrzane użycie RCU” Ostrzeżenie w NVME_MPATH_ADD_SYSFS_LINK ():
-
-'' '
-[5.024557] [T44] NVMET: Utworzono kontroler NVM 1 dla podsystemu NQN.2025-06.org.nvmExpress.mptcp dla NQN NQN.2014-08.org.nvmExpress: UUID: F7F6B5E0-FFF97-4894-98AC-C85309E0BC7.
-[5.027401] [T183] NVME NVME0: Tworzenie 2 kolejek we/wy.
-[5.029017] [T183] NVME NVME0: Zamapowane 2/0/0 Kolejki domyślne/odczytu/ankiety.
-[5.032587] [T183] NVME NVME0: NOWOŚĆ CTRL: NQN "NQN.2025-06.org.nvmExpress.mptcp", AddR 127.0.0.1:4420, hostnqn:NQN.2014-08.org.nvmExpress: UUID: F7F6B5E0-FFF97-4894-98AC-C85309E0BC77
-[5.042214] [T25]
-[5.042440] [T25] =========================================
-[5.042579] [T25] Ostrzeżenie: podejrzane użycie RCU
-[5.042705] [T25] 6.16.0-RC3+ #23
-[5.042812] [T25] -----------------------------
-[5.042934] [T25] Sterowniki/nvme/host/multipath.c: 1203-lista RCU przemierzona w sekcji nie czytnej !!
-[5.043111] [T25]
-[5.043111] [T25] Inne informacje, które mogą pomóc nam w debugowaniu:
-[5.043111] [T25]
-[5.043341] [T25]
-[5.043341] [T25] rcu_scheduler_active = 2, debug_locks = 1
-[5.043502] [T25] 3 zamki posiadane przez Kworkera/U9: 0/25:
-[5.043615] [T25] #0: ffff88008730948 ((wq_complecja) async) {+.+.
-[5.043830] [T25] #1: FFFFC900001AFD40 ((Work_completet) (&amp; Entry-&gt; Work)) {+.+.
-[5.044084] [T25] #2: FFFF888013EE0020 (&amp; Head-&gt; srcu) {.+.+}-{0: 0}, at: nvme_mpath_add_sysfs_link.part.0+0xb4/0x3a0
-[5.044300] [T25]
-[5.044300] [T25] Stos Showtrace:
-[5.044439] [T25] CPU: 0 UID: 0 PID: 25 Comm: Kworker/U9: 0 Nie dężony 6.16.0-RC3+ #23 uprzedzony (pełny)
-[5.044441] [T25] Nazwa sprzętu: Bochs Bochs, Boch Bochs 01/01/2011
-[5.044442] [T25] WorkQueue: Async Async_run_entry_fn
-[5.044445] [T25] Śledzenie połączeń:
-[5.044446] [T25] &lt;SUDER&gt;
-[5.044449] [T25] zrzut_stack_lvl+0x6f/0xb0
-[5.044453] [T25] LockDep_rcu_Supicious.Cold+0x4f/0xb1
-[5.044457] [T25] nvme_mpath_add_sysfs_link.part.0+0x2fb/0x3a0
-[5.044459] [T25]?Queue_work_on+0x90/0xf0
-[5.044461] [T25]?lockDep_hardirqs_on+0x78/0x110
-[5.044466] [T25] nvme_mpath_set_live+0x1e9/0x4f0
-[5.044470] [T25] nvme_mpath_add_disk+0x240/0x2f0
-[5.044472] [T25]?__pfx_nvme_mpath_add_disk+0x10/0x10
-[5.044475] [T25]?add_disk_fwnode+0x361/0x580
-[5.044480] [T25] NVME_ALLOC_NS+0x81C/0x17C0
-[5.044483] [T25]?Kasan_quarantine_put+0x104/0x240
-[5.044487] [T25]?__pfx_nvme_alloc_ns+0x10/0x10
-[5.044495] [T25]?__pfx_nvme_find_get_ns+0x10/0x10
-[5.044496] [T25]?RCU_READ_LOCK_ANY_HELD+0X45/0XA0
-[5.044498] [T25]?VALIDATE_CHAIN+0x232/0x4F0
-[5.044503] [T25] NVME_SCAN_NS+0x4C8/0x810
-[5.044506] [T25]?__pfx_nvme_scan_ns+0x10/0x10
-[5.044508] [T25]?Find_Held_Lock+0x2b/0x80
-[5.044512] [T25]?Ktime_get+0x16d/0x220
-[5.044517] [T25]?kvm_clock_get_cycles+0x18/0x30
-[5.044520] [T25]?__pfx_nvme_scan_ns_async+0x10/0x10
-[5.044522] [T25] Async_run_entry_fn+0x97/0x560
-[5.044523] [T25]?rcu_is_watching+0x12/0xc0
-[5.044526] [T25] Process_one_work+0xd3c/0x1350
-[5.044532] [T25]?__pfx_process_one_work+0x10/0x10
-[5.044536] [T25]?Assess_Work+0x16c/0x240
-[5.044539] [T25] Worker_thread+0x4da/0xd50
-[5.044545] [T25]?__pfx_worker_thread+0x10/0x10
-[5.044546] [T25] Kthread+0x356/0x5c0
-[5.044548] [T25]?__pfx_kthread+0x10/0x10
-[5.044549] [T25]?ret_from_fork+0x1b/0x2e0
-[5.044552] [T25]?__lock_release.isra.0+0x5d/0x180
-[5.044553] [T25]?ret_from_fork+0x1b/0x2e0
-[5.044555] [T25]?rcu_is_watching+0x12/0xc0
-[5.044557] [T25]?__pfx_kthread+0x10/0x10
-[5.04
----kadłubowy---</description></item><item><title>CVE: CVE-2025-38396</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38396</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-FS: Eksportuj anon_inode_make_secure_inode () i napraw SecretMem LSM Bypass
-
-Eksport anon_inode_make_secure_inode (), aby umożliwić utworzenie KVM guest_memfd
-Anonimowe INODES z właściwym kontekstem bezpieczeństwa.To zastępuje prąd
-Wzorzec wywoływania alloc_anon_inode (), a następnie
-inode_init_security_anon () do ręcznego tworzenia kontekstu bezpieczeństwa.
-
-Ta zmiana naprawia również regresję bezpieczeństwa w SecretMem, gdzie
-Flaga S_Private nie została wyczyszczona po aloC_anon_inode (), powodując
-Kontrole LSM/SELINUX są ominięte dla deskryptorów plików SecretMem.
-
-Ponieważ guest_memfd obecnie mieszka w module KVM, musimy to wyeksportować
-Symbol do użytku poza jądrem podstawowym.W przyszłości może być guest_memfd
-przeniesione do Core-MM, w którym to momencie symbole nie musiałyby już być
-eksportowane.Kiedy/jeśli tak się stanie, nadal jest niejasne.</description></item><item><title>CVE: CVE-2025-38395</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38395</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-Regulator: GPIO: Napraw dostęp do DRVDATA :: GPIODS
-
-DRVDATA :: GPIODS ma pomieścić szereg wskazówek „gpio_desc”.Ale
-Pamięć jest przydzielona tylko dla jednego wskaźnika.To doprowadzi do
-Dostęp do nieokreślony w dalszej części kodu, jeśli „config :: ngpios” to&gt; 1.
-Napraw kod, aby przydzielić wystarczającą pamięć, aby utrzymać „config :: ngpios” gpio
-deskryptory.
-
-Podczas gdy w nim przenieś sprawdź, czy nie jest poniżej alokacji pamięci
-alokacja, aby uczynić go bardziej czytelnym.</description></item><item><title>CVE: CVE-2025-38394</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38394</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-HID: AppletB-KBD: Napraw uszkodzenie pamięci input_handler_list
-
-W appletb_kbd_probe inicjowany i zarejestrowany jest obsługa wejściowa
-z rdzeniem wejściowym poprzez input_register_handler ().Kiedy tak się dzieje
-Rdzeń doda obsługę wejściową (w szczególności jego węzeł) do globalnego
-input_handler_list.Lista Input_Handler_List ma kluczowe znaczenie dla funkcjonalności
-rdzenia wejściowego i jest przemierzany w różnych miejscach w rdzeniu wejściowym.Przykład
-to jest wtedy, gdy nowe urządzenie wejściowe jest podłączone i jest rejestrowane z
-rdzeń wejściowy.
-
-Input_handler w sondzie jest przydzielany jako pamięć zarządzana urządzeniem.Jeśli
-Awaria sondy występuje po input_register_handler () input_handler
-Pamięć jest uwolniona, ale pozostanie w listy Input_Handler_List.Ten
-Skutecznie oznacza input_handler_list zawiera zwisający wskaźnik
-do danych należących do uwolnionego przewodnika wejściowego.
-
-Powoduje to problem, gdy każde inne urządzenie wejściowe jest podłączone - w moim
-przypadek miałem starą optyczną mysz USB Pixart HP i postanowiłem
-Podłącz go po awarii wystąpienia po wejściu_register_handler ().
-To prowadzi do rejestracji tego urządzenia wejściowego przez
-input_register_device, który obejmuje przemierzanie każdego modułu obsługi
-w uszkodzonej input_handler_list i wywoływanie input_attach_handler (),
-dając każdemu przewodnikowi szansę na powiązanie z nowo zarejestrowanym urządzeniem.
-
-Rdzeniem tego błędu jest UAF, który powoduje uszkodzenie pamięci
-input_handler_list i aby to naprawić
-niezarejestrowane z rdzenia wejściowego, odbywa się to
-input_unregister_handler ().
-
-[63.191597] =================================================================
-[63.192094] Błąd: Kasan: Zastosowanie płyty-użytkowanie bez strony input_attach_handler.isra.0+0x1a9/0x1e0
-[63.192094] Czytaj o rozmiarze 8 w AddR FFFF888105EA7C80 według zadania Kworkera/0: 2/54
-[63.192094]
-[63.192094] CPU: 0 UID: 0 PID: 54 Comm: Kworker/0: 2 Nie skażone 6.16.0-RC2-00321-G2AA6621D
-[63.192094] Nazwa sprzętu: QEMU Standard PC (I440FX + Piix, 1996), BIOS 1.16.2-Debian-1.164
-[63.192094] WorkQueue: USB_HUB_WQ Hub_event
-[63.192094] Śledzenie połączeń:
-[63.192094] &lt;SUDER&gt;
-[63.192094] zrzut_stack_lvl+0x53/0x70
-[63.192094] print_report+0xce/0x670
-[63.192094] Kasan_report+0xce/0x100
-[63.192094] Input_attach_handler.isra.0+0x1a9/0x1e0
-[63.192094] Input_register_device+0x76c/0xd00
-[63.192094] Hidinput_Connect+0x686d/0xAd60
-[63.192094] HID_Connect+0xf20/0x1b10
-[63.192094] HID_HW_START+0x83/0x100
-[63.192094] HID_DEVICE_PROBE+0x2d1/0x680
-[63.192094] naprawdę_probe+0x1c3/0x690
-[63.192094] __driver_probe_device+0x247/0x300
-[63.192094] Driver_probe_device+0x49/0x210
-[63.192094] __device_attach_driver+0x160/0x320
-[63.192094] bus_for_each_drv+0x10f/0x190
-[63.192094] __device_attach+0x18e/0x370
-[63.192094] Bus_Probe_Device+0x123/0x170
-[63.192094] Device_add+0xd4d/0x1460
-[63.192094] HID_ADD_DEVICE+0x30B/0x910
-[63.192094] USBHID_PROBE+0x920/0xe00
-[63.192094] USB_Probe_interface+0x363/0x9a0
-[63.192094] naprawdę_probe+0x1c3/0x690
-[63.192094] __driver_probe_device+0x247/0x300
-[63.192094] Driver_probe_device+0x49/0x210
-[63.192094] __device_attach_driver+0x160/0x320
-[63.192094] bus_for_each_drv+0x10f/0x190
-[63.192094] __device_attach+0x18e/0x370
-[63.192094] Bus_Probe_Device+0x123/0x170
-[63.192094] Device_add+0xd4d/0x1460
-[63.192094] USB_Set_Configuration+0xd14/0x1880
-[63.192094] USB_Generic_driver_probe+0x78/0xb0
-[63.192094] USB_PROBE_DEVICE+0xAA/0x2E0
-[63.192094] naprawdę_probe+0x1c3/0x690
-[63.192094] __driver_probe_device+0x247/0x300
-[63.192094] Driver_probe_device+0x49/0x210
-[63.192094] __device_attach_driver+0x160/0x320
-[63.192094] bus_for_each_drv+0x10f/0x190
-[63.192094] __device_attach+0x18e/0x370
-[63.192094] Bus_Probe_Device+0x123/0x170
-[63.192094] Device_add+0xd4d/0x1460
-[63.192094] USB_New_Device+0x7b4/0x1000
-[63.192094] Hub_event+0x234d/0x3
----kadłubowy---</description></item><item><title>CVE: CVE-2025-38393</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38393</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-NFSV4/PNFS: Napraw wyścig, aby obudzić się na NFS_Layout_Drain
-
-Znaleźliśmy kilka różnych systemów rozłączonych w pisaniu, czekając na to samo
-blokada strony i jedno zadanie czekające na bit nfs_layout_drain
-PNFS_UPDATE_LAYOUT (), jednak liczba PNFS_LAYOUT_HDR PLH_OUTSTING
-było zero.
-
-Wydaje się najprawdopodobniej, że jest to kolejny wyścig między kelnerem a Wakerem
-Podobne do zatwierdzenia ED0172AF5D6F („SUNRPC: napraw wyścig, aby obudzić zadanie synchronizacji”).
-Napraw to, stosując zalecaną barierę.</description></item><item><title>CVE: CVE-2025-38392</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38392</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-IDPF: Konwertuj Mutex kolejki kontrolnej na spinlock
-
-Z włączonym virtchnl2_cap_macfilter, generowane jest następujące ostrzeżenie
-na obciążeniu modułu:
-
-[324.701677] Bug: Funkcja snu wywoływana z niepoprawnego kontekstu w jądrze/Locking/Mutex.C: 578
-[324.701684] in_atomic (): 1, irqs_disabled (): 0, non_block: 0, PID: 1582, nazwa: NetworkManager
-[324.701689] Primpt_count: 201, oczekiwano: 0
-[324.701693] RCU gniazdo głębokość: 0, oczekiwano: 0
-[324.701697] 2 blokady posiadane przez NetworkManager/1582:
-[324.701702] #0: ffffffff9f7be770 (rtnl_mutex) {....}-{3: 3}, at: rtnl_newlink+0x791/0x21e0
-[324.701730] #1: FF1100216C380368 (_xmit_ether) {....}-{2: 2}, at: __dev_open+0x3f0/0x870
-[324.701749] Uprzeponowanie pod adresem:
-[324.701752] [&lt;ffffffff9cd23b9d&gt;] __dev_open+0x3dd/0x870
-[324.701765] CPU: 30 UID: 0 PID: 1582 COMM: NetworkManager Nie skażony 6.15.0-RC5+ #2 uprzedzony (dobrowolny)
-[324.701771] Nazwa sprzętu: Intel Corporation M50FCP2SBSTD/M50FCP2SBSTD, BIOS SE5C741.86B.01.01.0001.2211140926 11/14/2022
-[324.701774] Śledzenie połączeń:
-[324.701777] &lt;Dask&gt;
-[324.701779] zrzut_stack_lvl+0x5d/0x80
-[324.701788]?__dev_open+0x3dd/0x870
-[324.701793] __Might_Resched.Cold+0x1Ef/0x23d
-&lt;..&gt;
-[324.701818] __Mutex_lock+0x113/0x1b80
-&lt;..&gt;
-[324.701917] IDPF_CTLQ_CLEAN_SQ+0XAD/0X4B0 [IDPF]
-[324.701935]?Kasan_save_track+0x14/0x30
-[324.701941] IDPF_MB_CLEAN+0x143/0x380 [IDPF]
-&lt;..&gt;
-[324.701991] IDPF_SEND_MB_MSG+0x111/0x720 [IDPF]
-[324.702009] IDPF_VC_XN_EXEC+0x4CC/0x990 [IDPF]
-[324.702021]?rcu_is_watching+0x12/0xc0
-[324.702035] IDPF_ADD_DEL_MAC_FILTERS+0x3ED/0XB50 [IDPF]
-&lt;..&gt;
-[324.702122] __HW_ADDR_Sync_Dev+0x1cf/0x300
-[324.702126]?Find_Held_Lock+0x32/0x90
-[324.702134] IDPF_SET_RX_MODE+0x317/0x390 [IDPF]
-[324.702152] __dev_open+0x3f8/0x870
-[324.702159]?__pfx ___ Dev_Open+0x10/0x10
-[324.702174] __dev_change_flags+0x443/0x650
-&lt;..&gt;
-[324.702208] netif_change_flags+0x80/0x160
-[324.702218] do_setlink.isra.0+0x16a0/0x3960
-&lt;..&gt;
-[324.702349] RTNL_Newlink+0x12fd/0x21e0
-
-Sekwencja jest następująca:
-rtnl_newlink ()-&gt;
-__dev_change_flags ()-&gt;
-__dev_open ()-&gt;
-dev_set_rx_mode () -&gt; # wyłącza BH i chwyta „dev-&gt; addr_list_lock”
-idpf_set_rx_mode () -&gt; # postępuj tylko wtedy, gdy virtchnl2_cap_macfilter jest włączony
-__dev_uc_sync () -&gt;
-IDPF_ADD_MAC_FILTER -&gt;
-IDPF_ADD_DEL_MAC_FILTERS -&gt;
-idpf_send_mb_msg () -&gt;
-idpf_mb_clean () -&gt;
-IDPF_CTLQ_CLEAN_SQ () # mutex_lock (cq_lock)
-
-Napraw, przekształcając CQ_LOCK na Spinlock.Wszystkie operacje w ramach nowego
-Zamek są bezpieczne, z wyjątkiem zwolnienia pamięci DMA, która może użyć vunMap ().Naprawić
-żądając przylegającej pamięci fizycznej do mapowania DMA.</description></item><item><title>CVE: CVE-2025-38391</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38391</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-USB: Typec: AltModes/Displayport: Nie indeksuj nieprawidłowych pin_assignments
-
-Słabo zaimplementowany partner portów w trybie Displayport Alt może wskazać
-że jego możliwości przypisania pinów są większe niż maksimum
-Wartość, dp_pin_assign_f.W takim przypadku wywoły do pin_assignment_show
-spowoduje wyjątek BRK z powodu dostępu do tablicy poza granicami.
-
-Zapobiegaj dostępowi do pętli w pin_assignment_show
-Nieprawidłowe wartości w pin_assignments poprzez dodanie DP_PIN_ASSIGN_MAX
-Wartość w Typec_dp.h i użyciu I &lt;dp_pin_assign_max jako pętla
-stan : schorzenie.</description></item><item><title>CVE: CVE-2025-38390</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38390</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-oprogramowanie układowe: arm_ffa: Napraw wyciek pamięci, uwalniając węzeł zwrotny powiadomień
-
-Commit e0573444EDBF („oprogramowanie układowe: arm_ffa: Dodaj interfejsy do żądania
-Powiadomienia zwrotne ”) Dodaje obsługę wywoławczych powiadomień poprzez przydzielenie
-i wstawienie węzła zwrotnego do hashtabla podczas rejestracji
-Niezdoby.Jednak podczas niezadowolenia kod usuwa tylko
-węzeł z hashtabla bez uwalniania powiązanej pamięci, co jest
-w wycieku pamięci.
-
-Rozwiąż problem z wyciekiem pamięci, zapewniając przydzielone oddzwonienie do powiadomień
-Węzeł jest odpowiednio uwolniony po usunięciu z wpisu do hashta.</description></item><item><title>CVE: CVE-2025-38389</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38389</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-DRM/I915/GT: Napraw osi czasu pozostawione na błędach allowych VMA
-
-Poniższy błąd został zgłoszony sporadycznie przez CI podczas testu
-Unbinds The I915 Sterownik na platformie przesyłania pierścienia:
-
-&lt;4&gt; [239.330153] ------------ [cięcie tutaj] ------------
-&lt;4&gt; [239.330166] I915 0000: 00: 02.0: [DRM] DRM_WARN_ON (dev_priv-&gt; m.shrink_count)
-&lt;4&gt; [239.330196] OSTRZEŻENIE: CPU: 1 PID: 18570 AT Drivers/GPU/DRM/I915/I915_GEM.C: 1309 I915_GEM_CLEANUP_EARLY+0x13E/0x150 [I915]
-...
-&lt;4&gt; [239.330640] RIP: 0010: i915_gem_cleanup_early+0x13e/0x150 [i915]
-...
-&lt;4&gt; [239.330942] Śledzenie połączeń:
-&lt;4&gt; [239.330944] &lt;Dask&gt;
-&lt;4&gt; [239.330949] i915_driver_late_release+0x2b/0xa0 [i915]
-&lt;4&gt; [239.331202] i915_driver_release+0x86/0xa0 [i915]
-&lt;4&gt; [239.331482] Devm_drm_dev_init_release+0x61/0x90
-&lt;4&gt; [239.331494] DevM_Action_release+0x15/0x30
-&lt;4&gt; [239.331504] Release_nodes+0x3d/0x120
-&lt;4&gt; [239.331517] Devres_release_all+0x96/0xd0
-&lt;4&gt; [239.331533] Device_unbind_cleanup+0x12/0x80
-&lt;4&gt; [239.331543] Device_release_driver_internal+0x23a/0x280
-&lt;4&gt; [239.331550]?bus_find_device+0xa5/0xe0
-&lt;4&gt; [239.331563] Device_driver_detach+0x14/0x20
-...
-&lt;4&gt; [357.719679] --- [Trace End 0000000000000000] ---
-
-Jeśli test rozładuje również moduł i915, to następuje:
-
-&lt;3&gt; [357.787478] ============================================================================
-&lt;3&gt; [357.788006] Bug I915_VMA (skażone: g u w n): Obiekty pozostające na __kmem_cache_shutdown ()
-&lt;3&gt; [357.788031] -------------------------------------------------------------------------
-&lt;3&gt; [357.788204] Obiekt 0xffff888109e7f480 @offset = 29824
-&lt;3&gt; [357.788670] Przydzielony w I915_VMA_INstance+0xee/0xc10 [i915] wiek = 292729 CPU = 4 PID = 2244
-&lt;4&gt; [357.788994] i915_vma_instance+0xee/0xc10 [i915]
-&lt;4&gt; [357.789290] init_status_page+0x7b/0x420 [i915]
-&lt;4&gt; [357.789532] Intel_engines_init+0x1d8/0x980 [i915]
-&lt;4&gt; [357.789772] Intel_gt_init+0x175/0x450 [i915]
-&lt;4&gt; [357.790014] i915_gem_init+0x113/0x340 [i915]
-&lt;4&gt; [357.790281] i915_driver_probe+0x847/0xed0 [i915]
-&lt;4&gt; [357.790504] i915_pci_probe+0xe6/0x220 [i915]
-...
-
-Bliższa analiza historii wyników CI ujawniła zależność
-Błąd w kilku testach IGT, a mianowicie:
--IGT@api_intel_allocator@wide-simple-stress-sygnal,
--iGT@api_intel_allocator@dwupoziomowy-interprent, przerwany,
-- IGT@GEM_Linear_Blits@przerywalny,
-- IGT@prime_mmap_coherency@ioCtl-errors,
-które niewidocznie wywołują problem, a następnie wystawił się z pierwszym kierowcą Unbind
-próba.
-
-Wszystkie powyższe testy wykonują działania, które są aktywnie przerywane
-sygnały.Dalsze debugowanie pozwoliło zawęzić ten zakres do
-DRM_IOCTL_I915_GEM_EXECBUFFER2 i RING_CONTEXT_ALLOC (), specyficzne dla pierścienia
-w szczególności zgłoszenie.
-
-Jeśli się powiedzie, to ta funkcja, jej listy wykonawcze lub przesyłanie GUC
-równoważny, ma być nazywany tylko raz na silnik kontekstowy klejnotu,
-a następnie podniesienie flagi, która zapobiega wywołaniu funkcji
-Ponownie.Oczekuje się, że funkcja odpoczywa same błędy wewnętrzne, więc
-Można go bezpiecznie nazwać ponownie po zwróceniu błędu.
-
-W przypadku przesłania pierścienia funkcja najpierw otrzymuje odniesienie do
-Leżowa oś czasu silnika, a następnie przydzielona VMA.Jeśli alokacja VMA
-Niepowodzenie, np.Kiedy i915_vma_instance () wywoływane od wewnątrz jest przerywane
-Z sygnałem, a następnie ring_context_alloc () nie powiedzie się, pozostawiając osi czasu
-odwołane.Na następnym I915_GEM_EXECBUFFER2 IOCTL, kolejne odniesienie do
-Oś czasu została uzyskana i tylko ten ostatni jest ukończony.
-W rezultacie starsza oś czasu, z podstawowym statusem silnika
-Obiekt VMA Page jest nadal utrzymywany i nie jest wydany na Driver Unbind.
-
-Uzyskaj dziedzictwo harmonogramu dopiero po udanej przydzieleniu kontekstu
-VMA silnika.
-
-V2: Dodaj notatkę na temat innych metod przesyłania (KRZYSZTOF KARAS):
-Zarówno ExecLists, jak i GUC przesyłają użycie LRC_ALLOC (), co wydaje się bezpłatne
-z podobnego problemu.
-
-(Cherry wybrany z Commit CC43422B3CC79ECFF4C5A8BA0D224688CA9DD4F)</description></item><item><title>CVE: CVE-2025-38388</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38388</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-oprogramowanie układowe: arm_ffa: zamień mutex na rwlock, aby uniknąć snu w kontekście atomowym
-
-Obecne zastosowanie mutex w celu ochrony dostępu do hashta
-może prowadzić do problemów w kontekście atomowym.Powoduje to poniżej
-Ostrzeżenia jądra:
-
-|.Błąd: Funkcja snu wywoływana z niepoprawnego kontekstu w jądrze/Locking/Mutex.C: 258
-|.in_atomic (): 1, irqs_disabled (): 1, non_block: 0, pid: 9, nazwa: Kworker/0: 0
-|.prept_count: 1, oczekiwano: 0
-|.RCU gniazdo głębokość: 0, oczekiwano: 0
-|.CPU: 0 UID: 0 PID: 9 Comm: Kworker/0: 0 Nie skażone 6.14.0 #4
-|.WorkQueue: FFA_PCPU_IRQ_NOTIFICACJA NOTIF_PCPU_IRQ_WORK_FN
-|.TRACY CALL:
-|.show_stack+0x18/0x24 (c)
-|.zrzut_stack_lvl+0x78/0x90
-|.zrzut_stack+0x18/0x24
-|.__Might_Resched+0x114/0x170
-|.__Might_Sleep+0x48/0x98
-|.MUTEX_LOCK+0x24/0x80
-|.uchwyt_notif_callbacks+0x54/0xe0
-|.notif_get_and_handle+0x40/0x88
-|.generic_exec_single+0x80/0xc0
-|.SMP_CALL_FUNCTION_SINGE+0xfc/0x1a0
-|.notif_pcpu_irq_work_fn+0x2c/0x38
-|.proces_one_work+0x14c/0x2b4
-|.Worker_thread+0x2e4/0x3e0
-|.KTHREAD+0x13C/0x210
-|.ret_from_fork+0x10/0x20
-
-Aby to rozwiązać, zastąp Mutex na rwlock, aby chronić powiadomienie
-Dostęp do hashtabla.Zapewnia to, że blokowanie po stronie odczytu nie śpi i
-Wielu czytelników może nabywać blokadę jednocześnie, unikając niepotrzebnego
-spór i potencjalne zakleszczenia.Dostęp do pisarza pozostaje wyłączny,
-zachowanie poprawności.
-
-Ta zmiana rozwiązuje ostrzeżenia od Lockdep o potencjalnym spaniu
-kontekst atomowy.</description></item><item><title>CVE: CVE-2025-38387</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38387</link><pubDate>Fri, 25 Jul 2025 13:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
-
-Rdma/mlx5: inicjuj obj_event-&gt; obj_sub_list przed xa_insert
-
-Obj_event może zostać załadowany natychmiast po włożeniu, to jeśli
-List_head nie jest inicjowany, a następnie możemy uzyskać trujący wskaźnik.Ten
-Naprawiono katastrofę poniżej:
-
-MLX5_CORE 0000: 03: 00.0: MLX5E: STRDQ (1) RQSZ (8) STRDSZ (2048) RXCQECMPRSS (0 Ulepszone)
-MLX5_CORE.SF MLX5_CORE.SF.4: Wersja oprogramowania układowego: 32.38.3056
-MLX5_CORE 0000: 03: 00.0 EN3F0PF0SF2002: Przemianowanie z ETH0
-MLX5_CORE.SF MLX5_CORE.SF.4: Limit stawki: Obsługiwane są 127 stawek, Zakres: 0 Mb / s do 195312 MB / ss
-IPv6: addrconf (netdev_change): EN3F0PF0SF2002: Link się gotowy
-Nie można obsłużyć dereferencji wskaźnika zerowego jądra pod adresem wirtualnym 0000000000000060
-MEM ABORT INFORMACJE:
-ESR = 0x96000006
-EC = 0x25: DABT (prąd EL), IL = 32 bity
-Set = 0, fnv = 0
-Ea = 0, s1ptw = 0
-Informacje o przerywaniu danych:
-ISV = 0, ISS = 0x00000006
-Cm = 0, wnr = 0
-Użytkownik PGTable: strony 4K, 48-bitowe VAS, PGDP = 00000007760FB000
-[0000000000000060] PGD = 000000076F6D7003, P4D = 000000076F6D7003, PUD = 000000077841003, PMD = 000000000000000000
-Błąd wewnętrzny: UPS: 96000006 [#1] SMP
-Moduły połączone w: ipmb_host (oe) Act_mirred (e) cls_flower (e) sch_ingress (e) mptcp_diag (e) UDP_Diag (e) raw_diag (e) unix_diag (e) tcp_diag (e) inet_diag (e) binfmt_misc (oe)rdma_ucm (oe) rdma_cm (oe) iw_cm (oe) ib_ipoib (oe) ib_cm (oe) ISOFS (e) cdrom (e) mst_pciconf (oe) ib_umad (oe) mlx5_ib (oe) ipmb_dev_int (oe) mlx5_core (oe) ib_umad (oe) mlx5_ib (oe) ipmb_dev_int (oe (oe))kpatch_15237886 (oek) mlxdevm (oe) auxiliary (oe) ib_uverbs (oe) ib_core (oe) psample (e) mlxfw (oe) tls (e) sunRpc (e) vfat (e) fat (e) crct10dif_ce (e) shash_ce (e) sha1_ce (e)sbsa_gwdt (e) virtio_console (e) ext4 (e) mbcache (e) jbd2 (e) xfs (e) libcrc32c (e) mmc_block (e) virtio_net (e) net_failover (e) gaiver (e) sha2_ce (e) sha256_arm64 (e) nvMe (oe)nvme_core (oe) gpio_mlxbf3 (oe) mlx_compat (oe) mlxbf_pmc (oe) i2c_mlxbf (oe) sdhci_of_dwcmshc (oe) pinctrl_mlxbf3 (oe) mlxbf_pka (oe) gpio_genericeric (e)i2c_core (e) MMC_CORE (e) Mlxbf_gige (oe) vitesse (e) pwr_mlxbf (oe) mlxbf_tmfifo (oe) micrel (e) mlxbf_bootctl (oe) virtio_ring (e) virtio (e) iPmi_Devintf (e) ipmi_msghanderr (e)
-[Ostatnie rozładowane: mST_PCI]
-CPU: 11 PID: 20913 Comm: RTE-Worker-11 KDUMP: Załadowany skażony: G OE K 5.10.134-13.1.an8.aarch64 #1
-Nazwa sprzętu: https://www.mellanox.com Bluefield-3 Smartnick Główna karta/Bluefield-3 Smartnick, BIOS 4.2.2.12968 26 października 2023
-PSTATE: A0400089 (NZCV DAIF +Pan -uao -tco Btype = -)
-PC: Dispatch_event_fd+0x68/0x300 [mlx5_ib]
-LR: devx_event_notifier+0xcc/0x228 [mlx5_ib]
-SP: FFFF80001005BCF0
-x29: FFFF80001005BCF0 x28: 0000000000000001
-x27: ffff244e0740a1d8 x26: ffff244e0740a1d0
-x25: ffffda56beff5ae0 x24: ffffda56bf911618
-X23: FFFF244E0596A480 x22: FFFF244E0596A480
-X21: FFFF244D8312AD90 x20: FFFF244E0596A480
-x19: ffffffffffffff0 x18: 000000000000000000
-X17: 0000000000000000 x16: FFFFDA56BE66D620
-X15: 0000000000000000 x14: 000000000000000000
-x13: 0000000000000000 x12: 000000000000000000
-X11: 0000000000000040 x10: FFFFDA56BFCAFB50
-x9: FFFFDA5655C25F2C x8: 0000000000000010
-x7: 0000000000000000 x6: FFFF24545A2E24B8
-X5: 0000000000000003 X4: FFFF80001005BD28
-x3: 0000000000000000 x2: 000000000000000000
-x1: ffff244e0596a480 x0: ffff244d8312ad90
-TRACY CALL:
-Dispatch_event_fd+0x68/0x300 [MLX5_IB]
-devx_event_notifier+0xcc/0x228 [mlx5_ib]
-atomic_notifier_call_chain+0x58/0x80
-MLX5_EQ_ASYNC_INT+0x148/0x2B0 [MLX5_CORE]
-atomic_notifier_call_chain+0x58/0x80
-irq_int_handler+0x20/0x30 [MLX5_CORE]
-__Handle_IRQ_Event_percpu+0x60/0x220
-uchwyt_irq_event_percpu+0x3c/0x90
-uchwyt_irq_event+0x58/0x158
-uchwyt_fasteo_irq+0xfc/0x188
-generic_handle_irq+0x34/0x48
-...</description></item><item><title>Dane osobowe gdańszczan były dostępne na stronie przetargu</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/dane-osobowe-gdanszczan-byly-dostepne-na-stronie-przetargu</link><pubDate>Fri, 25 Jul 2025 13:15:07 +0000</pubDate><source>Cyberdefence24</source><description>Dane osobowe gdańszczan były dostępne na stronie przetargu</description></item><item><title>Cyber Espionage Campaign Hits Russian Aerospace Sector Using EAGLET Backdoor</title><link>https://thehackernews.com/2025/07/cyber-espionage-campaign-hits-russian.html</link><pubDate>Fri, 25 Jul 2025 13:14:00 +0000</pubDate><source>TheHackerNews</source><description>Cyber Espionage Campaign Hits Russian Aerospace Sector Using EAGLET Backdoor</description></item><item><title>Szukamy admina do Securitum (Kraków!)</title><link>https://sekurak.pl/szukamy-admina-do-securitum-krakow/</link><pubDate>Fri, 25 Jul 2025 13:11:24 +0000</pubDate><source>Sekurak</source><description>Szukamy admina do Securitum (Kraków!)</description></item><item><title>The Young and the Restless: Young Cybercriminals Raise Concerns</title><link>https://www.darkreading.com/cyber-risk/young-cybercriminals-raise-concerns</link><pubDate>Fri, 25 Jul 2025 13:00:00 +0000</pubDate><source>DarkReading</source><description>The Young and the Restless: Young Cybercriminals Raise Concerns</description></item><item><title>US sanctions North Korean firm, nationals behind IT worker schemes</title><link>https://www.bleepingcomputer.com/news/security/us-sanctions-north-korean-firm-nationals-behind-it-worker-schemes/</link><pubDate>Fri, 25 Jul 2025 12:40:51 +0000</pubDate><source>BleepingComputer</source><description>US sanctions North Korean firm, nationals behind IT worker schemes</description></item><item><title>Intel rezygnuje z ogromnej inwestycji w Polsce</title><link>https://cyberdefence24.pl/biznes-i-finanse/intel-rezygnuje-z-ogromnej-inwestycji-w-polsce</link><pubDate>Fri, 25 Jul 2025 11:54:01 +0000</pubDate><source>Cyberdefence24</source><description>Intel rezygnuje z ogromnej inwestycji w Polsce</description></item><item><title>Woman gets 8 years for aiding North Koreans infiltrate 300 US firms</title><link>https://www.bleepingcomputer.com/news/security/us-woman-sentenced-to-8-years-in-prison-for-running-laptop-farm-helping-north-koreans-infiltrate-300-firms/</link><pubDate>Fri, 25 Jul 2025 11:41:01 +0000</pubDate><source>BleepingComputer</source><description>Woman gets 8 years for aiding North Koreans infiltrate 300 US firms</description></item><item><title>Rosja walczy z cyberprzestępczością: za podzielenie się kartą SIM nawet 3 lata więzienia</title><link>https://cyberdefence24.pl/rosja-walczy-z-cyberprzestepczoscia-za-podzielenie-sie-karta-sim-nawet-3-lata-wiezienia</link><pubDate>Fri, 25 Jul 2025 10:34:06 +0000</pubDate><source>Cyberdefence24</source><description>Rosja walczy z cyberprzestępczością: za podzielenie się kartą SIM nawet 3 lata więzienia</description></item><item><title>Soco404 and Koske Malware Target Cloud Services with Cross-Platform Cryptomining Attacks</title><link>https://thehackernews.com/2025/07/soco404-and-koske-malware-target-cloud.html</link><pubDate>Fri, 25 Jul 2025 10:33:00 +0000</pubDate><source>TheHackerNews</source><description>Soco404 and Koske Malware Target Cloud Services with Cross-Platform Cryptomining Attacks</description></item><item><title>Overcoming Risks from Chinese GenAI Tool Usage</title><link>https://thehackernews.com/2025/07/overcoming-risks-from-chinese-genai.html</link><pubDate>Fri, 25 Jul 2025 10:25:00 +0000</pubDate><source>TheHackerNews</source><description>Overcoming Risks from Chinese GenAI Tool Usage</description></item><item><title>Microsoft lifts Windows 11 update block for Easy Anti-Cheat users</title><link>https://www.bleepingcomputer.com/news/microsoft/microsoft-lifts-windows-11-update-block-for-easy-anti-cheat-users/</link><pubDate>Fri, 25 Jul 2025 10:11:47 +0000</pubDate><source>BleepingComputer</source><description>Microsoft lifts Windows 11 update block for Easy Anti-Cheat users</description></item><item><title>Weekendowa Lektura: odcinek 634 [2025-07-25]. Bierzcie i czytajcie</title><link>https://zaufanatrzeciastrona.pl/post/weekendowa-lektura-odcinek-634-2025-07-25-bierzcie-i-czytajcie/</link><pubDate>Fri, 25 Jul 2025 10:00:30 +0000</pubDate><source>Zaufana Trzecia Strona</source><description>Weekendowa Lektura: odcinek 634 [2025-07-25]. Bierzcie i czytajcie</description></item><item><title>Prezydent podpisał ustawę o certyfikacji cyberbezpieczeństwa</title><link>https://cyberdefence24.pl/polityka-i-prawo/prezydent-podpisal-ustawe-o-certyfikacji-cyberbezpieczenstwa</link><pubDate>Fri, 25 Jul 2025 08:55:41 +0000</pubDate><source>Cyberdefence24</source><description>Prezydent podpisał ustawę o certyfikacji cyberbezpieczeństwa</description></item><item><title>#CyberWojska Włoch - jak budować zdolności w piątej domenie?</title><link>https://cyberdefence24.pl/armia-i-sluzby/cyberwojska-wloch-jak-budowac-zdolnosci-w-piatej-domenie</link><pubDate>Fri, 25 Jul 2025 06:45:33 +0000</pubDate><source>Cyberdefence24</source><description>#CyberWojska Włoch - jak budować zdolności w piątej domenie?</description></item><item><title>Podatności sprzed dekady nadal narażają farmy OZE na cyberataki</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/podatnosci-sprzed-dekady-nadal-narazaja-farmy-oze-na-cyberataki</link><pubDate>Fri, 25 Jul 2025 06:00:36 +0000</pubDate><source>Cyberdefence24</source><description>Podatności sprzed dekady nadal narażają farmy OZE na cyberataki</description></item><item><title>Administrator cyberforum zatrzymany w międzynarodowej akcji na Ukrainie</title><link>https://kapitanhack.pl/2025/07/25/nieskategoryzowane/administrator-cyberforum-zatrzymany-w-miedzynarodowej-akcji-na-ukrainie/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=administrator-cyberforum-zatrzymany-w-miedzynarodowej-akcji-na-ukrainie</link><pubDate>Fri, 25 Jul 2025 05:47:50 +0000</pubDate><source>Kapitan Hack</source><description>Administrator cyberforum zatrzymany w międzynarodowej akcji na Ukrainie</description></item><item><title>Sinkholing Suspicious Scripts or Executables on Linux, (Fri, Jul 25th)</title><link>https://isc.sans.edu/diary/rss/32144</link><pubDate>Fri, 25 Jul 2025 04:54:48 +0000</pubDate><source>SANS Technology Institute</source><description>Sinkholing Suspicious Scripts or Executables on Linux, (Fri, Jul 25th)</description></item><item><title>ISC Stormcast For Friday, July 25th, 2025 https://isc.sans.edu/podcastdetail/9542, (Fri, Jul 25th)</title><link>https://isc.sans.edu/diary/rss/32142</link><pubDate>Fri, 25 Jul 2025 02:00:02 +0000</pubDate><source>SANS Technology Institute</source><description>ISC Stormcast For Friday, July 25th, 2025 https://isc.sans.edu/podcastdetail/9542, (Fri, Jul 25th)</description></item><item><title>Ransomware: Emerson Chiropractic - dragonforce</title><link>https://emmersonchiropractic.com</link><pubDate>Fri, 25 Jul 2025 09:06:04 +0000</pubDate><source>dragonforce</source><description>Ofiara: Emerson Chiropractic, Grupa: dragonforce</description></item><item><title>Ransomware: md-labels-gmbh.com - dragonforce</title><link>https://md-labels.de</link><pubDate>Fri, 25 Jul 2025 09:04:27 +0000</pubDate><source>dragonforce</source><description>Ofiara: md-labels-gmbh.com, Grupa: dragonforce</description></item><item><title>Ransomware: www.mada.com.kw - kraken</title><link>https://www.mada.com.kw</link><pubDate>Fri, 25 Jul 2025 05:46:32 +0000</pubDate><source>kraken</source><description>Ofiara: www.mada.com.kw, Grupa: kraken</description></item><item><title>Ransomware: Helical Auto Technology (India) - akira</title><link>https://ransomware.live</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Helical Auto Technology (India), Grupa: akira</description></item><item><title>Ransomware: Astro Industries Inc. - qilin</title><link>https://www.astro-ind.com</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: Astro Industries Inc., Grupa: qilin</description></item><item><title>Ransomware: moelco.es - global</title><link>https://moelco.es</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>global</source><description>Ofiara: moelco.es, Grupa: global</description></item><item><title>Ransomware: lafavoritaservice.it - global</title><link>https://lafavoritaservice.it</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>global</source><description>Ofiara: lafavoritaservice.it, Grupa: global</description></item><item><title>Can Security Culture Be Taught? AWS Says Yes</title><link>https://www.darkreading.com/cybersecurity-operations/can-security-culture-be-taught-aws-says-yes</link><pubDate>Thu, 24 Jul 2025 21:54:15 +0000</pubDate><source>DarkReading</source><description>Can Security Culture Be Taught? AWS Says Yes</description></item><item><title>BlackSuit ransomware extortion sites seized in Operation Checkmate</title><link>https://www.bleepingcomputer.com/news/security/law-enforcement-seizes-blacksuit-ransomware-leak-sites/</link><pubDate>Thu, 24 Jul 2025 21:34:13 +0000</pubDate><source>BleepingComputer</source><description>BlackSuit ransomware extortion sites seized in Operation Checkmate</description></item><item><title>Law Enforcement Cracks Down on XSS — but Will It Last?</title><link>https://www.darkreading.com/threat-intelligence/law-enforcement-cracks-down-xss</link><pubDate>Thu, 24 Jul 2025 21:15:44 +0000</pubDate><source>DarkReading</source><description>Law Enforcement Cracks Down on XSS — but Will It Last?</description></item><item><title>OpenAI confirms ChatGPT Agent is now rolling out for $20 Plus users</title><link>https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-agent-is-now-rolling-out-for-20-plus-users/</link><pubDate>Thu, 24 Jul 2025 20:59:14 +0000</pubDate><source>BleepingComputer</source><description>OpenAI confirms ChatGPT Agent is now rolling out for $20 Plus users</description></item><item><title>New Koske Linux malware hides in cute panda images</title><link>https://www.bleepingcomputer.com/news/security/new-koske-linux-malware-hides-in-cute-panda-images/</link><pubDate>Thu, 24 Jul 2025 20:54:10 +0000</pubDate><source>BleepingComputer</source><description>New Koske Linux malware hides in cute panda images</description></item><item><title>Ransomware Actors Pile on 'ToolShell' SharePoint Bugs</title><link>https://www.darkreading.com/endpoint-security/ransomware-actors-toolshell-sharepoint-bugs</link><pubDate>Thu, 24 Jul 2025 20:45:22 +0000</pubDate><source>DarkReading</source><description>Ransomware Actors Pile on 'ToolShell' SharePoint Bugs</description></item><item><title>Critical Mitel Flaw Lets Hackers Bypass Login, Gain Full Access to MiVoice MX-ONE Systems</title><link>https://thehackernews.com/2025/07/critical-mitel-flaw-lets-hackers-bypass.html</link><pubDate>Thu, 24 Jul 2025 17:14:00 +0000</pubDate><source>TheHackerNews</source><description>Critical Mitel Flaw Lets Hackers Bypass Login, Gain Full Access to MiVoice MX-ONE Systems</description></item><item><title>Fire Ant Exploits VMware Flaws to Compromise ESXi Hosts and vCenter Environments</title><link>https://thehackernews.com/2025/07/fire-ant-exploits-vmware-flaw-to.html</link><pubDate>Thu, 24 Jul 2025 17:05:00 +0000</pubDate><source>TheHackerNews</source><description>Fire Ant Exploits VMware Flaws to Compromise ESXi Hosts and vCenter Environments</description></item><item><title>Hacker sneaks infostealer malware into early access Steam game</title><link>https://www.bleepingcomputer.com/news/security/hacker-sneaks-infostealer-malware-into-early-access-steam-game/</link><pubDate>Thu, 24 Jul 2025 16:49:47 +0000</pubDate><source>BleepingComputer</source><description>Hacker sneaks infostealer malware into early access Steam game</description></item><item><title>Senators push CISA director nominee on election security, agency focus</title><link>https://www.cybersecuritydive.com/news/cisa-director-sean-plankey-confirmation-hearing/753962/</link><pubDate>Thu, 24 Jul 2025 16:03:47 +0000</pubDate><source>Cybersecurity dive</source><description>Senators push CISA director nominee on election security, agency focus</description></item><item><title>What we know about the Microsoft SharePoint attacks</title><link>https://www.cybersecuritydive.com/news/what-we-know-microsoft-sharepoint-attacks/753961/</link><pubDate>Thu, 24 Jul 2025 16:00:15 +0000</pubDate><source>Cybersecurity dive</source><description>What we know about the Microsoft SharePoint attacks</description></item><item><title>Mitel warns of critical MiVoice MX-ONE authentication bypass flaw</title><link>https://www.bleepingcomputer.com/news/security/mitel-warns-of-critical-mivoice-mx-one-authentication-bypass-flaw/</link><pubDate>Thu, 24 Jul 2025 15:17:40 +0000</pubDate><source>BleepingComputer</source><description>Mitel warns of critical MiVoice MX-ONE authentication bypass flaw</description></item><item><title>CastleLoader Malware Infects 469 Devices Using Fake GitHub Repos and ClickFix Phishing</title><link>https://thehackernews.com/2025/07/castleloader-malware-infects-469.html</link><pubDate>Thu, 24 Jul 2025 15:13:00 +0000</pubDate><source>TheHackerNews</source><description>CastleLoader Malware Infects 469 Devices Using Fake GitHub Repos and ClickFix Phishing</description></item><item><title>Kopanie krypto pod przykrywką błędu 404 i platform chmurowych</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/kopanie-krypto-pod-przykrywka-bledu-404-i-platform-chmurowych</link><pubDate>Thu, 24 Jul 2025 14:48:23 +0000</pubDate><source>Cyberdefence24</source><description>Kopanie krypto pod przykrywką błędu 404 i platform chmurowych</description></item><item><title>Sophos and SonicWall Patch Critical RCE Flaws Affecting Firewalls and SMA 100 Devices</title><link>https://thehackernews.com/2025/07/sophos-and-sonicwall-patch-critical-rce.html</link><pubDate>Thu, 24 Jul 2025 14:14:00 +0000</pubDate><source>TheHackerNews</source><description>Sophos and SonicWall Patch Critical RCE Flaws Affecting Firewalls and SMA 100 Devices</description></item><item><title>Microsoft wprowadza Copilot Vision. Aktywność trafi na serwery</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/microsoft-wprowadza-copilot-vision-aktywnosc-trafi-na-serwery</link><pubDate>Thu, 24 Jul 2025 14:02:56 +0000</pubDate><source>Cyberdefence24</source><description>Microsoft wprowadza Copilot Vision. Aktywność trafi na serwery</description></item><item><title>Translating Cyber-Risk for the Boardroom</title><link>https://www.darkreading.com/cyber-risk/translating-cyber-risk-boardroom</link><pubDate>Thu, 24 Jul 2025 14:00:00 +0000</pubDate><source>DarkReading</source><description>Translating Cyber-Risk for the Boardroom</description></item><item><title>Sophos captures multiple honors at SE Labs Awards 2025</title><link>https://news.sophos.com/en-us/2025/07/24/sophos-captures-multiple-honors-at-se-labs-awards-2025/</link><pubDate>Thu, 24 Jul 2025 13:49:38 +0000</pubDate><source>SOPHOS</source><description>Sophos captures multiple honors at SE Labs Awards 2025</description></item><item><title>To nie jest aktualizacja danych Orange</title><link>https://cert.orange.pl/ostrzezenia/to-nie-jest-zadna-aktualizacja-danych-orange/</link><pubDate>Thu, 24 Jul 2025 13:32:04 +0000</pubDate><source>CERT Orange</source><description>To nie jest aktualizacja danych Orange</description></item><item><title>Hackers breach Toptal GitHub account, publish malicious npm packages</title><link>https://www.bleepingcomputer.com/news/security/hackers-breach-toptal-github-account-publish-malicious-npm-packages/</link><pubDate>Thu, 24 Jul 2025 13:26:04 +0000</pubDate><source>BleepingComputer</source><description>Hackers breach Toptal GitHub account, publish malicious npm packages</description></item><item><title>Zhakowani mimo wydania 500 mln na IT. Clorox pozywa Cognizant</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/zhakowani-mimo-wydania-500-mln-na-it-clorox-pozywa-cognizant</link><pubDate>Thu, 24 Jul 2025 12:55:41 +0000</pubDate><source>Cyberdefence24</source><description>Zhakowani mimo wydania 500 mln na IT. Clorox pozywa Cognizant</description></item><item><title>NIST Makes First Detection of Cannabis in Breath From Edibles</title><link>https://www.nist.gov/news-events/news/2025/07/nist-makes-first-detection-cannabis-breath-edibles</link><pubDate>Thu, 24 Jul 2025 12:00:00 +0000</pubDate><source>NIST US</source><description>NIST Makes First Detection of Cannabis in Breath From Edibles</description></item><item><title>Watch This Webinar to Uncover Hidden Flaws in Login, AI, and Digital Trust — and Fix Them</title><link>https://thehackernews.com/2025/07/watch-this-webinar-to-uncover-hidden.html</link><pubDate>Thu, 24 Jul 2025 11:36:00 +0000</pubDate><source>TheHackerNews</source><description>Watch This Webinar to Uncover Hidden Flaws in Login, AI, and Digital Trust — and Fix Them</description></item><item><title>SonicWall urges admins to patch critical RCE flaw in SMA 100 devices</title><link>https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-critical-rce-flaw-in-sma-100-VPN-appliances/</link><pubDate>Thu, 24 Jul 2025 11:17:39 +0000</pubDate><source>BleepingComputer</source><description>SonicWall urges admins to patch critical RCE flaw in SMA 100 devices</description></item><item><title>Awaria systemów PWN. Prawdopodobny atak ransomware</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/awaria-systemow-pwn-prawdopodobny-atak-ransomware</link><pubDate>Thu, 24 Jul 2025 11:17:08 +0000</pubDate><source>Cyberdefence24</source><description>Awaria systemów PWN. Prawdopodobny atak ransomware</description></item><item><title>Pentests once a year? Nope. It’s time to build an offensive SOC</title><link>https://thehackernews.com/2025/07/pentests-once-year-nope-its-time-to.html</link><pubDate>Thu, 24 Jul 2025 11:00:00 +0000</pubDate><source>TheHackerNews</source><description>Pentests once a year? Nope. It’s time to build an offensive SOC</description></item><item><title>China-Based APTs Deploy Fake Dalai Lama Apps to Spy on Tibetan Community</title><link>https://thehackernews.com/2025/07/china-based-apts-deploy-fake-dalai-lama.html</link><pubDate>Thu, 24 Jul 2025 10:59:00 +0000</pubDate><source>TheHackerNews</source><description>China-Based APTs Deploy Fake Dalai Lama Apps to Spy on Tibetan Community</description></item><item><title>Storm-2603 Exploits SharePoint Flaws to Deploy Warlock Ransomware on Unpatched Systems</title><link>https://thehackernews.com/2025/07/storm-2603-exploits-sharepoint-flaws-to.html</link><pubDate>Thu, 24 Jul 2025 10:37:00 +0000</pubDate><source>TheHackerNews</source><description>Storm-2603 Exploits SharePoint Flaws to Deploy Warlock Ransomware on Unpatched Systems</description></item><item><title>Microsoft: SharePoint flaws exploited in Warlock ransomware attacks</title><link>https://www.bleepingcomputer.com/news/security/microsoft-sharepoint-servers-also-targeted-in-ransomware-attacks/</link><pubDate>Thu, 24 Jul 2025 09:53:14 +0000</pubDate><source>BleepingComputer</source><description>Microsoft: SharePoint flaws exploited in Warlock ransomware attacks</description></item><item><title>America's AI Action Plan. Jak USA chcą wygrać wyścig sztucznej inteligencji?</title><link>https://cyberdefence24.pl/technologie/americas-ai-action-plan-jak-usa-chce-wygrac-wyscig-sztucznej-inteligencji</link><pubDate>Thu, 24 Jul 2025 09:31:01 +0000</pubDate><source>Cyberdefence24</source><description>America's AI Action Plan. Jak USA chcą wygrać wyścig sztucznej inteligencji?</description></item><item><title>Kolejne zatrzymania w sprawie internetowego obrotu narkotykami</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/kolejne-zatrzymania-w-sprawie-internetowego-obrotu-narkotykami</link><pubDate>Thu, 24 Jul 2025 07:58:56 +0000</pubDate><source>Cyberdefence24</source><description>Kolejne zatrzymania w sprawie internetowego obrotu narkotykami</description></item><item><title>Brytyjski rząd zakaże płacenia okupu cyberprzestępcom</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/brytyjski-rzad-zakaze-placenia-okupu-cyberprzestepcom</link><pubDate>Thu, 24 Jul 2025 06:54:51 +0000</pubDate><source>Cyberdefence24</source><description>Brytyjski rząd zakaże płacenia okupu cyberprzestępcom</description></item><item><title>Europol Arrests XSS Forum Admin in Kyiv After 12-Year Run Operating Cybercrime Marketplace</title><link>https://thehackernews.com/2025/07/europol-arrests-xss-forum-admin-in-kyiv.html</link><pubDate>Thu, 24 Jul 2025 06:48:00 +0000</pubDate><source>TheHackerNews</source><description>Europol Arrests XSS Forum Admin in Kyiv After 12-Year Run Operating Cybercrime Marketplace</description></item><item><title>Rosyjska firma ujawnia działania APT41 w Afryce</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/rosyjska-firma-ujawnia-dzialania-apt41-w-afryce</link><pubDate>Thu, 24 Jul 2025 06:09:20 +0000</pubDate><source>Cyberdefence24</source><description>Rosyjska firma ujawnia działania APT41 w Afryce</description></item><item><title>Kampania phishingowa PoisonSeed omija zabezpieczenia FIDO2, wykorzystując autoryzację między urządzeniami</title><link>https://kapitanhack.pl/2025/07/24/nieskategoryzowane/kampania-phishingowa-poisonseed-omija-zabezpieczenia-fido2-wykorzystujac-autoryzacje-miedzy-urzadzeniami/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=kampania-phishingowa-poisonseed-omija-zabezpieczenia-fido2-wykorzystujac-autoryzacje-miedzy-urzadzeniami</link><pubDate>Thu, 24 Jul 2025 06:00:00 +0000</pubDate><source>Kapitan Hack</source><description>Kampania phishingowa PoisonSeed omija zabezpieczenia FIDO2, wykorzystując autoryzację między urządzeniami</description></item><item><title>Hackers Deploy Stealth Backdoor in WordPress Mu-Plugins to Maintain Admin Access</title><link>https://thehackernews.com/2025/07/hackers-deploy-stealth-backdoor-in.html</link><pubDate>Thu, 24 Jul 2025 05:11:00 +0000</pubDate><source>TheHackerNews</source><description>Hackers Deploy Stealth Backdoor in WordPress Mu-Plugins to Maintain Admin Access</description></item><item><title>New Tool: ficheck.py, (Thu, Jul 24th)</title><link>https://isc.sans.edu/diary/rss/32136</link><pubDate>Thu, 24 Jul 2025 03:07:53 +0000</pubDate><source>SANS Technology Institute</source><description>New Tool: ficheck.py, (Thu, Jul 24th)</description></item><item><title>ISC Stormcast For Thursday, July 24th, 2025 https://isc.sans.edu/podcastdetail/9540, (Thu, Jul 24th)</title><link>https://isc.sans.edu/diary/rss/32140</link><pubDate>Thu, 24 Jul 2025 02:00:02 +0000</pubDate><source>SANS Technology Institute</source><description>ISC Stormcast For Thursday, July 24th, 2025 https://isc.sans.edu/podcastdetail/9540, (Thu, Jul 24th)</description></item><item><title>Fixed Ivanti Bugs Still Haunt Japan Orgs 6 Months Later</title><link>https://www.darkreading.com/endpoint-security/fixed-ivanti-bugs-japan-orgs-6-months-later</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>DarkReading</source><description>Fixed Ivanti Bugs Still Haunt Japan Orgs 6 Months Later</description></item><item><title>Ransomware: salamanderresort.com - lynx</title><link>https://salamanderresort.com</link><pubDate>Thu, 24 Jul 2025 23:03:52 +0000</pubDate><source>lynx</source><description>Ofiara: salamanderresort.com, Grupa: lynx</description></item><item><title>Ransomware: teampostop.net - incransom</title><link>https://teampostop.net</link><pubDate>Thu, 24 Jul 2025 15:51:00 +0000</pubDate><source>incransom</source><description>Ofiara: teampostop.net, Grupa: incransom</description></item><item><title>Ransomware: seasonsfour.com - incransom</title><link>https://seasonsfour.com</link><pubDate>Thu, 24 Jul 2025 15:47:00 +0000</pubDate><source>incransom</source><description>Ofiara: seasonsfour.com, Grupa: incransom</description></item><item><title>Ransomware: New American Funding - Full leak published - everest</title><link>https://ransomware.live</link><pubDate>Thu, 24 Jul 2025 09:56:12 +0000</pubDate><source>everest</source><description>Ofiara: New American Funding - Full leak published, Grupa: everest</description></item><item><title>Ransomware: www.entecheng.com - incransom</title><link>https://www.entecheng.com</link><pubDate>Thu, 24 Jul 2025 01:00:00 +0000</pubDate><source>incransom</source><description>Ofiara: www.entecheng.com, Grupa: incransom</description></item><item><title>Ransomware: www.labiennale.org - incransom</title><link>https://www.labiennale.org</link><pubDate>Thu, 24 Jul 2025 01:00:00 +0000</pubDate><source>incransom</source><description>Ofiara: www.labiennale.org, Grupa: incransom</description></item><item><title>Ransomware: www.lincecomercial.com - incransom</title><link>https://www.lincecomercial.com</link><pubDate>Thu, 24 Jul 2025 01:00:00 +0000</pubDate><source>incransom</source><description>Ofiara: www.lincecomercial.com, Grupa: incransom</description></item><item><title>Ransomware: Donlar Construction - akira</title><link>https://ransomware.live</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Donlar Construction, Grupa: akira</description></item><item><title>Ransomware: Testa Heck Testa &amp; White - akira</title><link>https://ransomware.live</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Testa Heck Testa &amp; White, Grupa: akira</description></item><item><title>Ransomware: moonsafari - qilin</title><link>https://www.moonsafari.archi</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: moonsafari, Grupa: qilin</description></item><item><title>Ransomware: foiegrasespinet - qilin</title><link>https://www.foiegrasespinet.com</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: foiegrasespinet, Grupa: qilin</description></item><item><title>Ransomware: BALNEARIO DE MONDARIZ - qilin</title><link>https://www.balneariomondariz.es</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: BALNEARIO DE MONDARIZ, Grupa: qilin</description></item><item><title>Ransomware: morgan911.org - qilin</title><link>https://www.morgan911.org</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: morgan911.org, Grupa: qilin</description></item><item><title>Brave blocks Windows Recall from screenshotting your browsing activity</title><link>https://www.bleepingcomputer.com/news/security/brave-blocks-windows-recall-from-screenshotting-your-browsing-activity/</link><pubDate>Wed, 23 Jul 2025 22:42:05 +0000</pubDate><source>BleepingComputer</source><description>Brave blocks Windows Recall from screenshotting your browsing activity</description></item><item><title>Banking Trojan Coyote Abuses Windows UI Automation</title><link>https://www.darkreading.com/cyber-risk/banking-trojan-coyote-windows-ui-automation</link><pubDate>Wed, 23 Jul 2025 21:29:56 +0000</pubDate><source>DarkReading</source><description>Banking Trojan Coyote Abuses Windows UI Automation</description></item><item><title>Dark Web Hackers Moonlight as Travel Agents</title><link>https://www.darkreading.com/remote-workforce/dark-web-hackers-moonlight-travel-agents</link><pubDate>Wed, 23 Jul 2025 21:28:32 +0000</pubDate><source>DarkReading</source><description>Dark Web Hackers Moonlight as Travel Agents</description></item><item><title>Department of Education Site Mimicked in Phishing Scheme</title><link>https://www.darkreading.com/threat-intelligence/department-of-education-site-phishing-scheme</link><pubDate>Wed, 23 Jul 2025 20:22:06 +0000</pubDate><source>DarkReading</source><description>Department of Education Site Mimicked in Phishing Scheme</description></item><item><title>What Makes Great Threat Intelligence?</title><link>https://www.darkreading.com/threat-intelligence/what-makes-great-threat-intelligence</link><pubDate>Wed, 23 Jul 2025 19:58:48 +0000</pubDate><source>DarkReading</source><description>What Makes Great Threat Intelligence?</description></item><item><title>Trump AI plan calls for cybersecurity assessments, threat info-sharing</title><link>https://www.cybersecuritydive.com/news/white-house-artificial-intelligence-action-plan-cybersecurity-trump/753856/</link><pubDate>Wed, 23 Jul 2025 19:48:00 +0000</pubDate><source>Cybersecurity dive</source><description>Trump AI plan calls for cybersecurity assessments, threat info-sharing</description></item><item><title>Analyzing Sharepoint Exploits (CVE-2025-53770, CVE-2025-53771), (Wed, Jul 23rd)</title><link>https://isc.sans.edu/diary/rss/32138</link><pubDate>Wed, 23 Jul 2025 19:36:36 +0000</pubDate><source>SANS Technology Institute</source><description>Analyzing Sharepoint Exploits (CVE-2025-53770, CVE-2025-53771), (Wed, Jul 23rd)</description></item><item><title>Crash Override Turns to ERM to Combat Visibility Challenges</title><link>https://www.darkreading.com/application-security/crash-override-erm-combat-visibility-challenges</link><pubDate>Wed, 23 Jul 2025 19:02:12 +0000</pubDate><source>DarkReading</source><description>Crash Override Turns to ERM to Combat Visibility Challenges</description></item><item><title>Cyberatak na Naval Group. Hakerzy grożą publikacją krytycznych danych</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/cyberatak-na-naval-group-hakerzy-groza-publikacja-krytycznych-danych</link><pubDate>Wed, 23 Jul 2025 14:19:47 +0000</pubDate><source>Cyberdefence24</source><description>Cyberatak na Naval Group. Hakerzy grożą publikacją krytycznych danych</description></item><item><title>Chińskie grupy wykorzystują lukę zero-day w SharePoint</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/chinskie-grupy-wykorzystuja-luke-zero-day-w-sharepoint</link><pubDate>Wed, 23 Jul 2025 14:19:12 +0000</pubDate><source>Cyberdefence24</source><description>Chińskie grupy wykorzystują lukę zero-day w SharePoint</description></item><item><title>Cyberprzestępcze forum rozbite. Efekt międzynarodowego śledztwa</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/francusko-ukrainskie-sledztwo-rozbicie-cyberprzestepczego-forum</link><pubDate>Wed, 23 Jul 2025 13:42:44 +0000</pubDate><source>Cyberdefence24</source><description>Cyberprzestępcze forum rozbite. Efekt międzynarodowego śledztwa</description></item><item><title>Łódzka Miejska Sieć Komputerowa ofiarą ataku ransomware</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/lodzka-miejska-siec-komputerowa-ofiara-ataku-ransomware</link><pubDate>Wed, 23 Jul 2025 12:00:02 +0000</pubDate><source>Cyberdefence24</source><description>Łódzka Miejska Sieć Komputerowa ofiarą ataku ransomware</description></item><item><title>Gawkowski: podatek cyfrowy to konieczność</title><link>https://cyberdefence24.pl/polityka-i-prawo/gawkowski-podatek-cyfrowy-to-koniecznosc</link><pubDate>Wed, 23 Jul 2025 10:13:43 +0000</pubDate><source>Cyberdefence24</source><description>Gawkowski: podatek cyfrowy to konieczność</description></item><item><title>Luka z 2017 roku aktywnie wykorzystywana w atakach in-the-wild</title><link>https://avlab.pl/luka-z-2017-roku-aktywnie-wykorzystywana-w-atakach-in-the-wild/</link><pubDate>Wed, 23 Jul 2025 10:13:21 +0000</pubDate><source>AVLab</source><description>Luka z 2017 roku aktywnie wykorzystywana w atakach in-the-wild</description></item><item><title>Samsung rusza z mobilnym serwisem. Szybka naprawa na wyciągnięcie ręki</title><link>https://cyberdefence24.pl/strefa-samsunga-/samsung-rusza-z-mobilnym-serwisem-szybka-naprawa-na-wyciagniecie-reki</link><pubDate>Wed, 23 Jul 2025 06:57:26 +0000</pubDate><source>Cyberdefence24</source><description>Samsung rusza z mobilnym serwisem. Szybka naprawa na wyciągnięcie ręki</description></item><item><title>Luka w AppLockerze – drobny błąd, wielka dziura w zabezpieczeniach</title><link>https://kapitanhack.pl/2025/07/23/nieskategoryzowane/luka-w-applockerze-drobny-blad-wielka-dziura-w-zabezpieczeniach/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=luka-w-applockerze-drobny-blad-wielka-dziura-w-zabezpieczeniach</link><pubDate>Wed, 23 Jul 2025 06:42:58 +0000</pubDate><source>Kapitan Hack</source><description>Luka w AppLockerze – drobny błąd, wielka dziura w zabezpieczeniach</description></item><item><title>Ransomware: Palm Bay International - nitrogen</title><link>https://www.palmbay.com</link><pubDate>Wed, 23 Jul 2025 15:12:47 +0000</pubDate><source>nitrogen</source><description>Ofiara: Palm Bay International, Grupa: nitrogen</description></item><item><title>Ransomware: Sanderling Healthcare - sarcoma</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 12:20:19 +0000</pubDate><source>sarcoma</source><description>Ofiara: Sanderling Healthcare, Grupa: sarcoma</description></item><item><title>Ransomware: Ka Logistics - play</title><link>https://www.kalogistics.com</link><pubDate>Wed, 23 Jul 2025 12:15:55 +0000</pubDate><source>play</source><description>Ofiara: Ka Logistics, Grupa: play</description></item><item><title>Ransomware: DA Whitacre Construction - play</title><link>https://www.dawhitacre.com</link><pubDate>Wed, 23 Jul 2025 12:15:08 +0000</pubDate><source>play</source><description>Ofiara: DA Whitacre Construction, Grupa: play</description></item><item><title>Ransomware: https://eagleonline.net/ - lynx</title><link>https://eagleonline.net</link><pubDate>Wed, 23 Jul 2025 11:01:23 +0000</pubDate><source>lynx</source><description>Ofiara: https://eagleonline.net/, Grupa: lynx</description></item><item><title>Ransomware: Sementes Jotabasso - incransom</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 08:41:00 +0000</pubDate><source>incransom</source><description>Ofiara: Sementes Jotabasso, Grupa: incransom</description></item><item><title>Ransomware: DelCampo - qilin</title><link>https://www.delcampo.com.mx</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: DelCampo, Grupa: qilin</description></item><item><title>Ransomware: OKA - akira</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: OKA, Grupa: akira</description></item><item><title>Ransomware: Reimo - akira</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Reimo, Grupa: akira</description></item><item><title>Ransomware: Pilipili - akira</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Pilipili, Grupa: akira</description></item><item><title>Ransomware: jaegerndorfer.at - qilin</title><link>https://jaegerndorfer.at</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: jaegerndorfer.at, Grupa: qilin</description></item><item><title>Ransomware: Crumbl - everest</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>everest</source><description>Ofiara: Crumbl, Grupa: everest</description></item><item><title>Ransomware: Best Price Financial Services - everest</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>everest</source><description>Ofiara: Best Price Financial Services, Grupa: everest</description></item><item><title>Kto kontroluje prawdę podczas nowoczesnej wojny?</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/kto-kontroluje-prawde-podczas-nowoczesnej-wojny</link><pubDate>Tue, 22 Jul 2025 15:42:06 +0000</pubDate><source>Cyberdefence24</source><description>Kto kontroluje prawdę podczas nowoczesnej wojny?</description></item><item><title>Sprawa luki w SharePoint. Tysiące instancji wciąż narażonych</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/sprawa-luki-w-sharepoint-tysiace-instancji-wciaz-narazonych</link><pubDate>Tue, 22 Jul 2025 14:20:12 +0000</pubDate><source>Cyberdefence24</source><description>Sprawa luki w SharePoint. Tysiące instancji wciąż narażonych</description></item><item><title>Cyberprzestępcy odgadli słabe hasło i zaszyfrowali dane. 700 osób bez pracy</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/cyberprzestepcy-odgadli-slabe-haslo-i-zaszyfrowali-dane-700-osob-bez-pracy</link><pubDate>Tue, 22 Jul 2025 13:33:30 +0000</pubDate><source>Cyberdefence24</source><description>Cyberprzestępcy odgadli słabe hasło i zaszyfrowali dane. 700 osób bez pracy</description></item><item><title>Krajobraz zagrożeń 14-20/07/25</title><link>https://cert.orange.pl/cyber-threat-intelligence/krajobraz-zagrozen-14-20-07-25/</link><pubDate>Tue, 22 Jul 2025 12:27:04 +0000</pubDate><source>CERT Orange</source><description>Krajobraz zagrożeń 14-20/07/25</description></item><item><title>Krytyczne zdarzenie co 30 minut i 3 incydenty dziennie. Ukraina walczy w cyberprzestrzeni</title><link>https://cyberdefence24.pl/armia-i-sluzby/krytyczne-zdarzenie-co-30-minut-i-3-incydenty-dziennie-ukraina-walczy-w-cyberprzestrzeni</link><pubDate>Tue, 22 Jul 2025 11:17:03 +0000</pubDate><source>Cyberdefence24</source><description>Krytyczne zdarzenie co 30 minut i 3 incydenty dziennie. Ukraina walczy w cyberprzestrzeni</description></item><item><title>Hakerzy zaatakowali kluczową infrastrukturę Singapuru</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/hakerzy-zaatakowali-kluczowa-infrastrukture-singapuru</link><pubDate>Tue, 22 Jul 2025 11:16:54 +0000</pubDate><source>Cyberdefence24</source><description>Hakerzy zaatakowali kluczową infrastrukturę Singapuru</description></item><item><title>Darmowy dekryptor odzyskuje dane po ataku ransomware Phobos i 8base</title><link>https://sekurak.pl/darmowy-dekryptor-odzyskuje-dane-po-ataku-ransomware-phobos-i-8base/</link><pubDate>Tue, 22 Jul 2025 10:31:07 +0000</pubDate><source>Sekurak</source><description>Darmowy dekryptor odzyskuje dane po ataku ransomware Phobos i 8base</description></item><item><title>Policyjna licytacja kryptowalut. Środki trafią do pokrzywdzonych</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/policyjna-licytacja-kryptowalut-srodki-trafia-do-pokrzywdzonych</link><pubDate>Tue, 22 Jul 2025 09:54:45 +0000</pubDate><source>Cyberdefence24</source><description>Policyjna licytacja kryptowalut. Środki trafią do pokrzywdzonych</description></item><item><title>Samsung łączy siły z Kia. Nowe możliwości dla przedsiębiorstw</title><link>https://cyberdefence24.pl/strefa-samsunga-/samsung-laczy-sily-z-kia-nowe-mozliwosci-dla-przedsiebiorstw</link><pubDate>Tue, 22 Jul 2025 06:59:53 +0000</pubDate><source>Cyberdefence24</source><description>Samsung łączy siły z Kia. Nowe możliwości dla przedsiębiorstw</description></item><item><title>Co zmieni AI w ORLENIE? Oto szczegóły nowej współpracy</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/co-zmieni-ai-w-orlenie-oto-szczegoly-nowej-wspolpracy</link><pubDate>Tue, 22 Jul 2025 06:14:31 +0000</pubDate><source>Cyberdefence24</source><description>Co zmieni AI w ORLENIE? Oto szczegóły nowej współpracy</description></item><item><title>Groźna luka w SharePoint aktywnie wykorzystywana przez cyberprzestępców</title><link>https://kapitanhack.pl/2025/07/22/ad-persistence/grozna-luka-w-sharepoint-aktywnie-wykorzystywana-przez-cyberprzestepcow/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=grozna-luka-w-sharepoint-aktywnie-wykorzystywana-przez-cyberprzestepcow</link><pubDate>Tue, 22 Jul 2025 04:42:48 +0000</pubDate><source>Kapitan Hack</source><description>Groźna luka w SharePoint aktywnie wykorzystywana przez cyberprzestępców</description></item><item><title>Cicha aktualizacja z malware w rozszerzeniach do Google Chrome i Microsoft Edge zainfekowała 2,3 mln użytkowników.</title><link>https://sekurak.pl/cicha-aktualizacja-z-malware-w-rozszerzeniach-do-google-chrome-i-microsoft-edge-zainfekowala-23-mln-uzytkownikow/</link><pubDate>Tue, 22 Jul 2025 02:14:32 +0000</pubDate><source>Sekurak</source><description>Cicha aktualizacja z malware w rozszerzeniach do Google Chrome i Microsoft Edge zainfekowała 2,3 mln użytkowników.</description></item><item><title>Ransomware: blueridgesl.com - safepay</title><link>https://blueridgesl.com</link><pubDate>Tue, 22 Jul 2025 19:26:36 +0000</pubDate><source>safepay</source><description>Ofiara: blueridgesl.com, Grupa: safepay</description></item><item><title>Ransomware: rhschool.org - safepay</title><link>https://rhschool.org</link><pubDate>Tue, 22 Jul 2025 19:25:45 +0000</pubDate><source>safepay</source><description>Ofiara: rhschool.org, Grupa: safepay</description></item><item><title>Ransomware: qtmi.net - safepay</title><link>https://qtmi.net</link><pubDate>Tue, 22 Jul 2025 19:24:55 +0000</pubDate><source>safepay</source><description>Ofiara: qtmi.net, Grupa: safepay</description></item><item><title>Ransomware: horanbarker.com - safepay</title><link>https://horanbarker.com</link><pubDate>Tue, 22 Jul 2025 19:24:05 +0000</pubDate><source>safepay</source><description>Ofiara: horanbarker.com, Grupa: safepay</description></item></channel></rss>
+<rss version="2.0"><channel><title>Cybermonit Aggregated Feed</title><link>https://cybermonit.com/</link><description>Aggregated cyber security feed (News, Leaks, Ransomware, CVEs)</description><item><title>Philadelphia Indemnity Insurance discloses June data breach</title><link>https://www.cybersecuritydive.com/news/philadelphia--insurance-june-data-breach/754091/</link><pubDate>Fri, 25 Jul 2025 15:56:05 +0000</pubDate><source>Cybersecurity dive</source><description>Philadelphia Indemnity Insurance discloses June data breach</description></item><item><title>Treasury sanctions North Koreans involved in IT-worker schemes</title><link>https://www.cybersecuritydive.com/news/north-korea-remote-it-worker-sanctions/754087/</link><pubDate>Fri, 25 Jul 2025 15:38:29 +0000</pubDate><source>Cybersecurity dive</source><description>Treasury sanctions North Koreans involved in IT-worker schemes</description></item><item><title>CVE: CVE-2025-8160 (Score: 8.8, Severity: high)</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-8160</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>Podatność sklasyfikowana jako krytyczna została znaleziona w TEDA AC20 do 16.03.08.12.Dotknięte jest nieznaną funkcję pliku /GoForm /SetSystimecfg komponentu HTTPD.Manipulacja strefą czasową argumentu prowadzi do przepełnienia bufora.Możliwe jest zdalnie wystrzelić atak.Exploit został ujawniony publicznie i może być używany.</description></item><item><title>CVE: CVE-2025-8159 (Score: 8.8, Severity: high)</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-8159</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>Podatność znaleziono w D-Link Dir-513 1.0.Został oceniony jako krytyczny.Ten problem wpływa na funkcję FormLanguageChange pliku /GoForm /FormLanguageChange komponentu HTTP Post Redler.Manipulowanie sporą argumentów prowadzi do przepełnienia bufora opartego na stosie.Atak może być inicjowany zdalnie.Exploit został ujawniony publicznie i może być używany.Ta podatność wpływa tylko na produkty, które nie są już obsługiwane przez opiekuna.</description></item><item><title>CVE: CVE-2025-52360</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52360</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>Podatność na skrypty (XSS) istnieje w funkcji wyszukiwania OPAC w systemie zarządzania biblioteką KOHA V24.05.Nieprawdane wejścia wprowadzone w polu wyszukiwania znajduje odzwierciedlenie w interfejsie historii wyszukiwania, co prowadzi do wykonania dowolnego JavaScript w kontekście przeglądarki, gdy użytkownik oddziałuje z interfejsem.</description></item><item><title>CVE: CVE-2025-45467</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-45467</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>Unitree Go1 &lt;= GO1_2022_05_11 jest podatny na niepewne uprawnienia, ponieważ funkcjonalność aktualizacji oprogramowania układowego (za pośrednictwem Wi-Fi/Ethernet) implementuje niepewny mechanizm weryfikacji, który wyłącznie opiera się na sumach MD5 do sprawdzania integralności oprogramowania.</description></item><item><title>CVE: CVE-2025-44608</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-44608</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>Odkryto, że CloudClassroom-Php Project V1.0 zawiera podatność wtrysku SQL za pośrednictwem parametru ViewID.</description></item><item><title>CVE: CVE-2025-38436</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38436</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+DRM/Scheduler: Sygnał zaplanowany na ogrodzenie podczas zabijania pracy
+
+Gdy zabija się jednostka z aplikacji B, drm_sched_entity_kill ()
+usuwa wszystkie zadania należące do tego podmiotu
+drm_sched_entity_kill_jobs_work ().Jeśli zadanie aplikacji A zależy od
+Zaplanowane ogrodzenie z pracy aplikacji B, a ogrodzenie nie jest właściwe
+Sygnalizowany podczas procesu zabijania zależność aplikacji A nie może być
+wyczyszczone.
+
+To prowadzi do aplikacji wiszącego w nieskończoność podczas oczekiwania na
+Zależność, która nigdy nie zostanie rozwiązana.Napraw ten problem, zapewniając to
+Zaplanowane ogrodzenia są prawidłowo sygnalizowane, gdy byt zostanie zabity, umożliwiając umożliwienie
+Aplikacje zależne do kontynuowania wykonywania.</description></item><item><title>CVE: CVE-2025-38435</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38435</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+RISCV: wektor: Napraw kontekst zapisz/przywracaj za pomocą xtheadvector
+
+Wcześniej tylko V0-V7 zostały poprawnie zapisane/przywrócone,
+a kontekst V8-V31 jest zawieszony.
+Prawidłowo zapisz/przywróć V8-V31, aby uniknąć łamania przestrzeni użytkowników.</description></item><item><title>CVE: CVE-2025-38434</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38434</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+Odwróć „rISCV: Zdefiniuj task_size_max dla __access_ok ()”
+
+To powraca zatwierdzenie AD5643CF2F69 („RISCV: Zdefiniuj task_size_max dla
+__Access_OK () ”).
+
+Ten zatwierdzenie zmienia task_size_max, aby być długim_maxem, aby zoptymalizować ACCES_OK (),
+Ponieważ poprzedni task_size_max (domyślnie do task_size) wymaga niektórych
+obliczenie.
+
+Rozumowanie było takie, że wszystkie adresy użytkownika są mniejsze niż Long_max i wszystko
+Adresy jądra są większe niż Long_max.Dlatego Access_OK () może
+Filtruj adresy jądra.
+
+Adresy między task_Size a long_max nie są prawidłowymi adresami użytkownika, ale
+access_ok () pozwól im przejść.Uważano to za w porządku, ponieważ są
+Brak ważnych adresów na poziomie sprzętu.
+
+Niestety, jeden przypadek jest pominięty: get_user_pages_fast () chętnie akceptuje
+Adresy między task_Size a long_max.na przykład futex () używa
+get_user_pages_fast ().Powoduje to problem zgłoszony przez Roberta [1].
+
+Dlatego przywróć to zatwierdzenie.Task_size_max został zmieniony na domyślne:
+Task_Size.
+
+To niestety zmniejsza wydajność, ponieważ task_Size jest droższy
+Aby obliczyć w porównaniu z Long_max.Ale najpierw poprawność, możemy pomyśleć
+Optymalizacja później, w razie potrzeby.</description></item><item><title>CVE: CVE-2025-38433</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38433</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+RISCV: Napraw stałą obsługę środowiska wykonawczego dla ziaren Nommu
+
+Funkcja `__runtime_fixup_32` nie obsługuje przypadku, w którym jest` val`
+zero prawidłowo (co może wystąpić podczas łatania jądra Nommu i odsyłając
+do adresu fizycznego poniżej granicy 4GIB, której górne 32 bity są wszystkie
+zero), ponieważ nic w istniejącej logice nie uniemożliwia przyjmowania kodu
+gałąź „else” zarówno NOP-K-Secks, jak i emitującego dwie instrukcje „NOP”.
+
+To pozostawia losowe śmieci w rejestrze, który ma otrzymać
+górne 32 bity wskaźnika zamiast zero, które w połączeniu z
+wartość dla niższych 32 bitów daje nieprawidłowy wskaźnik i powoduje jądro
+Panika, gdy ten wskaźnik jest ostatecznie dostępny.
+
+Autor wyraźnie rozważył fakt, że jeśli „lui” zostanie przekształcony na
+„nop”, że druga instrukcja musi zostać dostosowana, aby stać się „li”
+Zamiast `addi`, stąd wprowadzanie zmiennej„ addi_insn_mask`, ale
+nie podążał za tą logiką w pełni do przypadku, w którym oddział „Else”
+wykonuje.Aby to naprawić, po prostu dostosuj logikę, aby upewnić się, że drugi „else”
+Oddział nie jest przyjmowany, jeśli pierwsza instrukcja zostanie załatana do „nop”.</description></item><item><title>CVE: CVE-2025-38432</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38432</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+NET: NETPOLL: Zainicjuj pole sumaty kontrolnej UDP przed kontrolą
+
+zatwierdzić f1fce08e63fe („NetPoll: eliminuj zbędne przypisanie”)
+inicjalizacja kontroli kontrolnej UDP, która była błędna i zepsuła
+Transmisja NetPoll IPv6 z powodu złego kontroli.
+
+UDPH-&gt; Sprawdź należy ustawić przed wywołaniem csum_ipv6_magic ().</description></item><item><title>CVE: CVE-2025-38431</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38431</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+SMB: Klient: Napraw regresję za pomocą rodzimych symboli SMB
+
+Niektórzy użytkownicy i klienci zgłosili, że rozpoczęły się ich narzędzia do tworzenia kopii zapasowych/kopiowania
+porażka, gdy kopiowany katalog zawierał cele symlinki
+Klient nie mógł przeanalizować - nawet gdy te symlinsy nie były przestrzegane.
+
+Napraw to, pozwalając LSTAT (2) i ReadLink (2) odnieść sukces, nawet gdy
+Klient nie może rozwiązać celu SymLink, przywracając stare zachowanie.</description></item><item><title>CVE: CVE-2025-38430</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38430</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+NFSD: NFSD4_SPO_MUST_ALLOW () musi sprawdzić, czy jest to żądanie złożone v4
+
+Jeśli przetwarzane żądanie nie jest żądaniem złożonym V4, to
+Badanie CSTATE może mieć nieokreślone wyniki.
+
+Ta łatka dodaje sprawdzenie, czy wykonana jest procedura RPC
+(RQ_Procinfo) to procedura NFSPROC4_COMPOUND.</description></item><item><title>CVE: CVE-2025-38429</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38429</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+Autobus: MHI: EP: Aktualizacja Przeczytaj wskaźnik dopiero po napisaniu bufora
+
+Wewnątrz MHI_EP_RING_ADD_Element, wskaźnik odczytu (RD_Offset) jest aktualizowany
+Przed napisem bufora potencjalnie powoduje warunki wyścigu, gdzie
+host widzi zaktualizowany wskaźnik odczytu przed faktycznym buforem
+pisemny.Aktualizacja RD_Offset przedwcześnie może prowadzić do dostępu do hosta
+niezainicjowany lub niekompletny element, co powoduje uszkodzenie danych.
+
+Wywołać zapis bufora przed aktualizacją RD_Offset, aby upewnić się, że element
+jest w pełni napisany przed sygnalizowaniem jego dostępności.</description></item><item><title>CVE: CVE-2025-38428</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38428</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+Wejście: IMS -PCU - Sprawdź rozmiar rekordu w IMS_PCU_FLASH_FIRMWET ()
+
+Zmienna „len” pochodzi z oprogramowania układowego i na ogół to robimy
+Zaufaj oprogramowaniu układowym, ale zawsze lepiej jest sprawdzić dwukrotnie.Jeśli „Len”
+jest zbyt duży, może spowodować uszkodzenie pamięci, kiedy to robimy
+„memcpy (fragment-&gt; dane, rec-&gt; dane, len);”</description></item><item><title>CVE: CVE-2025-38427</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38427</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+Wideo: Screen_info: Przenieś buffery ramek za mostami PCI
+
+Zastosuj przesunięcia okna mostka hosta PCI do klatek na screen_info.Poprawki
+Nieprawidłowy dostęp do pamięci we/wy.
+
+Zasoby za mostem hosta PCI mogą zostać przeniesione przez określone przesunięcie
+W zakresie adresów procesora jądra używanego dla we/wy.Pamięć buffera ramek
+Zakres zapisany w screen_info odnosi się do adresów procesora, jak pokazano w trakcie
+Uruchom (gdzie przesunięcie wynosi 0).Podczas uruchamiania oprogramowanie układowe może przypisać
+inna pamięć przesunięta do mostu hosta PCI i tym samym przeniesienia
+Adres Brame Buffera urządzenia graficznego PCI, jak widać przez jądro.
+Informacje w screen_info również muszą zostać zaktualizowane.
+
+Pomocnik pcibios_bus_to_resource () wykonuje przeniesienie
+Zasób ramek Screen_Info (podany w adresach magistrali PCI)..
+wynik pasuje do zasobu we/wy urządzenia z urządzeniem graficznym PCI (podano
+w adresach procesora).Tak jak poprzednio, przechowujemy informacje niezbędne
+Później zaktualizuj informacje w samym ekranie_info.
+
+Zatwierdzić 78AA89D1DFBA („oprogramowanie układowe/sysfb: aktualizacja Screen_Info dla przeniesienia
+EFI FrameBuffers ”) dodał kod do aktualizacji Screen_Info. Jest oparty
+O podobnej funkcjonalności, które istnieją wcześniej w EFIFB.Efifb używa wskaźnika
+do zasobu PCI, podczas gdy nowszy kod wykonuje memcpy z regionu.
+Stąd Efifb widzi wszelkie aktualizacje zasobu PCI i unika problemu.
+
+v3:
+- Użyj tylko struktury pci_bus_region do adresów magistrali PCI (Bjorn)
+- Wyjaśnij semantykę adresu w komunikatach i komentarzach zatwierdzenia (Bjorn)
+v2:
+- Naprawiono tagi (Takashi, Ivan)
+- Zaktualizowane informacje o EFIFB</description></item><item><title>CVE: CVE-2025-38426</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38426</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+DRM/AMDGPU: Dodaj podstawową sprawdzanie poprawności nagłówka Ras
+
+Jeśli nagłówek RAS odczytany z EEPROM zostanie uszkodzony, może to spowodować wypróbowanie
+Przydzielić ogromną pamięć do czytania rekordów.Dodaj walidację do
+Pola nagłówka.</description></item><item><title>CVE: CVE-2025-38425</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38425</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+I2C: Tegra: Sprawdź długość MSG w bloku SMBUS
+
+W przypadku odczytu bloku SMBUS nie kontynuuj czytania, jeśli długość wiadomości
+Przekazane z urządzenia jest „0” lub większe niż maksymalne dozwolone bajty.</description></item><item><title>CVE: CVE-2025-38424</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38424</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+Perf: Napraw próbkę vs do_exit ()
+
+Baisheng Gao zgłosił katastrofę ARM64, którą Mark dekodował jako a
+synchroniczne przerwy zewnętrzne - najprawdopodobniej z powodu próby dostępu
+MMIO na złe sposoby.
+
+Katastrofa dalej pokazuje perf próbę wykonania próbki stosu użytkownika podczas pobytu
+exit_mmap () „s tlb_finish_mmu () - tj. Podczas zburzenia adresu
+miejsce, w którym próbuje uzyskać dostęp.
+
+Okazuje się, że zatrzymujemy perf po zburzeniu przestrzeni użytkownika MM;A
+paripie na katastrofę, ponieważ perf lubi uzyskiwać dostęp do przestrzeni użytkowników
+różne powody.
+
+Odwróć tę kolejność, przesuwając się w górę tam, gdzie zatrzymujemy perf in Do_exit ().
+
+Dodatkowo Harden perf_sample_callchain i perf_sample_stack_user
+przerywać, gdy bieżące zadanie nie ma MM (exit_mm ()
+Pewnie ustawić prąd-&gt; mm = null;Przed rozpoczęciem faktycznego
+rozkład).Takie, że szerokie wydarzenia CPU nie potykają się z tym samym problemem.</description></item><item><title>CVE: CVE-2025-38423</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38423</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+ASOC: kodeki: WCD9375: Napraw podwójne wolne od dostaw regulatora
+
+Sterownik dostaje dostawy regulatora w ścieżce sondy z
+devm_regulator_bulk_get (), więc nie powinien wywoływać regulatora_bulk_free () w
+błąd i usuń ścieżki, aby uniknąć podwójnego wolnego.</description></item><item><title>CVE: CVE-2025-38422</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-38422</link><pubDate>Fri, 25 Jul 2025 15:15:00 +0000</pubDate><source>NVD</source><description>W jądrze Linux rozwiązano następującą podatność:
+
+NET: LAN743X: Zmodyfikuj rozmiar EEPROM i OTP dla urządzeń PCI1XXXX
+
+Maksymalny rozmiar OTP i EEPROM dla urządzeń PCI1XXXX Hearthstone wynosi 8 kb
+i odpowiednio 64 kb.Dostosuj definicje rozmiaru maksymalnego i zwróć prawidłowe
+Długość EEPROM na podstawie urządzenia.Zapobiegaj także odczytowi/zapisowi poza nimi.</description></item><item><title>U.S. Sanctions Firm Behind N. Korean IT Scheme; Arizona Woman Jailed for Running Laptop Farm</title><link>https://thehackernews.com/2025/07/us-sanctions-firm-behind-n-korean-it.html</link><pubDate>Fri, 25 Jul 2025 15:05:00 +0000</pubDate><source>TheHackerNews</source><description>U.S. Sanctions Firm Behind N. Korean IT Scheme; Arizona Woman Jailed for Running Laptop Farm</description></item><item><title>Patchwork Targets Turkish Defense Firms with Spear-Phishing Using Malicious LNK Files</title><link>https://thehackernews.com/2025/07/patchwork-targets-turkish-defense-firms.html</link><pubDate>Fri, 25 Jul 2025 14:15:00 +0000</pubDate><source>TheHackerNews</source><description>Patchwork Targets Turkish Defense Firms with Spear-Phishing Using Malicious LNK Files</description></item><item><title>Why Security Nudges Took Off</title><link>https://www.darkreading.com/cybersecurity-operations/why-security-nudges-took-off</link><pubDate>Fri, 25 Jul 2025 14:00:00 +0000</pubDate><source>DarkReading</source><description>Why Security Nudges Took Off</description></item><item><title>Chatbot od Meta AI pozwalał na dostęp do prywatnych wiadomości i odpowiedzi wygenerowanych dla innych użytkowników</title><link>https://sekurak.pl/chatbot-od-meta-ai-pozwalal-na-dostep-do-prywatnych-wiadomosci-i-odpowiedzi-wygenerowanych-dla-innych-uzytkownikow/</link><pubDate>Fri, 25 Jul 2025 13:46:32 +0000</pubDate><source>Sekurak</source><description>Chatbot od Meta AI pozwalał na dostęp do prywatnych wiadomości i odpowiedzi wygenerowanych dla innych użytkowników</description></item><item><title>Cyfrowa odporność Polski: nowe porozumienie międzyresortowe</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/cyfrowa-odpornosc-polski-nowe-porozumienie-miedzyresortowe</link><pubDate>Fri, 25 Jul 2025 13:33:23 +0000</pubDate><source>Cyberdefence24</source><description>Cyfrowa odporność Polski: nowe porozumienie międzyresortowe</description></item><item><title>Meta rezygnuje z reklam politycznych w Unii Europejskiej</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/meta-rezygnuje-z-reklam-politycznych-w-unii-europejskiej</link><pubDate>Fri, 25 Jul 2025 13:30:05 +0000</pubDate><source>Cyberdefence24</source><description>Meta rezygnuje z reklam politycznych w Unii Europejskiej</description></item><item><title>Chcą ukraść hasło do Facebooka, podsyłają „ofertę pracy”</title><link>https://cert.orange.pl/aktualnosci/chca-ukrasc-haslo-do-facebooka-podsylaja-oferte-pracy/</link><pubDate>Fri, 25 Jul 2025 13:22:54 +0000</pubDate><source>CERT Orange</source><description>Chcą ukraść hasło do Facebooka, podsyłają „ofertę pracy”</description></item><item><title>Dane osobowe gdańszczan były dostępne na stronie przetargu</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/dane-osobowe-gdanszczan-byly-dostepne-na-stronie-przetargu</link><pubDate>Fri, 25 Jul 2025 13:15:07 +0000</pubDate><source>Cyberdefence24</source><description>Dane osobowe gdańszczan były dostępne na stronie przetargu</description></item><item><title>Cyber Espionage Campaign Hits Russian Aerospace Sector Using EAGLET Backdoor</title><link>https://thehackernews.com/2025/07/cyber-espionage-campaign-hits-russian.html</link><pubDate>Fri, 25 Jul 2025 13:14:00 +0000</pubDate><source>TheHackerNews</source><description>Cyber Espionage Campaign Hits Russian Aerospace Sector Using EAGLET Backdoor</description></item><item><title>Szukamy admina do Securitum (Kraków!)</title><link>https://sekurak.pl/szukamy-admina-do-securitum-krakow/</link><pubDate>Fri, 25 Jul 2025 13:11:24 +0000</pubDate><source>Sekurak</source><description>Szukamy admina do Securitum (Kraków!)</description></item><item><title>The Young and the Restless: Young Cybercriminals Raise Concerns</title><link>https://www.darkreading.com/cyber-risk/young-cybercriminals-raise-concerns</link><pubDate>Fri, 25 Jul 2025 13:00:00 +0000</pubDate><source>DarkReading</source><description>The Young and the Restless: Young Cybercriminals Raise Concerns</description></item><item><title>US sanctions North Korean firm, nationals behind IT worker schemes</title><link>https://www.bleepingcomputer.com/news/security/us-sanctions-north-korean-firm-nationals-behind-it-worker-schemes/</link><pubDate>Fri, 25 Jul 2025 12:40:51 +0000</pubDate><source>BleepingComputer</source><description>US sanctions North Korean firm, nationals behind IT worker schemes</description></item><item><title>Intel rezygnuje z ogromnej inwestycji w Polsce</title><link>https://cyberdefence24.pl/biznes-i-finanse/intel-rezygnuje-z-ogromnej-inwestycji-w-polsce</link><pubDate>Fri, 25 Jul 2025 11:54:01 +0000</pubDate><source>Cyberdefence24</source><description>Intel rezygnuje z ogromnej inwestycji w Polsce</description></item><item><title>Woman gets 8 years for aiding North Koreans infiltrate 300 US firms</title><link>https://www.bleepingcomputer.com/news/security/us-woman-sentenced-to-8-years-in-prison-for-running-laptop-farm-helping-north-koreans-infiltrate-300-firms/</link><pubDate>Fri, 25 Jul 2025 11:41:01 +0000</pubDate><source>BleepingComputer</source><description>Woman gets 8 years for aiding North Koreans infiltrate 300 US firms</description></item><item><title>Rosja walczy z cyberprzestępczością: za podzielenie się kartą SIM nawet 3 lata więzienia</title><link>https://cyberdefence24.pl/rosja-walczy-z-cyberprzestepczoscia-za-podzielenie-sie-karta-sim-nawet-3-lata-wiezienia</link><pubDate>Fri, 25 Jul 2025 10:34:06 +0000</pubDate><source>Cyberdefence24</source><description>Rosja walczy z cyberprzestępczością: za podzielenie się kartą SIM nawet 3 lata więzienia</description></item><item><title>Soco404 and Koske Malware Target Cloud Services with Cross-Platform Cryptomining Attacks</title><link>https://thehackernews.com/2025/07/soco404-and-koske-malware-target-cloud.html</link><pubDate>Fri, 25 Jul 2025 10:33:00 +0000</pubDate><source>TheHackerNews</source><description>Soco404 and Koske Malware Target Cloud Services with Cross-Platform Cryptomining Attacks</description></item><item><title>Overcoming Risks from Chinese GenAI Tool Usage</title><link>https://thehackernews.com/2025/07/overcoming-risks-from-chinese-genai.html</link><pubDate>Fri, 25 Jul 2025 10:25:00 +0000</pubDate><source>TheHackerNews</source><description>Overcoming Risks from Chinese GenAI Tool Usage</description></item><item><title>Microsoft lifts Windows 11 update block for Easy Anti-Cheat users</title><link>https://www.bleepingcomputer.com/news/microsoft/microsoft-lifts-windows-11-update-block-for-easy-anti-cheat-users/</link><pubDate>Fri, 25 Jul 2025 10:11:47 +0000</pubDate><source>BleepingComputer</source><description>Microsoft lifts Windows 11 update block for Easy Anti-Cheat users</description></item><item><title>Weekendowa Lektura: odcinek 634 [2025-07-25]. Bierzcie i czytajcie</title><link>https://zaufanatrzeciastrona.pl/post/weekendowa-lektura-odcinek-634-2025-07-25-bierzcie-i-czytajcie/</link><pubDate>Fri, 25 Jul 2025 10:00:30 +0000</pubDate><source>Zaufana Trzecia Strona</source><description>Weekendowa Lektura: odcinek 634 [2025-07-25]. Bierzcie i czytajcie</description></item><item><title>Prezydent podpisał ustawę o certyfikacji cyberbezpieczeństwa</title><link>https://cyberdefence24.pl/polityka-i-prawo/prezydent-podpisal-ustawe-o-certyfikacji-cyberbezpieczenstwa</link><pubDate>Fri, 25 Jul 2025 08:55:41 +0000</pubDate><source>Cyberdefence24</source><description>Prezydent podpisał ustawę o certyfikacji cyberbezpieczeństwa</description></item><item><title>#CyberWojska Włoch - jak budować zdolności w piątej domenie?</title><link>https://cyberdefence24.pl/armia-i-sluzby/cyberwojska-wloch-jak-budowac-zdolnosci-w-piatej-domenie</link><pubDate>Fri, 25 Jul 2025 06:45:33 +0000</pubDate><source>Cyberdefence24</source><description>#CyberWojska Włoch - jak budować zdolności w piątej domenie?</description></item><item><title>Podatności sprzed dekady nadal narażają farmy OZE na cyberataki</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/podatnosci-sprzed-dekady-nadal-narazaja-farmy-oze-na-cyberataki</link><pubDate>Fri, 25 Jul 2025 06:00:36 +0000</pubDate><source>Cyberdefence24</source><description>Podatności sprzed dekady nadal narażają farmy OZE na cyberataki</description></item><item><title>Administrator cyberforum zatrzymany w międzynarodowej akcji na Ukrainie</title><link>https://kapitanhack.pl/2025/07/25/nieskategoryzowane/administrator-cyberforum-zatrzymany-w-miedzynarodowej-akcji-na-ukrainie/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=administrator-cyberforum-zatrzymany-w-miedzynarodowej-akcji-na-ukrainie</link><pubDate>Fri, 25 Jul 2025 05:47:50 +0000</pubDate><source>Kapitan Hack</source><description>Administrator cyberforum zatrzymany w międzynarodowej akcji na Ukrainie</description></item><item><title>Sinkholing Suspicious Scripts or Executables on Linux, (Fri, Jul 25th)</title><link>https://isc.sans.edu/diary/rss/32144</link><pubDate>Fri, 25 Jul 2025 04:54:48 +0000</pubDate><source>SANS Technology Institute</source><description>Sinkholing Suspicious Scripts or Executables on Linux, (Fri, Jul 25th)</description></item><item><title>ISC Stormcast For Friday, July 25th, 2025 https://isc.sans.edu/podcastdetail/9542, (Fri, Jul 25th)</title><link>https://isc.sans.edu/diary/rss/32142</link><pubDate>Fri, 25 Jul 2025 02:00:02 +0000</pubDate><source>SANS Technology Institute</source><description>ISC Stormcast For Friday, July 25th, 2025 https://isc.sans.edu/podcastdetail/9542, (Fri, Jul 25th)</description></item><item><title>Ransomware: Emerson Chiropractic - dragonforce</title><link>https://emmersonchiropractic.com</link><pubDate>Fri, 25 Jul 2025 09:06:04 +0000</pubDate><source>dragonforce</source><description>Ofiara: Emerson Chiropractic, Grupa: dragonforce</description></item><item><title>Ransomware: md-labels-gmbh.com - dragonforce</title><link>https://md-labels.de</link><pubDate>Fri, 25 Jul 2025 09:04:27 +0000</pubDate><source>dragonforce</source><description>Ofiara: md-labels-gmbh.com, Grupa: dragonforce</description></item><item><title>Ransomware: www.mada.com.kw - kraken</title><link>https://www.mada.com.kw</link><pubDate>Fri, 25 Jul 2025 05:46:32 +0000</pubDate><source>kraken</source><description>Ofiara: www.mada.com.kw, Grupa: kraken</description></item><item><title>Ransomware: Helical Auto Technology (India) - akira</title><link>https://ransomware.live</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Helical Auto Technology (India), Grupa: akira</description></item><item><title>Ransomware: Astro Industries Inc. - qilin</title><link>https://www.astro-ind.com</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: Astro Industries Inc., Grupa: qilin</description></item><item><title>Ransomware: moelco.es - global</title><link>https://moelco.es</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>global</source><description>Ofiara: moelco.es, Grupa: global</description></item><item><title>Ransomware: lafavoritaservice.it - global</title><link>https://lafavoritaservice.it</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>global</source><description>Ofiara: lafavoritaservice.it, Grupa: global</description></item><item><title>Ransomware: Dunlap Codding - akira</title><link>https://ransomware.live</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Dunlap Codding, Grupa: akira</description></item><item><title>Can Security Culture Be Taught? AWS Says Yes</title><link>https://www.darkreading.com/cybersecurity-operations/can-security-culture-be-taught-aws-says-yes</link><pubDate>Thu, 24 Jul 2025 21:54:15 +0000</pubDate><source>DarkReading</source><description>Can Security Culture Be Taught? AWS Says Yes</description></item><item><title>BlackSuit ransomware extortion sites seized in Operation Checkmate</title><link>https://www.bleepingcomputer.com/news/security/law-enforcement-seizes-blacksuit-ransomware-leak-sites/</link><pubDate>Thu, 24 Jul 2025 21:34:13 +0000</pubDate><source>BleepingComputer</source><description>BlackSuit ransomware extortion sites seized in Operation Checkmate</description></item><item><title>Law Enforcement Cracks Down on XSS — but Will It Last?</title><link>https://www.darkreading.com/threat-intelligence/law-enforcement-cracks-down-xss</link><pubDate>Thu, 24 Jul 2025 21:15:44 +0000</pubDate><source>DarkReading</source><description>Law Enforcement Cracks Down on XSS — but Will It Last?</description></item><item><title>OpenAI confirms ChatGPT Agent is now rolling out for $20 Plus users</title><link>https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-agent-is-now-rolling-out-for-20-plus-users/</link><pubDate>Thu, 24 Jul 2025 20:59:14 +0000</pubDate><source>BleepingComputer</source><description>OpenAI confirms ChatGPT Agent is now rolling out for $20 Plus users</description></item><item><title>New Koske Linux malware hides in cute panda images</title><link>https://www.bleepingcomputer.com/news/security/new-koske-linux-malware-hides-in-cute-panda-images/</link><pubDate>Thu, 24 Jul 2025 20:54:10 +0000</pubDate><source>BleepingComputer</source><description>New Koske Linux malware hides in cute panda images</description></item><item><title>Ransomware Actors Pile on 'ToolShell' SharePoint Bugs</title><link>https://www.darkreading.com/endpoint-security/ransomware-actors-toolshell-sharepoint-bugs</link><pubDate>Thu, 24 Jul 2025 20:45:22 +0000</pubDate><source>DarkReading</source><description>Ransomware Actors Pile on 'ToolShell' SharePoint Bugs</description></item><item><title>Critical Mitel Flaw Lets Hackers Bypass Login, Gain Full Access to MiVoice MX-ONE Systems</title><link>https://thehackernews.com/2025/07/critical-mitel-flaw-lets-hackers-bypass.html</link><pubDate>Thu, 24 Jul 2025 17:14:00 +0000</pubDate><source>TheHackerNews</source><description>Critical Mitel Flaw Lets Hackers Bypass Login, Gain Full Access to MiVoice MX-ONE Systems</description></item><item><title>Fire Ant Exploits VMware Flaws to Compromise ESXi Hosts and vCenter Environments</title><link>https://thehackernews.com/2025/07/fire-ant-exploits-vmware-flaw-to.html</link><pubDate>Thu, 24 Jul 2025 17:05:00 +0000</pubDate><source>TheHackerNews</source><description>Fire Ant Exploits VMware Flaws to Compromise ESXi Hosts and vCenter Environments</description></item><item><title>Hacker sneaks infostealer malware into early access Steam game</title><link>https://www.bleepingcomputer.com/news/security/hacker-sneaks-infostealer-malware-into-early-access-steam-game/</link><pubDate>Thu, 24 Jul 2025 16:49:47 +0000</pubDate><source>BleepingComputer</source><description>Hacker sneaks infostealer malware into early access Steam game</description></item><item><title>Senators push CISA director nominee on election security, agency focus</title><link>https://www.cybersecuritydive.com/news/cisa-director-sean-plankey-confirmation-hearing/753962/</link><pubDate>Thu, 24 Jul 2025 16:03:47 +0000</pubDate><source>Cybersecurity dive</source><description>Senators push CISA director nominee on election security, agency focus</description></item><item><title>What we know about the Microsoft SharePoint attacks</title><link>https://www.cybersecuritydive.com/news/what-we-know-microsoft-sharepoint-attacks/753961/</link><pubDate>Thu, 24 Jul 2025 16:00:15 +0000</pubDate><source>Cybersecurity dive</source><description>What we know about the Microsoft SharePoint attacks</description></item><item><title>Mitel warns of critical MiVoice MX-ONE authentication bypass flaw</title><link>https://www.bleepingcomputer.com/news/security/mitel-warns-of-critical-mivoice-mx-one-authentication-bypass-flaw/</link><pubDate>Thu, 24 Jul 2025 15:17:40 +0000</pubDate><source>BleepingComputer</source><description>Mitel warns of critical MiVoice MX-ONE authentication bypass flaw</description></item><item><title>CastleLoader Malware Infects 469 Devices Using Fake GitHub Repos and ClickFix Phishing</title><link>https://thehackernews.com/2025/07/castleloader-malware-infects-469.html</link><pubDate>Thu, 24 Jul 2025 15:13:00 +0000</pubDate><source>TheHackerNews</source><description>CastleLoader Malware Infects 469 Devices Using Fake GitHub Repos and ClickFix Phishing</description></item><item><title>Kopanie krypto pod przykrywką błędu 404 i platform chmurowych</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/kopanie-krypto-pod-przykrywka-bledu-404-i-platform-chmurowych</link><pubDate>Thu, 24 Jul 2025 14:48:23 +0000</pubDate><source>Cyberdefence24</source><description>Kopanie krypto pod przykrywką błędu 404 i platform chmurowych</description></item><item><title>Sophos and SonicWall Patch Critical RCE Flaws Affecting Firewalls and SMA 100 Devices</title><link>https://thehackernews.com/2025/07/sophos-and-sonicwall-patch-critical-rce.html</link><pubDate>Thu, 24 Jul 2025 14:14:00 +0000</pubDate><source>TheHackerNews</source><description>Sophos and SonicWall Patch Critical RCE Flaws Affecting Firewalls and SMA 100 Devices</description></item><item><title>Microsoft wprowadza Copilot Vision. Aktywność trafi na serwery</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/microsoft-wprowadza-copilot-vision-aktywnosc-trafi-na-serwery</link><pubDate>Thu, 24 Jul 2025 14:02:56 +0000</pubDate><source>Cyberdefence24</source><description>Microsoft wprowadza Copilot Vision. Aktywność trafi na serwery</description></item><item><title>Translating Cyber-Risk for the Boardroom</title><link>https://www.darkreading.com/cyber-risk/translating-cyber-risk-boardroom</link><pubDate>Thu, 24 Jul 2025 14:00:00 +0000</pubDate><source>DarkReading</source><description>Translating Cyber-Risk for the Boardroom</description></item><item><title>Sophos captures multiple honors at SE Labs Awards 2025</title><link>https://news.sophos.com/en-us/2025/07/24/sophos-captures-multiple-honors-at-se-labs-awards-2025/</link><pubDate>Thu, 24 Jul 2025 13:49:38 +0000</pubDate><source>SOPHOS</source><description>Sophos captures multiple honors at SE Labs Awards 2025</description></item><item><title>To nie jest aktualizacja danych Orange</title><link>https://cert.orange.pl/ostrzezenia/to-nie-jest-zadna-aktualizacja-danych-orange/</link><pubDate>Thu, 24 Jul 2025 13:32:04 +0000</pubDate><source>CERT Orange</source><description>To nie jest aktualizacja danych Orange</description></item><item><title>Hackers breach Toptal GitHub account, publish malicious npm packages</title><link>https://www.bleepingcomputer.com/news/security/hackers-breach-toptal-github-account-publish-malicious-npm-packages/</link><pubDate>Thu, 24 Jul 2025 13:26:04 +0000</pubDate><source>BleepingComputer</source><description>Hackers breach Toptal GitHub account, publish malicious npm packages</description></item><item><title>Zhakowani mimo wydania 500 mln na IT. Clorox pozywa Cognizant</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/zhakowani-mimo-wydania-500-mln-na-it-clorox-pozywa-cognizant</link><pubDate>Thu, 24 Jul 2025 12:55:41 +0000</pubDate><source>Cyberdefence24</source><description>Zhakowani mimo wydania 500 mln na IT. Clorox pozywa Cognizant</description></item><item><title>NIST Makes First Detection of Cannabis in Breath From Edibles</title><link>https://www.nist.gov/news-events/news/2025/07/nist-makes-first-detection-cannabis-breath-edibles</link><pubDate>Thu, 24 Jul 2025 12:00:00 +0000</pubDate><source>NIST US</source><description>NIST Makes First Detection of Cannabis in Breath From Edibles</description></item><item><title>Watch This Webinar to Uncover Hidden Flaws in Login, AI, and Digital Trust — and Fix Them</title><link>https://thehackernews.com/2025/07/watch-this-webinar-to-uncover-hidden.html</link><pubDate>Thu, 24 Jul 2025 11:36:00 +0000</pubDate><source>TheHackerNews</source><description>Watch This Webinar to Uncover Hidden Flaws in Login, AI, and Digital Trust — and Fix Them</description></item><item><title>SonicWall urges admins to patch critical RCE flaw in SMA 100 devices</title><link>https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-critical-rce-flaw-in-sma-100-VPN-appliances/</link><pubDate>Thu, 24 Jul 2025 11:17:39 +0000</pubDate><source>BleepingComputer</source><description>SonicWall urges admins to patch critical RCE flaw in SMA 100 devices</description></item><item><title>Awaria systemów PWN. Prawdopodobny atak ransomware</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/awaria-systemow-pwn-prawdopodobny-atak-ransomware</link><pubDate>Thu, 24 Jul 2025 11:17:08 +0000</pubDate><source>Cyberdefence24</source><description>Awaria systemów PWN. Prawdopodobny atak ransomware</description></item><item><title>Pentests once a year? Nope. It’s time to build an offensive SOC</title><link>https://thehackernews.com/2025/07/pentests-once-year-nope-its-time-to.html</link><pubDate>Thu, 24 Jul 2025 11:00:00 +0000</pubDate><source>TheHackerNews</source><description>Pentests once a year? Nope. It’s time to build an offensive SOC</description></item><item><title>China-Based APTs Deploy Fake Dalai Lama Apps to Spy on Tibetan Community</title><link>https://thehackernews.com/2025/07/china-based-apts-deploy-fake-dalai-lama.html</link><pubDate>Thu, 24 Jul 2025 10:59:00 +0000</pubDate><source>TheHackerNews</source><description>China-Based APTs Deploy Fake Dalai Lama Apps to Spy on Tibetan Community</description></item><item><title>Storm-2603 Exploits SharePoint Flaws to Deploy Warlock Ransomware on Unpatched Systems</title><link>https://thehackernews.com/2025/07/storm-2603-exploits-sharepoint-flaws-to.html</link><pubDate>Thu, 24 Jul 2025 10:37:00 +0000</pubDate><source>TheHackerNews</source><description>Storm-2603 Exploits SharePoint Flaws to Deploy Warlock Ransomware on Unpatched Systems</description></item><item><title>Microsoft: SharePoint flaws exploited in Warlock ransomware attacks</title><link>https://www.bleepingcomputer.com/news/security/microsoft-sharepoint-servers-also-targeted-in-ransomware-attacks/</link><pubDate>Thu, 24 Jul 2025 09:53:14 +0000</pubDate><source>BleepingComputer</source><description>Microsoft: SharePoint flaws exploited in Warlock ransomware attacks</description></item><item><title>America's AI Action Plan. Jak USA chcą wygrać wyścig sztucznej inteligencji?</title><link>https://cyberdefence24.pl/technologie/americas-ai-action-plan-jak-usa-chce-wygrac-wyscig-sztucznej-inteligencji</link><pubDate>Thu, 24 Jul 2025 09:31:01 +0000</pubDate><source>Cyberdefence24</source><description>America's AI Action Plan. Jak USA chcą wygrać wyścig sztucznej inteligencji?</description></item><item><title>Kolejne zatrzymania w sprawie internetowego obrotu narkotykami</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/kolejne-zatrzymania-w-sprawie-internetowego-obrotu-narkotykami</link><pubDate>Thu, 24 Jul 2025 07:58:56 +0000</pubDate><source>Cyberdefence24</source><description>Kolejne zatrzymania w sprawie internetowego obrotu narkotykami</description></item><item><title>Brytyjski rząd zakaże płacenia okupu cyberprzestępcom</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/brytyjski-rzad-zakaze-placenia-okupu-cyberprzestepcom</link><pubDate>Thu, 24 Jul 2025 06:54:51 +0000</pubDate><source>Cyberdefence24</source><description>Brytyjski rząd zakaże płacenia okupu cyberprzestępcom</description></item><item><title>Europol Arrests XSS Forum Admin in Kyiv After 12-Year Run Operating Cybercrime Marketplace</title><link>https://thehackernews.com/2025/07/europol-arrests-xss-forum-admin-in-kyiv.html</link><pubDate>Thu, 24 Jul 2025 06:48:00 +0000</pubDate><source>TheHackerNews</source><description>Europol Arrests XSS Forum Admin in Kyiv After 12-Year Run Operating Cybercrime Marketplace</description></item><item><title>Rosyjska firma ujawnia działania APT41 w Afryce</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/rosyjska-firma-ujawnia-dzialania-apt41-w-afryce</link><pubDate>Thu, 24 Jul 2025 06:09:20 +0000</pubDate><source>Cyberdefence24</source><description>Rosyjska firma ujawnia działania APT41 w Afryce</description></item><item><title>Kampania phishingowa PoisonSeed omija zabezpieczenia FIDO2, wykorzystując autoryzację między urządzeniami</title><link>https://kapitanhack.pl/2025/07/24/nieskategoryzowane/kampania-phishingowa-poisonseed-omija-zabezpieczenia-fido2-wykorzystujac-autoryzacje-miedzy-urzadzeniami/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=kampania-phishingowa-poisonseed-omija-zabezpieczenia-fido2-wykorzystujac-autoryzacje-miedzy-urzadzeniami</link><pubDate>Thu, 24 Jul 2025 06:00:00 +0000</pubDate><source>Kapitan Hack</source><description>Kampania phishingowa PoisonSeed omija zabezpieczenia FIDO2, wykorzystując autoryzację między urządzeniami</description></item><item><title>Hackers Deploy Stealth Backdoor in WordPress Mu-Plugins to Maintain Admin Access</title><link>https://thehackernews.com/2025/07/hackers-deploy-stealth-backdoor-in.html</link><pubDate>Thu, 24 Jul 2025 05:11:00 +0000</pubDate><source>TheHackerNews</source><description>Hackers Deploy Stealth Backdoor in WordPress Mu-Plugins to Maintain Admin Access</description></item><item><title>New Tool: ficheck.py, (Thu, Jul 24th)</title><link>https://isc.sans.edu/diary/rss/32136</link><pubDate>Thu, 24 Jul 2025 03:07:53 +0000</pubDate><source>SANS Technology Institute</source><description>New Tool: ficheck.py, (Thu, Jul 24th)</description></item><item><title>ISC Stormcast For Thursday, July 24th, 2025 https://isc.sans.edu/podcastdetail/9540, (Thu, Jul 24th)</title><link>https://isc.sans.edu/diary/rss/32140</link><pubDate>Thu, 24 Jul 2025 02:00:02 +0000</pubDate><source>SANS Technology Institute</source><description>ISC Stormcast For Thursday, July 24th, 2025 https://isc.sans.edu/podcastdetail/9540, (Thu, Jul 24th)</description></item><item><title>Fixed Ivanti Bugs Still Haunt Japan Orgs 6 Months Later</title><link>https://www.darkreading.com/endpoint-security/fixed-ivanti-bugs-japan-orgs-6-months-later</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>DarkReading</source><description>Fixed Ivanti Bugs Still Haunt Japan Orgs 6 Months Later</description></item><item><title>Ransomware: salamanderresort.com - lynx</title><link>https://salamanderresort.com</link><pubDate>Thu, 24 Jul 2025 23:03:52 +0000</pubDate><source>lynx</source><description>Ofiara: salamanderresort.com, Grupa: lynx</description></item><item><title>Ransomware: teampostop.net - incransom</title><link>https://teampostop.net</link><pubDate>Thu, 24 Jul 2025 15:51:00 +0000</pubDate><source>incransom</source><description>Ofiara: teampostop.net, Grupa: incransom</description></item><item><title>Ransomware: seasonsfour.com - incransom</title><link>https://seasonsfour.com</link><pubDate>Thu, 24 Jul 2025 15:47:00 +0000</pubDate><source>incransom</source><description>Ofiara: seasonsfour.com, Grupa: incransom</description></item><item><title>Ransomware: New American Funding - Full leak published - everest</title><link>https://ransomware.live</link><pubDate>Thu, 24 Jul 2025 09:56:12 +0000</pubDate><source>everest</source><description>Ofiara: New American Funding - Full leak published, Grupa: everest</description></item><item><title>Ransomware: www.entecheng.com - incransom</title><link>https://www.entecheng.com</link><pubDate>Thu, 24 Jul 2025 01:00:00 +0000</pubDate><source>incransom</source><description>Ofiara: www.entecheng.com, Grupa: incransom</description></item><item><title>Ransomware: www.labiennale.org - incransom</title><link>https://www.labiennale.org</link><pubDate>Thu, 24 Jul 2025 01:00:00 +0000</pubDate><source>incransom</source><description>Ofiara: www.labiennale.org, Grupa: incransom</description></item><item><title>Ransomware: www.lincecomercial.com - incransom</title><link>https://www.lincecomercial.com</link><pubDate>Thu, 24 Jul 2025 01:00:00 +0000</pubDate><source>incransom</source><description>Ofiara: www.lincecomercial.com, Grupa: incransom</description></item><item><title>Ransomware: Donlar Construction - akira</title><link>https://ransomware.live</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Donlar Construction, Grupa: akira</description></item><item><title>Ransomware: Testa Heck Testa &amp; White - akira</title><link>https://ransomware.live</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Testa Heck Testa &amp; White, Grupa: akira</description></item><item><title>Ransomware: moonsafari - qilin</title><link>https://www.moonsafari.archi</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: moonsafari, Grupa: qilin</description></item><item><title>Ransomware: foiegrasespinet - qilin</title><link>https://www.foiegrasespinet.com</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: foiegrasespinet, Grupa: qilin</description></item><item><title>Ransomware: BALNEARIO DE MONDARIZ - qilin</title><link>https://www.balneariomondariz.es</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: BALNEARIO DE MONDARIZ, Grupa: qilin</description></item><item><title>Ransomware: morgan911.org - qilin</title><link>https://www.morgan911.org</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: morgan911.org, Grupa: qilin</description></item><item><title>Ransomware: [Redacted] - qilin</title><link>https://ransomware.live</link><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: [Redacted], Grupa: qilin</description></item><item><title>Brave blocks Windows Recall from screenshotting your browsing activity</title><link>https://www.bleepingcomputer.com/news/security/brave-blocks-windows-recall-from-screenshotting-your-browsing-activity/</link><pubDate>Wed, 23 Jul 2025 22:42:05 +0000</pubDate><source>BleepingComputer</source><description>Brave blocks Windows Recall from screenshotting your browsing activity</description></item><item><title>Banking Trojan Coyote Abuses Windows UI Automation</title><link>https://www.darkreading.com/cyber-risk/banking-trojan-coyote-windows-ui-automation</link><pubDate>Wed, 23 Jul 2025 21:29:56 +0000</pubDate><source>DarkReading</source><description>Banking Trojan Coyote Abuses Windows UI Automation</description></item><item><title>Dark Web Hackers Moonlight as Travel Agents</title><link>https://www.darkreading.com/remote-workforce/dark-web-hackers-moonlight-travel-agents</link><pubDate>Wed, 23 Jul 2025 21:28:32 +0000</pubDate><source>DarkReading</source><description>Dark Web Hackers Moonlight as Travel Agents</description></item><item><title>Department of Education Site Mimicked in Phishing Scheme</title><link>https://www.darkreading.com/threat-intelligence/department-of-education-site-phishing-scheme</link><pubDate>Wed, 23 Jul 2025 20:22:06 +0000</pubDate><source>DarkReading</source><description>Department of Education Site Mimicked in Phishing Scheme</description></item><item><title>What Makes Great Threat Intelligence?</title><link>https://www.darkreading.com/threat-intelligence/what-makes-great-threat-intelligence</link><pubDate>Wed, 23 Jul 2025 19:58:48 +0000</pubDate><source>DarkReading</source><description>What Makes Great Threat Intelligence?</description></item><item><title>Trump AI plan calls for cybersecurity assessments, threat info-sharing</title><link>https://www.cybersecuritydive.com/news/white-house-artificial-intelligence-action-plan-cybersecurity-trump/753856/</link><pubDate>Wed, 23 Jul 2025 19:48:00 +0000</pubDate><source>Cybersecurity dive</source><description>Trump AI plan calls for cybersecurity assessments, threat info-sharing</description></item><item><title>Analyzing Sharepoint Exploits (CVE-2025-53770, CVE-2025-53771), (Wed, Jul 23rd)</title><link>https://isc.sans.edu/diary/rss/32138</link><pubDate>Wed, 23 Jul 2025 19:36:36 +0000</pubDate><source>SANS Technology Institute</source><description>Analyzing Sharepoint Exploits (CVE-2025-53770, CVE-2025-53771), (Wed, Jul 23rd)</description></item><item><title>Cyberatak na Naval Group. Hakerzy grożą publikacją krytycznych danych</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/cyberatak-na-naval-group-hakerzy-groza-publikacja-krytycznych-danych</link><pubDate>Wed, 23 Jul 2025 14:19:47 +0000</pubDate><source>Cyberdefence24</source><description>Cyberatak na Naval Group. Hakerzy grożą publikacją krytycznych danych</description></item><item><title>Chińskie grupy wykorzystują lukę zero-day w SharePoint</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/chinskie-grupy-wykorzystuja-luke-zero-day-w-sharepoint</link><pubDate>Wed, 23 Jul 2025 14:19:12 +0000</pubDate><source>Cyberdefence24</source><description>Chińskie grupy wykorzystują lukę zero-day w SharePoint</description></item><item><title>Cyberprzestępcze forum rozbite. Efekt międzynarodowego śledztwa</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/francusko-ukrainskie-sledztwo-rozbicie-cyberprzestepczego-forum</link><pubDate>Wed, 23 Jul 2025 13:42:44 +0000</pubDate><source>Cyberdefence24</source><description>Cyberprzestępcze forum rozbite. Efekt międzynarodowego śledztwa</description></item><item><title>Łódzka Miejska Sieć Komputerowa ofiarą ataku ransomware</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/lodzka-miejska-siec-komputerowa-ofiara-ataku-ransomware</link><pubDate>Wed, 23 Jul 2025 12:00:02 +0000</pubDate><source>Cyberdefence24</source><description>Łódzka Miejska Sieć Komputerowa ofiarą ataku ransomware</description></item><item><title>Gawkowski: podatek cyfrowy to konieczność</title><link>https://cyberdefence24.pl/polityka-i-prawo/gawkowski-podatek-cyfrowy-to-koniecznosc</link><pubDate>Wed, 23 Jul 2025 10:13:43 +0000</pubDate><source>Cyberdefence24</source><description>Gawkowski: podatek cyfrowy to konieczność</description></item><item><title>Luka z 2017 roku aktywnie wykorzystywana w atakach in-the-wild</title><link>https://avlab.pl/luka-z-2017-roku-aktywnie-wykorzystywana-w-atakach-in-the-wild/</link><pubDate>Wed, 23 Jul 2025 10:13:21 +0000</pubDate><source>AVLab</source><description>Luka z 2017 roku aktywnie wykorzystywana w atakach in-the-wild</description></item><item><title>Samsung rusza z mobilnym serwisem. Szybka naprawa na wyciągnięcie ręki</title><link>https://cyberdefence24.pl/strefa-samsunga-/samsung-rusza-z-mobilnym-serwisem-szybka-naprawa-na-wyciagniecie-reki</link><pubDate>Wed, 23 Jul 2025 06:57:26 +0000</pubDate><source>Cyberdefence24</source><description>Samsung rusza z mobilnym serwisem. Szybka naprawa na wyciągnięcie ręki</description></item><item><title>Luka w AppLockerze – drobny błąd, wielka dziura w zabezpieczeniach</title><link>https://kapitanhack.pl/2025/07/23/nieskategoryzowane/luka-w-applockerze-drobny-blad-wielka-dziura-w-zabezpieczeniach/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=luka-w-applockerze-drobny-blad-wielka-dziura-w-zabezpieczeniach</link><pubDate>Wed, 23 Jul 2025 06:42:58 +0000</pubDate><source>Kapitan Hack</source><description>Luka w AppLockerze – drobny błąd, wielka dziura w zabezpieczeniach</description></item><item><title>Ransomware: Palm Bay International - nitrogen</title><link>https://www.palmbay.com</link><pubDate>Wed, 23 Jul 2025 15:12:47 +0000</pubDate><source>nitrogen</source><description>Ofiara: Palm Bay International, Grupa: nitrogen</description></item><item><title>Ransomware: Sanderling Healthcare - sarcoma</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 12:20:19 +0000</pubDate><source>sarcoma</source><description>Ofiara: Sanderling Healthcare, Grupa: sarcoma</description></item><item><title>Ransomware: Ka Logistics - play</title><link>https://www.kalogistics.com</link><pubDate>Wed, 23 Jul 2025 12:15:55 +0000</pubDate><source>play</source><description>Ofiara: Ka Logistics, Grupa: play</description></item><item><title>Ransomware: DA Whitacre Construction - play</title><link>https://www.dawhitacre.com</link><pubDate>Wed, 23 Jul 2025 12:15:08 +0000</pubDate><source>play</source><description>Ofiara: DA Whitacre Construction, Grupa: play</description></item><item><title>Ransomware: https://eagleonline.net/ - lynx</title><link>https://eagleonline.net</link><pubDate>Wed, 23 Jul 2025 11:01:23 +0000</pubDate><source>lynx</source><description>Ofiara: https://eagleonline.net/, Grupa: lynx</description></item><item><title>Ransomware: Sementes Jotabasso - incransom</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 08:41:00 +0000</pubDate><source>incransom</source><description>Ofiara: Sementes Jotabasso, Grupa: incransom</description></item><item><title>Ransomware: DelCampo - qilin</title><link>https://www.delcampo.com.mx</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: DelCampo, Grupa: qilin</description></item><item><title>Ransomware: OKA - akira</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: OKA, Grupa: akira</description></item><item><title>Ransomware: Reimo - akira</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Reimo, Grupa: akira</description></item><item><title>Ransomware: Pilipili - akira</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>akira</source><description>Ofiara: Pilipili, Grupa: akira</description></item><item><title>Ransomware: jaegerndorfer.at - qilin</title><link>https://jaegerndorfer.at</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>qilin</source><description>Ofiara: jaegerndorfer.at, Grupa: qilin</description></item><item><title>Ransomware: Crumbl - everest</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>everest</source><description>Ofiara: Crumbl, Grupa: everest</description></item><item><title>Ransomware: Best Price Financial Services - everest</title><link>https://ransomware.live</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><source>everest</source><description>Ofiara: Best Price Financial Services, Grupa: everest</description></item><item><title>Kto kontroluje prawdę podczas nowoczesnej wojny?</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/kto-kontroluje-prawde-podczas-nowoczesnej-wojny</link><pubDate>Tue, 22 Jul 2025 15:42:06 +0000</pubDate><source>Cyberdefence24</source><description>Kto kontroluje prawdę podczas nowoczesnej wojny?</description></item><item><title>Sprawa luki w SharePoint. Tysiące instancji wciąż narażonych</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/sprawa-luki-w-sharepoint-tysiace-instancji-wciaz-narazonych</link><pubDate>Tue, 22 Jul 2025 14:20:12 +0000</pubDate><source>Cyberdefence24</source><description>Sprawa luki w SharePoint. Tysiące instancji wciąż narażonych</description></item><item><title>Cyberprzestępcy odgadli słabe hasło i zaszyfrowali dane. 700 osób bez pracy</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/cyberprzestepcy-odgadli-slabe-haslo-i-zaszyfrowali-dane-700-osob-bez-pracy</link><pubDate>Tue, 22 Jul 2025 13:33:30 +0000</pubDate><source>Cyberdefence24</source><description>Cyberprzestępcy odgadli słabe hasło i zaszyfrowali dane. 700 osób bez pracy</description></item><item><title>Krajobraz zagrożeń 14-20/07/25</title><link>https://cert.orange.pl/cyber-threat-intelligence/krajobraz-zagrozen-14-20-07-25/</link><pubDate>Tue, 22 Jul 2025 12:27:04 +0000</pubDate><source>CERT Orange</source><description>Krajobraz zagrożeń 14-20/07/25</description></item><item><title>Krytyczne zdarzenie co 30 minut i 3 incydenty dziennie. Ukraina walczy w cyberprzestrzeni</title><link>https://cyberdefence24.pl/armia-i-sluzby/krytyczne-zdarzenie-co-30-minut-i-3-incydenty-dziennie-ukraina-walczy-w-cyberprzestrzeni</link><pubDate>Tue, 22 Jul 2025 11:17:03 +0000</pubDate><source>Cyberdefence24</source><description>Krytyczne zdarzenie co 30 minut i 3 incydenty dziennie. Ukraina walczy w cyberprzestrzeni</description></item><item><title>Hakerzy zaatakowali kluczową infrastrukturę Singapuru</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/hakerzy-zaatakowali-kluczowa-infrastrukture-singapuru</link><pubDate>Tue, 22 Jul 2025 11:16:54 +0000</pubDate><source>Cyberdefence24</source><description>Hakerzy zaatakowali kluczową infrastrukturę Singapuru</description></item><item><title>Darmowy dekryptor odzyskuje dane po ataku ransomware Phobos i 8base</title><link>https://sekurak.pl/darmowy-dekryptor-odzyskuje-dane-po-ataku-ransomware-phobos-i-8base/</link><pubDate>Tue, 22 Jul 2025 10:31:07 +0000</pubDate><source>Sekurak</source><description>Darmowy dekryptor odzyskuje dane po ataku ransomware Phobos i 8base</description></item><item><title>Policyjna licytacja kryptowalut. Środki trafią do pokrzywdzonych</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/policyjna-licytacja-kryptowalut-srodki-trafia-do-pokrzywdzonych</link><pubDate>Tue, 22 Jul 2025 09:54:45 +0000</pubDate><source>Cyberdefence24</source><description>Policyjna licytacja kryptowalut. Środki trafią do pokrzywdzonych</description></item><item><title>Samsung łączy siły z Kia. Nowe możliwości dla przedsiębiorstw</title><link>https://cyberdefence24.pl/strefa-samsunga-/samsung-laczy-sily-z-kia-nowe-mozliwosci-dla-przedsiebiorstw</link><pubDate>Tue, 22 Jul 2025 06:59:53 +0000</pubDate><source>Cyberdefence24</source><description>Samsung łączy siły z Kia. Nowe możliwości dla przedsiębiorstw</description></item><item><title>Co zmieni AI w ORLENIE? Oto szczegóły nowej współpracy</title><link>https://cyberdefence24.pl/cyberbezpieczenstwo/co-zmieni-ai-w-orlenie-oto-szczegoly-nowej-wspolpracy</link><pubDate>Tue, 22 Jul 2025 06:14:31 +0000</pubDate><source>Cyberdefence24</source><description>Co zmieni AI w ORLENIE? Oto szczegóły nowej współpracy</description></item><item><title>Groźna luka w SharePoint aktywnie wykorzystywana przez cyberprzestępców</title><link>https://kapitanhack.pl/2025/07/22/ad-persistence/grozna-luka-w-sharepoint-aktywnie-wykorzystywana-przez-cyberprzestepcow/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=grozna-luka-w-sharepoint-aktywnie-wykorzystywana-przez-cyberprzestepcow</link><pubDate>Tue, 22 Jul 2025 04:42:48 +0000</pubDate><source>Kapitan Hack</source><description>Groźna luka w SharePoint aktywnie wykorzystywana przez cyberprzestępców</description></item><item><title>Cicha aktualizacja z malware w rozszerzeniach do Google Chrome i Microsoft Edge zainfekowała 2,3 mln użytkowników.</title><link>https://sekurak.pl/cicha-aktualizacja-z-malware-w-rozszerzeniach-do-google-chrome-i-microsoft-edge-zainfekowala-23-mln-uzytkownikow/</link><pubDate>Tue, 22 Jul 2025 02:14:32 +0000</pubDate><source>Sekurak</source><description>Cicha aktualizacja z malware w rozszerzeniach do Google Chrome i Microsoft Edge zainfekowała 2,3 mln użytkowników.</description></item><item><title>Ransomware: blueridgesl.com - safepay</title><link>https://blueridgesl.com</link><pubDate>Tue, 22 Jul 2025 19:26:36 +0000</pubDate><source>safepay</source><description>Ofiara: blueridgesl.com, Grupa: safepay</description></item><item><title>Ransomware: rhschool.org - safepay</title><link>https://rhschool.org</link><pubDate>Tue, 22 Jul 2025 19:25:45 +0000</pubDate><source>safepay</source><description>Ofiara: rhschool.org, Grupa: safepay</description></item></channel></rss>
