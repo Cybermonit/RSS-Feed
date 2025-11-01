@@ -159,13 +159,7 @@ Releasedate: 2016-06-22
 Eol: True
 Latest: 3.0.12
 Latestreleasedate: 2016-11-23
-Lts: False</description></item><item><title>EoL: API Platform - Cycle 4.2</title><link>https://endoflife.date/api-platform</link><pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 4.2
-Releasedate: 2025-09-18
-Eol: False
-Latest: 4.2.2
-Latestreleasedate: 2025-10-09
-Lts: False
-Support: True</description></item><item><title>EoL: AWS Lambda - Cycle ruby3.4</title><link>https://endoflife.date/aws-lambda</link><pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: ruby3.4
+Lts: False</description></item><item><title>EoL: AWS Lambda - Cycle ruby3.4</title><link>https://endoflife.date/aws-lambda</link><pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: ruby3.4
 Releaselabel: Ruby 3.4
 Releasedate: 2025-03-27
 Eol: False
@@ -189,7 +183,13 @@ Releasedate: 2020-12-02
 Eol: True
 Link: https://aws.amazon.com/blogs/developer/net-5-aws-lambda-support-with-container-images/
 Lts: False
-Support: 2022-05-10</description></item><item><title>EoL: Bootstrap - Cycle 5 (LTS)</title><link>https://endoflife.date/bootstrap</link><pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate><description>Cycle: 5
+Support: 2022-05-10</description></item><item><title>EoL: API Platform - Cycle 4.2</title><link>https://endoflife.date/api-platform</link><pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 4.2
+Releasedate: 2025-09-18
+Eol: False
+Latest: 4.2.3
+Latestreleasedate: 2025-10-31
+Lts: False
+Support: True</description></item><item><title>EoL: Bootstrap - Cycle 5 (LTS)</title><link>https://endoflife.date/bootstrap</link><pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate><description>Cycle: 5
 Releasedate: 2021-05-05
 Lts: 2022-07-19
 Eol: False
@@ -364,17 +364,17 @@ Latest: 2.0.6
 Latestreleasedate: 2012-02-05
 Link: https://bakery.cakephp.org/2012/02/06/CakePHP-2-0-6-released.html
 Lts: False
-Support: False</description></item><item><title>EoL: Chef Infra Client - Cycle 18</title><link>https://endoflife.date/chef-infra-client</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 18
-Releasedate: 2022-09-28
-Eol: False
-Latest: 18.8.46
-Latestreleasedate: 2025-10-14
-Lts: False
-Support: True</description></item><item><title>EoL: Chef Infra Server - Cycle 15</title><link>https://endoflife.date/chef-infra-server</link><pubDate>Mon, 13 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 15
+Support: False</description></item><item><title>EoL: Chef Infra Server - Cycle 15</title><link>https://endoflife.date/chef-infra-server</link><pubDate>Mon, 13 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 15
 Releasedate: 2022-06-13
 Eol: False
 Latest: 15.10.66
 Latestreleasedate: 2025-09-12
+Lts: False
+Support: True</description></item><item><title>EoL: Chef Infra Client - Cycle 18</title><link>https://endoflife.date/chef-infra-client</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 18
+Releasedate: 2022-09-28
+Eol: False
+Latest: 18.8.46
+Latestreleasedate: 2025-10-14
 Lts: False
 Support: True</description></item><item><title>EoL: Chef InSpec - Cycle 7</title><link>https://endoflife.date/chef-inspec</link><pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate><description>Cycle: 7
 Releasedate: 2025-10-16
@@ -391,8 +391,8 @@ Lts: False
 Support: True</description></item><item><title>EoL: Coder - Cycle 2.27</title><link>https://endoflife.date/coder</link><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><description>Cycle: 2.27
 Releasedate: 2025-10-07
 Eol: False
-Latest: 2.27.2
-Latestreleasedate: 2025-10-28
+Latest: 2.27.3
+Latestreleasedate: 2025-10-30
 Lts: False
 Support: True</description></item><item><title>EoL: Coder - Cycle 2.26</title><link>https://endoflife.date/coder</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 2.26
 Releasedate: 2025-09-03
@@ -400,28 +400,7 @@ Eol: False
 Latest: 2.26.3
 Latestreleasedate: 2025-10-28
 Lts: False
-Support: True</description></item><item><title>EoL: Elixir - Cycle 1.19</title><link>https://endoflife.date/elixir</link><pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate><description>Cycle: 1.19
-Releasedate: 2025-10-16
-Eol: False
-Latest: 1.19.1
-Latestreleasedate: 2025-10-20
-Lts: False
-Support: True</description></item><item><title>EoL: Ember - Cycle 6.8</title><link>https://endoflife.date/ember</link><pubDate>Sat, 25 Oct 2025 00:00:00 +0000</pubDate><description>Cycle: 6.8
-Releasedate: 2025-10-25
-Eol: False
-Latest: 6.8.0
-Latestreleasedate: 2025-10-13
-Link: https://blog.emberjs.com/ember-released-6-8/
-Lts: False
-Support: True</description></item><item><title>EoL: ESLint - Cycle 9</title><link>https://endoflife.date/eslint</link><pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate><description>Cycle: 9
-Releasedate: 2024-04-05
-Eol: False
-Eoesprovider: Tidelift
-Latest: 9.38.0
-Latestreleasedate: 2025-10-17
-Lts: False
-Support: True
-Extendedsupport: True</description></item><item><title>EoL: Eclipse Jetty - Cycle 12.1</title><link>https://endoflife.date/eclipse-jetty</link><pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate><description>Cycle: 12.1
+Support: True</description></item><item><title>EoL: Eclipse Jetty - Cycle 12.1</title><link>https://endoflife.date/eclipse-jetty</link><pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate><description>Cycle: 12.1
 Releasedate: 2025-08-18
 Minjvmversion: 17
 Servletversion: 3.1 - 6.1
@@ -441,7 +420,28 @@ Latest: 12.0.29
 Latestreleasedate: 2025-10-20
 Lts: False
 Support: True
-Extendedsupport: True</description></item><item><title>EoL: Fluent Bit - Cycle 1.7</title><link>https://endoflife.date/fluent-bit</link><description>Cycle: 1.7
+Extendedsupport: True</description></item><item><title>EoL: Elixir - Cycle 1.19</title><link>https://endoflife.date/elixir</link><pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate><description>Cycle: 1.19
+Releasedate: 2025-10-16
+Eol: False
+Latest: 1.19.1
+Latestreleasedate: 2025-10-20
+Lts: False
+Support: True</description></item><item><title>EoL: ESLint - Cycle 9</title><link>https://endoflife.date/eslint</link><pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate><description>Cycle: 9
+Releasedate: 2024-04-05
+Eol: False
+Eoesprovider: Tidelift
+Latest: 9.38.0
+Latestreleasedate: 2025-10-17
+Lts: False
+Support: True
+Extendedsupport: True</description></item><item><title>EoL: Ember - Cycle 6.8</title><link>https://endoflife.date/ember</link><pubDate>Sat, 25 Oct 2025 00:00:00 +0000</pubDate><description>Cycle: 6.8
+Releasedate: 2025-10-25
+Eol: False
+Latest: 6.8.1
+Latestreleasedate: 2025-10-30
+Link: https://blog.emberjs.com/ember-released-6-8/
+Lts: False
+Support: True</description></item><item><title>EoL: Fluent Bit - Cycle 1.7</title><link>https://endoflife.date/fluent-bit</link><description>Cycle: 1.7
 Releasedate: 2021-02-14
 Eol: True
 Latest: 1.7.9
@@ -733,17 +733,17 @@ Eol: True
 Link: None
 Latest: 1.0.10
 Latestreleasedate: 2013-08-28
-Lts: False</description></item><item><title>EoL: Icinga Web - Cycle 2.12</title><link>https://endoflife.date/icinga-web</link><pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate><description>Cycle: 2.12
-Releasedate: 2023-09-21
-Eol: False
-Latest: 2.12.5
-Latestreleasedate: 2025-07-16
-Lts: False
-Support: True</description></item><item><title>EoL: Icinga - Cycle 2.15</title><link>https://endoflife.date/icinga</link><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 2.15
+Lts: False</description></item><item><title>EoL: Icinga - Cycle 2.15</title><link>https://endoflife.date/icinga</link><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 2.15
 Releasedate: 2025-06-17
 Eol: False
 Latest: 2.15.1
 Latestreleasedate: 2025-10-14
+Lts: False
+Support: True</description></item><item><title>EoL: Icinga Web - Cycle 2.12</title><link>https://endoflife.date/icinga-web</link><pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate><description>Cycle: 2.12
+Releasedate: 2023-09-21
+Eol: False
+Latest: 2.12.5
+Latestreleasedate: 2025-07-16
 Lts: False
 Support: True</description></item><item><title>EoL: Ionic Framework - Cycle 8</title><link>https://endoflife.date/ionic-framework</link><pubDate>Wed, 17 Apr 2024 00:00:00 +0000</pubDate><description>Cycle: 8
 Releasedate: 2024-04-17
@@ -785,13 +785,6 @@ Releasedate: 2023-09-18
 Eol: False
 Latest: 17.7.10
 Latestreleasedate: 2025-08-20
-Lts: False
-Support: True</description></item><item><title>EoL: Jekyll - Cycle 4</title><link>https://endoflife.date/jekyll</link><pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate><description>Cycle: 4
-Minrubyversion: 2.5+
-Releasedate: 2019-08-20
-Eol: False
-Latest: 4.4.1
-Latestreleasedate: 2025-01-29
 Lts: False
 Support: True</description></item><item><title>EoL: Jira Software - Cycle 5.2</title><link>https://endoflife.date/jira-software</link><description>Cycle: 5.2
 Releasedate: 2012-11-11
@@ -977,22 +970,14 @@ Eol: True
 Supportedkubernetesversions: 1.13+
 Latest: 1.5.0
 Latestreleasedate: 2020-07-07
-Lts: False</description></item><item><title>EoL: Kibana - Cycle 8.16</title><link>https://endoflife.date/kibana</link><description>Cycle: 8.16
-Releasedate: 2024-11-07
-Eol: True
-Latest: 8.16.6
-Latestreleasedate: 2025-03-19
-Lts: False</description></item><item><title>EoL: Kibana - Cycle 8.15</title><link>https://endoflife.date/kibana</link><description>Cycle: 8.15
-Releasedate: 2024-08-03
-Eol: True
-Latest: 8.15.5
-Latestreleasedate: 2024-11-21
-Lts: False</description></item><item><title>EoL: Kibana - Cycle 8.14</title><link>https://endoflife.date/kibana</link><description>Cycle: 8.14
-Releasedate: 2024-06-05
-Eol: True
-Latest: 8.14.3
-Latestreleasedate: 2024-07-08
-Lts: False</description></item><item><title>EoL: Amazon Kindle - Cycle kindle-5</title><link>https://endoflife.date/amazon-kindle</link><description>Cycle: kindle-5
+Lts: False</description></item><item><title>EoL: Jekyll - Cycle 4</title><link>https://endoflife.date/jekyll</link><pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate><description>Cycle: 4
+Minrubyversion: 2.5+
+Releasedate: 2019-08-20
+Eol: False
+Latest: 4.4.1
+Latestreleasedate: 2025-01-29
+Lts: False
+Support: True</description></item><item><title>EoL: Amazon Kindle - Cycle kindle-5</title><link>https://endoflife.date/amazon-kindle</link><description>Cycle: kindle-5
 Releaselabel: Kindle (5th Generation)
 Releasedate: 2012-09-06
 Eol: True
@@ -1027,6 +1012,21 @@ Releaselabel: Kindle (1st Generation)
 Releasedate: 2007-11-19
 Eol: True
 Latest: 1.2.1
+Lts: False</description></item><item><title>EoL: Kibana - Cycle 8.16</title><link>https://endoflife.date/kibana</link><description>Cycle: 8.16
+Releasedate: 2024-11-07
+Eol: True
+Latest: 8.16.6
+Latestreleasedate: 2025-03-19
+Lts: False</description></item><item><title>EoL: Kibana - Cycle 8.15</title><link>https://endoflife.date/kibana</link><description>Cycle: 8.15
+Releasedate: 2024-08-03
+Eol: True
+Latest: 8.15.5
+Latestreleasedate: 2024-11-21
+Lts: False</description></item><item><title>EoL: Kibana - Cycle 8.14</title><link>https://endoflife.date/kibana</link><description>Cycle: 8.14
+Releasedate: 2024-06-05
+Eol: True
+Latest: 8.14.3
+Latestreleasedate: 2024-07-08
 Lts: False</description></item><item><title>EoL: LineageOS - Cycle 20</title><link>https://endoflife.date/lineageos</link><description>Cycle: 20
 Releasedate: 2022-12-31
 Eol: True
@@ -1083,7 +1083,13 @@ Latest: 2.4.6
 Latestreleasedate: 2023-02-28
 Lts: False
 Support: True
-Extendedsupport: 2026-08-11</description></item><item><title>EoL: Mastodon - Cycle 3.2</title><link>https://endoflife.date/mastodon</link><description>Cycle: 3.2
+Extendedsupport: 2026-08-11</description></item><item><title>EoL: Matomo - Cycle 5</title><link>https://endoflife.date/matomo</link><pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 5
+Releasedate: 2023-12-18
+Eol: False
+Latest: 5.5.1
+Latestreleasedate: 2025-10-20
+Lts: False
+Support: True</description></item><item><title>EoL: Mastodon - Cycle 3.2</title><link>https://endoflife.date/mastodon</link><description>Cycle: 3.2
 Releasedate: 2020-07-27
 Eol: True
 Latest: 3.2.2
@@ -1108,13 +1114,7 @@ Releasedate: 2017-02-05
 Eol: True
 Latest: 1.6.1
 Latestreleasedate: 2017-09-17
-Lts: False</description></item><item><title>EoL: Matomo - Cycle 5</title><link>https://endoflife.date/matomo</link><pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 5
-Releasedate: 2023-12-18
-Eol: False
-Latest: 5.5.1
-Latestreleasedate: 2025-10-20
-Lts: False
-Support: True</description></item><item><title>EoL: Micronaut Framework - Cycle 4</title><link>https://endoflife.date/micronaut-framework</link><pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate><description>Cycle: 4
+Lts: False</description></item><item><title>EoL: Micronaut Framework - Cycle 4</title><link>https://endoflife.date/micronaut-framework</link><pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate><description>Cycle: 4
 Releasedate: 2023-07-11
 Eol: False
 Latest: 4.10.8
@@ -1153,20 +1153,7 @@ Eol: True
 Latest: 4.0.1
 Latestreleasedate: 2008-10-14
 Lts: False
-Support: 2009-04-29</description></item><item><title>EoL: Nutanix Files - Cycle 5.2</title><link>https://endoflife.date/nutanix-files</link><pubDate>Wed, 30 Jul 2025 00:00:00 +0000</pubDate><description>Cycle: 5.2
-Releasedate: 2025-07-30
-Eol: False
-Latest: 5.2.0.0
-Latestreleasedate: 2025-07-30
-Lts: False
-Support: True</description></item><item><title>EoL: Nuxt - Cycle 4</title><link>https://endoflife.date/nuxt</link><pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate><description>Cycle: 4
-Releasedate: 2025-07-16
-Eol: False
-Latest: 4.2.0
-Latestreleasedate: 2025-10-25
-Lts: False
-Support: True
-Extendedsupport: False</description></item><item><title>EoL: Node.js - Cycle 3</title><link>https://endoflife.date/node.js</link><description>Cycle: 3
+Support: 2009-04-29</description></item><item><title>EoL: Node.js - Cycle 3</title><link>https://endoflife.date/node.js</link><description>Cycle: 3
 Releasedate: 2015-08-04
 Eol: True
 Link: https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_IOJS.md#__LATEST__
@@ -1190,7 +1177,38 @@ Latest: 1.8.4
 Latestreleasedate: 2015-07-09
 Lts: False
 Support: False
-Extendedsupport: False</description></item><item><title>EoL: NVIDIA GPUs - Cycle mobile-professional-ada-lovelace</title><link>https://endoflife.date/nvidia-gpus</link><pubDate>Thu, 30 Jan 2025 00:00:00 +0000</pubDate><description>Cycle: mobile-professional-ada-lovelace
+Extendedsupport: False</description></item><item><title>EoL: Nuxt - Cycle 4</title><link>https://endoflife.date/nuxt</link><pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate><description>Cycle: 4
+Releasedate: 2025-07-16
+Eol: False
+Latest: 4.2.0
+Latestreleasedate: 2025-10-25
+Lts: False
+Support: True
+Extendedsupport: False</description></item><item><title>EoL: Nutanix Files - Cycle 5.2</title><link>https://endoflife.date/nutanix-files</link><pubDate>Wed, 30 Jul 2025 00:00:00 +0000</pubDate><description>Cycle: 5.2
+Releasedate: 2025-07-30
+Eol: False
+Latest: 5.2.1
+Latestreleasedate: 2025-10-29
+Lts: False
+Support: True</description></item><item><title>EoL: OpenSearch - Cycle 3</title><link>https://endoflife.date/opensearch</link><pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><description>Cycle: 3
+Releasedate: 2025-05-06
+Eol: False
+Latest: 3.3.2
+Latestreleasedate: 2025-10-29
+Lts: False
+Support: True</description></item><item><title>EoL: OpenVPN - Cycle 2.6</title><link>https://endoflife.date/openvpn</link><pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate><description>Cycle: 2.6
+Releasedate: 2023-01-25
+Eol: False
+Latest: 2.6.15
+Latestreleasedate: 2025-09-22
+Lts: False
+Support: True</description></item><item><title>EoL: OpenWrt - Cycle 24.10</title><link>https://endoflife.date/openwrt</link><pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 24.10
+Releasedate: 2025-02-04
+Eol: False
+Latest: 24.10.4
+Latestreleasedate: 2025-10-21
+Lts: False
+Support: True</description></item><item><title>EoL: NVIDIA GPUs - Cycle mobile-professional-ada-lovelace</title><link>https://endoflife.date/nvidia-gpus</link><pubDate>Thu, 30 Jan 2025 00:00:00 +0000</pubDate><description>Cycle: mobile-professional-ada-lovelace
 Releaselabel: Mobile Professional Blackwell (GB20x)
 Releasedate: 2025-01-30
 Eol: False
@@ -1280,12 +1298,6 @@ Releasedate: 2018-08-13
 Eol: False
 Discontinued: False
 Lts: False
-Support: True</description></item><item><title>EoL: OpenSearch - Cycle 3</title><link>https://endoflife.date/opensearch</link><pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><description>Cycle: 3
-Releasedate: 2025-05-06
-Eol: False
-Latest: 3.3.1
-Latestreleasedate: 2025-10-17
-Lts: False
 Support: True</description></item><item><title>EoL: OpenZFS - Cycle 2.3</title><link>https://endoflife.date/openzfs</link><pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 2.3
 Releasedate: 2024-10-17
 Eol: False
@@ -1293,18 +1305,6 @@ Latest: 2.3.4
 Latestreleasedate: 2025-08-25
 Supportedlinux: 4.18 - 6.15
 Supportedfreebsd: 13.3+, 14.0+
-Lts: False
-Support: True</description></item><item><title>EoL: OpenWrt - Cycle 24.10</title><link>https://endoflife.date/openwrt</link><pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 24.10
-Releasedate: 2025-02-04
-Eol: False
-Latest: 24.10.4
-Latestreleasedate: 2025-10-21
-Lts: False
-Support: True</description></item><item><title>EoL: OpenVPN - Cycle 2.6</title><link>https://endoflife.date/openvpn</link><pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate><description>Cycle: 2.6
-Releasedate: 2023-01-25
-Eol: False
-Latest: 2.6.15
-Latestreleasedate: 2025-09-22
 Lts: False
 Support: True</description></item><item><title>EoL: Oracle Solaris - Cycle 11.2</title><link>https://endoflife.date/oracle-solaris</link><description>Cycle: 11.2
 Releasedate: 2014-04-29
@@ -1522,7 +1522,149 @@ Eol: True
 Latest: 1.0.12
 Latestreleasedate: 2017-11-08
 Lts: False
-Support: False</description></item><item><title>EoL: Samsung Mobile - Cycle w25-flip</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate><description>Cycle: w25-flip
+Support: False</description></item><item><title>EoL: Scala - Cycle 3.7</title><link>https://endoflife.date/scala</link><pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate><description>Cycle: 3.7
+Releasedate: 2025-05-07
+Eol: False
+Latest: 3.7.3
+Latestreleasedate: 2025-09-09
+Lts: False
+Support: True</description></item><item><title>EoL: Scala - Cycle 3.3 (LTS)</title><link>https://endoflife.date/scala</link><pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate><description>Cycle: 3.3
+Lts: True
+Releasedate: 2023-05-23
+Eol: False
+Latest: 3.3.7
+Latestreleasedate: 2025-10-13
+Support: True</description></item><item><title>EoL: Scala - Cycle 2.13</title><link>https://endoflife.date/scala</link><pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate><description>Cycle: 2.13
+Releasedate: 2019-06-07
+Eol: False
+Latest: 2.13.17
+Latestreleasedate: 2025-09-30
+Link: https://github.com/scala/scala/releases/tag/v__LATEST__
+Lts: False
+Support: True</description></item><item><title>EoL: Microsoft SharePoint - Cycle subscription</title><link>https://endoflife.date/microsoft-sharepoint</link><pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate><description>Cycle: subscription
+Releaselabel: Subscription Edition
+Releasedate: 2021-11-02
+Eol: False
+Latest: 16.0.19127.20262
+Latestreleasedate: 2025-10-14
+Link: https://support.microsoft.com/help/5002786
+Lts: False
+Support: True</description></item><item><title>EoL: Shopware - Cycle 6.7</title><link>https://endoflife.date/shopware</link><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 6.7
+Supportedphpversions: 8.2 - 8.4
+Releasedate: 2025-06-17
+Eol: False
+Latest: 6.7.3.1
+Latestreleasedate: 2025-10-21
+Lts: False
+Support: True</description></item><item><title>EoL: Shopware - Cycle 6.4</title><link>https://endoflife.date/shopware</link><description>Cycle: 6.4
+Supportedphpversions: 7.4 - 8.3
+Releasedate: 2021-05-04
+Eol: True
+Latest: 6.4.20.2
+Latestreleasedate: 2023-05-05
+Lts: False
+Support: 2023-05-03</description></item><item><title>EoL: Shopware - Cycle 6.3</title><link>https://endoflife.date/shopware</link><description>Cycle: 6.3
+Supportedphpversions: 7.2 - 7.4
+Releasedate: 2020-08-03
+Eol: True
+Latest: 6.3.5.4
+Latestreleasedate: 2021-04-19
+Lts: False
+Support: 2021-05-04</description></item><item><title>EoL: Shopware - Cycle 6.2</title><link>https://endoflife.date/shopware</link><description>Cycle: 6.2
+Supportedphpversions: 7.2 - 7.4
+Releasedate: 2020-05-18
+Eol: True
+Latest: 6.2.3
+Latestreleasedate: 2020-07-13
+Lts: False
+Support: 2020-08-03</description></item><item><title>EoL: Shopware - Cycle 6.1</title><link>https://endoflife.date/shopware</link><description>Cycle: 6.1
+Supportedphpversions: 7.2 - 7.4
+Releasedate: 2020-01-13
+Eol: True
+Latest: 6.1.6
+Latestreleasedate: 2020-05-14
+Lts: False
+Support: 2020-05-19</description></item><item><title>EoL: Shopware - Cycle 5.6</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.6
+Supportedphpversions: N/A
+Releasedate: 2019-08-09
+Eol: True
+Latest: 5.6.10
+Latestreleasedate: 2021-05-04
+Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
+Lts: False
+Support: 2021-06-14</description></item><item><title>EoL: Shopware - Cycle 5.5</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.5
+Supportedphpversions: N/A
+Releasedate: 2018-09-17
+Eol: True
+Latest: 5.5.10
+Latestreleasedate: 2019-06-05
+Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
+Lts: False
+Support: 2019-08-12</description></item><item><title>EoL: Shopware - Cycle 5.4</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.4
+Supportedphpversions: N/A
+Releasedate: 2018-02-26
+Eol: True
+Latest: 5.4.6
+Latestreleasedate: 2018-07-18
+Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
+Lts: False
+Support: 2018-09-18</description></item><item><title>EoL: Shopware - Cycle 5.3</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.3
+Supportedphpversions: N/A
+Releasedate: 2017-07-31
+Eol: True
+Latest: 5.3.7
+Latestreleasedate: 2018-01-17
+Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
+Lts: False
+Support: 2018-02-28</description></item><item><title>EoL: Shopware - Cycle 5.2</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.2
+Supportedphpversions: N/A
+Releasedate: 2016-07-01
+Eol: True
+Latest: 5.2.27
+Latestreleasedate: 2017-07-10
+Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
+Lts: False
+Support: 2017-07-31</description></item><item><title>EoL: Shopware - Cycle 5.1</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.1
+Supportedphpversions: N/A
+Releasedate: 2015-10-19
+Eol: True
+Latest: 5.1.6
+Latestreleasedate: 2016-05-23
+Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
+Lts: False
+Support: 2016-07-04</description></item><item><title>EoL: Shopware - Cycle 5.0</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.0
+Supportedphpversions: N/A
+Releasedate: 2015-04-27
+Eol: True
+Latest: 5.0.4
+Latestreleasedate: 2015-09-16
+Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
+Lts: False
+Support: 2015-10-21</description></item><item><title>EoL: Silverstripe CMS - Cycle 2.3</title><link>https://endoflife.date/silverstripe-cms</link><description>Cycle: 2.3
+Releasedate: 2009-02-23
+Eol: True
+Latest: 2.3.13
+Latestreleasedate: 2011-10-18
+Link: None
+Lts: False
+Support: False</description></item><item><title>EoL: Apache Solr - Cycle 4</title><link>https://endoflife.date/apache-solr</link><description>Cycle: 4
+Releasedate: 2012-10-11
+Eol: True
+Latest: 4.10.4
+Latestreleasedate: 2015-03-03
+Lts: False</description></item><item><title>EoL: Apache Solr - Cycle 3</title><link>https://endoflife.date/apache-solr</link><description>Cycle: 3
+Releasedate: 2011-03-30
+Eol: True
+Latest: 3.6.2
+Latestreleasedate: 2012-12-24
+Link: https://cwiki.apache.org/confluence/display/solr/ReleaseNote362
+Lts: False</description></item><item><title>EoL: Apache Solr - Cycle 1</title><link>https://endoflife.date/apache-solr</link><description>Cycle: 1
+Releasedate: 2006-12-22
+Eol: True
+Latest: 1.4.1
+Latestreleasedate: 2010-06-25
+Link: https://svn.apache.org/repos/asf/lucene/solr/tags/release-1.4.1/CHANGES.txt
+Lts: False</description></item><item><title>EoL: Samsung Mobile - Cycle w25-flip</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate><description>Cycle: w25-flip
 Releaselabel: W25 Flip
 Releasedate: 2024-11-06
 Eol: False
@@ -2578,149 +2720,7 @@ Releasedate: 2013-09-01
 Eol: True
 Link: None
 Lts: False
-Support: False</description></item><item><title>EoL: Scala - Cycle 3.7</title><link>https://endoflife.date/scala</link><pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate><description>Cycle: 3.7
-Releasedate: 2025-05-07
-Eol: False
-Latest: 3.7.3
-Latestreleasedate: 2025-09-09
-Lts: False
-Support: True</description></item><item><title>EoL: Scala - Cycle 3.3 (LTS)</title><link>https://endoflife.date/scala</link><pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate><description>Cycle: 3.3
-Lts: True
-Releasedate: 2023-05-23
-Eol: False
-Latest: 3.3.7
-Latestreleasedate: 2025-10-13
-Support: True</description></item><item><title>EoL: Scala - Cycle 2.13</title><link>https://endoflife.date/scala</link><pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate><description>Cycle: 2.13
-Releasedate: 2019-06-07
-Eol: False
-Latest: 2.13.17
-Latestreleasedate: 2025-09-30
-Link: https://github.com/scala/scala/releases/tag/v__LATEST__
-Lts: False
-Support: True</description></item><item><title>EoL: Microsoft SharePoint - Cycle subscription</title><link>https://endoflife.date/microsoft-sharepoint</link><pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate><description>Cycle: subscription
-Releaselabel: Subscription Edition
-Releasedate: 2021-11-02
-Eol: False
-Latest: 16.0.19127.20262
-Latestreleasedate: 2025-10-14
-Link: https://support.microsoft.com/help/5002786
-Lts: False
-Support: True</description></item><item><title>EoL: Shopware - Cycle 6.7</title><link>https://endoflife.date/shopware</link><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 6.7
-Supportedphpversions: 8.2 - 8.4
-Releasedate: 2025-06-17
-Eol: False
-Latest: 6.7.3.1
-Latestreleasedate: 2025-10-21
-Lts: False
-Support: True</description></item><item><title>EoL: Shopware - Cycle 6.4</title><link>https://endoflife.date/shopware</link><description>Cycle: 6.4
-Supportedphpversions: 7.4 - 8.3
-Releasedate: 2021-05-04
-Eol: True
-Latest: 6.4.20.2
-Latestreleasedate: 2023-05-05
-Lts: False
-Support: 2023-05-03</description></item><item><title>EoL: Shopware - Cycle 6.3</title><link>https://endoflife.date/shopware</link><description>Cycle: 6.3
-Supportedphpversions: 7.2 - 7.4
-Releasedate: 2020-08-03
-Eol: True
-Latest: 6.3.5.4
-Latestreleasedate: 2021-04-19
-Lts: False
-Support: 2021-05-04</description></item><item><title>EoL: Shopware - Cycle 6.2</title><link>https://endoflife.date/shopware</link><description>Cycle: 6.2
-Supportedphpversions: 7.2 - 7.4
-Releasedate: 2020-05-18
-Eol: True
-Latest: 6.2.3
-Latestreleasedate: 2020-07-13
-Lts: False
-Support: 2020-08-03</description></item><item><title>EoL: Shopware - Cycle 6.1</title><link>https://endoflife.date/shopware</link><description>Cycle: 6.1
-Supportedphpversions: 7.2 - 7.4
-Releasedate: 2020-01-13
-Eol: True
-Latest: 6.1.6
-Latestreleasedate: 2020-05-14
-Lts: False
-Support: 2020-05-19</description></item><item><title>EoL: Shopware - Cycle 5.6</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.6
-Supportedphpversions: N/A
-Releasedate: 2019-08-09
-Eol: True
-Latest: 5.6.10
-Latestreleasedate: 2021-05-04
-Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
-Lts: False
-Support: 2021-06-14</description></item><item><title>EoL: Shopware - Cycle 5.5</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.5
-Supportedphpversions: N/A
-Releasedate: 2018-09-17
-Eol: True
-Latest: 5.5.10
-Latestreleasedate: 2019-06-05
-Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
-Lts: False
-Support: 2019-08-12</description></item><item><title>EoL: Shopware - Cycle 5.4</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.4
-Supportedphpversions: N/A
-Releasedate: 2018-02-26
-Eol: True
-Latest: 5.4.6
-Latestreleasedate: 2018-07-18
-Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
-Lts: False
-Support: 2018-09-18</description></item><item><title>EoL: Shopware - Cycle 5.3</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.3
-Supportedphpversions: N/A
-Releasedate: 2017-07-31
-Eol: True
-Latest: 5.3.7
-Latestreleasedate: 2018-01-17
-Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
-Lts: False
-Support: 2018-02-28</description></item><item><title>EoL: Shopware - Cycle 5.2</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.2
-Supportedphpversions: N/A
-Releasedate: 2016-07-01
-Eol: True
-Latest: 5.2.27
-Latestreleasedate: 2017-07-10
-Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
-Lts: False
-Support: 2017-07-31</description></item><item><title>EoL: Shopware - Cycle 5.1</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.1
-Supportedphpversions: N/A
-Releasedate: 2015-10-19
-Eol: True
-Latest: 5.1.6
-Latestreleasedate: 2016-05-23
-Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
-Lts: False
-Support: 2016-07-04</description></item><item><title>EoL: Shopware - Cycle 5.0</title><link>https://endoflife.date/shopware</link><description>Cycle: 5.0
-Supportedphpversions: N/A
-Releasedate: 2015-04-27
-Eol: True
-Latest: 5.0.4
-Latestreleasedate: 2015-09-16
-Link: https://github.com/shopware5/shopware/releases/tag/v__LATEST__
-Lts: False
-Support: 2015-10-21</description></item><item><title>EoL: Silverstripe CMS - Cycle 2.3</title><link>https://endoflife.date/silverstripe-cms</link><description>Cycle: 2.3
-Releasedate: 2009-02-23
-Eol: True
-Latest: 2.3.13
-Latestreleasedate: 2011-10-18
-Link: None
-Lts: False
-Support: False</description></item><item><title>EoL: Apache Solr - Cycle 4</title><link>https://endoflife.date/apache-solr</link><description>Cycle: 4
-Releasedate: 2012-10-11
-Eol: True
-Latest: 4.10.4
-Latestreleasedate: 2015-03-03
-Lts: False</description></item><item><title>EoL: Apache Solr - Cycle 3</title><link>https://endoflife.date/apache-solr</link><description>Cycle: 3
-Releasedate: 2011-03-30
-Eol: True
-Latest: 3.6.2
-Latestreleasedate: 2012-12-24
-Link: https://cwiki.apache.org/confluence/display/solr/ReleaseNote362
-Lts: False</description></item><item><title>EoL: Apache Solr - Cycle 1</title><link>https://endoflife.date/apache-solr</link><description>Cycle: 1
-Releasedate: 2006-12-22
-Eol: True
-Latest: 1.4.1
-Latestreleasedate: 2010-06-25
-Link: https://svn.apache.org/repos/asf/lucene/solr/tags/release-1.4.1/CHANGES.txt
-Lts: False</description></item><item><title>EoL: Apache Subversion - Cycle 1.13</title><link>https://endoflife.date/apache-subversion</link><description>Cycle: 1.13
+Support: False</description></item><item><title>EoL: Apache Subversion - Cycle 1.13</title><link>https://endoflife.date/apache-subversion</link><description>Cycle: 1.13
 Releasedate: 2019-10-30
 Eol: True
 Latest: 1.13.0
@@ -2804,6 +2804,13 @@ Eol: False
 Latest: 3.5.4
 Latestreleasedate: 2025-10-28
 Lts: False
+Support: True</description></item><item><title>EoL: UnrealIRCd - Cycle 6</title><link>https://endoflife.date/unrealircd</link><pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate><description>Cycle: 6
+Releasedate: 2021-12-17
+Eol: False
+Link: https://github.com/unrealircd/unrealircd/blob/unreal60_dev/doc/RELEASE-NOTES.md#unrealircd-{{'__LATEST__'|replace:'.',''}}
+Latest: 6.1.10
+Latestreleasedate: 2025-03-07
+Lts: False
 Support: True</description></item><item><title>EoL: Veeam Backup &amp; Replication - Cycle 13</title><link>https://endoflife.date/veeam-backup-&amp;-replication</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 13
 Releasedate: 2025-09-03
 Eol: False
@@ -2883,14 +2890,14 @@ Eol: True
 Latest: 1.0.1.76
 Latestreleasedate: 2008-03-21
 Lts: False
-Support: False</description></item><item><title>EoL: UnrealIRCd - Cycle 6</title><link>https://endoflife.date/unrealircd</link><pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate><description>Cycle: 6
-Releasedate: 2021-12-17
+Support: False</description></item><item><title>EoL: Vuetify - Cycle 3</title><link>https://endoflife.date/vuetify</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Cycle: 3
+Releasedate: 2022-11-01
 Eol: False
-Link: https://github.com/unrealircd/unrealircd/blob/unreal60_dev/doc/RELEASE-NOTES.md#unrealircd-{{'__LATEST__'|replace:'.',''}}
-Latest: 6.1.10
-Latestreleasedate: 2025-03-07
+Latest: 3.10.8
+Latestreleasedate: 2025-10-29
 Lts: False
-Support: True</description></item><item><title>EoL: Vue - Cycle 3.5</title><link>https://endoflife.date/vue</link><pubDate>Tue, 03 Sep 2024 00:00:00 +0000</pubDate><description>Cycle: 3.5
+Support: True
+Extendedsupport: False</description></item><item><title>EoL: Vue - Cycle 3.5</title><link>https://endoflife.date/vue</link><pubDate>Tue, 03 Sep 2024 00:00:00 +0000</pubDate><description>Cycle: 3.5
 Releasedate: 2024-09-03
 Eol: False
 Latest: 3.5.22
@@ -2905,13 +2912,6 @@ Latestreleasedate: 2016-09-27
 Link: https://github.com/vuejs/vue/releases/tag/v__LATEST__
 Lts: False
 Support: False
-Extendedsupport: False</description></item><item><title>EoL: Vuetify - Cycle 3</title><link>https://endoflife.date/vuetify</link><pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate><description>Cycle: 3
-Releasedate: 2022-11-01
-Eol: False
-Latest: 3.10.8
-Latestreleasedate: 2025-10-29
-Lts: False
-Support: True
 Extendedsupport: False</description></item><item><title>EoL: Apache ZooKeeper - Cycle 3.9</title><link>https://endoflife.date/apache-zookeeper</link><pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate><description>Cycle: 3.9
 Releasedate: 2023-07-19
 Eol: False
@@ -3910,8 +3910,8 @@ Lts: False
 Support: 2028-07-17</description></item><item><title>EoL: Amazon Linux - Cycle 2023</title><link>https://endoflife.date/amazon-linux</link><pubDate>Sat, 30 Jun 2029 00:00:00 +0000</pubDate><description>Cycle: 2023
 Releasedate: 2023-03-01
 Eol: 2029-06-30
-Latest: 2023.9.20250929.0
-Latestreleasedate: 2025-10-08
+Latest: 2023.9.20251027.0
+Latestreleasedate: 2025-10-31
 Link: https://aws.amazon.com/about-aws/whats-new/2023/03/amazon-linux-2023/
 Lts: False
 Support: 2027-06-30</description></item><item><title>EoL: Motorola Mobility - Cycle moto-g86-power-5g</title><link>https://endoflife.date/motorola-mobility</link><pubDate>Sat, 30 Jun 2029 00:00:00 +0000</pubDate><description>Cycle: moto-g86-power-5g
@@ -5099,7 +5099,12 @@ Lts: True
 Eol: 2027-09-01
 Latest: 8.3.28
 Latestreleasedate: 2025-09-26
-Support: 2026-09-01</description></item><item><title>EoL: Motorola Mobility - Cycle moto-g06-power</title><link>https://endoflife.date/motorola-mobility</link><pubDate>Tue, 31 Aug 2027 00:00:00 +0000</pubDate><description>Cycle: moto-g06-power
+Support: 2026-09-01</description></item><item><title>EoL: MongoDB Server - Cycle 7.0</title><link>https://endoflife.date/mongodb-server</link><pubDate>Tue, 31 Aug 2027 00:00:00 +0000</pubDate><description>Cycle: 7.0
+Releasedate: 2023-08-31
+Eol: 2027-08-31
+Latest: 7.0.26
+Latestreleasedate: 2025-10-30
+Lts: False</description></item><item><title>EoL: Motorola Mobility - Cycle moto-g06-power</title><link>https://endoflife.date/motorola-mobility</link><pubDate>Tue, 31 Aug 2027 00:00:00 +0000</pubDate><description>Cycle: moto-g06-power
 Releaselabel: Moto g06 power
 Releasedate: 2025-08-01
 Eol: 2027-08-31
@@ -5114,11 +5119,6 @@ Releaselabel: Moto G35 5G
 Link: https://en-us.support.motorola.com/app/software-security-update/g_id/7112/productid/12118
 Releasedate: 2024-08-01
 Eol: 2027-08-31
-Lts: False</description></item><item><title>EoL: MongoDB Server - Cycle 7.0</title><link>https://endoflife.date/mongodb-server</link><pubDate>Tue, 31 Aug 2027 00:00:00 +0000</pubDate><description>Cycle: 7.0
-Releasedate: 2023-08-31
-Eol: 2027-08-31
-Latest: 7.0.26
-Latestreleasedate: 2025-10-30
 Lts: False</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-z-fold4</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Wed, 25 Aug 2027 00:00:00 +0000</pubDate><description>Cycle: galaxy-z-fold4
 Releaselabel: Galaxy Z Fold4
 Releasedate: 2022-08-25
@@ -5254,8 +5254,8 @@ Lts: False
 Support: 2026-09-30</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.7.3</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Wed, 30 Jun 2027 00:00:00 +0000</pubDate><description>Cycle: pc.7.3
 Releasedate: 2025-06-24
 Eol: 2027-06-30
-Latest: pc.7.3.1
-Latestreleasedate: 2025-10-06
+Latest: pc.7.3.1.1
+Latestreleasedate: 2025-10-30
 Lts: False
 Support: 2026-09-30</description></item><item><title>EoL: Palo Alto Networks GlobalProtect App - Cycle 6.3</title><link>https://endoflife.date/palo-alto-networks-globalprotect-app</link><pubDate>Wed, 30 Jun 2027 00:00:00 +0000</pubDate><description>Cycle: 6.3
 Releasedate: 2024-06-13
@@ -5895,20 +5895,20 @@ Eol: 2026-12-31
 Latest: pc.2024.3.1.9
 Latestreleasedate: 2025-10-28
 Lts: False
-Support: 2026-03-31</description></item><item><title>EoL: PHP - Cycle 8.2</title><link>https://endoflife.date/php</link><pubDate>Thu, 31 Dec 2026 00:00:00 +0000</pubDate><description>Cycle: 8.2
-Releasedate: 2022-12-08
-Eol: 2026-12-31
-Latest: 8.2.29
-Latestreleasedate: 2025-07-03
-Lts: False
-Support: 2024-12-31</description></item><item><title>EoL: Palo Alto Networks GlobalProtect App - Cycle 6.2</title><link>https://endoflife.date/palo-alto-networks-globalprotect-app</link><pubDate>Thu, 31 Dec 2026 00:00:00 +0000</pubDate><description>Cycle: 6.2
+Support: 2026-03-31</description></item><item><title>EoL: Palo Alto Networks GlobalProtect App - Cycle 6.2</title><link>https://endoflife.date/palo-alto-networks-globalprotect-app</link><pubDate>Thu, 31 Dec 2026 00:00:00 +0000</pubDate><description>Cycle: 6.2
 Releasedate: 2023-05-23
 Eol: 2026-12-31
 Latest: 6.2.8-c317
 Latestreleasedate: 2025-09-09
 Link: https://docs.paloaltonetworks.com/globalprotect/6-2/globalprotect-app-release-notes/globalprotect-addressed-issues
 Lts: False
-Support: 2026-12-31</description></item><item><title>EoL: ROS 2 - Cycle kilted</title><link>https://endoflife.date/ros-2</link><pubDate>Thu, 31 Dec 2026 00:00:00 +0000</pubDate><description>Cycle: kilted
+Support: 2026-12-31</description></item><item><title>EoL: PHP - Cycle 8.2</title><link>https://endoflife.date/php</link><pubDate>Thu, 31 Dec 2026 00:00:00 +0000</pubDate><description>Cycle: 8.2
+Releasedate: 2022-12-08
+Eol: 2026-12-31
+Latest: 8.2.29
+Latestreleasedate: 2025-07-03
+Lts: False
+Support: 2024-12-31</description></item><item><title>EoL: ROS 2 - Cycle kilted</title><link>https://endoflife.date/ros-2</link><pubDate>Thu, 31 Dec 2026 00:00:00 +0000</pubDate><description>Cycle: kilted
 Codename: Kilted Kaiju
 Releasedate: 2025-05-23
 Eol: 2026-12-31
@@ -6092,6 +6092,9 @@ Eol: 2026-11-01
 Latest: 3.21.5
 Latestreleasedate: 2025-10-08
 Link: https://alpinelinux.org/posts/Alpine-3.21.0-released.html
+Lts: False</description></item><item><title>EoL: OpenBSD - Cycle 7.8</title><link>https://endoflife.date/openbsd</link><pubDate>Sun, 01 Nov 2026 00:00:00 +0000</pubDate><description>Cycle: 7.8
+Releasedate: 2025-10-22
+Eol: 2026-11-01
 Lts: False</description></item><item><title>EoL: OpenSSL - Cycle 3.6</title><link>https://endoflife.date/openssl</link><pubDate>Sun, 01 Nov 2026 00:00:00 +0000</pubDate><description>Cycle: 3.6
 Releasedate: 2025-10-01
 Eol: 2026-11-01
@@ -6099,10 +6102,7 @@ Latest: 3.6.0
 Latestreleasedate: 2025-10-01
 Link: https://github.com/openssl/openssl/blob/master/CHANGES.md#openssl-36
 Lts: False
-Extendedsupport: False</description></item><item><title>EoL: OpenBSD - Cycle 7.8</title><link>https://endoflife.date/openbsd</link><pubDate>Sun, 01 Nov 2026 00:00:00 +0000</pubDate><description>Cycle: 7.8
-Releasedate: 2025-10-22
-Eol: 2026-11-01
-Lts: False</description></item><item><title>EoL: Linux Kernel - Cycle 5.15 (LTS)</title><link>https://endoflife.date/linux-kernel</link><pubDate>Sat, 31 Oct 2026 00:00:00 +0000</pubDate><description>Cycle: 5.15
+Extendedsupport: False</description></item><item><title>EoL: Linux Kernel - Cycle 5.15 (LTS)</title><link>https://endoflife.date/linux-kernel</link><pubDate>Sat, 31 Oct 2026 00:00:00 +0000</pubDate><description>Cycle: 5.15
 Lts: True
 Releasedate: 2021-10-31
 Eol: 2026-10-31
@@ -6133,7 +6133,7 @@ Latest: 3.10.19
 Latestreleasedate: 2025-10-09
 Lts: False
 Support: 2023-04-05</description></item><item><title>EoL: Silverstripe CMS - Cycle 6.1</title><link>https://endoflife.date/silverstripe-cms</link><pubDate>Sat, 31 Oct 2026 00:00:00 +0000</pubDate><description>Cycle: 6.1
-Releasedate: 2025-10-13
+Releasedate: 2025-10-31
 Eol: 2026-10-31
 Latest: 6.1.0
 Latestreleasedate: 2025-10-13
@@ -6746,8 +6746,8 @@ Latestreleasedate: 2025-09-05
 Link: https://github.com/dragonwell-project/dragonwell8/wiki/Alibaba-Dragonwell8-Standard-Edition-Release-Notes</description></item><item><title>EoL: Amazon Linux - Cycle 2</title><link>https://endoflife.date/amazon-linux</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 2
 Releasedate: 2018-06-26
 Eol: 2026-06-30
-Latest: 2.0.20250929.2
-Latestreleasedate: 2025-10-08
+Latest: 2.0.20251027.1
+Latestreleasedate: 2025-10-31
 Link: https://aws.amazon.com/about-aws/whats-new/2018/06/announcing-amazon-linux-2-with-long-term-support/
 Lts: False
 Support: 2026-06-30</description></item><item><title>EoL: antiX Linux - Cycle 21</title><link>https://endoflife.date/antix-linux</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 21
@@ -6763,14 +6763,14 @@ Releasedate: 2025-06-17
 Eol: 2026-06-30
 Link: https://github.com/Azure/AKS/releases/tag/2025-06-17
 Lts: False
-Extendedsupport: 2027-06-30</description></item><item><title>EoL: FileMaker Platform - Cycle 2024</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 2024
-Releasedate: 2024-06-30
-Eol: 2026-06-30
-Link: https://help.claris.com/en/server-release-notes/content/index.html
-Lts: False</description></item><item><title>EoL: FreeBSD - Cycle 14.3</title><link>https://endoflife.date/freebsd</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 14.3
+Extendedsupport: 2027-06-30</description></item><item><title>EoL: FreeBSD - Cycle 14.3</title><link>https://endoflife.date/freebsd</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 14.3
 Releaselabel: releng/14.3
 Releasedate: 2025-06-10
 Eol: 2026-06-30
+Lts: False</description></item><item><title>EoL: FileMaker Platform - Cycle 2024</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 2024
+Releasedate: 2024-06-30
+Eol: 2026-06-30
+Link: https://help.claris.com/en/server-release-notes/content/index.html
 Lts: False</description></item><item><title>EoL: Graylog - Cycle 6.3</title><link>https://endoflife.date/graylog</link><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 6.3
 Releasedate: 2025-06-30
 Eol: 2026-06-30
@@ -6939,7 +6939,14 @@ Latest: 5.0-20250731
 Latestreleasedate: 2025-07-31
 Link: https://docs.daocloud.io/en/dce/dce-rn/20240730.html
 Lts: False
-Extendedsupport: 2028-10-30</description></item><item><title>EoL: NVIDIA Driver - Cycle r535-linux (LTS)</title><link>https://endoflife.date/nvidia-driver</link><pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: r535-linux
+Extendedsupport: 2028-10-30</description></item><item><title>EoL: Node.js - Cycle 25</title><link>https://endoflife.date/node.js</link><pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 25
+Releasedate: 2025-10-15
+Eol: 2026-06-01
+Latest: 25.1.0
+Latestreleasedate: 2025-10-28
+Lts: False
+Support: 2026-04-01
+Extendedsupport: False</description></item><item><title>EoL: NVIDIA Driver - Cycle r535-linux (LTS)</title><link>https://endoflife.date/nvidia-driver</link><pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: r535-linux
 Releaselabel: R535-Linux
 Lts: True
 Releasedate: 2023-06-14
@@ -6955,14 +6962,7 @@ Eol: 2026-06-01
 Latest: 539.56
 Latestreleasedate: 2025-09-30
 Link: https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-535-274-02/index.html
-Support: 2024-06-01</description></item><item><title>EoL: Node.js - Cycle 25</title><link>https://endoflife.date/node.js</link><pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate><description>Cycle: 25
-Releasedate: 2025-10-15
-Eol: 2026-06-01
-Latest: 25.1.0
-Latestreleasedate: 2025-10-28
-Lts: False
-Support: 2026-04-01
-Extendedsupport: False</description></item><item><title>EoL: Ansible-core - Cycle 2.18</title><link>https://endoflife.date/ansible-core</link><pubDate>Sun, 31 May 2026 00:00:00 +0000</pubDate><description>Cycle: 2.18
+Support: 2024-06-01</description></item><item><title>EoL: Ansible-core - Cycle 2.18</title><link>https://endoflife.date/ansible-core</link><pubDate>Sun, 31 May 2026 00:00:00 +0000</pubDate><description>Cycle: 2.18
 Pythonversionscontrolnode: 3.11 - 3.13
 Pythonversionsmanagednode: 3.8 - 3.13
 Powershellversionsmanagednode: 5.1
@@ -7563,8 +7563,8 @@ Latestreleasedate: 2024-03-12
 Lts: False</description></item><item><title>EoL: Contao - Cycle 5.6</title><link>https://endoflife.date/contao</link><pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate><description>Cycle: 5.6
 Releasedate: 2025-08-18
 Eol: 2026-02-14
-Latest: 5.6.3
-Latestreleasedate: 2025-09-30
+Latest: 5.6.4
+Latestreleasedate: 2025-10-31
 Lts: False
 Support: 2026-02-14</description></item><item><title>EoL: Contao - Cycle 4.13 (LTS)</title><link>https://endoflife.date/contao</link><pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate><description>Cycle: 4.13
 Lts: True
@@ -7849,19 +7849,19 @@ Eol: 2025-12-31
 Latest: 15.1.10
 Latestreleasedate: 2023-08-30
 Link: None
-Support: 2025-12-31</description></item><item><title>EoL: Citrix Virtual Apps and Desktops - Cycle 2407</title><link>https://endoflife.date/citrix-virtual-apps-and-desktops</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 2407
+Support: 2025-12-31</description></item><item><title>EoL: CFEngine - Cycle 3.21 (LTS)</title><link>https://endoflife.date/cfengine</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 3.21
+Releasedate: 2022-12-21
+Lts: True
+Eol: 2025-12-31
+Latest: 3.21.7
+Latestreleasedate: 2025-05-14</description></item><item><title>EoL: Citrix Virtual Apps and Desktops - Cycle 2407</title><link>https://endoflife.date/citrix-virtual-apps-and-desktops</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 2407
 Releasedate: 2024-07-30
 Eol: 2025-12-31
 Latest: 2407
 Latestreleasedate: 2024-07-30
 Lts: False
 Support: 2024-12-31
-Extendedsupport: False</description></item><item><title>EoL: CFEngine - Cycle 3.21 (LTS)</title><link>https://endoflife.date/cfengine</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 3.21
-Releasedate: 2022-12-21
-Lts: True
-Eol: 2025-12-31
-Latest: 3.21.7
-Latestreleasedate: 2025-05-14</description></item><item><title>EoL: Django - Cycle 5.1</title><link>https://endoflife.date/django</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 5.1
+Extendedsupport: False</description></item><item><title>EoL: Django - Cycle 5.1</title><link>https://endoflife.date/django</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 5.1
 Releasedate: 2024-08-07
 Eol: 2025-12-31
 Supportedpythonversions: 3.10 - 3.13 (added in 5.1.3)
@@ -7906,13 +7906,7 @@ Eol: 2025-12-31
 Latest: 5.0.0.3
 Latestreleasedate: 2024-10-14
 Lts: False
-Support: 2025-03-31</description></item><item><title>EoL: PHP - Cycle 8.1</title><link>https://endoflife.date/php</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 8.1
-Releasedate: 2021-11-25
-Eol: 2025-12-31
-Latest: 8.1.33
-Latestreleasedate: 2025-07-03
-Lts: False
-Support: 2023-11-25</description></item><item><title>EoL: Palo Alto Networks GlobalProtect App - Cycle 6.1</title><link>https://endoflife.date/palo-alto-networks-globalprotect-app</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 6.1
+Support: 2025-03-31</description></item><item><title>EoL: Palo Alto Networks GlobalProtect App - Cycle 6.1</title><link>https://endoflife.date/palo-alto-networks-globalprotect-app</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 6.1
 Releasedate: 2022-09-01
 Eol: 2025-12-31
 Latest: 6.1.5
@@ -7926,7 +7920,13 @@ Latest: 6.0.12
 Latestreleasedate: 2025-09-02
 Link: https://docs.paloaltonetworks.com/globalprotect/6-0/globalprotect-app-release-notes/globalprotect-addressed-issues
 Lts: False
-Support: 2025-12-31</description></item><item><title>EoL: SUSE Linux Enterprise Server - Cycle 15.6</title><link>https://endoflife.date/suse-linux-enterprise-server</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 15.6
+Support: 2025-12-31</description></item><item><title>EoL: PHP - Cycle 8.1</title><link>https://endoflife.date/php</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 8.1
+Releasedate: 2021-11-25
+Eol: 2025-12-31
+Latest: 8.1.33
+Latestreleasedate: 2025-07-03
+Lts: False
+Support: 2023-11-25</description></item><item><title>EoL: SUSE Linux Enterprise Server - Cycle 15.6</title><link>https://endoflife.date/suse-linux-enterprise-server</link><pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate><description>Cycle: 15.6
 Releasedate: 2024-06-26
 Eol: 2025-12-31
 Lts: False
@@ -8884,15 +8884,15 @@ Releasedate: 2024-09-30
 Eol: 2025-09-30
 Latest: 2.4.0
 Latestreleasedate: 2024-09-30
+Lts: False</description></item><item><title>EoL: FreeBSD - Cycle 14.2</title><link>https://endoflife.date/freebsd</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 14.2
+Releaselabel: releng/14.2
+Releasedate: 2024-12-03
+Eol: 2025-09-30
 Lts: False</description></item><item><title>EoL: FortiOS - Cycle 7.0</title><link>https://endoflife.date/fortios</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 7.0
 Releasedate: 2021-03-30
 Eol: 2025-09-30
 Lts: False
-Support: 2024-03-30</description></item><item><title>EoL: FreeBSD - Cycle 14.2</title><link>https://endoflife.date/freebsd</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 14.2
-Releaselabel: releng/14.2
-Releasedate: 2024-12-03
-Eol: 2025-09-30
-Lts: False</description></item><item><title>EoL: Google Kubernetes Engine - Cycle 1.30</title><link>https://endoflife.date/google-kubernetes-engine</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 1.30
+Support: 2024-03-30</description></item><item><title>EoL: Google Kubernetes Engine - Cycle 1.30</title><link>https://endoflife.date/google-kubernetes-engine</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 1.30
 Releasedate: 2024-07-31
 Eol: 2025-09-30
 Latest: 1.30.14-gke.1426000
@@ -8918,6 +8918,12 @@ Lts: False</description></item><item><title>EoL: Looker - Cycle 25.10</title><li
 Releasedate: 2025-06-11
 Eol: 2025-09-30
 Link: https://cloud.google.com/looker/docs/release-notes#June_11_2025
+Lts: False</description></item><item><title>EoL: MongoDB Server - Cycle 8.1</title><link>https://endoflife.date/mongodb-server</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 8.1
+Releaselabel: 8.1 (Rapid Release)
+Releasedate: 2025-06-20
+Eol: 2025-09-30
+Latest: 8.1.3
+Latestreleasedate: 2025-08-08
 Lts: False</description></item><item><title>EoL: Motorola Mobility - Cycle motorola-edge-30-neo</title><link>https://endoflife.date/motorola-mobility</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: motorola-edge-30-neo
 Releaselabel: Motorola Edge 30 Neo
 Releasedate: 2022-09-01
@@ -8928,12 +8934,6 @@ Releaselabel: Motorola Edge 30 Fusion
 Releasedate: 2022-09-01
 Eol: 2025-09-30
 Link: https://en-us.support.motorola.com/app/software-security-update/g_id/7112/productid/11358
-Lts: False</description></item><item><title>EoL: MongoDB Server - Cycle 8.1</title><link>https://endoflife.date/mongodb-server</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 8.1
-Releaselabel: 8.1 (Rapid Release)
-Releasedate: 2025-06-20
-Eol: 2025-09-30
-Latest: 8.1.3
-Latestreleasedate: 2025-08-08
 Lts: False</description></item><item><title>EoL: Plesk - Cycle 18.0.71</title><link>https://endoflife.date/plesk</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 18.0.71
 Releasedate: 2025-07-08
 Eol: 2025-09-30
@@ -9062,8 +9062,8 @@ Supportediosversions: 26
 Lts: False</description></item><item><title>EoL: API Platform - Cycle 4.1</title><link>https://endoflife.date/api-platform</link><pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 4.1
 Releasedate: 2025-02-28
 Eol: False
-Latest: 4.1.25
-Latestreleasedate: 2025-09-26
+Latest: 4.1.26
+Latestreleasedate: 2025-10-31
 Lts: False
 Support: 2025-09-18</description></item><item><title>EoL: API Platform - Cycle 4.0</title><link>https://endoflife.date/api-platform</link><pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><description>Cycle: 4.0
 Releasedate: 2024-09-18
@@ -10128,7 +10128,14 @@ Eol: 2025-06-30
 Latest: 4.8.6
 Latestreleasedate: 2025-06-03
 Lts: False
-Support: 2025-03-31</description></item><item><title>EoL: NixOS - Cycle 24.11</title><link>https://endoflife.date/nixos</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 24.11
+Support: 2025-03-31</description></item><item><title>EoL: Nexus Repository - Cycle 2</title><link>https://endoflife.date/nexus-repository</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 2
+Releasedate: 2017-03-31
+Eol: 2025-06-30
+Latest: 2.15.2-03
+Latestreleasedate: 2024-11-14
+Link: https://help.sonatype.com/repomanager2/release-notes
+Lts: False
+Support: False</description></item><item><title>EoL: NixOS - Cycle 24.11</title><link>https://endoflife.date/nixos</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 24.11
 Codename: Vicuña
 Releasedate: 2024-11-30
 Eol: 2025-06-30
@@ -10150,14 +10157,7 @@ Eol: 2025-06-30
 Latest: pc.2022.6.0.11
 Latestreleasedate: 2024-06-05
 Lts: False
-Support: 2024-08-31</description></item><item><title>EoL: Nexus Repository - Cycle 2</title><link>https://endoflife.date/nexus-repository</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 2
-Releasedate: 2017-03-31
-Eol: 2025-06-30
-Latest: 2.15.2-03
-Latestreleasedate: 2024-11-14
-Link: https://help.sonatype.com/repomanager2/release-notes
-Lts: False
-Support: False</description></item><item><title>EoL: Red Hat JBoss Enterprise Application Platform - Cycle 7</title><link>https://endoflife.date/red-hat-jboss-enterprise-application-platform</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 7
+Support: 2024-08-31</description></item><item><title>EoL: Red Hat JBoss Enterprise Application Platform - Cycle 7</title><link>https://endoflife.date/red-hat-jboss-enterprise-application-platform</link><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 7
 Releasedate: 2016-05-01
 Eol: 2025-06-30
 Latest: 7.4.23
@@ -10528,7 +10528,14 @@ Releaselabel: Moto G42
 Releasedate: 2022-06-01
 Eol: 2025-06-01
 Link: https://en-us.support.motorola.com/app/software-security-update/g_id/7112/productid/11309
-Lts: False</description></item><item><title>EoL: NVIDIA Driver - Cycle r555-linux</title><link>https://endoflife.date/nvidia-driver</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: r555-linux
+Lts: False</description></item><item><title>EoL: Node.js - Cycle 23</title><link>https://endoflife.date/node.js</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 23
+Releasedate: 2024-10-16
+Eol: 2025-06-01
+Latest: 23.11.1
+Latestreleasedate: 2025-05-14
+Lts: False
+Support: 2025-04-01
+Extendedsupport: False</description></item><item><title>EoL: NVIDIA Driver - Cycle r555-linux</title><link>https://endoflife.date/nvidia-driver</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: r555-linux
 Releaselabel: R555-Linux (NFB)
 Releasedate: 2024-06-04
 Eol: 2025-06-01
@@ -10544,14 +10551,7 @@ Latest: 555.99
 Latestreleasedate: 2024-06-04
 Link: https://www.nvidia.com/download/driverResults.aspx/228179/
 Lts: False
-Support: False</description></item><item><title>EoL: Node.js - Cycle 23</title><link>https://endoflife.date/node.js</link><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate><description>Cycle: 23
-Releasedate: 2024-10-16
-Eol: 2025-06-01
-Latest: 23.11.1
-Latestreleasedate: 2025-05-14
-Lts: False
-Support: 2025-04-01
-Extendedsupport: False</description></item><item><title>EoL: BigBlueButton - Cycle 2.7</title><link>https://endoflife.date/bigbluebutton</link><pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate><description>Cycle: 2.7
+Support: False</description></item><item><title>EoL: BigBlueButton - Cycle 2.7</title><link>https://endoflife.date/bigbluebutton</link><pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate><description>Cycle: 2.7
 Releasedate: 2023-09-06
 Eol: 2025-05-31
 Latest: 2.7.16
@@ -11474,7 +11474,20 @@ Releasedate: 2024-09-18
 Eol: 2025-03-31
 Latest: 23.0.2+7
 Latestreleasedate: 2025-02-10
-Lts: False</description></item><item><title>EoL: Apple iPad - Cycle 5</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: 5
+Lts: False</description></item><item><title>EoL: Apple iOS - Cycle 16</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: 16
+Releasedate: 2022-09-12
+Eol: 2025-03-31
+Latest: 16.7.12
+Latestreleasedate: 2025-09-15
+Link: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-16-release-notes
+Lts: False
+Support: 2023-09-18</description></item><item><title>EoL: Apple iOS - Cycle 15</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: 15
+Releasedate: 2021-09-20
+Eol: 2025-03-31
+Latest: 15.8.5
+Latestreleasedate: 2025-09-15
+Lts: False
+Support: 2022-09-12</description></item><item><title>EoL: Apple iPad - Cycle 5</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: 5
 Releaselabel: iPad (5th generation)
 Releasedate: 2017-03-24
 Discontinued: 2018-03-27
@@ -11502,20 +11515,7 @@ Discontinued: 2019-03-18
 Eol: 2025-03-31
 Link: https://support.apple.com/kb/SP725
 Supportedipadosversions: 9 - 15
-Lts: False</description></item><item><title>EoL: Apple iOS - Cycle 16</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: 16
-Releasedate: 2022-09-12
-Eol: 2025-03-31
-Latest: 16.7.12
-Latestreleasedate: 2025-09-15
-Link: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-16-release-notes
-Lts: False
-Support: 2023-09-18</description></item><item><title>EoL: Apple iOS - Cycle 15</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: 15
-Releasedate: 2021-09-20
-Eol: 2025-03-31
-Latest: 15.8.5
-Latestreleasedate: 2025-09-15
-Lts: False
-Support: 2022-09-12</description></item><item><title>EoL: Apple iPadOS - Cycle 16</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: 16
+Lts: False</description></item><item><title>EoL: Apple iPadOS - Cycle 16</title><link>https://endoflife.date/apple-ipados</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><description>Cycle: 16
 Releasedate: 2022-10-24
 Eol: 2025-03-31
 Latest: 16.7.12
@@ -12047,19 +12047,19 @@ Eol: 2025-02-28
 Latest: pc.2024.1.0.2
 Latestreleasedate: 2024-08-05
 Lts: False
-Support: 2024-11-30</description></item><item><title>EoL: Quarkus - Cycle 3.8 (LTS)</title><link>https://endoflife.date/quarkus</link><pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 3.8
-Lts: True
-Releasedate: 2024-02-28
-Eol: 2025-02-28
-Latest: 3.8.6.1
-Latestreleasedate: 2025-02-27
-Extendedsupport: True</description></item><item><title>EoL: Puppet - Cycle 7</title><link>https://endoflife.date/puppet</link><pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 7
+Support: 2024-11-30</description></item><item><title>EoL: Puppet - Cycle 7</title><link>https://endoflife.date/puppet</link><pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 7
 Releasedate: 2020-11-13
 Eol: 2025-02-28
 Latest: 7.34.0
 Latestreleasedate: 2024-10-17
 Link: https://www.puppet.com/docs/puppet/7/release_notes_puppet.html#release_notes_puppet_x-7-25-0
-Lts: False</description></item><item><title>EoL: Redis - Cycle 6.2</title><link>https://endoflife.date/redis</link><pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 6.2
+Lts: False</description></item><item><title>EoL: Quarkus - Cycle 3.8 (LTS)</title><link>https://endoflife.date/quarkus</link><pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 3.8
+Lts: True
+Releasedate: 2024-02-28
+Eol: 2025-02-28
+Latest: 3.8.6.1
+Latestreleasedate: 2025-02-27
+Extendedsupport: True</description></item><item><title>EoL: Redis - Cycle 6.2</title><link>https://endoflife.date/redis</link><pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><description>Cycle: 6.2
 Releasedate: 2021-02-22
 Eol: 2025-02-28
 Latest: 6.2.20
@@ -12686,14 +12686,14 @@ Releaselabel: Moto E13
 Releasedate: 2023-01-01
 Eol: 2025-01-01
 Link: https://en-us.support.motorola.com/app/software-security-update/g_id/7112/productid/11427
-Lts: False</description></item><item><title>EoL: FileMaker Platform - Cycle 19.6</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 19.6
-Releasedate: 2022-12-31
-Eol: 2024-12-31
-Link: https://support.claris.com/s/answerview?anum=000036025
 Lts: False</description></item><item><title>EoL: FreeBSD - Cycle 13.3</title><link>https://endoflife.date/freebsd</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 13.3
 Releaselabel: releng/13.3
 Releasedate: 2024-03-05
 Eol: 2024-12-31
+Lts: False</description></item><item><title>EoL: FileMaker Platform - Cycle 19.6</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 19.6
+Releasedate: 2022-12-31
+Eol: 2024-12-31
+Link: https://support.claris.com/s/answerview?anum=000036025
 Lts: False</description></item><item><title>EoL: IBM AIX - Cycle 7.3.0</title><link>https://endoflife.date/ibm-aix</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 7.3.0
 Releasedate: 2021-12-31
 Eol: 2024-12-31
@@ -12754,16 +12754,6 @@ Eol: 2024-12-31
 Lts: False</description></item><item><title>EoL: Oracle APEX - Cycle 20.1</title><link>https://endoflife.date/oracle-apex</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 20.1
 Releasedate: 2020-04-23
 Eol: 2024-12-31
-Lts: False</description></item><item><title>EoL: Oracle Linux - Cycle 7</title><link>https://endoflife.date/oracle-linux</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 7
-Releasedate: 2014-07-23
-Eol: 2024-12-31
-Latest: 7.9
-Latestreleasedate: 2020-10-08
-Lts: False
-Extendedsupport: 2028-06-30</description></item><item><title>EoL: PCI-DSS - Cycle 4.0</title><link>https://endoflife.date/pci-dss</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 4.0
-Releasedate: 2022-03-31
-Eol: 2024-12-31
-Link: https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub
 Lts: False</description></item><item><title>EoL: Palo Alto Networks GlobalProtect App - Cycle 5.1</title><link>https://endoflife.date/palo-alto-networks-globalprotect-app</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 5.1
 Releasedate: 2019-12-12
 Eol: 2024-12-31
@@ -12771,7 +12761,17 @@ Latest: 5.1.12
 Latestreleasedate: 2024-02-12
 Link: https://docs.paloaltonetworks.com/globalprotect/5-1/globalprotect-app-release-notes
 Lts: False
-Support: 2021-03-12</description></item><item><title>EoL: Rocket.Chat - Cycle 6.9</title><link>https://endoflife.date/rocket.chat</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 6.9
+Support: 2021-03-12</description></item><item><title>EoL: PCI-DSS - Cycle 4.0</title><link>https://endoflife.date/pci-dss</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 4.0
+Releasedate: 2022-03-31
+Eol: 2024-12-31
+Link: https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub
+Lts: False</description></item><item><title>EoL: Oracle Linux - Cycle 7</title><link>https://endoflife.date/oracle-linux</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 7
+Releasedate: 2014-07-23
+Eol: 2024-12-31
+Latest: 7.9
+Latestreleasedate: 2020-10-08
+Lts: False
+Extendedsupport: 2028-06-30</description></item><item><title>EoL: Rocket.Chat - Cycle 6.9</title><link>https://endoflife.date/rocket.chat</link><pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 6.9
 Releasedate: 2024-06-02
 Eol: 2024-12-31
 Latest: 6.9.7
@@ -13065,13 +13065,6 @@ Lts: False</description></item><item><title>EoL: ROS 2 - Cycle iron</title><link
 Codename: Iron Irwini
 Releasedate: 2023-05-23
 Eol: 2024-12-04
-Lts: False</description></item><item><title>EoL: Amazon Glue - Cycle 5.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 5.0
-Releaselabel: 5.0
-Releasedate: 2024-12-03
-Eol: False
-Pythonversion: 3.11
-Sparkversion: 3.5
-Link: https://aws.amazon.com/about-aws/whats-new/2024/12/aws-glue-5-0/
 Lts: False</description></item><item><title>EoL: Ansible - Cycle 10</title><link>https://endoflife.date/ansible</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 10
 Ansiblecoreversion: 2.17
 Pythonversionscontrolnode: 3.10 - 3.12
@@ -13096,7 +13089,14 @@ Eol: 2024-12-03
 Latest: 2.15.4
 Latestreleasedate: 2024-10-28
 Lts: False
-Support: 2024-11-05</description></item><item><title>EoL: Prometheus - Cycle 2.55</title><link>https://endoflife.date/prometheus</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 2.55
+Support: 2024-11-05</description></item><item><title>EoL: Amazon Glue - Cycle 5.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 5.0
+Releaselabel: 5.0
+Releasedate: 2024-12-03
+Eol: False
+Pythonversion: 3.11
+Sparkversion: 3.5
+Link: https://aws.amazon.com/about-aws/whats-new/2024/12/aws-glue-5-0/
+Lts: False</description></item><item><title>EoL: Prometheus - Cycle 2.55</title><link>https://endoflife.date/prometheus</link><pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate><description>Cycle: 2.55
 Releasedate: 2024-10-22
 Eol: 2024-12-03
 Latest: 2.55.1
@@ -13854,18 +13854,18 @@ Eol: 2024-10-08
 Latest: 1.15.6
 Latestreleasedate: 2024-02-28
 Lts: False
-Extendedsupport: False</description></item><item><title>EoL: KDE Plasma - Cycle 6.1</title><link>https://endoflife.date/kde-plasma</link><pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 6.1
+Extendedsupport: False</description></item><item><title>EoL: Julia - Cycle 1.6 (LTS)</title><link>https://endoflife.date/julia</link><pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 1.6
+Releasedate: 2021-03-24
+Lts: 2021-12-01
+Eol: 2024-10-08
+Latest: 1.6.7
+Latestreleasedate: 2022-07-19</description></item><item><title>EoL: KDE Plasma - Cycle 6.1</title><link>https://endoflife.date/kde-plasma</link><pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 6.1
 Releasedate: 2024-06-18
 Eol: 2024-10-08
 Latest: 6.1.5
 Latestreleasedate: 2024-09-10
 Lts: False
-Support: 2024-10-08</description></item><item><title>EoL: Julia - Cycle 1.6 (LTS)</title><link>https://endoflife.date/julia</link><pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 1.6
-Releasedate: 2021-03-24
-Lts: 2021-12-01
-Eol: 2024-10-08
-Latest: 1.6.7
-Latestreleasedate: 2022-07-19</description></item><item><title>EoL: Mastodon - Cycle 4.3</title><link>https://endoflife.date/mastodon</link><pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 4.3
+Support: 2024-10-08</description></item><item><title>EoL: Mastodon - Cycle 4.3</title><link>https://endoflife.date/mastodon</link><pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 4.3
 Releasedate: 2024-10-08
 Eol: False
 Latest: 4.3.14
@@ -13896,19 +13896,19 @@ Supportedphpversions: 8.0 - 8.2
 Latest: 4.2.11
 Latestreleasedate: 2024-10-05
 Lts: False
-Support: 2024-04-22</description></item><item><title>EoL: Python - Cycle 3.8</title><link>https://endoflife.date/python</link><pubDate>Mon, 07 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 3.8
-Releasedate: 2019-10-14
-Eol: 2024-10-07
-Latest: 3.8.20
-Latestreleasedate: 2024-09-06
-Lts: False
-Support: 2021-05-03</description></item><item><title>EoL: Qt - Cycle 6.7</title><link>https://endoflife.date/qt</link><pubDate>Mon, 07 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 6.7
+Support: 2024-04-22</description></item><item><title>EoL: Qt - Cycle 6.7</title><link>https://endoflife.date/qt</link><pubDate>Mon, 07 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 6.7
 Releasedate: 2024-03-28
 Eol: 2024-10-07
 Latest: 6.7.3
 Latestreleasedate: 2024-09-27
 Lts: False
-Extendedsupport: 2025-04-02</description></item><item><title>EoL: ESLint - Cycle 8</title><link>https://endoflife.date/eslint</link><pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 8
+Extendedsupport: 2025-04-02</description></item><item><title>EoL: Python - Cycle 3.8</title><link>https://endoflife.date/python</link><pubDate>Mon, 07 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 3.8
+Releasedate: 2019-10-14
+Eol: 2024-10-07
+Latest: 3.8.20
+Latestreleasedate: 2024-09-06
+Lts: False
+Support: 2021-05-03</description></item><item><title>EoL: ESLint - Cycle 8</title><link>https://endoflife.date/eslint</link><pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate><description>Cycle: 8
 Releasedate: 2021-10-09
 Eol: 2024-10-05
 Eoesprovider: HeroDevs
@@ -14046,15 +14046,15 @@ Releasedate: 2023-08-24
 Eol: 2024-09-30
 Latest: 2.1.2
 Latestreleasedate: 2023-10-12
+Lts: False</description></item><item><title>EoL: FreeBSD - Cycle 14.0</title><link>https://endoflife.date/freebsd</link><pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate><description>Cycle: 14.0
+Releaselabel: releng/14.0
+Releasedate: 2023-11-20
+Eol: 2024-09-30
 Lts: False</description></item><item><title>EoL: FortiOS - Cycle 6.4</title><link>https://endoflife.date/fortios</link><pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate><description>Cycle: 6.4
 Releasedate: 2020-03-31
 Eol: 2024-09-30
 Lts: False
-Support: 2023-03-31</description></item><item><title>EoL: FreeBSD - Cycle 14.0</title><link>https://endoflife.date/freebsd</link><pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate><description>Cycle: 14.0
-Releaselabel: releng/14.0
-Releasedate: 2023-11-20
-Eol: 2024-09-30
-Lts: False</description></item><item><title>EoL: Looker - Cycle 24.10</title><link>https://endoflife.date/looker</link><pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate><description>Cycle: 24.10
+Support: 2023-03-31</description></item><item><title>EoL: Looker - Cycle 24.10</title><link>https://endoflife.date/looker</link><pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate><description>Cycle: 24.10
 Releasedate: 2024-06-12
 Eol: 2024-09-30
 Link: https://discuss.google.dev/t/looker-24-10-release-notes/157366
@@ -14752,17 +14752,17 @@ Eol: 2024-07-31
 Latest: 7.9
 Latestreleasedate: 2020-11-25
 Lts: False
-Support: 2024-07-31</description></item><item><title>EoL: Proxmox VE - Cycle 7</title><link>https://endoflife.date/proxmox-ve</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Cycle: 7
-Releasedate: 2021-07-06
-Eol: 2024-07-31
-Latest: 7.4
-Latestreleasedate: 2023-03-23
-Lts: False</description></item><item><title>EoL: Prometheus - Cycle 2.45 (LTS)</title><link>https://endoflife.date/prometheus</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Cycle: 2.45
+Support: 2024-07-31</description></item><item><title>EoL: Prometheus - Cycle 2.45 (LTS)</title><link>https://endoflife.date/prometheus</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Cycle: 2.45
 Lts: True
 Releasedate: 2023-06-23
 Eol: 2024-07-31
 Latest: 2.45.6
-Latestreleasedate: 2024-06-21</description></item><item><title>EoL: Quarkus - Cycle 3.12</title><link>https://endoflife.date/quarkus</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Cycle: 3.12
+Latestreleasedate: 2024-06-21</description></item><item><title>EoL: Proxmox VE - Cycle 7</title><link>https://endoflife.date/proxmox-ve</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Cycle: 7
+Releasedate: 2021-07-06
+Eol: 2024-07-31
+Latest: 7.4
+Latestreleasedate: 2023-03-23
+Lts: False</description></item><item><title>EoL: Quarkus - Cycle 3.12</title><link>https://endoflife.date/quarkus</link><pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate><description>Cycle: 3.12
 Releasedate: 2024-06-26
 Eol: 2024-07-31
 Latest: 3.12.3
@@ -15072,14 +15072,14 @@ Latest: 7 (2009)
 Latestreleasedate: 2020-11-12
 Link: https://wiki.centos.org/Manuals(2f)ReleaseNotes(2f)CentOS7(2e)2009.html
 Lts: False
-Support: 2020-08-06</description></item><item><title>EoL: FileMaker Platform - Cycle 19.5</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Cycle: 19.5
-Releasedate: 2022-06-30
-Eol: 2024-06-30
-Link: https://support.claris.com/s/answerview?anum=000035967
-Lts: False</description></item><item><title>EoL: FreeBSD - Cycle 13.2</title><link>https://endoflife.date/freebsd</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Cycle: 13.2
+Support: 2020-08-06</description></item><item><title>EoL: FreeBSD - Cycle 13.2</title><link>https://endoflife.date/freebsd</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Cycle: 13.2
 Releaselabel: releng/13.2
 Releasedate: 2023-04-11
 Eol: 2024-06-30
+Lts: False</description></item><item><title>EoL: FileMaker Platform - Cycle 19.5</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Cycle: 19.5
+Releasedate: 2022-06-30
+Eol: 2024-06-30
+Link: https://support.claris.com/s/answerview?anum=000035967
 Lts: False</description></item><item><title>EoL: Google Kubernetes Engine - Cycle 1.26</title><link>https://endoflife.date/google-kubernetes-engine</link><pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate><description>Cycle: 1.26
 Releasedate: 2023-03-31
 Eol: 2024-06-30
@@ -15567,19 +15567,19 @@ Latest: 21.7.3
 Latestreleasedate: 2024-04-10
 Lts: False
 Support: 2024-04-01
-Extendedsupport: False</description></item><item><title>EoL: Centreon - Cycle 22.04</title><link>https://endoflife.date/centreon</link><pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate><description>Cycle: 22.04
+Extendedsupport: False</description></item><item><title>EoL: CentOS Stream - Cycle 8</title><link>https://endoflife.date/centos-stream</link><pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate><description>Cycle: 8
+Releasedate: 2019-09-24
+Eol: 2024-05-31
+Link: http://web.archive.org/web/20230417021744/https://wiki.centos.org/Manuals/ReleaseNotes/CentOSStream
+Lts: False
+Support: 2024-05-31</description></item><item><title>EoL: Centreon - Cycle 22.04</title><link>https://endoflife.date/centreon</link><pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate><description>Cycle: 22.04
 Releasedate: 2022-05-18
 Eol: 2024-05-31
 Latest: 22.04.22
 Latestreleasedate: 2024-03-14
 Link: https://docs.centreon.com/docs/__RELEASE_CYCLE__/releases/centreon-core/#{{'__LATEST__'|replace:'.',''}}
 Lts: False
-Extendedsupport: 2024-05-31</description></item><item><title>EoL: CentOS Stream - Cycle 8</title><link>https://endoflife.date/centos-stream</link><pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate><description>Cycle: 8
-Releasedate: 2019-09-24
-Eol: 2024-05-31
-Link: http://web.archive.org/web/20230417021744/https://wiki.centos.org/Manuals/ReleaseNotes/CentOSStream
-Lts: False
-Support: 2024-05-31</description></item><item><title>EoL: Hashicorp Packer - Cycle 1.8</title><link>https://endoflife.date/hashicorp-packer</link><pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate><description>Cycle: 1.8
+Extendedsupport: 2024-05-31</description></item><item><title>EoL: Hashicorp Packer - Cycle 1.8</title><link>https://endoflife.date/hashicorp-packer</link><pubDate>Fri, 31 May 2024 00:00:00 +0000</pubDate><description>Cycle: 1.8
 Releasedate: 2022-03-04
 Eol: 2024-05-31
 Latest: 1.8.7
@@ -15866,16 +15866,16 @@ Eol: 2024-05-07
 Latest: 2.8.5
 Latestreleasedate: 2024-03-09
 Lts: False
-Support: 2024-04-03</description></item><item><title>EoL: Dependency-Track - Cycle 4.10</title><link>https://endoflife.date/dependency-track</link><pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate><description>Cycle: 4.10
-Releasedate: 2023-12-08
-Eol: 2024-05-07
-Latest: 4.10.1
-Latestreleasedate: 2023-12-19
-Lts: False</description></item><item><title>EoL: Contour - Cycle 1.26</title><link>https://endoflife.date/contour</link><pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate><description>Cycle: 1.26
+Support: 2024-04-03</description></item><item><title>EoL: Contour - Cycle 1.26</title><link>https://endoflife.date/contour</link><pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate><description>Cycle: 1.26
 Releasedate: 2023-08-29
 Eol: 2024-05-07
 Latest: 1.26.3
 Latestreleasedate: 2024-04-10
+Lts: False</description></item><item><title>EoL: Dependency-Track - Cycle 4.10</title><link>https://endoflife.date/dependency-track</link><pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate><description>Cycle: 4.10
+Releasedate: 2023-12-08
+Eol: 2024-05-07
+Latest: 4.10.1
+Latestreleasedate: 2023-12-19
 Lts: False</description></item><item><title>EoL: Apache NiFi - Cycle 1.25</title><link>https://endoflife.date/apache-nifi</link><pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate><description>Cycle: 1.25
 Releasedate: 2024-01-29
 Eol: 2024-05-06
@@ -16261,15 +16261,15 @@ Latestreleasedate: 2024-03-28
 Lts: False</description></item><item><title>EoL: Oracle APEX - Cycle 19.1</title><link>https://endoflife.date/oracle-apex</link><pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate><description>Cycle: 19.1
 Releasedate: 2019-03-29
 Eol: 2024-03-31
-Lts: False</description></item><item><title>EoL: PCI-DSS - Cycle 3.2.1</title><link>https://endoflife.date/pci-dss</link><pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate><description>Cycle: 3.2.1
-Releasedate: 2018-05-01
-Eol: 2024-03-31
-Link: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI_DSS_Summary_of_Changes_3-2-1.pdf
 Lts: False</description></item><item><title>EoL: VMware Photon - Cycle 3.0</title><link>https://endoflife.date/vmware-photon</link><pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate><description>Cycle: 3.0
 Releasedate: 2019-02-08
 Eol: 2024-03-31
 Link: https://vmware.github.io/photon/assets/files/html/3.0/What-is-New-in-Photon-OS-3.0.html
 Kernelversion: 4.19
+Lts: False</description></item><item><title>EoL: PCI-DSS - Cycle 3.2.1</title><link>https://endoflife.date/pci-dss</link><pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate><description>Cycle: 3.2.1
+Releasedate: 2018-05-01
+Eol: 2024-03-31
+Link: https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI_DSS_Summary_of_Changes_3-2-1.pdf
 Lts: False</description></item><item><title>EoL: Rocket.Chat - Cycle 6.4</title><link>https://endoflife.date/rocket.chat</link><pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate><description>Cycle: 6.4
 Releasedate: 2023-09-27
 Eol: 2024-03-31
@@ -16839,14 +16839,7 @@ Latest: 1.24-eks-45
 Latestreleasedate: 2025-02-24
 Link: https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html#platform-versions-1-24
 Lts: False
-Extendedsupport: 2025-01-31</description></item><item><title>EoL: Amazon Glue - Cycle 2.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: 2.0
-Releaselabel: 2.0
-Releasedate: 2020-08-10
-Eol: 2024-01-31
-Pythonversion: 3.7
-Sparkversion: 2.4
-Link: https://aws.amazon.com/blogs/aws/aws-glue-version-2-0-featuring-10x-faster-job-start-times-and-1-minute-minimum-billing-duration/
-Lts: False</description></item><item><title>EoL: Bazel - Cycle 4 (LTS)</title><link>https://endoflife.date/bazel</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: 4
+Extendedsupport: 2025-01-31</description></item><item><title>EoL: Bazel - Cycle 4 (LTS)</title><link>https://endoflife.date/bazel</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: 4
 Lts: True
 Releasedate: 2021-01-21
 Eol: 2024-01-31
@@ -16873,7 +16866,14 @@ Eol: 2024-01-31
 Latest: pc.2023.1.0.2
 Latestreleasedate: 2023-07-17
 Lts: False
-Support: 2023-10-31</description></item><item><title>EoL: Quarkus - Cycle 3.6</title><link>https://endoflife.date/quarkus</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: 3.6
+Support: 2023-10-31</description></item><item><title>EoL: Amazon Glue - Cycle 2.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: 2.0
+Releaselabel: 2.0
+Releasedate: 2020-08-10
+Eol: 2024-01-31
+Pythonversion: 3.7
+Sparkversion: 2.4
+Link: https://aws.amazon.com/blogs/aws/aws-glue-version-2-0-featuring-10x-faster-job-start-times-and-1-minute-minimum-billing-duration/
+Lts: False</description></item><item><title>EoL: Quarkus - Cycle 3.6</title><link>https://endoflife.date/quarkus</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: 3.6
 Releasedate: 2023-11-29
 Eol: 2024-01-31
 Latest: 3.6.9
@@ -17110,13 +17110,7 @@ Releasedate: 2021-12-31
 Eol: 2024-01-01
 Latest: 1.22.4
 Latestreleasedate: 2022-05-20
-Lts: False</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-xcover-pro</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: galaxy-xcover-pro
-Releaselabel: Galaxy XCover Pro
-Releasedate: 2020-01-01
-Eol: 2024-01-01
-Link: https://doc.samsungmobile.com/SM-G715FN/XEH/doc.html
-Lts: False
-Support: 2023-01-01</description></item><item><title>EoL: Slackware Linux - Cycle 14.2</title><link>https://endoflife.date/slackware-linux</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: 14.2
+Lts: False</description></item><item><title>EoL: Slackware Linux - Cycle 14.2</title><link>https://endoflife.date/slackware-linux</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: 14.2
 Releasedate: 2016-07-01
 Eol: 2024-01-01
 Latest: 14.2
@@ -17131,7 +17125,13 @@ Releasedate: 2012-09-28
 Eol: 2024-01-01
 Latest: 14.0
 Latestreleasedate: 2012-09-28
-Lts: False</description></item><item><title>EoL: Amazon Linux - Cycle 2018.03</title><link>https://endoflife.date/amazon-linux</link><pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 2018.03
+Lts: False</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-xcover-pro</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><description>Cycle: galaxy-xcover-pro
+Releaselabel: Galaxy XCover Pro
+Releasedate: 2020-01-01
+Eol: 2024-01-01
+Link: https://doc.samsungmobile.com/SM-G715FN/XEH/doc.html
+Lts: False
+Support: 2023-01-01</description></item><item><title>EoL: Amazon Linux - Cycle 2018.03</title><link>https://endoflife.date/amazon-linux</link><pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 2018.03
 Releaselabel: AMI 2018.03
 Releasedate: 2018-04-25
 Eol: 2023-12-31
@@ -17246,11 +17246,7 @@ Releasedate: 2022-12-16
 Eol: 2023-12-31
 Supportedjavaversions: 11, 17
 Latest: 3.20.9
-Latestreleasedate: 2023-12-08</description></item><item><title>EoL: FileMaker Platform - Cycle 19.4</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 19.4
-Releasedate: 2021-12-01
-Eol: 2023-12-31
-Link: https://support.claris.com/s/answerview?anum=000035759
-Lts: False</description></item><item><title>EoL: FreeBSD - Cycle 12.4</title><link>https://endoflife.date/freebsd</link><pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 12.4
+Latestreleasedate: 2023-12-08</description></item><item><title>EoL: FreeBSD - Cycle 12.4</title><link>https://endoflife.date/freebsd</link><pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 12.4
 Releaselabel: releng/12.4
 Releasedate: 2022-12-05
 Eol: 2023-12-31
@@ -17259,6 +17255,10 @@ Releaselabel: stable/12
 Releasedate: 2018-12-11
 Eol: 2023-12-31
 Link: None
+Lts: False</description></item><item><title>EoL: FileMaker Platform - Cycle 19.4</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 19.4
+Releasedate: 2021-12-01
+Eol: 2023-12-31
+Link: https://support.claris.com/s/answerview?anum=000035759
 Lts: False</description></item><item><title>EoL: Mastodon - Cycle 3.5</title><link>https://endoflife.date/mastodon</link><pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate><description>Cycle: 3.5
 Releasedate: 2022-03-30
 Eol: 2023-12-31
@@ -18038,18 +18038,18 @@ Releasedate: 2023-09-26
 Eol: 2023-10-24
 Latest: 118.0.2
 Latestreleasedate: 2023-10-10
+Lts: False</description></item><item><title>EoL: GraalVM - Cycle 17</title><link>https://endoflife.date/graalvm</link><pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate><description>Cycle: 17
+Releasedate: 2023-06-13
+Eol: 2023-10-24
+Latest: 17.0.9
+Latestreleasedate: 2023-10-24
 Lts: False</description></item><item><title>EoL: Grafana - Cycle 10.0</title><link>https://endoflife.date/grafana</link><pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate><description>Cycle: 10.0
 Releasedate: 2023-06-09
 Eol: 2023-10-24
 Latest: 10.0.13
 Latestreleasedate: 2024-03-25
 Lts: False
-Support: 2023-08-23</description></item><item><title>EoL: GraalVM - Cycle 17</title><link>https://endoflife.date/graalvm</link><pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate><description>Cycle: 17
-Releasedate: 2023-06-13
-Eol: 2023-10-24
-Latest: 17.0.9
-Latestreleasedate: 2023-10-24
-Lts: False</description></item><item><title>EoL: Amazon RDS for MariaDB - Cycle 10.3</title><link>https://endoflife.date/amazon-rds-for-mariadb</link><pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate><description>Cycle: 10.3
+Support: 2023-08-23</description></item><item><title>EoL: Amazon RDS for MariaDB - Cycle 10.3</title><link>https://endoflife.date/amazon-rds-for-mariadb</link><pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate><description>Cycle: 10.3
 Releasedate: 2018-10-23
 Eol: 2023-10-23
 Latest: 10.3.39
@@ -18321,19 +18321,19 @@ Latest: 7.3.0
 Latestreleasedate: 2016-04-15
 Link: https://www.ibm.com/support/pages/customer-notices-and-information-ibm-i-73
 Lts: False
-Extendedsupport: 2028-09-30</description></item><item><title>EoL: Nutanix Files - Cycle 4.1</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Cycle: 4.1
-Releasedate: 2022-04-13
-Eol: 2023-09-30
-Latest: 4.1.0.3
-Latestreleasedate: 2022-08-29
-Lts: False
-Support: 2022-12-31</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.9</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Cycle: pc.2022.9
+Extendedsupport: 2028-09-30</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.9</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Cycle: pc.2022.9
 Releasedate: 2023-01-23
 Eol: 2023-09-30
 Latest: pc.2022.9
 Latestreleasedate: 2023-01-23
 Lts: False
-Support: 2023-06-30</description></item><item><title>EoL: Oracle JDK - Cycle 11 (LTS)</title><link>https://endoflife.date/oracle-jdk</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Cycle: 11
+Support: 2023-06-30</description></item><item><title>EoL: Nutanix Files - Cycle 4.1</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Cycle: 4.1
+Releasedate: 2022-04-13
+Eol: 2023-09-30
+Latest: 4.1.0.3
+Latestreleasedate: 2022-08-29
+Lts: False
+Support: 2022-12-31</description></item><item><title>EoL: Oracle JDK - Cycle 11 (LTS)</title><link>https://endoflife.date/oracle-jdk</link><pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate><description>Cycle: 11
 Lts: True
 Releasedate: 2018-09-25
 Eol: 2023-09-30
@@ -18991,14 +18991,14 @@ Eol: 2023-07-31
 Latest: 17.0.0
 Latestreleasedate: 2022-04-26
 Lts: False
-Support: 2023-07-31</description></item><item><title>EoL: FileMaker Platform - Cycle 19.3</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate><description>Cycle: 19.3
-Releasedate: 2021-06-30
-Eol: 2023-07-31
-Link: https://support.claris.com/s/answerview?anum=000035756
-Lts: False</description></item><item><title>EoL: FreeBSD - Cycle 13.1</title><link>https://endoflife.date/freebsd</link><pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate><description>Cycle: 13.1
+Support: 2023-07-31</description></item><item><title>EoL: FreeBSD - Cycle 13.1</title><link>https://endoflife.date/freebsd</link><pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate><description>Cycle: 13.1
 Releaselabel: releng/13.1
 Releasedate: 2022-05-16
 Eol: 2023-07-31
+Lts: False</description></item><item><title>EoL: FileMaker Platform - Cycle 19.3</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate><description>Cycle: 19.3
+Releasedate: 2021-06-30
+Eol: 2023-07-31
+Link: https://support.claris.com/s/answerview?anum=000035756
 Lts: False</description></item><item><title>EoL: Google Kubernetes Engine - Cycle 1.23</title><link>https://endoflife.date/google-kubernetes-engine</link><pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate><description>Cycle: 1.23
 Releasedate: 2022-05-03
 Eol: 2023-07-31
@@ -19900,20 +19900,20 @@ Releasedate: 2022-05-03
 Eol: 2023-04-30
 Latest: 24.0.12
 Latestreleasedate: 2023-04-19
-Lts: False</description></item><item><title>EoL: Nutanix Files - Cycle 4.0</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 4.0
-Releasedate: 2021-10-04
-Eol: 2023-04-30
-Latest: 4.0.4
-Latestreleasedate: 2022-04-27
-Lts: False
-Support: 2022-07-31</description></item><item><title>EoL: Node.js - Cycle 14 (LTS)</title><link>https://endoflife.date/node.js</link><pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 14
+Lts: False</description></item><item><title>EoL: Node.js - Cycle 14 (LTS)</title><link>https://endoflife.date/node.js</link><pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 14
 Releasedate: 2020-04-21
 Lts: 2020-10-27
 Eol: 2023-04-30
 Latest: 14.21.3
 Latestreleasedate: 2023-02-16
 Support: 2021-10-19
-Extendedsupport: True</description></item><item><title>EoL: OpenWrt - Cycle 21.02</title><link>https://endoflife.date/openwrt</link><pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 21.02
+Extendedsupport: True</description></item><item><title>EoL: Nutanix Files - Cycle 4.0</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 4.0
+Releasedate: 2021-10-04
+Eol: 2023-04-30
+Latest: 4.0.4
+Latestreleasedate: 2022-04-27
+Lts: False
+Support: 2022-07-31</description></item><item><title>EoL: OpenWrt - Cycle 21.02</title><link>https://endoflife.date/openwrt</link><pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 21.02
 Eol: 2023-04-30
 Releasedate: 2021-09-01
 Latestreleasedate: 2023-04-27
@@ -20010,16 +20010,16 @@ Releasedate: 2022-08-17
 Eol: 2023-04-19
 Latest: 19.0.2.7.1
 Latestreleasedate: 2023-01-17
-Lts: False</description></item><item><title>EoL: Keycloak - Cycle 21.0</title><link>https://endoflife.date/keycloak</link><pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 21.0
-Releasedate: 2023-02-23
-Eol: 2023-04-19
-Latest: 21.0.2
-Latestreleasedate: 2023-03-30
 Lts: False</description></item><item><title>EoL: Kubernetes Node Feature Discovery - Cycle 0.13</title><link>https://endoflife.date/kubernetes-node-feature-discovery</link><pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 0.13
 Releasedate: 2022-12-21
 Eol: 2023-04-19
 Latest: 0.13.6
 Latestreleasedate: 2023-10-23
+Lts: False</description></item><item><title>EoL: Keycloak - Cycle 21.0</title><link>https://endoflife.date/keycloak</link><pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 21.0
+Releasedate: 2023-02-23
+Eol: 2023-04-19
+Latest: 21.0.2
+Latestreleasedate: 2023-03-30
 Lts: False</description></item><item><title>EoL: Splunk - Cycle 8.1</title><link>https://endoflife.date/splunk</link><pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate><description>Cycle: 8.1
 Releasedate: 2020-10-20
 Eol: 2023-04-19
@@ -20296,14 +20296,14 @@ Releasedate: 2022-09-26
 Eol: 2023-03-31
 Latest: 19.0.2+7
 Latestreleasedate: 2023-01-20
-Lts: False</description></item><item><title>EoL: FileMaker Platform - Cycle 19.2</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate><description>Cycle: 19.2
-Releasedate: 2021-03-31
-Eol: 2023-03-31
-Link: https://support.claris.com/s/answerview?anum=000035415
 Lts: False</description></item><item><title>EoL: FreeBSD - Cycle 12.3</title><link>https://endoflife.date/freebsd</link><pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate><description>Cycle: 12.3
 Releaselabel: releng/12.3
 Releasedate: 2021-12-07
 Eol: 2023-03-31
+Lts: False</description></item><item><title>EoL: FileMaker Platform - Cycle 19.2</title><link>https://endoflife.date/filemaker-platform</link><pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate><description>Cycle: 19.2
+Releasedate: 2021-03-31
+Eol: 2023-03-31
+Link: https://support.claris.com/s/answerview?anum=000035415
 Lts: False</description></item><item><title>EoL: Grails Framework - Cycle 4</title><link>https://endoflife.date/grails-framework</link><pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate><description>Cycle: 4
 Releasedate: 2019-07-11
 Eol: 2023-03-31
@@ -20927,7 +20927,14 @@ Supportedphpversions: 7.3 - 8.1
 Latest: 8.83.29
 Latestreleasedate: 2024-11-20
 Lts: False
-Support: 2022-07-26</description></item><item><title>EoL: Apple iPad - Cycle mini-3</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Cycle: mini-3
+Support: 2022-07-26</description></item><item><title>EoL: Apple iOS - Cycle 12</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Cycle: 12
+Releasedate: 2018-09-17
+Eol: 2023-01-23
+Latest: 12.5.7
+Latestreleasedate: 2023-01-23
+Link: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-release-notes
+Lts: False
+Support: 2019-09-19</description></item><item><title>EoL: Apple iPad - Cycle mini-3</title><link>https://endoflife.date/apple-ipad</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Cycle: mini-3
 Releaselabel: iPad Mini 3
 Releasedate: 2014-10-22
 Discontinued: 2015-09-09
@@ -20948,14 +20955,7 @@ Discontinued: 2016-03-21
 Eol: 2023-01-23
 Link: https://support.apple.com/kb/SP692
 Supportedipadosversions: 7 - 12
-Lts: False</description></item><item><title>EoL: Apple iOS - Cycle 12</title><link>https://endoflife.date/apple-ios</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Cycle: 12
-Releasedate: 2018-09-17
-Eol: 2023-01-23
-Latest: 12.5.7
-Latestreleasedate: 2023-01-23
-Link: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-release-notes
-Lts: False
-Support: 2019-09-19</description></item><item><title>EoL: Apple iPhone - Cycle 6</title><link>https://endoflife.date/apple-iphone</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Cycle: 6
+Lts: False</description></item><item><title>EoL: Apple iPhone - Cycle 6</title><link>https://endoflife.date/apple-iphone</link><pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate><description>Cycle: 6
 Releaselabel: 6
 Releasedate: 2014-09-25
 Discontinued: 2016-09-07
@@ -21126,17 +21126,17 @@ Lts: False</description></item><item><title>EoL: NixOS - Cycle 22.05</title><lin
 Codename: Quokka
 Releasedate: 2022-05-30
 Eol: 2022-12-31
+Lts: False</description></item><item><title>EoL: openSUSE - Cycle 15.3</title><link>https://endoflife.date/opensuse</link><pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate><description>Cycle: 15.3
+Releasedate: 2021-06-02
+Eol: 2022-12-31
+Link: https://web.archive.org/web/20230521063245/https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/15.3/
 Lts: False</description></item><item><title>EoL: NVIDIA GPUs - Cycle professional-fermi</title><link>https://endoflife.date/nvidia-gpus</link><pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate><description>Cycle: professional-fermi
 Releaselabel: Professional Fermi (GF1xx)**
 Releasedate: 2010-07-23
 Eol: 2022-12-31
 Discontinued: True
 Lts: False
-Support: 2018-07-31</description></item><item><title>EoL: openSUSE - Cycle 15.3</title><link>https://endoflife.date/opensuse</link><pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate><description>Cycle: 15.3
-Releasedate: 2021-06-02
-Eol: 2022-12-31
-Link: https://web.archive.org/web/20230521063245/https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/15.3/
-Lts: False</description></item><item><title>EoL: Rocket.Chat - Cycle 4.8 (LTS)</title><link>https://endoflife.date/rocket.chat</link><pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate><description>Cycle: 4.8
+Support: 2018-07-31</description></item><item><title>EoL: Rocket.Chat - Cycle 4.8 (LTS)</title><link>https://endoflife.date/rocket.chat</link><pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate><description>Cycle: 4.8
 Lts: True
 Releasedate: 2022-05-31
 Eol: 2022-12-31
@@ -21501,14 +21501,7 @@ Eol: 2022-11-29
 Latest: 9.1.8
 Latestreleasedate: 2022-10-11
 Lts: False
-Support: 2022-10-11</description></item><item><title>EoL: Amazon Glue - Cycle 4.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate><description>Cycle: 4.0
-Releaselabel: 4.0
-Releasedate: 2022-11-28
-Eol: False
-Pythonversion: 3.10
-Sparkversion: 3.3
-Link: https://aws.amazon.com/about-aws/whats-new/2022/11/introducing-aws-glue-4-0/
-Lts: False</description></item><item><title>EoL: Magento - Cycle 2.4.3</title><link>https://endoflife.date/magento</link><pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate><description>Cycle: 2.4.3
+Support: 2022-10-11</description></item><item><title>EoL: Magento - Cycle 2.4.3</title><link>https://endoflife.date/magento</link><pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate><description>Cycle: 2.4.3
 Releasedate: 2021-08-04
 Eol: 2022-11-28
 Supportedphpversions: 7.4
@@ -21541,7 +21534,14 @@ Latestreleasedate: 2020-07-20
 Link: https://devdocs.magento.com/guides/v2.4/release-notes/release-notes-2-4-0-open-source.html
 Lts: False
 Support: 2022-11-28
-Extendedsupport: False</description></item><item><title>EoL: PHP - Cycle 7.4</title><link>https://endoflife.date/php</link><pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate><description>Cycle: 7.4
+Extendedsupport: False</description></item><item><title>EoL: Amazon Glue - Cycle 4.0</title><link>https://endoflife.date/amazon-glue</link><pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate><description>Cycle: 4.0
+Releaselabel: 4.0
+Releasedate: 2022-11-28
+Eol: False
+Pythonversion: 3.10
+Sparkversion: 3.3
+Link: https://aws.amazon.com/about-aws/whats-new/2022/11/introducing-aws-glue-4-0/
+Lts: False</description></item><item><title>EoL: PHP - Cycle 7.4</title><link>https://endoflife.date/php</link><pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate><description>Cycle: 7.4
 Releasedate: 2019-11-28
 Eol: 2022-11-28
 Latest: 7.4.33
@@ -21753,13 +21753,7 @@ Eol: 2022-10-31
 Latest: 6.1.1.5
 Latestreleasedate: 2022-06-28
 Lts: False
-Support: 2022-07-31</description></item><item><title>EoL: Nutanix Files - Cycle 3.8</title><link>https://endoflife.date/nutanix-files</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Cycle: 3.8
-Releasedate: 2021-01-25
-Eol: 2022-10-31
-Latest: 3.8.1.3
-Latestreleasedate: 2021-10-11
-Lts: False
-Support: 2022-01-31</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.1</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Cycle: pc.2022.1
+Support: 2022-07-31</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2022.1</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Cycle: pc.2022.1
 Releasedate: 2022-02-24
 Eol: 2022-10-31
 Latest: pc.2022.1.0.2
@@ -21771,7 +21765,13 @@ Eol: 2022-10-31
 Latest: pc.2021.9.0.6
 Latestreleasedate: 2022-07-29
 Lts: False
-Support: 2022-04-30</description></item><item><title>EoL: Rocket.Chat - Cycle 4.6</title><link>https://endoflife.date/rocket.chat</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Cycle: 4.6
+Support: 2022-04-30</description></item><item><title>EoL: Nutanix Files - Cycle 3.8</title><link>https://endoflife.date/nutanix-files</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Cycle: 3.8
+Releasedate: 2021-01-25
+Eol: 2022-10-31
+Latest: 3.8.1.3
+Latestreleasedate: 2021-10-11
+Lts: False
+Support: 2022-01-31</description></item><item><title>EoL: Rocket.Chat - Cycle 4.6</title><link>https://endoflife.date/rocket.chat</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><description>Cycle: 4.6
 Releasedate: 2022-04-01
 Eol: 2022-10-31
 Latest: 4.6.4
@@ -22047,13 +22047,6 @@ Releasedate: 2020-12-31
 Eol: 2022-09-30
 Latest: 5.0.120
 Latestreleasedate: 2023-02-08
-Lts: False</description></item><item><title>EoL: Amazon Glue - Cycle 1.0-python-3</title><link>https://endoflife.date/amazon-glue</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 1.0-python-3
-Releaselabel: 1.0 (Python 3)
-Releasedate: 2019-07-25
-Eol: 2022-09-30
-Pythonversion: 3.6
-Sparkversion: 2.4
-Link: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html
 Lts: False</description></item><item><title>EoL: Azul Zulu - Cycle 18</title><link>https://endoflife.date/azul-zulu</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 18
 Releaselabel: 18 (&lt;abbr title='Short Term Support'&gt;STS&lt;/abbr&gt;)
 Releasedate: 2022-03-12
@@ -22083,7 +22076,14 @@ Latest: 2.3.7
 Latestreleasedate: 2021-05-07
 Lts: False
 Support: 2022-07-31
-Extendedsupport: False</description></item><item><title>EoL: Proxmox VE - Cycle 6</title><link>https://endoflife.date/proxmox-ve</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 6
+Extendedsupport: False</description></item><item><title>EoL: Amazon Glue - Cycle 1.0-python-3</title><link>https://endoflife.date/amazon-glue</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 1.0-python-3
+Releaselabel: 1.0 (Python 3)
+Releasedate: 2019-07-25
+Eol: 2022-09-30
+Pythonversion: 3.6
+Sparkversion: 2.4
+Link: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html
+Lts: False</description></item><item><title>EoL: Proxmox VE - Cycle 6</title><link>https://endoflife.date/proxmox-ve</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 6
 Releasedate: 2019-07-16
 Eol: 2022-09-30
 Latest: 6.4
@@ -22112,19 +22112,19 @@ Link: https://archive.apache.org/dist/kafka/__LATEST__/RELEASE_NOTES.html
 Latest: 3.2.3
 Latestreleasedate: 2022-09-17
 Lts: False
-Extendedsupport: 2024-07-06</description></item><item><title>EoL: RabbitMQ - Cycle 3.10</title><link>https://endoflife.date/rabbitmq</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 3.10
-Releasedate: 2022-05-03
-Eol: 2022-09-28
-Latest: 3.10.25
-Latestreleasedate: 2023-07-18
-Lts: False
-Extendedsupport: 2023-12-31</description></item><item><title>EoL: Qt - Cycle 6.3</title><link>https://endoflife.date/qt</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 6.3
+Extendedsupport: 2024-07-06</description></item><item><title>EoL: Qt - Cycle 6.3</title><link>https://endoflife.date/qt</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 6.3
 Releasedate: 2022-04-11
 Eol: 2022-09-28
 Latest: 6.3.2
 Latestreleasedate: 2022-09-08
 Lts: False
-Extendedsupport: 2023-04-11</description></item><item><title>EoL: Twig - Cycle 1</title><link>https://endoflife.date/twig</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 1
+Extendedsupport: 2023-04-11</description></item><item><title>EoL: RabbitMQ - Cycle 3.10</title><link>https://endoflife.date/rabbitmq</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 3.10
+Releasedate: 2022-05-03
+Eol: 2022-09-28
+Latest: 3.10.25
+Latestreleasedate: 2023-07-18
+Lts: False
+Extendedsupport: 2023-12-31</description></item><item><title>EoL: Twig - Cycle 1</title><link>https://endoflife.date/twig</link><pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate><description>Cycle: 1
 Releasedate: 2011-03-27
 Eol: 2022-09-28
 Latest: 1.44.8
@@ -22627,12 +22627,7 @@ Eol: 2022-08-01
 Latest: 2.16.3
 Latestreleasedate: 2022-09-05
 Lts: False
-Support: 2022-05-01</description></item><item><title>EoL: Azure Kubernetes Service - Cycle 1.21</title><link>https://endoflife.date/azure-kubernetes-service</link><pubDate>Sun, 31 Jul 2022 00:00:00 +0000</pubDate><description>Cycle: 1.21
-Releasedate: 2021-08-18
-Eol: 2022-07-31
-Link: https://azure.microsoft.com/updates/general-availability-aks-support-for-kubernetes-121-2/
-Lts: False
-Extendedsupport: False</description></item><item><title>EoL: Azul Zulu - Cycle 7 (LTS)</title><link>https://endoflife.date/azul-zulu</link><pubDate>Sun, 31 Jul 2022 00:00:00 +0000</pubDate><description>Cycle: 7
+Support: 2022-05-01</description></item><item><title>EoL: Azul Zulu - Cycle 7 (LTS)</title><link>https://endoflife.date/azul-zulu</link><pubDate>Sun, 31 Jul 2022 00:00:00 +0000</pubDate><description>Cycle: 7
 Lts: True
 Releasedate: 2013-09-25
 Eol: 2022-07-31
@@ -22640,7 +22635,12 @@ Latest: 7.56
 Latestjdkversion: 7u352-b01
 Latestreleasedate: 2022-07-19
 Link: https://docs.azul.com/core/release/july-2022/release-notes/release-notes
-Extendedsupport: 2027-12-31</description></item><item><title>EoL: Bellsoft Liberica JDK - Cycle 7 (LTS)</title><link>https://endoflife.date/bellsoft-liberica-jdk</link><pubDate>Sun, 31 Jul 2022 00:00:00 +0000</pubDate><description>Cycle: 7
+Extendedsupport: 2027-12-31</description></item><item><title>EoL: Azure Kubernetes Service - Cycle 1.21</title><link>https://endoflife.date/azure-kubernetes-service</link><pubDate>Sun, 31 Jul 2022 00:00:00 +0000</pubDate><description>Cycle: 1.21
+Releasedate: 2021-08-18
+Eol: 2022-07-31
+Link: https://azure.microsoft.com/updates/general-availability-aks-support-for-kubernetes-121-2/
+Lts: False
+Extendedsupport: False</description></item><item><title>EoL: Bellsoft Liberica JDK - Cycle 7 (LTS)</title><link>https://endoflife.date/bellsoft-liberica-jdk</link><pubDate>Sun, 31 Jul 2022 00:00:00 +0000</pubDate><description>Cycle: 7
 Lts: True
 Releasedate: 2011-07-11
 Eol: 2022-07-31
@@ -23123,33 +23123,19 @@ Eol: 2022-06-03
 Latest: 1.36.4
 Latestreleasedate: 2022-03-31
 Releasedate: 2021-05-28
+Lts: False</description></item><item><title>EoL: Apache Hop - Cycle 1.2</title><link>https://endoflife.date/apache-hop</link><pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 1.2
+Releasedate: 2022-03-08
+Eol: 2022-06-02
+Latest: 1.2.0
+Latestreleasedate: 2022-03-08
+Link: https://hop.apache.org/blog/2022/03/hop-1.2.0/
 Lts: False</description></item><item><title>EoL: Apache Struts - Cycle 6</title><link>https://endoflife.date/apache-struts</link><pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 6
 Releasedate: 2022-06-02
 Eol: False
 Latest: 6.8.0
 Latestreleasedate: 2025-09-15
 Lts: False
-Extendedsupport: False</description></item><item><title>EoL: Apache Hop - Cycle 1.2</title><link>https://endoflife.date/apache-hop</link><pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 1.2
-Releasedate: 2022-03-08
-Eol: 2022-06-02
-Latest: 1.2.0
-Latestreleasedate: 2022-03-08
-Link: https://hop.apache.org/blog/2022/03/hop-1.2.0/
-Lts: False</description></item><item><title>EoL: Amazon Glue - Cycle 1.0-python-2</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 1.0-python-2
-Releaselabel: 1.0 (Python 2)
-Releasedate: 2019-07-25
-Eol: 2022-06-01
-Pythonversion: 2.7
-Sparkversion: 2.4
-Link: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html
-Lts: False</description></item><item><title>EoL: Amazon Glue - Cycle 0.9</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 0.9
-Releaselabel: 0.9
-Releasedate: 2019-07-25
-Eol: 2022-06-01
-Pythonversion: 2.7
-Sparkversion: 2.2
-Link: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html
-Lts: False</description></item><item><title>EoL: Blender - Cycle 2.83 (LTS)</title><link>https://endoflife.date/blender</link><pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 2.83
+Extendedsupport: False</description></item><item><title>EoL: Blender - Cycle 2.83 (LTS)</title><link>https://endoflife.date/blender</link><pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 2.83
 Lts: True
 Releasedate: 2020-06-03
 Eol: 2022-06-01
@@ -23168,7 +23154,21 @@ Latest: 17.9.1
 Latestreleasedate: 2022-06-01
 Lts: False
 Support: 2022-04-01
-Extendedsupport: False</description></item><item><title>EoL: Ruby on Rails - Cycle 5.2</title><link>https://endoflife.date/ruby-on-rails</link><pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 5.2
+Extendedsupport: False</description></item><item><title>EoL: Amazon Glue - Cycle 1.0-python-2</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 1.0-python-2
+Releaselabel: 1.0 (Python 2)
+Releasedate: 2019-07-25
+Eol: 2022-06-01
+Pythonversion: 2.7
+Sparkversion: 2.4
+Link: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html
+Lts: False</description></item><item><title>EoL: Amazon Glue - Cycle 0.9</title><link>https://endoflife.date/amazon-glue</link><pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 0.9
+Releaselabel: 0.9
+Releasedate: 2019-07-25
+Eol: 2022-06-01
+Pythonversion: 2.7
+Sparkversion: 2.2
+Link: https://docs.aws.amazon.com/glue/latest/dg/glue-version-support-policy.html
+Lts: False</description></item><item><title>EoL: Ruby on Rails - Cycle 5.2</title><link>https://endoflife.date/ruby-on-rails</link><pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate><description>Cycle: 5.2
 Releasedate: 2018-04-09
 Eol: 2022-06-01
 Latest: 5.2.8.1
@@ -23319,16 +23319,6 @@ Releasedate: 2022-01-25
 Eol: 2022-05-24
 Latest: 5.9.12
 Latestreleasedate: 2025-09-30
-Lts: False</description></item><item><title>EoL: Ansible - Cycle 2.9</title><link>https://endoflife.date/ansible</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Cycle: 2.9
-Ansiblecoreversion: 2.9
-Pythonversionscontrolnode: 2.7 / 3.5 - 3.8
-Pythonversionsmanagednode: 2.6 - 2.7 / 3.5 - 3.8
-Powershellversionsmanagednode: 3 - 5.1
-Releasedate: 2019-10-31
-Eol: 2022-05-23
-Latest: 2.9.27
-Latestreleasedate: 2021-10-11
-Link: https://github.com/ansible/ansible/blob/stable-2.9/changelogs/CHANGELOG-v2.9.rst
 Lts: False</description></item><item><title>EoL: Ansible-core - Cycle 2.10</title><link>https://endoflife.date/ansible-core</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Cycle: 2.10
 Pythonversionscontrolnode: 2.7 / 3.5 - 3.9
 Pythonversionsmanagednode: 2.6 - 2.7 / 3.5 - 3.9
@@ -23345,6 +23335,16 @@ Releasedate: 2019-10-31
 Eol: 2022-05-23
 Latest: 2.9.27
 Latestreleasedate: 2021-10-11
+Lts: False</description></item><item><title>EoL: Ansible - Cycle 2.9</title><link>https://endoflife.date/ansible</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Cycle: 2.9
+Ansiblecoreversion: 2.9
+Pythonversionscontrolnode: 2.7 / 3.5 - 3.8
+Pythonversionsmanagednode: 2.6 - 2.7 / 3.5 - 3.8
+Powershellversionsmanagednode: 3 - 5.1
+Releasedate: 2019-10-31
+Eol: 2022-05-23
+Latest: 2.9.27
+Latestreleasedate: 2021-10-11
+Link: https://github.com/ansible/ansible/blob/stable-2.9/changelogs/CHANGELOG-v2.9.rst
 Lts: False</description></item><item><title>EoL: MariaDB - Cycle 10.2</title><link>https://endoflife.date/mariadb</link><pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate><description>Cycle: 10.2
 Releasedate: 2017-05-23
 Eol: 2022-05-23
@@ -24304,19 +24304,19 @@ Eol: 2022-01-31
 Supportedkubernetesversions: 1.16+
 Latest: 2.4.0
 Latestreleasedate: 2021-08-06
-Lts: False</description></item><item><title>EoL: Nutanix Files - Cycle 3.7</title><link>https://endoflife.date/nutanix-files</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Cycle: 3.7
-Releasedate: 2020-07-22
-Eol: 2022-01-31
-Latest: 3.7.3.1
-Latestreleasedate: 2021-04-21
-Lts: False
-Support: 2021-04-30</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2021.5</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Cycle: pc.2021.5
+Lts: False</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2021.5</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Cycle: pc.2021.5
 Releasedate: 2021-06-14
 Eol: 2022-01-31
 Latest: pc.2021.5.0.1
 Latestreleasedate: 2021-07-01
 Lts: False
-Support: 2021-10-31</description></item><item><title>EoL: Rocket.Chat - Cycle 3.17</title><link>https://endoflife.date/rocket.chat</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Cycle: 3.17
+Support: 2021-10-31</description></item><item><title>EoL: Nutanix Files - Cycle 3.7</title><link>https://endoflife.date/nutanix-files</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Cycle: 3.7
+Releasedate: 2020-07-22
+Eol: 2022-01-31
+Latest: 3.7.3.1
+Latestreleasedate: 2021-04-21
+Lts: False
+Support: 2021-04-30</description></item><item><title>EoL: Rocket.Chat - Cycle 3.17</title><link>https://endoflife.date/rocket.chat</link><pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate><description>Cycle: 3.17
 Releasedate: 2021-07-30
 Eol: 2022-01-31
 Latest: 3.17.3
@@ -24607,7 +24607,11 @@ Latest: 3001.8
 Latestreleasedate: 2021-08-24
 Link: https://docs.saltproject.io/en/latest/topics/releases/__LATEST__.html
 Lts: False
-Support: 2021-06-30</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-view2</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate><description>Cycle: galaxy-view2
+Support: 2021-06-30</description></item><item><title>EoL: SUSE Linux Enterprise Server - Cycle 15.2</title><link>https://endoflife.date/suse-linux-enterprise-server</link><pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate><description>Cycle: 15.2
+Releasedate: 2020-07-21
+Eol: 2021-12-31
+Lts: False
+Extendedsupport: 2024-12-31</description></item><item><title>EoL: Samsung Mobile - Cycle galaxy-view2</title><link>https://endoflife.date/samsung-mobile</link><pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate><description>Cycle: galaxy-view2
 Releaselabel: Galaxy View2
 Releasedate: 2019-04-01
 Eol: 2021-12-31
@@ -24643,11 +24647,7 @@ Releasedate: 2018-01-01
 Eol: 2021-12-31
 Link: None
 Lts: False
-Support: False</description></item><item><title>EoL: SUSE Linux Enterprise Server - Cycle 15.2</title><link>https://endoflife.date/suse-linux-enterprise-server</link><pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate><description>Cycle: 15.2
-Releasedate: 2020-07-21
-Eol: 2021-12-31
-Lts: False
-Extendedsupport: 2024-12-31</description></item><item><title>EoL: Spring Framework - Cycle 5.2</title><link>https://endoflife.date/spring-framework</link><pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate><description>Cycle: 5.2
+Support: False</description></item><item><title>EoL: Spring Framework - Cycle 5.2</title><link>https://endoflife.date/spring-framework</link><pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate><description>Cycle: 5.2
 Supportedjavaversions: 8 - 11
 Supportedjakartaeeversions: N/A
 Releasedate: 2019-09-30
@@ -25904,19 +25904,19 @@ Eol: 2021-08-01
 Latest: 2.12.6
 Latestreleasedate: 2021-07-13
 Lts: False
-Support: 2021-05-12</description></item><item><title>EoL: Nutanix Files - Cycle 3.6</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Cycle: 3.6
-Releasedate: 2019-10-17
-Eol: 2021-07-31
-Latest: 3.6.5
-Latestreleasedate: 2020-07-08
-Lts: False
-Support: 2020-10-31</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2020.11</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Cycle: pc.2020.11
+Support: 2021-05-12</description></item><item><title>EoL: Nutanix Prism Central - Cycle pc.2020.11</title><link>https://endoflife.date/nutanix-prism-central</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Cycle: pc.2020.11
 Releasedate: 2020-12-16
 Eol: 2021-07-31
 Latest: pc.2020.11.0.1
 Latestreleasedate: 2020-12-31
 Lts: False
-Support: 2021-04-30</description></item><item><title>EoL: Visual COBOL - Cycle 3.0</title><link>https://endoflife.date/visual-cobol</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Cycle: 3.0
+Support: 2021-04-30</description></item><item><title>EoL: Nutanix Files - Cycle 3.6</title><link>https://endoflife.date/nutanix-files</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Cycle: 3.6
+Releasedate: 2019-10-17
+Eol: 2021-07-31
+Latest: 3.6.5
+Latestreleasedate: 2020-07-08
+Lts: False
+Support: 2020-10-31</description></item><item><title>EoL: Visual COBOL - Cycle 3.0</title><link>https://endoflife.date/visual-cobol</link><pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate><description>Cycle: 3.0
 Releasedate: 2017-07-07
 Eol: 2021-07-31
 Link: https://supportline.microfocus.com/prodavail.aspx?Prod=Visual%20COBOL%20for%20Visual%20Studio&amp;Ver=3.0&amp;Rel=
@@ -26572,20 +26572,20 @@ Eol: 2021-04-30
 Latest: 3.6.23
 Latestreleasedate: 2021-03-16
 Link: https://web.archive.org/web/20220625104036/https://www.mongodb.com/docs/v4.0/release-notes/3.6/
-Lts: False</description></item><item><title>EoL: Nutanix AOS - Cycle 5.10 (LTS)</title><link>https://endoflife.date/nutanix-aos</link><pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate><description>Cycle: 5.10
-Releasedate: 2018-11-26
-Eol: 2021-04-30
-Lts: True
-Latest: 5.10.11.1
-Latestreleasedate: 2020-07-23
-Support: 2020-06-30</description></item><item><title>EoL: Node.js - Cycle 10 (LTS)</title><link>https://endoflife.date/node.js</link><pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate><description>Cycle: 10
+Lts: False</description></item><item><title>EoL: Node.js - Cycle 10 (LTS)</title><link>https://endoflife.date/node.js</link><pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate><description>Cycle: 10
 Releasedate: 2018-04-24
 Lts: 2018-10-30
 Eol: 2021-04-30
 Latest: 10.24.1
 Latestreleasedate: 2021-04-06
 Support: 2020-05-19
-Extendedsupport: False</description></item><item><title>EoL: Splunk - Cycle 7.2</title><link>https://endoflife.date/splunk</link><pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate><description>Cycle: 7.2
+Extendedsupport: False</description></item><item><title>EoL: Nutanix AOS - Cycle 5.10 (LTS)</title><link>https://endoflife.date/nutanix-aos</link><pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate><description>Cycle: 5.10
+Releasedate: 2018-11-26
+Eol: 2021-04-30
+Lts: True
+Latest: 5.10.11.1
+Latestreleasedate: 2020-07-23
+Support: 2020-06-30</description></item><item><title>EoL: Splunk - Cycle 7.2</title><link>https://endoflife.date/splunk</link><pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate><description>Cycle: 7.2
 Releasedate: 2018-10-02
 Eol: 2021-04-30
 Latest: 7.2.10.1
@@ -27389,19 +27389,19 @@ Latest: 10.0.18362
 Link: https://learn.microsoft.com/lifecycle/products/windows-server-semiannual-channel
 Lts: False
 Support: 2020-12-08
-Extendedsupport: False</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1903</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Cycle: 1903
-Releasedate: 2019-05-21
-Eol: 2020-12-08
-Latest: 10.0.18362
-Link: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle
-Lts: False
-Support: 2020-12-08</description></item><item><title>EoL: WordPress - Cycle 5.5</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Cycle: 5.5
+Extendedsupport: False</description></item><item><title>EoL: WordPress - Cycle 5.5</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Cycle: 5.5
 Supportedphpversions: 5.6 - 7.4
 Releasedate: 2020-08-11
 Eol: 2020-12-08
 Latest: 5.5.17
 Latestreleasedate: 2025-09-30
-Lts: False</description></item><item><title>EoL: Eclipse Jetty - Cycle 9.3</title><link>https://endoflife.date/eclipse-jetty</link><pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate><description>Cycle: 9.3
+Lts: False</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1903</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate><description>Cycle: 1903
+Releasedate: 2019-05-21
+Eol: 2020-12-08
+Latest: 10.0.18362
+Link: https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/base-image-lifecycle
+Lts: False
+Support: 2020-12-08</description></item><item><title>EoL: Eclipse Jetty - Cycle 9.3</title><link>https://endoflife.date/eclipse-jetty</link><pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate><description>Cycle: 9.3
 Minjvmversion: 1.8
 Servletversion: 3.1
 Jspversion: 2.3
@@ -27454,19 +27454,19 @@ Latest: 6.10
 Latestreleasedate: 2018-07-03
 Link: https://wiki.centos.org/Manuals(2f)ReleaseNotes(2f)CentOS6(2e)10.html
 Lts: False
-Support: 2017-05-10</description></item><item><title>EoL: Omnissa Horizon - Cycle 7.5 (LTS)</title><link>https://endoflife.date/omnissa-horizon</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Cycle: 7.5
+Support: 2017-05-10</description></item><item><title>EoL: IBM AIX - Cycle 7.2.5</title><link>https://endoflife.date/ibm-aix</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Cycle: 7.2.5
+Releasedate: 2020-11-30
+Eol: False
+Latest: 7.2.5
+Latestreleasedate: 2020-11-30
+Lts: False</description></item><item><title>EoL: Omnissa Horizon - Cycle 7.5 (LTS)</title><link>https://endoflife.date/omnissa-horizon</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Cycle: 7.5
 Lts: True
 Releasedate: 2018-05-29
 Eol: 2020-11-30
 Technicalguidance: 2023-03-22
 Latest: 7.5.4
 Latestreleasedate: 2019-12-19
-Link: None</description></item><item><title>EoL: IBM AIX - Cycle 7.2.5</title><link>https://endoflife.date/ibm-aix</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Cycle: 7.2.5
-Releasedate: 2020-11-30
-Eol: False
-Latest: 7.2.5
-Latestreleasedate: 2020-11-30
-Lts: False</description></item><item><title>EoL: Mautic - Cycle 3.1</title><link>https://endoflife.date/mautic</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Cycle: 3.1
+Link: None</description></item><item><title>EoL: Mautic - Cycle 3.1</title><link>https://endoflife.date/mautic</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><description>Cycle: 3.1
 Releasedate: 2020-08-24
 Eol: 2020-11-30
 Latest: 3.1.2
@@ -28453,18 +28453,18 @@ Latest: 15
 Latestreleasedate: 2015-12-24
 Link: https://web.archive.org/web/20160105095436/http://antix.mepis.org/index.php?title=Main_Page
 Lts: False
-Support: 2018-06-23</description></item><item><title>EoL: NetBSD - Cycle 7</title><link>https://endoflife.date/netbsd</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Cycle: 7
+Support: 2018-06-23</description></item><item><title>EoL: Nextcloud - Cycle 16</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Cycle: 16
+Releasedate: 2019-04-25
+Eol: 2020-06-30
+Latest: 16.0.11
+Latestreleasedate: 2020-06-04
+Lts: False</description></item><item><title>EoL: NetBSD - Cycle 7</title><link>https://endoflife.date/netbsd</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Cycle: 7
 Releasedate: 2015-09-25
 Eol: 2020-06-30
 Latest: 7.2
 Latestreleasedate: 2018-08-29
 Lts: False
-Support: 2018-07-17</description></item><item><title>EoL: Nextcloud - Cycle 16</title><link>https://endoflife.date/nextcloud</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Cycle: 16
-Releasedate: 2019-04-25
-Eol: 2020-06-30
-Latest: 16.0.11
-Latestreleasedate: 2020-06-04
-Lts: False</description></item><item><title>EoL: Palo Alto Networks PAN-OS - Cycle 7.1</title><link>https://endoflife.date/palo-alto-networks-pan-os</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Cycle: 7.1
+Support: 2018-07-17</description></item><item><title>EoL: Palo Alto Networks PAN-OS - Cycle 7.1</title><link>https://endoflife.date/palo-alto-networks-pan-os</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><description>Cycle: 7.1
 Releasedate: 2016-03-29
 Eol: 2020-06-30
 Latest: 7.1.26
@@ -29495,19 +29495,19 @@ Latest: 10.0.17134
 Link: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing
 Lts: False
 Support: 2019-11-12
-Extendedsupport: False</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1803</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Cycle: 1803
-Releasedate: 2018-04-30
-Eol: 2019-11-12
-Latest: 10.0.17134
-Link: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing
-Lts: False
-Support: 2019-11-12</description></item><item><title>EoL: WordPress - Cycle 5.2</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Cycle: 5.2
+Extendedsupport: False</description></item><item><title>EoL: WordPress - Cycle 5.2</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Cycle: 5.2
 Supportedphpversions: 5.6 - 7.3
 Releasedate: 2019-05-07
 Eol: 2019-11-12
 Latest: 5.2.23
 Latestreleasedate: 2025-09-30
-Lts: False</description></item><item><title>EoL: Gradle - Cycle 5</title><link>https://endoflife.date/gradle</link><pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate><description>Cycle: 5
+Lts: False</description></item><item><title>EoL: Microsoft Windows Server Core - Cycle 1803</title><link>https://endoflife.date/microsoft-windows-server-core</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><description>Cycle: 1803
+Releasedate: 2018-04-30
+Eol: 2019-11-12
+Latest: 10.0.17134
+Link: https://learn.microsoft.com/lifecycle/announcements/windows-server-1803-end-of-servicing
+Lts: False
+Support: 2019-11-12</description></item><item><title>EoL: Gradle - Cycle 5</title><link>https://endoflife.date/gradle</link><pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate><description>Cycle: 5
 Releasedate: 2018-11-23
 Runningjavaversions: 8 - 12
 Testedjavaversions: N/A
@@ -30398,20 +30398,20 @@ Extendedsupport: 2021-04-30</description></item><item><title>EoL: NixOS - Cycle 
 Codename: Jellyfish
 Releasedate: 2018-10-05
 Eol: 2019-04-30
-Lts: False</description></item><item><title>EoL: Nutanix AOS - Cycle 5.9</title><link>https://endoflife.date/nutanix-aos</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Cycle: 5.9
-Releasedate: 2018-10-04
-Eol: 2019-04-30
-Latest: 5.9.2.4
-Latestreleasedate: 2019-02-06
-Lts: False
-Support: 2019-01-31</description></item><item><title>EoL: Node.js - Cycle 6 (LTS)</title><link>https://endoflife.date/node.js</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Cycle: 6
+Lts: False</description></item><item><title>EoL: Node.js - Cycle 6 (LTS)</title><link>https://endoflife.date/node.js</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Cycle: 6
 Releasedate: 2016-04-26
 Lts: 2016-10-18
 Eol: 2019-04-30
 Latest: 6.17.1
 Latestreleasedate: 2019-04-03
 Support: 2018-04-30
-Extendedsupport: False</description></item><item><title>EoL: Wagtail - Cycle 1.13 (LTS)</title><link>https://endoflife.date/wagtail</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Cycle: 1.13
+Extendedsupport: False</description></item><item><title>EoL: Nutanix AOS - Cycle 5.9</title><link>https://endoflife.date/nutanix-aos</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Cycle: 5.9
+Releasedate: 2018-10-04
+Eol: 2019-04-30
+Latest: 5.9.2.4
+Latestreleasedate: 2019-02-06
+Lts: False
+Support: 2019-01-31</description></item><item><title>EoL: Wagtail - Cycle 1.13 (LTS)</title><link>https://endoflife.date/wagtail</link><pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate><description>Cycle: 1.13
 Lts: True
 Releasedate: 2017-10-31
 Eol: 2019-04-30
@@ -30838,21 +30838,21 @@ Releasedate: 2015-12-31
 Eol: 2018-12-31
 Latest: 7.2.0
 Latestreleasedate: 2015-12-31
-Lts: False</description></item><item><title>EoL: Icinga Web - Cycle 1</title><link>https://endoflife.date/icinga-web</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 1
-Releasedate: 2010-06-30
-Eol: 2018-12-31
-Latest: 1.14.1
-Latestreleasedate: 2017-12-19
-Link: None
-Lts: False
-Support: 2015-10-02</description></item><item><title>EoL: Icinga - Cycle 1</title><link>https://endoflife.date/icinga</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 1
+Lts: False</description></item><item><title>EoL: Icinga - Cycle 1</title><link>https://endoflife.date/icinga</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 1
 Releasedate: 2009-12-15
 Eol: 2018-12-31
 Latest: 1.14.2
 Latestreleasedate: 2017-12-20
 Link: None
 Lts: False
-Support: 2014-06-16</description></item><item><title>EoL: MySQL - Cycle 5.5</title><link>https://endoflife.date/mysql</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 5.5
+Support: 2014-06-16</description></item><item><title>EoL: Icinga Web - Cycle 1</title><link>https://endoflife.date/icinga-web</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 1
+Releasedate: 2010-06-30
+Eol: 2018-12-31
+Latest: 1.14.1
+Latestreleasedate: 2017-12-19
+Link: None
+Lts: False
+Support: 2015-10-02</description></item><item><title>EoL: MySQL - Cycle 5.5</title><link>https://endoflife.date/mysql</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 5.5
 Releasedate: 2010-12-03
 Eol: 2018-12-31
 Latest: 5.5.63
@@ -30866,16 +30866,16 @@ Link: https://www.oracle.com/java/technologies/javase/6u211-relnotes.html
 Latest: 6u211
 Latestreleasedate: 2018-10-16
 Lts: False
-Extendedsupport: False</description></item><item><title>EoL: PHP - Cycle 5.6</title><link>https://endoflife.date/php</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 5.6
+Extendedsupport: False</description></item><item><title>EoL: PCI-DSS - Cycle 3.2</title><link>https://endoflife.date/pci-dss</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 3.2
+Releasedate: 2016-04-01
+Eol: 2018-12-31
+Lts: False</description></item><item><title>EoL: PHP - Cycle 5.6</title><link>https://endoflife.date/php</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 5.6
 Releasedate: 2014-08-28
 Eol: 2018-12-31
 Latest: 5.6.40
 Latestreleasedate: 2019-01-10
 Lts: False
-Support: 2017-01-19</description></item><item><title>EoL: PCI-DSS - Cycle 3.2</title><link>https://endoflife.date/pci-dss</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: 3.2
-Releasedate: 2016-04-01
-Eol: 2018-12-31
-Lts: False</description></item><item><title>EoL: ROS 2 - Cycle ardent</title><link>https://endoflife.date/ros-2</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: ardent
+Support: 2017-01-19</description></item><item><title>EoL: ROS 2 - Cycle ardent</title><link>https://endoflife.date/ros-2</link><pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate><description>Cycle: ardent
 Codename: Ardent Apalone
 Releasedate: 2017-12-08
 Eol: 2018-12-31
@@ -30968,19 +30968,19 @@ Eol: 2018-11-26
 Latest: 4.10.3
 Latestreleasedate: 2018-12-04
 Lts: False
-Support: 2018-11-26</description></item><item><title>EoL: Apache Hadoop - Cycle 2.9</title><link>https://endoflife.date/apache-hadoop</link><pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate><description>Cycle: 2.9
-Releasedate: 2017-11-17
-Eol: 2018-11-20
-Latest: 2.9.2
-Latestreleasedate: 2018-11-20
-Lts: False</description></item><item><title>EoL: Apache Kafka - Cycle 2.0</title><link>https://endoflife.date/apache-kafka</link><pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate><description>Cycle: 2.0
+Support: 2018-11-26</description></item><item><title>EoL: Apache Kafka - Cycle 2.0</title><link>https://endoflife.date/apache-kafka</link><pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate><description>Cycle: 2.0
 Releasedate: 2018-07-28
 Eol: 2018-11-20
 Link: https://archive.apache.org/dist/kafka/__LATEST__/RELEASE_NOTES.html
 Latest: 2.0.1
 Latestreleasedate: 2018-11-08
 Lts: False
-Extendedsupport: 2020-07-31</description></item><item><title>EoL: Telegraf - Cycle 1.7</title><link>https://endoflife.date/telegraf</link><pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate><description>Cycle: 1.7
+Extendedsupport: 2020-07-31</description></item><item><title>EoL: Apache Hadoop - Cycle 2.9</title><link>https://endoflife.date/apache-hadoop</link><pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate><description>Cycle: 2.9
+Releasedate: 2017-11-17
+Eol: 2018-11-20
+Latest: 2.9.2
+Latestreleasedate: 2018-11-20
+Lts: False</description></item><item><title>EoL: Telegraf - Cycle 1.7</title><link>https://endoflife.date/telegraf</link><pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate><description>Cycle: 1.7
 Releasedate: 2018-06-12
 Eol: 2018-11-20
 Latest: 1.7.4
@@ -33129,17 +33129,17 @@ Releasedate: 2006-11-08
 Eol: 2016-12-14
 Discontinued: True
 Lts: False
-Support: 2016-04-01</description></item><item><title>EoL: Icinga Web - Cycle 2.3</title><link>https://endoflife.date/icinga-web</link><pubDate>Tue, 13 Dec 2016 00:00:00 +0000</pubDate><description>Cycle: 2.3
-Releasedate: 2016-04-13
-Eol: 2016-12-13
-Latest: 2.3.4
-Latestreleasedate: 2016-06-23
-Lts: False
-Support: 2016-12-13</description></item><item><title>EoL: Icinga - Cycle 2.5</title><link>https://endoflife.date/icinga</link><pubDate>Tue, 13 Dec 2016 00:00:00 +0000</pubDate><description>Cycle: 2.5
+Support: 2016-04-01</description></item><item><title>EoL: Icinga - Cycle 2.5</title><link>https://endoflife.date/icinga</link><pubDate>Tue, 13 Dec 2016 00:00:00 +0000</pubDate><description>Cycle: 2.5
 Releasedate: 2016-08-22
 Eol: 2016-12-13
 Latest: 2.5.4
 Latestreleasedate: 2016-08-30
+Lts: False
+Support: 2016-12-13</description></item><item><title>EoL: Icinga Web - Cycle 2.3</title><link>https://endoflife.date/icinga-web</link><pubDate>Tue, 13 Dec 2016 00:00:00 +0000</pubDate><description>Cycle: 2.3
+Releasedate: 2016-04-13
+Eol: 2016-12-13
+Latest: 2.3.4
+Latestreleasedate: 2016-06-23
 Lts: False
 Support: 2016-12-13</description></item><item><title>EoL: WordPress - Cycle 4.6</title><link>https://endoflife.date/wordpress</link><pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate><description>Cycle: 4.6
 Supportedphpversions: 5.2 - 7.0
@@ -33834,17 +33834,17 @@ Releasedate: 2014-09-11
 Eol: 2015-11-19
 Latest: 2.5.2
 Latestreleasedate: 2014-11-20
-Lts: False</description></item><item><title>EoL: Icinga Web - Cycle 2.0</title><link>https://endoflife.date/icinga-web</link><pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate><description>Cycle: 2.0
-Releasedate: 2015-10-02
-Eol: 2015-11-16
-Latest: 2.0.0
-Latestreleasedate: 2015-10-02
-Lts: False
-Support: 2015-11-16</description></item><item><title>EoL: Icinga - Cycle 2.3</title><link>https://endoflife.date/icinga</link><pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate><description>Cycle: 2.3
+Lts: False</description></item><item><title>EoL: Icinga - Cycle 2.3</title><link>https://endoflife.date/icinga</link><pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate><description>Cycle: 2.3
 Releasedate: 2015-03-09
 Eol: 2015-11-16
 Latest: 2.3.11
 Latestreleasedate: 2015-10-19
+Lts: False
+Support: 2015-11-16</description></item><item><title>EoL: Icinga Web - Cycle 2.0</title><link>https://endoflife.date/icinga-web</link><pubDate>Mon, 16 Nov 2015 00:00:00 +0000</pubDate><description>Cycle: 2.0
+Releasedate: 2015-10-02
+Eol: 2015-11-16
+Latest: 2.0.0
+Latestreleasedate: 2015-10-02
 Lts: False
 Support: 2015-11-16</description></item><item><title>EoL: NetBSD - Cycle 5</title><link>https://endoflife.date/netbsd</link><pubDate>Wed, 11 Nov 2015 00:00:00 +0000</pubDate><description>Cycle: 5
 Releasedate: 2009-04-29
@@ -34412,12 +34412,6 @@ Releasedate: 2014-09-01
 Eol: 2015-01-09
 Latest: 1.10.2
 Latestreleasedate: 2014-12-11
-Lts: False</description></item><item><title>EoL: FFmpeg - Cycle 2.3</title><link>https://endoflife.date/ffmpeg</link><pubDate>Tue, 06 Jan 2015 00:00:00 +0000</pubDate><description>Cycle: 2.3
-Codename: Mandelbrot
-Releasedate: 2014-07-16
-Eol: 2015-01-06
-Latest: 2.3.6
-Latestreleasedate: 2015-01-06
 Lts: False</description></item><item><title>EoL: Fedora Linux - Cycle 19</title><link>https://endoflife.date/fedora-linux</link><pubDate>Tue, 06 Jan 2015 00:00:00 +0000</pubDate><description>Cycle: 19
 Releaselabel: __RELEASE_CYCLE__ (__CODENAME__)
 Codename: Schrödinger's Cat
@@ -34426,6 +34420,12 @@ Eol: 2015-01-06
 Latest: 19
 Latestreleasedate: 2013-07-02
 Link: https://docs.fedoraproject.org/en-US/releases/f19/
+Lts: False</description></item><item><title>EoL: FFmpeg - Cycle 2.3</title><link>https://endoflife.date/ffmpeg</link><pubDate>Tue, 06 Jan 2015 00:00:00 +0000</pubDate><description>Cycle: 2.3
+Codename: Mandelbrot
+Releasedate: 2014-07-16
+Eol: 2015-01-06
+Latest: 2.3.6
+Latestreleasedate: 2015-01-06
 Lts: False</description></item><item><title>EoL: phpMyAdmin - Cycle 4.1</title><link>https://endoflife.date/phpmyadmin</link><pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate><description>Cycle: 4.1
 Releasedate: 2013-12-11
 Eol: 2015-01-01
@@ -35882,14 +35882,7 @@ Releaselabel: __RELEASE_CYCLE__
 Releasedate: 2008-12-18
 Eol: 2011-01-14
 Link: https://www.suse.com/releasenotes/x86_64/openSUSE/11.1/index.html
-Lts: False</description></item><item><title>EoL: Microsoft Exchange - Cycle 2000</title><link>https://endoflife.date/microsoft-exchange</link><pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate><description>Cycle: 2000
-Releaselabel: 2000 SP3
-Releasedate: 2000-11-29
-Eol: 2011-01-11
-Latest: 6.0.6620.7
-Latestreleasedate: 2008-08-01
-Lts: False
-Support: 2005-12-31</description></item><item><title>EoL: Microsoft SQL Server - Cycle 7.0-sp4</title><link>https://endoflife.date/microsoft-sql-server</link><pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate><description>Cycle: 7.0-sp4
+Lts: False</description></item><item><title>EoL: Microsoft SQL Server - Cycle 7.0-sp4</title><link>https://endoflife.date/microsoft-sql-server</link><pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate><description>Cycle: 7.0-sp4
 Codename: Sphinx
 Releaselabel: 7.0 SP4
 Releasedate: 2002-04-26
@@ -35899,7 +35892,14 @@ Latestreleasedate: 2012-05-09
 Link: https://support.microsoft.com/help/941203
 Lts: False
 Support: 2005-12-31
-Extendedsupport: False</description></item><item><title>EoL: PHP - Cycle 5.2</title><link>https://endoflife.date/php</link><pubDate>Thu, 06 Jan 2011 00:00:00 +0000</pubDate><description>Cycle: 5.2
+Extendedsupport: False</description></item><item><title>EoL: Microsoft Exchange - Cycle 2000</title><link>https://endoflife.date/microsoft-exchange</link><pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate><description>Cycle: 2000
+Releaselabel: 2000 SP3
+Releasedate: 2000-11-29
+Eol: 2011-01-11
+Latest: 6.0.6620.7
+Latestreleasedate: 2008-08-01
+Lts: False
+Support: 2005-12-31</description></item><item><title>EoL: PHP - Cycle 5.2</title><link>https://endoflife.date/php</link><pubDate>Thu, 06 Jan 2011 00:00:00 +0000</pubDate><description>Cycle: 5.2
 Releasedate: 2006-11-02
 Eol: 2011-01-06
 Latest: 5.2.17
