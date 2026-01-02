@@ -1,5 +1,104 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0565</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0565</link><pubDate>Fri, 02 Jan 2026 14:02:07 +0000</pubDate><description>W systemie zarządzania treścią 1.0 wykryto słabość.Ten problem dotyczy nieznanego przetwarzania pliku /admin/delete.php.Wykonanie manipulacji argumentem del może prowadzić do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-53596</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53596</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-54165</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-54165</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono lukę w zabezpieczeniach umożliwiającą odczyt poza granicami, występującą w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu uzyskania tajnych danych.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-54166</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-54166</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono lukę w zabezpieczeniach umożliwiającą odczyt poza granicami, występującą w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu uzyskania tajnych danych.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-53589</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53589</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-53592</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53592</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto użytkownika, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-57705</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-57705</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że alokacja zasobów bez ograniczeń lub luka w zabezpieczeniach wpływa na kilka wersji systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę, aby uniemożliwić innym systemom, aplikacjom lub procesom dostęp do tego samego typu zasobów.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-52872</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52872</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach związana z przepełnieniem bufora występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto użytkownika, może wykorzystać tę lukę w celu modyfikacji pamięci lub procesów powodujących awarię.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.0.3192, kompilacja 20250716 i nowsze</description></item><item><title>CVE-2025-53591</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53591</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że wykorzystanie luki w zabezpieczeniach ciągu formatu kontrolowanego zewnętrznie wpływa na kilka wersji systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu uzyskania tajnych danych lub zmodyfikowania pamięci.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-62857</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-62857</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że QuMagie ma lukę w zabezpieczeniach typu cross-site scripting (XSS).Zdalni atakujący mogą następnie wykorzystać tę lukę, aby ominąć mechanizmy bezpieczeństwa lub odczytać dane aplikacji.
+
+Naprawiliśmy już lukę w następującej wersji:
+QuMagie 2.8.1 i nowsze wersje</description></item><item><title>CVE-2025-54164</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-54164</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono lukę w zabezpieczeniach umożliwiającą odczyt poza granicami, występującą w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu uzyskania tajnych danych.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-65125</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65125</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Wstrzyknięcie SQL do gosaliajainam/online-movie-booking 5.5 w movie_details.php umożliwia atakującym zdobycie poufnych informacji.</description></item><item><title>CVE-2025-52864</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52864</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach związana z przepełnieniem bufora występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto użytkownika, może wykorzystać tę lukę w celu modyfikacji pamięci lub procesów powodujących awarię.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.0.3192, kompilacja 20250716 i nowsze</description></item><item><title>CVE-2025-53590</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53590</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następującej wersji:
+QTS 5.2.7.3256, wersja 20250913 i nowsze</description></item><item><title>CVE-2025-53593</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53593</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach związana z przepełnieniem bufora występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu modyfikacji pamięci lub procesów powodujących awarię.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-53414</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53414</link><pubDate>Fri, 02 Jan 2026 15:30:31 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-53405</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53405</link><pubDate>Fri, 02 Jan 2026 15:30:30 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-52431</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52431</link><pubDate>Fri, 02 Jan 2026 15:30:30 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-52430</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52430</link><pubDate>Fri, 02 Jan 2026 15:30:30 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-52426</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52426</link><pubDate>Fri, 02 Jan 2026 15:30:30 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto administratora, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.1.3250, kompilacja 20250912 i nowsze</description></item><item><title>CVE-2025-52863</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52863</link><pubDate>Fri, 02 Jan 2026 15:30:30 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach związana z przepełnieniem bufora występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto użytkownika, może wykorzystać tę lukę w celu modyfikacji pamięci lub procesów powodujących awarię.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.7.3256, wersja 20250913 i nowsze
+QuTS hero h5.2.7.3256, kompilacja 20250913 i nowsze
+QuTS hero h5.3.0.3192, kompilacja 20250716 i nowsze</description></item><item><title>CVE-2025-47208</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47208</link><pubDate>Fri, 02 Jan 2026 15:30:29 +0000</pubDate><description>Zgłoszono, że alokacja zasobów bez ograniczeń lub luka w zabezpieczeniach wpływa na kilka wersji systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto użytkownika, może wykorzystać tę lukę, aby uniemożliwić innym systemom, aplikacjom lub procesom dostęp do tego samego typu zasobów.
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.6.3195, wersja 20250715 i nowsze
+QuTS hero h5.2.6.3195, kompilacja 20250715 i nowsze</description></item><item><title>CVE-2025-45286</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-45286</link><pubDate>Fri, 02 Jan 2026 15:30:29 +0000</pubDate><description>Luka w zabezpieczeniach typu cross-site scripting (XSS) w mccutchen httpbin v2.17.1 umożliwia atakującym wykonywanie dowolnych skryptów internetowych lub kodu HTML za pośrednictwem spreparowanego ładunku.</description></item><item><title>CVE-2025-15438</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15438</link><pubDate>Fri, 02 Jan 2026 15:30:29 +0000</pubDate><description>W PluXml do wersji 5.8.22 stwierdzono podatność.Dotknięta jest funkcja FileCookieJar::__destruct w pliku core/admin/medias.php w komponencie Media Management Module.Wykonywanie manipulacji argumentem Plik może prowadzić do deserializacji.Atak może zostać przeprowadzony zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.Dostawca został wcześnie poinformowany o tym problemie i ogłosił, że „naprawimy ten problem w następnej wersji 5.8.23”.Łatka na to jest gotowa.</description></item><item><title>CVE-2025-44013</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-44013</link><pubDate>Fri, 02 Jan 2026 15:30:29 +0000</pubDate><description>Zgłoszono, że luka w zabezpieczeniach umożliwiająca wyłuskanie wskaźnika NULL występuje w kilku wersjach systemu operacyjnego QNAP.Jeśli osoba atakująca zdalnie zdobędzie konto użytkownika, może wykorzystać tę lukę w celu przeprowadzenia ataku typu „odmowa usługi” (DoS).
+
+Naprawiliśmy już lukę w następujących wersjach:
+QTS 5.2.6.3195, wersja 20250715 i nowsze
+QuTS hero h5.2.6.3195, kompilacja 20250715 i nowsze</description></item><item><title>CVE-2024-55374</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-55374</link><pubDate>Fri, 02 Jan 2026 15:30:28 +0000</pubDate><description>REDCap 14.3.13 umożliwia atakującemu wyliczenie nazw użytkowników ze względu na zauważalną rozbieżność między próbami logowania.</description></item><item><title>CVE-2026-0565</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0565</link><pubDate>Fri, 02 Jan 2026 14:02:07 +0000</pubDate><description>W systemie zarządzania treścią 1.0 wykryto słabość.Ten problem dotyczy nieznanego przetwarzania pliku /admin/delete.php.Wykonanie manipulacji argumentem del może prowadzić do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-0547</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0547</link><pubDate>Fri, 02 Jan 2026 09:32:07 +0000</pubDate><description>W PHPGurukul Online Course Registration do wersji 3.1 została odkryta luka.Ten problem dotyczy nieznanego przetwarzania pliku /admin/edit-student-profile.php komponentu Strona rejestracji ucznia.Manipulowanie zdjęciem argumentacyjnym powoduje nieograniczone przesyłanie.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.
 
