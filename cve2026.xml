@@ -1,5 +1,285 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0587</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0587</link><pubDate>Mon, 05 Jan 2026 11:02:05 +0000</pubDate><description>W Xinhu Rainrock RockOA do wersji 2.7.1 wykryto lukę w zabezpieczeniach.Dotknięta jest nieznana funkcja w pliku rock_page_gong.php w komponencie Cover Image Handler.Manipulacja argumentem fengmian powoduje występowanie skryptów krzyżowych.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0588</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0588</link><pubDate>Mon, 05 Jan 2026 12:30:31 +0000</pubDate><description>W Xinhu Rainrock RockOA do wersji 2.7.1 wykryto słabość.Podatnością dotknięta jest nieznana funkcja w pliku rockfun.php komponentu API.Ta manipulacja wywołaniem zwrotnym argumentu powoduje wykonywanie skryptów krzyżowych.Atak może zostać zainicjowany zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.</description></item><item><title>CVE-2026-0585</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0585</link><pubDate>Mon, 05 Jan 2026 12:30:30 +0000</pubDate><description>W code-projects Online Product Reservation System 1.0 wykryto lukę w zabezpieczeniach.Problemem dotknięta jest nieznana funkcja pliku /order_view.php w komponencie GET Parameter Handler.Taka manipulacja argumentem identyfikator_transakcji prowadzi do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.</description></item><item><title>CVE-2026-0584</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0584</link><pubDate>Mon, 05 Jan 2026 12:30:30 +0000</pubDate><description>W code-projects Online Product Reservation System 1.0 wykryto słabość.Ten problem dotyczy nieznanego przetwarzania pliku app/products/left_cart.php.Ta manipulacja identyfikatorem argumentu powoduje wstrzyknięcie sql.Możliwe jest zdalne wykorzystanie ataku.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.</description></item><item><title>CVE-2025-68758</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68758</link><pubDate>Mon, 05 Jan 2026 12:30:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+podświetlenie: led-bl: Dodaj link dev do diod LED dostawcy
+
+Podświetlenie LED to odbiornik jednego lub wielu urządzeń klasy LED, ale
+devlink nie jest obecnie w stanie utworzyć poprawnych powiązań dostawca-producent, gdy
+dostawca to urządzenie klasowe.Zamiast tego tworzy łącze, w którym
+dostawca jest rodzicem oczekiwanego urządzenia.
+
+Jedną z konsekwencji jest to, że nakaz wydalenia nie jest prawidłowo egzekwowany.
+
+Problemy występują na przykład w następujących sekcjach drzewa urządzeń
+nakładka:
+
+// Układ sterownika LED
+pca9632@62 {
+kompatybilny = "nxp,pca9632";
+rej = b;
+
+// ...
+
+addon_led_pwm: led-pwm@3 {
+reg = &lt;3&gt;;
+etykieta = "dodatek:led:pwm";
+};
+};
+
+dodatek do podświetlenia {
+kompatybilny = "podświetlenie LED";
+diody = &lt;&amp;addon_led_pwm&gt;;
+poziomy jasności = &lt;255&gt;;
+domyślny poziom jasności = &lt;255&gt;;
+};
+
+W tym przykładzie łącze dev powinno zostać utworzone pomiędzy dodatkiem podświetlającym
+(konsument) i pca9632@62 (dostawca).Zamiast tego jest tworzony pomiędzy
+backlight-addon (konsument) i element nadrzędny pca9632@62, czyli
+zazwyczaj adapter magistrali I2C.
+
+Po zdjęciu powyższej nakładki sterownik LED można usunąć przed
+urządzenie podświetlające, w wyniku czego:
+
+Nie można obsłużyć wyłuskiwania wskaźnika NULL jądra pod adresem wirtualnym 0000000000000010
+...
+Śledzenie połączeń:
+led_put+0xe0/0x140
+devm_led_release+0x6c/0x98
+
+Innym sposobem odtworzenia błędu bez nakładek na drzewo urządzeń jest
+odłączenie urządzenia klasy LED (pca9632@62) przed odłączeniem odbiornika
+(dodatek do podświetlenia):
+
+echo 11-0062 &gt;/sys/bus/i2c/drivers/leds-pca963x/unbind
+echo ...backlight-dock &gt;/sys/bus/platforma/drivers/led-backlight/unbind
+
+Napraw, dodając łącze dev pomiędzy zużywającym urządzenie podświetleniem LED a
+zasilanie urządzenia LED, podobnie jak inne sterowniki i podsystemy.</description></item><item><title>CVE-2025-68765</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68765</link><pubDate>Mon, 05 Jan 2026 12:30:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+mt76: mt7615: Napraw wyciek pamięci w mt7615_mcu_wtbl_sta_add()
+
+W mt7615_mcu_wtbl_sta_add() przydzielany jest skb sskb.Jeśli
+kolejne wywołanie mt76_connac_mcu_alloc_wtbl_req() kończy się niepowodzeniem, funkcja
+zwraca błąd bez zwalniania sskb, co prowadzi do wycieku pamięci.
+
+Napraw to, wywołując funkcję dev_kfree_skb() na sskb w ścieżce obsługi błędów
+aby mieć pewność, że zostanie prawidłowo zwolniony.</description></item><item><title>CVE-2025-68757</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68757</link><pubDate>Mon, 05 Jan 2026 12:30:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/vgem-fence: Napraw potencjalny zakleszczenie po wydaniu
+
+Licznik czasu, który automatycznie wygasa ogrodzenie vgem za 10 sekund, jest teraz
+zwolniony za pomocą timer_delete_sync() z ogrodzenia-&gt;ops.release() wywołanego jako ostatni
+dma_fence_put().W niektórych scenariuszach może działać w kontekście IRQ, tj
+nie jest bezpieczny, chyba że zostanie użyty TIMER_IRQSAFE.Jednym z potencjalnie ryzykownych scenariuszy był
+zademonstrowano w trybie Intel DRM CI, BAT działa na maszynie bat-adlp-6, podczas gdy
+pracuje nad nowymi podtestami IGT syncobj_timeline@stress-* jako przestrzenią użytkownika
+zastąpienie niektórych problematycznych przypadków testowych autotestem łańcucha dma-fence
+[1].
+
+[117.004338] ================================
+[117.004340] OSTRZEŻENIE: niespójny stan blokady
+[117.004342] 6.17.0-rc7-CI_DRM_17270-g7644974e648c+ #1 Tainted: G S U
+[117.004346] --------------------------------
+[117.004347] niespójne użycie {HARDIRQ-ON-W} -&gt; {IN-HARDIRQ-W}.
+[117.004349] swaper/0/0 [HC1[1]:SC1[1]:HE0:SE0] pobiera:
+[117.004352] ffff888138f86aa8 ((&amp;fence-&gt;timer)){?.-.}-{0:0}, o: __timer_delete_sync+0x4b/0x190
+[117.004361] Stan {HARDIRQ-ON-W} został zarejestrowany pod adresem:
+[117.004363] lock_acquire+0xc4/0x2e0
+[117.004366] timer_połączenia_fn+0x80/0x2a0
+[117.004368] __run_timers+0x231/0x310
+[117.004370] run_timer_softirq+0x76/0xe0
+[117.004372] handle_softirqs+0xd4/0x4d0
+[117.004375] __irq_exit_rcu+0x13f/0x160
+[117.004377] irq_exit_rcu+0xe/0x20
+[117.004379] sysvec_apic_timer_interrupt+0xa0/0xc0
+[117.004382] asm_sysvec_apic_timer_interrupt+0x1b/0x20
+[117.004385] cpuidle_enter_state+0x12b/0x8a0
+[117.004388] cpuidle_enter+0x2e/0x50
+[117.004393] call_cpuidle+0x22/0x60
+[117.004395] do_idle+0x1fd/0x260
+[117.004398] cpu_startup_entry+0x29/0x30
+[117.004401] start_wtórny+0x12d/0x160
+[117.004404] common_startup_64+0x13e/0x141
+[117.004407] Znaczek zdarzenia IRQ: 2282669
+[117.004409] Hardirqs ostatnio włączony o (2282668): [&lt;ffffffff8289db71&gt;] _raw_spin_unlock_irqrestore+0x51/0x80
+[117.004414] Hardirqs ostatnio wyłączony o (2282669): [&lt;ffffffff82882021&gt;] sysvec_irq_work+0x11/0xc0
+[117.004419] Softirqs ostatnio włączony o (2254702): [&lt;ffffffff8289fd00&gt;] __do_softirq+0x10/0x18
+[117.004423] Softirqs ostatnio wyłączony o (2254725): [&lt;ffffffff813d4ddf&gt;] __irq_exit_rcu+0x13f/0x160
+[117.004426]
+inne informacje, które mogą nam pomóc w rozwiązaniu problemu:
+[117.004429] Możliwy scenariusz niebezpiecznego blokowania:
+[117.004432] Procesor0
+[117.004433] ----
+[117.004434] blokada((&amp;ogrodzenie-&gt;timer));
+[117.004436] &lt;Przerwanie&gt;
+[117.004438] blokada((&amp;ogrodzenie-&gt;timer));
+[117.004440]
+*** ZAMKNIĘCIE ***
+[117.004443] 1 zamek trzymany przez swappera/0/0:
+[117.004445] #0: ffffc90000003d50 ((&amp;fence-&gt;timer)){?.-.}-{0:0}, pod adresem: call_timer_fn+0x7a/0x2a0
+[117.004450]
+ślad stosu:
+[117.004453] Procesor: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G S U 6.17.0-rc7-CI_DRM_17270-g7644974e648c+ #1 PREEMPT (dobrowolne)
+[117.004455] Zanieczyszczony: [S]=CPU_OUT_OF_SPEC, [U]=USER
+[117.004455] Nazwa sprzętu: Intel Corporation Alder Lake Client Platform/AlderLake-P DDR4 RVP, BIOS RPLPFWI1.R00.4035.A00.2301200723 20.01.2023
+[117.004456] Śledzenie połączenia:
+[117.004456] &lt;IRQ&gt;
+[117.004457] dump_stack_lvl+0x91/0xf0
+[117.004460] stos_zrzutu+0x10/0x20
+[117.004461] print_usage_bug.part.0+0x260/0x360
+[117.004463] mark_lock+0x76e/0x9c0
+[117.004465] ?zarejestruj_lock_class+0x48/0x4a0
+[117.004467] __lock_acquire+0xbc3/0x2860
+[117.004469] blokada_nabycia+0xc4/0x2e0
+[117.004470] ?__timer_delete_sync+0x4b/0x190
+[117.004472] ?__timer_delete_sync+0x4b/0x190
+[117.004473] __timer_delete_sync+0x68/0x190
+[117.004474] ?__timer_delete_sync+0x4b/0x190
+[117.004475] timer_delete_sync+0x10/0x20
+[117.004476] vgem_fence_release+0x19/0x30 [vgem]
+[117.004478] dma_fence_release+0xc1/0x3b0
+[117.004480] ?dma_fence_release+0xa1/0x3b0
+[117.004481] dma_fence_chain_release+0xe7/0x130
+[117.004483] dma_fence_release+0xc1/0x3b0
+[117.004484] ?_raw_spin_unlock_irqrestore+0x27/0x80
+[117.004485] dma_fence_chain_irq_work+0x59/0x80
+[117.004487] irq_work_single+0x75/0xa0
+[117.004490] irq_work_r
+---obcięty---</description></item><item><title>CVE-2025-68766</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68766</link><pubDate>Mon, 05 Jan 2026 12:30:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+irqchip/mchp-eic: Napraw kod błędu w mchp_eic_domain_alloc()
+
+Jeśli irq_domain_translate_twocell() ustawia „hwirq” na &gt;= MCHP_EIC_NIRQ (2), to
+skutkuje to dostępem poza granicami.
+
+Kod sprawdza nieprawidłowe wartości, ale nie ustawia kodu błędu.Wróć
+-EINVAL w takim przypadku, zamiast zwracać sukces.</description></item><item><title>CVE-2025-68761</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68761</link><pubDate>Mon, 05 Jan 2026 12:30:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+hfs: napraw potencjalne użycie po zwolnieniu w hfs_correct_next_unused_CNID()
+
+Ten kod wywołuje funkcję hfs_bnode_put(node), która usuwa przeliczenie, a następnie
+dreferences „węzeł” w następnej linii.Bezpieczne jest tylko używanie „węzła”
+kiedy trzymamy odniesienie, odwróć te dwie linie.</description></item><item><title>CVE-2025-68762</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68762</link><pubDate>Mon, 05 Jan 2026 12:30:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: netpoll: zainicjuj kolejkę roboczą przed sprawdzeniem błędów
+
+Zapobiegaj ostrzeżeniom jądra, gdy konfiguracja konsoli sieciowej nie powiedzie się na urządzeniach z
+Flaga IFF_DISABLE_NETPOLL.Ostrzeżenie (w kernel/workqueue.c:4242 in
+__flush_work) występuje, ponieważ ścieżka czyszczenia próbuje anulować
+niezainicjowana kolejka robocza.
+
+Kiedy __netpoll_setup() napotka urządzenie z IFF_DISABLE_NETPOLL,
+wcześnie kończy się niepowodzeniem i wywołuje funkcję skb_pool_flush() w celu oczyszczenia.Ta funkcja
+wywołuje cancel_work_sync(&amp;np-&gt;refill_wq), ale refill_wq nie został
+jeszcze zainicjowany, wywołując ostrzeżenie.
+
+Przenieś INIT_WORK() na początek __netpoll_setup(), upewniając się, że
+kolejka robocza jest prawidłowo zainicjowana przed potencjalnymi punktami awarii.
+Dzięki temu ścieżka czyszczenia może bezpiecznie anulować kolejkę roboczą
+miejsca, w którym konfiguracja się nie powiedzie.</description></item><item><title>CVE-2025-68764</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68764</link><pubDate>Mon, 05 Jan 2026 12:30:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+NFS: Systemy plików montowane automatycznie powinny dziedziczyć flagi ro,noexec,nodev,sync
+
+Kiedy system plików jest automatycznie montowany, musi zachować plik
+ustawiane przez użytkownika opcje montażu superblokowego, takie jak flaga „ro”.</description></item><item><title>CVE-2025-68759</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68759</link><pubDate>Mon, 05 Jan 2026 12:30:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+Wi-Fi: rtl818x: Napraw potencjalne wycieki pamięci w rtl8180_init_rx_ring()
+
+W rtl8180_init_rx_ring() pamięć jest przydzielana dla pakietów skb i DMA
+alokacje w pętli.Gdy alokacja nie powiedzie się, poprzednio
+pomyślne alokacje nie są zwalniane przy wyjściu.
+
+Napraw to, przeskakując do etykiety err_free_rings w przypadku błędu, który wywołuje
+rtl8180_free_rx_ring(), aby zwolnić przydziały.Usuń bezpłatne
+rx_ring w ścieżce błędu rtl8180_init_rx_ring() i ustaw zwolnioną
+priv-&gt;rx_buf na null, aby uniknąć podwójnego zwolnienia.</description></item><item><title>CVE-2025-68756</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68756</link><pubDate>Mon, 05 Jan 2026 12:30:28 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+blok: Użyj RCU w blk_mq_[un]quiesce_tagset() zamiast set-&gt;tag_list_lock
+
+Funkcje blk_mq_{add,del}_queue_tag_set() dodają i usuwają kolejki z
+tagset, funkcje zapewniają, że zestaw tagów i kolejki zostaną oznaczone jako
+współużytkowane, gdy do tego samego zestawu tagów są dołączone dwie lub więcej kolejek.
+Początkowo zestaw tagów zaczyna się jako nieudostępniony, a po dodaniu większej liczby
+kolejki osiąga dwa, blk_mq_add_queue_tag_set() oznacza ją jako współdzieloną
+ze wszystkimi związanymi z nim kolejkami.Gdy liczba dołączonych kolejek
+spada do 1 blk_mq_del_queue_tag_set() należy zaznaczyć zarówno zestaw znaczników, jak i
+pozostałe kolejki jako niewspółdzielone.
+
+Obie funkcje muszą zamrozić bieżące kolejki w zestawie tagów przed włączeniem
+rozbrojenie flagi BLK_MQ_F_TAG_QUEUE_SHARED.W tym czasie obie funkcje
+przytrzymaj set-&gt;tag_list_lock mutex, co ma sens, ponieważ nie chcemy
+kolejki do dodania lub usunięcia w procesie.To działało dobrze
+do zatwierdzenia 98d81f0df70c („nvme: użyj blk_mq_[un]quiesce_tagset”)
+sprawił, że sterownik nvme wyciszył zestaw tagów zamiast wygaszać poszczególne jednostki
+kolejki.blk_mq_quiesce_tagset() wykonuje to zadanie i wycisza kolejki
+set-&gt;tag_list, przytrzymując również set-&gt;tag_list_lock.
+
+Powoduje to zakleszczenie między dwoma wątkami z następującymi śladami stosu:
+
+__harmonogram+0x47c/0xbb0
+?timerqueue_add+0x66/0xb0
+harmonogram+0x1c/0xa0
+harmonogram_preempt_disabled+0xa/0x10
+__mutex_lock.constprop.0+0x271/0x600
+blk_mq_quiesce_tagset+0x25/0xc0
+nvme_dev_disable+0x9c/0x250
+nvme_timeout+0x1fc/0x520
+blk_mq_handle_expired+0x5c/0x90
+bt_iter+0x7e/0x90
+blk_mq_queue_tag_busy_iter+0x27e/0x550
+?__blk_mq_complete_request_remote+0x10/0x10
+?__blk_mq_complete_request_remote+0x10/0x10
+?__call_rcu_common.constprop.0+0x1c0/0x210
+blk_mq_timeout_work+0x12d/0x170
+proces_one_work+0x12e/0x2d0
+wątek_pracownika+0x288/0x3a0
+?wątek_ratownika+0x480/0x480
+kwątek+0xb8/0xe0
+?kthread_park+0x80/0x80
+ret_from_fork+0x2d/0x50
+?kthread_park+0x80/0x80
+ret_from_fork_asm+0x11/0x20
+
+__harmonogram+0x47c/0xbb0
+?xas_find+0x161/0x1a0
+harmonogram+0x1c/0xa0
+blk_mq_freeze_queue_wait+0x3d/0x70
+?zniszcz_sched_domains_rcu+0x30/0x30
+blk_mq_update_tag_set_shared+0x44/0x80
+blk_mq_exit_queue+0x141/0x150
+del_gendisk+0x25a/0x2d0
+nvme_ns_remove+0xc9/0x170
+nvme_remove_namespaces+0xc7/0x100
+nvme_remove+0x62/0x150
+pci_device_remove+0x23/0x60
+urządzenie_release_driver_internal+0x159/0x200
+unbind_store+0x99/0xa0
+kernfs_fop_write_iter+0x112/0x1e0
+vfs_write+0x2b1/0x3d0
+ksys_write+0x4e/0xb0
+do_syscall_64+0x5b/0x160
+wpis_SYSCALL_64_after_hwframe+0x4b/0x53
+
+Górny ślad stosu pokazuje funkcję nvme_timeout() wywołaną do obsługi nvme
+przekroczenie limitu czasu polecenia.procedura obsługi limitu czasu próbuje wyłączyć kontroler i
+pierwszym krokiem musi być blk_mq_quiesce_tagset(), aby poinformować blk-mq, że nie
+aby wywołać procedury obsługi wywołań zwrotnych kolejki.Wątek utknął w oczekiwaniu
+set-&gt;tag_list_lock, gdy próbuje przejść przez kolejki w set-&gt;tag_list.
+
+Zamek jest przytrzymywany przez drugi gwint w dolnym stosie tj
+oczekiwanie na zamrożenie jednej z kolejek.Licznik wykorzystania kolejki będzie
+spadnie do zera po zakończeniu nvme_timeout() i tak się nie stanie
+ponieważ wątek będzie czekał na ten mutex na zawsze.
+
+Biorąc pod uwagę, że [wygaszanie] kolejki jest operacją, która nie musi tego robić
+śpij, zaktualizuj blk_mq_[un]quiesce_tagset(), aby używać RCU zamiast brać
+set-&gt;tag_list_lock, zaktualizuj blk_mq_{add,del}_queue_tag_set(), aby używać RCU
+bezpieczne operacje na listach.Usuń także INIT_LIST_HEAD(&amp;q-&gt;tag_set_list)
+w blk_mq_del_queue_tag_set(), ponieważ nie możemy go ponownie zainicjować podczas
+lista jest przeglądana w ramach RCU.Usunięta kolejka nie będzie
+dodano/usunięto do/z zestawu tagów i zostanie on zwolniony w blk_free_queue()
+po zakończeniu okresu karencji RCU.</description></item><item><title>CVE-2026-0587</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0587</link><pubDate>Mon, 05 Jan 2026 11:02:05 +0000</pubDate><description>W Xinhu Rainrock RockOA do wersji 2.7.1 wykryto lukę w zabezpieczeniach.Dotknięta jest nieznana funkcja w pliku rock_page_gong.php w komponencie Cover Image Handler.Manipulacja argumentem fengmian powoduje występowanie skryptów krzyżowych.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
 CVSS Score: 3.5 (low)</description></item><item><title>CVE-2025-68865</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68865</link><pubDate>Mon, 05 Jan 2026 10:44:34 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja elementów specjalnych używanych w poleceniu SQL („Wstrzyknięcie SQL”) w Infility Infility Global umożliwia wstrzyknięcie SQL. Ten problem dotyczy Infility Global: od n/a do 2.14.48.
 
