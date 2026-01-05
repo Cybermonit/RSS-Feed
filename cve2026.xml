@@ -1,5 +1,64 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-15462</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15462</link><pubDate>Mon, 05 Jan 2026 07:02:06 +0000</pubDate><description>W UTT 进取 520W 1.7.7-180627 została odkryta podatność.Ten problem dotyczy funkcji strcpy pliku /goform/ConfigAdvideo.Manipulacja argumentem timestart prowadzi do przepełnienia bufora.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-15239</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15239</link><pubDate>Mon, 05 Jan 2026 08:10:56 +0000</pubDate><description>Platforma QOCA AI Medical Cloud Platform opracowana przez Quanta Computer zawiera lukę w zabezpieczeniach SQL Injection, umożliwiającą uwierzytelnionym zdalnym atakującym wstrzykiwanie dowolnych poleceń SQL w celu odczytania zawartości bazy danych.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-0581</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0581</link><pubDate>Mon, 05 Jan 2026 08:02:08 +0000</pubDate><description>W Tenda AC1206 15.03.06.23 stwierdzono podatność.Problemem dotknięta jest funkcja formBehaviorManager w pliku /goform/BehaviorManager w komponencie httpd.Wykonanie manipulacji argumentem nazwa modułu/opcja/dane/przełącznik może prowadzić do wstrzyknięcia polecenia.Atak może zostać przeprowadzony zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2025-15238</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15238</link><pubDate>Mon, 05 Jan 2026 08:00:09 +0000</pubDate><description>Platforma QOCA AI Medical Cloud Platform opracowana przez Quanta Computer zawiera lukę w zabezpieczeniach SQL Injection, umożliwiającą uwierzytelnionym zdalnym atakującym wstrzykiwanie dowolnych poleceń SQL w celu odczytania zawartości bazy danych.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2025-15022</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15022</link><pubDate>Mon, 05 Jan 2026 07:52:56 +0000</pubDate><description>Napisy akcji w Vaadin domyślnie akceptują HTML, ale nie zostały oczyszczone, co potencjalnie umożliwia tworzenie skryptów między witrynami (XSS), jeśli treść podpisów pochodzi z danych wprowadzonych przez użytkownika.
+
+W Vaadin Framework 7 i 8 klasa Action jest klasą ogólnego przeznaczenia, która może być używana przez wiele komponentów.Naprawione wersje domyślnie oczyszczają podpisy i udostępniają interfejs API umożliwiający jawne włączenie trybu zawartości HTML w celu zapewnienia kompatybilności wstecznej.
+
+W wersji Vaadin 23 i nowszych klasa Action jest używana tylko przez komponent Arkusz kalkulacyjny.Naprawione wersje oczyszczają HTML za pomocą Jsoup ze zrelaksowaną listą bezpiecznych plików.
+
+Nie ma to wpływu na Vaadin 14, ponieważ komponent arkusza kalkulacyjnego nie był obsługiwany.
+
+Użytkownicy wersji, których dotyczy problem, powinni zastosować następujące środki zaradcze lub uaktualnienie.Wersje, w których rozwiązano ten problem, obejmują:
+
+Wersja produktu
+Vaadin 7.0.0 - 7.7.49
+Vaadin 8.0.0 - 8.29.1
+Vaadin 23.1.0 - 23.6.5
+Vaadin 24.0.0 - 24.8.13
+Vaadin 24.9.0 - 24.9.6
+
+Łagodzenie
+Uaktualnij do wersji 7.7.50
+Uaktualnij do wersji 8.30.0
+Uaktualnij do wersji 23.6.6
+Uaktualnij do wersji 24.8.14 lub 24.9.7
+Uaktualnij do wersji 25.0.0 lub nowszej
+
+Artefakty     Współrzędne Mavena Wersje podatne na atakiNaprawiono wersjęcom.vaadin:vaadin-server
+7.0.0 - 7.7.49
+≥7,7,50
+com.vaadin:vaadin-server
+8.0.0 - 8.29.1
+≥8,30,0
+com.vaadin:vaadin
+23.1.0 - 23.6.5
+≥23.6.6
+com.vaadin:vaadin24.0.0 - 24.8.13
+≥24.8.14
+com.vaadin:vaadin24.9.0 - 24.9.6
+≥24,9,7
+com.vaadin:vaadin-przepływ arkusza kalkulacyjnego
+23.1.0 - 23.6.5
+≥23.6.6
+com.vaadin:vaadin-przepływ arkusza kalkulacyjnego
+24.0.0 - 24.8.13
+≥24.8.14
+com.vaadin:vaadin-przepływ arkusza kalkulacyjnego
+24.9.0 - 24.9.6
+≥24,9,7</description></item><item><title>CVE-2025-15237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15237</link><pubDate>Mon, 05 Jan 2026 07:42:58 +0000</pubDate><description>Platforma QOCA AI Medical Cloud Platform opracowana przez Quanta Computer zawiera lukę w zabezpieczeniach Path Traversal, umożliwiającą uwierzytelnionym zdalnym atakującym odczytanie nazw folderów pod określoną ścieżką poprzez wykorzystanie luki w zabezpieczeniach Absolute Path Traversal.
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2025-15236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15236</link><pubDate>Mon, 05 Jan 2026 07:38:01 +0000</pubDate><description>Platforma QOCA AI Medical Cloud Platform opracowana przez Quanta Computer zawiera lukę w zabezpieczeniach Path Traversal, umożliwiającą uwierzytelnionym zdalnym atakującym odczytanie nazw folderów pod określoną ścieżką poprzez wykorzystanie luki w zabezpieczeniach Absolute Path Traversal.
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-0580</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0580</link><pubDate>Mon, 05 Jan 2026 07:32:06 +0000</pubDate><description>W aplikacji SourceCodester API Key Manager App 1.0 została odkryta luka.Podatnością dotknięta jest nieznana funkcja w komponencie Import Key Handler.Wykonanie manipulacji skutkuje wykonaniem skryptów krzyżowych.Atak może zostać zainicjowany zdalnie.
+
+CVSS Score: 3.5 (low)</description></item><item><title>CVE-2025-15235</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15235</link><pubDate>Mon, 05 Jan 2026 07:25:33 +0000</pubDate><description>Platforma QOCA AI Medical Cloud Platform opracowana przez Quanta Computer zawiera lukę w zabezpieczeniach dotyczącą braku autoryzacji, umożliwiającą uwierzytelnionym zdalnym atakującym modyfikowanie określonych parametrów pakietów sieciowych, umożliwiając określonym funkcjom systemu dostęp do plików innych użytkowników.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2025-15462</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15462</link><pubDate>Mon, 05 Jan 2026 07:02:06 +0000</pubDate><description>W UTT 进取 520W 1.7.7-180627 została odkryta podatność.Ten problem dotyczy funkcji strcpy pliku /goform/ConfigAdvideo.Manipulacja argumentem timestart prowadzi do przepełnienia bufora.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2025-15461</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15461</link><pubDate>Mon, 05 Jan 2026 06:32:06 +0000</pubDate><description>Znaleziono wadę w UTT 进取 520W 1.7.7-180627.Podatnością dotknięta jest funkcja strcpy pliku /goform/formTaskEdit.Manipulacja argumentem selDateType może prowadzić do przepełnienia bufora.Atak może zostać przeprowadzony zdalnie.Exploit został opublikowany i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
