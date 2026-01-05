@@ -1,5 +1,52 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0591</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0591</link><pubDate>Mon, 05 Jan 2026 13:02:06 +0000</pubDate><description>W code-projects Online Product Reservation System 1.0 została zidentyfikowana luka.Elementem, którego dotyczy problem, jest nieznana funkcja pliku /app/checkout/update.php w komponencie Cart Update Handler.Taka manipulacja argumentem id/qty prowadzi do wstrzyknięcia sql.Istnieje możliwość zdalnego przeprowadzenia ataku.Exploit jest publicznie dostępny i może zostać wykorzystany.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-12511</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-12511</link><pubDate>Mon, 05 Jan 2026 14:05:52 +0000</pubDate><description>Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) Luka w zabezpieczeniach Centreon Infra Monitoring (moduły konfiguracyjne DSM extenstio) umożliwia przechowywanie XSS
+
+dla użytkownika z podwyższonymi uprawnieniami.
+
+Problem ten dotyczy Infra Monitoringu: od 25.10.0 do 25.10.1, od 24.10.0 do 24.10.4, od 24.04.0 do 24.04.8.
+
+CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2025-68280</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68280</link><pubDate>Mon, 05 Jan 2026 13:45:21 +0000</pubDate><description>Niewłaściwe ograniczenie luki w zabezpieczeniach XML Internal Entity Reference w Apache SIS.
+
+
+
+Możliwe jest zapisanie plików XML w taki sposób, że po przeanalizowaniu przez Apache SIS plik XML ujawnił atakującemu zawartość pliku lokalnego na serwerze, na którym działa Apache SIS.Luka ta dotyczy następujących usług SIS:
+
+
+
+
+* Odczyt plików GeoTIFF posiadających znacznik GEO_METADATA zdefiniowany przez Grupę Roboczą ds. Informacji Geoprzestrzennej Obrony (DGIWG).
+
+* Analiza metadanych ISO 19115 w formacie XML.
+
+* Analiza systemów odniesienia za pomocą współrzędnych zdefiniowanych w formacie GML.
+
+* Analizowanie plików w formacie GPS Exchange (GPX).
+
+
+
+
+
+Ten problem dotyczy Apache SIS od wersji 0.4 do 1.5 włącznie.Użytkownikom zaleca się aktualizację do wersji 1.6, która rozwiąże problem.W międzyczasie luki w zabezpieczeniach można uniknąć, uruchamiając Javę z ustawioną właściwością systemową javax.xml.accessExternalDTD na listę autoryzowanych protokołów rozdzielonych przecinkami.Na przykład:
+
+
+
+java -Djavax.xml.accessExternalDTD="" ...</description></item><item><title>CVE-2025-12513</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-12513</link><pubDate>Mon, 05 Jan 2026 13:43:42 +0000</pubDate><description>Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Skrypty między witrynami”). Luka w zabezpieczeniach Centreon Infra Monitoring (moduły formularzy konfiguracji hostów) umożliwia przechowywanie XSS użytkownikom z wysokimi uprawnieniami.
+
+Problem dotyczy Infra Monitoringu: od 25.10.0 do 25.10.2, od 24.10.0 do 24.10.15, od 24.04.0 do 24.04.19.
+
+CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2024-23511</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-23511</link><pubDate>Mon, 05 Jan 2026 13:33:57 +0000</pubDate><description>Luka w zabezpieczeniach programu POSIMYTH dotycząca nieprawidłowej neutralizacji danych wejściowych podczas generowania strony internetowej (XSS lub „skrypty między witrynami”) w programie POSIMYTH Dodatki Plus dla Elementor Page Builder Lite umożliwiają XSS oparty na DOM. Ten problem dotyczy dodatków Plus dla Elementor Page Builder Lite: od nie dotyczy do 5.3.3.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2023-52212</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-52212</link><pubDate>Mon, 05 Jan 2026 13:32:30 +0000</pubDate><description>Luka w zabezpieczeniach typu Cross-Site Request Forgery (CSRF) w Automattic WP Job Manager umożliwia fałszowanie żądań między witrynami. Ten problem dotyczy WP Job Manager: od n/a do 2.0.0.
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-0592</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0592</link><pubDate>Mon, 05 Jan 2026 13:32:06 +0000</pubDate><description>W code-projects Online Product Reservation System 1.0 wykryto lukę w zabezpieczeniach.Wpływa to na nieznaną funkcję pliku /handgunner-administrator/register_code.php komponentu User Registration Handler.Manipulacja argumentem nazwa/nazwa/adres/miasto/prowincja/kraj/zip/nr_tel./e-mail/nazwa użytkownika powoduje wstrzyknięcie sql.Atak może zostać zainicjowany zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2023-51513</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-51513</link><pubDate>Mon, 05 Jan 2026 13:30:44 +0000</pubDate><description>Luka w INTINITUM FORM Geo Controller podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) podczas generowania strony internetowej pozwala na użycie XSS opartego na DOM. Ten problem dotyczy Geo Controller: od n/a do 8.5.2.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2023-50897</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-50897</link><pubDate>Mon, 05 Jan 2026 13:29:13 +0000</pubDate><description>Nieograniczone przesyłanie plików z luką w zabezpieczeniach typu niebezpiecznego w aplikacji Meow Apps Media File Renamer umożliwia używanie złośliwych plików. Ten problem dotyczy narzędzia Media File Renamer: od n/a do 5.7.7.
+
+CVSS Score: 9.1 (critical)</description></item><item><title>CVE-2023-49186</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-49186</link><pubDate>Mon, 05 Jan 2026 13:27:52 +0000</pubDate><description>Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) Luka w KlbTheme Machic Core umożliwia XSS oparty na DOM. Ten problem dotyczy Machic Core: od n/a do 1.2.6.
+
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2026-0591</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0591</link><pubDate>Mon, 05 Jan 2026 13:02:06 +0000</pubDate><description>W code-projects Online Product Reservation System 1.0 została zidentyfikowana luka.Elementem, którego dotyczy problem, jest nieznana funkcja pliku /app/checkout/update.php w komponencie Cart Update Handler.Taka manipulacja argumentem id/qty prowadzi do wstrzyknięcia sql.Istnieje możliwość zdalnego przeprowadzenia ataku.Exploit jest publicznie dostępny i może zostać wykorzystany.
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-0590</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0590</link><pubDate>Mon, 05 Jan 2026 12:32:06 +0000</pubDate><description>W code-projects Online Product Reservation System 1.0 wykryto lukę.Elementem, którego dotyczy problem, jest nieznana funkcja w pliku /app/checkout/delete.php w komponencie POST Parameter Handler.Ta manipulacja identyfikatorem argumentu powoduje wstrzyknięcie sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.
 
