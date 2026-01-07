@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0649</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0649</link><pubDate>Wed, 07 Jan 2026 00:32:07 +0000</pubDate><description>W fakturowaniu do wersji 5.12.38 wykryto lukę w zabezpieczeniach.Elementem, którego to dotyczy, jest kopia funkcyjna pliku /app/Jobs/Util/Import.php komponentu Migration Import.Manipulacja argumentem Company_logo prowadzi do sfałszowania żądań po stronie serwera.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został ujawniony publicznie i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-14631</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14631</link><pubDate>Wed, 07 Jan 2026 01:04:26 +0000</pubDate><description>Luka w zabezpieczeniach typu NULL Pointer Dereference w TP-Link Archer BE400 V1 (moduły 802.11) umożliwia
+
+sąsiadującego atakującego, aby spowodować odmowę usługi (DoS) poprzez uruchomienie ponownego uruchomienia urządzenia.
+
+Ten problem dotyczy Archera BE400: xi 1.1.0 Build 20250710 rel.14914.</description></item><item><title>CVE-2026-0649</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0649</link><pubDate>Wed, 07 Jan 2026 00:32:07 +0000</pubDate><description>W fakturowaniu do wersji 5.12.38 wykryto lukę w zabezpieczeniach.Elementem, którego to dotyczy, jest kopia funkcyjna pliku /app/Jobs/Util/Import.php komponentu Migration Import.Manipulacja argumentem Company_logo prowadzi do sfałszowania żądań po stronie serwera.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został ujawniony publicznie i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
 CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2024-14020</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-14020</link><pubDate>Wed, 07 Jan 2026 00:02:07 +0000</pubDate><description>Stwierdzono słabość w carboneio carbone aż do fbcd349077ad0e8748be73eab2a82ea92b6f8a7e.Ma to wpływ na nieznaną funkcję pliku lib/input.js komponentu Formatter Handler.Wykonanie manipulacji może prowadzić do niewłaściwie kontrolowanej modyfikacji atrybutów prototypu obiektu.Atak może zostać przeprowadzony zdalnie.Atak ten charakteryzuje się dużą złożonością.Mówi się, że eksploatacja jest trudna.Aktualizacja do wersji 3.5.6 rozwiąże ten problem.Ta poprawka nazywa się 04f9feb24bfca23567706392f9ad2c53bbe4134e.Należy zaktualizować komponent, którego dotyczy problem.Pomyślne wykorzystanie może „wystąpić tylko wtedy, gdy nadrzędna aplikacja NodeJS ma ten sam problem z bezpieczeństwem”.
 
@@ -84,6 +88,18 @@ CVSS Score: 6.7 (medium)</description></item><item><title>CVE-2025-14612</title>
 Instalator (SFX)
 
 w systemie Windows umożliwia: Używanie przewidywalnych nazw plików. Ten problem dotyczy Quartus Prime Pro: od 24.1 do 25.1.1.
+
+CVSS Score: 6.7 (medium)</description></item><item><title>CVE-2025-14605</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14605</link><pubDate>Tue, 06 Jan 2026 21:15:56 +0000</pubDate><description>Luka w zabezpieczeniach elementu niekontrolowanej ścieżki wyszukiwania w Altera Quartus Prime Pro w systemie Windows (moduły konsoli systemowej) umożliwia przejęcie kontroli nad kolejnością wyszukiwania. Ten problem dotyczy Quartus Prime Pro: od 17.0 do 25.1.1.
+
+CVSS Score: 6.7 (medium)</description></item><item><title>CVE-2025-31642</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-31642</link><pubDate>Tue, 06 Jan 2026 21:14:52 +0000</pubDate><description>Luka w zabezpieczeniach Dasinfomedia WPCHURCH dotycząca nieprawidłowej neutralizacji danych wejściowych podczas generowania strony internetowej („skrypty między witrynami”) w Dasinfomedia umożliwia odbicie XSS. Ten problem dotyczy WPCHURCH: od n/a do 2.7.0.
+
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2025-31051</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-31051</link><pubDate>Tue, 06 Jan 2026 21:13:02 +0000</pubDate><description>Narażenie poufnych informacji o systemie na nieautoryzowaną lukę w sferze kontrolnej w EngoTheme Motyw WordPress dla roślin - ogrodnictwa i roślin doniczkowych umożliwia odzyskanie osadzonych poufnych danych. Ten problem dotyczy motywu WordPress dla roślin - ogrodnictwa i roślin doniczkowych: od n/a do 1.0.0.
+
+CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-14596</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14596</link><pubDate>Tue, 06 Jan 2026 21:06:19 +0000</pubDate><description>Luka w zabezpieczeniach elementu niekontrolowanej ścieżki wyszukiwania w Altera Quartus Prime Pro
+
+Instalator (SFX)
+
+w systemie Windows umożliwia przejmowanie poleceń wyszukiwania. Ten problem dotyczy Quartus Prime Pro: od 24.1 do 24.3.1.
 
 CVSS Score: 6.7 (medium)</description></item><item><title>CVE-2025-30996</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-30996</link><pubDate>Tue, 06 Jan 2026 20:56:29 +0000</pubDate><description>Nieograniczone przesyłanie plików z luką typu niebezpiecznego w Themify Themify Sidepane WordPress Theme, Themify Themify Newsy, Themify Themify Folo, Themify Themify Edmin, Themify Bloggie, Themify Photobox, Themify Wigi, Themify Rezo, Themify Slide umożliwia przesłanie powłoki internetowej na serwer sieciowy. Ten problem dotyczy motywu WordPress Themify Sidepane: od nie dotyczy do1.9.8;Themify Newsy: od n/a do 1.9.9;Themify Folo: od nie dotyczy do 1.9.6;Themify Edmin: od n/a do 2.0.0;Bloggie: od nie dotyczy do 2.0.8;Photobox: od n/a do 2.0.1;Wigi: od n/a do 2.0.1;Rezo: od nie dotyczy do 1.9.7;Slajd: od n/a do 1.7.5.
 
