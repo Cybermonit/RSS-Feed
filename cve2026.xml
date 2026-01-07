@@ -1,5 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-13722</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13722</link><pubDate>Wed, 07 Jan 2026 09:21:06 +0000</pubDate><description>Wtyczka Fluent Forms – konfigurowalne formularze kontaktowe, ankiety, quizy i narzędzie do tworzenia formularzy konwersacyjnych dla WordPress jest podatna na brakującą autoryzację we wszystkich wersjach aż do 6.1.7 włącznie.Jest to spowodowane brakiem kontroli możliwości akcji AJAX `fluentform_ai_create_form`.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą tworzyć dowolne formularze za pośrednictwem publicznie dostępnego narzędzia do tworzenia sztucznej inteligencji.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-68637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68637</link><pubDate>Wed, 07 Jan 2026 09:39:04 +0000</pubDate><description>Klient HTTP Uniffle jest skonfigurowany tak, aby ufał wszystkim certyfikatom SSL i
+
+domyślnie wyłącza weryfikację nazwy hosta.Ta niebezpieczna konfiguracja
+udostępnia całą komunikację API REST pomiędzy interfejsem CLI/klientem Uniffle a platformą
+Usługa koordynatora Uniffle dotycząca potencjalnych ataków typu Man-in-the-Middle (MITM).
+
+
+Ten problem dotyczy wszystkich wersji sprzed 0.10.0.
+
+Użytkownikom zaleca się aktualizację do wersji 0.10.0, która rozwiązuje problem.</description></item><item><title>CVE-2025-13722</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13722</link><pubDate>Wed, 07 Jan 2026 09:21:06 +0000</pubDate><description>Wtyczka Fluent Forms – konfigurowalne formularze kontaktowe, ankiety, quizy i narzędzie do tworzenia formularzy konwersacyjnych dla WordPress jest podatna na brakującą autoryzację we wszystkich wersjach aż do 6.1.7 włącznie.Jest to spowodowane brakiem kontroli możliwości akcji AJAX `fluentform_ai_create_form`.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą tworzyć dowolne formularze za pośrednictwem publicznie dostępnego narzędzia do tworzenia sztucznej inteligencji.
 
 CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-14057</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14057</link><pubDate>Wed, 07 Jan 2026 09:21:06 +0000</pubDate><description>Wtyczka wielokolumnowej mapy tagów dla WordPressa jest podatna na przechowywane skrypty między witrynami poprzez ustawienia administratora we wszystkich wersjach do 17.0.39 włącznie z powodu niewystarczającego oczyszczenia danych wejściowych i ucieczki danych wyjściowych.Dzięki temu uwierzytelnieni atakujący z uprawnieniami na poziomie administratora i wyższym mogą wstrzykiwać dowolne skrypty internetowe na stronach, które będą wykonywane za każdym razem, gdy użytkownik uzyska dostęp do wstrzykniętej strony.Dotyczy to tylko instalacji w wielu lokalizacjach i instalacji, w których wyłączona została opcja unfiltered_html.
 
