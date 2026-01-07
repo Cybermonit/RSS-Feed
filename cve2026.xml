@@ -1,5 +1,26 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-21689</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21689</link><pubDate>Wed, 07 Jan 2026 21:46:12 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach typu Type Confusion w `CIccProfileXml::ParseBasic()` w `IccXML/IccLibXML/IccProfileXml.cpp`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-21857</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21857</link><pubDate>Wed, 07 Jan 2026 22:32:15 +0000</pubDate><description>REDAXO to system zarządzania treścią oparty na języku PHP.Przed wersją 5.20.2 uwierzytelnieni użytkownicy z uprawnieniami do tworzenia kopii zapasowych mogą czytać dowolne pliki w katalogu internetowym poprzez przechodzenie ścieżek w funkcji eksportu plików dodatku Backup.Dodatek Backup nie sprawdza parametru POST `EXPDIR` w porównaniu z wygenerowaną przez interfejs użytkownika listą dozwolonych dozwolonych katalogów.Osoba atakująca może podać ścieżki względne zawierające sekwencje `../` (lub nawet ścieżki bezwzględne w katalogu głównym dokumentu), aby uwzględnić dowolny czytelny plik w wygenerowanym archiwum `.tar.gz`.Wersja 5.20.2 rozwiązuje ten problem.</description></item><item><title>CVE-2025-69262</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69262</link><pubDate>Wed, 07 Jan 2026 22:30:07 +0000</pubDate><description>pnpm jest menedżerem pakietów.Wersje od 6.25.0 do 10.26.2 mają lukę w zabezpieczeniach związaną z iniekcją poleceń podczas korzystania z podstawienia zmiennych środowiskowych w plikach konfiguracyjnych .npmrc z ustawieniami tokenHelper.Osoba atakująca, która może kontrolować zmienne środowiskowe podczas operacji pnpm, może osiągnąć zdalne wykonanie kodu (RCE) w środowiskach kompilacji.Ten problem został rozwiązany w wersji 10.27.0.
+
+CVSS Score: 7.6 (high)</description></item><item><title>CVE-2026-21697</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21697</link><pubDate>Wed, 07 Jan 2026 22:29:57 +0000</pubDate><description>axios4go to biblioteka klienta Go HTTP.Przed wersją 0.6.4 w udostępnionej konfiguracji klienta HTTP występowała luka w zabezpieczeniach związana z sytuacją wyścigu.Globalny `defaultClient` ulega mutacji podczas wykonywania żądania bez synchronizacji, bezpośrednio modyfikując właściwości `Transport`, `Timeout` i `CheckRedirect` udostępnionego `http.Client`.Do aplikacji, których dotyczy problem, należą aplikacje korzystające z axios4go z równoczesnymi żądaniami (wiele procedur goroutine, `GetAsync`, `PostAsync` itp.), te, w których różne żądania korzystają z różnych konfiguracji proxy, oraz te, które obsługują wrażliwe dane (dane uwierzytelniające, tokeny, klucze API).Wersja 0.6.4 rozwiązuje ten problem.</description></item><item><title>CVE-2026-22047</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22047</link><pubDate>Wed, 07 Jan 2026 22:05:49 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach związaną z przepełnieniem bufora sterty w `SIccCalcOp::Describe()` w `IccProfLib/IccMpeCalc.cpp`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2025-12776</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-12776</link><pubDate>Wed, 07 Jan 2026 22:03:05 +0000</pubDate><description>Komponent Report Builder aplikacji przechowuje dane wprowadzone przez użytkownika bezpośrednio na stronie internetowej i wyświetla je innym użytkownikom, co wzbudziło obawy dotyczące możliwego ataku Cross-Site Scripting (XSS).Właściwe zarządzanie tą funkcjonalnością pomaga zapewnić bezpieczeństwo i bezproblemową obsługę użytkownika.Chociaż dane wejściowe użytkownika nie są sprawdzane podczas tworzenia raportu, skrypty te nie są wykonywane, gdy raport jest uruchamiany przez użytkowników końcowych.Skrypt jest wykonywany, gdy raport zostanie zmodyfikowany za pomocą narzędzia do tworzenia raportów przez użytkownika z uprawnieniami do edycji.
+
+
+
+
+Kreator raportów jest częścią konsoli internetowej.Pakiet WebConsole dobiegł już końca i nie jest już obsługiwany.Zdecydowanie odradzamy instalowanie lub używanie go w jakimkolwiek środowisku produkcyjnym.Jeśli jednak zdecydujesz się go zainstalować, na przykład w celu uzyskania dostępu do funkcji takich jak Konstruktor raportów, należy go wdrożyć w całkowicie izolowanej sieci, która nie ma dostępu do wrażliwych danych ani połączenia z Internetem.Jest to krytyczny środek ostrożności, ponieważ wycofany pakiet może zawierać niezałatane luki w zabezpieczeniach i nie jest już obsługiwany w postaci aktualizacji ani poprawek.</description></item><item><title>CVE-2026-22046</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22046</link><pubDate>Wed, 07 Jan 2026 22:02:58 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach związaną z przepełnieniem bufora sterty w `CIccProfileXml::ParseBasic()` w `IccXML/IccLibXML/IccProfileXml.cpp`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21693</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21693</link><pubDate>Wed, 07 Jan 2026 21:58:57 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach typu Type Confusion w `CIccSegmentedCurveXml::ToXml()` w `IccXML/IccLibXML/IccMpeXml.cpp`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21692</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21692</link><pubDate>Wed, 07 Jan 2026 21:56:40 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach związaną z pomieszaniem typów w `ToXmlCurve()` w `IccXML/IccLibXML/IccMpeXml.cpp`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2025-69264</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69264</link><pubDate>Wed, 07 Jan 2026 21:53:09 +0000</pubDate><description>pnpm jest menedżerem pakietów.Wersje od 10.0.0 do 10.25 umożliwiają zależnościom hostowanym przez git wykonanie dowolnego kodu podczas instalacji pnpm, omijając funkcję zabezpieczeń v10 „Domyślnie wykonywanie skryptów cyklu życia zależności jest wyłączone”.Chociaż pnpm v10 blokuje skrypty poinstalacyjne za pośrednictwem mechanizmu onlyBuiltDependency, zależności git mogą nadal wykonywać skrypty przygotowujące, publikujące wstępnie i pakujące w fazie pobierania, umożliwiając zdalne wykonanie kodu bez zgody i zatwierdzenia użytkownika.Ten problem został rozwiązany w wersji 10.26.0.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21691</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21691</link><pubDate>Wed, 07 Jan 2026 21:53:02 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach typu Confusion w `CIccTag:IsTypeCompressed()`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-21690</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21690</link><pubDate>Wed, 07 Jan 2026 21:50:25 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach typu Confusion w `CIccTagXmlTagData::ToXml()`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-21689</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21689</link><pubDate>Wed, 07 Jan 2026 21:46:12 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach typu Type Confusion w `CIccProfileXml::ParseBasic()` w `IccXML/IccLibXML/IccProfileXml.cpp`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
 
 CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-21688</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21688</link><pubDate>Wed, 07 Jan 2026 21:43:06 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach związaną z pomyleniem typów w `SIccCalcOp::ArgsPushed()` w `IccProfLib/IccMpeCalc.cpp`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
 
@@ -13,7 +34,12 @@ CVSS Score: 7.1 (high)</description></item><item><title>CVE-2026-21685</title><l
 
 CVSS Score: 7.1 (high)</description></item><item><title>CVE-2026-21684</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21684</link><pubDate>Wed, 07 Jan 2026 21:18:31 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają niezdefiniowane zachowanie w `CIccTagSpectralViewingConditions()`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
 
-CVSS Score: 7.1 (high)</description></item><item><title>CVE-2025-68705</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68705</link><pubDate>Wed, 07 Jan 2026 20:31:44 +0000</pubDate><description>RustFS to rozproszony system przechowywania obiektów zbudowany w Rust.W wersjach od 1.0.0-alpha.13 do 1.0.0-alpha.78 RustFS zawiera lukę w zabezpieczeniach umożliwiającą przechodzenie ścieżki w punkcie końcowym /rustfs/rpc/read_file_stream.Ten problem został załatany w wersji 1.0.0-alpha.79.</description></item><item><title>CVE-2026-22187</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22187</link><pubDate>Wed, 07 Jan 2026 20:27:06 +0000</pubDate><description>Wersje Bio-Formats do 8.3.0 włącznie wykonują niebezpieczną deserializację Java kontrolowanych przez atakującego plików pamięci podręcznej zapamiętywania (.bfmemo) podczas przetwarzania obrazu.Klasa loci.formats.Memoizer automatycznie ładuje i deserializuje pliki notatek powiązane z obrazami bez sprawdzania poprawności, sprawdzania integralności ani wymuszania zaufania.Osoba atakująca, która może dostarczyć spreparowany plik .bfmemo wraz z obrazem, może wywołać deserializację niezaufanych danych, co może skutkować odmową usługi, manipulacją logiką lub potencjalnie zdalnym wykonaniem kodu w środowiskach, w których w ścieżce klas znajdują się odpowiednie łańcuchy gadżetów.</description></item><item><title>CVE-2026-22186</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22186</link><pubDate>Wed, 07 Jan 2026 20:26:48 +0000</pubDate><description>Wersje Bio-Formats do 8.3.0 włącznie zawierają lukę w zabezpieczeniach XML external Entity (XXE) w komponencie analizowania metadanych Leica Microsystems (np. XLEF).Parser korzysta z niebezpiecznie skonfigurowanej fabryki DocumentBuilderFactory podczas przetwarzania plików metadanych Leica opartych na formacie XML, umożliwiając zewnętrzną ekspansję jednostek i zewnętrzne ładowanie DTD.Stworzony plik metadanych może wyzwalać wychodzące żądania sieciowe (SSRF), uzyskiwać dostęp do lokalnych zasobów systemu, jeśli są one czytelne, lub powodować odmowę usługi podczas analizowania XML.</description></item><item><title>CVE-2026-22185</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22185</link><pubDate>Wed, 07 Jan 2026 20:26:30 +0000</pubDate><description>Baza danych mapowana na pamięć OpenLDAP Lightning (LMDB) mdb_load zawiera lukę w zabezpieczeniach związaną z niedopełnieniem buforu sterty w funkcji readline().Podczas przetwarzania zniekształconych danych wejściowych obliczenie przesunięcia bez znaku może przekroczyć wskaźnik sterty, co skutkuje odczytem poza granicami jednego bajtu przed przydzielonym buforem sterty.Może to pozwolić lokalnemu atakującemu spowodować odmowę usługi i potencjalnie ujawnić ograniczoną zawartość pamięci sterty.</description></item><item><title>CVE-2026-22188</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22188</link><pubDate>Wed, 07 Jan 2026 20:26:13 +0000</pubDate><description>Wersje Panda3D do 1.10.16 włącznie zawierają lukę w zabezpieczeniach umożliwiającą odmowę usługi z powodu nieograniczonej alokacji stosu.Plik wykonywalny wdrażania-stub przydziela argv_copy i argv_copy2 za pomocą funkcji alloca() w oparciu bezpośrednio o wartość argc kontrolowaną przez osobę atakującą bez sprawdzania poprawności.Podanie dużej liczby argumentów wiersza poleceń może wyczerpać miejsce na stosie i propagować niezainicjowaną pamięć stosu do inicjalizacji interpretera Pythona, co skutkuje niezawodnym zawieszeniem i niezdefiniowanym zachowaniem.</description></item><item><title>CVE-2026-22190</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22190</link><pubDate>Wed, 07 Jan 2026 20:25:56 +0000</pubDate><description>Wersje Panda3D do 1.10.16 Egg-mkfont włącznie zawierają lukę w zabezpieczeniach ciągu niekontrolowanego formatu.Opcja wiersza poleceń -gp (wzorzec glifów) jest używana bezpośrednio jako ciąg formatujący dla sprintf() z podanym tylko jednym argumentem.Jeśli osoba atakująca udostępni dodatkowe specyfikatory formatu, Egg-mkfont może odczytać niezamierzone wartości stosu i zapisać sformatowane dane wyjściowe w wygenerowanych plikach .egg i .png, co spowoduje ujawnienie pamięci rezydentnej stosu i wartości wskaźników.</description></item><item><title>CVE-2026-22189</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22189</link><pubDate>Wed, 07 Jan 2026 20:25:37 +0000</pubDate><description>Wersje Panda3D do 1.10.16 włącznie Egg-mkfont zawierają lukę w zabezpieczeniach związaną z przepełnieniem bufora stosu w wyniku użycia nieograniczonego wywołania sprintf() z danymi wejściowymi kontrolowanymi przez osobę atakującą.Podczas konstruowania nazw plików glifów jajko-mkfont formatuje dostarczony przez użytkownika wzorzec glifów (-gp) do bufora stosu o stałym rozmiarze bez sprawdzania długości.Podanie zbyt długiego łańcucha wzorców glifów może przepełnić bufor stosu, powodując uszkodzenie pamięci i awarię deterministyczną.W zależności od konfiguracji kompilacji i środowiska wykonawczego przepełnienie może również zostać wykorzystane do wykonania dowolnego kodu.</description></item><item><title>CVE-2026-22184</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22184</link><pubDate>Wed, 07 Jan 2026 20:25:19 +0000</pubDate><description>Wersje zlib do wersji 1.3.1.2 włącznie zawierają globalne przepełnienie bufora w narzędziu untgz.Funkcja TGZfname() kopiuje dostarczoną przez atakującego nazwę archiwum z argv[] do statycznego globalnego bufora o stałym rozmiarze 1024 bajtów przy użyciu nieograniczonego wywołania strcpy() bez sprawdzania długości.Podanie nazwy archiwum dłuższej niż 1024 bajty powoduje zapis poza dopuszczalnym zakresem, który może prowadzić do uszkodzenia pamięci, odmowy usługi i potencjalnie wykonania kodu w zależności od kompilatora, flag kompilacji, architektury i układu pamięci.Przepełnienie występuje przed analizą lub walidacją archiwum.</description></item><item><title>CVE-2025-66620</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66620</link><pubDate>Wed, 07 Jan 2026 20:08:33 +0000</pubDate><description>Nieużywana powłoka internetowa w MicroServer umożliwia nieograniczoną liczbę prób logowania, z uprawnieniami sudo do niektórych plików i katalogów.Osoba atakująca z dostępem administracyjnym do MicroServer może uzyskać ograniczony dostęp do powłoki, umożliwiając trwałość poprzez odwrotne powłoki oraz możliwość modyfikowania lub usuwania danych przechowywanych w systemie plików.
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2025-69222</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69222</link><pubDate>Wed, 07 Jan 2026 21:17:17 +0000</pubDate><description>LibreChat to klon ChatGPT z dodatkowymi funkcjami.Wersja 0.8.1-rc2 jest podatna na fałszowanie żądań po stronie serwera (SSRF)
+luka wynikająca z braku ograniczeń funkcji Akcje w konfiguracji domyślnej.LibreChat umożliwia użytkownikom konfigurowanie agentów za pomocą predefiniowanych instrukcji i działań, które mogą wchodzić w interakcję z usługami zdalnymi za pośrednictwem specyfikacji OpenAPI, obsługując różne metody, parametry i metody uwierzytelniania HTTP, w tym niestandardowe nagłówki.Domyślnie nie ma żadnych ograniczeń dotyczących dostępnych usług, co oznacza, że ​​agenci mogą również uzyskiwać dostęp do komponentów wewnętrznych, takich jak interfejs API RAG zawarty w domyślnej konfiguracji Docker Compose.Ten problem został rozwiązany w wersji 0.8.1-rc2.
+
+CVSS Score: 9.1 (critical)</description></item><item><title>CVE-2025-13151</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13151</link><pubDate>Wed, 07 Jan 2026 21:14:05 +0000</pubDate><description>Przepełnienie bufora oparte na stosie w wersji libtasn1: v4.20.0.Funkcja nie sprawdza rozmiaru danych wejściowych, co powoduje przepełnienie bufora w asn1_expend_octet_string.</description></item><item><title>CVE-2026-21683</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21683</link><pubDate>Wed, 07 Jan 2026 21:12:45 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami International Color Consortium (ICC).Wersje wcześniejsze niż 2.3.1.2 mają lukę w zabezpieczeniach typu Confusion w `icStatusCMM::CIccEvalCompare::EvaluateProfile()`.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Wersja 2.3.1.2 zawiera łatkę.Nie są dostępne żadne znane obejścia.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2025-68705</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68705</link><pubDate>Wed, 07 Jan 2026 20:31:44 +0000</pubDate><description>RustFS to rozproszony system przechowywania obiektów zbudowany w Rust.W wersjach od 1.0.0-alpha.13 do 1.0.0-alpha.78 RustFS zawiera lukę w zabezpieczeniach umożliwiającą przechodzenie ścieżki w punkcie końcowym /rustfs/rpc/read_file_stream.Ten problem został załatany w wersji 1.0.0-alpha.79.</description></item><item><title>CVE-2026-22187</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22187</link><pubDate>Wed, 07 Jan 2026 20:27:06 +0000</pubDate><description>Wersje Bio-Formats do 8.3.0 włącznie wykonują niebezpieczną deserializację Java kontrolowanych przez atakującego plików pamięci podręcznej zapamiętywania (.bfmemo) podczas przetwarzania obrazu.Klasa loci.formats.Memoizer automatycznie ładuje i deserializuje pliki notatek powiązane z obrazami bez sprawdzania poprawności, sprawdzania integralności ani wymuszania zaufania.Osoba atakująca, która może dostarczyć spreparowany plik .bfmemo wraz z obrazem, może wywołać deserializację niezaufanych danych, co może skutkować odmową usługi, manipulacją logiką lub potencjalnie zdalnym wykonaniem kodu w środowiskach, w których w ścieżce klas znajdują się odpowiednie łańcuchy gadżetów.</description></item><item><title>CVE-2026-22186</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22186</link><pubDate>Wed, 07 Jan 2026 20:26:48 +0000</pubDate><description>Wersje Bio-Formats do 8.3.0 włącznie zawierają lukę w zabezpieczeniach XML external Entity (XXE) w komponencie analizowania metadanych Leica Microsystems (np. XLEF).Parser korzysta z niebezpiecznie skonfigurowanej fabryki DocumentBuilderFactory podczas przetwarzania plików metadanych Leica opartych na formacie XML, umożliwiając zewnętrzną ekspansję jednostek i zewnętrzne ładowanie DTD.Stworzony plik metadanych może wyzwalać wychodzące żądania sieciowe (SSRF), uzyskiwać dostęp do lokalnych zasobów systemu, jeśli są one czytelne, lub powodować odmowę usługi podczas analizowania XML.</description></item><item><title>CVE-2026-22185</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22185</link><pubDate>Wed, 07 Jan 2026 20:26:30 +0000</pubDate><description>Baza danych mapowana na pamięć OpenLDAP Lightning (LMDB) mdb_load zawiera lukę w zabezpieczeniach związaną z niedopełnieniem buforu sterty w funkcji readline().Podczas przetwarzania zniekształconych danych wejściowych obliczenie przesunięcia bez znaku może przekroczyć wskaźnik sterty, co skutkuje odczytem poza granicami jednego bajtu przed przydzielonym buforem sterty.Może to pozwolić lokalnemu atakującemu spowodować odmowę usługi i potencjalnie ujawnić ograniczoną zawartość pamięci sterty.</description></item><item><title>CVE-2026-22188</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22188</link><pubDate>Wed, 07 Jan 2026 20:26:13 +0000</pubDate><description>Wersje Panda3D do 1.10.16 włącznie zawierają lukę w zabezpieczeniach umożliwiającą odmowę usługi z powodu nieograniczonej alokacji stosu.Plik wykonywalny wdrażania-stub przydziela argv_copy i argv_copy2 za pomocą funkcji alloca() w oparciu bezpośrednio o wartość argc kontrolowaną przez osobę atakującą bez sprawdzania poprawności.Podanie dużej liczby argumentów wiersza poleceń może wyczerpać miejsce na stosie i propagować niezainicjowaną pamięć stosu do inicjalizacji interpretera Pythona, co skutkuje niezawodnym zawieszeniem i niezdefiniowanym zachowaniem.</description></item><item><title>CVE-2026-22190</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22190</link><pubDate>Wed, 07 Jan 2026 20:25:56 +0000</pubDate><description>Wersje Panda3D do 1.10.16 Egg-mkfont włącznie zawierają lukę w zabezpieczeniach ciągu niekontrolowanego formatu.Opcja wiersza poleceń -gp (wzorzec glifów) jest używana bezpośrednio jako ciąg formatujący dla sprintf() z podanym tylko jednym argumentem.Jeśli osoba atakująca udostępni dodatkowe specyfikatory formatu, Egg-mkfont może odczytać niezamierzone wartości stosu i zapisać sformatowane dane wyjściowe w wygenerowanych plikach .egg i .png, co spowoduje ujawnienie pamięci rezydentnej stosu i wartości wskaźników.</description></item><item><title>CVE-2026-22189</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22189</link><pubDate>Wed, 07 Jan 2026 20:25:37 +0000</pubDate><description>Wersje Panda3D do 1.10.16 włącznie Egg-mkfont zawierają lukę w zabezpieczeniach związaną z przepełnieniem bufora stosu w wyniku użycia nieograniczonego wywołania sprintf() z danymi wejściowymi kontrolowanymi przez osobę atakującą.Podczas konstruowania nazw plików glifów jajko-mkfont formatuje dostarczony przez użytkownika wzorzec glifów (-gp) do bufora stosu o stałym rozmiarze bez sprawdzania długości.Podanie zbyt długiego łańcucha wzorców glifów może przepełnić bufor stosu, powodując uszkodzenie pamięci i awarię deterministyczną.W zależności od konfiguracji kompilacji i środowiska wykonawczego przepełnienie może również zostać wykorzystane do wykonania dowolnego kodu.</description></item><item><title>CVE-2026-22184</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22184</link><pubDate>Wed, 07 Jan 2026 20:25:19 +0000</pubDate><description>Wersje zlib do wersji 1.3.1.2 włącznie zawierają globalne przepełnienie bufora w narzędziu untgz.Funkcja TGZfname() kopiuje dostarczoną przez atakującego nazwę archiwum z argv[] do statycznego globalnego bufora o stałym rozmiarze 1024 bajtów przy użyciu nieograniczonego wywołania strcpy() bez sprawdzania długości.Podanie nazwy archiwum dłuższej niż 1024 bajty powoduje zapis poza dopuszczalnym zakresem, który może prowadzić do uszkodzenia pamięci, odmowy usługi i potencjalnie wykonania kodu w zależności od kompilatora, flag kompilacji, architektury i układu pamięci.Przepełnienie występuje przed analizą lub walidacją archiwum.</description></item><item><title>CVE-2025-66620</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66620</link><pubDate>Wed, 07 Jan 2026 20:08:33 +0000</pubDate><description>Nieużywana powłoka internetowa w MicroServer umożliwia nieograniczoną liczbę prób logowania, z uprawnieniami sudo do niektórych plików i katalogów.Osoba atakująca z dostępem administracyjnym do MicroServer może uzyskać ograniczony dostęp do powłoki, umożliwiając trwałość poprzez odwrotne powłoki oraz możliwość modyfikowania lub usuwania danych przechowywanych w systemie plików.
 
 CVSS Score: 8.0 (high)</description></item><item><title>CVE-2025-64305</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64305</link><pubDate>Wed, 07 Jan 2026 20:02:02 +0000</pubDate><description>MicroServer podczas rozruchu kopiuje części oprogramowania sprzętowego systemu na niezaszyfrowaną zewnętrzną kartę SD, która zawiera sekrety użytkownika i dostawcy.Osoba atakująca może wykorzystać te sekrety w postaci zwykłego tekstu do zmodyfikowania oprogramowania sprzętowego dostawcy lub uzyskania dostępu administratora do portalu internetowego.
 
@@ -152,7 +178,182 @@ Aplikacje i biblioteki używające urllib3 w wersji 2.6.2 i wcześniejszych do s
 
 Aktualizacja do wersji co najmniej urllib3 v2.6.3, w której biblioteka nie dekoduje treści odpowiedzi przekierowań, gdy `preload_content=False`.
 
-Jeśli aktualizacja nie jest natychmiast możliwa, wyłącz [przekierowania](https://urllib3.readthedocs.io/en/2.6.2/user-guide.html#retrying-requests), ustawiając `redirect=False` dla żądań do niezaufanego źródła.</description></item><item><title>CVE-2026-0670</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0670</link><pubDate>Wed, 07 Jan 2026 18:55:42 +0000</pubDate><description>Luka w zabezpieczeniach Wikimedia Foundation MediaWiki - ProofreadPage Extension umożliwia tworzenie skryptów między witrynami (XSS). Ten problem dotyczy MediaWiki - ProofreadPage Extension: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2025-69255</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69255</link><pubDate>Wed, 07 Jan 2026 18:36:23 +0000</pubDate><description>### Podsumowanie
+Jeśli aktualizacja nie jest natychmiast możliwa, wyłącz [przekierowania](https://urllib3.readthedocs.io/en/2.6.2/user-guide.html#retrying-requests), ustawiając `redirect=False` dla żądań do niezaufanego źródła.</description></item><item><title>CVE-2026-0670</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0670</link><pubDate>Wed, 07 Jan 2026 18:55:42 +0000</pubDate><description>Luka w zabezpieczeniach Wikimedia Foundation MediaWiki - ProofreadPage Extension umożliwia tworzenie skryptów między witrynami (XSS). Ten problem dotyczy MediaWiki - ProofreadPage Extension: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2025-69262</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69262</link><pubDate>Wed, 07 Jan 2026 18:51:07 +0000</pubDate><description>## Podsumowanie
+
+W pnpm występuje luka umożliwiająca wstrzykiwanie poleceń podczas korzystania z podstawienia zmiennych środowiskowych w plikach konfiguracyjnych `.npmrc` z ustawieniami `tokenHelper`.Osoba atakująca, która może kontrolować zmienne środowiskowe podczas operacji pnpm, może uzyskać zdalne wykonanie kodu (RCE) w środowiskach kompilacji.
+
+## Dotknięte komponenty
+
+- **Pakiet**: pnpm
+- **Wersje**: Wszystkie wersje korzystające z funkcjonalności `@pnpm/config.env-replace` i `loadToken`
+- **Plik**: `pnpm/network/auth-header/src/getAuthHeadersFromConfig.ts` - Funkcja `loadToken()`
+- **Plik**: `pnpm/config/config/src/readLocalConfig.ts` - `.npmrc` podstawienie zmiennej środowiskowej
+
+## Szczegóły techniczne
+
+### Łańcuch luk w zabezpieczeniach
+
+1. **Zastąpienie zmiennej środowiskowej**
+- `.npmrc` obsługuje składnię `${VAR}`
+- Podstawienie następuje w `readLocalConfig()`
+
+2. **Wykonanie tokenu ładowania**
+- Używa `spawnSync(helperPath, {shell: true })`
+- Sprawdza tylko istnienie ścieżki bezwzględnej
+
+3. **Przepływ ataku**
+```
+.npmrc: rejestr.npmjs.org/:tokenHelper=${HELPER_PATH}
+↓
+envReplace() → /tmp/evil-helper.sh
+↓
+loadingToken() → spawnSync(..., {powłoka: prawda })
+↓
+Osiągnięto RCE
+```
+
+### Dowód kodu
+
+**`pnpm/config/config/src/readLocalConfig.ts:17-18`**
+```maszynopis
+klucz = envReplace(klucz, proces.env)
+ini[klucz] = parseField(typy, envReplace(val, Process.env), klucz)
+```
+
+**`pnpm/network/auth-header/src/getAuthHeadersFromConfig.ts:60-71`**
+```maszynopis
+funkcja eksportu LoadToken(helperPath: string, SettingName: string): string {
+if (!path.isAbsolute(helperPath) || !fs.existsSync(helperPath)) {
+rzuć nowy PnpmError('BAD_TOKEN_HELPER_PATH', ...)
+}
+const spawnResult = spawnSync(helperPath, {shell: true })
+// ...
+}
+```
+
+## Dowód koncepcji
+
+### Warunki wstępne
+- Prywatny dostęp do rejestru npm
+- Kontrola nad zmiennymi środowiskowymi
+- Możliwość umieszczania skryptów w systemie plików
+
+### Kroki PoC
+
+,,bicie
+# 1. Utwórz złośliwy skrypt pomocniczy
+cat &gt; /tmp/evil-helper.sh &lt;&lt; 'SKRYPT'
+#!/bin/bash
+echo „SUKCES RCE!”&gt; /tmp/rce-log.txt
+echo „TOKEN_12345”
+SKRYPT
+chmod +x /tmp/evil-helper.sh
+
+# 2. Utwórz plik .npmrc ze zmienną środowiskową
+kot &gt; .npmrc &lt;&lt; 'EOF'
+rejestr=https://registry.npmjs.org/
+rejestr.npmjs.org/:tokenHelper=${HELPER_PATH}
+EOF
+
+# 3. Ustaw zmienną środowiskową (kontrolowana przez atakującego)
+eksportuj HELPER_PATH=/tmp/evil-helper.sh
+
+# 4. Uruchom instalację pnpm
+pnpm install # RCE występuje podczas uwierzytelniania
+
+# 5. Zweryfikuj atak
+cat /tmp/rce-log.txt
+```
+
+### Wyniki PoC
+```
+==&gt; Atak udany
+==&gt; Utworzono plik: /tmp/rce-log.txt
+==&gt; Potwierdzono wykonanie dowolnego kodu
+```
+
+## Wpływ
+
+### Dotkliwość
+- **Wynik CVSS**: 7,6 (wysoki)
+- **Wektor CVSS**: cvss:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H
+
+### Środowiska, których dotyczy problem
+
+**Wysokie ryzyko:**
+- Potoki CI/CD (GitHub Actions, GitLab CI)
+- Środowiska kompilacji Docker
+- Wdrożenia Kubernetes
+- Prywatni użytkownicy rejestru
+
+**Niskie ryzyko:**
+- Tylko rejestr publiczny
+- Czas wykonania produkcji (bez wykonywania pnpm)
+- Strony statyczne
+
+### Scenariusze ataku
+
+**Scenariusz 1: Łańcuch dostaw CI/CD**
+```
+Repozytorium → Wyzwalacz kompilacji → instalacja pnpm → RCE → Wdrożenie produkcyjne
+```
+
+**Scenariusz 2: Kompilacja Dockera**
+```plik dokera
+Z węzła:20
+ARG HELPER_PATH=/tmp/zło
+KOPIUJ .npmrc .
+URUCHOM pnpm zainstaluj # RCE
+```
+
+**Scenariusz 3: Kubernetes**
+```
+Tajna kontrola → Zmienna Env → Podstawienie .npmrc → RCE
+```
+
+## Łagodzenie
+
+### Tymczasowe rozwiązania
+
+**Wyłącz pomocnika tokena:**
+```ini
+# .npmrc
+# rejestr.npmjs.org/:tokenHelper=${HELPER_PATH}
+```
+
+**Użyj tokenów bezpośrednich:**
+```ini
+//registry.npmjs.org/:_authToken=TWÓJ_TOKEN
+```
+
+**Kontrola zmiennych środowiskowych:**
+- Przejrzyj CI/CD env vars
+- Ogranicz zmiany w pliku .npmrc
+- Monitoruj dzienniki kompilacji
+
+### Zalecane poprawki
+
+1. Usuń `Shell: true` z LoadToken
+2. Zaimplementuj listę dozwolonych ścieżek pomocniczych
+3. Sprawdź podstawione ścieżki
+4. Rozważ piaskownicę
+
+## Ujawnienie
+
+- **Odkrycie**: 2025-11-02
+- **PoC**: 2025-11-02
+- **Raport**: [Oczekuje na decyzję o ujawnieniu]
+
+## Referencje
+
+- Repozytorium: https://github.com/pnpm/pnpm
+- Dotknięty problem: `@pnpm/config.env-replace@^3.0.2`
+- Podobne: CVE-2024-53866, CVE-2023-37478
+
+## Kredyt
+
+Zgłoszone przez: Jiyong Yang
+Kontakt: sy2n0@naver.com</description></item><item><title>CVE-2025-69255</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69255</link><pubDate>Wed, 07 Jan 2026 18:36:23 +0000</pubDate><description>### Podsumowanie
 Zniekształcone żądanie `GetMetrics` gRPC powoduje, że `get_metrics` do `unwrap()` nie powiodła się deserializacja `metric_type`/`opts`, powodując panikę w wątku obsługi i umożliwiając zdalną odmowę usługi punktu końcowego metryk.
 
 ### Szczegóły
@@ -868,7 +1069,63 @@ CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-69228</title><l
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-69226</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69226</link><pubDate>Mon, 05 Jan 2026 22:52:38 +0000</pubDate><description>AIOHTTP to asynchroniczna platforma klient/serwer HTTP dla asyncio i Pythona.Wersje 3.13.2 i starsze umożliwiają atakującemu sprawdzenie istnienia bezwzględnych składników ścieżki za pomocą logiki normalizacji ścieżki dla plików statycznych, której zadaniem jest zapobieganie przechodzeniu ścieżki.Jeśli aplikacja korzysta z funkcji web.static() (nie jest to zalecane w przypadku wdrożeń produkcyjnych), osoba atakująca może mieć możliwość sprawdzenia istnienia komponentów ścieżki.Ten problem został rozwiązany w wersji 3.13.3.</description></item><item><title>CVE-2025-69224</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69224</link><pubDate>Mon, 05 Jan 2026 22:35:42 +0000</pubDate><description>AIOHTTP to asynchroniczna platforma klient/serwer HTTP dla asyncio i Pythona.Wersje 3.13.2 i starsze parsera HTTP Pythona mogą umożliwiać atak polegający na przemycaniu żądań z obecnością znaków innych niż ASCII.Jeśli zainstalowana jest czysta wersja Pythona AIOHTTP (tj. bez zwykłych rozszerzeń C) lub włączona jest funkcja AIOHTTP_NO_EXTENSIONS, osoba atakująca może przeprowadzić atak polegający na przemycaniu żądań w celu ominięcia niektórych zapór sieciowych lub zabezpieczeń proxy.Ten problem został rozwiązany w wersji 3.13.3.</description></item><item><title>CVE-2025-68456</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68456</link><pubDate>Mon, 05 Jan 2026 22:03:11 +0000</pubDate><description>Craft to platforma do tworzenia cyfrowych doświadczeń.W wersjach od 5.0.0-RC1 do 5.8.20 i od 3.0.0 do 4.16.16 nieuwierzytelnieni użytkownicy mogą inicjować operacje tworzenia kopii zapasowych bazy danych poprzez określone działania administracyjne, co może prowadzić do wyczerpania zasobów lub ujawnienia informacji.Użytkownicy powinni dokonać aktualizacji do poprawionych wersji (5.8.21 i 4.16.17), aby złagodzić problem.Użytkownicy Craft 3 powinni dokonać aktualizacji do najnowszych wersji Craft 4 i 5, które zawierają poprawki.</description></item><item><title>CVE-2025-68436</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68436</link><pubDate>Mon, 05 Jan 2026 21:46:01 +0000</pubDate><description>Craft to platforma do tworzenia cyfrowych doświadczeń.W wersjach od 5.0.0-RC1 do 5.8.20 i od 4.0.0-RC1 do 4.16.16 uwierzytelnieni użytkownicy instalacji Craft mogą potencjalnie ujawnić wrażliwe zasoby poprzez zdjęcie profilowe użytkownika za pośrednictwem złośliwie spreparowanych żądań.Użytkownicy powinni dokonać aktualizacji do poprawionych wersji (5.8.21 i 4.16.17), aby złagodzić problem.</description></item><item><title>CVE-2025-68428</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68428</link><pubDate>Mon, 05 Jan 2026 21:43:55 +0000</pubDate><description>jsPDF to biblioteka do generowania plików PDF w JavaScript.W wersjach wcześniejszych niż 4.0.0 kontrola użytkownika nad pierwszym argumentem metody loadingFile w kompilacji node.js umożliwiała dołączanie plików lokalnych/przechodzenie ścieżek.Jeśli użytkownik ma możliwość przekazania nieoczyszczonych ścieżek do metody LoadFile, użytkownik może pobrać zawartość dowolnych plików w lokalnym systemie plików, w którym działa proces węzła. Zawartość pliku jest dosłownie dołączana do wygenerowanych plików PDF.Inne metody, których to dotyczy, to `addImage`, `html` i `addFont`.Dotyczy to tylko kompilacji biblioteki node.js, a mianowicie plików `dist/jspdf.node.js` i `dist/jspdf.node.min.js`.Luka została naprawiona w jsPDF@4.0.0.Ta wersja domyślnie ogranicza dostęp do systemu plików.Ta semver-major aktualizacja nie wprowadza innych istotnych zmian.Dostępne są pewne obejścia.W przypadku najnowszych wersji węzłów jsPDF zaleca używanie flagi `--permission` w środowisku produkcyjnym.Funkcja została wprowadzona eksperymentalnie w wersji 20.0.0 i jest stabilna od wersji 22.13.0/23.5.0/24.0.0.W przypadku starszych wersji węzłów oczyść ścieżki dostarczone przez użytkownika przed przekazaniem ich do jsPDF.</description></item><item><title>CVE-2025-67732</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67732</link><pubDate>Mon, 05 Jan 2026 21:41:01 +0000</pubDate><description>Dify to platforma do tworzenia aplikacji LLM typu open source.Przed wersją 1.11.0 klucz API był udostępniany w interfejsie użytkownika w postaci zwykłego tekstu, umożliwiając użytkownikom niebędącym administratorami jego przeglądanie i ponowne użycie.Może to prowadzić do nieautoryzowanego dostępu do usług stron trzecich, potencjalnie zużywając ograniczone przydziały.Wersja 1.11.0 rozwiązuje ten problem.</description></item><item><title>CVE-2025-66648</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66648</link><pubDate>Mon, 05 Jan 2026 21:33:14 +0000</pubDate><description>vega-functions zapewnia implementacje funkcji dla języka wyrażeń Vega.Przed wersją 6.1.1 w przypadku witryn umożliwiających użytkownikom wprowadzanie danych wejściowych przez niezaufanego użytkownika, złośliwe użycie funkcji wewnętrznej (niebędącej częścią publicznego interfejsu API) mogło zostać wykorzystane do niezamierzonego uruchomienia kodu JavaScript (XSS).Ten problem został rozwiązany w funkcjach Vega `6.1.1`.Nie ma innego rozwiązania niż aktualizacja.Użycie `vega.expressionInterpreter` zgodnie z opisem w trybie awaryjnym CSP nie zapobiega temu problemowi.
 
-CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-0625</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0625</link><pubDate>Mon, 05 Jan 2026 21:14:48 +0000</pubDate><description>Wiele urządzeń bram D-Link DSL zawiera lukę w zabezpieczeniach umożliwiającą wstrzykiwanie poleceń w punkcie końcowym dnscfg.cgi z powodu nieprawidłowego oczyszczenia parametrów konfiguracyjnych DNS dostarczonych przez użytkownika.Nieuwierzytelniony zdalny atakujący może wprowadzić i wykonać dowolne polecenia powłoki, co spowoduje zdalne wykonanie kodu.Punkt końcowy, którego dotyczy problem, jest również powiązany z zachowaniem nieuwierzytelnionych modyfikacji DNS („DNSChanger”) udokumentowanym przez firmę D-Link, która zgłosiła aktywne kampanie wykorzystujące ataki ukierunkowane na warianty oprogramowania sprzętowego modeli DSL-2740R, DSL-2640B, DSL-2780B i DSL-526B od 2016 r. do 2019 r. Fundacja Shadowserver Foundation odnotowała dowody wykorzystania w dniu 27.11.2025 r.(UTC).Na początku 2020 roku uznano, że urządzenia, których dotyczy problem, wycofały się z eksploatacji.</description></item><item><title>CVE-2025-12511</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-12511</link><pubDate>Mon, 05 Jan 2026 14:05:52 +0000</pubDate><description>Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) Luka w zabezpieczeniach Centreon Infra Monitoring (moduły konfiguracyjne DSM extenstio) umożliwia przechowywanie XSS
+CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-0625</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0625</link><pubDate>Mon, 05 Jan 2026 21:14:48 +0000</pubDate><description>Wiele urządzeń bram D-Link DSL zawiera lukę w zabezpieczeniach umożliwiającą wstrzykiwanie poleceń w punkcie końcowym dnscfg.cgi z powodu nieprawidłowego oczyszczenia parametrów konfiguracyjnych DNS dostarczonych przez użytkownika.Nieuwierzytelniony zdalny atakujący może wprowadzić i wykonać dowolne polecenia powłoki, co spowoduje zdalne wykonanie kodu.Punkt końcowy, którego dotyczy problem, jest również powiązany z zachowaniem nieuwierzytelnionych modyfikacji DNS („DNSChanger”) udokumentowanym przez firmę D-Link, która zgłosiła aktywne kampanie wykorzystujące ataki ukierunkowane na warianty oprogramowania sprzętowego modeli DSL-2740R, DSL-2640B, DSL-2780B i DSL-526B od 2016 r. do 2019 r. Fundacja Shadowserver Foundation odnotowała dowody wykorzystania w dniu 27.11.2025 r.(UTC).Na początku 2020 roku uznano, że urządzenia, których dotyczy problem, wycofały się z eksploatacji.</description></item><item><title>CVE-2026-21857</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21857</link><pubDate>Mon, 05 Jan 2026 20:02:58 +0000</pubDate><description>### Podsumowanie
+Uwierzytelnieni użytkownicy z uprawnieniami do tworzenia kopii zapasowych mogą czytać dowolne pliki w katalogu internetowym poprzez przechodzenie ścieżek w funkcji eksportu plików dodatku Backup.
+&lt;img szerokość="664" wysokość="899" alt="image" src="https://github.com/user-attachments/assets/fd1ca69e-b275-4daf-9a62-621cde6525f5" /&gt;
+&lt;img szerokość="2358" wysokość="445" alt="image" src="https://github.com/user-attachments/assets/fad81152-9e1b-413e-9823-09540a23e2fb" /&gt;
+
+
+### Szczegóły
+Dodatek Backup nie sprawdza parametru POST `EXPDIR` w porównaniu z wygenerowaną przez interfejs użytkownika listą dozwolonych dozwolonych katalogów.
+Osoba atakująca może podać ścieżki względne zawierające sekwencje `../` (lub nawet ścieżki bezwzględne w katalogu głównym dokumentu), aby uwzględnić dowolny czytelny plik w wygenerowanym archiwum `.tar.gz`.
+
+Kod zawierający lukę:
+- `redaxo/src/addons/backup/pages/export.php` (linie 72-76) – bezpośrednio używa `$_POST['EXPDIR']`
+- `redaxo/src/addons/backup/lib/backup.php` (linie ~413 i ~427) – łączy niezatwierdzone dane wejściowe użytkownika ze ścieżką podstawową
+
+Umożliwia to ujawnienie wrażliwych plików, takich jak:
+- `redaxo/data/core/config.yml` → dane logowania do bazy danych + skróty haseł wszystkich użytkowników backendu
+- `.env`, niestandardowe pliki konfiguracyjne, logi, przesłane złośliwe pliki itp.
+
+### Wersje, których dotyczy problem
+≤ 5.20.1 (potwierdzone działanie)
+
+### Wersje poprawione
+Brak (stan na 2025-12-09)
+
+### PoC – Wyodrębnianie danych uwierzytelniających bazy danych i skrótów haseł
+1. Zaloguj się jako dowolny użytkownik z uprawnieniami do tworzenia kopii zapasowych
+2. Przejdź do Kopia zapasowa → Eksport → Pliki
+
+&lt;img szerokość="1240" wysokość="960" alt="image" src="https://github.com/user-attachments/assets/bc05ba18-9664-4be2-b637-4fec3a0f409a" /&gt;
+
+3. Przechwyć żądanie za pomocą Burp Suite
+
+&lt;img szerokość="2184" wysokość="478" alt="image" src="https://github.com/user-attachments/assets/9fa754a1-2cd0-4d3d-a5cc-cfa34c8a1718" /&gt;
+
+4. Zmień jedną wartość `EXPDIR[]` na `../../../../var/www/html/redaxo/data/core`
+
+&lt;img szerokość="978" wysokość="591" alt="image" src="https://github.com/user-attachments/assets/d15f5c7f-b72c-44cc-9be2-da8d3f26f124" /&gt;
+
+5. Wyślij prośbę → pobierz archiwum
+&lt;img szerokość="423" wysokość="131" alt="image" src="https://github.com/user-attachments/assets/db8a8bda-cdaf-4dea-812f-1e312da908e2" /&gt;
+
+6. Wyodrębnij i otwórz plik `data/core/config.yml`
+&lt;img szerokość="859" wysokość="281" alt="image" src="https://github.com/user-attachments/assets/c8112ce1-5a1d-435f-953b-7eb4e711e042" /&gt;
+
+Wynik: hasło do bazy danych w postaci zwykłego tekstu
+&lt;img szerokość="2534" wysokość="1198" alt="image" src="https://github.com/user-attachments/assets/218ae917-868a-437e-98b0-6471b82c0b10" /&gt;
+
+### Wpływ
+Pełny kompromis instalacji REDAXO:
+- Przejęcie bazy danych
+- Ekstrakcja skrótu hasła → łamanie offline → dostęp administratora
+- W połączeniu z innymi lukami → RCE
+
+Wektor CVSS 4.0 i wynik poniżej.
+
+### Kredyty
+Odkrył: Łukasz Rybak</description></item><item><title>CVE-2025-12511</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-12511</link><pubDate>Mon, 05 Jan 2026 14:05:52 +0000</pubDate><description>Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) Luka w zabezpieczeniach Centreon Infra Monitoring (moduły konfiguracyjne DSM extenstio) umożliwia przechowywanie XSS
 
 dla użytkownika z podwyższonymi uprawnieniami.
 
