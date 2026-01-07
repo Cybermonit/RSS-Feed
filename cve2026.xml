@@ -1,5 +1,140 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-69255</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69255</link><pubDate>Wed, 07 Jan 2026 18:36:23 +0000</pubDate><description>### Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22028</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22028</link><pubDate>Wed, 07 Jan 2026 19:28:15 +0000</pubDate><description>## Wpływ
+
+**Typ luki:** Wstrzyknięcie HTML poprzez pomieszanie typów JSON
+
+**Wersje, których dotyczy problem:** Preact 10.26.5 do 10.28.1
+
+**Dotkliwość:** Niska do średniej (patrz poniżej)
+
+### Kogo to dotyczy?
+
+Aplikacje korzystające z wersji Preact, których dotyczy problem, są podatne na ataki, jeśli spełniają **wszystkie** następujące warunki:
+
+1. **Przekazuj niezmodyfikowane, oczyszczone wartości** ze źródeł danych modyfikowalnych przez użytkownika (interfejsy API, bazy danych, pamięć lokalna itp.) bezpośrednio do drzewa renderowania
+2. **Załóż, że te wartości są ciągami znaków**, ale źródło danych może zwracać rzeczywiste obiekty JavaScript zamiast ciągów JSON
+3. Źródło danych:
+- Nie można wykonać oczyszczania typu **ORAZ** na ślepo przechowuje/zwraca surowe obiekty zamiennie z ciągami znaków, LUB
+- Został naruszony (np. zatruty lokalny magazyn, system plików lub baza danych)
+
+### Szczegóły techniczne
+
+Preact zawiera ochronę serializacji JSON, aby zapobiec konstruowaniu elementów wirtualnego DOM z dowolnego JSON.Regresja wprowadzona w Preact 10.26.5 spowodowała złagodzenie tego zabezpieczenia.W aplikacjach, w których zakłada się, że wartości z ładunków JSON są ciągami znaków i są przekazywane w postaci niezmodyfikowanej do Preact jako elementy podrzędne, może zostać skonstruowany specjalnie spreparowany ładunek JSON, który będzie niepoprawnie traktowany jako prawidłowy węzeł VNode.Kiedy wystąpi taki łańcuch błędów, może to spowodować wstrzyknięcie kodu HTML, co może pozwolić na wykonanie dowolnego skryptu, jeśli nie zostanie zażegnane przez CSP lub w inny sposób.
+
+**Ważne uwagi:**
+- Ta regresja nigdy nie była obecna w `preact-render-to-string`
+— Jest to przede wszystkim problem związany z „rozszerzoną powierzchnią ataku”, a nie samodzielna luka
+- Eksploatacja wymaga albo niezabezpieczonego projektu interfejsu API (brak sprawdzania poprawności typu), albo źródła danych, które zostało naruszone
+
+## Poprawki
+
+**Wersje poprawione:**
+- **10.26.10** (dla użytkowników 10.26.x)
+- **10.27.3** (dla użytkowników 10.27.x)
+- **10.28.2** (dla użytkowników 10.28.x)
+
+Użytkownicy powinni dokonać aktualizacji do najnowszej wersji łatki dowolnej wersji pomocniczej, z której korzystają, co można zrobić za pomocą `npm update preact` lub instalując bezpośrednio jedną z powyższych wersji.
+
+Wersje poprawek po prostu przywracają poprzednie ścisłe kontrole równości, które uniemożliwiają traktowanie obiektów analizowanych w formacie JSON jako prawidłowych węzłów wirtualnych.
+
+## Łagodzenia
+
+Jeśli nie możesz dokonać aktualizacji natychmiast, zastosuj następujące środki zaradcze:
+
+- **Weryfikuj typy danych wejściowych:** nie akceptuj dowolnych obiektów jako danych wejściowych w swoim interfejsie API i przechowuj je w ciemno.Egzekwuj kontrakty typu ścisłego na granicach interfejsu API.
+- **Przesyłaj lub sprawdzaj dane sieciowe:** Nie zakładaj, że ciągi znaków to ciągi znaków, jeśli Twój kod pobrał je z sieci.Zawsze rzutuj na oczekiwany typ lub sprawdzaj poprawność przed renderowaniem.
+- **Oczyść dane zewnętrzne:** Przed przekazaniem ich do preact sprawdź, czy dane ze źródeł zewnętrznych (interfejsy API, pamięć masowa, bazy danych) odpowiadają oczekiwanym typom.
+- **Stosuj politykę bezpieczeństwa treści (CSP):** Wprowadź rygorystyczny CSP, aby zapobiec wykonywaniu skryptów wbudowanych w ramach dogłębnej obrony.
+
+## Referencje
+
+- **Reporter:** [YoungGeun Choi](https://github.com/Xvezda)
+- **Wersje, których to dotyczy:** 10.26.5 - 10.28.1
+- **Wersje poprawione:** 10.26.10, 10.27.3, 10.28.2
+
+## Kredyty
+
+Preact dziękuje **YoungGeun Choi (Xvezda)** za odpowiedzialne ujawnienie tej luki i udostępnienie szczegółowych kroków reprodukcji oraz demonstracji koncepcji.
+
+## Oś czasu
+
+- **2026-01-04:** Otrzymano wstępny raport o podatności
+- **2026-01-05:** Prośba o wyjaśnienie dotyczące granicy sieci/serializacji
+- **2026-01-06:** Dostarczony sieciowy PoC demonstrujący możliwości wykorzystania w świecie rzeczywistym
+- **2026-01-06:** Wydano poprawki poprawek (10.26.10, 10.27.3, 10.28.2)
+
+---
+
+**Zalecenie:** Wszyscy użytkownicy Preact 10.26.5 do 10.28.1 powinni jak najszybciej dokonać aktualizacji do odpowiedniej wersji z poprawkami (10.26.10, 10.27.3 lub 10.28.2) i przejrzeć swoje aplikacje pod kątem właściwych praktyk sprawdzania poprawności danych wejściowych i oczyszczania.</description></item><item><title>CVE-2026-21894</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21894</link><pubDate>Wed, 07 Jan 2026 19:22:54 +0000</pubDate><description>### Wpływ
+Pominięcie uwierzytelniania w węźle Stripe Trigger umożliwia nieuwierzytelnionym stronom wyzwalanie przepływów pracy poprzez wysyłanie sfałszowanych zdarzeń webhooka Stripe.
+
+Wyzwalacz Stripe tworzy i przechowuje sekret podpisywania webhooka Stripe podczas rejestrowania punktu końcowego webhooka, ale przychodzące żądania webhooka nie były weryfikowane pod kątem tego klucza tajnego.W rezultacie każdy klient HTTP znający adres URL webhooka może wysłać żądanie POST zawierające pasujący „typ” zdarzenia, powodując wykonanie przepływu pracy tak, jakby odebrane zostało prawidłowe zdarzenie Stripe.
+
+Ten problem dotyczy użytkowników n8n, którzy mają aktywne przepływy pracy korzystające z węzła Stripe Trigger.Osoba atakująca może potencjalnie sfałszować zdarzenia związane z płatnościami lub subskrypcjami i wpłynąć na dalsze zachowanie przepływu pracy.Praktyczne ryzyko zmniejsza fakt, że adres URL webhooka zawiera identyfikator UUID o wysokiej entropii;jednakże uwierzytelnieni użytkownicy n8n z dostępem do przepływu pracy mogą wyświetlić ten identyfikator webhooka.
+
+### Poprawki
+Problem został rozwiązany w wersji n8n 2.2.2.Użytkownicy powinni dokonać aktualizacji do tej wersji lub nowszej, aby mieć pewność, że podpisy webhook Stripe są prawidłowo weryfikowane.
+
+### Obejścia
+Nie ma innego rozwiązania niż aktualizacja.W ramach tymczasowego rozwiązania użytkownicy mogą dezaktywować przepływy pracy, których to dotyczy, lub ograniczyć dostęp do przepływów pracy zawierających węzły Stripe Trigger tylko do zaufanych użytkowników.</description></item><item><title>CVE-2026-21885</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21885</link><pubDate>Wed, 07 Jan 2026 19:22:14 +0000</pubDate><description>### Podsumowanie
+Punkt końcowy proxy multimediów Miniflux (`GET /proxy/{encodedDigest}/{encodedURL}`) może zostać wykorzystany do wykonania fałszerstwa żądań po stronie serwera (SSRF).Uwierzytelniony użytkownik może spowodować, że Miniflux wygeneruje podpisany adres URL proxy dla wybranych przez atakującego adresów URL mediów osadzonych w treści wpisu w kanale, w tym adresów wewnętrznych (np. host lokalny, prywatne zakresy RFC1918 lub punkty końcowe metadanych lokalnych łączy).Żądanie wynikowego adresu URL `/proxy/...` powoduje pobranie i zwrócenie przez Miniflux wewnętrznej odpowiedzi.
+
+### Szczegóły
+- **Niebezpieczna trasa**: `GET /proxy/{encodedDigest}/{encodedURL}` (dostępna bez uwierzytelniania, ale wymaga wygenerowanego przez serwer adresu URL podpisanego przez HMAC)
+- **Procedura**: `internal/ui/proxy.go` (`(*handler).mediaProxy`)
+- **Trigger**: treść wpisu jest przepisana na adresy URL mediów proxy (np. `mediaproxy.RewriteDocumentWithAbsoluteProxyURL(...)`), tworząc podpisane adresy URL `/proxy/...`.
+- **Przyczyna główna**: serwer proxy sprawdza schemat adresu URL i podpis HMAC, ale nie ogranicza docelowych hostów/adresów IP.W rezultacie żądania kierowane do adresów zwrotnych/prywatnych/lokalnych łączy są dozwolone i pobierane przez serwer.
+
+### PoC
+1) Uruchom Miniflux 2.2.15 z domyślną konfiguracją (media proxy domyślnie włączone: `MEDIA_PROXY_MODE=tylko http`).
+
+2) Zaloguj się na dowolne zwykłe konto użytkownika.
+
+3) Zasubskrybuj kontrolowany przez Ciebie kanał zawierający wpis z adresem URL obrazu wskazującym na adres wewnętrzny osiągalny z serwera Miniflux, np.:
+- `&lt;img src="http://&lt;internal-target&gt;/secret"&gt;`
+(Uwaga: `&lt;cel-wewnętrzny&gt;` musi być osiągalny *z procesu/sieci Miniflux*; w konfiguracjach kontenerowych `127.0.0.1` może nie odnosić się do hosta.)
+
+4) Otwórz wpis i znajdź przepisany adres URL proxy multimediów (`/proxy/&lt;encodedDigest&gt;/&lt;encodedURL&gt;`) w wyrenderowanym źródle HTML/strony.
+
+5) Poproś o adres URL `/proxy/...`.
+Oczekiwany (luka w zabezpieczeniach): Miniflux pobiera wewnętrzny adres URL i zwraca wewnętrzną odpowiedź (SSRF).
+
+### Wpływ
+**Typ**: SSRF (fałszowanie żądania po stronie serwera) za pośrednictwem serwera proxy multimediów
+**Kogo dotyczy**: instancje Miniflux z włączonym serwerem proxy multimediów (domyślna konfiguracja zazwyczaj umożliwia obsługę protokołu HTTP/treści mieszanej).
+**Wpływ**: osoby atakujące posiadające ważne konto Miniflux mogą pobrać zasoby wewnętrzne dostępne z serwera Miniflux (np. usługi hosta lokalnego, usługi sieci prywatnej i punkty końcowe z łączem lokalnym, takie jak 169.254.169.254), potencjalnie narażając poufne dane.
+
+### Sugerowany CVSS (wersja 3.1)
+`CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N` (podstawa 6.5)
+
+
+
+
+Jeśli masz jakieś pytania lub problemy z odtworzeniem tego, skontaktuj się z: jeongwoolee340@gmail.com</description></item><item><title>CVE-2026-21858</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21858</link><pubDate>Wed, 07 Jan 2026 19:20:19 +0000</pubDate><description>### Wpływ
+Luka w n8n umożliwia atakującemu dostęp do plików na serwerze bazowym poprzez wykonanie określonych przepływów pracy opartych na formularzach.Podatny przepływ pracy może zapewnić dostęp nieuwierzytelnionemu zdalnemu atakującemu.Może to spowodować ujawnienie poufnych informacji przechowywanych w systemie i może umożliwić dalsze naruszenia bezpieczeństwa, w zależności od konfiguracji wdrożenia i wykorzystania przepływu pracy.
+
+### Poprawki
+Problem został rozwiązany w wersji n8n 1.121.0.Użytkownicy powinni dokonać aktualizacji do tej wersji lub nowszej, aby zaradzić luce.
+
+### Obejścia
+Nie są dostępne żadne oficjalne rozwiązania.W ramach tymczasowego rozwiązania użytkownicy mogą ograniczyć lub wyłączyć publicznie dostępny webhook i punkty końcowe formularzy do czasu aktualizacji.</description></item><item><title>CVE-2026-21441</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21441</link><pubDate>Wed, 07 Jan 2026 19:18:14 +0000</pubDate><description>### Wpływ
+
+[API przesyłania strumieniowego interfejsu urllib3](https://urllib3.readthedocs.io/en/2.6.2/advanced-usage.html#streaming-and-i-o) zaprojektowano z myślą o wydajnej obsłudze dużych odpowiedzi HTTP poprzez odczytywanie treści fragmentami, zamiast ładowania całej treści odpowiedzi do pamięci na raz.
+
+urllib3 może wykonać dekodowanie lub dekompresję w oparciu o nagłówek HTTP `Content-Encoding` (np. `gzip`, `deflate`, `br` lub `zstd`.Podczas korzystania z API przesyłania strumieniowego biblioteka dekompresuje tylko niezbędne bajty, umożliwiając częściowe wykorzystanie treści.
+
+Jednak w przypadku odpowiedzi przekierowania HTTP biblioteka odczytałaby całą treść odpowiedzi, aby opróżnić połączenie i niepotrzebnie zdekompresować zawartość.Ta dekompresja miała miejsce jeszcze przed wywołaniem jakichkolwiek metod odczytu, a skonfigurowane limity odczytu nie ograniczały ilości zdekompresowanych danych.W rezultacie nie było zabezpieczenia przed bombami dekompresyjnymi.Złośliwy serwer może to wykorzystać, aby spowodować nadmierne zużycie zasobów klienta (wysokie użycie procesora i duże przydziały pamięci dla zdekompresowanych danych; CWE-409).
+
+### Zastosowania, których to dotyczy
+
+Aplikacje i biblioteki używające urllib3 w wersji 2.6.2 i wcześniejszych do strumieniowego przesyłania treści z niezaufanych źródeł poprzez ustawienie `preload_content=False`, gdy nie wyłączają przekierowań.
+
+
+### Naprawa
+
+Aktualizacja do wersji co najmniej urllib3 v2.6.3, w której biblioteka nie dekoduje treści odpowiedzi przekierowań, gdy `preload_content=False`.
+
+Jeśli aktualizacja nie jest natychmiast możliwa, wyłącz [przekierowania](https://urllib3.readthedocs.io/en/2.6.2/user-guide.html#retrying-requests), ustawiając `redirect=False` dla żądań do niezaufanego źródła.</description></item><item><title>CVE-2026-0670</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0670</link><pubDate>Wed, 07 Jan 2026 18:55:42 +0000</pubDate><description>Luka w zabezpieczeniach Wikimedia Foundation MediaWiki - ProofreadPage Extension umożliwia tworzenie skryptów między witrynami (XSS). Ten problem dotyczy MediaWiki - ProofreadPage Extension: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2025-69255</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69255</link><pubDate>Wed, 07 Jan 2026 18:36:23 +0000</pubDate><description>### Podsumowanie
 Zniekształcone żądanie `GetMetrics` gRPC powoduje, że `get_metrics` do `unwrap()` nie powiodła się deserializacja `metric_type`/`opts`, powodując panikę w wątku obsługi i umożliwiając zdalną odmowę usługi punktu końcowego metryk.
 
 ### Szczegóły
