@@ -1,5 +1,90 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22596</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22596</link><pubDate>Thu, 08 Jan 2026 21:36:37 +0000</pubDate><description>### Wpływ
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-68158</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68158</link><pubDate>Thu, 08 Jan 2026 22:40:56 +0000</pubDate><description>Zespół Security Labs w firmie Snyk zgłasza problem bezpieczeństwa dotyczący Authlib, który został zidentyfikowany podczas niedawnego projektu badawczego.
+
+Zidentyfikowano lukę, która może spowodować przejęcie konta jednym kliknięciem w aplikacjach korzystających z biblioteki Authlib.(5.7 CVSS v3: AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:N/A:N)
+
+**Opis**
+
+Pamięć stanu/tokenu żądania oparta na pamięci podręcznej nie jest powiązana z sesją użytkownika inicjującego, więc CSRF jest możliwy dla każdego atakującego, który ma prawidłowy stan (łatwo dostępny za pośrednictwem przepływu uwierzytelniania inicjowanego przez atakującego).Kiedy do rejestru klientów OAuth dostarczana jest pamięć podręczna, polecenie „FrameworkIntegration.set_state_data” zapisuje cały obiekt blob stanu w obszarze „_state_{app}_{state}”, a polecenie „get_state_data” całkowicie ignoruje sesję osoby wywołującej.\[1\]\[2\]
+
+```py
+def _get_cache_data(self, klucz):
+wartość = self.cache.get(key)
+jeśli nie wartość:
+zwróć Brak
+spróbuj:
+zwróć json.loads(wartość)
+z wyjątkiem (TypeError, ValueError):
+zwróć Brak
+[pstryknięcie]
+def get_state_data(self, sesja, stan):
+klucz = f"_state_{self.name}_{state}"
+jeśli self.cache:
+wartość = self._get_cache_data(klucz)
+inne:
+wartość = sesja.get(klucz)
+jeśli wartość:
+zwróć wartość.get("dane")
+zwróć Brak
+```
+
+*authlib/integrations/base\_client/framework\_integration.py:12-41*
+
+Dlatego pobranie w autoryzuj\_access\_token powiedzie się w przypadku dowolnej przeglądarki przedstawiającej tę nieprzejrzystą wartość, a wymiana tokenu będzie kontynuowana z wykorzystaniem kodu autoryzacyjnego atakującego.\[3\]
+
+```py
+defauthorize_access_token(self, **kwargs):
+"""Pobierz token dostępu w jednym kroku.
+
+:return: Symboliczne dyktando.
+„””
+params = request.args.to_dict(flat=True)
+stan = params.get("token_oauth")
+jeśli nie, podaj:
+raise OAuthError(description='Brakujący parametr "oauth_token"')
+
+dane = self.framework.get_state_data(sesja, stan)
+jeśli nie dane:
+raise OAuthError(description='Brak „request_token” w danych tymczasowych”)
+
+params["request_token"] = dane["request_token"]
+parametry.update(kwargs)
+self.framework.clear_state_data(sesja, stan)
+token = self.fetch_access_token(**params)
+self.token = token
+znak zwrotu
+```
+
+*authlib/integrations/flask\_client/apps.py:57-76*
+
+Otwiera to możliwość logowania CSRF dla aplikacji korzystających z pamięci podręcznej.W zależności od implementacji zależnej aplikacji (czy w jakiś sposób łączy ona konta w przypadku logowania CSRF), może to prowadzić do przejęcia konta.
+
+\[1\][https://github.com/authlib/authlib/blob/260d04edee23d8470057ea659c16fb8a2c7b0dc2/authlib/integrations/flask\_client/apps.py\#L35](https://github.com/authlib/authlib/blob/260d04edee23d8470057ea659c16fb8a2c7b0dc2/authlib/integrations/flask_client/apps.py#L35)
+
+\[2\][https://github.com/authlib/authlib/blob/260d04edee23d8470057ea659c16fb8a2c7b0dc2/authlib/integrations/base\_client/framework\_integration.py\#L33](https://github.com/authlib/authlib/blob/260d04edee23d8470057ea659c16fb8a2c7b0dc2/authlib/integrations/base_client/framework_integration.py#L33)
+
+\[3\][https://github.com/authlib/authlib/blob/260d04edee23d8470057ea659c16fb8a2c7b0dc2/authlib/integrations/flask\_client/apps.py\#L57](https://github.com/authlib/authlib/blob/260d04edee23d8470057ea659c16fb8a2c7b0dc2/authlib/integrations/flask_client/apps.py#L57)
+
+**Dowód koncepcji**
+
+Pomyślmy o aplikacji \- AwesomeAuthlibApp.Załóżmy, że AwesomeAuthlibApp ma wewnętrzną logikę, która gdy już zalogowany użytkownik wykonuje żądanie „oddzwonienia”, łączy nowo dostarczoną tożsamość SSO z już istniejącym użytkownikiem, który złożył żądanie.
+
+Następnie osoba atakująca może przejąć konto w aplikacji, wykonując następujące czynności:
+
+1\.Rozpoczynają przepływ SSO OAuth, ale zatrzymują go tuż przed wykonaniem wywołania zwrotnego do AwesomeAuthlibApp;
+2\.Osoba atakująca oszukuje zalogowanego użytkownika (poprzez phishing, atak typu drive-by itp.), aby wykonał żądanie GET z wartością stanu atakującego i przyznał kod wywołaniu zwrotnemu AwesomeAuthlibApp.Ponieważ Authlib nie sprawdza, czy token stanu jest powiązany z sesją wykonującą wywołanie zwrotne, wywołanie zwrotne jest przetwarzane, kod grantu jest wysyłany do dostawcy i następuje łączenie kont.
+
+Po wykonaniu żądania GET konto SSO atakującego zostaje trwale połączone z kontem AwesomeAuthlibApp ofiary.
+
+**Sugerowana poprawka**
+
+Zgodnie z dokumentem OAuth RFC \[4\] stan powinien być powiązany z sesją użytkownika, aby zatrzymać dokładnie takie scenariusze.Jedną z prostych metod ograniczenia tego problemu jest przechowywanie stanu w sesji nawet podczas buforowania.
+
+Inną metodą byłoby zaszyfrowanie identyfikatora sesji (lub innego sekretu sesji dla użytkownika) w kluczu pamięci podręcznej.W ten sposób stan będzie przechowywany w pamięci podręcznej, ale nadal będzie powiązany z sesją użytkownika, który zainicjował przepływ OAuth.
+
+[4] https://www.rfc-editor.org/rfc/rfc6749#section-10.12</description></item><item><title>CVE-2026-0730</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0730</link><pubDate>Thu, 08 Jan 2026 22:02:09 +0000</pubDate><description>Znaleziono błąd w PHPGurukul System zarządzania urlopami pracowniczymi 1.0.Elementem, którego dotyczy problem, jest funkcja ADD_STAFF/UPDATE_STAFF pliku /staffleave/slms/slms/adminviews.py komponentu SVG File Handler.Manipulacja argumentem profil_pic może prowadzić do wykonywania skryptów krzyżowych.Atak może zostać przeprowadzony zdalnie.Exploit został opublikowany i może zostać wykorzystany.
+
+CVSS Score: 2.4 (low)</description></item><item><title>CVE-2026-22596</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22596</link><pubDate>Thu, 08 Jan 2026 21:36:37 +0000</pubDate><description>### Wpływ
 Luka w punkcie końcowym `/ghost/api/admin/members/events` Ghost umożliwia użytkownikom posiadającym dane uwierzytelniające dla interfejsu Admin API wykonanie dowolnego kodu SQL.
 
 ### Wersje z lukami
@@ -191,7 +276,9 @@ mkdir uploads/bla
 
 # Wpływ
 
-Wykonanie JavaScript, najprawdopodobniej prowadzące do przejęcia konta, w zależności od ograniczeń witryny (CSP itp.).</description></item><item><title>CVE-2026-22257</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22257</link><pubDate>Thu, 08 Jan 2026 21:16:41 +0000</pubDate><description># Podsumowanie
+Wykonanie JavaScript, najprawdopodobniej prowadzące do przejęcia konta, w zależności od ograniczeń witryny (CSP itp.).</description></item><item><title>CVE-2025-14436</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14436</link><pubDate>Thu, 08 Jan 2026 21:21:54 +0000</pubDate><description>Wtyczka Brevo dla WooCommerce dla WordPressa jest podatna na przechowywane skrypty między witrynami poprzez parametr „user_connection_id” we wszystkich wersjach aż do 4.0.49 włącznie z powodu niewystarczającej sanityzacji danych wejściowych i ucieczki danych wyjściowych.Umożliwia to nieuwierzytelnionym atakującym wstrzyknięcie dowolnych skryptów internetowych na strony, które będą wykonywane za każdym razem, gdy użytkownik uzyska dostęp do wstrzykniętej strony.
+
+CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-22257</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22257</link><pubDate>Thu, 08 Jan 2026 21:16:41 +0000</pubDate><description># Podsumowanie
 
 Funkcja `list_html` generuje widok pliku folderu bez czyszczenia nazw plików lub folderów, co może prowadzić do XSS w przypadkach, gdy witryna internetowa umożliwia dostęp do plików publicznych przy użyciu tej funkcji, umożliwiając każdemu przesłanie pliku.
 
@@ -648,7 +735,7 @@ CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2026-21868</title>
 
 CVSS Score: 7.5 (high)</description></item><item><title>CVE-2026-22035</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22035</link><pubDate>Thu, 08 Jan 2026 00:10:28 +0000</pubDate><description>Greenshot to narzędzie do wykonywania zrzutów ekranu typu open source w systemie Windows.Wersje 1.3.310 i starsze są podatne na wstrzykiwanie poleceń systemu operacyjnego poprzez niezakażone przetwarzanie nazw plików.Metoda FormatArguments w pliku externalCommandDestination.cs:269 wykorzystuje funkcję string.Format() do wstawiania nazw plików kontrolowanych przez użytkownika bezpośrednio do poleceń powłoki bez oczyszczania, umożliwiając atakującym wykonywanie dowolnych poleceń poprzez tworzenie złośliwych nazw plików zawierających metaznaki powłoki.Ten problem został rozwiązany w wersji 1.3.311.
 
-CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-66913</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66913</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>JimuReport do wersji 2.1.3 jest podatny na zdalne wykonanie kodu podczas przetwarzania kontrolowanych przez użytkownika adresów URL H2 JDBC.Aplikacja przekazuje dostarczony przez atakującego adres URL JDBC bezpośrednio do sterownika H2, umożliwiając użycie określonych dyrektyw w celu wykonania dowolnego kodu Java.Inna luka niż CVE-2025-10770.</description></item><item><title>CVE-2025-66916</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66916</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Komponent snailjob w RuoYi-Vue-Plus w wersji 5.5.1 i wcześniejszych, interfejs /snail-job/workflow/check-node-expression może wykonywać wyrażenia QLExpress, ale nie filtruje danych wejściowych użytkownika, umożliwiając atakującym użycie klasy File do dowolnego odczytu i zapisu pliku.</description></item><item><title>CVE-2025-68716</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68716</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Routery KAYSUS KS-WR3600 z oprogramowaniem 1.0.5.9.1 umożliwiają domyślnie włączoną usługę SSH na interfejsie LAN.Konto root jest skonfigurowane bez hasła, a administratorzy nie mogą wyłączyć protokołu SSH ani wymusić uwierzytelniania za pośrednictwem interfejsu CLI lub internetowego interfejsu GUI.Dzięki temu każdy atakujący sąsiadujący z siecią LAN może w prosty sposób uzyskać dostęp do powłoki root i wykonywać dowolne polecenia z pełnymi uprawnieniami.</description></item><item><title>CVE-2025-68715</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68715</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>W urządzeniach Panda Wireless PWRU0 z oprogramowaniem sprzętowym 2.2.9 wykryto problem, który udostępnia wiele punktów końcowych HTTP (/goform/setWan, /goform/setLan, /goform/wirelessBasic), które nie wymuszają uwierzytelniania.Zdalny, nieuwierzytelniony atakujący może bezpośrednio modyfikować ustawienia sieci WAN, LAN i sieci bezprzewodowej, co prowadzi do eskalacji uprawnień i odmowy usługi.</description></item><item><title>CVE-2025-61548</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61548</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Wstrzyknięcie SQL jest obecne w parametrze hfInventoryDistFormID w punkcie końcowym /PSP/appNET/Store/CartV12.aspx/GetUnitPrice w wersji edu Business Solutions Print Shop Pro WebDesk w wersji 18.34.Nieoczyszczone dane wejściowe użytkownika są włączane bezpośrednio do zapytań SQL bez odpowiedniej parametryzacji lub ucieczki.Luka ta umożliwia zdalnym atakującym wykonanie dowolnych poleceń SQL</description></item><item><title>CVE-2025-56424</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-56424</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Problem w programie e-faktura pro firmy Insiders Technologies GmbH przed wydaniem 1 dodatku Service Pack 2 umożliwia osobie atakującej zdalnie spowodowanie odmowy usługi za pomocą spreparowanego skryptu</description></item><item><title>CVE-2026-21875</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21875</link><pubDate>Wed, 07 Jan 2026 23:52:18 +0000</pubDate><description>ClipBucket v5 to platforma do udostępniania wideo typu open source.Wersje 5.5.2-#187 i starsze umożliwiają atakującemu wykonanie ślepego wstrzyknięcia SQL poprzez sekcję dodawania komentarza w kanale.Podczas dodawania komentarza w kanale następuje żądanie POST do punktu końcowego /actions/ajax.php.Parametr obj_id w żądaniu POST do /actions/ajax.php jest następnie używany w funkcji user_exists pliku upload/includes/classes/user.class.php jako parametr $id.Jest on następnie używany w funkcji zliczania pliku upload/includes/classes/db.class.plik php.Parametr $id jest łączony z zapytaniem bez sprawdzania poprawności i oczyszczania, a dane wejściowe dostarczone przez użytkownika, takie jak 1' lub 1=1-- - mogą zostać użyte do wyzwolenia wstrzyknięcia.W momencie publikacji ten problem nie został rozwiązany.
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-66913</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66913</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>JimuReport do wersji 2.1.3 jest podatny na zdalne wykonanie kodu podczas przetwarzania kontrolowanych przez użytkownika adresów URL H2 JDBC.Aplikacja przekazuje dostarczony przez atakującego adres URL JDBC bezpośrednio do sterownika H2, umożliwiając użycie określonych dyrektyw w celu wykonania dowolnego kodu Java.Inna luka niż CVE-2025-10770.</description></item><item><title>CVE-2025-66916</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66916</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Komponent snailjob w RuoYi-Vue-Plus w wersji 5.5.1 i wcześniejszych, interfejs /snail-job/workflow/check-node-expression może wykonywać wyrażenia QLExpress, ale nie filtruje danych wejściowych użytkownika, umożliwiając atakującym użycie klasy File do dowolnego odczytu i zapisu pliku.</description></item><item><title>CVE-2025-68716</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68716</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Routery KAYSUS KS-WR3600 z oprogramowaniem 1.0.5.9.1 umożliwiają domyślnie włączoną usługę SSH na interfejsie LAN.Konto root jest skonfigurowane bez hasła, a administratorzy nie mogą wyłączyć protokołu SSH ani wymusić uwierzytelniania za pośrednictwem interfejsu CLI lub internetowego interfejsu GUI.Dzięki temu każdy atakujący sąsiadujący z siecią LAN może w prosty sposób uzyskać dostęp do powłoki root i wykonywać dowolne polecenia z pełnymi uprawnieniami.</description></item><item><title>CVE-2025-68715</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68715</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>W urządzeniach Panda Wireless PWRU0 z oprogramowaniem sprzętowym 2.2.9 wykryto problem, który udostępnia wiele punktów końcowych HTTP (/goform/setWan, /goform/setLan, /goform/wirelessBasic), które nie wymuszają uwierzytelniania.Zdalny, nieuwierzytelniony atakujący może bezpośrednio modyfikować ustawienia sieci WAN, LAN i sieci bezprzewodowej, co prowadzi do eskalacji uprawnień i odmowy usługi.</description></item><item><title>CVE-2025-61548</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61548</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Wstrzyknięcie SQL jest obecne w parametrze hfInventoryDistFormID w punkcie końcowym /PSP/appNET/Store/CartV12.aspx/GetUnitPrice w wersji edu Business Solutions Print Shop Pro WebDesk w wersji 18.34.Nieoczyszczone dane wejściowe użytkownika są włączane bezpośrednio do zapytań SQL bez odpowiedniej parametryzacji lub ucieczki.Luka ta umożliwia zdalnym atakującym wykonanie dowolnych poleceń SQL</description></item><item><title>CVE-2025-56424</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-56424</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Problem w programie e-faktura pro firmy Insiders Technologies GmbH przed wydaniem 1 dodatku Service Pack 2 umożliwia osobie atakującej zdalnie spowodowanie odmowy usługi za pomocą spreparowanego skryptu</description></item><item><title>CVE-2025-68718</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68718</link><pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate><description>Routery KAYSUS KS-WR1200 z oprogramowaniem sprzętowym 107 udostępniają usługi SSH i TELNET w interfejsie LAN z zakodowanymi na stałe poświadczeniami roota (root:12345678).Administrator nie może wyłączyć tych usług ani zmienić hasła zakodowanego na stałe.(Zmiana hasła interfejsu GUI zarządzania nie ma wpływu na uwierzytelnianie SSH/TELNET.) Każdy atakujący sąsiadujący z siecią LAN może w prosty sposób zalogować się z uprawnieniami roota.</description></item><item><title>CVE-2026-21875</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21875</link><pubDate>Wed, 07 Jan 2026 23:52:18 +0000</pubDate><description>ClipBucket v5 to platforma do udostępniania wideo typu open source.Wersje 5.5.2-#187 i starsze umożliwiają atakującemu wykonanie ślepego wstrzyknięcia SQL poprzez sekcję dodawania komentarza w kanale.Podczas dodawania komentarza w kanale następuje żądanie POST do punktu końcowego /actions/ajax.php.Parametr obj_id w żądaniu POST do /actions/ajax.php jest następnie używany w funkcji user_exists pliku upload/includes/classes/user.class.php jako parametr $id.Jest on następnie używany w funkcji zliczania pliku upload/includes/classes/db.class.plik php.Parametr $id jest łączony z zapytaniem bez sprawdzania poprawności i oczyszczania, a dane wejściowe dostarczone przez użytkownika, takie jak 1' lub 1=1-- - mogą zostać użyte do wyzwolenia wstrzyknięcia.W momencie publikacji ten problem nie został rozwiązany.
 
 CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-21869</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21869</link><pubDate>Wed, 07 Jan 2026 23:37:59 +0000</pubDate><description>llama.cpp jest wnioskiem z kilku modeli LLM w C/C++.W zatwierdzeniach 55d4206c8 i wcześniejszych parametr n_discard jest analizowany bezpośrednio z danych wejściowych JSON w punktach końcowych zakończenia serwera llama.cpp bez sprawdzania poprawności, aby upewnić się, że jest nieujemny.Po podaniu wartości ujemnej i zapełnieniu kontekstu funkcja llama_memory_seq_rm/add otrzymuje odwrócony zakres i ujemne przesunięcie, co powoduje przekroczenie dopuszczalnych zapisów pamięci w pętli oceny tokenu.To deterministyczne uszkodzenie pamięci może spowodować awarię procesu lub umożliwić zdalne wykonanie kodu (RCE).W chwili publikacji nie ma żadnych poprawek.
 
