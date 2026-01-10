@@ -1,5 +1,32 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-14976</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14976</link><pubDate>Sat, 10 Jan 2026 08:22:57 +0000</pubDate><description>Wtyczka Rejestracja użytkownika i członkostwo – Kreator niestandardowego formularza rejestracji, Niestandardowy formularz logowania, Profil użytkownika, Ograniczenie treści i członkostwo Wtyczka do WordPress jest podatna na fałszowanie żądań między witrynami we wszystkich wersjach aż do 4.4.8 włącznie.Dzieje się tak z powodu braku lub nieprawidłowego sprawdzenia wartości jednorazowej w funkcji „process_row_actions” z akcją „delete”.Dzięki temu nieuwierzytelnieni atakujący mogą usunąć dowolny post za pomocą sfałszowanego żądania, pod warunkiem, że mogą oszukać administratora witryny do wykonania czynności, takiej jak kliknięcie łącza.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-52435</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52435</link><pubDate>Sat, 10 Jan 2026 09:47:10 +0000</pubDate><description>Błędna konfiguracja J2EE: luka w zabezpieczeniach transmisji danych bez szyfrowania w Apache NimBLE.
+
+Niewłaściwa obsługa procedury wstrzymania szyfrowania w warstwie łącza powoduje, że wcześniej zaszyfrowane połączenie pozostaje w stanie niezaszyfrowanym, umożliwiając podsłuchującemu obserwowanie pozostałej części wymiany.
+Ten problem dotyczy Apache NimBLE: do wersji &lt;= 1.8.0.
+
+Użytkownikom zaleca się aktualizację do wersji 1.9.0, która rozwiązuje problem.</description></item><item><title>CVE-2025-53470</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53470</link><pubDate>Sat, 10 Jan 2026 09:46:35 +0000</pubDate><description>Luka w zabezpieczeniach Out-of-bounds Read w sterowniku Apache NimBLE HCI H4.Specjalnie spreparowane zdarzenie HCI może prowadzić do nieprawidłowego odczytu pamięci w sterowniku H4.
+
+Ten problem dotyczy Apache NimBLE: do wersji 1.8.
+
+Ten problem wymaga uszkodzonego lub fałszywego kontrolera Bluetooth, dlatego też wagę uważa się za niską.
+
+Użytkownikom zaleca się aktualizację do wersji 1.9, która rozwiązuje problem.</description></item><item><title>CVE-2025-53477</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-53477</link><pubDate>Sat, 10 Jan 2026 09:45:27 +0000</pubDate><description>Luka w zabezpieczeniach wyłuskiwania wskaźnika NULL w Apache Nimble.
+
+Brak sprawdzenia poprawności zakończenia połączenia HCI lub bufora TX polecenia HCI może prowadzić do wyłuskania wskaźnika NULL.
+Ten problem wymaga wyłączonych zabezpieczeń i uszkodzonego lub fałszywego kontrolera Bluetooth, dlatego też wagę uważa się za niską.
+
+Ten problem dotyczy Apache NimBLE: do wersji 1.8.0.
+
+Użytkownikom zaleca się aktualizację do wersji 1.9.0, która rozwiązuje problem.</description></item><item><title>CVE-2025-62235</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-62235</link><pubDate>Sat, 10 Jan 2026 09:42:30 +0000</pubDate><description>Obejście uwierzytelniania poprzez lukę w zabezpieczeniach polegającą na fałszowaniu w Apache NimBLE.
+
+Otrzymanie specjalnie spreparowanego żądania bezpieczeństwa może doprowadzić do usunięcia pierwotnej więzi i ponownego nawiązania kontaktu z oszustem.
+Ten problem dotyczy Apache NimBLE: do wersji 1.8.0.
+
+Użytkownikom zaleca się aktualizację do wersji 1.9.0, która rozwiązuje problem.</description></item><item><title>CVE-2026-0831</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0831</link><pubDate>Sat, 10 Jan 2026 09:22:18 +0000</pubDate><description>Wtyczka Templately do WordPressa jest podatna na arbitralny zapis plików we wszystkich wersjach do 3.4.8 włącznie.Jest to spowodowane nieodpowiednią walidacją danych wejściowych w funkcji `save_template_to_file()`, gdzie parametry kontrolowane przez użytkownika, takie jak `session_id`, `content_id` i `ai_page_ids` są używane do konstruowania ścieżek plików bez odpowiedniego oczyszczenia.Umożliwia to nieuwierzytelnionym atakującym zapisanie dowolnych plików `.ai.json` w lokalizacjach w katalogu przesyłania.
+
+CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-15503</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15503</link><pubDate>Sat, 10 Jan 2026 09:02:06 +0000</pubDate><description>W systemie zarządzania eksploatacją i konserwacją Sangfor do wersji 3.0.8 wykryto lukę w zabezpieczeniach.Elementem, którego dotyczy problem, jest nieznana funkcja pliku /fort/trust/version/common/common.jsp.Manipulacja argumentem Plik powoduje nieograniczone przesyłanie.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-14976</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14976</link><pubDate>Sat, 10 Jan 2026 08:22:57 +0000</pubDate><description>Wtyczka Rejestracja użytkownika i członkostwo – Kreator niestandardowego formularza rejestracji, Niestandardowy formularz logowania, Profil użytkownika, Ograniczenie treści i członkostwo Wtyczka do WordPress jest podatna na fałszowanie żądań między witrynami we wszystkich wersjach aż do 4.4.8 włącznie.Dzieje się tak z powodu braku lub nieprawidłowego sprawdzenia wartości jednorazowej w funkcji „process_row_actions” z akcją „delete”.Dzięki temu nieuwierzytelnieni atakujący mogą usunąć dowolny post za pomocą sfałszowanego żądania, pod warunkiem, że mogą oszukać administratora witryny do wykonania czynności, takiej jak kliknięcie łącza.
 
 CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2025-15502</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15502</link><pubDate>Sat, 10 Jan 2026 08:02:06 +0000</pubDate><description>W systemie zarządzania eksploatacją i konserwacją Sangfor do wersji 3.0.8 została zidentyfikowana luka.Elementem, którego to dotyczy, jest funkcja SessionController pliku /isomp-protocol/protocol/session.Taka manipulacja argumentem Nazwa hosta prowadzi do wstrzyknięcia polecenia os.Atak może zostać przeprowadzony zdalnie.Exploit jest publicznie dostępny i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
