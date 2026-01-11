@@ -3561,7 +3561,35 @@ umożliwia przechowywanie XSS użytkownikom z wysokimi uprawnieniami.
 
 Problem dotyczy Infra Monitoringu: od 25.10.0 do 25.10.2, od 24.10.0 do 24.10.15, od 24.04.0 do 24.04.19.
 
-CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2026-0583</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0583</link><pubDate>Mon, 05 Jan 2026 09:02:06 +0000</pubDate><description>W code-projects Online Product Reservation System 1.0 wykryto lukę w zabezpieczeniach.Podatnością dotknięta jest nieznany kod pliku app/user/login.php komponentu User Login.Manipulacja argumentem emailadd powoduje wstrzyknięcie sql.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2025-68763</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68763</link><pubDate>Mon, 05 Jan 2026 09:32:35 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+crypto: starfive – Poprawnie obsługuj zwrot sg_nents_for_len
+
+Wartość zwracana przez sg_nents_for_len została przypisana do pozycji długiej bez znaku
+w starfive_hash_digest, powodując konwersję ujemnych kodów błędów
+do dużych dodatnich liczb całkowitych.
+
+Dodaj sprawdzanie błędów dla sg_nents_for_len i natychmiast wróć
+niezapobiegnięcie potencjalnemu przepełnieniu bufora.</description></item><item><title>CVE-2025-68755</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68755</link><pubDate>Mon, 05 Jan 2026 09:32:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+inscenizacja: większość: usuń uszkodzony sterownik i2c
+
+Sterownik MOST I2C był całkowicie uszkodzony przez pięć lat bez niego
+ktokolwiek to zauważy, usuń sterownik z wersji tymczasowej.
+
+W szczególności zatwierdź 723de0f9171e („staging: większość: usuń urządzenie z
+struktura interfejsu”) zaczął wymagać od sterowników ustawienia interfejsu
+wskaźnik urządzenia przed rejestracją, ale sterownik I2C nigdy nie został zaktualizowany
+co skutkuje wyłuskaniem wskaźnika NULL, jeśli ktoś kiedykolwiek spróbuje
+zbadaj to.</description></item><item><title>CVE-2025-68753</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68753</link><pubDate>Mon, 05 Jan 2026 09:32:27 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ALSA: firewire-motu: dodaj kontrolę granic w pętli put_user dla zdarzeń DSP
+
+W kodzie obsługi zdarzeń DSP pętla put_user() kopiuje dane zdarzenia.
+Jeśli rozmiar bufora użytkownika nie jest wyrównany do 4 bajtów, może nastąpić nadpisanie
+poza granicę bufora.
+
+Napraw, dodając kontrolę granic przed put_user().</description></item><item><title>CVE-2026-0583</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0583</link><pubDate>Mon, 05 Jan 2026 09:02:06 +0000</pubDate><description>W code-projects Online Product Reservation System 1.0 wykryto lukę w zabezpieczeniach.Podatnością dotknięta jest nieznany kod pliku app/user/login.php komponentu User Login.Manipulacja argumentem emailadd powoduje wstrzyknięcie sql.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-66518</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66518</link><pubDate>Mon, 05 Jan 2026 08:46:27 +0000</pubDate><description>Każdy klient, który może uzyskać dostęp do serwera Apache Kyuubi za pośrednictwem protokołów frontonu Kyuubi, może ominąć konfigurację po stronie serwera kyuubi.session.local.dir.allow.list i używać plików lokalnych, które nie są wymienione w konfiguracji.
 
