@@ -1,5 +1,47 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-58411</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-58411</link><pubDate>Tue, 13 Jan 2026 16:41:51 +0000</pubDate><description>Oprogramowanie zainstalowane i uruchomione jako użytkownik nieuprzywilejowany może wykonywać nieprawidłowe wywołania systemowe procesora graficznego, powodując niewłaściwe zarządzanie zliczaniem odwołań do zasobów, tworząc potencjalne zastosowanie po darmowym scenariuszu.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-21226</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21226</link><pubDate>Tue, 13 Jan 2026 18:04:55 +0000</pubDate><description>
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2026-20941</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20941</link><pubDate>Tue, 13 Jan 2026 17:57:10 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20958</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20958</link><pubDate>Tue, 13 Jan 2026 17:57:09 +0000</pubDate><description>
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-20957</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20957</link><pubDate>Tue, 13 Jan 2026 17:57:09 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20952</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20952</link><pubDate>Tue, 13 Jan 2026 17:57:08 +0000</pubDate><description>
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2026-20950</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20950</link><pubDate>Tue, 13 Jan 2026 17:57:07 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20949</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20949</link><pubDate>Tue, 13 Jan 2026 17:57:07 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20948</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20948</link><pubDate>Tue, 13 Jan 2026 17:57:06 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20939</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20939</link><pubDate>Tue, 13 Jan 2026 17:57:05 +0000</pubDate><description>
+
+CVSS Score: 5.5 (medium)</description></item><item><title>CVE-2026-20937</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20937</link><pubDate>Tue, 13 Jan 2026 17:57:05 +0000</pubDate><description>
+
+CVSS Score: 5.5 (medium)</description></item><item><title>CVE-2026-20936</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20936</link><pubDate>Tue, 13 Jan 2026 17:57:04 +0000</pubDate><description>
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-20935</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20935</link><pubDate>Tue, 13 Jan 2026 17:57:03 +0000</pubDate><description>
+
+CVSS Score: 6.2 (medium)</description></item><item><title>CVE-2026-20931</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20931</link><pubDate>Tue, 13 Jan 2026 17:57:03 +0000</pubDate><description>
+
+CVSS Score: 8.0 (high)</description></item><item><title>CVE-2026-20929</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20929</link><pubDate>Tue, 13 Jan 2026 17:57:02 +0000</pubDate><description>
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2026-20874</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20874</link><pubDate>Tue, 13 Jan 2026 17:57:02 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20873</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20873</link><pubDate>Tue, 13 Jan 2026 17:57:01 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20872</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20872</link><pubDate>Tue, 13 Jan 2026 17:57:00 +0000</pubDate><description>
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-20871</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20871</link><pubDate>Tue, 13 Jan 2026 17:57:00 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-37166</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-37166</link><pubDate>Tue, 13 Jan 2026 17:42:09 +0000</pubDate><description>Zidentyfikowano lukę w punktach dostępowych HPE Networking Instant On, która może powodować, że urządzenie przetwarzające specjalnie spreparowany pakiet może przejść w stan braku odpowiedzi, co w niektórych przypadkach wymagać będzie twardego resetu w celu przywrócenia usług.Złośliwy aktor może wykorzystać tę lukę do przeprowadzenia ataku typu „odmowa usługi” na sieć docelową.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-37165</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-37165</link><pubDate>Tue, 13 Jan 2026 17:40:56 +0000</pubDate><description>Luka w konfiguracji trybu routera punktów dostępu HPE Instant On udostępniła pewne szczegóły konfiguracji sieci niezamierzonym interfejsom.Złośliwy aktor może zdobyć wiedzę o szczegółach konfiguracji sieci wewnętrznej poprzez inspekcję pakietów, których dotyczy problem.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-10865</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-10865</link><pubDate>Tue, 13 Jan 2026 17:26:45 +0000</pubDate><description>Oprogramowanie zainstalowane i uruchomione jako użytkownik nieuprzywilejowany może wykonywać nieprawidłowe wywołania systemowe procesora graficznego, powodując nieprawidłowe zarządzanie zliczaniem referencji i potencjalne wykorzystanie po zwolnieniu.
+
+Niewłaściwe zliczenie referencji na podstawie zasobu wewnętrznego spowodowało scenariusz, w którym istniał potencjał do wykorzystania po zwolnieniu.</description></item><item><title>CVE-2025-58411</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-58411</link><pubDate>Tue, 13 Jan 2026 16:41:51 +0000</pubDate><description>Oprogramowanie zainstalowane i uruchomione jako użytkownik nieuprzywilejowany może wykonywać nieprawidłowe wywołania systemowe procesora graficznego, powodując niewłaściwe zarządzanie zliczaniem odwołań do zasobów, tworząc potencjalne zastosowanie po darmowym scenariuszu.
 
 Niewłaściwe zarządzanie zasobami i zliczanie odwołań do zasobu wewnętrznego spowodowało scenariusz, w którym występowało potencjalne użycie zapisu po zwolnieniu.</description></item><item><title>CVE-2025-58409</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-58409</link><pubDate>Tue, 13 Jan 2026 16:37:46 +0000</pubDate><description>Oprogramowanie zainstalowane i uruchomione jako użytkownik nieuprzywilejowany może wykonywać nieprawidłowe wywołania systemowe procesora graficznego, aby uniemożliwić sprzętowi GPU zapisywanie na dowolnych stronach pamięci fizycznej.
 
