@@ -1,5 +1,882 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-13447</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13447</link><pubDate>Tue, 13 Jan 2026 14:31:56 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-71101</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71101</link><pubDate>Tue, 13 Jan 2026 15:34:59 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+platforma/x86: hp-bioscfg: Napraw dostęp do tablicy poza granicami podczas analizowania pakietów ACPI
+
+Funkcja hp_populate_*_elements_from_package() znajduje się w pliku hp-bioscfg
+sterownik zawiera luki w zabezpieczeniach dostępu do tablicy poza granicami.
+
+Funkcje te analizują pakiety ACPI w wewnętrzne struktury danych za pomocą
+pętla for ze zmienną indeksową „elem”, która wykonuje iterację
+tablice enum_obj/integer_obj/order_obj/password_obj/string_obj.
+
+Podczas przetwarzania pól wieloelementowych, takich jak PREREQUISITES i
+ENUM_POSSIBLE_VALUES, te funkcje odczytują wiele kolejnych tablic
+elementy używając wyrażeń takich jak „enum_obj[elem + reqs]” i
+„enum_obj[elem + pos_values]” w zagnieżdżonych pętlach.
+
+Błąd polega na tym, że granice sprawdzają tylko zweryfikowany element, ale nie są brane pod uwagę
+dodatkowe przesunięcie podczas uzyskiwania dostępu do elem + reqs lub elem + pos_values.
+
+Poprawka zmienia sprawdzanie granic w celu sprawdzenia rzeczywistego indeksu, do którego uzyskano dostęp.</description></item><item><title>CVE-2025-71100</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71100</link><pubDate>Tue, 13 Jan 2026 15:34:59 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+Wi-Fi: rtlwifi: 8192cu: napraw tid poza zakresem w rtl92cu_tx_fill_desc()
+
+TID pobierany z ieee80211_get_tid() może być poza zakresem rozmiaru tablicy
+of sta_entry-&gt;tids[], więc sprawdź, czy TID jest mniejszy niż MAX_TID_COUNT.W przeciwnym razie
+UBSAN ostrzega:
+
+UBSAN: indeks tablicy poza zakresem w sterownikach/net/wireless/realtek/rtlwifi/rtl8192cu/trx.c:514:30
+indeks 10 jest poza zakresem dla typu „rtl_tid_data [9]”</description></item><item><title>CVE-2025-71099</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71099</link><pubDate>Tue, 13 Jan 2026 15:34:58 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/xe/oa: Napraw potencjalny UAF w xe_oa_add_config_ioctl()
+
+W xe_oa_add_config_ioctl() uzyskaliśmy dostęp do oa_config-&gt;id po upuszczeniu
+metryka_blokada.Ponieważ ta blokada chroni czas życia oa_config, an
+atakujący może odgadnąć identyfikator i wywołać funkcję xe_oa_remove_config_ioctl() za pomocą
+idealny moment, uwalniając oa_config, zanim go wyłuskamy, co prowadzi do
+potencjalnego wykorzystania po-darmowego.
+
+Napraw to, buforując identyfikator w zmiennej lokalnej, trzymając blokadę.
+
+v2: (Matt A)
+- Usunięto zmianę kolejności mutex_unlock(&amp;oa-&gt;metrics_lock).
+xe_oa_remove_config_ioctl()
+
+(wiśnia wybrana z zatwierdzenia 28aeaed130e8e587fd1b73b6d66ca41ccc5a1a31)</description></item><item><title>CVE-2025-71098</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71098</link><pubDate>Tue, 13 Jan 2026 15:34:57 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ip6_gre: spraw, aby ip6gre_header() było solidne
+
+Przez lata syzbot znalazł wiele sposobów na awarię jądra
+w ip6gre_header() [1].
+
+Obejmuje to zdolność kierowców zespołowych lub łączących się do dynamiki
+zmień ich dev-&gt;needed_headroom i/lub dev-&gt;hard_header_len
+
+W tym konkretnym wypadku mld_newpack() przydzielił skb
+ze zbyt małą rezerwą/zapasem i do czasu miliard_sendpack()
+został wywołany, syzbotowi udało się podłączyć urządzenie ip6gre.
+
+[1]
+skbuff: skb_under_panic: tekst:ffffffff8a1d69a8 len:136 put:40 głowa:ffff888059bc7000 dane:ffff888059bc6fe8 ogon:0x70 koniec:0x6c0 dev:team0
+------------[przetnij tutaj ]------------
+BŁĄD jądra w net/core/skbuff.c:213!
+&lt;ZADANIE&gt;
+skb_under_panic net/core/skbuff.c:223 [w linii]
+skb_push+0xc3/0xe0 net/core/skbuff.c:2641
+ip6gre_header+0xc8/0x790 net/ipv6/ip6_gre.c:1371
+dev_hard_header include/linux/netdevice.h:3436 [inline]
+neigh_connected_output+0x286/0x460 net/core/neighbour.c:1618
+neigh_output include/net/neighbour.h:556 [inline]
+ip6_finish_output2+0xfb3/0x1480 net/ipv6/ip6_output.c:136
+__ip6_finish_output net/ipv6/ip6_output.c:-1 [wbudowany]
+ip6_finish_output+0x234/0x7d0 net/ipv6/ip6_output.c:220
+NF_HOOK_COND include/linux/netfilter.h:307 [wbudowane]
+ip6_output+0x340/0x550 net/ipv6/ip6_output.c:247
+NF_HOOK+0x9e/0x380 include/linux/netfilter.h:318
+miliard_sendpack+0x8d4/0xe60 net/ipv6/mcast.c:1855
+miliard_send_cr net/ipv6/mcast.c:2154 [inline]
+miliard_ifc_work+0x83e/0xd60 net/ipv6/mcast.c:2693</description></item><item><title>CVE-2025-71097</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71097</link><pubDate>Tue, 13 Jan 2026 15:34:56 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ipv4: Napraw wyciek liczby referencji podczas korzystania z tras błędów z obiektami następnego skoku
+
+Kiedy obiekt następnego skoku zostanie usunięty, zostaje on oznaczony jako martwy, a następnie
+Funkcja fib_table_flush() zostaje wywołana w celu opróżnienia wszystkich tras korzystających z metody
+martwy następny skok.
+
+Obecna logika w fib_table_flush() polega na opróżnianiu tylko tras błędów
+(np. czarna dziura), gdy jest wywoływana jako część sieciowej przestrzeni nazw
+zdemontować (tj. z Flush_all=true).Dlatego ścieżki błędów nie są
+opróżniany, gdy obiekt następnego skoku zostanie usunięty:
+
+# ip link dodaj nazwę dummy1 w górę wpisz manekin
+# ip nexthop dodaj identyfikator 1 dev dummy1
+# ip trasa dodaj 198.51.100.1/32 nhid 1
+# trasa ip dodaj czarną dziurę 198.51.100.2/32 nhid 1
+# ip nexthop del id 1
+#pokaz trasy ip
+blackhole 198.51.100.2 nhid 1 dev dummy1
+
+W związku z tym przechowują odniesienie do obiektu następnego skoku, który in
+turn przechowuje odniesienie na urządzeniu następnego skoku, w wyniku czego powstaje odniesienie
+policz wyciek:
+
+# łącze ip del dev dummy1
+[ 70.516258] unregister_netdevice: oczekiwanie, aż dummy1 stanie się wolny.Liczba zastosowań = 2
+
+Napraw, opróżniając trasy błędów, gdy ich następny skok jest oznaczony jako martwy.
+
+IPv6 nie jest dotknięty tym problemem.</description></item><item><title>CVE-2025-71096</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71096</link><pubDate>Tue, 13 Jan 2026 15:34:56 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+RDMA/rdzeń: Sprawdź poprawność obecności LS_NLA_TYPE_DGID
+
+Odpowiedź netlink dla RDMA_NL_LS_OP_IP_RESOLVE powinna zawsze mieć
+LS_NLA_TYPE_DGID, jeśli tak nie jest, jest on nieprawidłowy.
+
+Użyj poprawnie logiki analizowania nl i wywołaj funkcję nla_parse_deprecated() w celu wypełnienia
+tablicę nlattrs, a następnie bezpośrednio indeksuj tę tablicę, aby uzyskać dane
+DGID.Po prostu nie powiedzie się, jeśli ma wartość NULL.
+
+Usuń pętlę for szukającą nla i zmiażdż walidację i
+parsowanie w jedną funkcję.
+
+Naprawia niezainicjowany odczyt ze stosu wywołany przez przestrzeń użytkownika, jeśli tak
+nie udostępnia DGID zainicjowanemu przez jądro RDMA_NL_LS_OP_IP_RESOLVE
+zapytanie.
+
+BŁĄD: KMSAN: wartość uninit w pakiecie hex_byte_pack include/linux/hex.h:13 [inline]
+BŁĄD: KMSAN: wartość uninit w ip6_string+0xef4/0x13a0 lib/vsprintf.c:1490
+hex_byte_pack include/linux/hex.h:13 [inline]
+ip6_string+0xef4/0x13a0 lib/vsprintf.c:1490
+ip6_addr_string+0x18a/0x3e0 lib/vsprintf.c:1509
+ip_addr_string+0x245/0xee0 lib/vsprintf.c:1633
+wskaźnik+0xc09/0x1bd0 lib/vsprintf.c:2542
+vsnprintf+0xf8a/0x1bd0 lib/vsprintf.c:2930
+vprintk_store+0x3ae/0x1530 jądro/printk/printk.c:2279
+vprintk_emit+0x307/0xcd0 jądro/printk/printk.c:2426
+vprintk_default+0x3f/0x50 jądro/printk/printk.c:2465
+vprintk+0x36/0x50 jądro/printk/printk_safe.c:82
+_printk+0x17e/0x1b0 jądro/printk/printk.c:2475
+ib_nl_process_good_ip_rsep sterowniki/infiniband/core/addr.c:128 [wbudowane]
+ib_nl_handle_ip_res_resp+0x963/0x9d0 sterowniki/infiniband/core/addr.c:141
+rdma_nl_rcv_msg sterowniki/infiniband/core/netlink.c:-1 [wbudowane]
+rdma_nl_rcv_skb sterowniki/infiniband/core/netlink.c:239 [wbudowane]
+rdma_nl_rcv+0xefa/0x11c0 sterowniki/infiniband/core/netlink.c:259
+jądro_netlink_unicast_net/netlink/af_netlink.c:1320 [wbudowane]
+netlink_unicast+0xf04/0x12b0 net/netlink/af_netlink.c:1346
+netlink_sendmsg+0x10b3/0x1250 net/netlink/af_netlink.c:1896
+sock_sendmsg_nosec net/socket.c:714 [w linii]
+__sock_sendmsg+0x333/0x3d0 net/socket.c:729
+____sys_sendmsg+0x7e0/0xd80 net/socket.c:2617
+___sys_sendmsg+0x271/0x3b0 net/socket.c:2671
+__sys_sendmsg+0x1aa/0x300 net/socket.c:2703
+__compat_sys_sendmsg net/compat.c:346 [w wierszu]
+__do_compat_sys_sendmsg net/compat.c:353 [w wierszu]
+__se_compat_sys_sendmsg net/compat.c:350 [w wierszu]
+__ia32_compat_sys_sendmsg+0xa4/0x100 net/compat.c:350
+ia32_sys_call+0x3f6c/0x4310 arch/x86/include/generated/asm/syscalls_32.h:371
+do_syscall_32_irqs_on arch/x86/entry/syscall_32.c:83 [wbudowane]
+__do_fast_syscall_32+0xb0/0x150 arch/x86/entry/syscall_32.c:306
+do_fast_syscall_32+0x38/0x80 arch/x86/entry/syscall_32.c:331
+do_SYSENTER_32+0x1f/0x30 arch/x86/entry/syscall_32.c:3</description></item><item><title>CVE-2025-71095</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71095</link><pubDate>Tue, 13 Jan 2026 15:34:55 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: stmmac: napraw problem awarii dla akcji XDP_TX z zerową kopią
+
+Występuje problem z awarią podczas uruchamiania akcji zerowej kopii XDP_TX, awaria
+log pokazano poniżej.
+
+[216.122464] Nie można obsłużyć żądania stronicowania jądra pod adresem wirtualnym fffeffff80000000
+[216.187524] Błąd wewnętrzny: Ups: 0000000096000144 [#1] SMP
+[216.301694] Śledzenie połączeń:
+[ 216.304130] dcache_clean_poc+0x20/0x38 (P)
+[ 216.308308] __dma_sync_single_for_device+0x1bc/0x1e0
+[ 216.313351] stmmac_xdp_xmit_xdpf+0x354/0x400
+[ 216.317701] __stmmac_xdp_run_prog+0x164/0x368
+[ 216.322139] stmmac_napi_poll_rxtx+0xba8/0xf00
+[ 216.326576] __napi_poll+0x40/0x218
+[216.408054] Panika jądra – brak synchronizacji: Ups: krytyczny wyjątek w przerwaniu
+
+W przypadku akcji XDP_TX xdp_buff jest konwertowany do xdp_frame przez
+xdp_convert_buff_to_frame().Typ pamięci wynikowej xdp_frame
+zależy od typu pamięci xdp_buff.Dla puli stron opartej na xdp_buff
+tworzy xdp_frame z typem pamięci MEM_TYPE_PAGE_POOL.Za zerową kopię
+xdp_buff oparty na puli XSK tworzy xdp_frame z typem pamięci
+MEM_TYPE_PAGE_ORDER0.Jednak stmmac_xdp_xmit_back() nie sprawdza
+typ pamięci i zawsze używa typu puli stron, prowadzi to do nieprawidłowego
+mapowania i powoduje awarię.Dlatego sprawdź typ pamięci xdp_buff
+w stmmac_xdp_xmit_back(), aby rozwiązać ten problem.</description></item><item><title>CVE-2025-71094</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71094</link><pubDate>Tue, 13 Jan 2026 15:34:54 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: usb: asix: sprawdź adres PHY przed użyciem
+
+Sterownik ASIX odczytuje adres PHY z urządzenia USB poprzez
+asix_read_phy_addr().Złośliwe lub wadliwe urządzenie może zwrócić
+nieprawidłowy adres (&gt;= PHY_MAX_ADDR), co powoduje ostrzeżenie w
+mdiobus_get_phy():
+
+adres 207 poza zakresem
+OSTRZEŻENIE: sterowniki/net/phy/mdio_bus.c:76
+
+Sprawdź poprawność adresu PHY w asix_read_phy_addr() i usuń plik
+teraz-zbędna kontrola w ax88172a.c.</description></item><item><title>CVE-2025-71093</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71093</link><pubDate>Tue, 13 Jan 2026 15:34:53 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+e1000: napraw OOB w e1000_tbi_should_accept()
+
+W e1000_tbi_should_accept() odczytujemy ostatni bajt ramki poprzez
+„data[długość - 1]”, aby ocenić obejście TBI.Jeśli deskryptor-
+raportowana długość wynosi zero lub jest większa niż rzeczywisty rozmiar bufora RX
+odczyt wykracza poza zakres i może uderzać w niepowiązane obiekty płyty.Problem
+jest obserwowane ze ścieżki odbiorczej NAPI (e1000_clean_rx_irq):
+
+===================================================================
+BŁĄD: KASAN: płyta poza granicami w e1000_tbi_should_accept+0x610/0x790
+Odczytaj rozmiar 1 pod adresem ffff888014114e54 za pomocą zadania sshd/363
+
+Procesor: 0 PID: 363 Comm: sshd Nieskażony 5.18.0-rc1 #1
+Nazwa sprzętu: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 01.04.2014
+Zadzwoń do śledzenia:
+&lt;przerwanie&gt;
+dump_stack_lvl+0x5a/0x74
+print_address_description+0x7b/0x440
+print_report+0x101/0x200
+kasan_report+0xc1/0xf0
+e1000_tbi_should_accept+0x610/0x790
+e1000_clean_rx_irq+0xa8c/0x1110
+e1000_clean+0xde2/0x3c10
+__napi_poll+0x98/0x380
+net_rx_action+0x491/0xa20
+__do_softirq+0x2c9/0x61d
+do_softirq+0xd1/0x120
+&lt;/IRQ&gt;
+&lt;ZADANIE&gt;
+__local_bh_enable_ip+0xfe/0x130
+ip_finish_output2+0x7d5/0xb00
+__ip_queue_xmit+0xe24/0x1ab0
+__tcp_transmit_skb+0x1bcb/0x3340
+tcp_write_xmit+0x175d/0x6bd0
+__tcp_push_pending_frames+0x7b/0x280
+tcp_sendmsg_locked+0x2e4f/0x32d0
+tcp_sendmsg+0x24/0x40
+skarpetka_write_iter+0x322/0x430
+vfs_write+0x56c/0xa60
+ksys_write+0xd1/0x190
+do_syscall_64+0x43/0x90
+wpis_SYSCALL_64_after_hwframe+0x44/0xae
+RIP: 0033:0x7f511b476b10
+Kod: 73 01 c3 48 8b 0d 88 d3 2b 00 f7 d8 64 89 01 48 83 c8 ff c3 66 0f 1f 44 00 00 83 3d f9 2b 2c 00 00 75 10 b8 01 00 00 00 0f05 &lt;48&gt; 3d 01 f0 ff ff 73 31 c3 48 83 we 08 e8 8e 9b 01 00 48 89 04 24
+RSP: 002b:00007ffc9211d4e8 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 0000000000004024 RCX: 00007f511b476b10
+RDX: 0000000000004024 RSI: 0000559a9385962c RDI: 0000000000000003
+RBP: 0000559a9383a400 R08: ffffffffffffff0 R09: 0000000000004f00
+R10: 0000000000000070 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007ffc9211d57f R14: 0000559a9347bde7 R15: 0000000000000003
+&lt;/ZADANIE&gt;
+Przydzielone według zadania 1:
+__kasan_krealloc+0x131/0x1c0
+krealloc+0x90/0xc0
+add_sysfs_param+0xcb/0x8a0
+kernel_add_sysfs_param+0x81/0xd4
+param_sysfs_builtin+0x138/0x1a6
+param_sysfs_init+0x57/0x5b
+do_one_initcall+0x104/0x250
+do_initcall_level+0x102/0x132
+do_initcalls+0x46/0x74
+kernel_init_freeable+0x28f/0x393
+kernel_init+0x14/0x1a0
+ret_from_fork+0x22/0x30
+Błędny adres należy do obiektu pod adresem ffff888014114000
+który należy do pamięci podręcznej kmalloc-2k o rozmiarze 2048
+Błędny adres znajduje się 1620 bajtów na prawo od
+Region 2048 bajtów [ffff888014114000, ffff888014114800]
+Błędny adres należy do strony fizycznej:
+strona:ffffea0000504400 refcount:1 liczba map:0 mapowanie:0000000000000000 indeks:0x0 pfn:0x14110
+głowa:ffffea0000504400 zamówienie:3 złożony_mapcount:0 złożony_pincount:0
+flagi: 0x100000000010200(płyta|głowa|węzeł=0|strefa=1)
+surowe: 0100000000010200 0000000000000000 martwe000000000001 ffff888013442000
+surowe: 0000000000000000 0000000000080008 00000001ffffffff 0000000000000000
+strona zrzucona, ponieważ: kasan: wykryto zły dostęp
+===================================================================
+
+Dzieje się tak, ponieważ sprawdzenie TBI bezwarunkowo usuwa odwołanie do ostatniego
+bajt bez uprzedniego sprawdzenia zgłoszonej długości:
+
+u8 last_byte = *(dane + długość - 1);
+
+Napraw, odrzucając ramkę wcześniej, jeśli długość wynosi zero lub przekracza
+adapter-&gt;rx_buffer_len.Zachowuje to semantykę obejścia TBI dla
+ważnych ramek i zapobiega dotykaniu pamięci poza buforem RX.</description></item><item><title>CVE-2025-71092</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71092</link><pubDate>Tue, 13 Jan 2026 15:34:53 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+RDMA/bnxt_re: Napraw zapis OOB w bnxt_re_copy_err_stats()
+
+Zatwierdź ef56081d1864 („RDMA/bnxt_re: liczniki sprzętowe powiązane z RoCE
+aktualizacja”) dodał trzy nowe liczniki i umieścił je później
+BNXT_RE_OUT_OF_SEQ_ERR.
+
+BNXT_RE_OUT_OF_SEQ_ERR działa jako znacznik graniczny przy alokacji sprzętu
+statystyki z różnymi wartościami num_counters na urządzeniach chip_gen_p5_p7.
+
+W rezultacie podczas alokacji używane jest BNXT_RE_NUM_STD_COUNTERS
+hw_stats, co prowadzi do zapisu poza zakresem
+bnxt_re_copy_err_stats().
+
+Liczniki BNXT_RE_REQ_CQE_ERROR, BNXT_RE_RESP_CQE_ERROR i
+BNXT_RE_RESP_REMOTE_ACCESS_ERRS mają zastosowanie do sprzętu ogólnego, a nie
+tylko urządzenia p5/p7.
+
+Napraw to, przesuwając te liczniki przed BNXT_RE_OUT_OF_SEQ_ERR, aby były
+są zawarte w ogólnym zestawie liczników.</description></item><item><title>CVE-2025-71091</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71091</link><pubDate>Tue, 13 Jan 2026 15:34:52 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+zespół: napraw sprawdzanie portu włączonego w team_queue_override_port_prio_changed()
+
+Niedawno zgłoszono następujący błąd syzkallera
+ślad:
+
+uszkodzenie list_del, ffff888058bea080-&gt;prev to LIST_POISON2 (dead000000000122)
+------------[przetnij tutaj ]------------
+BŁĄD jądra w lib/list_debug.c:59!
+Ups: nieprawidłowy kod operacji: 0000 [#1] SMP KASAN NOPTI
+Procesor: 3 UID: 0 PID: 21246 Comm: syz.0.2928 Nieskażony syzkaller #0 PREEMPT (pełny)
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2~bpo12+1 01.04.2014
+RIP: 0010:__list_del_entry_valid_or_report+0x13e/0x200 lib/list_debug.c:59
+Kod: 48 c7 c7 e0 71 f0 8b e8 30 08 ef fc 90 0f 0b 48 89 ef e8 a5 02 55 fd 48 89 ea 48 89 de 48 c7 c7 40 72 f0 8b e8 13 08 ef fc 90 &lt;0f&gt; 0b48 89 ef e8 88 02 55 fd 48 89 ea 48 b8 00 00 00 00 00 fc ff
+RSP: 0018:ffffc9000d49f370 EFLAGS: 00010286
+RAX: 000000000000004e RBX: ffff888058bea080 RCX: ffffc9002817d000
+RDX: 0000000000000000 RSI: ffffffff819becc6 RDI: 0000000000000005
+RBP: martwy000000000122 R08: 0000000000000005 R09: 0000000000000000
+R10: 0000000080000000 R11: 0000000000000001 R12: ffff888039e9c230
+R13: ffff888058bea088 R14: ffff888058bea080 R15: ffff888055461480
+FS: 00007fbbcfe6f6c0(0000) GS:ffff8880d6d0a000(0000) knlGS:0000000000000000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000110c3afcb0 CR3: 00000000382c7000 CR4: 0000000000352ef0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+__list_del_entry_valid include/linux/list.h:132 [w wierszu]
+__list_del_entry include/linux/list.h:223 [w wierszu]
+list_del_rcu include/linux/rculist.h:178 [w linii]
+__team_queue_override_port_del sterowniki/net/team/team_core.c:826 [inline]
+__team_queue_override_port_del sterowniki/net/team/team_core.c:821 [inline]
+team_queue_override_port_prio_changed sterowniki/net/team/team_core.c:883 [inline]
+team_priority_option_set+0x171/0x2f0 sterowniki/net/team/team_core.c:1534
+team_option_set sterowniki/net/team/team_core.c:376 [inline]
+team_nl_options_set_doit+0x8ae/0xe60 sterowniki/net/team/team_core.c:2653
+genl_family_rcv_msg_doit+0x209/0x2f0 net/netlink/genetlink.c:1115
+genl_family_rcv_msg net/netlink/genetlink.c:1195 [w wierszu]
+genl_rcv_msg+0x55c/0x800 net/netlink/genetlink.c:1210
+netlink_rcv_skb+0x158/0x420 net/netlink/af_netlink.c:2552
+genl_rcv+0x28/0x40 net/netlink/genetlink.c:1219
+jądro_netlink_unicast_net/netlink/af_netlink.c:1320 [wbudowane]
+netlink_unicast+0x5aa/0x870 net/netlink/af_netlink.c:1346
+netlink_sendmsg+0x8c8/0xdd0 net/netlink/af_netlink.c:1896
+sock_sendmsg_nosec net/socket.c:727 [wbudowane]
+__sock_sendmsg net/socket.c:742 [w wierszu]
+____sys_sendmsg+0xa98/0xc70 net/socket.c:2630
+___sys_sendmsg+0x134/0x1d0 net/socket.c:2684
+__sys_sendmsg+0x16d/0x220 net/socket.c:2716
+do_syscall_x64 arch/x86/entry/syscall_64.c:63 [wbudowane]
+do_syscall_64+0xcd/0xfa0 arch/x86/entry/syscall_64.c:94
+wpis_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Problem tkwi w tym przepływie:
+1) Port jest włączony, identyfikator_kolejki != 0, w qom_list
+2) Port zostaje wyłączony
+-&gt; zespół_port_disable()
+-&gt; zespół_queue_override_port_del()
+-&gt; del (usunięto z listy)
+3) Port jest wyłączony, identyfikator_kolejki != 0, nie ma go na żadnej liście
+4) Zmiany priorytetów
+-&gt; team_queue_override_port_prio_changed()
+-&gt; sprawdza: port wyłączony &amp;&amp; identyfikator_kolejki != 0
+-&gt; wywołuje del - uderza w BŁĄD, ponieważ został już usunięty
+
+Aby to naprawić, zmień czek w team_queue_override_port_prio_changed()
+więc wraca wcześniej, jeśli port nie jest włączony.</description></item><item><title>CVE-2025-71090</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71090</link><pubDate>Tue, 13 Jan 2026 15:34:51 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+nfsd: napraw wyciek referencji pliku nfsd w nfsd4_add_rdaccess_to_wrdeleg()
+
+nfsd4_add_rdaccess_to_wrdeleg() zastępuje bezwarunkowo
+fp-&gt;fi_fds[O_RDONLY] z nowo nabytym plikiem nfsd_file.Jednakże, jeśli
+klient ma już otwarte SHARE_ACCESS_READ z poprzedniego OPEN
+operacja ta powoduje zastąpienie istniejącego wskaźnika bez
+zwalniając swoje odniesienie, osierocąc poprzednie odniesienie.
+
+Ponadto funkcja pierwotnie przechowywała ten sam plik nfsd_file
+wskaźnik zarówno w fp-&gt;fi_fds[O_RDONLY], jak i fp-&gt;fi_rdeleg_file z
+tylko jedno odniesienie.Kiedy put_deleg_file() zostanie uruchomiona, zostanie ona wyczyszczona
+fi_rdeleg_file i wywołuje nfs4_file_put_access() w celu zwolnienia pliku.
+
+Jednak nfs4_file_put_access() zwalnia fi_fds[O_RDONLY] tylko wtedy, gdy
+licznik fi_access[O_RDONLY] spada do zera.Jeśli inny CZYTAJ jest otwarty
+istnieje w pliku, licznik pozostaje podniesiony, a plik nfsd_file
+referencje od delegacji nigdy nie są publikowane.To potencjalnie
+powoduje otwarte konflikty w tym pliku.
+
+Następnie, po zamknięciu serwera, te wycieki powodują __nfsd_file_cache_purge()
+napotkać pliki z podwyższoną liczbą odwołań, która nie może być
+oczyszczone, ostatecznie wywołując BŁĄD() w kmem_cache_destroy()
+ponieważ w tej pamięci podręcznej nadal znajdują się obiekty nfsd_file.</description></item><item><title>CVE-2025-71089</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71089</link><pubDate>Tue, 13 Jan 2026 15:34:51 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+iommu: wyłącz SVA, gdy ustawiono CONFIG_X86
+
+Seria poprawek „Napraw nieaktualne wpisy IOTLB w przestrzeni adresowej jądra”, v7.
+
+To proponuje naprawę luki w zabezpieczeniach związanej z IOMMU Shared
+Adresowanie wirtualne (SVA).W kontekście SVA IOMMU może buforować jądro
+wpisy tabeli stron.Kiedy strona tabeli stron jądra zostanie zwolniona i
+przeniesiony do innego celu, IOMMU może nadal być przestarzały,
+błędne wpisy.Można to wykorzystać, aby spowodować bezpłatne użycie lub
+warunek braku zapisu po zwolnieniu, potencjalnie prowadzący do eskalacji uprawnień lub
+uszkodzenie danych.
+
+To rozwiązanie wprowadza mechanizm odroczonego zwalniania strony jądra
+strony tabel, które zapewniają bezpieczne okno do powiadamiania IOMMU
+unieważnia pamięć podręczną przed ponownym użyciem strony.
+
+
+Ta łatka (z 8):
+
+W kontekście współdzielonego adresowania wirtualnego (SVA) IOMMU, sprzęt IOMMU
+udostępnia i przegląda tabele stron procesora.Architektura x86 odwzorowuje
+wirtualną przestrzeń adresową jądra do górnej części każdego procesu
+tabela stron.W związku z tym w kontekście SVA sprzęt IOMMU może działać
+i buforuj wpisy tabeli stron jądra.
+
+W jądrze Linuksa obecnie brakuje mechanizmu powiadamiania o stronie jądra
+zmiany w tabeli, szczególnie gdy strony tabeli stron są zwalniane i ponownie wykorzystywane.
+Sterownik IOMMU jest powiadamiany jedynie o zmianach w wirtualnym adresie użytkownika
+mapowania.Może to spowodować, że wewnętrzne pamięci podręczne IOMMU pozostaną nieaktualne
+wpisy dla jądra VA.
+
+Warunki wolnego użytkowania (UAF) i wolnego zapisu (WAF) powstają, gdy
+strony tabeli stron jądra są zwalniane i później ponownie przydzielane.IOMMU mogłoby
+błędnie zinterpretować nowe dane jako prawidłowe wpisy tabeli stron.IOMMU mogłoby
+następnie wejdź do pamięci kontrolowanej przez atakującego, prowadząc do dowolnego fizycznego
+dostęp DMA do pamięci lub eskalacja uprawnień.To jest również
+Problem z możliwością bezpłatnego zapisu, ponieważ IOMMU będzie potencjalnie kontynuować zapis
+Dostęp i brudne bity w zwolnionej pamięci podczas próby przejścia
+nieaktualne tabele stron.
+
+Obecnie konteksty SVA są nieuprzywilejowane i nie mają dostępu do jądra
+mapowania.Jednak IOMMU nadal będzie przeglądać wszystkie tabele stron tylko jądra
+drogę w dół do wpisów liści, gdzie uświadamia sobie, że mapowanie jest dla
+jądro i błędy usunięte.Oznacza to, że IOMMU nadal je buforuje
+wpisy tabeli stron pośrednich, co sprawia, że opisana luka jest realna
+troska.
+
+Wyłącz SVA na architekturze x86 do czasu, aż IOMMU otrzyma powiadomienie
+do opróżnienia pamięci podręcznej stronicowania przed zwolnieniem stron tabeli stron jądra procesora.</description></item><item><title>CVE-2025-71088</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71088</link><pubDate>Tue, 13 Jan 2026 15:34:50 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+mptcp: wcześniejsze przywrócenie połączenia przy jednoczesnym połączeniu
+
+Syzkaller zgłasza wyścig w trybie jednoczesnego łączenia prowadzący do niespójnego powrotu do działania
+stan:
+
+OSTRZEŻENIE: Procesor: 3 PID: 33 w net/mptcp/subflow.c:1515 subflow_data_ready+0x40b/0x7c0 net/mptcp/subflow.c:1515
+Moduły połączone w:
+Procesor: 3 UID: 0 PID: 33 Comm: ksoftirqd/3 Nieskażony syzkaller #0 PREEMPT (pełny)
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2~bpo12+1 01.04.2014
+RIP: 0010:subflow_data_ready+0x40b/0x7c0 net/mptcp/subflow.c:1515
+Kod: 89 ee e8 78 61 3c f6 40 84 ed 75 21 e8 8e 66 3c f6 44 89 fe bf 07 00 00 00 e8 c1 61 3c f6 41 83 ff 07 74 09 e8 76 66 3c f6 90 &lt;0f&gt;0b 90 e8 6d 66 3c f6 48 89 df e8 e5 ad ff ff 31 ff 89 c5 89 c6
+RSP: 0018:ffffc900006cf338 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffff888031acd100 RCX: ffffffff8b7f2abf
+RDX: ffff88801e6ea440 RSI: ffffffff8b7f2aca RDI: 0000000000000005
+RBP: 0000000000000000 R08: 0000000000000005 R09: 0000000000000007
+R10: 0000000000000004 R11: 0000000000002c10 R12: ffff88802ba69900
+R13: 1ffff920000d9e67 R14: ffff888046f81800 R15: 0000000000000004
+FS: 0000000000000000(0000) GS:ffff8880d69bc000(0000) knlGS:00000000000000000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000560fc0ca1670 CR3: 0000000032c3a000 CR4: 0000000000352ef0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+tcp_data_queue+0x13b0/0x4f90 net/ipv4/tcp_input.c:5197
+tcp_rcv_state_process+0xfdf/0x4ec0 net/ipv4/tcp_input.c:6922
+tcp_v6_do_rcv+0x492/0x1740 net/ipv6/tcp_ipv6.c:1672
+tcp_v6_rcv+0x2976/0x41e0 net/ipv6/tcp_ipv6.c:1918
+ip6_protocol_deliver_rcu+0x188/0x1520 net/ipv6/ip6_input.c:438
+ip6_input_finish+0x1e4/0x4b0 net/ipv6/ip6_input.c:489
+NF_HOOK include/linux/netfilter.h:318 [wbudowany]
+NF_HOOK include/linux/netfilter.h:312 [wbudowany]
+ip6_input+0x105/0x2f0 net/ipv6/ip6_input.c:500
+dst_input include/net/dst.h:471 [wbudowane]
+ip6_rcv_finish net/ipv6/ip6_input.c:79 [wbudowane]
+NF_HOOK include/linux/netfilter.h:318 [wbudowany]
+NF_HOOK include/linux/netfilter.h:312 [wbudowany]
+ipv6_rcv+0x264/0x650 net/ipv6/ip6_input.c:311
+__netif_receive_skb_one_core+0x12d/0x1e0 net/core/dev.c:5979
+__netif_receive_skb+0x1d/0x160 net/core/dev.c:6092
+backlog_procesu+0x442/0x15e0 net/core/dev.c:6444
+__napi_poll.constprop.0+0xba/0x550 net/core/dev.c:7494
+napi_poll net/core/dev.c:7557 [wbudowane]
+net_rx_action+0xa9f/0xfe0 net/core/dev.c:7684
+handle_softirqs+0x216/0x8e0 jądro/softirq.c:579
+run_ksoftirqd jądro/softirq.c:968 [wbudowane]
+run_ksoftirqd+0x3a/0x60 jądro/softirq.c:960
+smpboot_thread_fn+0x3f7/0xae0 jądro/smpboot.c:160
+kthread+0x3c2/0x780 jądro/kthread.c:463
+ret_from_fork+0x5d7/0x6f0 arch/x86/kernel/process.c:148
+ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+&lt;/ZADANIE&gt;
+
+Podprzepływ TCP może później przetworzyć pakiet synchronizacji jednoczesnego połączenia
+przejście do stanu TCP_FIN1 z pominięciem kontroli awaryjnej MPTCP,
+ponieważ wywołanie zwrotne sk_state_change() nie jest wywoływane dla * -&gt; FIN_WAIT1
+przejścia.
+
+Spowoduje to przeniesienie gniazda msk do stanu niespójnego i następnego
+przychodzące dane trafią w raportowaną ikonę.
+
+Zakończ wyścig możliwie najwcześniej, przeprowadzając kontrolę symultanicznego powrotu
+etapie - czyli w czasie generowania synchronizacji.
+
+O tagach poprawek: [2] miał również naprawić ten wprowadzony problem
+przez [3].[1] jest wymagane jako zależność: nie zostało wyraźnie oznaczone jako
+poprawka, ale jest jedna i została już przeniesiona wcześniej [3].w
+innymi słowy, to zatwierdzenie powinno zostać przeniesione do [3], w tym [2]
+i [1], jeśli jeszcze tego nie ma.</description></item><item><title>CVE-2025-71087</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71087</link><pubDate>Tue, 13 Jan 2026 15:34:49 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+iavf: napraw pojedyncze problemy w iavf_config_rss_reg()
+
+Podczas konfigurowania klucza skrótu RSS i wyszukiwania występują pojedyncze błędy
+table, powodując odczyty do pamięci poza granicami [1] i poza granicami
+zapisuje do rejestrów urządzenia.
+
+Przed zatwierdzeniem 43a3d9ba34c9 („i40evf: Zezwól sterownikowi PF na konfigurację RSS”),
+górne granice pętli były:
+i &lt;= I40E_VFQF_{HKEY,HLUT}_MAX_INDEX
+co jest bezpieczne, ponieważ wartość jest ostatnim prawidłowym indeksem.
+
+To zatwierdzenie zmieniło granice na:
+i &lt;= adapter-&gt;rss_{key,lut}_size / 4
+gdzie `rss_{key,lut}_size / 4` to liczba dwordów, więc ostatni
+prawidłowy indeks to `(rss_{key,lut}_size / 4) - 1`.Dlatego użycie `&lt;=`
+uzyskuje dostęp do jednego elementu za końcem.
+
+Napraw problemy, używając `&lt;` zamiast `&lt;=`, upewniając się, że nie przekraczamy
+granice.
+
+[1] KASAN ikona o rss_key_size przesunięta o jeden
+BŁĄD: KASAN: płyta poza granicami w iavf_config_rss+0x619/0x800
+Odczytaj rozmiar 4 pod adresem ffff888102c50134 przez zadanie kworker/u8:6/63
+
+Procesor: 0 UID: 0 PID: 63 Comm: kworker/u8:6 Nieskażony 6.18.0-rc2-enjuk-tnguy-00378-g3005f5b77652-dirty #156 PREEMPT (dobrowolne)
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 01.04.2014
+Kolejka robocza: iavf iavf_watchdog_task
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+dump_stack_lvl+0x6f/0xb0
+print_report+0x170/0x4f3
+kasan_report+0xe1/0x1a0
+iavf_config_rss+0x619/0x800
+iavf_watchdog_task+0x2be7/0x3230
+proces_one_work+0x7fd/0x1420
+wątek_pracownika+0x4d1/0xd40
+kwątek+0x344/0x660
+ret_from_fork+0x249/0x320
+ret_from_fork_asm+0x1a/0x30
+&lt;/ZADANIE&gt;
+
+Przydzielone przez zadanie 63:
+kasan_save_stack+0x30/0x50
+kasan_save_track+0x14/0x30
+__kasan_kmalloc+0x7f/0x90
+__kmalloc_noprof+0x246/0x6f0
+iavf_watchdog_task+0x28fc/0x3230
+proces_one_work+0x7fd/0x1420
+wątek_pracownika+0x4d1/0xd40
+kwątek+0x344/0x660
+ret_from_fork+0x249/0x320
+ret_from_fork_asm+0x1a/0x30
+
+Błędny adres należy do obiektu pod adresem ffff888102c50100
+który należy do pamięci podręcznej kmalloc-64 o rozmiarze 64
+Błędny adres znajduje się 0 bajtów na prawo od
+przydzielony region 52-bajtowy [ffff888102c50100, ffff888102c50134)
+
+Błędny adres należy do strony fizycznej:
+strona: refcount:0 mapcount:0 mapowanie:0000000000000000 indeks:0x0 pfn:0x102c50
+flagi: 0x200000000000000(węzeł=0|strefa=2)
+typ_strony: f5(płyta)
+surowe: 0200000000000000 ffff8881000418c0 martwe000000000122 0000000000000000
+surowe: 0000000000000000 0000000080200020 00000000f5000000 0000000000000000
+strona zrzucona, ponieważ: kasan: wykryto zły dostęp
+
+Stan pamięci wokół błędnego adresu:
+ffff888102c50000: 00 00 00 00 00 00 00 fc fc fc fc fc fc fc fc fc
+ffff888102c50080: 00 00 00 00 00 00 00 fc fc fc fc fc fc fc fc fc
+&gt;ffff888102c50100: 00 00 00 00 00 00 04 fc fc fc fc fc fc fc fc fc
+^
+ffff888102c50180: 00 00 00 00 00 00 00 00 fc fc fc fc fc fc fc fc
+ffff888102c50200: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc</description></item><item><title>CVE-2025-71086</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71086</link><pubDate>Tue, 13 Jan 2026 15:34:49 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: róża: napraw nieprawidłowy indeks tablicy w funkcji róża_kill_by_device()
+
+Rose_kill_by_device() zbiera gniazda do lokalnej tablicy[], a następnie
+iteruje po nich, aby odłączyć gniazda powiązane z przyniesionym urządzeniem
+w dół.
+
+Pętla błędnie indeksuje tablicę [cnt] zamiast tablicy [i].Dla cnt &lt;
+ARRAY_SIZE(tablica), odczytuje niezainicjowany wpis;dla cnt ==
+ARRAY_SIZE(tablica), jest to odczyt spoza zakresu.Każdy przypadek może prowadzić do
+nieprawidłowe wyłuskanie wskaźnika gniazda, a także pobrane odniesienia do przecieków
+poprzez skarpetkę_hold().
+
+Napraw indeks, aby używać i.</description></item><item><title>CVE-2025-71085</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71085</link><pubDate>Tue, 13 Jan 2026 15:34:48 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ipv6: BŁĄD() w pskb_expand_head() jako część calipso_skbuff_setattr()
+
+Istnieje błąd jądra spowodowany BUG_ON(nhead &lt; 0) w
+net/core/skbuff.c:2232 w pskb_expand_head().
+Ten błąd jest wywoływany w ramach funkcji calipso_skbuff_setattr()
+procedura, gdy skb_cow() przekroczy zapas &gt; INT_MAX
+(tj. (int)(skb_headroom(skb) + len_delta) &lt; 0).
+
+Główną przyczyną błędu jest rzutowanie ukrytej liczby całkowitej
+__skb_krowa().Kontrola (headroom &gt; skb_headroom(skb)) ma na celu zapewnienie
+w przeciwnym razie delta = headroom - skb_headroom(skb) nigdy nie jest ujemna
+wywołamy BŁĄD w pskb_expand_head().Jednakże, jeśli
+zapas &gt; INT_MAX i delta &lt;= -NET_SKB_PAD, kontrola przebiega pomyślnie, delta
+staje się ujemna, a pskb_expand_head() otrzymuje wartość ujemną
+głowa.
+
+Napraw warunek wyzwalający w calipso_skbuff_setattr().Unikaj mijania
+„ujemne” rozmiary zapasów dla skb_cow() w ramach calipso_skbuff_setattr()
+używając wyłącznie skb_cow() do zwiększania zapasu.
+
+PoC:
+Korzystanie z narzędzia `netlabelctl`:
+
+mapa netlabelctl domyślna
+netlabelctl calipso dodaj pass doi:7
+mapa netlabelctl dodaj adres domyślny: 0::1/128 protokół:calipso,7
+
+Następnie uruchom następujący PoC:
+
+int fd = gniazdo(AF_INET6, SOCK_DGRAM, IPPROTO_UDP);
+
+// skonfiguruj msghdr
+int cmsg_size = 2;
+int cmsg_len = 0x60;
+struktura msghdr msg;
+struktura sockaddr_in6 dest_addr;
+struktura cmsghdr * cmsg = (struktura cmsghdr *) calloc(1,
+sizeof(struct cmsghdr) + cmsg_len);
+msg.msg_name = &amp;adres_docelowy;
+msg.msg_namelen = rozmiar(adres_docelowy);
+msg.msg_iov = NULL;
+msg.msg_iovlen = 0;
+msg.msg_control = cmsg;
+msg.msg_controllen = cmsg_len;
+msg.msg_flags = 0;
+
+// skonfiguruj sockaddr
+dest_addr.sin6_family = AF_INET6;
+dest_addr.sin6_port = htons(31337);
+dest_addr.sin6_flowinfo = htonl(31337);
+dest_addr.sin6_addr = in6addr_loopback;
+dest_addr.sin6_scope_id = 31337;
+
+// skonfiguruj cmsghdr
+cmsg-&gt;cmsg_len = cmsg_len;
+cmsg-&gt;cmsg_level = IPPROTO_IPV6;
+cmsg-&gt;cmsg_type = IPV6_HOPOPTS;
+char * hop_hdr = (char *)cmsg + sizeof(struct cmsghdr);
+przeskok_hdr[1] = 0x9;//ustaw rozmiar przeskoku - (0x9 + 1) * 8 = 80
+
+sendmsg(fd, &amp;msg, 0);</description></item><item><title>CVE-2025-71084</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71084</link><pubDate>Tue, 13 Jan 2026 15:34:47 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+RDMA/cm: Naprawiono nieszczelność odniesienia do tabeli GID multiemisji
+
+Jeśli identyfikator CM zostanie zniszczony podczas gdy zdarzenie CM służące do tworzenia multiemisji zostanie zniszczone
+nadal znajduje się w kolejce, funkcja cancel_work_sync() uniemożliwi wykonanie pracy
+co również zapobiega zniszczeniu ah_attr.To powoduje wyciek refcountu i
+wywołuje OSTRZEŻENIE:
+
+Wyciek ref. wpisu GID dla dev syz1 indeks 2 ref=573
+OSTRZEŻENIE: Procesor: 1 PID: 655 w sterownikach/infiniband/core/cache.c:809 release_gid_table sterowniki/infiniband/core/cache.c:806 [inline]
+OSTRZEŻENIE: Procesor: 1 PID: 655 w sterownikach/infiniband/core/cache.c:809 gid_table_release_one+0x284/0x3cc sterowniki/infiniband/core/cache.c:886
+
+Zniszcz ah_attr po anulowaniu pracy, można to bezpiecznie nazwać
+dwa razy.</description></item><item><title>CVE-2025-71083</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71083</link><pubDate>Tue, 13 Jan 2026 15:34:46 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/ttm: Unikaj derefacji wskaźnika NULL dla eksmitowanych BO
+
+Możliwe jest, że istnieje BO, który nie jest obecnie powiązany z
+zasób, np.ponieważ został eksmitowany.
+
+Kiedy devcoredump próbuje odczytać zawartość wszystkich BO w celu zrzutu, potrzebujemy
+można się tego również spodziewać - w tym przypadku zamiast
+zawartość bufora.</description></item><item><title>CVE-2025-71082</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71082</link><pubDate>Tue, 13 Jan 2026 15:34:46 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+Bluetooth: btusb: przywróć użycie devm_kzalloc w btusb
+
+Spowoduje to cofnięcie zatwierdzenia 98921dbd00c4e („Bluetooth: użyj devm_kzalloc w
+plik btusb.c”).
+
+W btusb_probe() używamy devm_kzalloc() do alokacji danych btusb.To
+wiąże czas życia wszystkich danych btusb z powiązaniem sterownika z
+jeden interfejs, INTF.W sterowniku, który łączy się z innymi interfejsami, ISOC
+i DIAG, to wypadek, który tylko czeka, aby się wydarzyć.
+
+Problem został ujawniony w btusb_disconnect(), gdzie wywołujemy
+usb_driver_release_interface(&amp;btusb_driver, data-&gt;intf) będzie miał devm
+uwolnić dane, które są również wykorzystywane przez inne interfejsy programu
+sterownik, który może nie zostać jeszcze wydany.
+
+Aby to naprawić, przywróć użycie devm i wróć do zwalniania pamięci
+wyraźnie.</description></item><item><title>CVE-2025-71081</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71081</link><pubDate>Tue, 13 Jan 2026 15:34:45 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ASoC: stm32: sai: naprawa nieszczelności węzła OF na sondzie
+
+Odniesienie do węzła dostawcy synchronizacji OF podczas sondowania
+urządzenie platformy jest obecnie odrzucane tylko w przypadku wywołania zwrotnego set_sync().
+kończy się niepowodzeniem podczas sondy DAI.
+
+Pamiętaj, aby porzucić odniesienie w przypadku awarii sondy platformy (np
+odroczenie) i rozłączenie sterownika.
+
+Pozwala to również uniknąć potencjalnego wykorzystania po zakończeniu użytkowania w przypadku, gdy DAI kiedykolwiek się skończy
+ponownie wypróbowane bez uprzedniego ponownego powiązania sterownika platformy.</description></item><item><title>CVE-2025-71080</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71080</link><pubDate>Tue, 13 Jan 2026 15:34:44 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ipv6: napraw BŁĄD w rt6_get_pcpu_route() w PREEMPT_RT
+
+W jądrach PREEMPT_RT, po tym jak rt6_get_pcpu_route() zwróci NULL,
+bieżące zadanie można wyprzedzić.Inne zadanie działające na tym samym procesorze
+może następnie wykonać rt6_make_pcpu_route() i pomyślnie zainstalować plik
+wpis pcpu_rt.Gdy wykonanie pierwszego zadania zostanie wznowione, jego cmpxchg()
+w rt6_make_pcpu_route() zakończy się niepowodzeniem, ponieważ rt6i_pcpu już nie jest
+NULL, wyzwalanie BUG_ON (poprzednia).Łatwo to odtworzyć, dodając
+mdelay() po rt6_get_pcpu_route().
+
+Używanie preempt_disable/enable nie jest tutaj odpowiednie, ponieważ
+ip6_rt_pcpu_alloc() może spać.
+
+Napraw to, sprawnie obsługując błąd cmpxchg() na PREEMPT_RT:
+uwolnij nasz przydział i zwróć istniejący pcpu_rt zainstalowany przez
+kolejne zadanie.BUG_ON zostaje zastąpiony przez WARN_ON_ONCE dla innych niż PREEMPT_RT
+jądra, gdzie takie wyścigi nie powinny mieć miejsca.</description></item><item><title>CVE-2025-71079</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71079</link><pubDate>Tue, 13 Jan 2026 15:34:44 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: nfc: napraw zakleszczenie pomiędzy nfc_unregister_device i rfkill_fop_write
+
+Może wystąpić zakleszczenie pomiędzy nfc_unregister_device() i rfkill_fop_write()
+z powodu odwrócenia kolejności blokad między urządzeniami_lock i rfkill_global_mutex.
+
+Problematyczna kolejność blokowania to:
+
+Wątek A (rfkill_fop_write):
+rfkill_fop_write()
+mutex_lock(&amp;rfkill_global_mutex)
+rfkill_set_block()
+nfc_rfkill_set_block()
+nfc_dev_down()
+urządzenie_lock(&amp;dev-&gt;dev) &lt;- czeka na blokadę urządzenia
+
+Wątek B (nfc_unregister_device):
+nfc_unregister_device()
+urządzenie_lock(&amp;dev-&gt;dev)
+rfkill_unregister()
+mutex_lock(&amp;rfkill_global_mutex) &lt;- czeka na rfkill_global_mutex
+
+Stwarza to klasyczny scenariusz impasu ABBA.
+
+Napraw ten problem, przenosząc funkcje rfkill_unregister() i rfkill_destroy() poza
+sekcja krytyczna urządzenia_lock.Przechowuj wskaźnik rfkill w zmiennej lokalnej
+przed zwolnieniem blokady, a następnie po zwolnieniu wywołaj funkcję rfkill_unregister().
+blokada_urządzenia.
+
+Ta zmiana jest bezpieczna, ponieważ rfkill_fop_write() przechowuje rfkill_global_mutex
+podczas wywoływania wywołań zwrotnych rfkill, a rfkill_unregister() również uzyskuje
+rfkill_global_mutex przed czyszczeniem.Dlatego rfkill_unregister() to zrobi
+przed kontynuowaniem poczekaj na zakończenie trwającego wywołania zwrotnego, oraz
+urządzenie_del() jest wywoływane dopiero po powrocie funkcji rfkill_unregister(), co zapobiega
+dowolne użycie-po-bezpłatne.
+
+Podobna kolejność blokad w nfc_register_device() (device_lock -&gt;
+rfkill_global_mutex przez rfkill_register) jest bezpieczny, ponieważ podczas
+rejestracja urządzenia nie znajduje się jeszcze na rfkill_list, więc nie ma współbieżności
+Na tym urządzeniu mogą odbywać się operacje rfkill.</description></item><item><title>CVE-2025-71078</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71078</link><pubDate>Tue, 13 Jan 2026 15:34:43 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+powerpc/64s/slb: Naprawiono problem z wieloma trafieniami SLB podczas wstępnego ładowania SLB
+
+W systemach korzystających z skrótu MMU dostępna jest pamięć podręczna wstępnego ładowania oprogramowania SLB
+odzwierciedla wpisy załadowane do sprzętowego bufora SLB.To wstępne ładowanie
+pamięć podręczna jest okresowo usuwana — zazwyczaj po każdym kontekście
+przełączniki — aby usunąć stary wpis.
+
+Aby zoptymalizować wydajność, jądro pomija funkcję switch_mmu_context().
+switch_mm_irqs_off(), gdy poprzednia i następna mm_struct są takie same.
+Jednakże w systemach mieszających MMU może to prowadzić do niespójności pomiędzy
+sprzętowy SLB i pamięć podręczna wstępnego ładowania oprogramowania.
+
+Jeśli wpis SLB dla procesu zostanie usunięty z pamięci podręcznej oprogramowania na jednym z nich
+CPU, a ten sam proces będzie później uruchamiany na innym procesorze bez wykonywania
+switch_mmu_context(), sprzętowy SLB może zachować nieaktualne wpisy.Jeśli
+następnie jądro próbuje ponownie załadować ten wpis, może to wywołać SLB
+błąd wielokrotnego trafienia.
+
+Poniższa oś czasu pokazuje, w jaki sposób i jak powstają nieaktualne wpisy SLB
+powoduje błąd wielu trafień, gdy proces przemieszcza się między procesorami bez
+Zmiana kontekstu MMU.
+
+Procesor 0 Procesor 1
+----- -----
+Proces P
+exec swaper/1
+załaduj_elf_binarny
+początek_nowy_wył
+aktywuj_mm
+switch_mm_irqs_off
+switch_mmu_context
+przełącznik_slb
+/*
+* To unieważnia wszystko
+* wpisy w HW
+* i skonfiguruj nowy sprzęt
+* Wpisy SLB wg
+* Wstępnie załaduj pamięć podręczną.
+*/
+przełącznik_kontekstu
+sched_migrate_task migruje proces P do procesora-1
+
+Zamiana procesów/przełączenie kontekstu 0 (do procesu P)
+(używa mm_struct procesu P) switch_mm_irqs_off()
+przełącznik_slb
+obciążenie_slb++
+/*
+*load_slb ma tutaj wartość 0
+* i eksmitujemy wpis z
+* pamięć podręczna wstępnego ładowania za pomocą
+* preload_age().Nadal
+* zachowaj HW SLB i wstępne ładowanie
+* pamięć podręczna zsynchronizowana, tj
+* ponieważ wszystkie wpisy HW SLB
+*w każdym razie zostaje eksmitowany
+* switch_slb podczas SLBIA.
+* Następnie dodajemy tylko te
+* wpisy z powrotem w HW SLB,
+* które są obecnie
+* obecny w preload_cache
+* (po eksmisji).
+*/
+Load_elf_binary kontynuuje...
+setup_new_exec()
+slb_setup_new_exec()
+
+zdarzenie sched_switch
+sched_migrate_task migruje
+przetwórz P do cpu-0
+
+kontekst_przełącznik z swapper/0 do procesu P
+switch_mm_irqs_off()
+/*
+* Ponieważ zarówno poprzednia, jak i następna struktura mm są takie same, nie wywołujemy
+* switch_mmu_context().Spowoduje to wstępne obciążenie HW SLB i SW
+* pamięć podręczna, aby utracić synchronizację w preload_new_slb_context.Ponieważ tam
+* był wpisem SLB, który został usunięty zarówno ze sprzętu, jak i pamięci podręcznej wstępnego ładowania
+* na procesorze-1.Teraz później w preload_new_slb_context(), kiedy spróbujemy
+* aby ponownie dodać ten sam wpis wstępnego ładowania, dodamy go do oprogramowania
+* wstępnie załaduj pamięć podręczną, a następnie dodaj ją do HW SLB.Od cpu-0
+* ten wpis nigdy nie został unieważniony, stąd dodanie tego wpisu do HW
+* SLB spowoduje błąd wielokrotnego trafienia SLB.
+*/
+Load_elf_binary cd
+---obcięty---</description></item><item><title>CVE-2025-71077</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71077</link><pubDate>Tue, 13 Jan 2026 15:31:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+tpm: Ogranicz liczbę banków PCR
+
+Funkcja tpm2_get_pcr_allocation() nie ogranicza żadnego górnego limitu liczby
+banki.Ogranicz limit do ośmiu banków, aby wartości przekraczały dopuszczalne wartości
+z zewnętrznych wejść/wyjść powoduje jedynie ograniczone szkody.</description></item><item><title>CVE-2025-71076</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71076</link><pubDate>Tue, 13 Jan 2026 15:31:28 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/xe/oa: Ogranicz num_syncs, aby zapobiec nadmiernym alokacjom
+
+Otwarte parametry OA nie sprawdziły poprawności num_syncs, pozwalając
+przestrzeni użytkownika, aby potencjalnie przekazywać dowolnie duże wartości
+prowadzące do nadmiernych alokacji.
+
+Dodaj kontrolę, aby upewnić się, że liczba_syncs nie przekracza DRM_XE_MAX_SYNCS,
+zwracanie -EINVAL w przypadku przekroczenia limitu.
+
+v2: użyj XE_IOCTL_DBG() i usuń zduplikowane sprawdzenie.(Aszutosz)
+
+(wiśnia wybrana z zatwierdzenia e057b2d2b8d815df3858a87dffafa2af37e5945b)</description></item><item><title>CVE-2025-13447</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13447</link><pubDate>Tue, 13 Jan 2026 14:31:56 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
 
 CVSS Score: 8.4 (high)</description></item><item><title>CVE-2025-13444</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13444</link><pubDate>Tue, 13 Jan 2026 14:26:50 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
 
