@@ -1,5 +1,159 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22240</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22240</link><pubDate>Wed, 14 Jan 2026 14:42:09 +0000</pubDate><description>Luka w zabezpieczeniach BLUVOYIX wynika z nieprawidłowej implementacji przechowywania haseł i późniejszego ujawnienia danych za pośrednictwem nieuwierzytelnionych interfejsów API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsu API użytkowników podatnych na zagrożenia w celu pobrania haseł wszystkich użytkowników w postaci zwykłego tekstu.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy poprzez zalogowanie się przy użyciu ujawnionego adresu e-mail i hasła administratora.</description></item><item><title>CVE-2026-22239</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22239</link><pubDate>Wed, 14 Jan 2026 14:40:20 +0000</pubDate><description>Luka w BLUVOYIX wynika z błędów projektowych w interfejsie API wysyłania wiadomości e-mail.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego na ataki interfejsu API wysyłającego wiadomości e-mail.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wysyłanie niechcianych wiadomości e-mail do dowolnej osoby w imieniu firmy.</description></item><item><title>CVE-2026-22238</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22238</link><pubDate>Wed, 14 Jan 2026 14:38:55 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API administratora BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego interfejsu API administratora w celu utworzenia nowego użytkownika z uprawnieniami administratora.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej uzyskać pełny dostęp do danych klientów i całkowicie złamać docelową platformę poprzez zalogowanie się na nowo utworzonego użytkownika administracyjnego.</description></item><item><title>CVE-2026-22237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22237</link><pubDate>Wed, 14 Jan 2026 14:36:47 +0000</pubDate><description>Luka w BLUVOYIX wynika z ujawnienia wrażliwej wewnętrznej dokumentacji API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsów API ujawnionych w dokumentacji.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wyrządzenie szkód na docelowej platformie poprzez nadużycie wewnętrznych funkcjonalności.</description></item><item><title>CVE-2026-22236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22236</link><pubDate>Wed, 14 Jan 2026 14:34:14 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API zaplecza BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnych na ataki interfejsów API.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy.</description></item><item><title>CVE-2025-9142</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9142</link><pubDate>Wed, 14 Jan 2026 14:30:48 +0000</pubDate><description>Użytkownik lokalny może wyzwolić klienta Harmony SASE Windows w celu zapisania lub usunięcia plików poza zamierzonym katalogiem roboczym certyfikatu.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-14242</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14242</link><pubDate>Wed, 14 Jan 2026 15:23:03 +0000</pubDate><description>Znaleziono błąd w vsftpd.Ta luka umożliwia odmowę usługi (DoS) poprzez przepełnienie liczby całkowitej podczas analizowania parametrów polecenia ls, wyzwalaną przez zdalnego, uwierzytelnionego atakującego wysyłającego spreparowane polecenie STAT z określoną sekwencją bajtów.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-22211</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22211</link><pubDate>Wed, 14 Jan 2026 15:19:54 +0000</pubDate><description>Wersje TinyOS do 2.1.2 włącznie zawierają lukę w zabezpieczeniach związaną z globalnym przepełnieniem bufora w implementacji wyjścia w formacie printfUART używanej w stosie sieciowym ZigBee / IEEE 802.15.4.Implementacja formatuje dane wyjściowe do globalnego bufora o stałym rozmiarze i łączy ciągi znaków dla specyfikatorów formatu %s za pomocą strcat() bez sprawdzania pozostałej pojemności bufora.Kiedy printfUART zostanie wywołany z ciągiem kontrolowanym przez wywołującego dłuższym niż dostępne miejsce, nieograniczona sekwencja sprintf/strcat zapisuje poza końcem debugbuf, co powoduje uszkodzenie pamięci globalnej.Może to spowodować odmowę usługi, niezamierzone zachowanie lub ujawnienie informacji poprzez uszkodzony sąsiadujący stan globalny lub wyjście UART.</description></item><item><title>CVE-2025-71144</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71144</link><pubDate>Wed, 14 Jan 2026 15:08:56 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+mptcp: upewnij się, że kontekst został zresetowany przy rozłączaniu ()
+
+Po poniższym zatwierdzeniu, jeśli podprzepływ MPC jest już w TCP_CLOSE
+status lub powrócił do protokołu TCP w czasie mptcp_disconnect(),
+mptcp_do_fastclose() pomija ustawienie flagi „send_fastclose” i późniejszych
+__mptcp_close_ssk() nie resetuje już powiązanego kontekstu przepływu podrzędnego.
+
+Każde późniejsze połączenie zostanie utworzone z flagą `request_mptcp`
+i status awaryjny na poziomie msk wyłączony (jest bezwarunkowo czyszczony o godz
+Czas rozłączenia MPTCP), co prowadzi do ostrzeżenia w subflow_data_ready():
+
+OSTRZEŻENIE: Procesor: 26 PID: 8996 w net/mptcp/subflow.c:1519 subflow_data_ready (net/mptcp/subflow.c:1519 (dyskryminator 13))
+Moduły połączone w:
+Procesor: 26 UID: 0 PID: 8996 Comm: syz.22.39 Nieskażony 6.18.0-rc7-05427-g11fc074f6c36 #1 PREEMPT (dobrowolne)
+Nazwa sprzętu: Bochs Bochs, BIOS Bochs 01.01.2011
+RIP: 0010:subflow_data_ready (net/mptcp/subflow.c:1519 (wyróżnik 13))
+Kod: 90 0f 0b 90 90 e9 04 fe ff ff e8 b7 1e f5 fe 89 ee bf 07 00 00 00 e8 db 19 f5 fe 83 fd 07 0f 84 35 ff ff ff e8 9d 1e f5 fe 90 &lt;0f&gt; 0b 90 e927 ff ff ff e8 8f 1e f5 fe 4c 89 e7 48 89 de e8 14 09
+RSP: 0018:ffffc9002646fb30 EFLAGS: 00010293
+RAX: 0000000000000000 RBX: ffff88813b218000 RCX: ffffffff825c8435
+RDX: ffff8881300b3580 RSI: ffffffff825c8443 RDI: 0000000000000005
+RBP: 000000000000000b R08: ffffffff825c8435 R09: 000000000000000b
+R10: 0000000000000005 R11: 0000000000000007 R12: ffff888131ac0000
+R13: 0000000000000000 R14: 0000000000000000 R15: 000000000000000
+FS: 00007f88330af6c0(0000) GS:ffff888a93dd2000(0000) knlGS:0000000000000000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f88330aefe8 CR3: 000000010ff59000 CR4: 0000000000350ef0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+tcp_data_ready (net/ipv4/tcp_input.c:5356)
+kolejka_danych_tcp (net/ipv4/tcp_input.c:5445)
+tcp_rcv_state_process (net/ipv4/tcp_input.c:7165)
+tcp_v4_do_rcv (net/ipv4/tcp_ipv4.c:1955)
+__release_sock (include/net/sock.h:1158 (wyróżnik 6) net/core/sock.c:3180 (wyróżnik 6))
+release_sock (net/core/sock.c:3737)
+mptcp_sendmsg (net/mptcp/protocol.c:1763 net/mptcp/protocol.c:1857)
+inet_sendmsg (net/ipv4/af_inet.c:853 (wyróżnik 7))
+__sys_sendto (net/socket.c:727 (dyskryminator 15) net/socket.c:742 (dyskryminator 15) net/socket.c:2244 (dyskryminator 15))
+__x64_sys_sendto (net/socket.c:2247)
+do_syscall_64 (arch/x86/entry/syscall_64.c:63 (wyróżnik 1) arch/x86/entry/syscall_64.c:94 (wyróżnik 1))
+wpis_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:130)
+RIP: 0033:0x7f883326702d
+
+Rozwiąż problem z ustawieniem jawnej flagi „szybkiego zamykania” przy szybkim zamykaniu
+czas i sprawdzenie tej flagi po mptcp_do_fastclose().</description></item><item><title>CVE-2025-71143</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71143</link><pubDate>Wed, 14 Jan 2026 15:07:55 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+clk: Samsung: exynos-clkout: Przypisz .num przed uzyskaniem dostępu do .hws
+
+Zatwierdź f316cdff8d67 („clk: Adnotuj strukturę clk_hw_onecell_data za pomocą
+__counted_by”) opatrzono adnotacją członka hws „struct clk_hw_onecell_data”
+z __counted_by, który informuje środek dezynfekujący granice (UBSAN_BOUNDS)
+o liczbie elementów w .hws[], aby mógł ostrzegać, gdy .hws[]
+jest dostępny poza granicami.Jak zauważono w tej zmianie, plik __counted_by
+element członkowski musi zostać zainicjowany liczbą elementów poprzedzającą pierwszy
+nastąpi dostęp do tablicy, w przeciwnym razie przy każdym dostępie pojawi się ostrzeżenie
+przed inicjalizacją, ponieważ liczba elementów wynosi zero.To
+występuje w exynos_clkout_probe() z powodu przypisania .num po .hws[]
+uzyskano dostęp:
+
+UBSAN: indeks tablicy poza zakresem w sterownikach/clk/samsung/clk-exynos-clkout.c:178:18
+indeks 0 jest poza zakresem dla typu „clk_hw *[*]”
+
+Przenieś inicjalizację .num przed pierwszym dostępem do .hws[],
+usunięcie ostrzeżenia.</description></item><item><title>CVE-2025-71142</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71142</link><pubDate>Wed, 14 Jan 2026 15:07:55 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+cpuset: napraw ostrzeżenie podczas wyłączania zdalnej partycji
+
+Ostrzeżenie zostało uruchomione w następujący sposób:
+
+OSTRZEŻENIE: kernel/cgroup/cpuset.c:1651 w lokalizacji Remote_partition_disable+0xf7/0x110
+RIP: 0010:remote_partition_disable+0xf7/0x110
+RSP: 0018:ffffc90001947d88 EFLAGS: 00000206
+RAX: 0000000000007fff RBX: ffff888103b6e000 RCX: 0000000000006f40
+RDX: 0000000000006f00 RSI: ffffc90001947da8 RDI: ffff888103b6e000
+RBP: ffff888103b6e000 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000001 R11: ffff88810b2e2728 R12: ffffc90001947da8
+R13: 0000000000000000 R14: ffffc90001947da8 R15: ffff8881081f1c00
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f55c8bbe0b2 CR3: 000000010b14c000 CR4: 00000000000006f0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+aktualizacja_prstate+0x2d3/0x580
+cpuset_partition_write+0x94/0xf0
+kernfs_fop_write_iter+0x147/0x200
+vfs_write+0x35d/0x500
+ksys_write+0x66/0xe0
+do_syscall_64+0x6b/0x390
+wpis_SYSCALL_64_after_hwframe+0x4b/0x53
+RIP: 0033:0x7f55c8cd4887
+
+Etapy reprodukcji (na maszynie 16-procesorowej):
+
+# cd /sys/fs/cgroup/
+# mkdir A1
+# echo +cpuset &gt; A1/cgroup.subtree_control
+# echo "0-14" &gt; A1/cpuset.cpus.exclusive
+# mkdir A1/A2
+# echo "0-14" &gt; A1/A2/cpuset.cpus.exclusive
+# echo "root" &gt; A1/A2/cpuset.cpus.partition
+# echo 0 &gt; /sys/devices/system/cpu/cpu15/online
+# element echo &gt; A1/A2/cpuset.cpus.partition
+
+Gdy procesor 15 jest w trybie offline, subpartitions_cpus zostaje wyczyszczony, ponieważ nie ma procesorów
+pozostają dostępne dla zestawu top_cpuset, zmuszając partycje do współużytkowania procesorów
+górny_zestaw procesora.W tym scenariuszu wyłączenie partycji zdalnej powoduje wyzwolenie
+ostrzeżenie stwierdzające, że efektywna_xcpus nie jest podzbiorem
+subpartitions_cpus.W tym przypadku należy unieważnić partycje
+poinformuj użytkowników, że partycja jest teraz nieprawidłowa (procesor jest udostępniany
+górny_zestaw procesora).
+
+Aby rozwiązać ten problem:
+1. Emituj ostrzeżenie tylko wtedy, gdy subpartitions_cpus nie jest pusty i plik
+efektywna_xcpus nie jest podzbiorem subpartitions_cpus.
+2. Podczas procesu podłączania procesora podczas pracy unieważnij partycje, jeśli
+subpartitions_cpus jest pusty.</description></item><item><title>CVE-2025-71141</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71141</link><pubDate>Wed, 14 Jan 2026 15:07:54 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/tilcdc: Napraw działania usuwania w przypadku niepowodzenia sondy
+
+Pomoce drm_kms_helper_poll_fini() i drm_atomic_helper_shutdown()
+należy wywoływać tylko wtedy, gdy urządzenie zostało pomyślnie zarejestrowane.
+Obecnie funkcje te są wywoływane bezwarunkowo w tilcdc_fini(),
+co powoduje ostrzeżenia podczas scenariuszy odroczenia sondy.
+
+[7.972317] OSTRZEŻENIE: Procesor: 0 PID: 23 w sterownikach/gpu/drm/drm_atomic_state_helper.c:175 drm_atomic_helper_crtc_duplicate_state+0x60/0x68
+...
+[ 8.005820] drm_atomic_helper_crtc_duplicate_state z drm_atomic_get_crtc_state+0x68/0x108
+[ 8.005858] drm_atomic_get_crtc_state z drm_atomic_helper_disable_all+0x90/0x1c8
+[ 8.005885] drm_atomic_helper_disable_all z drm_atomic_helper_shutdown+0x90/0x144
+[ 8.005911] drm_atomic_helper_shutdown z tilcdc_fini+0x68/0xf8 [tilcdc]
+[ 8.005957] tilcdc_fini [tilcdc] z tilcdc_pdev_probe+0xb0/0x6d4 [tilcdc]
+
+Napraw ten problem, przepisując ścieżkę czyszczenia zakończonej niepowodzeniem sondy przy użyciu standardu
+goto wzorzec obsługi błędów, który zapewnia, że funkcje czyszczące są
+wywoływany tylko w przypadku pomyślnie zainicjowanych zasobów.Dodatkowo usuń
+teraz niepotrzebna flaga is_registered.</description></item><item><title>CVE-2025-71140</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71140</link><pubDate>Wed, 14 Jan 2026 15:07:53 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+media: mediatek: vcodec: Użyj blokady do blokady ochrony listy kontekstów
+
+Wcześniej dodano muteks, aby chronić kontekst kodera i dekodera
+listy z nieoczekiwanych zmian pochodzących z bloku IP SCP, powodując
+wskaźnik kontekstu stanie się nieprawidłowy, co spowoduje zwrócenie wskaźnika NULL
+dereferencja w procedurze obsługi IPI.
+
+Okazuje się, że na MT8173 procedura obsługi VPU IPI jest wywoływana z twardego przerwania
+kontekst.Powoduje to duże ostrzeżenie ze strony programu planującego.To było pierwsze
+zgłaszane w dalszej części jądra ChromeOS, ale jest również odtwarzalne
+na linii głównej przy użyciu Flustera z dekoderami FFmpeg v4l2m2m.Chociaż
+rzeczywisty format przechwytywania nie jest obsługiwany, ścieżki kodu, których to dotyczy
+są wyzwalane.
+
+Ponieważ ta blokada po prostu chroni listę kontekstów i operacje na niej
+bardzo szybko, przejście na spinlock powinno być OK.</description></item><item><title>CVE-2026-22240</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22240</link><pubDate>Wed, 14 Jan 2026 14:42:09 +0000</pubDate><description>Luka w zabezpieczeniach BLUVOYIX wynika z nieprawidłowej implementacji przechowywania haseł i późniejszego ujawnienia danych za pośrednictwem nieuwierzytelnionych interfejsów API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsu API użytkowników podatnych na zagrożenia w celu pobrania haseł wszystkich użytkowników w postaci zwykłego tekstu.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy poprzez zalogowanie się przy użyciu ujawnionego adresu e-mail i hasła administratora.</description></item><item><title>CVE-2026-22239</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22239</link><pubDate>Wed, 14 Jan 2026 14:40:20 +0000</pubDate><description>Luka w BLUVOYIX wynika z błędów projektowych w interfejsie API wysyłania wiadomości e-mail.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego na ataki interfejsu API wysyłającego wiadomości e-mail.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wysyłanie niechcianych wiadomości e-mail do dowolnej osoby w imieniu firmy.</description></item><item><title>CVE-2026-22238</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22238</link><pubDate>Wed, 14 Jan 2026 14:38:55 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API administratora BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego interfejsu API administratora w celu utworzenia nowego użytkownika z uprawnieniami administratora.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej uzyskać pełny dostęp do danych klientów i całkowicie złamać docelową platformę poprzez zalogowanie się na nowo utworzonego użytkownika administracyjnego.</description></item><item><title>CVE-2026-22237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22237</link><pubDate>Wed, 14 Jan 2026 14:36:47 +0000</pubDate><description>Luka w BLUVOYIX wynika z ujawnienia wrażliwej wewnętrznej dokumentacji API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsów API ujawnionych w dokumentacji.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wyrządzenie szkód na docelowej platformie poprzez nadużycie wewnętrznych funkcjonalności.</description></item><item><title>CVE-2026-22236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22236</link><pubDate>Wed, 14 Jan 2026 14:34:14 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API zaplecza BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnych na ataki interfejsów API.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy.</description></item><item><title>CVE-2025-9142</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9142</link><pubDate>Wed, 14 Jan 2026 14:30:48 +0000</pubDate><description>Użytkownik lokalny może wyzwolić klienta Harmony SASE Windows w celu zapisania lub usunięcia plików poza zamierzonym katalogiem roboczym certyfikatu.
 
 CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-13175</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13175</link><pubDate>Wed, 14 Jan 2026 12:19:06 +0000</pubDate><description>Y Soft SafeQ 6 renderuje pole hasła łącznika przepływu pracy w sposób umożliwiający administratorowi z dostępem do interfejsu użytkownika ujawnienie wartości za pomocą narzędzi programistycznych/kontrolnych przeglądarki.Dotyczy to wyłącznie klientów korzystających z łącznika przepływu pracy skanowania chronionego hasłem.
 Ten problem dotyczy Y Soft SafeQ 6 w wersjach wcześniejszych niż MU106.</description></item><item><title>CVE-2025-14338</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14338</link><pubDate>Wed, 14 Jan 2026 11:55:31 +0000</pubDate><description>Uwierzytelnianie Polkit jest domyślnie wyłączone i jest wyścigowe
@@ -155,7 +309,7 @@ CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-12051</title><l
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-12050</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-12050</link><pubDate>Wed, 14 Jan 2026 01:13:33 +0000</pubDate><description>Sterowniki w pakietach narzędzi używają flagi RTL_QUERY_REGISTRY_DIRECT do odczytania wartości rejestru, do której niezaufana aplikacja trybu użytkownika może spowodować przepełnienie bufora.
 
-CVSS Score: 7.8 (high)</description></item><item><title>CVE-2022-50907</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50907</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>e107 CMS w wersji 3.2.1 zawiera lukę umożliwiającą przesyłanie plików, która umożliwia uwierzytelnionym użytkownikom administracyjnym ominięcie ograniczeń przesyłania i uruchomienie plików PHP.Osoby atakujące mogą przesyłać złośliwe pliki PHP do katalogów nadrzędnych, manipulując parametrem adresu URL przesyłania, umożliwiając zdalne wykonanie kodu za pomocą funkcji importowania Menedżera multimediów.</description></item><item><title>CVE-2022-50927</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50927</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>Serwer konsoli szeregowej Cyclades 3.3.0 zawiera lukę w zabezpieczeniach umożliwiającą eskalację uprawnień lokalnych ze względu na zbyt liberalne uprawnienia sudo dla administratora i grupy administratorów.Atakujący mogą wykorzystać domyślną konfigurację użytkownika, aby uzyskać dostęp do konta root, manipulując systemowymi plikami binarnymi i wykorzystując nieograniczone uprawnienia sudo.</description></item><item><title>CVE-2022-50921</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50921</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>WOW21 5.0.1.9 zawiera niecytowaną lukę w ścieżce usługi, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną do wstrzyknięcia złośliwych plików wykonywalnych, które zostaną uruchomione z uprawnieniami systemu lokalnego podczas uruchamiania usługi.</description></item><item><title>CVE-2022-50909</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50909</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>Panel sterowania Algo 8028 w wersji 3.3.3 zawiera lukę umożliwiającą wstrzykiwanie poleceń w punkcie końcowym fm-data.lua, która umożliwia uwierzytelnionym atakującym wykonywanie dowolnych poleceń.Atakujący mogą wykorzystać niebezpieczny parametr „źródło”, wstrzykując polecenia wykonywane z uprawnieniami roota, umożliwiając zdalne wykonanie kodu za pomocą spreparowanego żądania POST.</description></item><item><title>CVE-2022-50924</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50924</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>Private Internet Access 3.3 zawiera niecytowaną lukę w ścieżce usługi, która umożliwia lokalnym użytkownikom potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę w konfiguracji usługi w celu wstrzyknięcia złośliwego kodu, który będzie wykonywany z uprawnieniami LocalSystem podczas uruchamiania usługi.</description></item><item><title>CVE-2022-50899</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50899</link><pubDate>Wed, 14 Jan 2026 00:31:27 +0000</pubDate><description>Geonetwork od 3.10 do 4.2.0 zawiera lukę w zabezpieczeniach obiektu zewnętrznego XML w renderowaniu plików PDF, która umożliwia atakującym pobranie dowolnych plików z serwera.Atakujący mogą wykorzystać niezabezpieczony parser XML, tworząc złośliwy dokument XML z odniesieniami do podmiotów zewnętrznych w celu odczytania plików systemowych za pomocą parametru baseURL w żądaniach utworzenia pliku PDF.</description></item><item><title>CVE-2025-56226</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-56226</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><description>Libsndfile &lt;=1.2.2 zawiera lukę umożliwiającą wyciek pamięci w funkcji mpeg_l3_encoder_init() w pliku mpeg_l3_encode.c.</description></item><item><title>CVE-2026-22686</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22686</link><pubDate>Tue, 13 Jan 2026 23:11:49 +0000</pubDate><description>Enclave to bezpieczna piaskownica JavaScript przeznaczona do bezpiecznego wykonywania kodu agenta AI.W wersjach wcześniejszych niż 2.7.0 w enclave-vm występowała krytyczna luka umożliwiająca ucieczkę z piaskownicy, która umożliwia niezaufanemu kodowi JavaScript w trybie piaskownicy wykonanie dowolnego kodu w środowisku wykonawczym Node.js hosta.Gdy wywołanie narzędzia nie powiedzie się, enclave-vm udostępnia obiekt Error po stronie hosta kodowi w trybie piaskownicy.Ten obiekt Error zachowuje swój łańcuch prototypów dziedziny hosta, przez który można przejść, aby dotrzeć do konstruktora funkcji hosta.Osoba atakująca może celowo wywołać błąd hosta, a następnie wspiąć się po łańcuchu prototypów.Używając konstruktora funkcji hosta, można skompilować i wykonać dowolny kod JavaScript w kontekście hosta, całkowicie omijając piaskownicę i zapewniając dostęp do wrażliwych zasobów, takich jak Process.env, system plików i sieć.Łamie to podstawową gwarancję bezpieczeństwa enclave-vm polegającą na izolowaniu niezaufanego kodu.Ta luka została naprawiona w wersji 2.7.0.
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2022-50907</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50907</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>e107 CMS w wersji 3.2.1 zawiera lukę umożliwiającą przesyłanie plików, która umożliwia uwierzytelnionym użytkownikom administracyjnym ominięcie ograniczeń przesyłania i uruchomienie plików PHP.Osoby atakujące mogą przesyłać złośliwe pliki PHP do katalogów nadrzędnych, manipulując parametrem adresu URL przesyłania, umożliwiając zdalne wykonanie kodu za pomocą funkcji importowania Menedżera multimediów.</description></item><item><title>CVE-2022-50927</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50927</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>Serwer konsoli szeregowej Cyclades 3.3.0 zawiera lukę w zabezpieczeniach umożliwiającą eskalację uprawnień lokalnych ze względu na zbyt liberalne uprawnienia sudo dla administratora i grupy administratorów.Atakujący mogą wykorzystać domyślną konfigurację użytkownika, aby uzyskać dostęp do konta root, manipulując systemowymi plikami binarnymi i wykorzystując nieograniczone uprawnienia sudo.</description></item><item><title>CVE-2022-50921</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50921</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>WOW21 5.0.1.9 zawiera niecytowaną lukę w ścieżce usługi, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną do wstrzyknięcia złośliwych plików wykonywalnych, które zostaną uruchomione z uprawnieniami systemu lokalnego podczas uruchamiania usługi.</description></item><item><title>CVE-2022-50909</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50909</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>Panel sterowania Algo 8028 w wersji 3.3.3 zawiera lukę umożliwiającą wstrzykiwanie poleceń w punkcie końcowym fm-data.lua, która umożliwia uwierzytelnionym atakującym wykonywanie dowolnych poleceń.Atakujący mogą wykorzystać niebezpieczny parametr „źródło”, wstrzykując polecenia wykonywane z uprawnieniami roota, umożliwiając zdalne wykonanie kodu za pomocą spreparowanego żądania POST.</description></item><item><title>CVE-2022-50924</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50924</link><pubDate>Wed, 14 Jan 2026 00:31:28 +0000</pubDate><description>Private Internet Access 3.3 zawiera niecytowaną lukę w ścieżce usługi, która umożliwia lokalnym użytkownikom potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę w konfiguracji usługi w celu wstrzyknięcia złośliwego kodu, który będzie wykonywany z uprawnieniami LocalSystem podczas uruchamiania usługi.</description></item><item><title>CVE-2022-50899</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50899</link><pubDate>Wed, 14 Jan 2026 00:31:27 +0000</pubDate><description>Geonetwork od 3.10 do 4.2.0 zawiera lukę w zabezpieczeniach obiektu zewnętrznego XML w renderowaniu plików PDF, która umożliwia atakującym pobranie dowolnych plików z serwera.Atakujący mogą wykorzystać niezabezpieczony parser XML, tworząc złośliwy dokument XML z odniesieniami do podmiotów zewnętrznych w celu odczytania plików systemowych za pomocą parametru baseURL w żądaniach utworzenia pliku PDF.</description></item><item><title>CVE-2025-56226</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-56226</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><description>Libsndfile &lt;=1.2.2 zawiera lukę umożliwiającą wyciek pamięci w funkcji mpeg_l3_encoder_init() w pliku mpeg_l3_encode.c.</description></item><item><title>CVE-2025-67399</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67399</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><description>Problem w programie ładującym AIRTH SMART HOME AQI MONITOR Bootloader v.1.005 umożliwia atakującemu znajdującemu się fizycznie blisko uzyskanie poufnych informacji za pośrednictwem portu UART kontrolera BK7231N (moduł Wi-Fi i BLE) na urządzeniu, do którego dostęp jest otwarty</description></item><item><title>CVE-2026-22686</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22686</link><pubDate>Tue, 13 Jan 2026 23:11:49 +0000</pubDate><description>Enclave to bezpieczna piaskownica JavaScript przeznaczona do bezpiecznego wykonywania kodu agenta AI.W wersjach wcześniejszych niż 2.7.0 w enclave-vm występowała krytyczna luka umożliwiająca ucieczkę z piaskownicy, która umożliwia niezaufanemu kodowi JavaScript w trybie piaskownicy wykonanie dowolnego kodu w środowisku wykonawczym Node.js hosta.Gdy wywołanie narzędzia nie powiedzie się, enclave-vm udostępnia obiekt Error po stronie hosta kodowi w trybie piaskownicy.Ten obiekt Error zachowuje swój łańcuch prototypów dziedziny hosta, przez który można przejść, aby dotrzeć do konstruktora funkcji hosta.Osoba atakująca może celowo wywołać błąd hosta, a następnie wspiąć się po łańcuchu prototypów.Używając konstruktora funkcji hosta, można skompilować i wykonać dowolny kod JavaScript w kontekście hosta, całkowicie omijając piaskownicę i zapewniając dostęp do wrażliwych zasobów, takich jak Process.env, system plików i sieć.Łamie to podstawową gwarancję bezpieczeństwa enclave-vm polegającą na izolowaniu niezaufanego kodu.Ta luka została naprawiona w wersji 2.7.0.
 
 CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2026-0716</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0716</link><pubDate>Tue, 13 Jan 2026 23:07:06 +0000</pubDate><description>Wykryto błąd w przetwarzaniu ramek WebSocket przez bibliotekę libsoup podczas obsługi wiadomości przychodzących.Jeśli używana jest konfiguracja inna niż domyślna, w której nie ustawiono maksymalnego rozmiaru przychodzącego ładunku, biblioteka może odczytać pamięć poza zamierzonymi granicami.Może to spowodować niezamierzone odsłonięcie pamięci lub awarię.Może to mieć wpływ na aplikacje korzystające z obsługi WebSocket przez libsoup w tej konfiguracji.
 
@@ -215,7 +369,17 @@ CVSS Score: 8.4 (high)</description></item><item><title>CVE-2022-50929</title><l
 
 CVSS Score: 8.4 (high)</description></item><item><title>CVE-2022-50928</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50928</link><pubDate>Tue, 13 Jan 2026 22:51:57 +0000</pubDate><description>BlueSoleilCS 5.4.277 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w konfiguracji usług systemu Windows, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu.Atakujący mogą wykorzystać niecytowaną ścieżkę binarną w „C:\Program Files\IVT Corporation\BlueSoleil\BlueSoleilCS.exe” w celu wstrzyknięcia złośliwych plików wykonywalnych i eskalacji uprawnień.
 
-CVSS Score: 8.4 (high)</description></item><item><title>CVE-2026-22820</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22820</link><pubDate>Tue, 13 Jan 2026 21:53:44 +0000</pubDate><description>### Summary
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2022-50920</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50920</link><pubDate>Tue, 13 Jan 2026 22:51:54 +0000</pubDate><description>Sandboxie-Plus 5.50.2 zawiera niecytowaną lukę w ścieżce usługi w usłudze SbieSvc Windows, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną do wstrzyknięcia złośliwych plików wykonywalnych, które będą uruchamiane z uprawnieniami systemu lokalnego podczas uruchamiania usługi.
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2022-50919</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50919</link><pubDate>Tue, 13 Jan 2026 22:51:54 +0000</pubDate><description>Tdarr 2.00.15 zawiera lukę w zabezpieczeniach umożliwiającą nieuwierzytelnione zdalne wykonanie kodu w swoim terminalu pomocy, która umożliwia atakującym wprowadzanie i łączenie dowolnych poleceń.Atakujący mogą wykorzystać brak filtrowania danych wejściowych, łącząc polecenia takie jak `--help;zwiń .py |python`, aby wykonać zdalny kod bez uwierzytelnienia.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2022-50918</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50918</link><pubDate>Tue, 13 Jan 2026 22:51:53 +0000</pubDate><description>Usługa VIVE Runtime Service 1.0.0.4 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi, która umożliwia lokalnym użytkownikom wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną, umieszczając złośliwe pliki wykonywalne w określonych katalogach systemowych, aby uzyskać dostęp do systemu lokalnego podczas uruchamiania usługi.
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2022-50917</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50917</link><pubDate>Tue, 13 Jan 2026 22:51:53 +0000</pubDate><description>ProtonVPN 1.26.0 zawiera niecytowaną lukę w ścieżce usługi w konfiguracji usługi WireGuard, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę, umieszczając złośliwe pliki wykonywalne w określonych lokalizacjach systemu plików, aby uzyskać podwyższone uprawnienia podczas uruchamiania usługi.
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2022-50916</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50916</link><pubDate>Tue, 13 Jan 2026 22:51:52 +0000</pubDate><description>e107 CMS w wersji 3.2.1 zawiera lukę w zabezpieczeniach umożliwiającą przesyłanie plików, która umożliwia uwierzytelnionym administratorom zastąpienie plików serwera za pomocą funkcji importowania Media Managera.Osoby atakujące mogą wykorzystać mechanizm przesyłania, manipulując parametrem adresu URL przesyłania w celu nadpisania istniejących plików, takich jak top.php, w katalogu aplikacji internetowej.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-22820</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22820</link><pubDate>Tue, 13 Jan 2026 21:53:44 +0000</pubDate><description>### Summary
 
 A TOCTOU race condition vulnerability allows a user to exceed the set number of active tunnels in their subscription plan.
 
