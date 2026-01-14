@@ -1,5 +1,47 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-68956</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68956</link><pubDate>Wed, 14 Jan 2026 01:56:39 +0000</pubDate><description>Luka w zabezpieczeniach związana z sytuacją wyścigu wielowątkowego w module struktury karty.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-68959</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68959</link><pubDate>Wed, 14 Jan 2026 02:38:54 +0000</pubDate><description>Luka w zabezpieczeniach obejścia weryfikacji uprawnień w module biblioteki multimediów.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 6.2 (medium)</description></item><item><title>CVE-2025-68970</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68970</link><pubDate>Wed, 14 Jan 2026 02:35:43 +0000</pubDate><description>Luka w zabezpieczeniach obejścia weryfikacji uprawnień w module biblioteki multimediów.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 6.1 (medium)</description></item><item><title>CVE-2025-68963</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68963</link><pubDate>Wed, 14 Jan 2026 02:31:32 +0000</pubDate><description>Luka w module Clone podatna na atak typu man-in-the-middle.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 5.7 (medium)</description></item><item><title>CVE-2025-68967</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68967</link><pubDate>Wed, 14 Jan 2026 02:16:57 +0000</pubDate><description>Luka związana z niewłaściwą kontrolą uprawnień w module drukującym.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 5.7 (medium)</description></item><item><title>CVE-2025-68966</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68966</link><pubDate>Wed, 14 Jan 2026 02:14:40 +0000</pubDate><description>Luka w kontroli uprawnień w module Notatnik.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 5.1 (medium)</description></item><item><title>CVE-2025-68965</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68965</link><pubDate>Wed, 14 Jan 2026 02:13:06 +0000</pubDate><description>Luka w kontroli uprawnień w module Notatnik.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2025-68964</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68964</link><pubDate>Wed, 14 Jan 2026 02:11:25 +0000</pubDate><description>Luka weryfikująca dane w module HiView.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 6.2 (medium)</description></item><item><title>CVE-2025-68969</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68969</link><pubDate>Wed, 14 Jan 2026 02:07:24 +0000</pubDate><description>Luka w zabezpieczeniach wielowątkowego wyścigu w module zarządzania temperaturą.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2025-68968</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68968</link><pubDate>Wed, 14 Jan 2026 02:05:43 +0000</pubDate><description>Podwójna wolna luka w wielomodowym module wejściowym.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na funkcję wejściową.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-68962</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68962</link><pubDate>Wed, 14 Jan 2026 02:04:11 +0000</pubDate><description>Luka w zabezpieczeniach związana z sytuacją wyścigu wielowątkowego w module struktury kamery.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 5.1 (medium)</description></item><item><title>CVE-2025-68961</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68961</link><pubDate>Wed, 14 Jan 2026 02:02:42 +0000</pubDate><description>Luka w zabezpieczeniach związana z sytuacją wyścigu wielowątkowego w module struktury kamery.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 5.1 (medium)</description></item><item><title>CVE-2025-68960</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68960</link><pubDate>Wed, 14 Jan 2026 02:01:03 +0000</pubDate><description>Luka w zabezpieczeniach związana z sytuacją wyścigu wielowątkowego w module struktury wideo.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2025-68958</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68958</link><pubDate>Wed, 14 Jan 2026 01:59:41 +0000</pubDate><description>Luka w zabezpieczeniach związana z sytuacją wyścigu wielowątkowego w module struktury karty.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 8.0 (high)</description></item><item><title>CVE-2025-68957</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68957</link><pubDate>Wed, 14 Jan 2026 01:58:05 +0000</pubDate><description>Luka w zabezpieczeniach związana z sytuacją wyścigu wielowątkowego w module struktury karty.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2025-68956</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68956</link><pubDate>Wed, 14 Jan 2026 01:56:39 +0000</pubDate><description>Luka w zabezpieczeniach związana z sytuacją wyścigu wielowątkowego w module struktury karty.
 Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
 
 CVSS Score: 8.0 (high)</description></item><item><title>CVE-2025-68955</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68955</link><pubDate>Wed, 14 Jan 2026 01:51:42 +0000</pubDate><description>Luka w zabezpieczeniach związana z sytuacją wyścigu wielowątkowego w module struktury karty.
