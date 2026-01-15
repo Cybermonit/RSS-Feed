@@ -1,5 +1,127 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22775</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22775</link><pubDate>Thu, 15 Jan 2026 22:15:18 +0000</pubDate><description>## Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1011</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1011</link><pubDate>Thu, 15 Jan 2026 23:08:01 +0000</pubDate><description>W punkcie końcowym AddComment Centrum Wsparcia Altium istnieje luka w zabezpieczeniach przechowywanych skryptów krzyżowych (XSS), wynikająca z braku oczyszczenia danych wejściowych po stronie serwera.Chociaż interfejs klienta stosuje ucieczkę HTML, backend akceptuje i przechowuje dowolny kod HTML i JavaScript dostarczony poprzez zmodyfikowane żądania POST.
+
+Wstrzykiwana treść jest renderowana dosłownie, gdy zgłoszenia do pomocy technicznej przeglądają inni użytkownicy, w tym personel pomocy technicznej z podwyższonymi uprawnieniami, co umożliwia wykonanie dowolnego kodu JavaScript w kontekście przeglądarki ofiary.
+
+CVSS Score: 8.2 (high)</description></item><item><title>CVE-2026-1010</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1010</link><pubDate>Thu, 15 Jan 2026 23:00:18 +0000</pubDate><description>W silniku Altium Workflow Engine występuje luka w zabezpieczeniach przechowywanych skryptów krzyżowych (XSS), wynikająca z braku oczyszczania danych wejściowych po stronie serwera w interfejsach API przesyłania formularzy przepływu pracy.Zwykły uwierzytelniony użytkownik może wstawić dowolny JavaScript do danych przepływu pracy.
+
+Gdy administrator przegląda przepływ pracy, którego dotyczy problem, wstrzyknięty ładunek jest wykonywany w kontekście przeglądarki administratora, umożliwiając eskalację uprawnień, w tym tworzenie nowych kont administratorów, kradzież tokena sesji i wykonywanie działań administracyjnych.
+
+CVSS Score: 8.0 (high)</description></item><item><title>CVE-2026-22864</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22864</link><pubDate>Thu, 15 Jan 2026 22:58:52 +0000</pubDate><description>Deno to środowisko wykonawcze JavaScript, TypeScript i WebAssembly.Przed wersją 2.5.6 poprzednia łatka miała na celu blokowanie tworzenia plików wsadowych/powłoki systemu Windows poprzez zwracanie błędu, gdy rozszerzenie odrodzonej ścieżki było zgodne z .bat lub .cmd.To sprawdzenie przeprowadza porównanie uwzględniające wielkość liter z literałami małymi literami i dlatego można je pominąć, gdy rozszerzenie używa alternatywnej wielkości liter (na przykład .BAT, .Bat itp.).Luka ta została naprawiona w wersji 2.5.6.
+
+CVSS Score: 8.1 (high)</description></item><item><title>CVE-2026-22045</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22045</link><pubDate>Thu, 15 Jan 2026 22:58:23 +0000</pubDate><description>## Wpływ
+
+Istnieje potencjalna luka w automatycznym generowaniu certyfikatów Traefik ACME TLS: szybka ścieżka ACME TLS-ALPN może pozwolić nieuwierzytelnionym klientom na wiązanie goroutines i deskryptorów plików na czas nieokreślony, gdy włączone jest wyzwanie ACME TLS.
+
+Złośliwy klient może otworzyć wiele połączeń, wysłać minimalne polecenie ClientHello z acme-tls/1, a następnie przestać odpowiadać, co prowadzi do odmowy usługi punktu wejścia.
+
+## Poprawki
+
+- https://github.com/traefik/traefik/releases/tag/v2.11.35
+- https://github.com/traefik/traefik/releases/tag/v3.6.7
+
+## Aby uzyskać więcej informacji
+
+Jeśli masz jakieś pytania lub uwagi dotyczące tego poradnika, [otwórz problem](https://github.com/traefik/traefik/issues).
+
+&lt;szczegóły&gt;
+&lt;summary&gt;Oryginalny opis&lt;/summary&gt;
+
+# \[Security\] Szybka ścieżka ACME TLS-ALPN nie ma przekroczeń limitu czasu i zamyka się przy przeciąganiu uzgadniania
+
+Szanowny zespół bezpieczeństwa Traefik,
+
+Uważamy, że zidentyfikowaliśmy problem związany z wyczerpaniem zasobów w szybkiej ścieżce ACME TLS-ALPN, który może umożliwiać nieuwierzytelnionym klientom wiązanie goroutines i deskryptorów plików na czas nieokreślony, gdy włączone jest wyzwanie ACME TLS.
+
+## Podsumowanie
+
+- Kod, którego dotyczy problem: `pkg/server/router/tcp/router.go` (obsługa ACME TLS-ALPN).
+- Kiedy ClientHello ogłasza `acme-tls/1`, Traefik przechwytuje to i wywołuje `tls.Server(...).Handshake()` bez żadnych terminów odczytu/zapisu i bez późniejszego zamykania połączenia.
+- Bezpośrednio przed tym oddziałem rozliczane są dotychczasowe terminy wyznaczone przez punkt wejścia.
+- Klient, który wysyła znacznik ALPN, a następnie przestaje odpowiadać, może pozostawić goroutine i gniazdo otwarte w nieskończoność, potencjalnie wyczerpując punkt wejścia pod obciążeniem.
+- Narażenie jest ograniczone do punktów wejścia, w których włączona jest funkcja ACME TLS-ALPN i nie jest dozwolone obejście ACME.
+
+## Odpowiednie fragmenty
+```143:171:pkg/serwer/router/tcp/router.go
+// Terminy są rozliczane przed wysłaniem protokołu
+if err := conn.SetDeadline(time.Time{});błąd!= zero {
+log.Error().Err(err).Msg("Błąd podczas ustawiania terminu")
+}
+
+// Szybka ścieżka ACME TLS-ALPN
+if !r.acmeTLSPassthrough &amp;&amp; plasterki.Contains(hello.protos, tlsalpn01.ACMETLS1Protocol) {
+r.acmeTLSALPNHandler().ServeTCP(r.GetConn(conn, hello.peeked))
+wrócić
+}
+```
+
+```224:226:pkg/serwer/router/tcp/router.go
+// Procedura obsługi wywoływana przez powyższą gałąź
+return tcp.HandlerFunc(func(conn tcp.WriteCloser) {
+_ = tls.Server(conn, r.httpsTLSConfig).Handshake()
+})
+```
+
+## Wpływ
+
+- Każdy zablokowany uścisk dłoni zużywa goroutine i FD bez przekroczenia limitu czasu i zamknięcia po stronie serwera.
+- Złośliwy klient może otworzyć wiele połączeń, wysłać minimalne polecenie ClientHello z acme-tls/1, a następnie przestać odpowiadać, co prowadzi do odmowy usługi punktu wejścia.
+- Normalna obsługa HTTPS wykorzystuje limity czasu `http.Server`;ta specjalnie zaprojektowana ścieżka je omija.
+
+## Warunki eksploatacji
+
+- Włączono wyzwanie ACME TLS-ALPN (domyślnie, jeśli jest skonfigurowane).
+- `allowACMEByPass` wyłączone dla punktu wejścia (domyślnie, gdy wyzwanie ACME TLS jest obsługiwane przez Traefik).
+
+##CWE
+
+- CWE-400: Niekontrolowane zużycie zasobów.
+
+## Proponowana poprawka (ilustracyjna)
+
+```
+@@ func (r *Router) acmeTLSALPNHandler() tcp.Handler {
+- zwróć tcp.HandlerFunc(func(conn tcp.WriteCloser) {
+- _ = tls.Server(conn, r.httpsTLSConfig).Handshake()
+- })
++ zwróć tcp.HandlerFunc(func(conn tcp.WriteCloser) {
++ // Upewnij się, że uścisk dłoni nie może blokować się w nieskończoność i zawsze zamyka gniazdo.
++ _ = conn.SetReadDeadline(time.Now().Add(10 * time.Second))
++ _ = conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
++
++ tlsConn := tls.Server(conn, r.httpsTLSConfig)
++ _ = tlsConn.Uścisk dłoni()
++ _ = tlsConn.Close() // zamknięcie niezależnie od wyniku uzgadniania
++ })
+}
+```
+
+Alternatywnie poprowadź ACME TLS-ALPN przez istniejącą ścieżkę serwera `tcp.TLSHandler`/HTTP, aby skonfigurowane limity czasu i zarządzanie cyklem życia zostały zastosowane automatycznie.
+
+## CVSS v3.1 (oszacowanie)
+
+- Wektor: AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+- Wynik podstawowy: 7,5 (wysoki)
+- Uzasadnienie: tylko sieć, nie jest wymagana interakcja z autoryzacją/użytkownikiem;wpływ ma dostępność usług wynikająca z wyczerpania zasobów;żadnego wpływu na poufność i integralność.
+
+Daj nam znać, jeśli potrzebujesz dokumentu PoC lub dalszych szczegółów.W tym raporcie nie wprowadziliśmy żadnych zmian w kodzie.
+
+Daj nam znać, jeśli masz jakieś pytania lub potrzebujesz wyjaśnień\!
+
+Najlepsze życzenia,
+Paweł Kohout
+Badania korytarzy
+&lt;/details&gt;</description></item><item><title>CVE-2026-22863</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22863</link><pubDate>Thu, 15 Jan 2026 22:53:15 +0000</pubDate><description>Deno to środowisko wykonawcze JavaScript, TypeScript i WebAssembly.Przed wersją 2.6.0 węzeł:crypto nie finalizuje szyfru.Luka umożliwia atakującemu zastosowanie nieskończonej liczby szyfrowań.Może to prowadzić do naiwnych prób brutalnego wymuszania, a także do bardziej wyrafinowanych ataków mających na celu poznanie tajemnic serwera.Ta luka została naprawiona w wersji 2.6.0.</description></item><item><title>CVE-2026-1009</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1009</link><pubDate>Thu, 15 Jan 2026 22:51:32 +0000</pubDate><description>Na forum Altium istnieje luka w zabezpieczeniach przechowywanych skryptów między witrynami (XSS), wynikająca z braku oczyszczania danych wejściowych po stronie serwera w treści postów na forum.Uwierzytelniony atakujący może wstawić dowolny kod JavaScript do postów na forum, który jest przechowywany i wykonywany, gdy inni użytkownicy przeglądają post, którego dotyczy problem.
+Skuteczna eksploatacja umożliwia wykonanie ładunku atakującego w kontekście uwierzytelnionej sesji Altium 365 ofiary, umożliwiając nieautoryzowany dostęp do danych obszaru roboczego, w tym plików projektu i ustawień obszaru roboczego.Eksploatacja wymaga interakcji użytkownika w celu wyświetlenia złośliwego wpisu na forum.
+
+CVSS Score: 9.0 (critical)</description></item><item><title>CVE-2026-22045</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22045</link><pubDate>Thu, 15 Jan 2026 22:44:05 +0000</pubDate><description>Traefik to odwrotne proxy HTTP i moduł równoważenia obciążenia.W wersjach wcześniejszych niż 2.11.35 i 3.6.7 istniała potencjalna luka w automatycznym generowaniu certyfikatów Traefik ACME TLS: szybka ścieżka ACME TLS-ALPN umożliwia nieuwierzytelnionym klientom wiązanie procedur go i deskryptorów plików na czas nieokreślony, gdy włączone jest wyzwanie ACME TLS.Złośliwy klient może otworzyć wiele połączeń, wysłać minimalne polecenie ClientHello z acme-tls/1, a następnie przestać odpowiadać, co prowadzi do odmowy usługi punktu wejścia.Luka została naprawiona w wersjach 2.11.35 i 3.6.7.
+
+CVSS Score: 5.9 (medium)</description></item><item><title>CVE-2025-68671</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68671</link><pubDate>Thu, 15 Jan 2026 22:35:44 +0000</pubDate><description>LakeFS to narzędzie typu open source, które przekształca pamięć obiektową w repozytoria przypominające Git.Brama S3 LakeFS nie weryfikuje znaczników czasu w uwierzytelnionych żądaniach, umożliwiając ataki polegające na powtórzeniu.W wersji wcześniejszej niż 1.75.0 osoba atakująca, która przechwyci prawidłowe podpisane żądanie (np. poprzez przechwycenie sieci, dzienniki lub zainfekowane systemy), może odtworzyć to żądanie do czasu zmiany poświadczeń, nawet jeśli żądanie ma wygasnąć.Luka ta została naprawiona w wersji 1.75.0.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-1008</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1008</link><pubDate>Thu, 15 Jan 2026 22:24:16 +0000</pubDate><description>W polach tekstowych profilu użytkownika Altium 365 występuje luka w zabezpieczeniach przechowywanych skryptów krzyżowych (XSS). Niewystarczające oczyszczanie danych wejściowych po stronie serwera umożliwia uwierzytelnionym użytkownikom wstrzykiwanie dowolnych ładunków HTML i JavaScript przy użyciu technik omijania analizy atrybutów opartych na białych znakach.
+Wstrzyknięty ładunek jest utrwalany i wykonywany, gdy inni użytkownicy przeglądają stronę profilu, której dotyczy problem, co potencjalnie umożliwia kradzież tokena sesji, ataki typu phishing lub złośliwe przekierowania.Eksploatacja wymaga uwierzytelnionego konta i interakcji użytkownika, aby wyświetlić spreparowany profil.
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-22775</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22775</link><pubDate>Thu, 15 Jan 2026 22:15:18 +0000</pubDate><description>## Podsumowanie
 
 Niektóre dane wejściowe mogą powodować, że plik `devalue.parse` zużywa nadmierne ilości czasu procesora i/lub pamięci, co może prowadzić do odmowy usługi w systemach analizujących dane wejściowe z niezaufanych źródeł.Ma to wpływ na aplikacje używające `devalue.parse` na danych dostarczonych zewnętrznie.Główną przyczyną jest hydratacja `ArrayBuffer` oczekująca na wejściu ciągów zakodowanych w standardzie Base64, ale nie sprawdzająca założenia przed dekodowaniem danych wejściowych.
 
