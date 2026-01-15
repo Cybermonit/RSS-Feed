@@ -211,7 +211,95 @@ rzeczywisty format przechwytywania nie jest obsługiwany, ścieżki kodu, który
 są wyzwalane.
 
 Ponieważ ta blokada po prostu chroni listę kontekstów i operacje na niej
-bardzo szybko, przejście na spinlock powinno być OK.</description></item><item><title>CVE-2026-22240</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22240</link><pubDate>Wed, 14 Jan 2026 14:42:09 +0000</pubDate><description>Luka w zabezpieczeniach BLUVOYIX wynika z nieprawidłowej implementacji przechowywania haseł i późniejszego ujawnienia danych za pośrednictwem nieuwierzytelnionych interfejsów API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsu API użytkowników podatnych na zagrożenia w celu pobrania haseł wszystkich użytkowników w postaci zwykłego tekstu.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy poprzez zalogowanie się przy użyciu ujawnionego adresu e-mail i hasła administratora.</description></item><item><title>CVE-2026-22239</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22239</link><pubDate>Wed, 14 Jan 2026 14:40:20 +0000</pubDate><description>Luka w BLUVOYIX wynika z błędów projektowych w interfejsie API wysyłania wiadomości e-mail.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego na ataki interfejsu API wysyłającego wiadomości e-mail.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wysyłanie niechcianych wiadomości e-mail do dowolnej osoby w imieniu firmy.</description></item><item><title>CVE-2026-22238</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22238</link><pubDate>Wed, 14 Jan 2026 14:38:55 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API administratora BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego interfejsu API administratora w celu utworzenia nowego użytkownika z uprawnieniami administratora.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej uzyskać pełny dostęp do danych klientów i całkowicie złamać docelową platformę poprzez zalogowanie się na nowo utworzonego użytkownika administracyjnego.</description></item><item><title>CVE-2026-22237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22237</link><pubDate>Wed, 14 Jan 2026 14:36:47 +0000</pubDate><description>Luka w BLUVOYIX wynika z ujawnienia wrażliwej wewnętrznej dokumentacji API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsów API ujawnionych w dokumentacji.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wyrządzenie szkód na docelowej platformie poprzez nadużycie wewnętrznych funkcjonalności.</description></item><item><title>CVE-2026-22236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22236</link><pubDate>Wed, 14 Jan 2026 14:34:14 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API zaplecza BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnych na ataki interfejsów API.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy.</description></item><item><title>CVE-2025-9142</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9142</link><pubDate>Wed, 14 Jan 2026 14:30:48 +0000</pubDate><description>Użytkownik lokalny może wyzwolić klienta Harmony SASE Windows w celu zapisania lub usunięcia plików poza zamierzonym katalogiem roboczym certyfikatu.
+bardzo szybko, przejście na spinlock powinno być OK.</description></item><item><title>CVE-2025-71121</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71121</link><pubDate>Wed, 14 Jan 2026 15:06:07 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+paryż: Nie przeprogramowuj powinowactwa na chipie ASP
+
+Chip ASP jest bardzo starą odmianą chipa GSP i jest używany m.in.w
+Stacje robocze HP 730.Podczas próby przeprogramowania powinowactwa nastąpi awaria
+z HPMC, ponieważ odpowiednie rejestry nie wydają się być normalne
+lokalizacja.Uniknijmy awarii, sprawdzając zwrotność.Pamiętaj też,
+że przeprogramowanie również nie jest konieczne, ponieważ HP730 to po prostu...
+maszyna jednoprocesorowa.</description></item><item><title>CVE-2025-71118</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71118</link><pubDate>Wed, 14 Jan 2026 15:06:05 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ACPICA: Unikaj przechodzenia przez przestrzeń nazw, jeśli węzeł startowy ma wartość NULL
+
+Chociaż zatwierdzono 0c9992315e73 („ACPICA: Unikaj przechodzenia przez przestrzeń nazw ACPI
+jeśli go tam nie ma”) naprawił sytuację, gdy zarówno węzeł start_node, jak i
+acpi_gbl_root_node mają wartość NULL, główna linia jądra Linuksa nadal ulega awarii
+na Honor Magicbook 14 Pro [1].
+
+Dzieje się tak z powodu dostępu do elementu parent_node w
+acpi_ns_get_next_node().Dereferencja wskaźnika NULL będzie zawsze
+się stanie, niezależnie od tego, czy węzeł startowy jest równy
+ACPI_ROOT_OBJECT, więc sprawdź, czy węzeł startowy ma wartość NULL
+z bloku if.
+
+Niestety, wszystkie próby skontaktowania się z Honorem zakończyły się niepowodzeniem
+odmówił zapewnienia jakiegokolwiek wsparcia technicznego dla Linuksa.
+
+Zrzut nieprawidłowej tabeli DSDT można znaleźć na GitHubie [2].
+
+DMI: HONOR FMB-P/FMB-P-PCB, BIOS 1.13 08.05.2025
+
+[ rjw: Dostosowanie tematu, zmiany w dzienniku zmian ]</description></item><item><title>CVE-2025-71116</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71116</link><pubDate>Wed, 14 Jan 2026 15:06:04 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+libceph: uczyń decode_pool() bardziej odporną na uszkodzone mapy osdmap
+
+Jeśli mapa osdmap jest (złośliwie) uszkodzona w taki sposób, że zakodowana długość
+koperty ceph_pg_pool jest mniejsza niż oczekiwana dla konkretnego
+wersja kodowania, mogą wystąpić odczyty poza granicami, ponieważ są to jedyne granice
+sprawdź, czy tam jest, w oparciu o tę wartość długości.
+
+Ta poprawka dodaje jawne sprawdzanie granic dla każdego dekodowanego pola
+lub pominięte.</description></item><item><title>CVE-2025-71115</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71115</link><pubDate>Wed, 14 Jan 2026 15:06:02 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+hm: zainicjuj cpu_tasks[] wcześniej
+
+Obecnie robi się to w uml_finishsetup(), ale np.z
+Włączono KCOV, nastąpi awaria, ponieważ może wywołać jakiś kod inicjujący
+w np.memparse(), która zawiera adnotacje dotyczące pokrycia, oraz
+następnie kontrole w check_kcov_mode() ulegają awarii, ponieważ są bieżące
+ma wartość NULL.
+
+Po prostu zainicjuj statycznie tablicę cpu_tasks[], która
+naprawia awarię.Wydaje się, że w przypadku późniejszej pracy SMP tak
+tak naprawdę nie spowodowało to jeszcze żadnych problemów, ale zainicjuj wszystkie
+w każdym razie wpisy.</description></item><item><title>CVE-2025-71114</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71114</link><pubDate>Wed, 14 Jan 2026 15:06:00 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+via_wdt: naprawiono krytyczne zawieszanie się systemu operacyjnego z powodu nienazwanej alokacji zasobów
+
+Sterownik watchdog VIA używa funkcji allocate_resource() do zarezerwowania MMIO
+region dla rejestru kontrolnego watchdoga.Jednak przydzielone
+zasobowi nie nadano nazwy, co powoduje powstanie drzewa zasobów jądra
+zawierać wpis oznaczony jako „&lt;BAD&gt;” w katalogu /proc/iomem na platformie x86
+platformy.
+
+Podczas uruchamiania ten nienazwany zasób może spowodować krytyczne zawieszenie, ponieważ
+późniejsze wyszukiwania zasobów i sprawdzanie konfliktów nie radzą sobie z problemem
+nieprawidłowy wpis.</description></item><item><title>CVE-2025-71109</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71109</link><pubDate>Wed, 14 Jan 2026 15:05:57 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+MIPS: ftrace: Napraw uszkodzenie pamięci, gdy jądro ma więcej niż 32 bity
+
+Od czasu zatwierdzenia e424054000878 („MIPS: Tracing: Zmniejsz obciążenie
+dynamic Function Tracer”), makro UASM_i_LA_mostly zostało użyte,
+i to makro może wygenerować więcej niż 2 instrukcje.Jednocześnie
+czas, kod w ftrace zakłada, że nie więcej niż 2 instrukcje mogą
+zostać wygenerowane i dlatego przechowuje je w tablicy int[2].Jednakże,
+jak wcześniej zauważono, makro UASM_i_LA_mostly (a teraz UASM_i_LA)
+powoduje przepełnienie bufora, gdy _mcount przekracza 32 bity.Prowadzi to do
+uszkodzenie zmiennych znajdujących się w sekcji __read_mostly.
+
+To uszkodzenie zaobserwowano, ponieważ zmienna
+__cpu_primary_thread_mask został uszkodzony, co spowodowało bardzo wczesne zawieszenie
+podczas rozruchu.
+
+Ta poprawka zapobiega uszkodzeniom, unikając generowania plików
+instrukcje, jeśli mogłyby przekroczyć 2 instrukcje
+długość.Na szczęście insn_la_mcount jest używany tylko w przypadku instrumentu
+kod znajduje się poza sekcją kodu jądra, więc dynamiczny ftrace może
+nadal być stosowane, choć w bardziej ograniczonym zakresie.To jest nadal
+lepsze niż uszkodzenie pamięci i/lub awaria jądra.</description></item><item><title>CVE-2026-22240</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22240</link><pubDate>Wed, 14 Jan 2026 14:42:09 +0000</pubDate><description>Luka w zabezpieczeniach BLUVOYIX wynika z nieprawidłowej implementacji przechowywania haseł i późniejszego ujawnienia danych za pośrednictwem nieuwierzytelnionych interfejsów API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsu API użytkowników podatnych na zagrożenia w celu pobrania haseł wszystkich użytkowników w postaci zwykłego tekstu.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy poprzez zalogowanie się przy użyciu ujawnionego adresu e-mail i hasła administratora.</description></item><item><title>CVE-2026-22239</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22239</link><pubDate>Wed, 14 Jan 2026 14:40:20 +0000</pubDate><description>Luka w BLUVOYIX wynika z błędów projektowych w interfejsie API wysyłania wiadomości e-mail.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego na ataki interfejsu API wysyłającego wiadomości e-mail.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wysyłanie niechcianych wiadomości e-mail do dowolnej osoby w imieniu firmy.</description></item><item><title>CVE-2026-22238</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22238</link><pubDate>Wed, 14 Jan 2026 14:38:55 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API administratora BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego interfejsu API administratora w celu utworzenia nowego użytkownika z uprawnieniami administratora.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej uzyskać pełny dostęp do danych klientów i całkowicie złamać docelową platformę poprzez zalogowanie się na nowo utworzonego użytkownika administracyjnego.</description></item><item><title>CVE-2026-22237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22237</link><pubDate>Wed, 14 Jan 2026 14:36:47 +0000</pubDate><description>Luka w BLUVOYIX wynika z ujawnienia wrażliwej wewnętrznej dokumentacji API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsów API ujawnionych w dokumentacji.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wyrządzenie szkód na docelowej platformie poprzez nadużycie wewnętrznych funkcjonalności.</description></item><item><title>CVE-2026-22236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22236</link><pubDate>Wed, 14 Jan 2026 14:34:14 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API zaplecza BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnych na ataki interfejsów API.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy.</description></item><item><title>CVE-2025-9142</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9142</link><pubDate>Wed, 14 Jan 2026 14:30:48 +0000</pubDate><description>Użytkownik lokalny może wyzwolić klienta Harmony SASE Windows w celu zapisania lub usunięcia plików poza zamierzonym katalogiem roboczym certyfikatu.
 
 CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-13175</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13175</link><pubDate>Wed, 14 Jan 2026 12:19:06 +0000</pubDate><description>Y Soft SafeQ 6 renderuje pole hasła łącznika przepływu pracy w sposób umożliwiający administratorowi z dostępem do interfejsu użytkownika ujawnienie wartości za pomocą narzędzi programistycznych/kontrolnych przeglądarki.Dotyczy to wyłącznie klientów korzystających z łącznika przepływu pracy skanowania chronionego hasłem.
 Ten problem dotyczy Y Soft SafeQ 6 w wersjach wcześniejszych niż MU106.</description></item><item><title>CVE-2025-14338</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14338</link><pubDate>Wed, 14 Jan 2026 11:55:31 +0000</pubDate><description>Uwierzytelnianie Polkit jest domyślnie wyłączone i jest wyścigowe
