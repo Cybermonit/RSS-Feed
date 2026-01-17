@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-15530</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15530</link><pubDate>Sat, 17 Jan 2026 11:02:06 +0000</pubDate><description>W Open5GS do wersji 2.7.6 stwierdzono podatność.Ma to wpływ na funkcję sgwc_s11_handle_create_indirect_data_forwarding_tunnel_request pliku /src/sgwc/s11-handler.c.Wykonanie manipulacji może prowadzić do osiągalnej asercji.Atak może zostać przeprowadzony zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.Raport o problemie jest oznaczony jako już rozwiązany.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-15531</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15531</link><pubDate>Sat, 17 Jan 2026 16:02:07 +0000</pubDate><description>W Open5GS do wersji 2.7.5 została zidentyfikowana podatność.Podatnością dotknięta jest funkcja sgwc_bearer_add pliku src/sgwc/context.c.Manipulacja prowadzi do osiągalnej asercji.Atak jest możliwy do przeprowadzenia zdalnie.Exploit jest publicznie dostępny i może zostać wykorzystany.Raport o problemie jest oznaczony jako już rozwiązany.
+
+CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-15530</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15530</link><pubDate>Sat, 17 Jan 2026 11:02:06 +0000</pubDate><description>W Open5GS do wersji 2.7.6 stwierdzono podatność.Ma to wpływ na funkcję sgwc_s11_handle_create_indirect_data_forwarding_tunnel_request pliku /src/sgwc/s11-handler.c.Wykonanie manipulacji może prowadzić do osiągalnej asercji.Atak może zostać przeprowadzony zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.Raport o problemie jest oznaczony jako już rozwiązany.
 
 CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-8615</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-8615</link><pubDate>Sat, 17 Jan 2026 08:24:32 +0000</pubDate><description>Wtyczka CubeWP do WordPressa jest podatna na przechowywane skrypty między witrynami poprzez krótki kod wtyczki cubewp_shortcode_taxonomy we wszystkich wersjach aż do 1.1.26 włącznie z powodu niewystarczającego oczyszczenia danych wejściowych i ucieczki danych wyjściowych dla atrybutów dostarczonych przez użytkownika.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie współautora i wyższym mogą wstrzykiwać dowolne skrypty internetowe na stronach, które będą wykonywane za każdym razem, gdy użytkownik uzyska dostęp do wstrzykniętej strony.
 
@@ -3153,7 +3155,40 @@ zwracanie -EINVAL w przypadku przekroczenia limitu.
 
 v2: użyj XE_IOCTL_DBG() i usuń zduplikowane sprawdzenie.(Aszutosz)
 
-(wiśnia wybrana z zatwierdzenia e057b2d2b8d815df3858a87dffafa2af37e5945b)</description></item><item><title>CVE-2026-22755</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22755</link><pubDate>Tue, 13 Jan 2026 15:12:53 +0000</pubDate><description>Niewłaściwa neutralizacja elementów specjalnych używanych w luce w zabezpieczeniach polecenia („wstrzykiwanie poleceń”) w Vivotek Numery modeli urządzeń, których dotyczy problem, to FD8365, FD8365v2, FD9165, FD9171, FD9187, FD9189, FD9365, FD9371, FD9381, FD9387,FD9389, FD9391, FE9180, FE9181, FE9191, FE9381, FE9382, FE9391, FE9582, IB9365, IB93587LPR, IB9371,IB9381, IB9387, IB9389,IB939, IP9165, IP9171, IP9172, IP9181, IP9191, IT9389, MA9321, MA9322, MS9321, MS9390, TB9330 (moduły oprogramowania układowego) umożliwiają wstrzykiwanie poleceń systemu operacyjnego. Ten problem dotyczy Numery modeli urządzeń, których dotyczy problem, to FD8365, FD8365v2,FD9165, FD9171, FD9187, FD9189, FD9365, FD9371, FD9381, FD9387, FD9389, FD9391,FE9180,FE9181, FE9191, FE9381, FE9382, FE9391, FE9582,IB9365, IB93587LPR, IB9371,IB9381, IB9387, IB9389, IB939,IP9165,IP9171, IP9172, IP9181, IP9191, IT9389, MA9321, MA9322, MS9321, MS9390, TB9330:0100a, 0106a, 0106b, 0107a, 0107b_1, 0109a, 0112a, 0113a, 0113d, 0117b, 0119e, 0120b, 0121, 0121d, 0121d_48573_1,0122e, 0124d_48573_1, 012501, 012502, 0125c.</description></item><item><title>CVE-2025-13447</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13447</link><pubDate>Tue, 13 Jan 2026 14:31:56 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
+(wiśnia wybrana z zatwierdzenia e057b2d2b8d815df3858a87dffafa2af37e5945b)</description></item><item><title>CVE-2025-68803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68803</link><pubDate>Tue, 13 Jan 2026 15:29:11 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+NFSD: podczas tworzenia pliku NFSv4 pomijane jest ustawienie listy ACL
+
+Klient NFSv4, który podczas pliku ustawia listę ACL z nazwanym podmiotem głównym
+utworzenie później pobiera listę ACL i stwierdza, że jest to tylko plik ACL
+domyślna lista ACL (w oparciu o bity trybu), a nie ta, która była wcześniej
+wymagane podczas tworzenia pliku.Narusza to sekcję RFC 8881
+6.4.1.3: „Atrybut ACL jest ustawiony tak, jak podano”.
+
+Problem występuje w funkcji nfsd_create_setattr(), która wywołuje
+nfsd_attrs_valid(), aby określić, czy wywołać funkcję nfsd_setattr().
+Jednak nfsd_attrs_valid() sprawdza tylko zmiany iattr i
+etykiety bezpieczeństwa, ale nie listy ACL POSIX.Gdy obecna jest tylko lista ACL,
+funkcja zwraca false, nfsd_setattr() jest pomijana, a
+POSIX ACL nigdy nie jest stosowany do i-węzła.
+
+Następnie, gdy klient pobierze listę ACL, serwer ją znajdzie
+brak listy ACL POSIX na i-węźle i zwraca listę wygenerowaną z pliku
+bitów trybu, zamiast zwracać pierwotnie określoną listę ACL.</description></item><item><title>CVE-2025-68792</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68792</link><pubDate>Tue, 13 Jan 2026 15:29:04 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+tpm2-sessions: Naprawiono indeksowanie poza zakresem w name_size
+
+„name_size” nie sprawdza żadnego zakresu i po prostu bezpośrednio indeksuje
+z TPM_ALG_ID, co w najgorszym przypadku może prowadzić do uszkodzenia pamięci.
+
+Rozwiąż problem, przetwarzając tylko znane wartości i zwracając -EINVAL
+nierozpoznane wartości.
+
+Spraw, aby „tpm_buf_append_name” i „tpm_buf_fill_hmac_session” były omylne, aby
+aby błędy zostały wykryte przed spowodowaniem fałszywego ruchu modułu TPM.
+
+Zakończ także sesję autoryzacyjną w przypadku niepowodzenia obu funkcji, jak np
+stan sesji byłby wówczas z definicji uszkodzony.</description></item><item><title>CVE-2026-22755</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22755</link><pubDate>Tue, 13 Jan 2026 15:12:53 +0000</pubDate><description>Niewłaściwa neutralizacja elementów specjalnych używanych w luce w zabezpieczeniach polecenia („wstrzykiwanie poleceń”) w Vivotek Numery modeli urządzeń, których dotyczy problem, to FD8365, FD8365v2, FD9165, FD9171, FD9187, FD9189, FD9365, FD9371, FD9381, FD9387,FD9389, FD9391, FE9180, FE9181, FE9191, FE9381, FE9382, FE9391, FE9582, IB9365, IB93587LPR, IB9371,IB9381, IB9387, IB9389,IB939, IP9165, IP9171, IP9172, IP9181, IP9191, IT9389, MA9321, MA9322, MS9321, MS9390, TB9330 (moduły oprogramowania układowego) umożliwiają wstrzykiwanie poleceń systemu operacyjnego. Ten problem dotyczy Numery modeli urządzeń, których dotyczy problem, to FD8365, FD8365v2,FD9165, FD9171, FD9187, FD9189, FD9365, FD9371, FD9381, FD9387, FD9389, FD9391,FE9180,FE9181, FE9191, FE9381, FE9382, FE9391, FE9582,IB9365, IB93587LPR, IB9371,IB9381, IB9387, IB9389, IB939,IP9165,IP9171, IP9172, IP9181, IP9191, IT9389, MA9321, MA9322, MS9321, MS9390, TB9330:0100a, 0106a, 0106b, 0107a, 0107b_1, 0109a, 0112a, 0113a, 0113d, 0117b, 0119e, 0120b, 0121, 0121d, 0121d_48573_1,0122e, 0124d_48573_1, 012501, 012502, 0125c.</description></item><item><title>CVE-2025-13447</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13447</link><pubDate>Tue, 13 Jan 2026 14:31:56 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
 
 CVSS Score: 8.4 (high)</description></item><item><title>CVE-2025-13444</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13444</link><pubDate>Tue, 13 Jan 2026 14:26:50 +0000</pubDate><description>Wstrzykiwanie poleceń systemu operacyjnego Luka w zabezpieczeniach API umożliwiająca zdalne wykonanie kodu w toku LoadMaster umożliwia uwierzytelnionej osobie atakującej z uprawnieniami „Administracja użytkownikami” wykonywanie dowolnych poleceń na urządzeniu LoadMaster poprzez wykorzystanie niezatwierdzonych danych wejściowych w parametrach wejściowych API
 
