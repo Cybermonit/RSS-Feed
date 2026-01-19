@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1158</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1158</link><pubDate>Mon, 19 Jan 2026 14:32:08 +0000</pubDate><description>W Totolink LR350 9.3.5u.6369_B20220309 wykryto lukę w zabezpieczeniach.Podatnością dotknięta jest funkcja setWizardCfg pliku /cgi-bin/cstecgi.cgi komponentu POST Request Handler.Manipulacja argumentem ssid powoduje przepełnienie bufora.Atak może zostać zainicjowany zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-11043</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-11043</link><pubDate>Mon, 19 Jan 2026 15:52:14 +0000</pubDate><description>Luka w zabezpieczeniach nieprawidłowego sprawdzania poprawności certyfikatu w kliencie OPC-UA i kliencie ANSL over TLS używana w wersjach Automation Studio wcześniejszych niż 6.5 może pozwolić nieuwierzytelnionemu atakującemu w sieci ustawić się tak, aby przechwytywać i zakłócać wymianę danych.
+
+CVSS Score: 7.4 (high)</description></item><item><title>CVE-2026-1160</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1160</link><pubDate>Mon, 19 Jan 2026 15:32:07 +0000</pubDate><description>W PHPGurukul Directory Management System 1.0 wykryto lukę w zabezpieczeniach.Problemem dotknięta jest nieznana funkcja pliku /index.php w komponencie Search.Manipulacja argumentem searchdata prowadzi do wstrzyknięcia sql.Atak może zostać zainicjowany zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-1157</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1157</link><pubDate>Mon, 19 Jan 2026 15:30:37 +0000</pubDate><description>W Totolink LR350 9.3.5u.6369_B20220309 została zidentyfikowana podatność.Ma to wpływ na funkcję setWiFiEasyCfg pliku /cgi-bin/cstecgi.cgi.Taka manipulacja argumentem ssid prowadzi do przepełnienia bufora.Istnieje możliwość zdalnego przeprowadzenia ataku.Exploit jest publicznie dostępny i może zostać wykorzystany.</description></item><item><title>CVE-2026-1159</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1159</link><pubDate>Mon, 19 Jan 2026 15:30:37 +0000</pubDate><description>W kodzie źródłowym systemu zamawiania mrożonek online 1.0 wykryto słabość.Ten problem dotyczy nieznanego przetwarzania pliku /order_online.php.Wykonanie manipulacji argumentem nazwa_produktu może prowadzić do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.</description></item><item><title>CVE-2026-1158</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1158</link><pubDate>Mon, 19 Jan 2026 14:32:08 +0000</pubDate><description>W Totolink LR350 9.3.5u.6369_B20220309 wykryto lukę w zabezpieczeniach.Podatnością dotknięta jest funkcja setWizardCfg pliku /cgi-bin/cstecgi.cgi komponentu POST Request Handler.Manipulacja argumentem ssid powoduje przepełnienie bufora.Atak może zostać zainicjowany zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-1007</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1007</link><pubDate>Mon, 19 Jan 2026 14:32:06 +0000</pubDate><description>Luka w zabezpieczeniach nieprawidłowej autoryzacji w komponencie bramy wirtualnej na serwerze Devolutions umożliwia atakującym ominięcie reguł odmowy adresu IP. Problem dotyczy serwerów: od 2025.3.1 do 2025.3.12.</description></item><item><title>CVE-2026-0610</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0610</link><pubDate>Mon, 19 Jan 2026 14:31:13 +0000</pubDate><description>Luka w zabezpieczeniach SQL Injection w sesjach zdalnych na serwerze Devolutions. Ten problem dotyczy serwerów Devolutions Server 2025.3.1 do 2025.3.12</description></item><item><title>CVE-2026-21618</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21618</link><pubDate>Mon, 19 Jan 2026 14:22:46 +0000</pubDate><description>Luka w zabezpieczeniach hexpm hexpm/hexpm (moduły „Elixir.HexpmWeb.SharedAuthorizationView”) umożliwia wykonywanie skryptów między witrynami (XSS) podczas nieprawidłowej neutralizacji danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”).Luka ta jest powiązana z plikami programu lib/hexpm_web/views/shared_authorization_view.ex i procedurami programu „Elixir.HexpmWeb.SharedAuthorizationView”:render_grouped_scopes/3.
 
@@ -2817,7 +2821,141 @@ CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-21276</title><l
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-68271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68271</link><pubDate>Tue, 13 Jan 2026 18:32:21 +0000</pubDate><description>OpenC3 COSMOS zapewnia funkcjonalność potrzebną do wysyłania poleceń i odbierania danych z jednego lub większej liczby systemów wbudowanych.Od wersji 5.0.0 do 6.10.1 OpenC3 COSMOS zawiera krytyczną lukę w zabezpieczeniach umożliwiającą zdalne wykonanie kodu, dostępną za pośrednictwem interfejsu API JSON-RPC.Gdy żądanie JSON-RPC wykorzystuje postać ciągu znaków niektórych interfejsów API, tekst parametrów kontrolowanych przez osobę atakującą jest analizowany na wartości za pomocą metody String#convert_to_value.W przypadku danych wejściowych typu tablicowego funkcja konwersji_na_wartość wykonuje funkcję eval().Ponieważ ścieżka kodu cmd analizuje ciąg poleceń przed wywołaniem funkcji Authorize(), nieuwierzytelniony atakujący może wyzwolić wykonanie kodu Ruby, nawet jeśli żądanie ostatecznie zakończy się niepowodzeniem autoryzacji (401).Luka ta została naprawiona w wersji 6.10.2.
 
-CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2026-21267</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21267</link><pubDate>Tue, 13 Jan 2026 18:25:37 +0000</pubDate><description>W programie Dreamweaver Desktop w wersji 21.6 i wcześniejszych występuje luka w zabezpieczeniach nieprawidłowej neutralizacji elementów specjalnych używanych w poleceniu systemu operacyjnego („wstrzykiwanie polecenia systemu operacyjnego”), która może doprowadzić do wykonania dowolnego kodu przez osobę atakującą.Wykorzystanie tego problemu wymaga interakcji użytkownika, polegającej na tym, że ofiara musi otworzyć szkodliwy plik, a zakres działania zostaje zmieniony.
+CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2025-71064</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71064</link><pubDate>Tue, 13 Jan 2026 18:31:05 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: hns3: użycie num_tqps w sterowniku vf do ubiegania się o zasoby
+
+Obecnie hdev-&gt;htqp jest przydzielany przy użyciu hdev-&gt;num_tqps i kinfo-&gt;tqp
+jest przydzielany za pomocą kinfo-&gt;num_tqps.Jednak kinfo-&gt;num_tqps jest ustawione na
+min(nowy_tqps, hdev-&gt;num_tqps);Dlatego kinfo-&gt;num_tqps może być mniejsze
+niż hdev-&gt;num_tqps, co powoduje, że część hdev-&gt;htqp[i] pozostaje
+niezainicjowany w hclgevf_knic_setup().
+
+Zatem ta łatka przydziela hdev-&gt;htqp i kinfo-&gt;tqp za pomocą hdev-&gt;num_tqps,
+upewniając się, że długości hdev-&gt;htqp i kinfo-&gt;tqp są spójne
+i że wszystkie elementy zostały poprawnie zainicjowane.</description></item><item><title>CVE-2025-71066</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71066</link><pubDate>Tue, 13 Jan 2026 18:31:05 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net/sched: ets: Zawsze usuwaj klasę z aktywnej listy przed usunięciem w ets_qdisc_change
+
+zdi-disclosures@trendmicro.com mówi:
+
+Luka jest sytuacją wyścigu pomiędzy `ets_qdisc_dequeue` i
+`ets_qdisc_change`.Prowadzi do UAF na obiekcie `struct Qdisc`.
+Osoba atakująca wymaga możliwości utworzenia nowej przestrzeni nazw użytkownika i sieci
+w celu wywołania błędu.
+Zobacz mój dodatkowy komentarz na końcu analizy.
+
+Analiza:
+
+static int ets_qdisc_change(struct Qdisc *sch, struct nlattr *opt,
+struktura netlink_ext_ack *extack)
+{
+...
+
+// (1) ta blokada uniemożliwia obsługę .change (`ets_qdisc_change`)
+//wyścig z programem obsługi .dequeue (`ets_qdisc_dequeue`)
+sch_tree_lock(sch);
+
+for (i = npasm; i &lt; stare pasma; i++) {
+if (i &gt;= q-&gt;nstrict &amp;&amp; q-&gt;classes[i].qdisc-&gt;q.qlen)
+list_del_init(&amp;q-&gt;klasy[i].alist);
+qdisc_purge_queue(q-&gt;classes[i].qdisc);
+}
+
+WRITE_ONCE(q-&gt;npasm, npasm);
+for (i = nstrict; i &lt; q-&gt;nstrict; i++) {
+if (q-&gt;klasy[i].qdisc-&gt;q.qlen) {
+// (2) klasa jest dodawana do q-&gt;active
+list_add_tail(&amp;q-&gt;classes[i].alist, &amp;q-&gt;active);
+q-&gt;classes[i].deficit = ilości[i];
+}
+}
+WRITE_ONCE(q-&gt;nstrict, nstrict);
+memcpy(q-&gt;prio2band, priomap, sizeof(priomap));
+
+for (i = 0; i &lt; q-&gt;npasm; i++)
+WRITE_ONCE(q-&gt;klasy[i].kwant, kwanty[i]);
+
+for (i = stare pasma; i &lt; q-&gt;n pasma; i++) {
+q-&gt;classes[i].qdisc = kolejki[i];
+if (q-&gt;classes[i].qdisc != &amp;noop_qdisc)
+qdisc_hash_add(q-&gt;classes[i].qdisc, true);
+}
+
+// (3) kolejka jest odblokowana, teraz usuwanie z kolejki może być wywoływane równolegle
+// do reszty procedury obsługi .change
+sch_tree_unlock(sch);
+
+ets_offload_change(sch);
+for (i = q-&gt;npasm; i &lt; stare pasma; i++) {
+// (4) zmniejszamy przeliczenie dla kolejki qdisc naszej klasy i
+// uwalniając go
+qdisc_put(q-&gt;klasy[i].qdisc);
+// (5) Jeśli wywołamy .dequeue pomiędzy (4) a (5), otrzymamy
+// silny UAF i możemy kontrolować RIP
+q-&gt;classes[i].qdisc = NULL;
+WRITE_ONCE(q-&gt;klasy[i].kwant, 0);
+q-&gt;klasy[i].deficyt = 0;
+gnet_stats_basic_sync_init(&amp;q-&gt;classes[i].bstats);
+memset(&amp;q-&gt;klasy[i].qstats, 0, sizeof(q-&gt;klasy[i].qstats));
+}
+zwróć 0;
+}
+
+Komentarz:
+Dzieje się tak, ponieważ niektóre klasy mają przypisane swoje kolejki
+NULL, ale pozostań na aktywnej liście.To zatwierdzenie zawsze rozwiązuje ten problem
+usunięcie klasy z aktywnej listy przed jej usunięciem i zwolnieniem
+powiązana kolejka
+
+Kroki reproduktora
+(skrócona wersja tego, co zostało przesłane przez zdi-disclosures@trendmicro.com)
+
+```
+DEV="${DEV:-lo}"
+ROOT_HANDLE="${ROOT_HANDLE:-1:}"
+BAND2_HANDLE="${BAND2_HANDLE:-20:}" # dziecko poniżej 1:2
+PING_BYTES="${PING_BYTES:-48}"
+PING_COUNT="${PING_COUNT:-200000}"
+PING_DST="${PING_DST:-127.0.0.1}"
+
+SLOW_TBF_RATE="${SLOW_TBF_RATE:-8bit}"
+SLOW_TBF_BURST="${SLOW_TBF_BURST:-100b}"
+SLOW_TBF_LAT="${SLOW_TBF_LAT:-1s}"
+
+sprzątanie() {
+tc qdisc del dev "$DEV" root 2&gt;/dev/null
+}
+czyszczenie pułapek WYJDŹ
+
+ip link ustaw "$DEV".
+
+tc qdisc del dev "$DEV" root 2&gt;/dev/null ||prawda
+
+tc qdisc dodaj dev "$DEV" uchwyt główny "$ROOT_HANDLE" ets bands 2 strict 2
+
+tc qdisc add dev "$DEV" uchwyt nadrzędny 1:2 "$BAND2_HANDLE" \
+tbf szybkość „$SLOW_TBF_RATE” seria „$SLOW_TBF_BURST” opóźnienie „$SLOW_TBF_LAT”
+
+filtr tc dodaj dev "$DEV" rodzic 1: protokół wszystkie priorytety 1 u32 dopasowanie u32 0 0 flowid 1:2
+tc -s qdisc ls dev $DEV
+
+ping -I "$DEV" -f -c "$PING_COUNT" -s "$PING_BYTES" -W 0,001 "$PING_DST" \
+&gt;/dev/null 2&gt;&amp;1 i
+tc qdisc zmień dev "$DEV" uchwyt główny "$ROOT_HANDLE" ets bands 2 strict 0
+tc qdisc zmień dev "$DEV" uchwyt główny "$ROOT_HANDLE" ets bands 2 strict 2
+tc -s qdisc ls dev $DEV
+tc qdisc del dev "$DEV" rodzic
+---obcięty---</description></item><item><title>CVE-2025-68820</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68820</link><pubDate>Tue, 13 Jan 2026 18:31:04 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ext4: xattr: napraw deref wskaźnika zerowego w ext4_raw_inode()
+
+Jeśli ext4_get_inode_loc() nie powiedzie się (np. jeśli zwróci -EFSCORRUPTED),
+iloc.bh pozostanie ustawione na NULL.Ponieważ ext4_xattr_inode_dec_ref_all()
+nie ma sprawdzania błędów, spowoduje to wyłuskanie wskaźnika zerowego
+w ext4_raw_inode(), wywoływanym zaraz po ext4_get_inode_loc().
+
+Znalezione przez Centrum weryfikacji Linuksa (linuxtesting.org) z SVACE.</description></item><item><title>CVE-2026-21267</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21267</link><pubDate>Tue, 13 Jan 2026 18:25:37 +0000</pubDate><description>W programie Dreamweaver Desktop w wersji 21.6 i wcześniejszych występuje luka w zabezpieczeniach nieprawidłowej neutralizacji elementów specjalnych używanych w poleceniu systemu operacyjnego („wstrzykiwanie polecenia systemu operacyjnego”), która może doprowadzić do wykonania dowolnego kodu przez osobę atakującą.Wykorzystanie tego problemu wymaga interakcji użytkownika, polegającej na tym, że ofiara musi otworzyć szkodliwy plik, a zakres działania zostaje zmieniony.
 
 CVSS Score: 8.6 (high)</description></item><item><title>CVE-2026-21271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21271</link><pubDate>Tue, 13 Jan 2026 18:25:36 +0000</pubDate><description>W programie Dreamweaver Desktop w wersji 21.6 i wcześniejszych występuje luka w zabezpieczeniach umożliwiająca sprawdzanie poprawności nieprawidłowych danych wejściowych, która może skutkować wykonaniem dowolnego kodu w kontekście bieżącego użytkownika.Wykorzystanie tego problemu wymaga interakcji użytkownika, polegającej na tym, że ofiara musi otworzyć szkodliwy plik, a zakres działania zostaje zmieniony.
 
