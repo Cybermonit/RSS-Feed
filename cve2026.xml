@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1151</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1151</link><pubDate>Mon, 19 Jan 2026 11:02:05 +0000</pubDate><description>Zidentyfikowano słabość w technice-laohu mpay do wersji 1.2.4.Elementem, którego dotyczy problem, jest nieznana funkcja w komponencie Centrum użytkownika.Ta manipulacja argumentem Pseudonim powoduje wykonywanie skryptów krzyżowych.Atak może zostać zainicjowany zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1154</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1154</link><pubDate>Mon, 19 Jan 2026 12:32:06 +0000</pubDate><description>W systemie e-learningowym SourceCodester 1.0 wykryto błąd.Ma to wpływ na nieznaną funkcję pliku /admin/modules/lesson/index.php komponentu Lesson Module Handler.Wykonanie manipulacji argumentem Tytuł/Opis może prowadzić do podstawowych skryptów krzyżowych.Atak może zostać przeprowadzony zdalnie.Exploit został opublikowany i może zostać wykorzystany.
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-1152</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1152</link><pubDate>Mon, 19 Jan 2026 12:30:24 +0000</pubDate><description>W Technical-laohu mpay do wersji 1.2.4 wykryto lukę w zabezpieczeniach.Elementem, którego dotyczy problem, jest nieznana funkcja w komponencie QR Code Image Handler.Taka manipulacja argumentem codeimg prowadzi do nieograniczonego przesyłania.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.</description></item><item><title>CVE-2026-1151</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1151</link><pubDate>Mon, 19 Jan 2026 11:02:05 +0000</pubDate><description>Zidentyfikowano słabość w technice-laohu mpay do wersji 1.2.4.Elementem, którego dotyczy problem, jest nieznana funkcja w komponencie Centrum użytkownika.Ta manipulacja argumentem Pseudonim powoduje wykonywanie skryptów krzyżowych.Atak może zostać zainicjowany zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
 CVSS Score: 2.4 (low)</description></item><item><title>CVE-2026-1150</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1150</link><pubDate>Mon, 19 Jan 2026 10:32:07 +0000</pubDate><description>W Totolink LR350 9.3.5u.6369_B20220309 wykryto lukę w zabezpieczeniach.Dotknięta jest funkcja setTracerouteCfg pliku /cgi-bin/cstecgi.cgi komponentu POST Request Handler.Manipulacja poleceniem argumentowym powoduje wstrzyknięcie polecenia.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
@@ -1661,7 +1663,222 @@ rzeczywisty format przechwytywania nie jest obsługiwany, ścieżki kodu, który
 są wyzwalane.
 
 Ponieważ ta blokada po prostu chroni listę kontekstów i operacje na niej
-bardzo szybko, przejście na spinlock powinno być OK.</description></item><item><title>CVE-2025-71121</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71121</link><pubDate>Wed, 14 Jan 2026 15:06:07 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+bardzo szybko, przejście na spinlock powinno być OK.</description></item><item><title>CVE-2025-71137</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71137</link><pubDate>Wed, 14 Jan 2026 15:07:51 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+octeontx2-pf: poprawka „UBSAN: błąd przesunięcia poza zakresem”
+
+Ta poprawka zapewnia, że rozmiar pierścienia RX (rx_pending) nie jest taki
+ustawiona poniżej dopuszczalnej długości.Pozwala to uniknąć UBSAN
+błędy przesunięcia poza zakresem, gdy użytkownicy przekazują wartość małą lub zerową
+rozmiary pierścieni za pomocą narzędzia ethtool -G.</description></item><item><title>CVE-2025-71136</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71136</link><pubDate>Wed, 14 Jan 2026 15:07:50 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+media: adv7842: Unikaj możliwego dostępu do tablicy poza granicami w adv7842_cp_log_status()
+
+Możliwe jest, że cp_read() i hdmi_read() zwrócą -EIO.Te
+wartości są dalej używane jako indeksy umożliwiające dostęp do tablic.
+
+Napraw to, sprawdzając zwracane wartości tam, gdzie jest to potrzebne.
+
+Znalezione przez Centrum weryfikacji Linuksa (linuxtesting.org) z SVACE.</description></item><item><title>CVE-2025-71133</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71133</link><pubDate>Wed, 14 Jan 2026 15:07:48 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+RDMA/irdma: unikaj nieprawidłowego odczytu w irdma_net_event
+
+irdma_net_event() nie powinna odwoływać się do niczego z „rżeć” (alias
+„ptr”), dopóki nie sprawdzi, czy zdarzeniem jest NETEVENT_NEIGH_UPDATE.
+Inne zdarzenia mają różne struktury, na które wskazuje „ptr” i one
+może być mniejszy niż sąsiad struktury.
+
+Przenieś odczyt neigh-&gt;dev do przypadku NETEVENT_NEIGH_UPDATE.
+
+Błąd jest w większości nieszkodliwy, ale uruchamia KASAN w jądrach debugowania:
+
+BŁĄD: KASAN: stos poza granicami w irdma_net_event+0x32e/0x3b0 [irdma]
+Odczytaj rozmiar 8 pod adresem ffffc900075e07f0 przez zadanie kworker/27:2/542554
+
+Procesor: 27 PID: 542554 Comm: kworker/27:2 Kdump: załadowany Nieskażony 5.14.0-630.el9.x86_64+debug #1
+Nazwa sprzętu: [...]
+Kolejka robocza: zdarzenia rt6_probe_deferred
+Zadzwoń do śledzenia:
+&lt;przerwanie&gt;
+dump_stack_lvl+0x60/0xb0
+print_address_description.constprop.0+0x2c/0x3f0
+print_report+0xb4/0x270
+kasan_report+0x92/0xc0
+irdma_net_event+0x32e/0x3b0 [irdma]
+notifier_call_chain+0x9e/0x180
+atomic_notifier_call_chain+0x5c/0x110
+rt6_do_redirect+0xb91/0x1080
+tcp_v6_err+0xe9b/0x13e0
+icmpv6_notify+0x2b2/0x630
+ndisc_redirect_rcv+0x328/0x530
+icmpv6_rcv+0xc16/0x1360
+ip6_protocol_deliver_rcu+0xb84/0x12e0
+ip6_input_finish+0x117/0x240
+ip6_input+0xc4/0x370
+ipv6_rcv+0x420/0x7d0
+__netif_receive_skb_one_core+0x118/0x1b0
+zaległości_procesu+0xd1/0x5d0
+__napi_poll.constprop.0+0xa3/0x440
+net_rx_action+0x78a/0xba0
+handle_softirqs+0x2d4/0x9c0
+do_softirq+0xad/0xe0
+&lt;/IRQ&gt;</description></item><item><title>CVE-2025-71132</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71132</link><pubDate>Wed, 14 Jan 2026 15:07:47 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+smc91x: napraw uszkodzony kontekst IRQ w PREEMPT_RT
+
+Kiedy smc91x.c jest zbudowany z PREEMPT_RT, pojawia się następująca ikona
+w FVP_RevC:
+
+[ 13.055000] smc91x LNRO0003:00 eth0: połączenie w górę, 10Mbps, półdupleks, lpa 0x0000
+[13.062137] BŁĄD: wyciek kolejki roboczej atomic, lock lub RCU: kworker/2:1[106]
+[ 13.062137] wywłaszczanie=0x00000000 blokada=0-&gt;0 RCU=0-&gt;1 pracafn=mld_ifc_work
+[13.062266] C
+**odtwarzanie poprzedniej wiadomości printk **
+[13.062266] Procesor: 2 UID: 0 PID: 106 Comm: kworker/2:1 Nieskażony 6.18.0-dirty #179 PREEMPT_{RT,(full)}
+[ 13.062353] Nazwa sprzętu: , BIOS
+[ 13.062382] Kolejka robocza: miliard miliard_ifc_work
+[ 13.062469] Śledzenie połączeń:
+[ 13.062494] show_stack+0x24/0x40 (C)
+[ 13.062602] __dump_stack+0x28/0x48
+[ 13.062710] dump_stack_lvl+0x7c/0xb0
+[ 13.062818] stos_zrzutu+0x18/0x34
+[ 13.062926] proces_scheduled_works+0x294/0x450
+[ 13.063043] wątek_pracownika+0x260/0x3d8
+[ 13.063124] kwątek+0x1c4/0x228
+[ 13.063235] ret_from_fork+0x10/0x20
+
+Dzieje się tak, ponieważ smc_special_trylock() wyłącza przerwania nawet na PREEMPT_RT,
+ale smc_special_unlock() nie przywraca przerwań na PREEMPT_RT.
+Powodem jest to, że smc_special_unlock() wywołuje spin_unlock_irqrestore(),
+i rcu_read_unlock_bh() w __dev_queue_xmit() nie mogą wywołać
+rcu_read_unlock() do __local_bh_enable_ip(), gdy current-&gt;softirq_disable_cnt staje się zerem.
+
+Aby rozwiązać ten problem, zamień smc_special_trylock() na spin_trylock_irqsave().</description></item><item><title>CVE-2025-71131</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71131</link><pubDate>Wed, 14 Jan 2026 15:07:47 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+crypto: seqiv — Nie używaj req-&gt;iv po crypto_aead_encrypt
+
+Zaraz po wywołaniu crypto_aead_encrypt podstawowe żądanie
+mogą zostać zwolnione przez asynchroniczne zakończenie.Zatem dereferencje
+req-&gt;iv po zwróceniu jest nieprawidłowe.
+
+Zamiast sprawdzać req-&gt;iv względem informacji, utwórz nową zmienną
+unaligned_info i zamiast tego użyj go w tym celu.</description></item><item><title>CVE-2025-71127</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71127</link><pubDate>Wed, 14 Jan 2026 15:07:44 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+Wi-Fi: mac80211: Odrzuć ramki Beacon na adres nierozgłoszeniowy
+
+Ramki sygnału nawigacyjnego muszą być wysyłane na adres rozgłoszeniowy, patrz IEEE
+Std 802.11-2020, 11.1.3.1 („Pole Adres 1 ramki Beacon ..
+zostanie ustawiony na adres rozgłoszeniowy”).Może to być ramka Beacon emitowana pojedynczo
+używany jako atak ukierunkowany, aby zmusić do tego jedną z powiązanych STA
+coś (np. użycie CSA do przeniesienia tego na inny kanał).Jako taki, to
+lepiej mieć ścisłe filtrowanie tego po stronie odbieranej i
+odrzuć wszystkie ramki Beacon wysłane na nieoczekiwany adres.
+
+Jest to jeszcze ważniejsze w przypadkach, w których stosowana jest ochrona latarni.
+Bieżąca implementacja w mac80211 poprawnie odrzuca transmisję pojedynczą
+Ramki sygnału nawigacyjnego, jeśli bit ramki chronionej w polu kontroli ramek jest taki
+ustawiony na 0. Jeśli jednak ten bit jest ustawiony na 1, logika używana do sprawdzania
+dla skonfigurowanych BIGTK w rzeczywistości nie działa.Jeśli kierowca tego nie zrobi
+mają logikę odrzucania ramek Beacon emisji pojedynczej z bitem chronionej ramki
+1, te ramki będą akceptowane w przetwarzaniu mac80211 jako ważny sygnał ostrzegawczy
+ramek, mimo że nie są one chronione.Pozwoliłoby to na użycie sygnalizatora
+zabezpieczenie, które należy ominąć.Chociaż logika sprawdzania beacon
+ochronę można rozszerzyć na tę obudowę narożną, bardziej ogólną
+sprawdź, czy nie odrzucono wszystkich ramek Beacon w oparciu o osłony adresów A1=unicast
+to bez konieczności dodatkowych zmian.
+
+Rozwiąż wszystkie te problemy, usuwając odebrane ramki Beacon, jeśli takie są
+wysłane na adres nierozgłoszeniowy.</description></item><item><title>CVE-2025-71125</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71125</link><pubDate>Wed, 14 Jan 2026 15:06:10 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+śledzenie: nie rejestruj nieobsługiwanych zdarzeń wydajności
+
+Zdarzenia syntetyczne obecnie nie mają funkcji rejestrowania zdarzeń wydajności.
+Prowadzi to do wywołania funkcji rejestru punktu śledzenia z wartością NULL
+wskaźnik funkcji, który wyzwala:
+
+------------[przetnij tutaj ]------------
+OSTRZEŻENIE: kernel/tracepoint.c:175 w traciepoint_add_func+0x357/0x370, CPU#2: perf/2272
+Moduły połączone w: kvm_intel kvm irqbypass
+Procesor: 2 UID: 0 PID: 2272 Comm: perf Nieskażony 6.18.0-ftest-11964-ge022764176fc-dirty #323 PREEMPTLAZY
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.17.0-debian-1.17.0-1 01.04.2014
+RIP: 0010:tracepoint_add_func+0x357/0x370
+Kod: 28 9c e8 4c 0b f5 ff eb 0f 4c 89 f7 48 c7 c6 80 4d 28 9c e8 ab 89 f4 ff 31 c0 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc &lt;0f&gt; 0b49 c7 c6 ea ff ff ff e9 ee fe ff ff 0f 0b e9 f9 fe ff ff 0f
+RSP: 0018:fffffabc0c44d3c40 EFLAGS: 00010246
+RAX: 0000000000000001 RBX: ffff9380aa9e4060 RCX: 00000000000000000
+RDX: 000000000000000a RSI: ffffffff9e1d4a98 RDI: ffff937fcf5fd6c8
+RBP: 0000000000000001 R08: 0000000000000007 R09: ffff937fcf5fc780
+R10: 0000000000000003 R11: ffffffff9c193910 R12: 000000000000000a
+R13: ffffffff9e1e5888 R14: 0000000000000000 R15: ffffabc0c44d3c78
+FS: 00007f6202f5f340(0000) GS:ffff93819f00f000(0000) knlGS:00000000000000000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055d3162281a8 CR3: 0000000106a56003 CR4: 0000000000172ef0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+rejestr_tracepoint_probe_register+0x5d/0x90
+synth_event_reg+0x3c/0x60
+perf_trace_event_init+0x204/0x340
+perf_trace_init+0x85/0xd0
+perf_tp_event_init+0x2e/0x50
+perf_try_init_event+0x6f/0x230
+?perf_event_alloc+0x4bb/0xdc0
+perf_event_alloc+0x65a/0xdc0
+__se_sys_perf_event_open+0x290/0x9f0
+do_syscall_64+0x93/0x7b0
+?wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+?trace_hardirqs_off+0x53/0xc0
+wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+
+Zamiast tego poproś kod o zwrócenie -ENODEV, który nie ostrzega i ma wydajność
+błąd z:
+
+# rekord perf -e syntetyczny:futex_wait
+Błąd:
+Wywołanie sys_perf_event_open() zwróciło wartość 19 (Brak takiego urządzenia) dla zdarzenia (synthetic:futex_wait).
+„dmesg | grep -i perf” może dostarczyć dodatkowych informacji.
+
+Idealnie perf powinien obsługiwać zdarzenia syntetyczne, ale na razie po prostu napraw
+ostrzeżenie.Wsparcie może przyjść później.</description></item><item><title>CVE-2025-71123</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71123</link><pubDate>Wed, 14 Jan 2026 15:06:09 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ext4: napraw kopiowanie ciągów w parse_apply_sb_mount_options()
+
+Nie można użyć funkcji strscpy_pad() do skopiowania ciągu znaków innego niż NUL do terminu NUL
+ciąg o możliwie większym rozmiarze.Zatwierdź 0efc5990bca5 („string.h: Wprowadzenie
+memtostr() i memtostr_pad()”) dostarczają dodatkowych informacji na ten temat
+szacunek.Jeśli tak się stanie, pojawi się następujące ostrzeżenie:
+
+strnlen: wykryto przepełnienie bufora: odczyt 65 bajtów z bufora o rozmiarze 64
+OSTRZEŻENIE: Procesor: 0 PID: 28655 w lib/string_helpers.c:1032 __fortify_report+0x96/0xc0 lib/string_helpers.c:1032
+Moduły połączone w:
+Procesor: 0 UID: 0 PID: 28655 Comm: syz-executor.3 Nieskażony 6.12.54-syzkaller-00144-g5f0270f1ba00 #0
+Nazwa sprzętu: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-debian-1.16.3-2 01.04.2014
+RIP: 0010:__fortify_report+0x96/0xc0 lib/string_helpers.c:1032
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+__fortify_panic+0x1f/0x30 lib/string_helpers.c:1039
+strnlen include/linux/fortify-string.h:235 [w linii]
+size_strscpy include/linux/fortify-string.h:309 [inline]
+parse_apply_sb_mount_options fs/ext4/super.c:2504 [wbudowane]
+__ext4_fill_super fs/ext4/super.c:5261 [w wierszu]
+ext4_fill_super+0x3c35/0xad00 fs/ext4/super.c:5706
+get_tree_bdev_flags+0x387/0x620 fs/super.c:1636
+vfs_get_tree+0x93/0x380 fs/super.c:1814
+do_new_mount fs/namespace.c:3553 [w linii]
+path_mount+0x6ae/0x1f70 fs/namespace.c:3880
+do_mount fs/namespace.c:3893 [w linii]
+__do_sys_mount fs/namespace.c:4103 [w linii]
+__se_sys_mount fs/namespace.c:4080 [w linii]
+__x64_sys_mount+0x280/0x300 fs/przestrzeń_nazw.c:4080
+do_syscall_x64 arch/x86/entry/common.c:52 [w linii]
+do_syscall_64+0x64/0x140 arch/x86/entry/common.c:83
+wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+
+Ponieważ oczekuje się, że przestrzeń użytkownika zapewni pole s_mount_opts o wartości maksymalnie 63
+znaków i bajt końcowy będący terminem NUL, należy użyć bufora 64-bajtowego
+który odpowiada rozmiarowi s_mount_opts, dzięki czemu strscpy_pad() wykona swoje zadanie
+prawidłowo.Wróć z błędem, jeśli użytkownikowi nadal udało się podać
+Tutaj ciąg znaków inny niż NUL.
+
+Znalezione przez Centrum weryfikacji Linuksa (linuxtesting.org) za pomocą Syzkallera.</description></item><item><title>CVE-2025-71121</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71121</link><pubDate>Wed, 14 Jan 2026 15:06:07 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 paryż: Nie przeprogramowuj powinowactwa na chipie ASP
 
@@ -1670,7 +1887,15 @@ Stacje robocze HP 730.Podczas próby przeprogramowania powinowactwa nastąpi awa
 z HPMC, ponieważ odpowiednie rejestry nie wydają się być normalne
 lokalizacja.Uniknijmy awarii, sprawdzając zwrotność.Pamiętaj też,
 że przeprogramowanie również nie jest konieczne, ponieważ HP730 to po prostu...
-maszyna jednoprocesorowa.</description></item><item><title>CVE-2025-71118</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71118</link><pubDate>Wed, 14 Jan 2026 15:06:05 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+maszyna jednoprocesorowa.</description></item><item><title>CVE-2025-71120</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71120</link><pubDate>Wed, 14 Jan 2026 15:06:07 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+SUNRPC: svcauth_gss: unikaj derefowania NULL na zerowej długości gss_token w gss_read_proxy_verf
+
+Zerowa długość gss_token skutkuje stronami == 0 i in_token-&gt;pages[0]
+ma wartość NULL.Kod bezwarunkowo ocenia
+page_address(in_token-&gt;pages[0]) dla początkowej pamięci memcpy, która może
+dereferencja NULL, nawet jeśli długość kopii wynosi 0. Strzeż pierwszego
+memcpy, więc działa tylko wtedy, gdy długość &gt; 0.</description></item><item><title>CVE-2025-71118</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71118</link><pubDate>Wed, 14 Jan 2026 15:06:05 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 ACPICA: Unikaj przechodzenia przez przestrzeń nazw, jeśli węzeł startowy ma wartość NULL
 
@@ -1727,7 +1952,68 @@ platformy.
 
 Podczas uruchamiania ten nienazwany zasób może spowodować krytyczne zawieszenie, ponieważ
 późniejsze wyszukiwania zasobów i sprawdzanie konfliktów nie radzą sobie z problemem
-nieprawidłowy wpis.</description></item><item><title>CVE-2025-71109</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71109</link><pubDate>Wed, 14 Jan 2026 15:05:57 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+nieprawidłowy wpis.</description></item><item><title>CVE-2025-71113</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71113</link><pubDate>Wed, 14 Jan 2026 15:05:59 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+crypto: af_alg - zero inicjuje pamięć przydzieloną przez sock_kmalloc
+
+Kilka kontekstów API użytkownika kryptograficznego i przydzielonych żądań
+sock_kmalloc() pozostawiono niezainicjowaną, polegając na osobach wywołujących
+ustaw pola jawnie.Spowodowało to użycie niezainicjowanych
+danych w określonych ścieżkach błędów lub gdy dodawane są nowe pola w pliku
+przyszłość.
+
+Poprawki ACVP zawierają także dwa pliki interfejsu przestrzeni użytkownika:
+algif_kpp.c i algif_akcipher.c.Te również opierają się na właściwym
+inicjalizacja ich struktur kontekstowych.
+
+Zaobserwowano szczególny problem w przypadku nowo dodanego elementu
+Zmienna „inflight” wprowadzona w af_alg_ctx przez zatwierdzenie:
+
+67b164a871af („crypto: af_alg — Nie zezwalaj na wielokrotne żądania AIO w locie”)
+
+Ponieważ po alokacji kontekst nie jest ustawiany na zero,
+zmienna inflight zawierała wartości śmieciowe.W rezultacie
+af_alg_alloc_areq() błędnie zwróciła losowo -EBUSY, gdy
+wartość śmieci została zinterpretowana jako prawdziwa:
+
+https://github.com/gregkh/linux/blame/master/crypto/af_alg.c#L1209
+
+Kontrola bezpośrednio testuje ctx-&gt;inflight bez jawnego działania
+porównanie z prawdą/fałszem.Ponieważ czas lotu jest zawsze ustawiony na
+true lub false później, wyzwolona została niezainicjowana wartość
+-Awarie EBUSY.Pamięć inicjująca zero, przydzielona za pomocą
+sock_kmalloc() zapewnia, że lot i inne pola rozpoczynają się w znanym czasie
+stanu, usuwając losowe problemy spowodowane niezainicjowanymi danymi.</description></item><item><title>CVE-2025-71112</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71112</link><pubDate>Wed, 14 Jan 2026 15:05:59 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: hns3: dodaj weryfikację identyfikatora VLAN przed użyciem
+
+Obecnie identyfikator VLAN może być używany bez sprawdzania, gdy
+odbierz skrzynkę pocztową dotyczącą konfiguracji sieci VLAN od firmy VF.Długość
+vlan_del_fail_bmap to BITS_TO_LONGS(VLAN_N_VID).Może to powodować
+dostęp do pamięci poza granicami, gdy identyfikator sieci VLAN jest większy niż
+lub równy VLAN_N_VID.
+
+Dlatego należy sprawdzić identyfikator sieci VLAN, aby upewnić się, że znajduje się w jej obrębie
+zakres VLAN_N_VID.</description></item><item><title>CVE-2025-71111</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71111</link><pubDate>Wed, 14 Jan 2026 15:05:58 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+hwmon: (w83791d) Konwertuj makra na funkcje, aby uniknąć TOCTOU
+
+Makro FAN_FROM_REG ocenia swoje argumenty wielokrotnie.Kiedy jest używany
+w kontekstach bez zamków, obejmujących współdzielone dane kierowcy, prowadzi to do
+Potencjalnie warunki wyścigu od czasu sprawdzenia do czasu użycia (TOCTOU).
+powodując błędy dzielenia przez zero.
+
+Przekonwertuj makro na funkcję statyczną.To gwarantuje te argumenty
+są oceniane tylko raz (przekazywanie wartości), co zapobiega wyścigowi
+warunki.
+
+Dodatkowo w store_fan_div przenieś kalkulację minimum
+limit wewnątrz blokady aktualizacji.Zapewnia to, że plik read-modify-write
+sekwencja działa na spójnych danych.
+
+Trzymaj się zasady minimalnych zmian, konwertując jedynie makra
+które oceniają argumenty wielokrotnie i są używane w trybie lockless
+konteksty.</description></item><item><title>CVE-2025-71109</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71109</link><pubDate>Wed, 14 Jan 2026 15:05:57 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 MIPS: ftrace: Napraw uszkodzenie pamięci, gdy jądro ma więcej niż 32 bity
 
@@ -1749,7 +2035,175 @@ instrukcje, jeśli mogłyby przekroczyć 2 instrukcje
 długość.Na szczęście insn_la_mcount jest używany tylko w przypadku instrumentu
 kod znajduje się poza sekcją kodu jądra, więc dynamiczny ftrace może
 nadal być stosowane, choć w bardziej ograniczonym zakresie.To jest nadal
-lepsze niż uszkodzenie pamięci i/lub awaria jądra.</description></item><item><title>CVE-2026-22240</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22240</link><pubDate>Wed, 14 Jan 2026 14:42:09 +0000</pubDate><description>Luka w zabezpieczeniach BLUVOYIX wynika z nieprawidłowej implementacji przechowywania haseł i późniejszego ujawnienia danych za pośrednictwem nieuwierzytelnionych interfejsów API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsu API użytkowników podatnych na zagrożenia w celu pobrania haseł wszystkich użytkowników w postaci zwykłego tekstu.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy poprzez zalogowanie się przy użyciu ujawnionego adresu e-mail i hasła administratora.</description></item><item><title>CVE-2026-22239</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22239</link><pubDate>Wed, 14 Jan 2026 14:40:20 +0000</pubDate><description>Luka w BLUVOYIX wynika z błędów projektowych w interfejsie API wysyłania wiadomości e-mail.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego na ataki interfejsu API wysyłającego wiadomości e-mail.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wysyłanie niechcianych wiadomości e-mail do dowolnej osoby w imieniu firmy.</description></item><item><title>CVE-2026-22238</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22238</link><pubDate>Wed, 14 Jan 2026 14:38:55 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API administratora BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego interfejsu API administratora w celu utworzenia nowego użytkownika z uprawnieniami administratora.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej uzyskać pełny dostęp do danych klientów i całkowicie złamać docelową platformę poprzez zalogowanie się na nowo utworzonego użytkownika administracyjnego.</description></item><item><title>CVE-2026-22237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22237</link><pubDate>Wed, 14 Jan 2026 14:36:47 +0000</pubDate><description>Luka w BLUVOYIX wynika z ujawnienia wrażliwej wewnętrznej dokumentacji API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsów API ujawnionych w dokumentacji.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wyrządzenie szkód na docelowej platformie poprzez nadużycie wewnętrznych funkcjonalności.</description></item><item><title>CVE-2026-22236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22236</link><pubDate>Wed, 14 Jan 2026 14:34:14 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API zaplecza BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnych na ataki interfejsów API.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy.</description></item><item><title>CVE-2025-9142</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9142</link><pubDate>Wed, 14 Jan 2026 14:30:48 +0000</pubDate><description>Użytkownik lokalny może wyzwolić klienta Harmony SASE Windows w celu zapisania lub usunięcia plików poza zamierzonym katalogiem roboczym certyfikatu.
+lepsze niż uszkodzenie pamięci i/lub awaria jądra.</description></item><item><title>CVE-2025-71108</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71108</link><pubDate>Wed, 14 Jan 2026 15:05:56 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+usb: typec: ucsi: Obsługa nieprawidłowej funkcji num_connectors
+
+Specyfikacja UCSI stwierdza, że pole num_connectors ma 7 bitów, a pole
+8. bit jest zarezerwowany i powinien być ustawiony na zero.
+Wiadomo, że niektóre wadliwe oprogramowanie FW ustawia ten bit i może to prowadzić do:
+system nie uruchamia się.
+Oznacz, że oprogramowanie sprzętowe nie zachowuje się poprawnie i automatycznie napraw wartość
+aby system uruchomił się poprawnie.
+
+Znaleziono na Lenovo P1 G8 podczas programu włączania systemu Linux.FW tak zrobi
+zostać naprawione, ale wydawało się, że warto się tym zająć, na wypadek gdyby trafiło to na platformy
+nie są oficjalnie obsługiwane przez Linuksa.</description></item><item><title>CVE-2025-71105</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71105</link><pubDate>Wed, 14 Jan 2026 15:05:54 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+f2fs: użyj globalnej pamięci podręcznej inline_xattr_slab zamiast pamięci podręcznej płyty na sb
+
+Jak poinformował Hong Yun na liście mailingowej:
+
+pętla 7: wykryto zmianę pojemności od 0 do 131072
+------------[przetnij tutaj ]------------
+kmem_cache o nazwie „f2fs_xattr_entry-7:7” już istnieje
+OSTRZEŻENIE: Procesor: 0 PID: 24426 w mm/slab_common.c:110 kmem_cache_sanity_check mm/slab_common.c:109 [inline]
+OSTRZEŻENIE: Procesor: 0 PID: 24426 w mm/slab_common.c:110 __kmem_cache_create_args+0xa6/0x320 mm/slab_common.c:307
+Procesor: 0 UID: 0 PID: 24426 Comm: syz.7.1370 Nieskażony 6.17.0-rc4 #1 PREEMPT (pełny)
+Nazwa sprzętu: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 01.04.2014
+RIP: 0010:kmem_cache_sanity_check mm/slab_common.c:109 [w linii]
+RIP: 0010:__kmem_cache_create_args+0xa6/0x320 mm/slab_common.c:307
+Zadzwoń do śledzenia:
+__kmem_cache_create include/linux/slab.h:353 [w linii]
+f2fs_kmem_cache_create fs/f2fs/f2fs.h:2943 [w linii]
+f2fs_init_xattr_cache+0xa5/0xe0 fs/f2fs/xattr.c:843
+f2fs_fill_super+0x1645/0x2620 fs/f2fs/super.c:4918
+get_tree_bdev_flags+0x1fb/0x260 fs/super.c:1692
+vfs_get_tree+0x43/0x140 fs/super.c:1815
+do_new_mount+0x201/0x550 fs/namespace.c:3808
+do_mount fs/namespace.c:4136 [w linii]
+__do_sys_mount fs/namespace.c:4347 [w linii]
+__se_sys_mount+0x298/0x2f0 fs/namespace.c:4324
+do_syscall_x64 arch/x86/entry/syscall_64.c:63 [wbudowane]
+do_syscall_64+0x8e/0x3a0 arch/x86/entry/syscall_64.c:94
+wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+
+Błąd można odtworzyć za pomocą poniższych skryptów:
+- zamontuj /dev/vdb /mnt1
+- zamontuj /dev/vdc /mnt2
+- umount /mnt1
+- zamontuj /dev/vdb /mnt1
+
+Powodem jest to, że utworzyliśmy dwie płyty podręczne o nazwie f2fs_xattr_entry-7:3
+i f2fs_xattr_entry-7:7 i mają ten sam rozmiar płyty.Właściwie,
+System płyt utworzy tylko jedną strukturę rdzenia pamięci podręcznej płyt, która ma
+nazwa płyty „f2fs_xattr_entry-7:3”, a dwie pamięci podręczne płyty mają tę samą nazwę
+struktura i adres pamięci podręcznej.
+
+Tak więc, jeśli zniszczymy pamięć podręczną f2fs_xattr_entry-7:3 z adresem pamięci podręcznej,
+zmniejsz liczbę odwołań pamięci podręcznej płyt, zamiast zwalniać pamięć podręczną płyt
+całkowicie, ponieważ jest jeszcze jeden użytkownik, który odwołał się do pamięci podręcznej.
+
+Następnie, jeśli ponownie spróbujemy utworzyć płytową pamięć podręczną o nazwie „f2fs_xattr_entry-7:3”,
+system płyty wykryje, że istnieje pamięć podręczna o tej samej nazwie
+i wywołaj ostrzeżenie.
+
+Zmieńmy, aby używać globalnej pamięci podręcznej inline_xattr_slab zamiast pamięci podręcznej płyty per-sb
+do mocowania.</description></item><item><title>CVE-2025-71104</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71104</link><pubDate>Wed, 14 Jan 2026 15:05:53 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+KVM: x86: Napraw twarde blokowanie maszyny wirtualnej po dłuższej bezczynności za pomocą okresowego timera HV
+
+Podczas okresowego przyspieszania docelowego wygaśnięcia licznika APIC gościa
+w trybie, ustaw datę wygaśnięcia na „teraz”, jeśli docelowa data wygaśnięcia przypada w przeszłości
+(podobnie jak w przypadku update_target_expiration()).Dodawanie na ślepo
+okres do poprzedniego docelowego wygaśnięcia może spowodować wygenerowanie KVM
+praktycznie nieograniczona liczba przerwań hrtimera dzięki programowaniu
+wygasł timer w kółko.W skrajnych sytuacjach, np.jeśli przestrzeń użytkownika
+wstrzymuje/zawiesza maszynę wirtualną na dłuższy czas, może to nawet powodować trudności
+blokady w hoście.
+
+Obecnie błąd dotyczy wyłącznie procesorów Intel podczas korzystania z licznika czasu hypervisora
+(timer HV), czyli licznik czasu wywłaszczania VMX.W odróżnieniu od timera programowego,
+a.k.a hrtimer, który KVM uruchamia nawet przy wyjściach do przestrzeni użytkownika,
+Timer HV działa tylko wtedy, gdy gość jest aktywny.W rezultacie, jeśli vCPU
+nie będzie działać przez dłuższy czas, pomiędzy nimi będzie ogromna przerwa
+docelowy termin wygaśnięcia i bieżący czas, w którym vCPU wznawia działanie.
+Ponieważ docelowa data wygaśnięcia jest zwiększana tylko o jeden okres w każdym przypadku
+wygaśnięcia timera, prowadzi to do serii wygaśnięć timera
+szybko po wznowieniu działania vCPU/VM.
+
+Co ważniejsze, gdy vCPU po raz pierwszy uruchamia okresowy licznik czasu HV
+wygaśnięcia po wznowieniu, przesunięcie terminu wygaśnięcia tylko o jeden okres
+spowoduje docelowe wygaśnięcie w przeszłości.W rezultacie delta
+można obliczyć jako wartość ujemną.Kiedy delta jest konwertowana na
+wartość bezwzględna (tscdeadline to unsigned u64), wartość wynikowa
+może przekroczyć możliwości zaprogramowane przez timer HV.Tj.duży
+wartość przekroczy maksymalną szerokość bitową zegara wywłaszczania VMX
+cpu_preemption_timer_multi + 32, a tym samym spowodować przełączenie KVM z
+timera HV do timera programowego (hrtimery).
+
+Po przełączeniu na programowy timer, okresowe wywołania zwrotne wygaśnięcia timera
+mogą być wykonywane kolejno w ramach jednej procedury obsługi przerwań zegarowych,
+ponieważ hrtimers honoruje prośbę KVM o wygaśnięcie w przeszłości i
+natychmiast ponownie wywołuje wywołanie zwrotne KVM po przeprogramowaniu.I ponieważ
+procedura obsługi przerwań działa z wyłączonymi przerwaniami, ponownie uruchamiając licznik czasu KVM
+w kółko, aż docelowy termin wygaśnięcia zostanie przesunięty do „teraz”.
+w ciężkim zamknięciu.
+
+Np.podczas uruchamiania pliku a. na hoście zostało wywołane następujące twarde zablokowanie
+Maszyna wirtualna z systemem Windows (istotna tylko dlatego, że korzystała z timera APIC w trybie okresowym)
+po wznowieniu maszyny wirtualnej po długim zawieszeniu (na hoście).
+
+Watchdog NMI: Watchdog wykrył twarde LOCKUP na procesorze 45
+...
+RIP: 0010:advance_periodic_target_expiration+0x4d/0x80 [kvm]
+...
+RSP: 0018:ff4f88f5d98d8ef0 EFLAGS: 00000046
+RAX: fff0103f91be678e RBX: fff0103f91be678e RCX: 00843a7d9e127bcc
+RDX: 0000000000000002 RSI: 0052ca4003697505 RDI: ff440d5bfbdbd500
+RBP: ff440d5956f99200 R08: ff2ff2a42deb6a84 R09: 000000000002a6c0
+R10: 0122d794016332b3 R11: 0000000000000000 R12: ff440db1af39cfc0
+R13: ff440db1af39cfc0 R14: ffffffffc0d4a560 R15: ff440db1af39d0f8
+FS: 00007f04a6ffd700(0000) GS:ff440db1af380000(0000) knlGS:000000e38a3b8000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000d5651feff8 CR3: 000000684e038002 CR4: 0000000000773ee0
+PKRU: 55555554
+Zadzwoń do śledzenia:
+&lt;przerwanie&gt;
+apic_timer_fn+0x31/0x50 [kvm]
+__hrtimer_run_queues+0x100/0x280
+hrtimer_interrupt+0x100/0x210
+?ttwu_do_wakeup+0x19/0x160
+smp_apic_timer_interrupt+0x6a/0x130
+apic_timer_interrupt+0xf/0x20
+&lt;/IRQ&gt;
+
+Co więcej, jeśli czas zawieszenia maszyny wirtualnej nie jest wystarczająco długi
+aby wywołać twardą blokadę w tym scenariuszu, ponieważ zatwierdzono 98c25ead5eda
+(„KVM: VMX: Przesuń licznik czasu wywłaszczania &lt;=&gt; taniec hrtimera do wspólnego x86”), KVM
+będzie nadal korzystać z timera oprogramowania, dopóki gość nie przeprogramuje APIC
+w jakiś sposób timer.Ponieważ licznik okresowy nie wymaga częstego APIC
+programowania rejestru timera, gość może w dalszym ciągu korzystać z oprogramowania
+timer w
+---obcięty---</description></item><item><title>CVE-2025-71102</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71102</link><pubDate>Wed, 14 Jan 2026 15:05:52 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+scs: napraw błędny parametr w __scs_magic
+
+__scs_magic() potrzebuje zmiennej „void *”, ale jest to „struct task_struct *”
+dane.„task_scs(tsk)” to adres początkowy wywołania cienia zadania
+stos, a „__scs_magic(task_scs(tsk))” to adres końcowy zadania
+stos wywołań cienia.Tutaj powinno być „__scs_magic(task_scs(tsk))”.
+
+Widocznym dla użytkownika efektem tego błędu jest to, że gdy CONFIG_DEBUG_STACK_USAGE
+jest włączona, funkcja sprawdzania użycia stosu wywołań w tle
+(scs_check_usage) przeskanuje nieprawidłowy zakres pamięci.To może prowadzić
+
+1. **Niedokładne raportowanie użycia stosu**: Funkcja wykona obliczenia
+nieprawidłowe statystyki użycia stosu wywołań w tle, potencjalnie wyświetlane
+nieprawidłowa wartość w kmsg.
+
+2. **Potencjalna awaria jądra**: Jeśli wartość __scs_magic(tsk) wynosi
+większa niż __scs_magic(task_scs(tsk)), pętla for może
+uzyskać dostęp do niezamapowanej pamięci, co może spowodować panikę jądra.Jednakże,
+ten scenariusz jest mało prawdopodobny, ponieważ task_struct jest przydzielany za pośrednictwem płyty
+alokator (który zazwyczaj zwraca niższe adresy), podczas gdy Shadow
+stos wywołań zwrócony przez task_scs(tsk) jest przydzielany poprzez vmalloc(który
+zazwyczaj zwraca wyższe adresy).
+
+Ponieważ jest to jednak wyłącznie funkcja debugowania
+(CONFIG_DEBUG_STACK_USAGE), normalne systemy produkcyjne nie powinny być
+nienaruszone.Błąd dotyczy tylko aktywnych programistów i testerów
+debugowanie użycia stosu przy włączonej tej konfiguracji.</description></item><item><title>CVE-2026-22240</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22240</link><pubDate>Wed, 14 Jan 2026 14:42:09 +0000</pubDate><description>Luka w zabezpieczeniach BLUVOYIX wynika z nieprawidłowej implementacji przechowywania haseł i późniejszego ujawnienia danych za pośrednictwem nieuwierzytelnionych interfejsów API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsu API użytkowników podatnych na zagrożenia w celu pobrania haseł wszystkich użytkowników w postaci zwykłego tekstu.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy poprzez zalogowanie się przy użyciu ujawnionego adresu e-mail i hasła administratora.</description></item><item><title>CVE-2026-22239</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22239</link><pubDate>Wed, 14 Jan 2026 14:40:20 +0000</pubDate><description>Luka w BLUVOYIX wynika z błędów projektowych w interfejsie API wysyłania wiadomości e-mail.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego na ataki interfejsu API wysyłającego wiadomości e-mail.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wysyłanie niechcianych wiadomości e-mail do dowolnej osoby w imieniu firmy.</description></item><item><title>CVE-2026-22238</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22238</link><pubDate>Wed, 14 Jan 2026 14:38:55 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API administratora BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnego interfejsu API administratora w celu utworzenia nowego użytkownika z uprawnieniami administratora.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej uzyskać pełny dostęp do danych klientów i całkowicie złamać docelową platformę poprzez zalogowanie się na nowo utworzonego użytkownika administracyjnego.</description></item><item><title>CVE-2026-22237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22237</link><pubDate>Wed, 14 Jan 2026 14:36:47 +0000</pubDate><description>Luka w BLUVOYIX wynika z ujawnienia wrażliwej wewnętrznej dokumentacji API.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do interfejsów API ujawnionych w dokumentacji.Pomyślne wykorzystanie tej luki może pozwolić osobie atakującej na wyrządzenie szkód na docelowej platformie poprzez nadużycie wewnętrznych funkcjonalności.</description></item><item><title>CVE-2026-22236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22236</link><pubDate>Wed, 14 Jan 2026 14:34:14 +0000</pubDate><description>Luka w BLUVOYIX wynika z nieprawidłowego uwierzytelnienia w interfejsach API zaplecza BLUVOYIX.Nieuwierzytelniona osoba atakująca zdalnie może wykorzystać tę lukę, wysyłając specjalnie spreparowane żądania HTTP do podatnych na ataki interfejsów API.Pomyślne wykorzystanie tej luki może umożliwić osobie atakującej uzyskanie pełnego dostępu do danych klientów i całkowite złamanie zabezpieczeń docelowej platformy.</description></item><item><title>CVE-2025-9142</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9142</link><pubDate>Wed, 14 Jan 2026 14:30:48 +0000</pubDate><description>Użytkownik lokalny może wyzwolić klienta Harmony SASE Windows w celu zapisania lub usunięcia plików poza zamierzonym katalogiem roboczym certyfikatu.
 
 CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-13175</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13175</link><pubDate>Wed, 14 Jan 2026 12:19:06 +0000</pubDate><description>Y Soft SafeQ 6 renderuje pole hasła łącznika przepływu pracy w sposób umożliwiający administratorowi z dostępem do interfejsu użytkownika ujawnienie wartości za pomocą narzędzi programistycznych/kontrolnych przeglądarki.Dotyczy to wyłącznie klientów korzystających z łącznika przepływu pracy skanowania chronionego hasłem.
 Ten problem dotyczy Y Soft SafeQ 6 w wersjach wcześniejszych niż MU106.</description></item><item><title>CVE-2025-14338</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14338</link><pubDate>Wed, 14 Jan 2026 11:55:31 +0000</pubDate><description>Uwierzytelnianie Polkit jest domyślnie wyłączone i jest wyścigowe
