@@ -1,5 +1,56 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1144</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1144</link><pubDate>Mon, 19 Jan 2026 07:32:10 +0000</pubDate><description>W Quickjs-ng Quickjs do wersji 0.11.0 wykryto lukę.Problemem dotknięta jest nieznana funkcja w pliku Quickjs.c w komponencie Atomics Ops Handler.Manipulacja skutkuje użyciem po zwolnieniu.Atak może zostać przeprowadzony zdalnie.Exploit jest teraz publiczny i można go wykorzystać.Łatka jest identyfikowana jako ea3e9d77454e8fc9cb3ef3c504e9c16af5a80141.Aby rozwiązać ten problem, zaleca się zainstalowanie poprawki.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-59355</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59355</link><pubDate>Mon, 19 Jan 2026 08:37:24 +0000</pubDate><description>Luka.
+
+Gdy org.apache.linkis.metadata.util.HiveUtils.decode() nie wykona dekodowania Base64, rejestruje pełny ciąg parametrów wejściowych w dzienniku za pomocą logger.error(str + „dekodowanie nie powiodło się”, e).Jeśli parametr wejściowy zawiera poufne informacje, takie jak klucze metastore Hive, w przypadku niepowodzenia dekodowania w plikach dziennika pozostaną hasła w postaci zwykłego tekstu, co spowoduje wyciek informacji.
+
+
+Dotknięty zakres
+Komponent: Wrażliwe pola w pliku hive-site.xml (np. javax.jdo.option.ConnectionPassword) lub inne pola zakodowane w Base64.
+Wersja: Apache Linkis 1.0.0 – 1.7.0
+
+
+Warunki wyzwalania
+Wartość elementu konfiguracji jest nieprawidłowym ciągiem Base64.
+Pliki dziennika mogą być odczytywane przez użytkowników innych niż administratorzy pliku hive-site.xml.
+
+
+Dotkliwość: niska
+Prawdopodobieństwo niepowodzenia dekodowania Base64 jest niskie.
+Wyciek jest wyzwalany tylko wtedy, gdy zostaną ujawnione kłody na poziomie błędu.
+
+Remediacja
+Apache Linkis 1.8.0 i nowsze wersje zastąpiły dziennik nieczułą zawartością.
+logger.error("Dekodowanie adresu URL nie powiodło się: {}", e.getMessage());// 不再输出 ul
+
+
+Użytkownikom zaleca się aktualizację do wersji 1.8.0, która rozwiązuje problem.</description></item><item><title>CVE-2025-29847</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-29847</link><pubDate>Mon, 19 Jan 2026 08:36:06 +0000</pubDate><description>Luka w Apache Linkis.
+
+Opis problemu
+Podczas korzystania z silnika JDBC i da
+Jeśli podczas korzystania z silnika JDBC i funkcji źródła danych parametr adresu URL skonfigurowany w interfejsie użytkownika przeszedł wiele rund kodowania adresu URL, może ominąć kontrole systemowe.To obejście może wywołać lukę umożliwiającą nieautoryzowany dostęp do plików systemowych za pośrednictwem parametrów JDBC.
+
+Zakres wpływu
+
+
+Ten problem dotyczy Apache Linkis: od 1.3.0 do 1.7.0.
+
+Poziom ważności
+
+
+umiarkowany
+Rozwiązanie
+Stale sprawdzaj, czy informacja o połączeniu zawiera znak „%”;jeśli tak, wykonaj dekodowanie adresu URL.
+
+Użytkownikom zaleca się aktualizację do wersji 1.8.0, która rozwiązuje problem.
+
+
+
+
+Więcej pytań na temat tej luki można omówić tutaj: https://lists.apache.org/list?dev@linkis.apache.org:2025-9:cve</description></item><item><title>CVE-2026-1146</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1146</link><pubDate>Mon, 19 Jan 2026 08:32:05 +0000</pubDate><description>W systemie zarządzania kolejką pacjentów SourceCodester/Patrick Mvuma 1.0 została odkryta luka.Problemem dotknięta jest nieznana funkcja pliku /php/api_register_resident.php.Taka manipulacja argumentem imię/nazwisko prowadzi do tworzenia skryptów krzyżowych.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
+
+CVSS Score: 3.5 (low)</description></item><item><title>CVE-2026-1145</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1145</link><pubDate>Mon, 19 Jan 2026 08:02:08 +0000</pubDate><description>Znaleziono błąd w Quickjs-ng Quickjs do wersji 0.11.0.Podatnością dotknięta jest funkcja js_typed_array_constructor_ta w pliku Quickjs.c.Ta manipulacja powoduje przepełnienie bufora opartego na stercie.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został opublikowany i może zostać wykorzystany.Nazwa poprawki: 53aebe66170d545bb6265906fe4324e4477de8b4.Sugeruje się zainstalowanie łatki rozwiązującej ten problem.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-1144</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1144</link><pubDate>Mon, 19 Jan 2026 07:32:10 +0000</pubDate><description>W Quickjs-ng Quickjs do wersji 0.11.0 wykryto lukę.Problemem dotknięta jest nieznana funkcja w pliku Quickjs.c w komponencie Atomics Ops Handler.Manipulacja skutkuje użyciem po zwolnieniu.Atak może zostać przeprowadzony zdalnie.Exploit jest teraz publiczny i można go wykorzystać.Łatka jest identyfikowana jako ea3e9d77454e8fc9cb3ef3c504e9c16af5a80141.Aby rozwiązać ten problem, zaleca się zainstalowanie poprawki.
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-1143</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1143</link><pubDate>Mon, 19 Jan 2026 07:02:08 +0000</pubDate><description>W TOTOLINK A3700R 9.1.2u.5822_B20200513 wykryto słabość.Ma to wpływ na funkcję setWiFiEasyGuestCfg pliku /cgi-bin/cstecgi.cgi.Manipulacja argumentem ssid może prowadzić do przepełnienia bufora.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
