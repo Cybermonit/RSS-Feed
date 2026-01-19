@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-59355</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59355</link><pubDate>Mon, 19 Jan 2026 08:37:24 +0000</pubDate><description>Luka.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1148</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1148</link><pubDate>Mon, 19 Jan 2026 09:32:05 +0000</pubDate><description>W systemie zarządzania kolejką pacjentów SourceCodester/Patrick Mvuma 1.0 stwierdzono lukę.Luka ta dotyczy nieznanego kodu.Wykonanie manipulacji może prowadzić do sfałszowania żądań między witrynami.Istnieje możliwość zdalnego przeprowadzenia ataku.
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-1147</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1147</link><pubDate>Mon, 19 Jan 2026 09:02:07 +0000</pubDate><description>W systemie zarządzania kolejką pacjentów SourceCodester/Patrick Mvuma 1.0 została odkryta luka.Dotyczy to nieznanej części pliku /php/api_resident_schedule.php.Manipulacja argumentem Powód skutkuje wykonaniem skryptów krzyżowych.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został upubliczniony i może zostać wykorzystany.
+
+CVSS Score: 3.5 (low)</description></item><item><title>CVE-2025-59355</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59355</link><pubDate>Mon, 19 Jan 2026 08:37:24 +0000</pubDate><description>Luka.
 
 Gdy org.apache.linkis.metadata.util.HiveUtils.decode() nie wykona dekodowania Base64, rejestruje pełny ciąg parametrów wejściowych w dzienniku za pomocą logger.error(str + „dekodowanie nie powiodło się”, e).Jeśli parametr wejściowy zawiera poufne informacje, takie jak klucze metastore Hive, w przypadku niepowodzenia dekodowania w plikach dziennika pozostaną hasła w postaci zwykłego tekstu, co spowoduje wyciek informacji.
 
