@@ -1,5 +1,110 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-66803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66803</link><pubDate>Tue, 20 Jan 2026 18:58:15 +0000</pubDate><description>### Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23518</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23518</link><pubDate>Tue, 20 Jan 2026 20:55:17 +0000</pubDate><description>### Wpływ
+
+Jeśli włączone jest rozwiązanie Windows MDM, osoba atakująca może zarejestrować fałszywe urządzenia, przesyłając sfałszowany token JWT zawierający dowolne oświadczenia dotyczące tożsamości.Ze względu na brak weryfikacji podpisu JWT Fleet akceptuje te roszczenia bez sprawdzania, czy token został wystawiony przez usługę Azure AD, umożliwiając rejestrację przy użyciu dowolnej tożsamości użytkownika usługi Azure AD.
+
+### Poprawki
+
+- 4.78.3
+- 4.77.1
+- 4.76.2
+- 4.75.2
+- 4.53.3
+
+### Obejścia
+
+Jeśli natychmiastowa aktualizacja nie jest możliwa, użytkownicy floty, których to dotyczy, powinni tymczasowo wyłączyć Windows MDM.
+
+### Aby uzyskać więcej informacji
+
+Jeśli masz jakieś pytania lub uwagi dotyczące tego poradnika:
+
+Napisz do nas na adres [security@fleetdm.com](mailto:security@fleetdm.com)
+Dołącz do #fleet w [osquery Slack](https://join.slack.com/t/osquery/shared_invite/zt-h29zm0gk-s2DBtGUTW4CFel0f0IjTEw)</description></item><item><title>CVE-2026-23517</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23517</link><pubDate>Tue, 20 Jan 2026 20:55:14 +0000</pubDate><description>### Wpływ
+
+Punkty końcowe debugowania/pprof floty są dostępne dla każdego uwierzytelnionego użytkownika, niezależnie od roli, w tym roli „Obserwatora” o najniższych uprawnieniach.Umożliwia to użytkownikom o niskich uprawnieniach dostęp do wrażliwych elementów wewnętrznych serwera, w tym danych profilowania w czasie wykonywania i stanu aplikacji w pamięci, a także wyzwalanie operacji profilowania intensywnie obciążających procesor, które mogą prowadzić do odmowy usługi.
+
+### Poprawki
+
+- 4.78.3
+- 4.77.1
+- 4.76.2
+- 4.75.2
+- 4.53.3
+
+### Obejścia
+
+Jeśli natychmiastowa aktualizacja nie jest możliwa, użytkownicy powinni umieścić punkty końcowe debugowania/pprof za listą dozwolonych adresów IP.
+
+### Aby uzyskać więcej informacji
+
+Jeśli masz jakieś pytania lub uwagi dotyczące tego poradnika:
+
+Napisz do nas na adres [security@fleetdm.com](mailto:security@fleetdm.com)
+Dołącz do #fleet w [osquery Slack](https://join.slack.com/t/osquery/shared_invite/zt-h29zm0gk-s2DBtGUTW4CFel0f0IjTEw)</description></item><item><title>CVE-2026-22808</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22808</link><pubDate>Tue, 20 Jan 2026 20:52:17 +0000</pubDate><description>### Wpływ
+
+Jeśli włączone jest rozwiązanie Windows MDM, osoba atakująca może wykorzystać lukę w zabezpieczeniach typu cross-site scripting (XSS), przekonując uwierzytelnionego użytkownika Fleet do odwiedzenia złośliwego łącza.Pomyślne wykorzystanie może pozwolić na pobranie tokena uwierzytelniającego Fleet użytkownika z jego przeglądarki.
+
+Naruszony token uwierzytelniający może zapewnić dostęp administracyjny do Fleet API, umożliwiając osobie atakującej wykonanie uprzywilejowanych działań, takich jak wdrażanie skryptów na zarządzanych hostach.
+
+Ten problem nie pozwala na nieuwierzytelniony dostęp i nie wpływa na przypadki, w których Windows MDM jest wyłączony.
+
+### Poprawki
+
+- 4.78.2
+- 4.77.1
+- 4.76.2
+- 4.75.2
+- 4.53.3
+
+### Obejścia
+
+Jeśli natychmiastowa aktualizacja nie jest możliwa, użytkownicy floty, których to dotyczy, powinni tymczasowo wyłączyć Windows MDM.
+
+### Aby uzyskać więcej informacji
+
+Jeśli masz jakieś pytania lub uwagi dotyczące tego poradnika:
+
+Napisz do nas na adres [security@fleetdm.com](mailto:security@fleetdm.com)
+Dołącz do #fleet w [osquery Slack](https://join.slack.com/t/osquery/shared_invite/zt-h29zm0gk-s2DBtGUTW4CFel0f0IjTEw)</description></item><item><title>CVE-2026-21642</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21642</link><pubDate>Tue, 20 Jan 2026 20:48:48 +0000</pubDate><description>Członek społeczności HackerOne, Patrick Lang (7 lat), zgłosił odzwierciedloną lukę XSS w skryptach `banner-acl.php` i `channel-acl.php` Revive Adserver.Osoba atakująca może utworzyć konkretny adres URL zawierający w parametrze ładunek HTML.Jeśli zalogowany administrator odwiedzi adres URL, kod HTML zostanie wysłany do przeglądarki i zostaną wykonane złośliwe skrypty.
+
+CVSS Score: 6.1 (medium)</description></item><item><title>CVE-2026-21664</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21664</link><pubDate>Tue, 20 Jan 2026 20:48:47 +0000</pubDate><description>Członek społeczności HackerOne, Huynh Pham Thanh Luc (nigh7c0r3), zgłosił odzwierciedloną lukę XSS w skrypcie dostarczania afr.php Revive Adserver.Osoba atakująca może utworzyć konkretny adres URL zawierający w parametrze ładunek HTML.Jeśli zalogowany administrator odwiedzi adres URL, kod HTML zostanie wysłany do przeglądarki i zostaną wykonane złośliwe skrypty.
+
+CVSS Score: 6.1 (medium)</description></item><item><title>CVE-2026-21663</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21663</link><pubDate>Tue, 20 Jan 2026 20:48:47 +0000</pubDate><description>Członek społeczności HackerOne, Patrick Lang (7 lat), zgłosił odzwierciedloną lukę XSS w skrypcie banner-acl.php Revive Adserver.Osoba atakująca może utworzyć konkretny adres URL zawierający w parametrze ładunek HTML.Jeśli zalogowany administrator odwiedzi adres URL, kod HTML zostanie wysłany do przeglądarki i zostaną wykonane złośliwe skrypty.
+
+CVSS Score: 6.1 (medium)</description></item><item><title>CVE-2026-21640</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21640</link><pubDate>Tue, 20 Jan 2026 20:48:47 +0000</pubDate><description>Członek społeczności HackerOne, Faraz Ahmed (PakCyberbot), zgłosił wstrzyknięcie ciągu formatu w ustawieniach Revive Adserver.Gdy w ustawieniu używane są określone kombinacje znaków, konsola administratora może zostać wyłączona z powodu krytycznego błędu PHP.
+
+CVSS Score: 2.7 (low)</description></item><item><title>CVE-2026-21641</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21641</link><pubDate>Tue, 20 Jan 2026 20:48:47 +0000</pubDate><description>Członek społeczności HackerOne, Jad Ghamloush (0xjad), zgłosił lukę w zabezpieczeniach umożliwiającą obejście autoryzacji w skrypcie `tracker-delete.php` Revive Adserver.Użytkownicy z uprawnieniami do usuwania modułów śledzących mogą przez pomyłkę usuwać elementy śledzące należące do innych kont.
+
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2026-21636</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21636</link><pubDate>Tue, 20 Jan 2026 20:41:55 +0000</pubDate><description>Luka w modelu uprawnień Node.js umożliwia połączeniom Unix Domain Socket (UDS) ominięcie ograniczeń sieciowych, gdy włączona jest opcja „--permission”.Nawet bez opcji `--allow-net` wejścia kontrolowane przez atakującego (takie jak adresy URL lub opcje ścieżki gniazda) mogą łączyć się z dowolnymi gniazdami lokalnymi za pośrednictwem sieci, tls lub undici/fetch.Przerywa to zamierzoną granicę bezpieczeństwa modelu uprawnień i umożliwia dostęp do uprzywilejowanych usług lokalnych, co może prowadzić do eskalacji uprawnień, ujawnienia danych lub wykonania lokalnego kodu.
+
+* Problem dotyczy użytkowników modelu uprawnień Node.js w wersji v25.
+
+W chwili wystąpienia tej luki uprawnienia sieciowe (`--allow-net`) są nadal w fazie eksperymentalnej.
+
+CVSS Score: 5.8 (medium)</description></item><item><title>CVE-2025-59466</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59466</link><pubDate>Tue, 20 Jan 2026 20:41:55 +0000</pubDate><description>Zidentyfikowaliśmy błąd w obsłudze błędów Node.js, powodujący, że błędy „Przekroczono maksymalny rozmiar stosu wywołań” stają się niemożliwe do wyłapania, gdy włączona jest funkcja `async_hooks.createHook()`.Zamiast osiągnąć `process.on('uncaughtException')`, proces kończy się, przez co awaria jest niemożliwa do naprawienia.Aplikacje korzystające z `AsyncLocalStorage` (v22, v20) lub `async_hooks.createHook()` (v24, v22, v20) stają się podatne na awarie typu „odmowa usługi” wywołane głęboką rekursją w określonych warunkach.
+
+CVSS Score: 5.9 (medium)</description></item><item><title>CVE-2025-55132</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-55132</link><pubDate>Tue, 20 Jan 2026 20:41:55 +0000</pubDate><description>Luka w modelu uprawnień Node.js umożliwia zmianę znaczników czasu dostępu i modyfikacji pliku za pomocą funkcji `futimes()`, nawet jeśli proces ma tylko uprawnienia do odczytu.W przeciwieństwie do `utimes()`, `futimes()` nie stosuje oczekiwanych kontroli uprawnień do zapisu, co oznacza, że ​​metadane plików można modyfikować w katalogach tylko do odczytu.To zachowanie można wykorzystać do zmiany znaczników czasu w sposób zaciemniający aktywność i zmniejszający niezawodność dzienników.Luka ta dotyczy użytkowników modelu uprawnień w Node.js v20, v22, v24 i v25.
+
+CVSS Score: 2.8 (low)</description></item><item><title>CVE-2025-59464</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59464</link><pubDate>Tue, 20 Jan 2026 20:41:55 +0000</pubDate><description>Wyciek pamięci w integracji OpenSSL Node.js występuje podczas konwersji pól certyfikatu `X.509` na UTF-8 bez zwalniania przydzielonego bufora.Kiedy aplikacje wywołują `socket.getPeerCertificate(true)`, każde pole certyfikatu powoduje wyciek pamięci, umożliwiając zdalnym klientom wyzwalanie stałego wzrostu pamięci poprzez powtarzające się połączenia TLS.Z biegiem czasu może to prowadzić do wyczerpania zasobów i odmowy usługi.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2025-55131</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-55131</link><pubDate>Tue, 20 Jan 2026 20:41:55 +0000</pubDate><description>Luka w logice alokacji buforów Node.js może ujawnić niezainicjowaną pamięć w przypadku przerwania alokacji, gdy używany jest moduł `vm` z opcją timeout.W określonych warunkach czasowych bufory przydzielone za pomocą `Buffer.alloc` i innych instancji `TypedArray`, takich jak `Uint8Array`, mogą zawierać pozostałości danych z poprzednich operacji, umożliwiając wyciek sekretów procesu, takich jak tokeny lub hasła, lub powodując uszkodzenie danych.Chociaż wykorzystanie zwykle wymaga precyzyjnego wyczucia czasu lub wykonania kodu w procesie, może stać się możliwe do wykorzystania zdalnie, gdy niezaufane dane wejściowe wpływają na obciążenie pracą i przekroczenia limitu czasu, co prowadzi do potencjalnego wpływu na poufność i integralność.
+
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2025-55130</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-55130</link><pubDate>Tue, 20 Jan 2026 20:41:55 +0000</pubDate><description>Luka w modelu uprawnień Node.js umożliwia atakującym ominięcie ograniczeń „--allow-fs-read” i „--allow-fs-write” przy użyciu spreparowanych względnych ścieżek dowiązań symbolicznych.Łącząc katalogi i dowiązania symboliczne, skrypt, któremu przyznano dostęp tylko do bieżącego katalogu, może uciec z dozwolonej ścieżki i odczytać poufne pliki.Łamie to oczekiwane gwarancje izolacji i umożliwia odczyt/zapis dowolnego pliku, co prowadzi do potencjalnego zagrożenia systemu.
+Luka ta dotyczy użytkowników modelu uprawnień w Node.js v20, v22, v24 i v25.
+
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2026-21637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21637</link><pubDate>Tue, 20 Jan 2026 20:41:55 +0000</pubDate><description>Luka w obsłudze błędów TLS Node.js umożliwia zdalnym atakującym awarię lub wyczerpanie zasobów serwera TLS, gdy używane są `pskCallback` lub `ALPNCallback`.Synchroniczne wyjątki zgłaszane podczas tych wywołań zwrotnych omijają standardowe ścieżki obsługi błędów TLS (tlsClientError i błąd), powodując albo natychmiastowe zakończenie procesu, albo ciche wycieki deskryptorów plików, które ostatecznie prowadzą do odmowy usługi.Ponieważ te wywołania zwrotne przetwarzają dane wejściowe kontrolowane przez osobę atakującą podczas uzgadniania TLS, klient zdalny może wielokrotnie wyzwalać problem.Ta luka wpływa na serwery TLS korzystające z wywołań zwrotnych PSK lub ALPN w wersjach Node.js, w przypadku których te wywołania zwrotne są wysyłane bez bezpiecznego opakowania.
+
+CVSS Score: 5.9 (medium)</description></item><item><title>CVE-2025-59465</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59465</link><pubDate>Tue, 20 Jan 2026 20:41:55 +0000</pubDate><description>Zniekształcona ramka `HTTP/2 HEADERS` ze zbyt dużymi, nieprawidłowymi danymi `HPACK` może spowodować awarię Node.js poprzez wyzwolenie nieobsłużonego błędu `TLSSocket` `ECONNRESET`.Zamiast bezpiecznie zamknąć połączenie, proces ulega awarii, umożliwiając zdalną odmowę usługi.Dotyczy to przede wszystkim aplikacji, które nie dołączają jawnych procedur obsługi błędów do bezpiecznych gniazd, na przykład:
+```
+serwer.on('bezpieczne połączenie', gniazdo =&gt; {
+gniazdo.on('błąd', błąd =&gt; {
+konsola.log(err)
+})
+})
+```
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2025-66803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66803</link><pubDate>Tue, 20 Jan 2026 18:58:15 +0000</pubDate><description>### Podsumowanie
 Sytuacja wyścigu w Turbo Frames umożliwia opóźnione odpowiedzi HTTP w celu przywrócenia nieaktualnych plików cookie sesji po operacjach modyfikujących sesję.
 
 ### Szczegóły
