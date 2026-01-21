@@ -1,5 +1,35 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23518</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23518</link><pubDate>Tue, 20 Jan 2026 20:55:17 +0000</pubDate><description>### Wpływ
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0933</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0933</link><pubDate>Tue, 20 Jan 2026 22:58:05 +0000</pubDate><description>Podsumowanie W poleceniu `wrangler Pages Deploy` stwierdzono lukę w zabezpieczeniach umożliwiającą wstrzykiwanie poleceń (CWE-78).Problem występuje, ponieważ parametr `--commit-hash` jest przekazywany bezpośrednio do polecenia powłoki bez odpowiedniej weryfikacji lub oczyszczenia, umożliwiając osobie atakującej mającej kontrolę nad `--commit-hash` wykonanie dowolnych poleceń w systemie, na którym działa Wrangler.
+
+
+
+
+Główna przyczyna Zmienna commitHash, uzyskana na podstawie danych wprowadzonych przez użytkownika za pomocą argumentu CLI --commit-hash, jest interpolowana bezpośrednio do polecenia powłoki przy użyciu literałów szablonu (np.  execSync(`git show -s --format=%B ${commitHash}`)).Metaznaki powłoki są interpretowane przez powłokę, umożliwiając wykonanie polecenia.
+
+
+
+
+Wpływ Ta luka jest ogólnie trudna do wykorzystania, ponieważ wymaga --commit-hash, aby osoba atakująca mogła ją kontrolować.Luka dotyczy przede wszystkim środowisk CI/CD, w których funkcja „wdrażania stron wranglera” jest wykorzystywana w zautomatyzowanych potokach, a
+
+--commit-hash parametr jest pobierany z zewnętrznych, potencjalnie niezaufanych źródeł.Osoba atakująca może to wykorzystać do:
+
+* Uruchom dowolne polecenie powłoki.
+* Eksfiltruj zmienne środowiskowe.
+* Narażaj moduł CI na instalowanie backdoorów lub modyfikowanie artefaktów kompilacji.
+
+
+
+Kredyty Ujawnione w sposób odpowiedzialny przez kny4hacker.
+
+
+
+
+Łagodzenie
+* Użytkownicy wersji Wrangler v4 proszeni są o aktualizację do wersji Wrangler v4.59.1 lub nowszej.
+* Użytkownicy wersji Wrangler v3 proszeni są o aktualizację do wersji Wrangler v3.114.17 lub nowszej.
+* Użytkownicy Wranglera v2 (EOL) powinni dokonać aktualizacji do obsługiwanej wersji głównej.</description></item><item><title>CVE-2026-0672</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0672</link><pubDate>Tue, 20 Jan 2026 21:52:33 +0000</pubDate><description>Podczas korzystania z protokołu http.cookies.Morsel kontrolowane przez użytkownika wartości i parametry plików cookie mogą umożliwiać wstrzykiwanie nagłówków HTTP do wiadomości.Łatka odrzuca wszystkie znaki kontrolne w nazwach, wartościach i parametrach plików cookie.</description></item><item><title>CVE-2025-15367</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15367</link><pubDate>Tue, 20 Jan 2026 21:47:09 +0000</pubDate><description>Moduł poplib, po przekazaniu polecenia kontrolowanego przez użytkownika, może mieć
+dodatkowe polecenia wstrzykiwane przy użyciu znaków nowej linii.Łagodzenie odrzuca polecenia
+zawierające znaki kontrolne.</description></item><item><title>CVE-2025-15366</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15366</link><pubDate>Tue, 20 Jan 2026 21:40:24 +0000</pubDate><description>Do modułu imaplib, po przekazaniu polecenia kontrolowanego przez użytkownika, można wstrzykiwać dodatkowe polecenia za pomocą znaków nowej linii.Łagodzenie odrzuca polecenia zawierające znaki sterujące.</description></item><item><title>CVE-2025-15282</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15282</link><pubDate>Tue, 20 Jan 2026 21:35:13 +0000</pubDate><description>Kontrolowane przez użytkownika adresy URL danych analizowane przez urllib.request.DataHandler umożliwiają wstrzykiwanie nagłówków poprzez znaki nowej linii w mediatype adresu URL danych.</description></item><item><title>CVE-2025-11468</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-11468</link><pubDate>Tue, 20 Jan 2026 21:09:11 +0000</pubDate><description>Podczas składania długiego komentarza w nagłówku wiadomości e-mail zawierającego wyłącznie znaki rozwijalne, nawiasy nie zostaną zachowane.Można to wykorzystać do wstrzykiwania nagłówków do wiadomości e-mail, których adresy są kontrolowane przez użytkownika i nie są oczyszczane.</description></item><item><title>CVE-2026-23518</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23518</link><pubDate>Tue, 20 Jan 2026 20:55:17 +0000</pubDate><description>### Wpływ
 
 Jeśli włączone jest rozwiązanie Windows MDM, osoba atakująca może zarejestrować fałszywe urządzenia, przesyłając sfałszowany token JWT zawierający dowolne oświadczenia dotyczące tożsamości.Ze względu na brak weryfikacji podpisu JWT Fleet akceptuje te roszczenia bez sprawdzania, czy token został wystawiony przez usługę Azure AD, umożliwiając rejestrację przy użyciu dowolnej tożsamości użytkownika usługi Azure AD.
 
@@ -130,7 +160,7 @@ Uaktualnij do wersji Turbo 8.0.21 lub nowszej.Poprawka anuluje żądania Turbo F
 - Upewnij się, że procesy wylogowania usuwają lub wyłączają elementy Turbo Frame przed unieważnieniem sesji
 
 ### Referencje
-- https://github.com/hotwired/turbo/pull/1399</description></item><item><title>CVE-2025-33231</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33231</link><pubDate>Tue, 20 Jan 2026 17:55:55 +0000</pubDate><description>NVIDIA Nsight Systems dla Windows zawiera lukę w mechanizmie ładowania bibliotek DLL aplikacji, przez którą osoba atakująca może spowodować niekontrolowany element ścieżki wyszukiwania, wykorzystując niezabezpieczone ścieżki wyszukiwania DLL.Pomyślne wykorzystanie tej luki może doprowadzić do wykonania kodu, eskalacji uprawnień, naruszenia danych, odmowy usługi i ujawnienia informacji.
+- https://github.com/hotwired/turbo/pull/1399</description></item><item><title>CVE-2026-1245</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1245</link><pubDate>Tue, 20 Jan 2026 18:50:34 +0000</pubDate><description>Luka umożliwiająca wstrzykiwanie kodu w bibliotece parsera binarnego starszego niż wersja 2.3.0 umożliwia wykonanie dowolnego kodu JavaScript, gdy w nazwach pól analizatora lub parametrach kodowania użyte zostaną niezaufane wartości.Biblioteka bezpośrednio interpoluje te wartości na dynamicznie generowany kod bez oczyszczania, umożliwiając atakującym wykonanie dowolnego kodu w kontekście procesu Node.js.</description></item><item><title>CVE-2025-33231</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33231</link><pubDate>Tue, 20 Jan 2026 17:55:55 +0000</pubDate><description>NVIDIA Nsight Systems dla Windows zawiera lukę w mechanizmie ładowania bibliotek DLL aplikacji, przez którą osoba atakująca może spowodować niekontrolowany element ścieżki wyszukiwania, wykorzystując niezabezpieczone ścieżki wyszukiwania DLL.Pomyślne wykorzystanie tej luki może doprowadzić do wykonania kodu, eskalacji uprawnień, naruszenia danych, odmowy usługi i ujawnienia informacji.
 
 CVSS Score: 6.7 (medium)</description></item><item><title>CVE-2025-33230</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33230</link><pubDate>Tue, 20 Jan 2026 17:55:28 +0000</pubDate><description>Systemy NVIDIA Nsight dla systemu Linux zawierają lukę w instalatorze .run, przez którą osoba atakująca może spowodować wstrzyknięcie polecenia systemu operacyjnego, dostarczając złośliwy ciąg do ścieżki instalacji.Pomyślne wykorzystanie tej luki może doprowadzić do eskalacji uprawnień, wykonania kodu, naruszenia danych, odmowy usługi i ujawnienia informacji.
 
@@ -3349,7 +3379,11 @@ CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20872</title><l
 
 CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-20871</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20871</link><pubDate>Tue, 13 Jan 2026 17:57:00 +0000</pubDate><description>
 
-CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-21221</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21221</link><pubDate>Tue, 13 Jan 2026 17:56:50 +0000</pubDate><description>
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20870</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20870</link><pubDate>Tue, 13 Jan 2026 17:56:59 +0000</pubDate><description>
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20868</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20868</link><pubDate>Tue, 13 Jan 2026 17:56:58 +0000</pubDate><description>
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21221</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21221</link><pubDate>Tue, 13 Jan 2026 17:56:50 +0000</pubDate><description>
 
 CVSS Score: 7.0 (high)</description></item><item><title>CVE-2026-20920</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20920</link><pubDate>Tue, 13 Jan 2026 17:56:38 +0000</pubDate><description>
 
