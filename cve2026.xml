@@ -1,5 +1,92 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23960</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23960</link><pubDate>Wed, 21 Jan 2026 22:00:38 +0000</pubDate><description>### Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-24048</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24048</link><pubDate>Wed, 21 Jan 2026 22:51:44 +0000</pubDate><description>Backstage to otwarta platforma do tworzenia portali dla programistów, a @backstage/backend-defaults zapewnia domyślne implementacje i konfigurację standardowej aplikacji backendowej Backstage.Przed wersjami 0.12.2, 0.13.2, 0.14.1 i 0.15.0 komponent `FetchUrlReader`, używany przez katalog i inne wtyczki do pobierania treści z adresów URL, automatycznie podążał za przekierowaniami HTTP.Umożliwiło to osobie atakującej kontrolującej hosta wymienionego w `backend.reading.allow` przekierowywanie żądań do wewnętrznych lub wrażliwych adresów URL, które nie znajdują się na liście dozwolonych, z pominięciem kontroli bezpieczeństwa listy dozwolonych adresów URL.Jest to luka w zabezpieczeniach polegająca na fałszowaniu żądań po stronie serwera (SSRF), która może umożliwić dostęp do zasobów wewnętrznych, ale nie pozwala atakującym na dołączenie dodatkowych nagłówków żądań.Ta luka została naprawiona w `@backstage/backend-defaults` w wersjach 0.12.2, 0.13.2, 0.14.1 i 0.15.0.Użytkownicy powinni dokonać aktualizacji do tej wersji lub nowszej.Dostępne są pewne obejścia.Ogranicz działanie `backend.reading.allow` tylko do kontrolowanych przez ciebie zaufanych hostów, które nie generują przekierowań, upewnij się, że dozwolone hosty nie mają luk w zabezpieczeniach związanych z otwartymi przekierowaniami i/lub użyj kontroli na poziomie sieci, aby zablokować dostęp z Backstage do wrażliwych wewnętrznych punktów końcowych.
+
+CVSS Score: 3.5 (low)</description></item><item><title>CVE-2026-23630</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23630</link><pubDate>Wed, 21 Jan 2026 22:51:27 +0000</pubDate><description>Docmost to oprogramowanie typu open source do współpracy w ramach wiki i dokumentacji.W wersjach od 0.3.0 do 0.23.2 renderowanie bloków kodu Mermaid jest podatne na przechowywane skrypty krzyżowe (XSS).Nakładka może renderować kontrolowane przez atakującego diagramy syren przy użyciu metody mermaid.render(), a następnie wstrzyknąć zwrócony SVG/HTML do DOM za pomocą niebezpiecznego SetInnerHTML bez oczyszczania.Dyrektywy syreny na diagramie %%{init}%% pozwalają na obejście poziomu bezpieczeństwa i włączenie htmlLabels, umożliwiając dowolne wykonanie HTML/JS dla dowolnej przeglądarki.Ten problem został rozwiązany w wersji 0.24.0.</description></item><item><title>CVE-2026-24048</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24048</link><pubDate>Wed, 21 Jan 2026 22:49:37 +0000</pubDate><description>### Wpływ
+
+Komponent `FetchUrlReader`, używany przez katalog i inne wtyczki do pobierania treści z adresów URL, automatycznie podążał za przekierowaniami HTTP.Umożliwiło to osobie atakującej kontrolującej hosta wymienionego w `backend.reading.allow` przekierowywanie żądań do wewnętrznych lub wrażliwych adresów URL, które nie znajdują się na liście dozwolonych, z pominięciem kontroli bezpieczeństwa listy dozwolonych adresów URL.
+
+Jest to luka w zabezpieczeniach polegająca na fałszowaniu żądań po stronie serwera (SSRF), która może umożliwić dostęp do zasobów wewnętrznych, ale nie pozwala atakującym na dołączenie dodatkowych nagłówków żądań.
+
+### Poprawki
+
+Ta luka została naprawiona w `@backstage/backend-defaults` w wersjach 0.12.2, 0.13.2, 0.14.1 i 0.15.0.Użytkownicy powinni dokonać aktualizacji do tej wersji lub nowszej.
+
+### Obejścia
+
+- Ogranicz `backend.reading.allow` tylko do zaufanych hostów, które kontrolujesz i które nie wydają przekierowań
+- Upewnij się, że dozwolone hosty nie mają luk w zabezpieczeniach związanych z otwartym przekierowaniem
+- Użyj kontroli na poziomie sieci, aby zablokować dostęp z Backstage do wrażliwych wewnętrznych punktów końcowych
+
+### Referencje
+
+- [Ściągawka dotycząca zapobiegania SSRF OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)</description></item><item><title>CVE-2026-24047</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24047</link><pubDate>Wed, 21 Jan 2026 22:45:06 +0000</pubDate><description>Backstage to otwarta platforma do tworzenia portali dla programistów, a @backstage/cli-common zapewnia funkcję ładowania konfiguracji używaną przez backend i interfejs wiersza poleceń Backstage.Przed wersją 0.1.17 funkcja narzędziowa `resolveSafeChildPath` w `@backstage/backend-plugin-api`, używana do zapobiegania atakom polegającym na przechodzeniu ścieżki, nie sprawdzała poprawnie łańcuchów dowiązań symbolicznych i wiszących dowiązań symbolicznych.Osoba atakująca może ominąć weryfikację ścieżki poprzez łańcuchy dowiązań symbolicznych (tworząc `link1 → łącze2 → /outside`, w którym pośrednie dowiązania symboliczne ostatecznie rozwiązują się poza dozwolonym katalogiem) i wiszące dowiązania symboliczne (tworząc dowiązania symboliczne wskazujące na nieistniejące ścieżki poza katalogiem podstawowym, które zostałyby później utworzone podczas operacji na plikach).Ta funkcja jest używana przez akcje Scaffolder i inne komponenty zaplecza, aby zapewnić, że operacje na plikach pozostaną w wyznaczonych katalogach.Ta luka została naprawiona w `@backstage/backend-plugin-api` w wersji 0.1.17.Użytkownicy powinni dokonać aktualizacji do tej wersji lub nowszej.Dostępne są pewne obejścia.Uruchom Backstage w środowisku kontenerowym z ograniczonym dostępem do systemu plików i/lub ogranicz tworzenie szablonów do zaufanych użytkowników.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-24047</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24047</link><pubDate>Wed, 21 Jan 2026 22:40:51 +0000</pubDate><description>### Wpływ
+
+Funkcja narzędziowa `resolveSafeChildPath` w `@backstage/backend-plugin-api`, która jest używana do zapobiegania atakom polegającym na przechodzeniu ścieżki, nie sprawdzała prawidłowo łańcuchów dowiązań symbolicznych i wiszących dowiązań symbolicznych.Osoba atakująca może ominąć weryfikację ścieżki poprzez:
+
+1. **Łańcuchy dowiązań symbolicznych**: Tworzenie `link1 → link2 → /outside`, gdzie pośrednie dowiązania symboliczne ostatecznie rozwiązują się poza dozwolonym katalogiem
+2. **Wiszące dowiązania symboliczne**: Tworzenie dowiązań symbolicznych wskazujących na nieistniejące ścieżki poza katalogiem podstawowym, które zostaną później utworzone podczas operacji na plikach
+
+Ta funkcja jest używana przez akcje Scaffolder i inne komponenty zaplecza, aby zapewnić, że operacje na plikach pozostaną w wyznaczonych katalogach.
+
+### Poprawki
+
+Ta luka została naprawiona w `@backstage/backend-plugin-api` w wersji 0.1.17.Użytkownicy powinni dokonać aktualizacji do tej wersji lub nowszej.
+
+### Obejścia
+
+- Uruchom Backstage w środowisku kontenerowym z ograniczonym dostępem do systemu plików
+- Ogranicz tworzenie szablonów do zaufanych użytkowników</description></item><item><title>CVE-2026-24046</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24046</link><pubDate>Wed, 21 Jan 2026 22:36:36 +0000</pubDate><description>### Wpływ
+
+Wiele działań Scaffoldera i narzędzi do wyodrębniania archiwów było podatnych na ataki polegające na przechodzeniu ścieżek opartych na dowiązaniach symbolicznych.Osoba atakująca mająca dostęp do tworzenia i wykonywania szablonów szkieletu może wykorzystać dowiązania symboliczne w celu:
+
+1. **Odczytaj dowolne pliki** poprzez akcję `debug:log`, tworząc dowiązanie symboliczne wskazujące wrażliwe pliki (np. `/etc/passwd`, pliki konfiguracyjne, sekrety)
+2. **Usuń dowolne pliki** za pomocą akcji `fs:delete`, tworząc dowiązania symboliczne wskazujące poza obszarem roboczym
+3. **Zapisz pliki poza obszarem roboczym** poprzez wyodrębnienie archiwum (tar/zip) zawierającego złośliwe dowiązania symboliczne
+
+Ma to wpływ na każde wdrożenie Backstage, w którym użytkownicy mogą tworzyć lub wykonywać szablony szkieletu.
+
+### Poprawki
+
+Luka ta została naprawiona w następujących wersjach pakietów:
+
+- `@backstage/backend-defaults` wersja 0.12.2, 0.13.2, 0.14.1, 0.15.0
+- `@backstage/plugin-scaffolder-backend` wersja 2.2.2, 3.0.2, 3.1.1
+- `@backstage/plugin-scaffolder-node` wersja 0.11.2, 0.12.3
+
+Użytkownicy powinni dokonać aktualizacji do tych wersji lub nowszych.
+
+### Obejścia
+
+— Postępuj zgodnie z zaleceniami zawartymi w [Modelu zagrożeń Backstage](https://backstage.io/docs/overview/threat-model#scaffolder), aby ograniczyć dostęp do tworzenia i aktualizowania szablonów
+- Ogranicz, kto może tworzyć i wykonywać szablony szkieletu przy użyciu struktury uprawnień
+- Audyt istniejących szablonów pod kątem użycia dowiązań symbolicznych
+- Uruchom Backstage w środowisku kontenerowym z ograniczonym dostępem do systemu plików
+
+### Referencje
+
+- [CWE-59: Niewłaściwa rozdzielczość łącza przed dostępem do pliku](https://cwe.mitre.org/data/definitions/59.html)
+- [Przechodzenie ścieżki OWASP](https://owasp.org/www-community/attacks/Path_Traversal)</description></item><item><title>CVE-2026-24046</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24046</link><pubDate>Wed, 21 Jan 2026 22:36:30 +0000</pubDate><description>Backstage to otwarty framework do budowy portali deweloperskich.Wiele działań Scaffoldera i narzędzi do wyodrębniania archiwów było podatnych na ataki polegające na przechodzeniu ścieżek opartych na dowiązaniach symbolicznych.Osoba atakująca mająca dostęp do tworzenia i wykonywania szablonów Scaffolder może wykorzystać dowiązania symboliczne do odczytania dowolnych plików za pomocą akcji `debug:log`, tworząc dowiązanie symboliczne wskazujące wrażliwe pliki (np. `/etc/passwd`, pliki konfiguracyjne, sekrety);usuń dowolne pliki za pomocą akcji `fs:delete`, tworząc dowiązania symboliczne wskazujące poza obszarem roboczym i zapisz pliki poza obszarem roboczym poprzez wyodrębnienie archiwum (tar/zip) zawierające złośliwe dowiązania symboliczne.Ma to wpływ na każde wdrożenie Backstage, w którym użytkownicy mogą tworzyć lub wykonywać szablony szkieletu.Ta luka została naprawiona w wersjach `@backstage/backend-defaults` 0.12.2, 0.13.2, 0.14.1 i 0.15.0;`@backstage/plugin-scaffolder-backend` wersje 2.2.2, 3.0.2 i 3.1.1;oraz `@backstage/plugin-scaffolder-node` w wersjach 0.11.2 i 0.12.3.Użytkownicy powinni dokonać aktualizacji do tych wersji lub nowszych.Dostępne są pewne obejścia.Postępuj zgodnie z zaleceniami zawartymi w modelu zagrożeń Backstage, aby ograniczyć dostęp do tworzenia i aktualizowania szablonów, określić, kto może tworzyć i wykonywać szablony Scaffolder przy użyciu struktury uprawnień, kontrolować istniejące szablony pod kątem użycia dowiązań symbolicznych i/lub uruchamiać Backstage w środowisku kontenerowym z ograniczonym dostępem do systemu plików.
+
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2026-23996</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23996</link><pubDate>Wed, 21 Jan 2026 22:29:24 +0000</pubDate><description>FastAPI Api Key zapewnia bibliotekę niezależną od backendu, która zapewnia system kluczy API.Wersja 1.1.0 zawiera lukę w zabezpieczeniach kanału bocznego taktowania w funkcji Verify_Key().W metodzie zastosowano losowe opóźnienie tylko w przypadku niepowodzeń weryfikacji, co umożliwiło atakującemu statystyczne odróżnienie prawidłowych od nieprawidłowych kluczy API poprzez pomiar opóźnień odpowiedzi.Przy wystarczającej liczbie powtarzanych żądań przeciwnik może wywnioskować, czy identyfikator klucza odpowiada prawidłowemu kluczowi, co potencjalnie przyspiesza ataki typu brute-force lub wyliczenie.Dotyczy to wszystkich użytkowników korzystających z funkcji Verify_key() w celu uwierzytelnienia klucza API przed wprowadzeniem poprawki.Aby otrzymać poprawkę, użytkownicy powinni dokonać aktualizacji do wersji 1.1.0.Łatka stosuje jednolite losowe opóźnienie (min_delay do max_delay) do wszystkich odpowiedzi niezależnie od wyniku, eliminując korelację czasową.Dostępne są pewne obejścia.Dodaj stałe opóźnienie na poziomie aplikacji lub losowy jitter do wszystkich odpowiedzi uwierzytelniających (powodzenie i niepowodzenie) przed zastosowaniem poprawki i/lub użyj ograniczenia szybkości, aby zmniejszyć wykonalność ataków statystycznych.
+
+CVSS Score: 3.7 (low)</description></item><item><title>CVE-2026-23996</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23996</link><pubDate>Wed, 21 Jan 2026 22:27:39 +0000</pubDate><description>### Wpływ
+Luka w zabezpieczeniach kanału bocznego synchronizacji w funkcji Verify_Key().W metodzie zastosowano losowe opóźnienie tylko w przypadku niepowodzeń weryfikacji, co umożliwiło atakującemu statystyczne odróżnienie prawidłowych od nieprawidłowych kluczy API poprzez pomiar opóźnień odpowiedzi.Przy wystarczającej liczbie powtarzanych żądań przeciwnik może wywnioskować, czy identyfikator klucza odpowiada prawidłowemu kluczowi, co potencjalnie przyspiesza ataki typu brute-force lub wyliczenie.
+
+Dotknięte: wszyscy użytkownicy polegający na funkcji Verify_key() w celu uwierzytelnienia klucza API przed poprawką.
+
+### Poprawki
+Tak.Użytkownicy powinni dokonać aktualizacji do wersji 1.1.0 (lub wersji zawierającej tę poprawkę).Łatka stosuje jednolite losowe opóźnienie (min_delay do max_delay) do wszystkich odpowiedzi niezależnie od wyniku, eliminując korelację czasową.
+
+### Obejścia
+— Dodaj stałe opóźnienie na poziomie aplikacji lub losowy jitter do wszystkich odpowiedzi uwierzytelniających (powodzenie i niepowodzenie) przed zastosowaniem poprawki.
+- Użyj ograniczenia szybkości, aby zmniejszyć wykonalność ataków statystycznych w czasie.
+
+### Referencje
+- CWE-208: Zauważalna rozbieżność czasowa
+- Zatwierdź: 87b27640f77c5ef86c46311b6b5a7e2887e35b77
+- OWASP: https://owasp.org/www-community/attacks/Timing_attack</description></item><item><title>CVE-2026-23960</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23960</link><pubDate>Wed, 21 Jan 2026 22:00:38 +0000</pubDate><description>### Podsumowanie
 Przechowywany XSS na liście katalogu artefaktów umożliwia każdemu autorowi przepływu pracy wykonanie dowolnego kodu JavaScript w przeglądarce innego użytkownika w ramach serwera Argo Server, umożliwiając działania API z uprawnieniami ofiary.
 
 ### Szczegóły
