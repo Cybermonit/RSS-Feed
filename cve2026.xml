@@ -5,7 +5,9 @@ CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-22276</title>
 
 CVSS Score: 5.5 (medium)</description></item><item><title>CVE-2026-22275</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22275</link><pubDate>Fri, 23 Jan 2026 09:34:34 +0000</pubDate><description>Dell ECS w wersjach od 3.8.1.0 do 3.8.1.7 i Dell ObjectScale w wersjach wcześniejszych niż 4.2.0.0 zawierają lukę w zabezpieczeniach dotyczącą uwzględnienia poufnych informacji w kodzie źródłowym.Osoba atakująca z niskimi uprawnieniami i dostępem lokalnym może potencjalnie wykorzystać tę lukę, prowadząc do ujawnienia informacji.
 
-CVSS Score: 4.4 (medium)</description></item><item><title>CVE-2026-1363</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1363</link><pubDate>Fri, 23 Jan 2026 09:30:29 +0000</pubDate><description>IAQS i I6 opracowane przez JNC posiadają lukę w zabezpieczeniach typu Client-Side Enforcement of Server-Side Security, umożliwiającą nieuwierzytelnionym zdalnym atakującym uzyskanie uprawnień administratora poprzez manipulowanie interfejsem internetowym.</description></item><item><title>CVE-2026-1364</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1364</link><pubDate>Fri, 23 Jan 2026 09:30:29 +0000</pubDate><description>IAQS i I6 opracowane przez JNC mają lukę w zabezpieczeniach brakującego uwierzytelnienia, umożliwiając nieuwierzytelnionym zdalnym atakującym bezpośrednie korzystanie z funkcji administracyjnych systemu.</description></item><item><title>CVE-2026-22271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22271</link><pubDate>Fri, 23 Jan 2026 08:54:16 +0000</pubDate><description>Dell ECS w wersjach od 3.8.1.0 do 3.8.1.7 i Dell ObjectScale w wersjach wcześniejszych niż 4.2.0.0 zawierają lukę w zabezpieczeniach związaną z przesyłaniem poufnych informacji w postaci zwykłego tekstu.Nieuwierzytelniona osoba atakująca posiadająca zdalny dostęp może potencjalnie wykorzystać tę lukę, prowadząc do ujawnienia informacji.
+CVSS Score: 4.4 (medium)</description></item><item><title>CVE-2026-1363</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1363</link><pubDate>Fri, 23 Jan 2026 09:30:29 +0000</pubDate><description>IAQS i I6 opracowane przez JNC posiadają lukę w zabezpieczeniach typu Client-Side Enforcement of Server-Side Security, umożliwiającą nieuwierzytelnionym zdalnym atakującym uzyskanie uprawnień administratora poprzez manipulowanie interfejsem internetowym.</description></item><item><title>CVE-2026-1364</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1364</link><pubDate>Fri, 23 Jan 2026 09:30:29 +0000</pubDate><description>IAQS i I6 opracowane przez JNC mają lukę w zabezpieczeniach brakującego uwierzytelnienia, umożliwiając nieuwierzytelnionym zdalnym atakującym bezpośrednie korzystanie z funkcji administracyjnych systemu.</description></item><item><title>CVE-2026-22274</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22274</link><pubDate>Fri, 23 Jan 2026 09:25:04 +0000</pubDate><description>Dell ECS w wersjach od 3.8.1.0 do 3.8.1.7 i Dell ObjectScale w wersjach wcześniejszych niż 4.2.0.0 zawierają lukę w zabezpieczeniach związaną z przesyłaniem poufnych informacji w postaci zwykłego tekstu w logu Fabric Syslog.Nieuwierzytelniona osoba atakująca posiadająca zdalny dostęp może potencjalnie wykorzystać tę lukę w celu przechwycenia i zmodyfikowania przesyłanych informacji.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-22271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22271</link><pubDate>Fri, 23 Jan 2026 08:54:16 +0000</pubDate><description>Dell ECS w wersjach od 3.8.1.0 do 3.8.1.7 i Dell ObjectScale w wersjach wcześniejszych niż 4.2.0.0 zawierają lukę w zabezpieczeniach związaną z przesyłaniem poufnych informacji w postaci zwykłego tekstu.Nieuwierzytelniona osoba atakująca posiadająca zdalny dostęp może potencjalnie wykorzystać tę lukę, prowadząc do ujawnienia informacji.
 
 CVSS Score: 7.5 (high)</description></item><item><title>CVE-2026-24515</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24515</link><pubDate>Fri, 23 Jan 2026 07:46:36 +0000</pubDate><description>W libexpat przed wersją 2.7.4 XML_ExternalEntityParserCreate nie kopiuje danych użytkownika nieznanego modułu obsługi kodowania.
 
@@ -5569,7 +5571,32 @@ zwracanie -EINVAL w przypadku przekroczenia limitu.
 
 v2: użyj XE_IOCTL_DBG() i usuń zduplikowane sprawdzenie.(Aszutosz)
 
-(wiśnia wybrana z zatwierdzenia e057b2d2b8d815df3858a87dffafa2af37e5945b)</description></item><item><title>CVE-2025-68803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68803</link><pubDate>Tue, 13 Jan 2026 15:29:11 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+(wiśnia wybrana z zatwierdzenia e057b2d2b8d815df3858a87dffafa2af37e5945b)</description></item><item><title>CVE-2025-71074</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71074</link><pubDate>Tue, 13 Jan 2026 15:31:27 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+functionfs: napraw wyścigi otwierania/usuwania
+
+Funkcja ffs_epfile_open() może ścigać się z usuwaniem, kończąc na pliku-&gt;private_data
+wskazując na uwolniony obiekt.
+
+Istnieje całkowita liczba otwartych plików na Functionfs (zarówno ep0, jak i
+dynamiczne), a gdy osiągnie zero, pliki dynamiczne zostaną usunięte.
+Niestety, usunięcie to może nastąpić, gdy działa inny wątek
+w ffs_epfile_open(), ale jeszcze nie zwiększył licznik.
+W takim przypadku otwarcie zakończy się sukcesem, pozostawiając nas z UAF na każdym kolejnym
+czytaj() lub zapisuj().
+
+Główną przyczyną jest niewłaściwe użycie ffs-&gt;opened;atom_dec_and_test() vs.
+atomic_add_return() nie jest dobrym pomysłem, gdy obiekt pozostaje widoczny przez cały czas
+wzdłuż.
+
+Aby to rozwikłać
+* serializuj otwieracze na ffs-&gt;mutex (zarówno dla ep0, jak i plików dynamicznych)
+* mają dynamiczne, używają atomic_inc_not_zero() i kończą się niepowodzeniem, gdybyśmy to zrobili
+zero -&gt;otwarte;w takim przypadku plik, który otwieramy, jest skazany na zagładę.
+* mieć zaznaczone i-węzły plików dynamicznych przy usuwaniu (z pliku
+wywołanie zwrotne simple_recursive_removal()) - wyczyść -&gt;i_private tam.
+* otwórz dynamiczne i sprawdź, czy nie zostały już usunięte,
+wraz ze sprawdzeniem, czy stan to FFS_ACTIVE.</description></item><item><title>CVE-2025-68803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68803</link><pubDate>Tue, 13 Jan 2026 15:29:11 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 NFSD: podczas tworzenia pliku NFSv4 pomijane jest ustawienie listy ACL
 
