@@ -203,7 +203,15 @@ CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-0768</title
 Istnieje specyficzna wada w obsłudze parametru kodu dostarczonego do punktu końcowego sprawdzania poprawności.Problem wynika z braku odpowiedniej walidacji ciągu dostarczonego przez użytkownika przed użyciem go do wykonania kodu Pythona.Osoba atakująca może wykorzystać tę lukę do wykonania kodu w kontekście roota.
 .Był ZDI-CAN-27322.
 
-CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-0795</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0795</link><pubDate>Fri, 23 Jan 2026 03:01:40 +0000</pubDate><description>ALGO 8180 IP Audio Alertter Luka w zabezpieczeniach interfejsu użytkownika umożliwiająca wstrzykiwanie poleceń zdalnego kodu.Luka ta umożliwia zdalnym atakującym wykonanie dowolnego kodu w zagrożonych instalacjach urządzeń ALGO 8180 IP Audio Alerter.Aby wykorzystać tę lukę, wymagane jest uwierzytelnienie.
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-0766</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0766</link><pubDate>Fri, 23 Jan 2026 03:28:35 +0000</pubDate><description>Otwórz interfejs WebUI loading_tool_module_by_id Luka w zabezpieczeniach umożliwiająca zdalne wykonanie kodu polegająca na wstrzykiwaniu polecenia.Ta luka umożliwia zdalnym atakującym wykonanie dowolnego kodu w dotkniętych instalacjach Open WebUI.Aby wykorzystać tę lukę, wymagane jest uwierzytelnienie.
+
+Specyficzna usterka występuje w funkcji loading_tool_module_by_id.Problem wynika z braku odpowiedniej walidacji ciągu dostarczonego przez użytkownika przed użyciem go do wykonania kodu Pythona.Osoba atakująca może wykorzystać tę lukę do wykonania kodu w kontekście konta usługi.Był ZDI-CAN-28257.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-0765</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0765</link><pubDate>Fri, 23 Jan 2026 03:28:32 +0000</pubDate><description>Otwórz WebUI PIP install_frontmatter_requirements Luka w zabezpieczeniach umożliwiająca wstrzykiwanie poleceń i zdalne wykonanie kodu.Ta luka umożliwia zdalnym atakującym wykonanie dowolnego kodu w dotkniętych instalacjach Open WebUI.Aby wykorzystać tę lukę, wymagane jest uwierzytelnienie.
+
+Specyficzna usterka występuje w funkcji install_frontmatter_requirements. Problem wynika z braku właściwej walidacji ciągu dostarczonego przez użytkownika przed użyciem go do wykonania wywołania systemowego.Osoba atakująca może wykorzystać tę lukę do wykonania kodu w kontekście konta usługi.Był ZDI-CAN-28258.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-0795</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0795</link><pubDate>Fri, 23 Jan 2026 03:01:40 +0000</pubDate><description>ALGO 8180 IP Audio Alertter Luka w zabezpieczeniach interfejsu użytkownika umożliwiająca wstrzykiwanie poleceń zdalnego kodu.Luka ta umożliwia zdalnym atakującym wykonanie dowolnego kodu w zagrożonych instalacjach urządzeń ALGO 8180 IP Audio Alerter.Aby wykorzystać tę lukę, wymagane jest uwierzytelnienie.
 
 Ta specyficzna usterka występuje w internetowym interfejsie użytkownika.Problem wynika z braku właściwej weryfikacji ciągu dostarczonego przez użytkownika przed użyciem go do wykonania wywołania systemowego.Osoba atakująca może wykorzystać tę lukę do wykonania kodu w kontekście urządzenia.Był ZDI-CAN-28321.
 
