@@ -1,5 +1,747 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2020-36937</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-36937</link><pubDate>Sun, 25 Jan 2026 14:01:18 +0000</pubDate><description>Microvirt MEMU Play 3.7.0 zawiera niecytowaną lukę w ścieżce usługi w usłudze MEmusvc Windows, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną w celu wstrzyknięcia złośliwych plików wykonywalnych, które będą uruchamiane z podwyższonymi uprawnieniami systemu lokalnego.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23013</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23013</link><pubDate>Sun, 25 Jan 2026 14:36:26 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: octeon_ep_vf: napraw niezgodność free_irq dev_id w wycofywaniu przerwań
+
+octep_vf_request_irqs() żąda przerwań kolejki MSI-X z dev_id ustawionym na
+ioq_wektor.Jeśli request_irq() zakończy się niepowodzeniem, wywołana zostanie pętla wycofania
+free_irq() z dev_id ustawionym na 'oct', co nie jest zgodne z oryginałem
+dev_id i może pozostawić zarejestrowaną akcję.
+
+Może to utrzymać procedury obsługi IRQ przy życiu, podczas gdy ioq_vector zostanie później zwolniony
+odprężenie/porzucenie, co prowadzi do użycia po zwolnieniu lub awarii w przypadku przerwania
+pożary.
+
+Napraw ścieżkę błędu, aby zwolnić przerwania IRQ przy użyciu tego samego ioq_vector dev_id
+podczas żądania_irq().</description></item><item><title>CVE-2026-23012</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23012</link><pubDate>Sun, 25 Jan 2026 14:36:25 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+mm/damon/core: usuń call_control w nieaktywnych kontekstach
+
+Jeśli funkcja damon_call() zostanie wykonana w kontekście DAMON, który nie jest uruchomiony,
+funkcja zwraca błąd podczas zachowywania obiektu damon_call_control
+połączony z listą call_controls kontekstu.Załóżmy, że obiekt jest
+zwalniane po damon_call(), a jeszcze inna funkcja damon_call() jest
+wykonane w tym samym kontekście.Funkcja próbuje dodać nowy
+damon_call_control do listy call_controls, która nadal zawiera
+wskaźnik do poprzedniego obiektu damon_call_control, który został zwolniony.
+W rezultacie ma miejsce użycie po darmowym.
+
+Można to faktycznie uruchomić za pomocą interfejsu DAMON sysfs.Tak nie jest
+łatwo wykorzystać, ponieważ wymaga uprawnień do zapisu i tworzenia sysfs
+jednak zapisuje zdecydowanie dziwny plik.Proszę zapoznać się z raportem pt
+więcej szczegółów na temat etapów odtwarzania wydania.
+
+Napraw problem, wprowadzając dwie zmiany.Po pierwsze, przesuń finał
+kdamond_call() do anulowania wszystkich istniejących żądań damon_call() od
+zakończenie kontekstu DAMON, które należy wykonać przed resetem ctx-&gt;kdamond.To
+sprawia, że każdy kod, który widzi NULL ctx-&gt;kdamond, może bezpiecznie przyjąć kontekst
+mogą już nie uzyskać dostępu do żądań damon_call().Po drugie, pozwól damon_call()
+aby oczyścić obiekty damon_call_control, które zostały dodane do pliku
+już zakończony kontekst DAMON, przed zwróceniem błędu.</description></item><item><title>CVE-2026-23011</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23011</link><pubDate>Sun, 25 Jan 2026 14:36:24 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ipv4: ip_gre: spraw, aby ipgre_header() była solidna
+
+Analogicznie do zatwierdzenia db5b4e39c4e6 („ip6_gre: spraw, aby ip6gre_header() był solidny”)
+
+Przez lata syzbot znalazł wiele sposobów na awarię jądra
+w ipgre_header() [1].
+
+Obejmuje to zdolność kierowców zespołowych lub łączących się do dynamiki
+zmień ich dev-&gt;needed_headroom i/lub dev-&gt;hard_header_len
+
+W tym konkretnym wypadku mld_newpack() przydzielił skb
+ze zbyt małą rezerwą/zapasem i do czasu miliard_sendpack()
+został wywołany, syzbotowi udało się podłączyć urządzenie ipgre.
+
+[1]
+skbuff: skb_under_panic: tekst:ffffffff89ea3cb7 len:2030915468 put:2030915372 head:ffff888058b43000 dane:ffff887fdfa6e194 ogon:0x120 koniec:0x6c0 dev:team0
+BŁĄD jądra w net/core/skbuff.c:213!
+Ups: nieprawidłowy kod operacji: 0000 [#1] SMP KASAN PTI
+Procesor: 1 UID: 0 PID: 1322 Comm: kworker/1:9 Nieskażony syzkaller #0 PREEMPT (pełny)
+Nazwa sprzętu: Google Google Compute Engine/Google Compute Engine, BIOS Google 25.10.2025
+Kolejka robocza: miliard miliard_ifc_work
+RIP: 0010:skb_panic+0x157/0x160 net/core/skbuff.c:213
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+skb_under_panic net/core/skbuff.c:223 [w linii]
+skb_push+0xc3/0xe0 net/core/skbuff.c:2641
+ipgre_header+0x67/0x290 net/ipv4/ip_gre.c:897
+dev_hard_header include/linux/netdevice.h:3436 [inline]
+neigh_connected_output+0x286/0x460 net/core/neighbour.c:1618
+NF_HOOK_COND include/linux/netfilter.h:307 [wbudowane]
+ip6_output+0x340/0x550 net/ipv6/ip6_output.c:247
+NF_HOOK+0x9e/0x380 include/linux/netfilter.h:318
+miliard_sendpack+0x8d4/0xe60 net/ipv6/mcast.c:1855
+miliard_send_cr net/ipv6/mcast.c:2154 [inline]
+miliard_ifc_work+0x83e/0xd60 net/ipv6/mcast.c:2693
+Process_one_work kernel/workqueue.c:3257 [inline]
+proces_scheduled_works+0xad1/0x1770 jądro/workqueue.c:3340
+wątek_pracownika+0x8a0/0xda0 jądro/workqueue.c:3421
+kthread+0x711/0x8a0 jądro/kthread.c:463
+ret_from_fork+0x510/0xa50 arch/x86/kernel/process.c:158
+ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:246</description></item><item><title>CVE-2026-23010</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23010</link><pubDate>Sun, 25 Jan 2026 14:36:23 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ipv6: Napraw opcję użycia po zwolnieniu w inet6_addr_del().
+
+syzbot zgłosił użycie po zwolnieniu inet6_ifaddr w
+inet6_addr_del().[0]
+
+Cytowane zatwierdzenie przypadkowo przeniosło ipv6_del_addr() dla
+mngtmpaddr przed tymczasowym odczytaniem flag ifp-&gt;
+adresy w inet6_addr_del().
+
+Przesuńmy ipv6_del_addr() w dół, aby naprawić UAF.
+
+[0]:
+BŁĄD: KASAN: użycie płyty po zwolnieniu w inet6_addr_del.constprop.0+0x67a/0x6b0 net/ipv6/addrconf.c:3117
+Odczytaj rozmiar 4 pod adresem ffff88807b89c86c za pomocą zadania syz.3.1618/9593
+
+Procesor: 0 UID: 0 PID: 9593 Comm: syz.3.1618 Nieskażony syzkaller #0 PREEMPT (pełny)
+Nazwa sprzętu: Google Google Compute Engine/Google Compute Engine, BIOS Google 25.10.2025
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+__dump_stack lib/dump_stack.c:94 [w linii]
+dump_stack_lvl+0x116/0x1f0 lib/dump_stack.c:120
+print_address_description mm/kasan/report.c:378 [inline]
+print_report+0xcd/0x630 mm/kasan/report.c:482
+kasan_report+0xe0/0x110 mm/kasan/report.c:595
+inet6_addr_del.constprop.0+0x67a/0x6b0 net/ipv6/addrconf.c:3117
+addrconf_del_ifaddr+0x11e/0x190 net/ipv6/addrconf.c:3181
+inet6_ioctl+0x1e5/0x2b0 net/ipv6/af_inet6.c:582
+skarpetka_do_ioctl+0x118/0x280 net/socket.c:1254
+skarpetka_ioctl+0x227/0x6b0 net/socket.c:1375
+vfs_ioctl fs/ioctl.c:51 [w linii]
+__do_sys_ioctl fs/ioctl.c:597 [w linii]
+__se_sys_ioctl fs/ioctl.c:583 [w linii]
+__x64_sys_ioctl+0x18e/0x210 fs/ioctl.c:583
+do_syscall_x64 arch/x86/entry/syscall_64.c:63 [wbudowane]
+do_syscall_64+0xcd/0xf80 arch/x86/entry/syscall_64.c:94
+wpis_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f164cf8f749
+Kod: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f05 &lt;48&gt; 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f164de64038 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007f164d1e5fa0 RCX: 00007f164cf8f749
+RDX: 0000200000000000 RSI: 0000000000008936 RDI: 0000000000000003
+RBP: 00007f164d013f91 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f164d1e6038 R14: 00007f164d1e5fa0 R15: 00007ffde15c8288
+&lt;/ZADANIE&gt;
+
+Przydzielone przez zadanie 9593:
+kasan_save_stack+0x33/0x60 mm/kasan/common.c:56
+kasan_save_track+0x14/0x30 mm/kasan/common.c:77
+trucizna_kmalloc_redzone mm/kasan/common.c:397 [w linii]
+__kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:414
+kmalloc_noprof include/linux/slab.h:957 [w linii]
+kzalloc_noprof include/linux/slab.h:1094 [w linii]
+ipv6_add_addr+0x4e3/0x2010 net/ipv6/addrconf.c:1120
+inet6_addr_add+0x256/0x9b0 net/ipv6/addrconf.c:3050
+addrconf_add_ifaddr+0x1fc/0x450 net/ipv6/addrconf.c:3160
+inet6_ioctl+0x103/0x2b0 net/ipv6/af_inet6.c:580
+skarpetka_do_ioctl+0x118/0x280 net/socket.c:1254
+skarpetka_ioctl+0x227/0x6b0 net/socket.c:1375
+vfs_ioctl fs/ioctl.c:51 [w linii]
+__do_sys_ioctl fs/ioctl.c:597 [w linii]
+__se_sys_ioctl fs/ioctl.c:583 [w linii]
+__x64_sys_ioctl+0x18e/0x210 fs/ioctl.c:583
+do_syscall_x64 arch/x86/entry/syscall_64.c:63 [wbudowane]
+do_syscall_64+0xcd/0xf80 arch/x86/entry/syscall_64.c:94
+wpis_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Uwolniony przez zadanie 6099:
+kasan_save_stack+0x33/0x60 mm/kasan/common.c:56
+kasan_save_track+0x14/0x30 mm/kasan/common.c:77
+kasan_save_free_info+0x3b/0x60 mm/kasan/generic.c:584
+trujący_slab_object mm/kasan/common.c:252 [w linii]
+__kasan_slab_free+0x5f/0x80 mm/kasan/common.c:284
+kasan_slab_free include/linux/kasan.h:234 [w linii]
+płyta_free_hook mm/slub.c:2540 [w linii]
+płyta_free_freelist_hook mm/slub.c:2569 [w linii]
+płyta_free_bulk mm/slub.c:6696 [w linii]
+kmem_cache_free_bulk mm/slub.c:7383 [w linii]
+kmem_cache_free_bulk+0x2bf/0x680 mm/slub.c:7362
+kfree_bulk include/linux/slab.h:830 [w linii]
+kvfree_rcu_bulk+0x1b7/0x1e0 mm/slab_common.c:1523
+kvfree_rcu_drain_ready mm/slab_common.c:1728 [inline]
+kfree_rcu_monitor+0x1d0/0x2f0 mm/slab_common.c:1801
+proces_one_work+0x9ba/0x1b20 jądro/workqueue.c:3257
+Process_scheduled_works jądro/workqu
+---obcięty---</description></item><item><title>CVE-2026-23009</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23009</link><pubDate>Sun, 25 Jan 2026 14:36:22 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+xhci: wstęga boczna: nie usuwaj odwołania do uwolnionego pierścienia podczas usuwania punktu końcowego wstęgi bocznej
+
+Funkcja xhci_sideband_remove_endpoint() błędnie zakłada, że punktem końcowym jest
+działa i ma ważny pierścień transferowy.
+
+Lianqin zgłosił awarię podczas testów obciążeniowych w trybie zawieszenia/wybudzenia i
+odkrył, że przyczyną jest wyłuskanie nieistniejącego pierścienia transferowego
+„ep-&gt;ring” podczas xhci_sideband_remove_endpoint().
+
+W przypadku tej funkcji punkt końcowy i jego pierścień mogą być w nieznanym stanie
+jest wywoływane po ponownym zainicjowaniu xHCI w trybie wznowienia (utrata zasilania) lub if
+urządzenie jest ponownie wyliczane, odłączone lub punkt końcowy został już usunięty.
+
+Napraw to, usuwając niepotrzebny dostęp do pierścienia i sprawdzając
+ep-&gt;ring istnieje przed wyłuskaniem go.Upewnij się również, że punkt końcowy to
+działa, zanim spróbujesz go zatrzymać.
+
+Usuń wywołanie xhci_initialize_ring_info() podczas punktu końcowego pasma bocznego
+usunięcie, ponieważ inicjuje jedynie umieszczanie w kolejce, usuwanie i usuwanie struktury pierścieniowej
+wartości stanu cyklu do wartości początkowych bez zmiany wartości rzeczywistych
+sprzętowe umieszczanie w kolejce, usuwanie z kolejki i stan cyklu.Pozostawiając je niezsynchronizowane
+jest gorsze niż pozostawienie tego tak, jak jest.Punkt końcowy zostanie zwolniony później
+to w większości przypadków użycia.
+
+Jeśli sterownik klasy (audio) chce ponownie użyć punktu końcowego po odciążeniu
+wówczas zadaniem sterownika klasy jest upewnienie się, że punkt końcowy jest prawidłowo skonfigurowany.</description></item><item><title>CVE-2026-23008</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23008</link><pubDate>Sun, 25 Jan 2026 14:36:21 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/vmwgfx: Napraw KMS za pomocą 3D na sprzęcie w wersji 10
+
+Wersja sprzętowa 10 nie ma powierzchni GB, więc nie ma dla niej bufora zapasowego
+FB z podłożem powierzchniowym.Spowodowałoby to wyłuskanie wartości nullptr i awarię
+sterownik powodujący czarny ekran.</description></item><item><title>CVE-2026-23007</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23007</link><pubDate>Sun, 25 Jan 2026 14:36:20 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+blok: zerowa część bufora automatycznej integralności niebędąca PI
+
+Automatycznie generowany bufor integralności dla zapisów musi być pełny
+inicjowany przed przekazaniem do bazowego urządzenia blokowego,
+w przeciwnym razie niezainicjowana pamięć może zostać odczytana przez przestrzeń użytkownika lub
+każdego, kto ma fizyczny dostęp do urządzenia pamięci masowej.Jeśli ochrona
+generowana jest informacja, ta część bufora integralności
+już zainicjowany.Dane dotyczące integralności są również zerowane w przypadku generowania PI
+jest wyłączony przez sysfs lub rozmiar krotki PI wynosi 0. Jednak to nie występuje
+przypadek, w którym generowany jest PI, a rozmiar krotki PI jest różny od zera, ale
+Rozmiar metadanych jest większy niż krotka PI.W tym przypadku reszta
+(„nieprzezroczysty”) metadanych pozostaje niezainicjowany.
+Uogólnij kontrolę BLK_INTEGRITY_CSUM_NONE, aby uwzględnić każdy przypadek, gdy
+metadane są większe niż tylko krotka PI.</description></item><item><title>CVE-2026-23006</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23006</link><pubDate>Sun, 25 Jan 2026 14:36:19 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ASoC: tlv320adcx140: napraw wskaźnik zerowy
+
+Komponent „snd_soc_component” w „adcx140_priv” został użyty tylko raz, ale nigdy
+zestaw.Został użyty tylko do dotarcia do „dev”, który jest już obecny w
+„adcx140_priv”.</description></item><item><title>CVE-2026-23005</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23005</link><pubDate>Sun, 25 Jan 2026 14:36:19 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+x86/fpu: Wyczyść XSTATE_BV[i] w stanie gościa XSAVE, gdy XFD[i]=1
+
+Podczas ładowania stanu XSAVE gościa poprzez KVM_SET_XSAVE i podczas aktualizacji XFD w
+odpowiedź na gościnny WRMSR, wyczyść funkcje wyłączone XFD w zapisanym (lub do
+zostać przywrócony) XSTATE_BV, aby upewnić się, że KVM nie będzie próbował załadować stanu
+funkcje, które są wyłączone poprzez XFD gościa.Ponieważ jądro
+wykonuje XRSTOR z XFD gościa, zapisując XSTATE_BV[i]=1 z XFD[i]=1
+spowoduje, że XRSTOR przejdzie do #NM i wywoła panikę w jądrze.
+
+Np.jeśli fpu_update_guest_xfd() ustawia XFD bez czyszczenia XSTATE_BV:
+
+------------[przetnij tutaj ]------------
+OSTRZEŻENIE: arch/x86/kernel/traps.c:1524 w exc_device_not_available+0x101/0x110, CPU#29: amx_test/848
+Moduły połączone w: kvm_intel kvm irqbypass
+Procesor: 29 UID: 1000 PID: 848 Comm: amx_test Nieskażony 6.19.0-rc2-ffa07f7fd437-x86_amx_nm_xfd_non_init-vm #171 NONE
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02.06.2015
+RIP: 0010:exc_device_not_available+0x101/0x110
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+asm_exc_device_not_available+0x1a/0x20
+RIP: 0010:restore_fpregs_from_fpstate+0x36/0x90
+switch_fpu_return+0x4a/0xb0
+kvm_arch_vcpu_ioctl_run+0x1245/0x1e40 [kvm]
+kvm_vcpu_ioctl+0x2c3/0x8f0 [kvm]
+__x64_sys_ioctl+0x8f/0xd0
+do_syscall_64+0x62/0x940
+wpis_SYSCALL_64_after_hwframe+0x4b/0x53
+&lt;/ZADANIE&gt;
+---[koniec śladu 0000000000000000 ]---
+
+Może się to zdarzyć, jeśli gość wykona WRMSR(MSR_IA32_XFD), aby ustawić XFD[18] = 1,
+a przerwanie hosta wyzwala kernel_fpu_begin() przed procedurą obsługi vmexit
+wywołaj fpu_update_guest_xfd().
+
+i jeśli przestrzeń użytkownika wypełnia XSTATE_BV[i]=1 poprzez KVM_SET_XSAVE:
+
+------------[przetnij tutaj ]------------
+OSTRZEŻENIE: arch/x86/kernel/traps.c:1524 w exc_device_not_available+0x101/0x110, CPU#14: amx_test/867
+Moduły połączone w: kvm_intel kvm irqbypass
+Procesor: 14 UID: 1000 PID: 867 Comm: amx_test Nieskażony 6.19.0-rc2-2dace9faccd6-x86_amx_nm_xfd_non_init-vm #168 NONE
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02.06.2015
+RIP: 0010:exc_device_not_available+0x101/0x110
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+asm_exc_device_not_available+0x1a/0x20
+RIP: 0010:restore_fpregs_from_fpstate+0x36/0x90
+fpu_swap_kvm_fpstate+0x6b/0x120
+kvm_load_guest_fpu+0x30/0x80 [kvm]
+kvm_arch_vcpu_ioctl_run+0x85/0x1e40 [kvm]
+kvm_vcpu_ioctl+0x2c3/0x8f0 [kvm]
+__x64_sys_ioctl+0x8f/0xd0
+do_syscall_64+0x62/0x940
+wpis_SYSCALL_64_after_hwframe+0x4b/0x53
+&lt;/ZADANIE&gt;
+---[koniec śladu 0000000000000000 ]---
+
+Nowe zachowanie jest spójne z architekturą AMX.Według SDM firmy Intel,
+XSAVE zapisuje XSTATE_BV jako „0” dla komponentów, które są wyłączone przez XFD
+(a nieskompresowany XSAVE zapisuje początkową konfigurację stanu
+składnik):
+
+Jeśli XSAVE, XSAVEC, XSAVEOPT lub XSAVES zapisują komponent stanu i,
+instrukcja nie generuje #NM gdy XCR0[i] = IA32_XFD[i] = 1;
+zamiast tego działa tak, jakby XINUSE[i] = 0 (a składnikiem stanu było
+w stanie początkowym): zapisuje bit i pola XSTATE_BV pliku XSAVE
+nagłówek jako 0;dodatkowo XSAVE zapisuje początkową konfigurację pliku
+komponent stanu (pozostałe instrukcje nie zapisują komponentu stanu i).
+
+Alternatywnie KVM może zawsze wykonać XRSTOR z XFD=0, np.używając
+stały XFD oparty na zestawie włączonych funkcji podczas XSAVE dla
+struktura fpu_guest.Jednak posiadanie XSTATE_BV[i]=1 dla wyłączonego XFD
+funkcje mogą wystąpić tylko w powyższym przypadku przerwania lub podobnym
+scenariusze obejmujące wywłaszczanie jąder z możliwością wywłaszczania, ponieważ
+Wywołanie fpu_swap_kvm_fpstate() funkcji save_fpregs_to_fpstate() zapisuje
+wychodzący stan FPU z bieżącym XFD;i to jest (na wszystkich oprócz
+pierwszy WRMSR do XFD) gościa XFD.
+
+Dlatego XFD może stracić synchronizację tylko z XSTATE_BV w powyższym
+przypadku przerwania lub w podobnych scenariuszach obejmujących wywłaszczanie
+jądra z możliwością wywłaszczania i możemy je uznać (de facto) za część KVM
+ABI, który KVM_GET_XSAVE zwraca XSTATE_BV[i]=0 dla funkcji z wyłączonym XFD.
+
+[Przesuń się
+---obcięty---</description></item><item><title>CVE-2026-23004</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23004</link><pubDate>Sun, 25 Jan 2026 14:36:18 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dst: napraw wyścigi w rt6_uncached_list_del() i rt_del_uncached_list()
+
+syzbot był w stanie zawiesić jądro w rt6_uncached_list_flush_dev()
+w ciekawy sposób [1]
+
+Podczas pisania następuje awaria funkcji list_del_init()/INIT_LIST_HEAD().
+list-&gt;prev, podczas gdy poprzedni zapis na liście-&gt;next poszedł dobrze.
+
+statyczna inline void INIT_LIST_HEAD(struct list_head *list)
+{
+WRITE_ONCE(lista-&gt;następna, lista);// Poszło dobrze
+WRITE_ONCE(lista-&gt;poprzednia, lista);// Awaria, @list została zwolniona.
+}
+
+Problem polega na tym, że rt6_uncached_list_del() nie próbowała zablokować
+ul-&gt;lock, ponieważ zwrócono list_empty(&amp;rt-&gt;dst.rt_uncached).
+true, ponieważ WRITE_ONCE(list-&gt;next, list) miało miejsce na drugim procesorze.
+
+Możemy użyć list_del_init_careful() i list_empty_careful(),
+lub upewnij się, że rt6_uncached_list_del() zawsze chwyta blokadę
+za każdym razem, gdy ustawiono rt-&gt;dst.rt_uncached_list.
+
+Podobna poprawka jest potrzebna dla protokołu IPv4.
+
+[1]
+
+BŁĄD: KASAN: użycie płyty po zwolnieniu w INIT_LIST_HEAD include/linux/list.h:46 [inline]
+BŁĄD: KASAN: użycie płyty po zwolnieniu w list_del_init include/linux/list.h:296 [inline]
+BŁĄD: KASAN: użycie płyty po zwolnieniu w rt6_uncached_list_flush_dev net/ipv6/route.c:191 [inline]
+BŁĄD: KASAN: użycie płyty po zwolnieniu w rt6_disable_ip+0x633/0x730 net/ipv6/route.c:5020
+Zapisz rozmiar 8 pod adresem ffff8880294cfa78 za pomocą zadania kworker/u8:14/3450
+
+Procesor: 0 UID: 0 PID: 3450 Comm: kworker/u8:14 Tainted: G L syzkaller #0 PREEMPT_{RT,(full)}
+Skażony: [L]=SOFTLOCKUP
+Nazwa sprzętu: Google Google Compute Engine/Google Compute Engine, BIOS Google 25.10.2025
+Kolejka robocza: netns cleanup_net
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
+print_address_description mm/kasan/report.c:378 [inline]
+print_report+0xca/0x240 mm/kasan/report.c:482
+kasan_report+0x118/0x150 mm/kasan/report.c:595
+INIT_LIST_HEAD include/linux/list.h:46 [w linii]
+list_del_init include/linux/list.h:296 [w linii]
+rt6_uncached_list_flush_dev net/ipv6/route.c:191 [wbudowane]
+rt6_disable_ip+0x633/0x730 net/ipv6/route.c:5020
+addrconf_ifdown+0x143/0x18a0 net/ipv6/addrconf.c:3853
+addrconf_notify+0x1bc/0x1050 net/ipv6/addrconf.c:-1
+notifier_call_chain+0x19d/0x3a0 jądro/notifier.c:85
+call_netdevice_notifiers_extack net/core/dev.c:2268 [inline]
+call_netdevice_notifiers net/core/dev.c:2282 [wbudowane]
+netif_close_many+0x29c/0x410 net/core/dev.c:1785
+wyrejestruj_netdevice_many_notify+0xb50/0x2330 net/core/dev.c:12353
+ops_exit_rtnl_list net/core/net_namespace.c:187 [inline]
+ops_undo_list+0x3dc/0x990 net/core/net_namespace.c:248
+cleanup_net+0x4de/0x7b0 net/core/net_namespace.c:696
+Process_one_work kernel/workqueue.c:3257 [inline]
+proces_scheduled_works+0xad1/0x1770 jądro/workqueue.c:3340
+wątek_pracownika+0x8a0/0xda0 jądro/workqueue.c:3421
+kthread+0x711/0x8a0 jądro/kthread.c:463
+ret_from_fork+0x510/0xa50 arch/x86/kernel/process.c:158
+ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:246
+&lt;/ZADANIE&gt;
+
+Przydzielone przez zadanie 803:
+kasan_save_stack mm/kasan/common.c:57 [w linii]
+kasan_save_track+0x3e/0x80 mm/kasan/common.c:78
+unpoison_slab_object mm/kasan/common.c:340 [w linii]
+__kasan_slab_alloc+0x6c/0x80 mm/kasan/common.c:366
+kasan_slab_alloc include/linux/kasan.h:253 [w linii]
+płyta_post_alloc_hook mm/slub.c:4953 [w linii]
+płyta_alloc_node mm/slub.c:5263 [w linii]
+kmem_cache_alloc_noprof+0x18d/0x6c0 mm/slub.c:5270
+dst_alloc+0x105/0x170 net/core/dst.c:89
+ip6_dst_alloc net/ipv6/route.c:342 [wbudowane]
+icmp6_dst_alloc+0x75/0x460 net/ipv6/route.c:3333
+miliard_sendpack+0x683/0xe60 net/ipv6/mcast.c:1844
+miliard_send_cr net/ipv6/mcast.c:2154 [inline]
+miliard_ifc_work+0x83e/0xd60 net/ipv6/mcast.c:2693
+Process_one_work kernel/workqueue.c:3257 [inline]
+proces_scheduled_works+0xad1/0x1770 jądro/workqueue.c:3340
+wątek_pracownika+0x8a0/0xda0 jądro/workqueue.c:3421
+kthread+0x711/0x8a0 jądro/kthread.c:463
+ret_from_fork+0x510/0xa50 arch/x86/kernel/process.c:158
+ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entr
+---obcięty---</description></item><item><title>CVE-2026-23003</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23003</link><pubDate>Sun, 25 Jan 2026 14:36:17 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ip6_tunnel: użyj skb_vlan_inet_prepare() w __ip6_tnl_rcv()
+
+Obwiniane zatwierdzenie nie zadbało o enkapsulację VLAN
+jak zauważył syzbot [1].
+
+Użyj skb_vlan_inet_prepare() zamiast pskb_inet_may_pull().
+
+[1]
+BŁĄD: KMSAN: wartość uninit w __INET_ECN_decapsulate include/net/inet_ecn.h:253 [inline]
+BŁĄD: KMSAN: wartość uninit w INET_ECN_decapsulate include/net/inet_ecn.h:275 [inline]
+BŁĄD: KMSAN: wartość uninit w IP6_ECN_decapsulate+0x7a8/0x1fa0 include/net/inet_ecn.h:321
+__INET_ECN_decapsulate include/net/inet_ecn.h:253 [w linii]
+INET_ECN_decapsulate include/net/inet_ecn.h:275 [inline]
+IP6_ECN_decapsulate+0x7a8/0x1fa0 include/net/inet_ecn.h:321
+ip6ip6_dscp_ecn_decapsulate+0x16f/0x1b0 net/ipv6/ip6_tunnel.c:729
+__ip6_tnl_rcv+0xed9/0x1b50 net/ipv6/ip6_tunnel.c:860
+ip6_tnl_rcv+0xc3/0x100 net/ipv6/ip6_tunnel.c:903
+gre_rcv+0x1529/0x1b90 net/ipv6/ip6_gre.c:-1
+ip6_protocol_deliver_rcu+0x1c89/0x2c60 net/ipv6/ip6_input.c:438
+ip6_input_finish+0x1f4/0x4a0 net/ipv6/ip6_input.c:489
+NF_HOOK include/linux/netfilter.h:318 [wbudowany]
+ip6_input+0x9c/0x330 net/ipv6/ip6_input.c:500
+ip6_mc_input+0x7ca/0xc10 net/ipv6/ip6_input.c:590
+dst_input include/net/dst.h:474 [wbudowane]
+ip6_rcv_finish+0x958/0x990 net/ipv6/ip6_input.c:79
+NF_HOOK include/linux/netfilter.h:318 [wbudowany]
+ipv6_rcv+0xf1/0x3c0 net/ipv6/ip6_input.c:311
+__netif_receive_skb_one_core net/core/dev.c:6139 [wbudowane]
+__netif_receive_skb+0x1df/0xac0 net/core/dev.c:6252
+netif_receive_skb_internal net/core/dev.c:6338 [inline]
+netif_receive_skb+0x57/0x630 net/core/dev.c:6397
+tun_rx_batched+0x1df/0x980 sterowniki/net/tun.c:1485
+tun_get_user+0x5c0e/0x6c60 sterowniki/net/tun.c:1953
+tun_chr_write_iter+0x3e9/0x5c0 sterowniki/net/tun.c:1999
+new_sync_write fs/read_write.c:593 [w wierszu]
+vfs_write+0xbe2/0x15d0 fs/read_write.c:686
+ksys_write fs/read_write.c:738 [w linii]
+__do_sys_write fs/read_write.c:749 [w wierszu]
+__se_sys_write fs/read_write.c:746 [w wierszu]
+__x64_sys_write+0x1fb/0x4d0 fs/read_write.c:746
+x64_sys_call+0x30ab/0x3e70 arch/x86/include/generated/asm/syscalls_64.h:2
+do_syscall_x64 arch/x86/entry/syscall_64.c:63 [wbudowane]
+do_syscall_64+0xd3/0xf80 arch/x86/entry/syscall_64.c:94
+wpis_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Uninit powstał pod adresem:
+płyta_post_alloc_hook mm/slub.c:4960 [w linii]
+płyta_alloc_node mm/slub.c:5263 [w linii]
+kmem_cache_alloc_node_noprof+0x9e7/0x17a0 mm/slub.c:5315
+kmalloc_reserve+0x13c/0x4b0 net/core/skbuff.c:586
+__alloc_skb+0x805/0x1040 net/core/skbuff.c:690
+alloc_skb include/linux/skbuff.h:1383 [w linii]
+alloc_skb_with_frags+0xc5/0xa60 net/core/skbuff.c:6712
+sock_alloc_send_pskb+0xacc/0xc60 net/core/sock.c:2995
+tun_alloc_skb sterowniki/net/tun.c:1461 [wbudowane]
+tun_get_user+0x1142/0x6c60 sterowniki/net/tun.c:1794
+tun_chr_write_iter+0x3e9/0x5c0 sterowniki/net/tun.c:1999
+new_sync_write fs/read_write.c:593 [w wierszu]
+vfs_write+0xbe2/0x15d0 fs/read_write.c:686
+ksys_write fs/read_write.c:738 [w linii]
+__do_sys_write fs/read_write.c:749 [w wierszu]
+__se_sys_write fs/read_write.c:746 [w wierszu]
+__x64_sys_write+0x1fb/0x4d0 fs/read_write.c:746
+x64_sys_call+0x30ab/0x3e70 arch/x86/include/generated/asm/syscalls_64.h:2
+do_syscall_x64 arch/x86/entry/syscall_64.c:63 [wbudowane]
+do_syscall_64+0xd3/0xf80 arch/x86/entry/syscall_64.c:94
+wpis_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Procesor: 0 UID: 0 PID: 6465 Comm: syz.0.17 Nieskażony syzkaller #0 PREEMPT(brak)
+Nazwa sprzętu: Google Google Compute Engine/Google Compute Engine, BIOS Google 25.10.2025</description></item><item><title>CVE-2026-23002</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23002</link><pubDate>Sun, 25 Jan 2026 14:36:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+lib/buildid: użyj __kernel_read() dla kontekstu umożliwiającego spanie
+
+Zapobiegaj wystąpieniu błędu „BŁĄD: nie można obsłużyć wyłuskiwania wskaźnika NULL jądra w
+mapa_pliku_czytaj_folio".
+
+W kontekście umożliwiającym spanie przekonwertuj freadera, aby zamiast tego używał __kernel_read().
+bezpośredniego dostępu do pamięci podręcznej stron poprzez read_cache_folio().Upraszcza to
+ścieżkę do wadliwego kodu przy użyciu standardowego interfejsu odczytu plików jądra
+który obsługuje całą złożoność odczytu danych z plików.
+
+W tej chwili nie zmieniamy kodu dla kontekstu, w którym nie można spać
+używa filemap_get_folio() i kończy się sukcesem tylko wtedy, gdy folia docelowe są takie
+już w pamięci i aktualne.Powodem jest prostota łatki
+i łatwiejszy powrót do stabilnych jąder.
+
+Syzbot repro nie powoduje już awarii jądra i uruchamiają się autotesty
+pomyślnie.
+
+W dalszej części sprawimy, że __kernel_read() z IOCB_NOWAIT będzie działać
+konteksty, w których nie można spać.Dodatkowo chciałbym wymienić
+sprawdzanie sekretnego mema przy użyciu bardziej ogólnego podejścia i doda fstest dla
+kod kompilacji.</description></item><item><title>CVE-2026-23001</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23001</link><pubDate>Sun, 25 Jan 2026 14:36:15 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+macvlan: napraw możliwy UAF w macvlan_forward_source()
+
+Dodaj ochronę RCU na (struct macvlan_source_entry)-&gt;vlan.
+
+Ilekroć wywoływana jest funkcja macvlan_hash_del_source(), musimy wyczyścić
+wpis-&gt;wskaźnik vlanu przed rozpoczęciem okresu karencji RCU.
+
+Umożliwia to pominięcie funkcji macvlan_forward_source().
+wpisy oczekujące w kolejce do zwolnienia.
+
+Należy pamiętać, że macvlan_dev są już chronione RCU, ponieważ
+są osadzone w standardowym Netdev (netdev_priv(ndev)).
+
+https: //lore.kernel.org/netdev/695fb1e8.050a0220.1c677c.039f.GAE@google.com/T/#u</description></item><item><title>CVE-2026-23000</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23000</link><pubDate>Sun, 25 Jan 2026 14:36:14 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net/mlx5e: Napraw awarię w przypadku niepowodzenia przywracania zmiany profilu
+
+mlx5e_netdev_change_profile może nie dołączyć nowego profilu i może
+nie przywrócimy starego profilu, w takim przypadku możemy otrzymać komunikat o błędzie
+wiszące netdev z całkowicie zresetowanym netdev_priv.Ponowna próba zmiany
+profil, np.kolejna próba wywołania mlx5e_netdev_change_profile przez
+zmiana trybu switchdev spowoduje awarię przy próbie uzyskania dostępu do teraz NULL
+priv-&gt;mdev.
+
+Ta poprawka umożliwia mlx5e_netdev_change_profile() obsługę poprzednich
+awarie i pusty priv, nie zakładając, że priv jest prawidłowy.
+
+Przekaż netdev i mdev wszystkim wymagającym przepływom
+mlx5e_netdev_change_profile() i unikaj przekazywania priv.
+W mlx5e_netdev_change_profile() sprawdź, czy bieżący priv jest prawidłowy i czy
+nie, po prostu dołącz nowy profil bez próby uzyskania dostępu do starego.
+
+Naprawia to następujące błędy podczas włączania trybu switchdev po raz drugi
+czas po pierwszym niepowodzeniu:
+
+## Włączenie trybu switchdev po raz pierwszy:
+
+mlx5_core 0012:03:00.1: E-Switch: Obsługiwane łańcuchy tc i odciążanie prios
+kolejka robocza: Nie udało się utworzyć wątku ratunkowego dla wq „mlx5e”: -EINTR
+mlx5_core 0012:03:00.1: mlx5e_netdev_init_profile:6214:(pid 37199): mlx5e_priv_init nie powiodło się, err=-12
+mlx5_core 0012:03:00.1 gpu3rdma1: mlx5e_netdev_change_profile: inicjacja nowego profilu nie powiodła się, -12
+kolejka robocza: Nie udało się utworzyć wątku ratunkowego dla wq „mlx5e”: -EINTR
+mlx5_core 0012:03:00.1: mlx5e_netdev_init_profile:6214:(pid 37199): mlx5e_priv_init nie powiodło się, err=-12
+mlx5_core 0012:03:00.1 gpu3rdma1: mlx5e_netdev_change_profile: nie udało się przywrócić profilu oryginalnego, -12
+^^^^^^^^^
+mlx5_core 0000:00:03.0: E-Switch: Wyłącz: tryb (LEGACY), nvfs(0), necvfs(0), aktywne vports(0)
+
+## ponowna próba: Włączenie trybu switchdev drugi raz:
+
+mlx5_core 0000:00:03.0: E-Switch: Obsługiwane łańcuchy tc i odciążanie prios
+BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 0000000000000038
+#PF: dostęp do odczytu nadzorcy w trybie jądra
+#PF: kod_błędu(0x0000) - nie ma strony
+PGD 0 P4D 0
+Ups: Ups: 0000 [#1] SMP NOPTI
+Procesor: 13 UID: 0 PID: 520 Comm: devlink Nieskażony 6.18.0-rc4+ #91 PREEMPT (dobrowolne)
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-2.fc40 01.04.2014
+RIP: 0010:mlx5e_detach_netdev+0x3c/0x90
+Kod: 50 00 00 f0 80 4f 78 02 48 8b bf e8 07 00 00 48 85 ff 74 16 48 8b 73 78 48 d1 ee 83 e6 01 83 f6 01 40 0f b6 f6 e8 c4 42 00 00&lt;48&gt; 8b 45 38 48 85 c0 74 08 48 89 df e8 cc 47 40 1e 48 8b bb f0 07
+RSP: 0018:ffffc90000673890 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffff8881036a89c0 RCX: 0000000000000000
+RDX: ffff888113f63800 RSI: ffffffff822fe720 RDI: 0000000000000000
+RBP: 0000000000000000 R08: 0000000000002dcd R09: 0000000000000000
+R10: ffffc900006738e8 R11: 00000000ffffffff R12: 0000000000000000
+R13: 0000000000000000 R14: ffff8881036a89c0 R15: 0000000000000000
+FS: 00007fdfb8384740(0000) GS:ffff88856a9d6000(0000) knlGS:00000000000000000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000038 CR3: 0000000112ae0005 CR4: 0000000000370ef0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+mlx5e_netdev_change_profile+0x45/0xb0
+mlx5e_vport_rep_load+0x27b/0x2d0
+mlx5_esw_offloads_rep_load+0x72/0xf0
+esw_offloads_enable+0x5d0/0x970
+mlx5_eswitch_enable_locked+0x349/0x430
+?is_mp_supported+0x57/0xb0
+mlx5_devlink_eswitch_mode_set+0x26b/0x430
+devlink_nl_eswitch_set_doit+0x6f/0xf0
+genl_family_rcv_msg_doit+0xe8/0x140
+genl_rcv_msg+0x18b/0x290
+?__pfx_devlink_nl_pre_doit+0x10/0x10
+?__pfx_devlink_nl_eswitch_set_doit+0x10/0x10
+?__pfx_devlink_nl_post_doit+0x10/0x10
+?__pfx_genl_rcv_msg+0x10/0x10
+netlink_rcv_skb+0x52/0x100
+genl_rcv+0x28/0x40
+netlink_unicast+0x282/0x3e0
+?__alloc_skb+0xd6/0x190
+netlink_sendmsg+0x1f7/0x430
+__sys_sendto+0x213/0x220
+?__sys_recvmsg+0x6a/0xd0
+__x64_sys_sendto+0x24/0x30
+do_syscall_64+0x50/0x1f0
+wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+RIP: 0033:0x7fdfb8495047</description></item><item><title>CVE-2026-22999</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22999</link><pubDate>Sun, 25 Jan 2026 14:36:13 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net/sched: sch_qfq: nie zwalniaj istniejącej klasy w qfq_change_class()
+
+Naprawiono przypadek błędu qfq_change_class().
+
+cl-&gt;qdisc i cl powinny zostać zwolnione tylko w przypadku nowej klasy i qdisc
+zostały przydzielone, albo ryzykujemy różnymi UAF.</description></item><item><title>CVE-2026-22998</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22998</link><pubDate>Sun, 25 Jan 2026 14:36:12 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+nvme-tcp: napraw dereferencje wskaźników NULL w nvmet_tcp_build_pdu_iovec
+
+Zatwierdź efa56305908b („nvmet-tcp: Napraw błąd jądra, gdy host wysyła nieprawidłową długość PDU H2C”)
+dodano sprawdzanie granic tagu i data_offset
+sprawdzanie poprawności w nvmet_tcp_handle_h2c_data_pdu(), ale nie sprawdzało poprawności
+czy struktury danych polecenia (cmd-&gt;req.sg i cmd-&gt;iov) mają
+zostały prawidłowo zainicjowane przed przetworzeniem jednostek PDU H2C_DATA.
+
+Funkcja nvmet_tcp_build_pdu_iovec() usuwa referencje do tych wskaźników
+bez kontroli NULL.Można to wywołać, wysyłając H2C_DATA PDU
+bezpośrednio po uzgadnianiu ICREQ/ICRESP, przed
+wysłanie polecenia CONNECT lub polecenia zapisu NVMe.
+
+Wektory ataku, które wyzwalają dereferencje wskaźnika NULL:
+1. H2C_DATA PDU wysłane przed CONNECT → oba wskaźniki NULL
+2. H2C_DATA PDU dla polecenia READ → przydzielono cmd-&gt;req.sg, cmd-&gt;iov NULL
+3. H2C_DATA PDU dla niezainicjowanego gniazda poleceń → oba wskaźniki NULL
+
+Poprawka sprawdza zarówno cmd-&gt;req.sg, jak i cmd-&gt;iov przed wywołaniem
+nvmet_tcp_build_pdu_iovec().Obie kontrole są wymagane, ponieważ:
+- Niezainicjowane polecenia: oba NULL
+- Komendy CZYTAJ: przydzielono cmd-&gt;req.sg, cmd-&gt;iov NULL
+- Polecenia WRITE: oba przydzielone</description></item><item><title>CVE-2026-22997</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22997</link><pubDate>Sun, 25 Jan 2026 14:36:12 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: can: j1939: j1939_xtp_rx_rts_session_active(): dezaktywuj sesję po otrzymaniu drugiego rts
+
+Ponieważ j1939_session_deactivate_activate_next() w j1939_tp_rxtimer() jest
+wywoływane tylko wtedy, gdy timer jest włączony, musimy zadzwonić
+j1939_session_deactivate_activate_next(), jeśli anulowaliśmy timer.
+W przeciwnym razie wykonaj refcount w przypadku wycieków j1939_session, które później pojawią się jako
+
+|unregister_netdevice: oczekiwanie, aż vcan0 stanie się wolny.Liczba zastosowań = 2.
+
+problemu.</description></item><item><title>CVE-2026-22996</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22996</link><pubDate>Sun, 25 Jan 2026 14:36:11 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net/mlx5e: Nie przechowuj mlx5e_priv w mlx5e_dev devlink priv
+
+mlx5e_priv to niestabilna struktura, którą można ustawić na memset(0) w profilu
+dołączanie kończy się niepowodzeniem, do tego przyzwyczajony jest mlx5e_priv w mlx5e_dev devlink private
+odwołaj się do netdev i mdev powiązanych z tą strukturą.Zamiast tego
+przechowuj netdev bezpośrednio w mlx5e_dev i pobierz mdev z zawierającego
+Struktura urządzenia pomocniczego mlx5_adev.
+
+Naprawia to błąd jądra występujący w mlx5e_remove w przypadku awarii trybu switchdev
+zmienić błąd profilu.
+
+$ devlink dev eswitch set pci/0000:00:03.0 mode switchdev
+Błąd: mlx5_core: Nie udało się ustawić przełącznika na odciążanie.
+dmesg:
+kolejka robocza: Nie udało się utworzyć wątku ratunkowego dla wq „mlx5e”: -EINTR
+mlx5_core 0012:03:00.1: mlx5e_netdev_init_profile:6214:(pid 37199): mlx5e_priv_init nie powiodło się, err=-12
+mlx5_core 0012:03:00.1 gpu3rdma1: mlx5e_netdev_change_profile: inicjacja nowego profilu nie powiodła się, -12
+kolejka robocza: Nie udało się utworzyć wątku ratunkowego dla wq „mlx5e”: -EINTR
+mlx5_core 0012:03:00.1: mlx5e_netdev_init_profile:6214:(pid 37199): mlx5e_priv_init nie powiodło się, err=-12
+mlx5_core 0012:03:00.1 gpu3rdma1: mlx5e_netdev_change_profile: nie udało się przywrócić profilu oryginalnego, -12
+
+$ devlink dev przeładuj pci/0000:00:03.0 ==&gt; ups
+
+BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 0000000000000520
+#PF: dostęp do odczytu nadzorcy w trybie jądra
+#PF: kod_błędu(0x0000) - nie ma strony
+PGD 0 P4D 0
+Ups: Ups: 0000 [#1] SMP NOPTI
+Procesor: 3 UID: 0 PID: 521 Comm: devlink Nieskażony 6.18.0-rc5+ #117 PREEMPT (dobrowolne)
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-2.fc40 01.04.2014
+RIP: 0010:mlx5e_remove+0x68/0x130
+RSP: 0018:ffffc900034838f0 EFLAGS: 00010246
+RAX: ffff88810283c380 RBX: ffff888101874400 RCX: ffffffff826ffc45
+RDX: 0000000000000000 RSI: 0000000000000001 RDI: 0000000000000000
+RBP: ffff888102d789c0 R08: ffff8881007137f0 R09: ffff888100264e10
+R10: ffffc90003483898 R11: ffffc900034838a0 R12: ffff888100d261a0
+R13: ffff888100d261a0 R14: ffff8881018749a0 R15: ffff888101874400
+FS: 00007f8565fea740(0000) GS:ffff88856a759000(0000) knlGS:0000000000000000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000520 CR3: 000000010b11a004 CR4: 0000000000370ef0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+urządzenie_release_driver_internal+0x19c/0x200
+bus_remove_device+0xc6/0x130
+urządzenie_del+0x160/0x3d0
+?devl_param_driverinit_value_get+0x2d/0x90
+mlx5_detach_device+0x89/0xe0
+mlx5_unload_one_devl_locked+0x3a/0x70
+mlx5_devlink_reload_down+0xc8/0x220
+devlink_reload+0x7d/0x260
+devlink_nl_reload_doit+0x45b/0x5a0
+genl_family_rcv_msg_doit+0xe8/0x140</description></item><item><title>CVE-2025-71163</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71163</link><pubDate>Sun, 25 Jan 2026 14:36:10 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: idxd: napraw wycieki urządzenia podczas łączenia i rozłączania zgodności
+
+Pamiętaj, aby pominąć odniesienie podczas wyszukiwania urządzenia idxd jako
+część kompatybilnego interfejsu bind i unbind sysfs.</description></item><item><title>CVE-2025-71162</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71162</link><pubDate>Sun, 25 Jan 2026 14:36:09 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: tegra-adma: Napraw opcję „użyj po bezpłatnej”.
+
+W sterowniku Tegra ADMA występuje błąd związany z możliwością użycia po zwolnieniu podczas strumieniowego przesyłania dźwięku
+ulegają rozwiązaniu, szczególnie w okresie XRUN.Problem występuje
+gdy bufor DMA zostanie zwolniony przez tegra_adma_terminate_all() przed
+Zadanie zakończenia vchan kończy uzyskiwanie do niego dostępu.
+
+Warunki wyścigu przebiegają według następującej sekwencji:
+
+1. Transfer DMA zostaje zakończony, wyzwalając przerwanie, które planuje
+zadanie zakończenia (zadanie nie zostało jeszcze wykonane)
+2. Odtwarzanie dźwięku zostaje zatrzymane, wywołując funkcję tegra_adma_terminate_all().
+zwalnia pamięć buforową DMA poprzez kfree()
+3. Zaplanowane zadanie w końcu zostaje wykonane, wywołując funkcję vchan_complete()
+który próbuje uzyskać dostęp do już zwolnionej pamięci
+
+Ponieważ zadania mogą być wykonywane w dowolnym momencie po ich zaplanowaniu, istnieje taka możliwość
+nie ma gwarancji, że bufor pozostanie ważny, gdy vchan_complete()
+biegnie.
+
+Napraw ten problem, odpowiednio synchronizując uzupełnianie kanału wirtualnego:
+- Wywołanie vchan_terminate_vdesc() w tegra_adma_stop() w celu zaznaczenia
+deskryptory jako zakończone, zamiast zwalniać deskryptor.
+- Dodaj wywołanie zwrotne tegra_adma_synchronize(), które wywołuje
+vchan_synchronize(), która zabija wszystkie oczekujące zadania i zwalnia je
+zakończone deskryptory.
+
+Dzienniki awarii:
+[337.427523] BŁĄD: KASAN: użyj po darmowym w vchan_complete+0x124/0x3b0
+[337.427544] Odczyt rozmiaru 8 pod adresem ffff000132055428 przez task swapper/0/0
+
+[ 337.427562] Śledzenie połączeń:
+[ 337.427564] dump_backtrace+0x0/0x320
+[337.427571] show_stack+0x20/0x30
+[ 337.427575] dump_stack_lvl+0x68/0x84
+[ 337.427584] print_address_description.constprop.0+0x74/0x2b8
+[ 337.427590] kasan_report+0x1f4/0x210
+[ 337.427598] __asan_load8+0xa0/0xd0
+[ 337.427603] vchan_complete+0x124/0x3b0
+[ 337.427609] tasklet_action_common.constprop.0+0x190/0x1d0
+[ 337.427617] zadanie_akcja+0x30/0x40
+[ 337.427623] __do_softirq+0x1a0/0x5c4
+[ 337.427628] irq_exit+0x110/0x140
+[ 337.427633] uchwyt_domeny_irq+0xa4/0xe0
+[ 337.427640] gic_handle_irq+0x64/0x160
+[ 337.427644] call_on_irq_stack+0x20/0x4c
+[ 337.427649] do_interrupt_handler+0x7c/0x90
+[ 337.427654] el1_interrupt+0x30/0x80
+[ 337.427659] el1h_64_irq_handler+0x18/0x30
+[ 337.427663] el1h_64_irq+0x7c/0x80
+[ 337.427667] cpuidle_enter_state+0xe4/0x540
+[ 337.427674] cpuidle_enter+0x54/0x80
+[ 337.427679] do_idle+0x2e0/0x380
+[ 337.427685] cpu_startup_entry+0x2c/0x70
+[ 337.427690] rest_init+0x114/0x130
+[ 337.427695] arch_call_rest_init+0x18/0x24
+[ 337.427702] jądro_startowe+0x380/0x3b4
+[ 337.427706] __podstawowy_przełączony+0xc0/0xc8</description></item><item><title>CVE-2020-36937</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-36937</link><pubDate>Sun, 25 Jan 2026 14:01:18 +0000</pubDate><description>Microvirt MEMU Play 3.7.0 zawiera niecytowaną lukę w ścieżce usługi w usłudze MEmusvc Windows, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną w celu wstrzyknięcia złośliwych plików wykonywalnych, które będą uruchamiane z podwyższonymi uprawnieniami systemu lokalnego.
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2020-36936</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-36936</link><pubDate>Sun, 25 Jan 2026 14:01:08 +0000</pubDate><description>Magic Mouse 2 Utilities 2.20 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w konfiguracji usług systemu Windows.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę do wstrzyknięcia złośliwych plików wykonywalnych i uzyskania podwyższonych uprawnień systemowych, umieszczając złośliwy plik w ścieżce usługi.
 
