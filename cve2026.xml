@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23013</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23013</link><pubDate>Sun, 25 Jan 2026 14:36:26 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1407</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1407</link><pubDate>Sun, 25 Jan 2026 22:02:06 +0000</pubDate><description>W Beetel 777VR1 do 01.00.09/01.00.09_55 wykryto lukę w zabezpieczeniach.Problem dotyczy nieznanej części komponentu Interfejs UART.Dokonanie manipulacji skutkuje ujawnieniem informacji.Atak może zostać przeprowadzony na urządzeniu fizycznym.Uważa się, że atak ma dużą złożoność.Wskazano, że eksploatacja jest trudna.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+
+CVSS Score: 2.0 (low)</description></item><item><title>CVE-2026-23013</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23013</link><pubDate>Sun, 25 Jan 2026 14:36:26 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 net: octeon_ep_vf: napraw niezgodność free_irq dev_id w wycofywaniu przerwań
 
