@@ -10466,7 +10466,9 @@ umożliwia przechowywanie XSS użytkownikom z wysokimi uprawnieniami.
 
 Problem dotyczy Infra Monitoringu: od 25.10.0 do 25.10.2, od 24.10.0 do 24.10.15, od 24.04.0 do 24.04.19.
 
-CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2025-68763</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68763</link><pubDate>Mon, 05 Jan 2026 09:32:35 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2025-5965</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-5965</link><pubDate>Mon, 05 Jan 2026 10:06:05 +0000</pubDate><description>W parametrach kopii zapasowej użytkownik z wysokimi uprawnieniami może połączyć instrukcje niestandardowe z konfiguracją kopii zapasowej.Nieprawidłowa neutralizacja elementów specjalnych używanych w poleceniu systemu operacyjnego („OS Command Injection”) Luka w programie Centreon Infra Monitoring (konfiguracja kopii zapasowej w modułach konfiguracji administracyjnej) umożliwia wstrzykiwanie poleceń systemu operacyjnego. Ten problem dotyczy Infra Monitoring: od 25.10.0 przed 25.10.2, od 24.10.0 przed 24.10.15, od 24.04.0 wcześniej24.04.19.
+
+CVSS Score: 7.2 (high)</description></item><item><title>CVE-2025-68763</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68763</link><pubDate>Mon, 05 Jan 2026 09:32:35 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 crypto: starfive – Poprawnie obsługuj zwrot sg_nents_for_len
 
