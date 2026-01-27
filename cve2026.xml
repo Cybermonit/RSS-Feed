@@ -1,5 +1,314 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1485</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1485</link><pubDate>Tue, 27 Jan 2026 13:43:18 +0000</pubDate><description>Znaleziono błąd w logice analizowania typów zawartości w Glibie.Ta luka w zabezpieczeniach związana z niedopełnieniem bufora występuje, ponieważ długość wiersza nagłówka jest przechowywana w liczbie całkowitej ze znakiem, co może prowadzić do zawijania liczb całkowitych w przypadku bardzo dużych danych wejściowych.Powoduje to niedopełnienie wskaźnika i dostęp do pamięci poza zakresem.Eksploatacja wymaga od lokalnego użytkownika zainstalowania lub przetworzenia specjalnie spreparowanego pliku Treemagic, co może prowadzić do lokalnej odmowy usługi lub niestabilności aplikacji.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23881</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23881</link><pubDate>Tue, 27 Jan 2026 16:10:44 +0000</pubDate><description>Kyverno to silnik zasad przeznaczony dla zespołów inżynieryjnych zajmujących się platformami natywnymi w chmurze.Wersje wcześniejsze niż 1.16.3 i 1.15.3 mają nieograniczone zużycie pamięci w silniku zasad Kyverno, co pozwala użytkownikom z uprawnieniami do tworzenia polityk powodować odmowę usługi poprzez tworzenie polityk, które wykładniczo wzmacniają dane łańcuchowe za pomocą zmiennych kontekstowych.Wersje 1.16.3 i 1.15.3 zawierają łatę usuwającą lukę.
+
+CVSS Score: 7.7 (high)</description></item><item><title>CVE-2026-22039</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22039</link><pubDate>Tue, 27 Jan 2026 16:07:19 +0000</pubDate><description>Kyverno to silnik zasad przeznaczony dla zespołów inżynieryjnych zajmujących się platformami natywnymi w chmurze.Wersje wcześniejsze niż 1.16.3 i 1.15.3 mają obejście krytycznej granicy autoryzacji w przestrzeni nazw Kyverno Policy apiCall.Rozwiązana ścieżka „urlPath” jest wykonywana przy użyciu konta ServiceAccount kontrolera dostępu Kyverno, bez konieczności ograniczania żądania do przestrzeni nazw polityki.W rezultacie każdy uwierzytelniony użytkownik z uprawnieniami do tworzenia zasad z przestrzenią nazw może spowodować, że Kyverno będzie wykonywać żądania Kubernetes API przy użyciu tożsamości kontrolera dostępu Kyverno, kierując się dowolną ścieżką API dozwoloną przez RBAC tego konta ServiceAccount.Przerywa to izolację przestrzeni nazw, włączając odczyty między przestrzeniami nazw (na przykład ConfigMaps i, jeśli jest to dozwolone, tajemnice) i umożliwia zapisy w zakresie klastra lub między przestrzeniami nazw (na przykład tworzenie ClusterPolicies) poprzez kontrolowanie urlPath poprzez podstawienie zmiennych kontekstowych.Wersje 1.16.3 i 1.15.3 zawierają łatę usuwającą lukę.
+
+CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2026-22796</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22796</link><pubDate>Tue, 27 Jan 2026 16:01:28 +0000</pubDate><description>Podsumowanie problemu: w sygnaturze występuje luka umożliwiająca pomylenie typów
+weryfikacja podpisanych danych PKCS#7, gdzie znajduje się członek związku ASN1_TYPE
+dostęp bez uprzedniego sprawdzenia typu, powodując nieprawidłowy lub NULL
+wyłuskiwanie wskaźnika podczas przetwarzania zniekształconych danych PKCS#7.
+
+Podsumowanie wpływu: Aplikacja przeprowadzająca weryfikację podpisu PKCS#7
+data lub bezpośrednie wywołanie funkcji PKCS7_digest_from_attributes().
+powoduje wyłuskanie nieprawidłowego wskaźnika lub wskaźnika NULL podczas odczytu, co skutkuje
+Odmowa usługi.
+
+Funkcja PKCS7_digest_from_attributes() uzyskuje dostęp do atrybutu podsumowania wiadomości
+wartość bez sprawdzania jej typu.Jeśli typem nie jest V_ASN1_OCTET_STRING,
+powoduje to dostęp do nieprawidłowej pamięci poprzez unię ASN1_TYPE, powodując
+wypadek.
+
+Wykorzystanie tej luki wymaga od osoby atakującej dostarczenia zniekształconego pliku
+podpisał PKCS#7 do aplikacji, która go weryfikuje.Wpływ
+exploit to po prostu odmowa usługi, API PKCS7 to starsze oprogramowanie i aplikacje
+zamiast tego powinien używać interfejsu API CMS.Z tych powodów problem był
+ocenione jako Niska dotkliwość.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.5, 3.4, 3.3 i 3.0,
+ponieważ implementacja analizowania PKCS#7 znajduje się poza modułem OpenSSL FIPS
+granica.
+
+OpenSSL 3.6, 3.5, 3.4, 3.3, 3.0, 1.1.1 i 1.0.2 są podatne na ten problem.</description></item><item><title>CVE-2026-22795</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22795</link><pubDate>Tue, 27 Jan 2026 16:01:27 +0000</pubDate><description>Podsumowanie problemu: Może wystąpić nieprawidłowe wyłuskanie wskaźnika lub wskaźnika o wartości NULL
+aplikacja przetwarzająca zniekształcony plik PKCS#12.
+
+Podsumowanie wpływu: aplikacja przetwarzająca zniekształcony plik PKCS#12 może zostać uszkodzona
+powoduje wyłuskanie nieprawidłowego wskaźnika lub wskaźnika NULL podczas odczytu pamięci, co skutkuje
+w przypadku odmowy usługi.
+
+W kodzie analizującym PKCS#12 występuje luka umożliwiająca pomylenie typów
+dostęp do elementu członkowskiego unii ASN1_TYPE jest uzyskiwany bez uprzedniego sprawdzenia typu,
+powodując nieprawidłowy odczyt wskaźnika.
+
+Lokalizacja jest ograniczona do 1-bajtowej przestrzeni adresowej, co oznacza dowolną
+próba manipulacji wskaźnikiem może dotyczyć tylko adresów z zakresu od 0x00 do 0xFF.
+Ten zakres odpowiada stronie zerowej, która nie jest odwzorowana w większości nowoczesnych
+systemów operacyjnych i niezawodnie spowoduje awarię, prowadzącą jedynie do:
+Odmowa usługi.Wykorzystanie tego problemu wymaga również użytkownika lub aplikacji
+do przetworzenia złośliwie spreparowanego pliku PKCS#12.Akceptacja jest rzadkością
+niezaufane pliki PKCS#12 w aplikacjach, ponieważ są one zwykle używane do przechowywania
+klucze prywatne, które z definicji są zaufane.Z tych powodów problem
+została oceniona jako niska dotkliwość.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.5, 3.4, 3.3 i 3.0,
+ponieważ implementacja PKCS12 znajduje się poza granicami modułu OpenSSL FIPS.
+
+OpenSSL 3.6, 3.5, 3.4, 3.3, 3.0 i 1.1.1 są podatne na ten problem.
+
+Ten problem nie dotyczy OpenSSL 1.0.2.</description></item><item><title>CVE-2025-69421</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69421</link><pubDate>Tue, 27 Jan 2026 16:01:26 +0000</pubDate><description>Podsumowanie problemu: Przetwarzanie zniekształconego pliku PKCS#12 może spowodować wyzwolenie wskaźnika NULL
+dereferencja w funkcji PKCS12_item_decrypt_d2i_ex().
+
+Podsumowanie wpływu: wyłuskanie wskaźnika NULL może wywołać awarię, która prowadzi do
+Odmowa usługi dla aplikacji przetwarzającej pliki PKCS#12.
+
+Funkcja PKCS12_item_decrypt_d2i_ex() nie sprawdza, czy okt
+parametr ma wartość NULL przed wyłuskaniem go.Kiedy dzwoniono z
+PKCS12_unpack_p7encdata() ze zniekształconym plikiem PKCS#12, ten parametr może
+mieć wartość NULL, powodując awarię.Luka ogranicza się do ataku typu „odmowa usługi”.
+i nie można go eskalować w celu wykonania kodu lub ujawnienia pamięci.
+
+Wykorzystanie tego problemu wymaga od osoby atakującej dostarczenia zniekształconego pliku PKCS#12
+do aplikacji, która je przetwarza.Z tego względu kwestię tę oceniono jako
+Niska istotność zgodnie z naszą Polityką bezpieczeństwa.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.6, 3.5, 3.4, 3.3 i 3.0,
+ponieważ implementacja PKCS#12 znajduje się poza granicami modułu OpenSSL FIPS.
+
+OpenSSL 3.6, 3.5, 3.4, 3.3, 3.0, 1.1.1 i 1.0.2 są podatne na ten problem.</description></item><item><title>CVE-2025-69420</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69420</link><pubDate>Tue, 27 Jan 2026 16:01:25 +0000</pubDate><description>Podsumowanie problemu: w odpowiedzi na znacznik czasu występuje luka w zabezpieczeniach umożliwiająca pomylenie typów
+kod weryfikacyjny, w przypadku którego dostęp do elementu członkowskiego związku ASN1_TYPE jest uzyskiwany bez uprzedniego dostępu
+sprawdzanie poprawności typu, powodując wyłuskanie nieprawidłowego lub NULL wskaźnika kiedy
+przetwarzanie zniekształconego pliku odpowiedzi na znacznik czasu.
+
+Podsumowanie wpływu: aplikacja wywołująca funkcję TS_RESP_verify_response() za pomocą pliku
+zniekształcona odpowiedź TimeStamp może być spowodowana wyłuskaniem nieprawidłowego lub
+Wskaźnik NULL podczas odczytu, co skutkuje odmową usługi.
+
+Funkcje ossl_ess_get_signing_cert() i ossl_ess_get_signing_cert_v2()
+uzyskaj dostęp do wartości atrybutu certyfikatu podpisującego bez sprawdzania jego typu.
+Jeśli typ nie jest V_ASN1_SEQUENCE, powoduje to dostęp do nieprawidłowej pamięci
+przez związek ASN1_TYPE, powodując awarię.
+
+Wykorzystanie tej luki wymaga od osoby atakującej dostarczenia zniekształconego pliku
+TimeStamp Odpowiedź na aplikację weryfikującą odpowiedzi ze znacznikiem czasu.The
+Protokół TimeStamp (RFC 3161) nie jest powszechnie stosowany, a wpływ protokołu
+exploit to po prostu odmowa usługi.Z tych powodów problem był
+ocenione jako Niska dotkliwość.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.5, 3.4, 3.3 i 3.0,
+ponieważ implementacja TimeStamp Response znajduje się poza modułem OpenSSL FIPS
+granica.
+
+OpenSSL 3.6, 3.5, 3.4, 3.3, 3.0 i 1.1.1 są podatne na ten problem.
+
+Ten problem nie dotyczy OpenSSL 1.0.2.</description></item><item><title>CVE-2025-69419</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69419</link><pubDate>Tue, 27 Jan 2026 16:01:24 +0000</pubDate><description>Podsumowanie problemu: wywołanie funkcji PKCS12_get_Friendname() na złośliwie
+spreparowany plik PKCS#12 z przyjazną nazwą BMPString (UTF-16BE) zawierającą
+Punkt kodowy BMP inny niż ASCII może wywołać zapis jednobajtowy przed przydzielonym
+bufor.
+
+Podsumowanie wpływu: zapis poza zakresem może spowodować uszkodzenie pamięci
+co może mieć różne konsekwencje, w tym odmowę usługi.
+
+Funkcja OPENSSL_uni2utf8() wykonuje dwuprzebiegową konwersję PKCS#12
+BMPString (UTF-16BE) do UTF-8.W drugim przebiegu, emitując bajty UTF-8,
+funkcja pomocnicza bmp_to_utf8() błędnie przekazuje pozostały kod UTF-16
+liczba bajtów źródłowych jako pojemność bufora docelowego dla UTF8_putc().Dla BMP
+punkty kodowe powyżej U+07FF, UTF-8 wymaga trzech bajtów, ale przekazywane
+pojemność może wynosić tylko dwa bajty.UTF8_putc() następnie zwraca -1, a to jest wartość ujemna
+wartość jest dodawana do długości wyjściowej bez sprawdzania poprawności, powodując
+długość stanie się ujemna.Następnie zapisywany jest kolejny końcowy bajt NUL
+z ujemnym przesunięciem, powodując zapis poza buforem przydzielonym stercie.
+
+Dostęp do luki można uzyskać poprzez publiczne API PKCS12_get_Friendname().
+podczas analizowania plików PKCS#12 kontrolowanych przez osobę atakującą.Podczas gdy PKCS12_parse() używa a
+inna ścieżka kodu, która pozwala uniknąć tego problemu, bezpośrednio PKCS12_get_friendname().
+wywołuje podatną na ataki funkcję.Eksploatacja wymaga od atakującego zapewnienia
+złośliwy plik PKCS#12, który ma zostać przeanalizowany przez aplikację i osobę atakującą
+może po prostu wywołać zapis jednego bajtu zerowego przed przydzielonym buforem.
+Z tego powodu zgodnie z naszymi ocenami problem został oceniony jako Mało poważny
+Polityka bezpieczeństwa.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.6, 3.5, 3.4, 3.3 i 3.0,
+ponieważ implementacja PKCS#12 znajduje się poza granicami modułu OpenSSL FIPS.
+
+OpenSSL 3.6, 3.5, 3.4, 3.3, 3.0 i 1.1.1 są podatne na ten problem.
+
+Ten problem nie dotyczy OpenSSL 1.0.2.</description></item><item><title>CVE-2025-69418</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69418</link><pubDate>Tue, 27 Jan 2026 16:01:23 +0000</pubDate><description>Podsumowanie problemu: podczas korzystania z niskopoziomowego interfejsu API OCB bezpośrednio z AES-NI lub&lt;br&gt;innymi ścieżkami kodu przyspieszanymi sprzętowo, dane wejściowe, których długość nie jest wielokrotnością&lt;br&gt;16 bajtów, mogą pozostawić końcowy częściowy blok niezaszyfrowany i nieuwierzytelniony.&lt;br&gt;&lt;br&gt;Podsumowanie wpływu: końcowe 1-15 bajtów wiadomości może zostać ujawnione&lt;br&gt;w postaci zwykłego tekstu podczas szyfrowania i nie są objęte uwierzytelnianiemtag,&lt;br&gt;umożliwiający atakującemu odczytanie tych bajtów lub manipulowanie nimi bez wykrycia.&lt;br&gt;&lt;br&gt;Procedury OCB niskiego poziomu szyfrujące i deszyfrujące w przyspieszanej sprzętowo&lt;br&gt;ścieżce strumienia przetwarzają pełne 16-bajtowe bloki, ale nie przyspieszają wskaźników wejścia/wyjścia&lt;br&gt;.Późniejszy kod obsługi ogona działa następnie na oryginalnych wskaźnikach bazowych, skutecznie ponownie przetwarzając początek bufora,&lt;br&gt;pozostawiając rzeczywiste bajty końcowe nieprzetworzone.Suma kontrolna uwierzytelniania&lt;br&gt;wyklucza także prawdziwe bajty ogona.&lt;br&gt;&lt;br&gt;Jednak nie ma to wpływu na typowych konsumentów OpenSSL korzystających z EVP, ponieważ &lt;br&gt;implementacje EVP wyższego poziomu i dostawcy OCB dzielą dane wejściowe tak, że pełne&lt;br&gt;bloki i końcowe bloki częściowe są przetwarzane w oddzielnych wywołaniach, dzięki czemu unika się&lt;br&gt;problematycznej ścieżki kodu.Ponadto protokół TLS nie korzysta z mechanizmów szyfrowania OCB.&lt;br&gt;Luka dotyczy tylko aplikacji, które wywołują funkcje niskopoziomowe&lt;br&gt;CRYPTO_ocb128_encrypt() lub CRYPTO_ocb128_decrypt() bezpośrednio z&lt;br&gt;długościami nierównymi blokowo w jednym wywołaniu w kompilacjach przyspieszanych sprzętowo.&lt;br&gt;Z tych powodów problem został oceniony jako niski.&lt;br&gt;&lt;br&gt;FIPSTen problem nie dotyczy&lt;br&gt;modułów w wersjach 3.6, 3.5, 3.4, 3.3, 3.2, 3.1 i 3.0, ponieważ tryb OCB nie jest algorytmem zatwierdzonym przez FIPS.&lt;br&gt;&lt;br&gt;OpenSSL 3.6, 3.5, 3.4, 3.3, 3.0 i 1.1.1 są podatne na ten problem.&lt;br&gt;&lt;br&gt;OpenSSLTen problem nie dotyczy wersji 1.0.2.</description></item><item><title>CVE-2025-68160</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68160</link><pubDate>Tue, 27 Jan 2026 16:01:23 +0000</pubDate><description>Podsumowanie problemu: Zapisywanie dużych danych bez znaków nowej linii w łańcuchu BIO przy użyciu metody
+Może wywołać filtr buforujący linię, w którym następny BIO wykonuje krótkie zapisy
+zapis poza zakresem oparty na stercie.
+
+Podsumowanie wpływu: ten zapis poza zakresem może spowodować uszkodzenie pamięci, które
+zazwyczaj powoduje awarię, prowadzącą do odmowy usługi dla aplikacji.
+
+Filtr BIO buforujący linię (BIO_f_linebuffer) nie jest domyślnie używany w
+Ścieżki danych TLS/SSL.W aplikacjach wiersza poleceń OpenSSL jest to zazwyczaj
+wypychane tylko na stdout/stderr w systemach VMS.Aplikacje innych firm, które
+wyraźnie użyj tego filtra z łańcuchem BIO, który może pisać krótko i tak dalej
+zapisanie dużych danych pozbawionych nowej linii, na które wpływ ma osoba atakująca.
+Jednak okoliczności, w których mogłoby to nastąpić, są mało prawdopodobne
+kontrola atakującego, a BIO_f_linebuffer prawdopodobnie nie będzie obsługiwał nienadzorowanych
+dane kontrolowane przez atakującego.Z tego względu kwestię tę oceniono jako
+Niska dotkliwość.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.6, 3.5, 3.4, 3.3 i 3.0,
+ponieważ implementacja BIO znajduje się poza granicami modułu OpenSSL FIPS.
+
+OpenSSL 3.6, 3.5, 3.4, 3.3, 3.0, 1.1.1 i 1.0.2 są podatne na ten problem.</description></item><item><title>CVE-2025-66199</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66199</link><pubDate>Tue, 27 Jan 2026 16:01:22 +0000</pubDate><description>Podsumowanie problemu: może być połączenie TLS 1.3 korzystające z kompresji certyfikatu
+zmuszony do przydzielenia dużego bufora przed dekompresją bez sprawdzania
+względem skonfigurowanego limitu rozmiaru certyfikatu.
+
+Podsumowanie wpływu: osoba atakująca może spowodować alokację pamięci na połączenie wynoszącą
+do około 22 MiB i dodatkowa praca procesora, co może prowadzić do
+pogorszenie jakości usług lub wyczerpanie zasobów (odmowa usługi).
+
+W konfiguracjach, których dotyczy problem, nieskompresowany certyfikat dostarczony przez partnera
+długość z komunikatu CompressedCertificate jest używana do powiększania bufora sterty
+przed dekompresją.Długość ta nie jest ograniczona przez max_cert_list
+ustawienie, które w przeciwnym razie ogranicza rozmiary komunikatów certyfikatów.Napastnik
+można to wykorzystać, aby spowodować duże alokacje na połączenie, a następnie
+niepowodzenie uścisku dłoni.Nie dochodzi do uszkodzenia pamięci ani ujawnienia informacji.
+
+Ten problem dotyczy tylko kompilacji, w których stosowana jest kompresja certyfikatu TLS 1.3
+skompilowany (tj. nie OPENSSL_NO_COMP_ALG) i co najmniej jedną kompresję
+dostępny jest algorytm (brotli, zlib lub zstd) i gdzie jest kompresja
+przedłużenie jest negocjowane.Obaj klienci odbierający serwer CompressedCertificate
+i serwery we wzajemnych scenariuszach TLS odbierające klient CompressedCertificate
+są dotknięci.Serwery, które nie żądają certyfikatów klienta, nie są
+podatny na ataki inicjowane przez klienta.
+
+Użytkownicy mogą złagodzić ten problem, ustawiając SSL_OP_NO_RX_CERTIFICATE_COMPRESSION
+aby wyłączyć odbieranie skompresowanych certyfikatów.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.6, 3.5, 3.4 i 3.3,
+ponieważ implementacja TLS znajduje się poza granicami modułu OpenSSL FIPS.
+
+OpenSSL 3.6, 3.5, 3.4 i 3.3 są podatne na ten problem.
+
+Ten problem nie dotyczy OpenSSL 3.0, 1.1.1 i 1.0.2.</description></item><item><title>CVE-2025-15469</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15469</link><pubDate>Tue, 27 Jan 2026 16:01:21 +0000</pubDate><description>Podsumowanie problemu: Narzędzie wiersza poleceń „openssl dgst” dyskretnie obcina dane wejściowe
+danych do 16 MB w przypadku korzystania z algorytmów podpisywania jednorazowego i zamiast tego zgłasza powodzenie
+błędu.
+
+Podsumowanie wpływu: użytkownik podpisuje lub weryfikuje pliki większe niż 16 MB za pomocą
+algorytmy jednorazowe (takie jak Ed25519, Ed448 lub ML-DSA) mogą wierzyć, że cały
+plik jest uwierzytelniany, natomiast końcowe dane przekraczające 16 MB pozostają nieuwierzytelnione.
+
+Gdy polecenie „openssl dgst” jest używane z algorytmami obsługującymi tylko
+podpisywanie jednorazowe (Ed25519, Ed448, ML-DSA-44, ML-DSA-65, ML-DSA-87), wejście
+jest buforowany z limitem 16 MB.Jeśli dane wejściowe przekraczają ten limit, narzędzie
+dyskretnie obcina pierwsze 16MB i kontynuuje bez sygnalizowania błędu,
+wbrew temu, co stwierdza dokumentacja.Tworzy to lukę w integralności, gdzie
+końcowe bajty można modyfikować bez wykrycia, jeśli zarówno podpisywanie, jak i
+weryfikacja odbywa się przy użyciu tej samej ścieżki kodowej, której dotyczy problem.
+
+Problem dotyczy tylko zachowania narzędzia wiersza poleceń.Weryfikatory tego procesu
+pełna wiadomość przy użyciu interfejsów API biblioteki odrzuci podpis, więc ryzyko
+wpływa przede wszystkim na przepływy pracy, które zarówno podpisują, jak i weryfikują z dotkniętymi
+polecenie „openssl dgst”.Algorytmy podsumowania przesyłania strumieniowego dla „openssl dgst” i
+użytkownicy bibliotek pozostają nienaruszeni.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.5 i 3.6, ponieważ
+narzędzia wiersza poleceń znajdują się poza granicami modułu OpenSSL FIPS.
+
+OpenSSL 3.5 i 3.6 są podatne na ten problem.
+
+Ten problem nie dotyczy OpenSSL 3.4, 3.3, 3.0, 1.1.1 i 1.0.2.</description></item><item><title>CVE-2025-15468</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15468</link><pubDate>Tue, 27 Jan 2026 16:01:20 +0000</pubDate><description>Podsumowanie problemu: Jeśli aplikacja korzystająca z funkcji SSL_CIPHER_find() w
+klient lub serwer protokołu QUIC otrzymuje nieznany zestaw szyfrów
+peera, następuje dereferencja NULL.
+
+Podsumowanie wpływu: wyłuskanie wskaźnika NULL prowadzi do nieprawidłowego zakończenia
+działający proces powodujący odmowę usługi.
+
+Niektóre aplikacje wywołują SSL_CIPHER_find() z wywołania zwrotnego client_hello_cb
+na identyfikatorze szyfru otrzymanym od partnera.Jeśli odbywa się to za pomocą obiektu SSL
+implementując protokół QUIC, wyłuskanie wskaźnika NULL nastąpi, jeśli
+badany identyfikator szyfru jest nieznany lub nieobsługiwany.
+
+Ponieważ wywoływanie tej funkcji w aplikacjach korzystających z QUIC nie jest zbyt powszechne
+protokołu i najgorszym skutkiem jest odmowa usługi, problem został oceniony
+jako Niska dotkliwość.
+
+Podatny kod został wprowadzony w wersji 3.2 wraz z dodatkiem
+obsługi protokołu QUIC.
+
+Ten problem nie dotyczy modułów FIPS w wersjach 3.6, 3.5, 3.4 i 3.3,
+ponieważ implementacja QUIC znajduje się poza granicami modułu OpenSSL FIPS.
+
+OpenSSL 3.6, 3.5, 3.4 i 3.3 są podatne na ten problem.
+
+Ten problem nie dotyczy OpenSSL 3.0, 1.1.1 i 1.0.2.</description></item><item><title>CVE-2025-15467</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15467</link><pubDate>Tue, 27 Jan 2026 16:01:19 +0000</pubDate><description>Podsumowanie problemu: złośliwie analizuję wiadomość CMS AuthEnvelopedData
+spreparowane parametry AEAD mogą wywołać przepełnienie bufora stosu.
+
+Podsumowanie wpływu: Przepełnienie bufora stosu może prowadzić do awarii, powodując Odmowę
+Usługi lub potencjalnie zdalne wykonanie kodu.
+
+Podczas analizowania struktur CMS AuthEnvelopedData korzystających z szyfrów AEAD, takich jak
+AES-GCM, IV (wektor inicjujący) zakodowany w parametrach ASN.1 to
+skopiowane do bufora stosu o stałym rozmiarze bez sprawdzania, czy jego długość pasuje
+miejsce docelowe.Osoba atakująca może dostarczyć spreparowaną wiadomość CMS zawierającą plik
+oversize IV, powodując zapis poza granicami stosu przed jakimkolwiek
+nastąpi uwierzytelnienie lub weryfikacja tagu.
+
+Aplikacje i usługi analizujące niezaufaną zawartość CMS lub PKCS#7 przy użyciu
+Szyfry AEAD (np. S/MIME AuthEnvelopedData z AES-GCM) są podatne na ataki.
+Ponieważ przepełnienie następuje przed uwierzytelnieniem, brak jest prawidłowego materiału klucza
+jest wymagane, aby go uruchomić.Chociaż możliwość wykorzystania do zdalnego wykonania kodu
+zależy od ograniczeń platformy i łańcucha narzędzi, zapis oparty na stosie
+prymitywne oznacza poważne ryzyko.
+
+Nie ma to wpływu na moduły FIPS w wersjach 3.6, 3.5, 3.4, 3.3 i 3.0
+problem, ponieważ implementacja CMS znajduje się poza modułem OpenSSL FIPS
+granica.
+
+OpenSSL 3.6, 3.5, 3.4, 3.3 i 3.0 są podatne na ten problem.
+
+Ten problem nie dotyczy OpenSSL 1.1.1 i 1.0.2.</description></item><item><title>CVE-2025-11187</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-11187</link><pubDate>Tue, 27 Jan 2026 15:59:41 +0000</pubDate><description>Podsumowanie problemu: brak weryfikacji parametrów PBMAC1 w plikach PKCS#12
+co może wywołać przepełnienie bufora opartego na stosie, nieprawidłowy wskaźnik lub NULL
+wyłuskiwanie wskaźnika podczas weryfikacji MAC.
+
+Podsumowanie wpływu: Może wystąpić przepełnienie bufora stosu lub wyłuskanie wskaźnika NULL
+spowodować awarię prowadzącą do odmowy usługi dla aplikacji, która analizuje
+niezaufane pliki PKCS#12.Przepełnienie bufora może również potencjalnie umożliwić
+wykonanie kodu w zależności od ograniczeń platformy.
+
+Podczas weryfikacji pliku PKCS#12, który używa PBMAC1 dla MAC, plik PBKDF2
+Parametry soli i długości klucza z pliku są używane bez sprawdzania poprawności.
+Jeśli wartość długości klucza przekracza rozmiar używanego stałego bufora stosu
+w przypadku klucza pochodnego (64 bajty) wyprowadzenie klucza spowoduje przepełnienie bufora.
+Długość przepełnienia jest kontrolowana przez atakującego.Ponadto, jeśli parametrem soli jest
+nie jest typem OCTET STRING, może to prowadzić do nieprawidłowego wskaźnika lub NULL
+lekceważenie.
+
+Wykorzystanie tego problemu wymaga przetworzenia przez użytkownika lub aplikację
+złośliwie spreparowany plik PKCS#12.Akceptowanie niezaufanych jest rzadkością
+PKCS#12 w aplikacjach, ponieważ są one zwykle używane do przechowywania plików prywatnych
+klucze, które z definicji są zaufane.Z tego powodu kwestia ta została oceniona
+jako Umiarkowane nasilenie.
+
+Moduły FIPS w wersjach 3.6, 3.5 i 3.4 nie są dotknięte tym problemem, ponieważ
+Przetwarzanie PKCS#12 wykracza poza granice modułu OpenSSL FIPS.
+
+OpenSSL 3.6, 3.5 i 3.4 są podatne na ten problem.
+
+Problem ten nie dotyczy OpenSSL 3.3, 3.0, 1.1.1 i 1.0.2
+nie obsługuje PBMAC1 w PKCS#12.</description></item><item><title>CVE-2026-24869</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24869</link><pubDate>Tue, 27 Jan 2026 15:58:48 +0000</pubDate><description>Użyj po za darmo w komponencie Układ: przewijanie i przepełnienie.Luka ta dotyczy przeglądarki Firefox w wersji &lt; 147.0.2.</description></item><item><title>CVE-2026-24868</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24868</link><pubDate>Tue, 27 Jan 2026 15:58:48 +0000</pubDate><description>Obejście zabezpieczeń w komponencie Prywatność: Ochrona przed śledzeniem.Luka ta dotyczy przeglądarki Firefox w wersji &lt; 147.0.2.</description></item><item><title>CVE-2026-24875</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24875</link><pubDate>Tue, 27 Jan 2026 15:55:48 +0000</pubDate><description>Luka w zabezpieczeniach typu Integer Overflow lub Wraparound w modizatorze yoyofr. Problem dotyczy modyfikatora: przed wersją 4.1.1.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-55095</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-55095</link><pubDate>Tue, 27 Jan 2026 15:34:47 +0000</pubDate><description>Funkcja _ux_host_class_storage_media_mount() odpowiada za montowanie partycji na urządzeniu pamięci masowej USB.Kiedy w tablicy partycji napotka wpis partycji rozszerzonej, rekurencyjnie wywołuje sam siebie, aby zamontować następną partycję logiczną.
+
+Ta rekurencja występuje w funkcji _ux_host_class_storage_partition_read(), która analizuje maksymalnie cztery wpisy partycji.Jeśli zostanie znaleziona partycja rozszerzona (o typie UX_HOST_CLASS_STORAGE_PARTITION_EXTENDED lub EXTENDED_LBA_MAPPED), kod wywołuje:
+_ux_host_class_storage_media_mount(pamięć, sektor + _ux_utility_long_get(...));
+
+
+Nie ma ograniczeń co do głębokości rekurencji ani śledzenia odwiedzanych sektorów.W rezultacie złośliwy lub zniekształcony obraz dysku może zawierać cykliczne lub zbyt głębokie łańcuchy rozszerzonych partycji, powodując powtarzanie funkcji do momentu wystąpienia przepełnienia stosu.
+
+CVSS Score: 4.2 (medium)</description></item><item><title>CVE-2025-55102</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-55102</link><pubDate>Tue, 27 Jan 2026 15:25:36 +0000</pubDate><description>W składniku NetX IPv6 oprogramowania Eclipse ThreadX NetX Duo występuje luka w zabezpieczeniach umożliwiająca odmowę usługi.Specjalnie spreparowany pakiet sieciowy „Packet Too Big” zawierający ponad 15 różnych adresów źródłowych może prowadzić do odmowy usługi.Osoba atakująca może wysłać szkodliwy pakiet w celu wyzwolenia tej luki.</description></item><item><title>CVE-2021-47902</title><link>https://nvd.nist.gov/vuln/detail/CVE-2021-47902</link><pubDate>Tue, 27 Jan 2026 15:23:52 +0000</pubDate><description>Testa Online Test Management System 3.4.7 zawiera lukę w zabezpieczeniach umożliwiającą wstrzyknięcie kodu SQL, która umożliwia atakującym manipulowanie zapytaniami do bazy danych za pomocą parametru wyszukiwania „q”.Osoby atakujące mogą wstrzyknąć złośliwy kod SQL do pola wyszukiwania w celu wyodrębnienia informacji z bazy danych, potencjalnie uzyskując dostęp do wrażliwych danych użytkownika lub systemu.
+
+CVSS Score: 8.2 (high)</description></item><item><title>CVE-2021-47901</title><link>https://nvd.nist.gov/vuln/detail/CVE-2021-47901</link><pubDate>Tue, 27 Jan 2026 15:23:52 +0000</pubDate><description>Dirsearch 0.4.1 zawiera lukę w zabezpieczeniach polegającą na wstrzykiwaniu pliku CSV podczas korzystania z flagi --csv-report, która umożliwia atakującym wstrzykiwanie formuł przez przekierowane punkty końcowe.Atakujący mogą tworzyć złośliwe przekierowania serwerów ze ścieżkami oddzielonymi przecinkami zawierającymi formuły programu Excel w celu manipulowania wygenerowanym raportem CSV.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-1489</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1489</link><pubDate>Tue, 27 Jan 2026 14:26:47 +0000</pubDate><description>Znaleziono błąd w GLib.Luka w zabezpieczeniach związana z przepełnieniem liczb całkowitych w implementacji konwersji wielkości liter Unicode może prowadzić do uszkodzenia pamięci.Przetwarzając specjalnie spreparowane i niezwykle duże ciągi znaków Unicode, osoba atakująca może wywołać alokację pamięci o zbyt małym rozmiarze, co spowoduje zapisy poza dopuszczalnym zakresem.Może to spowodować awarię lub niestabilność aplikacji korzystających z biblioteki GLib do konwersji ciągów.
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-1470</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1470</link><pubDate>Tue, 27 Jan 2026 14:23:53 +0000</pubDate><description>n8n zawiera krytyczną lukę umożliwiającą zdalne wykonanie kodu (RCE) w swoim systemie oceny wyrażeń przepływu pracy.Wyrażenia dostarczone przez uwierzytelnionych użytkowników podczas konfiguracji przepływu pracy mogą być oceniane w kontekście wykonania, który nie jest wystarczająco odizolowany od bazowego środowiska wykonawczego.
+
+Uwierzytelniony atakujący może nadużyć tego zachowania w celu wykonania dowolnego kodu z uprawnieniami procesu n8n.Skuteczna eksploatacja może prowadzić do pełnego naruszenia zagrożonej instancji, w tym nieautoryzowanego dostępu do wrażliwych danych, modyfikacji przepływów pracy i wykonania operacji na poziomie systemu.
+
+CVSS Score: 9.9 (critical)</description></item><item><title>CVE-2026-1485</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1485</link><pubDate>Tue, 27 Jan 2026 13:43:18 +0000</pubDate><description>Znaleziono błąd w logice analizowania typów zawartości w Glibie.Ta luka w zabezpieczeniach związana z niedopełnieniem bufora występuje, ponieważ długość wiersza nagłówka jest przechowywana w liczbie całkowitej ze znakiem, co może prowadzić do zawijania liczb całkowitych w przypadku bardzo dużych danych wejściowych.Powoduje to niedopełnienie wskaźnika i dostęp do pamięci poza zakresem.Eksploatacja wymaga od lokalnego użytkownika zainstalowania lub przetworzenia specjalnie spreparowanego pliku Treemagic, co może prowadzić do lokalnej odmowy usługi lub niestabilności aplikacji.
 
 CVSS Score: 2.8 (low)</description></item><item><title>CVE-2026-1484</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1484</link><pubDate>Tue, 27 Jan 2026 13:41:54 +0000</pubDate><description>Wykryto błąd w procedurze kodowania GLib Base64 podczas przetwarzania bardzo dużych danych wejściowych.Z powodu nieprawidłowego użycia typów całkowitych podczas obliczania długości biblioteka może błędnie obliczyć granice buforów.Może to spowodować zapisanie pamięci poza przydzielonym buforem.Aplikacje przetwarzające niezaufane lub bardzo duże dane wejściowe Base64 przy użyciu GLib mogą ulec awarii lub zachowywać się w nieprzewidywalny sposób.
 
@@ -45,7 +354,7 @@ CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2026-24486</title>
 
 CVSS Score: 8.6 (high)</description></item><item><title>CVE-2026-24480</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24480</link><pubDate>Tue, 27 Jan 2026 00:32:04 +0000</pubDate><description>QGIS to darmowy, wieloplatformowy system informacji geograficznej o otwartym kodzie źródłowym (GIS). Repozytorium zawiera przepływ pracy GitHub Actions zwany „kontrolami przed zatwierdzeniem”, który przed zatwierdzeniem 76a693cd91650f9b4e83edac525e5e4f90d954e9 był podatny na zdalne wykonanie kodu i naruszenie bezpieczeństwa repozytorium, ponieważ użył wyzwalacza `pull_request_target`, a następnie został wyewidencjonowanyi wykonał niezaufany kod żądania ściągnięcia w uprzywilejowanym kontekście.Przepływy pracy wyzwalane przez „pull_request_target” działały z poświadczeniami repozytorium podstawowego i dostępem do sekretów.Gdyby te przepływy pracy następnie pobrały i wykonały kod z nagłówka zewnętrznego żądania ściągnięcia (które mogło być kontrolowane przez osobę atakującą), osoba atakująca mogłaby wykonać dowolne polecenia z podwyższonymi uprawnieniami.Ten niebezpieczny wzorzec został udokumentowany jako zagrożenie bezpieczeństwa przez GitHub i badaczy bezpieczeństwa.Zatwierdzenie 76a693cd91650f9b4e83edac525e5e4f90d954e9 usunęło wrażliwy kod.</description></item><item><title>CVE-2026-23683</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23683</link><pubDate>Tue, 27 Jan 2026 00:22:13 +0000</pubDate><description>Rozwiązanie SAP Fiori App Intercompany Balance Reconciliation nie przeprowadza niezbędnych kontroli autoryzacji dla uwierzytelnionego użytkownika, co skutkuje eskalacją uprawnień.Ma to niewielki wpływ na poufność, integralność i dostępność.
 
-CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-1449</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1449</link><pubDate>Mon, 26 Jan 2026 23:32:10 +0000</pubDate><description>W systemie zarządzania Hisense TransTech Smart Bus Management System do 20260113 wykryto wadę. Dotknięta jest funkcja Page_Load w pliku YZSoft/Forms/XForm/BM/BusComManagement/TireMng.aspx.Wykonanie manipulacji kluczem argumentu może prowadzić do wstrzyknięcia sql.Istnieje możliwość zdalnego przeprowadzenia ataku.Exploit został opublikowany i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2025-69563</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69563</link><pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate><description>code-projects System zarządzania sklepem mobilnym 1.0 jest podatny na wstrzykiwanie SQL w /ExLogin.php poprzez parametr Hasło.</description></item><item><title>CVE-2025-69565</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69565</link><pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate><description>code-projects Mobilny system zarządzania sklepem 1.0 jest podatny na przesyłanie plików w /ExAddProduct.php.</description></item><item><title>CVE-2026-1449</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1449</link><pubDate>Mon, 26 Jan 2026 23:32:10 +0000</pubDate><description>W systemie zarządzania Hisense TransTech Smart Bus Management System do 20260113 wykryto wadę. Dotknięta jest funkcja Page_Load w pliku YZSoft/Forms/XForm/BM/BusComManagement/TireMng.aspx.Wykonanie manipulacji kluczem argumentu może prowadzić do wstrzyknięcia sql.Istnieje możliwość zdalnego przeprowadzenia ataku.Exploit został opublikowany i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-1448</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1448</link><pubDate>Mon, 26 Jan 2026 23:32:08 +0000</pubDate><description>W D-Link DIR-615 do wersji 4.10 wykryto lukę.Ma to wpływ na nieznaną funkcję pliku /wiz_policy_3_machine.php komponentu Web Management Interface.Manipulacja argumentem ipaddr powoduje wstrzyknięcie polecenia os.Istnieje możliwość zdalnego zainicjowania ataku.Exploit jest teraz publiczny i można go wykorzystać.Ta luka dotyczy tylko produktów, które nie są już wspierane przez opiekuna.
 
