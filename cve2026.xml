@@ -1,5 +1,57 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-24856</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24856</link><pubDate>Wed, 28 Jan 2026 21:05:12 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami ICC.W wersjach wcześniejszych niż 2.3.1.2 występuje niezdefiniowany problem z zachowaniem, gdy wartości zmiennoprzecinkowe NaN są konwertowane na krótkie typy całkowite bez znaku podczas analizowania XML profilu ICC, co może potencjalnie uszkodzić struktury pamięci i umożliwić wykonanie dowolnego kodu.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Luki w zabezpieczeniach ICC Profile Injection powstają, gdy dane wejściowe kontrolowane przez użytkownika są włączane do danych profilu ICC lub innych strukturalnych obiektów binarnych w niebezpieczny sposób.Wersja 2.3.1.2 zawiera poprawkę tego problemu.Nie są dostępne żadne znane obejścia.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-24889</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24889</link><pubDate>Wed, 28 Jan 2026 22:20:35 +0000</pubDate><description>### Wpływ
+
+Przepełnienie arytmetyczne można wywołać w metodach `Bytes::slice`, `Vec::slice` i `Prng::gen_range` (dla `u64`) w pakiecie `soroban-sdk` w wersjach wcześniejszych niż `25.0.1` włącznie.
+
+Kontrakty przekazujące kontrolowane przez użytkownika lub obliczone granice zakresu do `Bytes::slice`, `Vec::slice` lub `Prng::gen_range` mogą po cichu działać na nieprawidłowych zakresach danych lub generować losowe liczby z niezamierzonego zakresu, co może potencjalnie skutkować uszkodzeniem stanu kontraktu.
+
+Należy pamiętać, że najlepszą praktyką podczas używania `soroban-sdk` i budowania kontraktów Soroban jest zawsze włączenie `przepełnienia-checks = true`.Narzędzie „stellar kontrakt init”, które przygotowuje podstawę do kontraktu Soroban, a także wszystkie przykłady i dokumentacja zachęcają do korzystania z konfigurowania „overflow-checks = true” na profilach „release”, tak aby te operacje arytmetyczne kończyły się niepowodzeniem, a nie cichym zawijaniem.Kontrakty mają wpływ tylko wtedy, gdy używają „kontroli przepełnienia = fałsz” jawnie lub pośrednio.Przewiduje się, że nie będzie to miało wpływu na większość umów, ponieważ najlepszą praktyką, do której zachęcają narzędzia, jest umożliwienie „kontroli przepełnienia”.
+
+### Szczegóły
+
+Po skompilowaniu z opcją `overflow-checks = false` (wartość domyślna dla kompilacji wydań) sama arytmetyka w tych funkcjach po cichu zawija wartości graniczne, takie jak `u32::MAX` lub `u64::MAX`.Powoduje to, że zakres przekazany hostowi różni się od intencji osoby wywołującej:
+
+`Bajty::kawałek`:
+- `Bytes::slice(0..=u32::MAX)` — koniec `u32::MAX + 1` zawija do `0`, tworząc `slice(0..0)` zwracające pusty zamiast pełnego zakresu.
+- `Bytes::slice((Bound::Excluded(u32::MAX), Bound::Unbounded))` — start `u32::MAX + 1` zawija do `0`, tworząc `slice(0..)` zamiast pustego/nieprawidłowego zakresu.
+
+`Vec::kawałek`:
+- `Vec::slice(0..=u32::MAX)` — to samo co `Bytes`, koniec zawija do `0` i wraca pusty.
+- `Vec::slice((Bound::Excluded(u32::MAX), Bound::Unbounded))` — to samo co `Bytes`, rozpocznij zawijanie od `0`.
+
+`Prng::gen_range`:
+- `Prng::gen_range((Bound::Unbounded, Bound::Excluded(0)))` — end `0 - 1` zawija do `u64::MAX`, tworząc zakres `0..=u64::MAX` zamiast pustego/nieprawidłowego zakresu.
+- `Prng::gen_range((Bound::Excluded(u64::MAX), Bound::Unbounded))` — początek `u64::MAX + 1` zawija do `0`, tworząc zakres `0..=u64::MAX` zamiast pustego/nieprawidłowego zakresu.
+
+Należy zauważyć, że niektóre przypadki, w których przepełnienie było dozwolone i zawinięte po stronie gościa, są wychwytywane przez hosta Soroban Env i powodują po stronie hosta pułapkę z błędem „HostError: Error(Object, IndexBounds)” „indeks obiektu poza granicami”, ponieważ opakowane wartości tworzą nieprawidłowe dane wejściowe:
+- `Bytes::slice(u32::MAX..=u32::MAX)` — oba zaczynają się od `u32::MAX + 1` i kończą `u32::MAX + 1` zawijają do `0`, tworząc `slice(0..0)`.
+- `Vec::slice(u32::MAX..=u32::MAX)` — to samo co `Bytes`, oba zawijane do `0`.
+
+
+### Poprawki
+
+Poprawka zastępuje czystą arytmetykę parametrami `checked_add` / `checked_sub`, zapewniając pułapki przepełnienia niezależnie od ustawienia profilu `overflow-checks`.
+
+### Obejścia
+
+Obszary robocze kontraktu można skonfigurować przy użyciu następującego profilu, aby umożliwić sprawdzanie przepełnienia operacji arytmetycznych.Jest to najlepsza praktyka przy opracowywaniu kontraktów Soroban i domyślna w przypadku korzystania ze schematu kontraktu wygenerowanego przy użyciu `stellar kontrakt init`:
+
+```toml
+[wydanie.profilu]
+kontrole przepełnienia = prawda
+```
+
+Alternatywnie kontrakty mogą zweryfikować granice zakresu przed przekazaniem ich do „slice” lub „gen_range”, aby upewnić się, że konwersje nie zostaną przepełnione:
+
+- Nie przekazuj `Bound::Excluded(u32::MAX)` lub `Bound::Included(u32::MAX)` do `Bytes::slice` lub `Vec::slice`.
+- Nie przekazuj `Bound::Excluded(u64::MAX)` jako początku powiązanego lub `Bound::Excluded(0)` jako końca powiązanego z `Prng::gen_range::&lt;u64&gt;`.
+
+### Referencje
+
+- https://github.com/stellar/rs-soroban-sdk/pull/1703
+- https://github.com/stellar/rs-soroban-sdk/releases/tag/v25.0.2
+- https://github.com/stellar/rs-soroban-sdk/releases/tag/v23.5.1
+- https://github.com/stellar/rs-soroban-sdk/releases/tag/v22.0.9</description></item><item><title>CVE-2026-24856</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24856</link><pubDate>Wed, 28 Jan 2026 21:05:12 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami ICC.W wersjach wcześniejszych niż 2.3.1.2 występuje niezdefiniowany problem z zachowaniem, gdy wartości zmiennoprzecinkowe NaN są konwertowane na krótkie typy całkowite bez znaku podczas analizowania XML profilu ICC, co może potencjalnie uszkodzić struktury pamięci i umożliwić wykonanie dowolnego kodu.Luka ta dotyczy użytkowników biblioteki iccDEV przetwarzających profile kolorów ICC.Luki w zabezpieczeniach ICC Profile Injection powstają, gdy dane wejściowe kontrolowane przez użytkownika są włączane do danych profilu ICC lub innych strukturalnych obiektów binarnych w niebezpieczny sposób.Wersja 2.3.1.2 zawiera poprawkę tego problemu.Nie są dostępne żadne znane obejścia.
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-1535</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1535</link><pubDate>Wed, 28 Jan 2026 21:02:09 +0000</pubDate><description>W projektach kodu Online Music Site 1.0 wykryto lukę w zabezpieczeniach.Ma to wpływ na nieznaną funkcję pliku /Administrator/PHP/AdminReply.php.Taka manipulacja identyfikatorem argumentu prowadzi do wstrzyknięcia sql.Istnieje możliwość zdalnego przeprowadzenia ataku.Exploit został ujawniony publicznie i może zostać wykorzystany.
 
