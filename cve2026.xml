@@ -1,5 +1,666 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1251</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1251</link><pubDate>Sat, 31 Jan 2026 06:39:23 +0000</pubDate><description>Wtyczka SupportCandy — Helpdesk i system obsługi klienta dla systemu WordPress jest podatna na ataki Insecure Direct Object Reference we wszystkich wersjach, aż do wersji 3.4.4 włącznie, za pośrednictwem funkcji „add_reply” z powodu braku walidacji klucza kontrolowanego przez użytkownika.Umożliwia to uwierzytelnionym atakującym, posiadającym dostęp na poziomie subskrybenta i wyższym, kradzież załączników plików przesłanych przez innych użytkowników poprzez określenie dowolnych identyfikatorów załączników w parametrze „description_attachments”, ponowne powiązanie tych plików z ich własnymi zgłoszeniami i odebranie dostępu pierwotnym właścicielom.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23039</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23039</link><pubDate>Sat, 31 Jan 2026 11:42:33 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/gud: napraw wyłuskiwania NULL fb i crtc przy rozłączaniu USB
+
+Po rozłączeniu wywoływana jest funkcja drm_atomic_helper_disable_all().
+ustawia fb i crtc dla płaszczyzny na NULL przed wywołaniem zatwierdzenia.
+
+Powoduje to wystąpienie błędu jądra przy każdym rozłączeniu wyświetlacza.
+
+Dodaj osłony dla tych dereferencji.</description></item><item><title>CVE-2026-23038</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23038</link><pubDate>Sat, 31 Jan 2026 11:42:32 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+pnfs/flexfiles: Napraw wyciek pamięci w nfs4_ff_alloc_deviceid_node()
+
+W nfs4_ff_alloc_deviceid_node(), jeśli alokacja dla ds_versions nie powiedzie się,
+funkcja przeskakuje do etykiety out_scratch bez zwalniania już
+przydzieloną listę dsaddrs, co prowadzi do wycieku pamięci.
+
+Napraw to, przechodząc do etykiety out_err_drain_dsaddrs, która poprawnie
+zwalnia listę dsaddrs przed czyszczeniem innych zasobów.</description></item><item><title>CVE-2026-23037</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23037</link><pubDate>Sat, 31 Jan 2026 11:42:31 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+can: etas_es58x: pozwala na powodzenie częściowej alokacji RX URB
+
+Kiedy es58x_alloc_rx_urbs() nie przydzieli żądanej liczby
+URB, ale część została przydzielona, zwraca kod błędu.
+To powoduje, że es58x_open() powraca wcześniej, pomijając etykietę czyszczącą
+„free_urbs”, co prowadzi do wycieku zakotwiczonych URB.
+
+Jak zauważył opiekun Vincent Mailhol, sterownik jest zaprojektowany
+aby sprawnie obsługiwać częściową alokację URB.Dlatego częściowe
+alokacji nie należy traktować jako błędu krytycznego.
+
+Zmodyfikuj funkcję es58x_alloc_rx_urbs(), aby zwracała 0, jeśli co najmniej jeden URB został
+przydzielone, przywracając zamierzone zachowanie i zapobiegając wyciekowi
+w es58x_open().</description></item><item><title>CVE-2026-23036</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23036</link><pubDate>Sat, 31 Jan 2026 11:42:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+btrfs: ścieżka zwolnienia przed iget_failed() w btrfs_read_locked_inode()
+
+W btrfs_read_locked_inode() jeśli nie uda nam się wyszukać i-węzła, przeskakujemy do
+etykietę „out” ze ścieżką, która ma liść z blokadą odczytu, a następnie wywołujemy
+iget_failed().Może to spowodować impas ABBA, ponieważ iget_failed()
+powoduje eksmisję i-węzła, co powoduje zwolnienie opóźnionego i-węzła,
+który musi zablokować muteks opóźnionego i-węzła oraz zadanie aktualizujące opóźniony i-węzeł
+i-węzeł rozpoczyna się od pobrania muteksu węzła, a następnie zmodyfikowania i-węzła
+podtom bdrzewo.
+
+Syzbot zgłosił następujący komunikat dotyczący blokady:
+
+======================================================
+OSTRZEŻENIE: wykryto możliwą zależność blokowania cyklicznego
+syzkaller #0 Nieskażony
+------------------------------------------------------
+btrfs-cleaner/8725 próbuje uzyskać blokadę:
+ffff0000d6826a48 (&amp;delayed_node-&gt;mutex){+.+.}-{4:4}, pod adresem: __btrfs_release_delayed_node+0xa0/0x9b0 fs/btrfs/delayed-inode.c:290
+
+ale zadanie już blokuje:
+ffff0000dbeba878 (btrfs-tree-00){++++}-{4:4}, pod adresem: btrfs_tree_read_lock_nested+0x44/0x2ec fs/btrfs/locking.c:145
+
+który zamek zależy już od nowego zamka.
+
+istniejący łańcuch zależności (w odwrotnej kolejności) to:
+
+-&gt; #1 (btrfs-tree-00){++++}-{4:4}:
+__lock_release jądro/locking/lockdep.c:5574 [wbudowane]
+lock_release+0x198/0x39c jądro/locking/lockdep.c:5889
+up_read+0x24/0x3c jądro/locking/rwsem.c:1632
+btrfs_tree_read_unlock+0xdc/0x298 fs/btrfs/locking.c:169
+btrfs_tree_unlock_rw fs/btrfs/locking.h:218 [w linii]
+btrfs_search_slot+0xa6c/0x223c fs/btrfs/ctree.c:2133
+btrfs_lookup_inode+0xd8/0x38c fs/btrfs/inode-item.c:395
+__btrfs_update_delayed_inode+0x124/0xed0 fs/btrfs/delayed-inode.c:1032
+btrfs_update_delayed_inode fs/btrfs/delayed-inode.c:1118 [inline]
+__btrfs_commit_inode_delayed_items+0x15f8/0x1748 fs/btrfs/delayed-inode.c:1141
+__btrfs_run_delayed_items+0x1ac/0x514 fs/btrfs/delayed-inode.c:1176
+btrfs_run_delayed_items_nr+0x28/0x38 fs/btrfs/delayed-inode.c:1219
+spłuczka_space+0x26c/0xb68 fs/btrfs/space-info.c:828
+do_async_reclaim_metadata_space+0x110/0x364 fs/btrfs/space-info.c:1158
+btrfs_async_reclaim_metadata_space+0x90/0xd8 fs/btrfs/space-info.c:1226
+proces_one_work+0x7e8/0x155c jądro/workqueue.c:3263
+Process_scheduled_works kernel/workqueue.c:3346 [inline]
+wątek_pracownika+0x958/0xed8 jądro/workqueue.c:3427
+kthread+0x5fc/0x75c jądro/kthread.c:463
+ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:844
+
+-&gt; #0 (&amp;delayed_node-&gt;mutex){+.+.}-{4:4}:
+check_prev_add kernel/locking/lockdep.c:3165 [inline]
+check_prevs_add kernel/locking/lockdep.c:3284 [inline]
+valid_chain kernel/locking/lockdep.c:3908 [inline]
+__lock_acquire+0x1774/0x30a4 jądro/locking/lockdep.c:5237
+lock_acquire+0x14c/0x2e0 jądro/locking/lockdep.c:5868
+__mutex_lock_common+0x1d0/0x2678 jądro/blokowanie/mutex.c:598
+__mutex_lock jądro/locking/mutex.c:760 [wbudowane]
+mutex_lock_nested+0x2c/0x38 jądro/blokowanie/mutex.c:812
+__btrfs_release_delayed_node+0xa0/0x9b0 fs/btrfs/delayed-inode.c:290
+btrfs_release_delayed_node fs/btrfs/delayed-inode.c:315 [inline]
+btrfs_remove_delayed_node+0x68/0x84 fs/btrfs/delayed-inode.c:1326
+btrfs_evict_inode+0x578/0xe28 fs/btrfs/inode.c:5587
+eksmisja+0x414/0x928 fs/inode.c:810
+iput_final fs/inode.c:1914 [w linii]
+iput+0x95c/0xad4 fs/inode.c:1966
+iget_failed+0xec/0x134 fs/bad_inode.c:248
+btrfs_read_locked_inode+0xe1c/0x1234 fs/btrfs/inode.c:4101
+btrfs_iget+0x1b0/0x264 fs/btrfs/inode.c:5837
+btrfs_run_defrag_inode fs/btrfs/defrag.c:237 [w linii]
+btrfs_run_defrag_inodes+0x520/0xdc4 fs/btrf
+---obcięty---</description></item><item><title>CVE-2026-23035</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23035</link><pubDate>Sat, 31 Jan 2026 11:42:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net/mlx5e: Przekaż netdev do mlx5e_destroy_netdev zamiast priv
+
+mlx5e_priv to niestabilna struktura, którą można ustawić na memset(0) w profilu
+dołączanie kończy się niepowodzeniem.
+
+Przekaż netdev do mlx5e_destroy_netdev(), aby mieć pewność, że będzie działać na komputerze
+ważny Netdev.
+
+Na mlx5e_remove: Przed próbą sprawdź ważność profilu priv-&gt;
+aby wyczyścić wszelkie zasoby, których może tam nie być.
+
+Naprawia to błąd jądra występujący w mlx5e_remove w przypadku awarii trybu switchdev
+zmienić błąd profilu.
+
+$ devlink dev eswitch set pci/0000:00:03.0 mode switchdev
+Błąd: mlx5_core: Nie udało się ustawić przełącznika na odciążanie.
+dmesg:
+kolejka robocza: Nie udało się utworzyć wątku ratunkowego dla wq „mlx5e”: -EINTR
+mlx5_core 0012:03:00.1: mlx5e_netdev_init_profile:6214:(pid 37199): mlx5e_priv_init nie powiodło się, err=-12
+mlx5_core 0012:03:00.1 gpu3rdma1: mlx5e_netdev_change_profile: inicjacja nowego profilu nie powiodła się, -12
+kolejka robocza: Nie udało się utworzyć wątku ratunkowego dla wq „mlx5e”: -EINTR
+mlx5_core 0012:03:00.1: mlx5e_netdev_init_profile:6214:(pid 37199): mlx5e_priv_init nie powiodło się, err=-12
+mlx5_core 0012:03:00.1 gpu3rdma1: mlx5e_netdev_change_profile: nie udało się przywrócić profilu oryginalnego, -12
+
+$ devlink dev przeładuj pci/0000:00:03.0 ==&gt; ups
+
+BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 0000000000000370
+PGD 0 P4D 0
+Ups: Ups: 0000 [#1] SMP NOPTI
+Procesor: 15 UID: 0 PID: 520 Comm: devlink Nieskażony 6.18.0-rc5+ #115 PREEMPT (dobrowolne)
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-2.fc40 01.04.2014
+RIP: 0010:mlx5e_dcbnl_dscp_app+0x23/0x100
+RSP: 0018:ffffc9000083f8b8 EFLAGS: 00010286
+RAX: ffff8881126fc380 RBX: ffff8881015ac400 RCX: ffffffff826ffc45
+RDX: 0000000000000000 RSI: 0000000000000001 RDI: ffff8881035109c0
+RBP: ffff8881035109c0 R08: ffff888101e3e838 R09: ffff888100264e10
+R10: ffffc9000083f898 R11: ffffc9000083f8a0 R12: ffff888101b921a0
+R13: ffff888101b921a0 R14: ffff8881015ac9a0 R15: ffff8881015ac400
+FS: 00007f789a3c8740(0000) GS:ffff88856aa59000(0000) knlGS:00000000000000000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000370 CR3: 000000010b6c0001 CR4: 0000000000370ef0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+mlx5e_remove+0x57/0x110
+urządzenie_release_driver_internal+0x19c/0x200
+bus_remove_device+0xc6/0x130
+urządzenie_del+0x160/0x3d0
+?devl_param_driverinit_value_get+0x2d/0x90
+mlx5_detach_device+0x89/0xe0
+mlx5_unload_one_devl_locked+0x3a/0x70
+mlx5_devlink_reload_down+0xc8/0x220
+devlink_reload+0x7d/0x260
+devlink_nl_reload_doit+0x45b/0x5a0
+genl_family_rcv_msg_doit+0xe8/0x140</description></item><item><title>CVE-2026-23034</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23034</link><pubDate>Sat, 31 Jan 2026 11:42:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/amdgpu/userq: Naprawiono wyciek referencji ogrodzenia podczas usuwania kolejki v2
+
+Kolejka trybu użytkownika przechowuje wskaźnik do ostatniego ogrodzenia
+użytkownikq-&gt;last_fence.Ten wskaźnik zawiera dodatkowe odwołanie dma_fence.
+
+Kiedy kolejka zostanie zniszczona, uwalniamy sterownik ogrodzenia i jego tablicę x,
+ale zapomnieliśmy usunąć odniesienie last_fence.
+
+Z powodu braku dma_fence_put(), ostatni obiekt ogrodzenia może pozostać
+żyje, gdy kierowca rozładowuje.Pozostawia to przydzielony obiekt w
+Pamięć podręczna i wyzwalacze płyty amdgpu_userq_fence
+
+Jest to widoczne podczas rozładowywania sterownika jako:
+
+BŁĄD amdgpu_userq_fence: Obiekty pozostałe w __kmem_cache_shutdown()
+kmem_cache_destroy amdgpu_userq_fence: Slab cache nadal zawiera obiekty
+Zadzwoń do śledzenia:
+kmem_cache_destroy
+amdgpu_userq_fence_slab_fini
+amdgpu_exit
+__do_sys_delete_module
+
+Napraw to, umieszczając userq-&gt;last_fence i czyszcząc wskaźnik podczas
+amdgpu_userq_fence_driver_free().
+
+Dzięki temu odniesienie do ogrodzenia zostanie zwolnione, a pamięć podręczna płyty pozostanie
+pusty po wyjściu modułu.
+
+v2: Aktualizacja, aby zwolnić tylko userq-&gt;last_fence z dma_fence_put()
+(chrześcijański)
+
+(wiśnia wybrana z zatwierdzenia 8e051e38a8d45caf6a866d4ff842105b577953bb)</description></item><item><title>CVE-2026-23033</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23033</link><pubDate>Sat, 31 Jan 2026 11:42:28 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: omap-dma: napraw wyciek zasobów dma_pool w ścieżkach błędów
+
+Pula dma_pool utworzona przez dma_pool_create() nie jest niszczona, gdy
+dma_async_device_register() lub of_dma_controller_register() kończy się niepowodzeniem,
+powodując wyciek zasobów na ścieżkach błędów sondy.
+
+Dodaj dma_pool_destroy() w obu ścieżkach błędów, aby poprawnie zwolnić
+przydzielony zasób dma_pool.</description></item><item><title>CVE-2026-23032</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23032</link><pubDate>Sat, 31 Jan 2026 11:42:11 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+null_blk: napraw kmemleak, uwalniając odniesienia do elementów konfiguracji błędów
+
+Kiedy CONFIG_BLK_DEV_NULL_BLK_FAULT_INJECTION jest włączone, wartość null-blk
+sterownik konfiguruje obsługę wstrzykiwania błędów, tworząc timeout_inject,
+requeue_inject i init_hctx_fault_inject konfigurują elementy jako elementy podrzędne
+z grupy konfiguracyjnej nullbX najwyższego poziomu.
+
+Jednak po usunięciu urządzenia nullbX odniesienia do
+te elementy konfiguracji błędów nie są udostępniane.W rezultacie
+kmemleak zgłasza wyciek pamięci, na przykład:
+
+obiekt bez odniesienia 0xc00000021ff25c40 (rozmiar 32):
+comm "mkdir", pid 10665, jiffies 4322121578
+zrzut szesnastkowy (pierwsze 32 bajty):
+69 6e 69 74 5f 68 63 74 78 5f 66 61 75 6c 74 5f init_hctx_fault_
+69 6e 6a 65 63 74 00 88 00 00 00 00 00 00 00 00 wtrysk......
+ślad wsteczny (crc 1a018c86):
+__kmalloc_node_track_caller_noprof+0x494/0xbd8
+kvasprintf+0x74/0xf4
+nazwa_zestawu_elementów_konfiguracyjnych+0xf0/0x104
+nazwa_typu_grupy_konfiguracyjnej+0x48/0xfc
+błąd_config_init+0x48/0xf0
+0xc0080000180559e4
+configfs_mkdir+0x304/0x814
+vfs_mkdir+0x49c/0x604
+do_mkdirat+0x314/0x3d0
+sys_mkdir+0xa0/0xd8
+wyjątek_wywołania_systemowego+0x1b0/0x4f0
+system_call_vectored_common+0x15c/0x2ec
+
+Napraw ten problem, jawnie zwalniając odniesienia do pliku error-config
+configfs podczas usuwania odniesienia do nullbX najwyższego poziomu
+grupa configfs.</description></item><item><title>CVE-2026-23031</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23031</link><pubDate>Sat, 31 Jan 2026 11:42:09 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+can: gs_usb: gs_usb_receive_bulk_callback(): napraw wyciek pamięci URB
+
+W gs_can_open() przydzielane są adresy URB dla transferów USB i dodawane do
+zakotwiczenie rodzic-&gt;rx_submitted i przesłane.W pełnym wywołaniu zwrotnym
+gs_usb_receive_bulk_callback(), URB jest przetwarzany i przesyłany ponownie.w
+gs_can_close() URB są zwalniane poprzez wywołanie
+usb_kill_anchored_urbs(parent-&gt;rx_submitted).
+
+Nie uwzględnia to jednak faktu, że struktura USB się odkotwicza
+URB przed wywołaniem całej funkcji.Oznacza to, że raz
+in-URB został ukończony, nie jest już zakotwiczony i ostatecznie nie jest
+wydany w gs_can_close().
+
+Napraw wyciek pamięci, zakotwiczając URB w pliku
+gs_usb_receive_bulk_callback() do kotwicy nadrzędnej-&gt;rx_submitted.</description></item><item><title>CVE-2026-23030</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23030</link><pubDate>Sat, 31 Jan 2026 11:42:08 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+phy: rockchip: inno-usb2: Napraw podwójny darmowy błąd w rockchip_usb2phy_probe()
+
+Wywołania for_each_available_child_of_node() metody_node_put() do
+zwolnij child_np w każdej pętli sukcesu.Po zerwaniu z
+pętla z child_np została zwolniona, kod przeskoczy do
+etykietę put_child i ponownie wywoła funkcję of_node_put(), jeśli
+devm_request_threaded_irq() kończy się niepowodzeniem.Powodują one podwójny darmowy błąd.
+
+Napraw, wracając bezpośrednio, aby uniknąć duplikatu funkcji_node_put().</description></item><item><title>CVE-2026-23029</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23029</link><pubDate>Sat, 31 Jan 2026 11:42:07 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+LoongArch: KVM: Napraw wyciek kvm_device w kvm_eiointc_destroy()
+
+W kvm_ioctl_create_device() kvm_device przydzieliło pamięć,
+wydaje się, że kvm_device-&gt;destroy() ma zwalniać swoje kvm_device
+struct, ale kvm_eiointc_destroy() obecnie nie robi tego ani tamtego
+doprowadziłoby do wycieku pamięci.
+
+Więc napraw to.</description></item><item><title>CVE-2026-23028</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23028</link><pubDate>Sat, 31 Jan 2026 11:42:06 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+LoongArch: KVM: Napraw wyciek kvm_device w kvm_ipi_destroy()
+
+W kvm_ioctl_create_device() kvm_device przydzieliło pamięć,
+wydaje się, że kvm_device-&gt;destroy() ma zwalniać swoje kvm_device
+struct, ale kvm_ipi_destroy() obecnie nie robi tego, tamtego
+doprowadziłoby do wycieku pamięci.
+
+Więc napraw to.</description></item><item><title>CVE-2026-23027</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23027</link><pubDate>Sat, 31 Jan 2026 11:42:06 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+LoongArch: KVM: Napraw wyciek kvm_device w kvm_pch_pic_destroy()
+
+W kvm_ioctl_create_device() kvm_device przydzieliło pamięć,
+wydaje się, że kvm_device-&gt;destroy() ma zwalniać swoje kvm_device
+struct, ale kvm_pch_pic_destroy() obecnie nie robi tego ani tamtego
+doprowadziłoby do wycieku pamięci.
+
+Więc napraw to.</description></item><item><title>CVE-2026-23026</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23026</link><pubDate>Sat, 31 Jan 2026 11:42:05 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: qcom: gpi: Napraw wyciek pamięci w gpi_peripheral_config()
+
+Napraw wyciek pamięci w gpi_peripheral_config(), w którym znajdował się oryginalny plik memory
+wskazywany przez gchan-&gt;config może zostać utracony, jeśli krealloc() nie powiedzie się.
+
+Problem występuje, gdy:
+1. gchan-&gt;config wskazuje na wcześniej przydzieloną pamięć
+2. krealloc() kończy się niepowodzeniem i zwraca NULL
+3. Funkcja bezpośrednio przypisuje NULL do gchan-&gt;config, tracąc
+odniesienie do pierwotnej pamięci
+4. Oryginalna pamięć staje się nieosiągalna i nie można jej zwolnić
+
+Napraw ten problem, używając zmiennej tymczasowej do przechowywania wyniku krealloc().
+i aktualizowanie gchan-&gt;config tylko wtedy, gdy alokacja się powiedzie.
+
+Znaleziono poprzez analizę statyczną i przegląd kodu.</description></item><item><title>CVE-2026-23025</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23025</link><pubDate>Sat, 31 Jan 2026 11:42:04 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+mm/page_alloc: zapobiegaj uszkodzeniom pcp za pomocą SMP=n
+
+Robot testujący jądro zgłosił:
+
+BŁĄD: awaria spinlock trylock na UP na CPU#0, kcompactd0/28
+blokada: 0xffff888807e35ef0, .magic: dead4ead, .owner: kcompactd0/28, .owner_cpu: 0
+Procesor: 0 UID: 0 PID: 28 Comm: kcompactd0 Nieskażony 6.18.0-rc5-00127-ga06157804399 #1 PREEMPT 8cc09ef94dcec767faa911515ce9e609c45db470
+Zadzwoń do śledzenia:
+&lt;przerwanie&gt;
+__dump_stack (lib/dump_stack.c:95)
+dump_stack_lvl (lib/dump_stack.c:123)
+dump_stack (lib/dump_stack.c:130)
+spin_dump (jądro/blokowanie/spinlock_debug.c:71)
+do_raw_spin_trylock (kernel/locking/spinlock_debug.c:?)
+_raw_spin_trylock (include/linux/spinlock_api_smp.h:89 kernel/locking/spinlock.c:138)
+__free_frozen_pages (mm/page_alloc.c:2973)
+___free_pages (mm/page_alloc.c:5295)
+__free_pages (mm/page_alloc.c:5334)
+tlb_remove_table_rcu (include/linux/mm.h:? include/linux/mm.h:3122 include/asm-generic/tlb.h:220 mm/mmu_gather.c:227 mm/mmu_gather.c:290)
+?__cfi_tlb_remove_table_rcu (mm/mmu_gather.c:289)
+?rcu_core (jądro/rcu/drzewo.c:?)
+rcu_core (include/linux/rcupdate.h:341 kernel/rcu/tree.c:2607 kernel/rcu/tree.c:2861)
+rcu_core_si (jądro/rcu/tree.c:2879)
+handle_softirqs (arch/x86/include/asm/jump_label.h:36 include/trace/events/irq.h:142 kernel/softirq.c:623)
+__irq_exit_rcu (arch/x86/include/asm/jump_label.h:36 kernel/softirq.c:725)
+irq_exit_rcu (jądro/softirq.c:741)
+sysvec_apic_timer_interrupt (arch/x86/kernel/apic/apic.c:1052)
+&lt;/IRQ&gt;
+&lt;ZADANIE&gt;
+RIP: 0010:_raw_spin_unlock_irqrestore (arch/x86/include/asm/preempt.h:95 include/linux/spinlock_api_smp.h:152 kernel/locking/spinlock.c:194)
+free_pcppages_bulk (mm/page_alloc.c:1494)
+dren_pages_zone (include/linux/spinlock.h:391 mm/page_alloc.c:2632)
+__drain_all_pages (mm/page_alloc.c:2731)
+dren_wszystkie_strony (mm/page_alloc.c:2747)
+kcompactd (mm/zagęszczenie.c:3115)
+kthread (jądro/kthread.c:465)
+?__cfi_kcompactd (mm/zagęszczenie.c:3166)
+?__cfi_kthread (jądro/kthread.c:412)
+ret_from_fork (arch/x86/kernel/process.c:164)
+?__cfi_kthread (jądro/kthread.c:412)
+ret_from_fork_asm (arch/x86/entry/entry_64.S:255)
+&lt;/ZADANIE&gt;
+
+Matthew przeanalizował raport i stwierdził, że w funkcji dren_page_zone()
+jesteśmy w sekcji chronionej przez spin_lock(&amp;pcp-&gt;lock), a następnie otrzymujemy
+przerwanie, które próbuje spin_trylock() na tym samym zamku.Kod jest
+zaprojektowany do pracy w ten sposób bez wyłączania przerwań i czasami zawodzi
+trylock z rezerwą.Jednakże implementacja spinlocka SMP=n
+zakłada, że spin_trylock() zawsze się powiedzie, dlatego zwykle jest to a
+nie ma opcji.Tutaj włączone debugowanie blokady wychwytuje problem, ale jest inaczej
+może to spowodować uszkodzenie struktury pcp.
+
+Problem został wprowadzony przez zatwierdzenie 574907741599 („mm/page_alloc:
+pozostaw włączone przerwania dla alokacji stron na procesor”).Schemat blokowania pcp
+rozpoznaje potrzebę wyłączenia przerwań, aby zapobiec zagnieżdżaniu spin_trylock()
+sekcje dotyczące SMP=n, ale istnieje potrzeba zapobiegania zagnieżdżaniu w spin_lock().
+nie został rozpoznany.Napraw to, wprowadzając lokalne opakowania, które zmieniają plik
+spin_lock() do spin_lock_iqsave() z SMP=n i używaj ich we wszystkich miejscach
+które wykonują spin_lock(&amp;pcp-&gt;lock).
+
+[vbabka@suse.cz: dodaj przedrostek pcp_ do opakowań spin_lock_irqsave, według Stevena]</description></item><item><title>CVE-2025-71191</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71191</link><pubDate>Sat, 31 Jan 2026 11:42:03 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: at_hdmac: napraw wyciek urządzenia w of_dma_xlate()
+
+Pamiętaj, aby pominąć odniesienie podczas wyszukiwania platformy DMA
+urządzenie podczas of_dma_xlate() podczas zwalniania zasobów kanału.
+
+Zauważ, że zatwierdzono 3832b78b3ec2 („dmaengine: at_hdmac: dodaj brakujące
+wywołanie put_device() w at_dma_xlate()”) naprawiło wyciek w kilku przypadkach
+ścieżki błędów, ale odwołanie nadal wycieka po pomyślnej alokacji.</description></item><item><title>CVE-2025-71190</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71190</link><pubDate>Sat, 31 Jan 2026 11:42:01 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: bcm-sba-raid: napraw wyciek urządzenia na sondzie
+
+Podczas sprawdzania urządzenia skrzynki pocztowej pamiętaj o porzuceniu odniesienia
+podczas sondy w przypadku awarii sondy i po rozłączeniu sterownika.</description></item><item><title>CVE-2025-71189</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71189</link><pubDate>Sat, 31 Jan 2026 11:42:00 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: dw: dmamux: naprawa wycieku węzła OF w przypadku niepowodzenia alokacji trasy
+
+Pamiętaj, aby pominąć również odniesienie do głównego węzła DMA OF
+błędy w późnym przydzielaniu tras.</description></item><item><title>CVE-2025-71188</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71188</link><pubDate>Sat, 31 Jan 2026 11:41:59 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: lpc18xx-dmamux: napraw wyciek urządzenia podczas przydzielania tras
+
+Pamiętaj, aby pominąć odnośnik wzięty podczas wyszukiwania multipleksera DMA
+urządzenie peronowe podczas wyznaczania trasy.
+
+Należy pamiętać, że posiadanie odniesienia do urządzenia nie uniemożliwia jego sterownika
+dane znikną, więc nie ma sensu utrzymywanie odniesienia.</description></item><item><title>CVE-2025-71187</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71187</link><pubDate>Sat, 31 Jan 2026 11:41:58 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dmaengine: sh: rz-dmac: napraw wyciek urządzenia w przypadku awarii sondy
+
+Podczas sprawdzania urządzenia ICU pamiętaj o porzuceniu odniesienia
+podczas sondy, także w przypadku awarii sondy (np. odroczenie sondy).</description></item><item><title>CVE-2026-23024</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23024</link><pubDate>Sat, 31 Jan 2026 11:39:07 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+idpf: napraw wyciek pamięci listy sterującej przepływem w rmmod
+
+Lista sterowania przepływem zawiera wpisy, które są dodawane i usuwane w miarę
+ethtool tworzy i usuwa reguły sterowania przepływem.Usuwanie modułu z aktywnym
+wpisy powodują wyciek pamięci, ponieważ lista nie jest odpowiednio czyszczona.
+
+Zapobiegnij temu, przeglądając pozostałe wpisy na liście i
+zwalnianie powiązanej pamięci podczas usuwania modułu.Dodaj spinlock
+(flow_steer_list_lock), aby chronić dostęp do listy z wielu wątków.</description></item><item><title>CVE-2026-23023</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23023</link><pubDate>Sat, 31 Jan 2026 11:39:06 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+idpf: napraw wyciek pamięci w idpf_vport_rel()
+
+Uwolnij vport-&gt;rx_ptype_lkup w idpf_vport_rel(), aby uniknąć wycieku pamięci
+podczas resetu.Zgłoszone przez kmemleak:
+
+obiekt bez odniesienia 0xff450acac838a000 (rozmiar 4096):
+comm "kworker/u258:5", pid 7732, jiffies 4296830044
+zrzut szesnastkowy (pierwsze 32 bajty):
+00 00 00 00 00 10 00 00 00 10 00 00 00 00 00 00 .............
+00 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 .............
+śledzenie wsteczne (crc 3da81902):
+__kmalloc_cache_noprof+0x469/0x7a0
+idpf_send_get_rx_ptype_msg+0x90/0x570 [idpf]
+idpf_init_task+0x1ec/0x8d0 [idpf]
+proces_one_work+0x226/0x6d0
+wątek_pracownika+0x19e/0x340
+kwątek+0x10f/0x250
+ret_from_fork+0x251/0x2b0
+ret_from_fork_asm+0x1a/0x30</description></item><item><title>CVE-2026-23022</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23022</link><pubDate>Sat, 31 Jan 2026 11:39:05 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+idpf: napraw wyciek pamięci w idpf_vc_core_deinit()
+
+Upewnij się, że zwolniłeś hw-&gt;lan_regs.Zgłoszone przez kmemleak podczas resetowania:
+
+obiekt bez odniesienia 0xff1b913d02a936c0 (rozmiar 96):
+komunikat „kworker/u258:14”, pid 2174, jiffies 4294958305
+zrzut szesnastkowy (pierwsze 32 bajty):
+00 00 00 c0 a8 ba 2d ff 00 00 00 00 00 00 00 00 ......-......
+00 00 40 08 00 00 00 00 00 00 25 b3 a8 ba 2d ff ..@......%...-.
+śledzenie wsteczne (crc 36063c4f):
+__kmalloc_noprof+0x48f/0x890
+idpf_vc_core_init+0x6ce/0x9b0 [idpf]
+idpf_vc_event_task+0x1fb/0x350 [idpf]
+proces_one_work+0x226/0x6d0
+wątek_pracownika+0x19e/0x340
+kwątek+0x10f/0x250
+ret_from_fork+0x251/0x2b0
+ret_from_fork_asm+0x1a/0x30</description></item><item><title>CVE-2026-23021</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23021</link><pubDate>Sat, 31 Jan 2026 11:39:05 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: usb: pegasus: napraw wyciek pamięci w update_eth_regs_async()
+
+Podczas asynchronicznego zapisu do rejestrów urządzenia i jeśli usb_submit_urb()
+nie powiedzie się, kod nie zwolni zasobów przydzielonych do tego punktu.</description></item><item><title>CVE-2026-23020</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23020</link><pubDate>Sat, 31 Jan 2026 11:39:04 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: 3com: 3c59x: napraw możliwe wyłuskiwanie wartości null w vortex_probe1()
+
+pdev może mieć wartość null, a free_ring: można wywołać w 1297 z wartością null
+pdev.</description></item><item><title>CVE-2026-23019</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23019</link><pubDate>Sat, 31 Jan 2026 11:39:03 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: marvell: prestera: napraw wyłuskiwanie wartości NULL w przypadku niepowodzenia devlink_alloc().
+
+devlink_alloc() może zwrócić NULL w przypadku niepowodzenia alokacji, ale
+prestera_devlink_alloc() bezwarunkowo wywołuje devlink_priv().
+zwrócony wskaźnik.
+
+Prowadzi to do dereferencji wskaźnika NULL, jeśli alokacja łącza deweloperskiego nie powiedzie się.
+Dodaj sprawdzenie wskaźnika devlink o wartości NULL i zwróć wartość NULL wcześniej, aby tego uniknąć
+katastrofa.</description></item><item><title>CVE-2026-23018</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23018</link><pubDate>Sat, 31 Jan 2026 11:39:02 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+btrfs: zwolnij ścieżkę przed inicjowaniem drzewa zakresów w btrfs_read_locked_inode()
+
+W btrfs_read_locked_inode() wywołujemy btrfs_init_file_extent_tree()
+trzymając ścieżkę z zablokowanym do odczytu liściem z drzewa podwoluminów i
+btrfs_init_file_extent_tree() może wykonać alokację GFP_KERNEL, co może
+wyzwalacz odzyskiwania.
+
+Może to spowodować utworzenie zależności z blokadą cykliczną, o której ostrzega lockdep
+następująca plamka:
+
+[6.1433] ======================================================
+[6.1574] OSTRZEŻENIE: wykryto możliwą zależność od blokowania cyklicznego
+[6.1583] 6.18.0+ #4 Skażony: G U
+[6.1591] ------------------------------------------------------
+[6.1599] kswapd0/117 próbuje uzyskać blokadę:
+[6.1606] ffff8d9b6333c5b8 (&amp;delayed_node-&gt;mutex){+.+.}-{3:3}, pod adresem: __btrfs_release_delayed_node.part.0+0x39/0x2f0
+[6.1625]
+ale zadanie już blokuje:
+[6.1633] ffffffffa4ab8ce0 (fs_reclaim){+.+.}-{0:0}, pod adresem: Balance_pgdat+0x195/0xc60
+[6.1646]
+który zamek zależy już od nowego zamka.
+
+[6.1657]
+istniejący łańcuch zależności (w odwrotnej kolejności) to:
+[6.1667]
+-&gt; #2 (fs_reclaim){+.+.}-{0:0}:
+[6.1677] fs_reclaim_acquire+0x9d/0xd0
+[6.1685] __kmalloc_cache_noprof+0x59/0x750
+[6.1694] btrfs_init_file_extent_tree+0x90/0x100
+[6.1702] btrfs_read_locked_inode+0xc3/0x6b0
+[6.1710] btrfs_iget+0xbb/0xf0
+[6.1716] btrfs_lookup_dentry+0x3c5/0x8e0
+[6.1724] btrfs_lookup+0x12/0x30
+[6.1731] lookup_open.isra.0+0x1aa/0x6a0
+[6.1739] ścieżka_openat+0x5f7/0xc60
+[6.1746] do_filp_open+0xd6/0x180
+[6.1753] do_sys_openat2+0x8b/0xe0
+[6.1760] __x64_sys_openat+0x54/0xa0
+[6.1768] do_syscall_64+0x97/0x3e0
+[6.1776] wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+[6.1784]
+-&gt; #1 (btrfs-tree-00){++++}-{3:3}:
+[6.1794] wydanie_blokady+0x127/0x2a0
+[6.1801] up_read+0x1b/0x30
+[6.1808] btrfs_search_slot+0x8e0/0xff0
+[6.1817] btrfs_lookup_inode+0x52/0xd0
+[6.1825] __btrfs_update_delayed_inode+0x73/0x520
+[6.1833] btrfs_commit_inode_delayed_inode+0x11a/0x120
+[6.1842] btrfs_log_inode+0x608/0x1aa0
+[6.1849] btrfs_log_inode_parent+0x249/0xf80
+[6.1857] btrfs_log_dentry_safe+0x3e/0x60
+[6.1865] btrfs_sync_file+0x431/0x690
+[6.1872] do_fsync+0x39/0x80
+[6.1879] __x64_sys_fsync+0x13/0x20
+[6.1887] do_syscall_64+0x97/0x3e0
+[6.1894] wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+[6.1903]
+-&gt; #0 (&amp;delayed_node-&gt;mutex){+.+.}-{3:3}:
+[6.1913] __lock_acquire+0x15e9/0x2820
+[6.1920] lock_acquire+0xc9/0x2d0
+[6.1927] __mutex_lock+0xcc/0x10a0
+[6.1934] __btrfs_release_delayed_node.part.0+0x39/0x2f0
+[6.1944] btrfs_evict_inode+0x20b/0x4b0
+[6.1952] eksmisja+0x15a/0x2f0
+[6.1958] prune_icache_sb+0x91/0xd0
+[6.1966] super_cache_scan+0x150/0x1d0
+[6.1974] do_shrink_slab+0x155/0x6f0
+[6.1981] płyta_kurczliwa+0x48e/0x890
+[6.1988] skurcz_one+0x11a/0x1f0
+[6.1995] węzeł_zmniejszenia+0xbfd/0x1320
+[6.1002] saldo_pgdat+0x67f/0xc60
+[6.1321] kswapd+0x1dc/0x3e0
+[6.1643] kwątek+0xff/0x240
+[6.1965] ret_from_fork+0x223/0x280
+[6.1287] ret_from_fork_asm+0x1a/0x30
+[6.1616]
+inne informacje, które mogą nam pomóc w rozwiązaniu problemu:
+
+[6.1561] Łańcuch istnieje:
+&amp;delayed_node-&gt;mutex --&gt; btrfs-tree-00 --&gt; fs_reclaim
+
+[6.1503] Możliwy scenariusz niebezpiecznego blokowania:
+
+[6.1110] CPU0 CPU1
+[6.1411] ---- ----
+[6.1707] blokada(fs_reclaim);
+[6.1998] blokada(btrfs-tree-00);
+[6.1291] blokada(fs_reclaim);
+[6.1581] zamek(&amp;del
+---obcięty---</description></item><item><title>CVE-2026-23017</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23017</link><pubDate>Sat, 31 Jan 2026 11:39:01 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+idpf: napraw obsługę błędów w zadaniu init_task podczas ładowania
+
+Jeśli init_task nie powiedzie się podczas ładowania sterownika, zostaniemy bez vportów i
+netdevs, skutecznie zawodząc cały proces.W tym stanie A
+późniejsze resetowanie spowoduje awarię podczas próby zadania serwisowego
+uzyskać dostęp do niezainicjowanych zasobów.Poniższy ślad pochodzi z błędu w pliku
+init_task, gdzie CREATE_VPORT (op 501) jest odrzucany przez FW:
+
+[40922.763136] idpf 0000:83:00.0: Rozpoczęto reset sprzętowy urządzenia
+[40924.449797] idpf 0000:83:00.0: Transakcja nie powiodła się (op 501)
+[40958.148190] idpf 0000:83:00.0: Wykryto reset sprzętu
+[40958.161202] BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 00000000000000a8
+...
+[40958.168094] Kolejka robocza: idpf-0000:83:00.0-vc_event idpf_vc_event_task [idpf]
+[40958.168865] RIP: 0010:idpf_vc_event_task+0x9b/0x350 [idpf]
+...
+[40958.177932] Śledzenie połączeń:
+[40958.178491] &lt;ZADANIE&gt;
+[40958.179040] proces_jeden_praca+0x226/0x6d0
+[40958.179609] wątek_pracownika+0x19e/0x340
+[40958.180158] ?__pfx_worker_thread+0x10/0x10
+[40958.180702] kwątek+0x10f/0x250
+[40958.181238] ?__pfx_kthread+0x10/0x10
+[40958.181774] ret_from_fork+0x251/0x2b0
+[40958.182307] ?__pfx_kthread+0x10/0x10
+[40958.182834] ret_from_fork_asm+0x1a/0x30
+[40958.183370] &lt;/TASK&gt;
+
+Napraw obsługę błędów w zadaniu init_task, aby upewnić się, że usługa i
+zadania skrzynki pocztowej są wyłączone, jeśli błąd wystąpi podczas ładowania.To są
+rozpoczęte w idpf_vc_core_init(), która uruchamia zadanie init_task i nie ma możliwości
+wiedzieć, czy się nie udało.Jeśli błąd wystąpi podczas resetowania, postępuj zgodnie z poniższymi wskazówkami
+pomyślne załadowanie sterownika, zadania mogą być nadal uruchamiane, ponieważ pozwoli to na
+netdevs, aby spróbować odzyskać dane poprzez kolejny reset.Zatrzymaj wywołania zwrotne PTP
+tak czy inaczej, ponieważ zostaną one zrestartowane przez wywołanie idpf_vc_core_init()
+podczas udanego resetu.</description></item><item><title>CVE-2026-23016</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23016</link><pubDate>Sat, 31 Jan 2026 11:38:59 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+inet: frags: upuść listę fraglist, aby śledzić odniesienia
+
+Jakub dodał ostrzeżenie w nf_conntrack_cleanup_net_list(), aby umożliwić debugowanie
+Wyciekłe odniesienia do skbs/conntrack są bardziej oczywiste.
+
+syzbot zgłasza to jako wyzwalanie i mogę to również odtworzyć poprzez
+Autotest ip_defrag.sh:
+
+Sprzątanie Conntrack zablokowane na 60s
+OSTRZEŻENIE: net/netfilter/nf_conntrack_core.c:2512
+[..]
+
+conntrack Clenups utknął, ponieważ istnieją skbs z nadal trzymanym nf_conn
+odniesienia za pośrednictwem ich frag_list.
+
+net.core.skb_defer_max=0 sprawia, że ​​zawieszenie znika.
+
+Eric Dumazet zwraca uwagę, że funkcja skb_release_head_state() nie przestrzega metody
+fraglista.
+
+Od tego czasu ip_defrag.sh może tylko odtworzyć ten problem
+zatwierdzić 6471658dc66c („udp: użyj skb_attempt_defer_free()”), ale AFAICS to
+problem może wystąpić również w przypadku protokołu TCP, jeśli funkcja wykrywania PMTU jest wyłączona.
+
+Odpowiednia ścieżka problemu dla udp to:
+1. netns emituje pofragmentowane pakiety
+2. nf_defrag_v6_hook ponownie je składa (w haku wyjściowym)
+3. śledzony jest ponownie złożony skb (skb posiada referencję nf_conn)
+4. Refragmentacje ip6_output
+5. Pofragmentowane pakiety posiadają także odniesienie do nf_conn (ip6_fragment
+wywołuje ip6_copy_metadata())
+6. na ścieżce wejściowej nf_defrag_v6_hook pomija defragmentację: the
+fragmenty mają już dołączone skb-&gt;nf_conn
+7. skbs są ponownie składane za pomocą ipv6_frag_rcv()
+8. skb_consume_udp -&gt; skb_attempt_defer_free() -&gt; skb kończy się
+na wolnej liście pcpu, ale nadal ma odniesienie do nf_conn.
+
+Możliwe rozwiązania:
+1 pozwól silnikowi defragmentacji usunąć wpis nf_conn, LUB
+2 wyeksportuj funkcję kick_defer_list_purge() i wywołaj ją z poziomu ścieżki
+netns kończy wywołanie zwrotne, LUB
+3 dodaj kontrolę skb_has_frag_list() do skb_attempt_defer_free()
+
+2 i 3 również rozwiązują zawieszenie ip_defrag.sh, ale mają tę samą wadę:
+
+Takie ponownie zmontowane skbs, ustawione w kolejce do gniazda, mogą uniemożliwić moduł Conntrack
+usunięcie do czasu wykorzystania pakietu przez przestrzeń użytkownika.Chociaż zarówno tcp, jak i udp
+stos wywołaj nf_reset_ct() przed umieszczeniem skb w kolejce gniazd, to
+funkcja nie iteruje frag_list skbs.
+
+Dlatego usuń wpisy nf_conn, gdy zostaną umieszczone w kolejce defragmentacji.
+Zachowaj wpis nf_conn pierwszego (przesunięcie 0) skb, aby ponownie złożyć
+skb zachowuje wpis nf_conn ze względu na ścieżkę TX.
+
+Zauważ, że tag fixs jest niepoprawny;wskazuje na zatwierdzenie wprowadzające
+„Powtarzalny problem ip_defrag.sh”: nie ma potrzeby przenoszenia tej poprawki do
+każde stabilne jądro.</description></item><item><title>CVE-2026-23015</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23015</link><pubDate>Sat, 31 Jan 2026 11:38:57 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+gpio: mpsse: napraw wyciek referencji w ścieżkach błędów gpio_mpsse_probe().
+
+Odniesienie uzyskane przez wywołanie usb_get_dev() nie jest udostępniane w pliku
+ścieżki błędów gpio_mpsse_probe().Napraw to, korzystając z pomocnika zarządzanego przez urządzenie
+funkcje.Usuń także wywołanie usb_put_dev() w funkcji rozłączania
+odtąd będzie on uwalniany automatycznie.</description></item><item><title>CVE-2026-1251</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1251</link><pubDate>Sat, 31 Jan 2026 06:39:23 +0000</pubDate><description>Wtyczka SupportCandy — Helpdesk i system obsługi klienta dla systemu WordPress jest podatna na ataki Insecure Direct Object Reference we wszystkich wersjach, aż do wersji 3.4.4 włącznie, za pośrednictwem funkcji „add_reply” z powodu braku walidacji klucza kontrolowanego przez użytkownika.Umożliwia to uwierzytelnionym atakującym, posiadającym dostęp na poziomie subskrybenta i wyższym, kradzież załączników plików przesłanych przez innych użytkowników poprzez określenie dowolnych identyfikatorów załączników w parametrze „description_attachments”, ponowne powiązanie tych plików z ich własnymi zgłoszeniami i odebranie dostępu pierwotnym właścicielom.
 
 CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-0683</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0683</link><pubDate>Sat, 31 Jan 2026 05:52:46 +0000</pubDate><description>Wtyczka SupportCandy – Helpdesk i system obsługi klienta dla WordPress jest podatna na wstrzykiwanie SQL poprzez niestandardowy filtr pola typu liczbowego we wszystkich wersjach do 3.4.4 włącznie.Dzieje się tak z powodu niewystarczającej zmiany wartości argumentu dostarczonej przez użytkownika podczas korzystania z operatora równości i braku wystarczającego przygotowania istniejącego zapytania SQL.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym (klienci) mogą dołączać dodatkowe zapytania SQL do już istniejących zapytań, które można wykorzystać do wyodrębnienia poufnych informacji z bazy danych.
 
