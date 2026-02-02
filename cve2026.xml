@@ -1,5 +1,72 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23476</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23476</link><pubDate>Mon, 02 Feb 2026 18:00:43 +0000</pubDate><description># Reflected XSS via SQL Error Messages
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-24051</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24051</link><pubDate>Mon, 02 Feb 2026 20:07:46 +0000</pubDate><description>### Wpływ
+Zestaw SDK OpenTelemetry Go w wersjach `v1.20.0`-`1.39.0` jest podatny na przejęcie kontroli nad ścieżką (niezaufane ścieżki wyszukiwania) w systemach macOS/Darwin.Kod wykrywania zasobów w `sdk/resource/host_id.go` wykonuje polecenie systemowe `ioreg` przy użyciu ścieżki wyszukiwania.Osoba atakująca posiadająca możliwość lokalnej modyfikacji zmiennej środowiskowej PATH może wykonać arbitralny kod (ACE) w kontekście aplikacji.
+
+### Poprawki
+Zostało to załatane w [d45961b] (https://github.com/open-telemetry/opentelemetry-go/commit/d45961bcda453fcbdb6469c22d6e88a1f9970a53), który został wydany w wersji 1.40.0.
+
+### Referencje
+- [CWE-426: Niezaufana ścieżka wyszukiwania](https://cwe.mitre.org/data/definitions/426.html)</description></item><item><title>CVE-2026-25059</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25059</link><pubDate>Mon, 02 Feb 2026 20:01:30 +0000</pubDate><description>### Podsumowanie
+Aplikacja zawiera lukę w zabezpieczeniach związaną z przechodzeniem ścieżki (CWE-22) w wielu procedurach obsługi operacji na plikach.Uwierzytelniony atakujący może ominąć autoryzację na poziomie katalogu, wprowadzając sekwencje przejścia do składników nazw plików, umożliwiając nieautoryzowane usuwanie plików i kopiowanie poza granicami użytkownika w ramach tego samego zamontowania pamięci masowej.
+
+### Szczegóły
+Aplikacja zawiera lukę w zabezpieczeniach związaną z przechodzeniem ścieżki (CWE-22) w wielu procedurach obsługi plików w *server/handles/fsmanage.go*.Komponenty nazw plików w `req.Names` są bezpośrednio łączone ze zweryfikowanymi katalogami przy użyciu `stdpath.Join`.Umożliwia to sekwencjom „..” ominięcie ograniczeń ścieżki, umożliwiając użytkownikom dostęp do plików innych użytkowników w ramach tej samej instalacji pamięci masowej i wykonywanie nieautoryzowanych działań, takich jak usuwanie, zmiana nazwy lub kopiowanie plików.
+
+[FsRemove](https://github.com/OpenListTeam/OpenList/blob/5db2172ed681346b69ed468c73c1f01b6ed455ea/server/handles/fsmanage.go#L284-L285):
+~~~
+func FsRemove(c *gin.Context) {
+// ...
+dla _, nazwa := zakres wymaganych nazw {
+err := fs.Remove(c, stdpath.Join(reqDir, nazwa))
+~~~
+
+[FsCopy](https://github.com/OpenListTeam/OpenList/blob/5db2172ed681346b69ed468c73c1f01b6ed455ea/server/handles/fsmanage.go#L163-L164):
+~~~
+func FsCopy(c *gin.Context) {
+// ...
+if !req.Overwrite {
+dla _, nazwa := zakres wymaganych nazw {
+if res, _ := fs.Get(c.Request.Context(), stdpath.Join(dstDir, nazwa), &amp;fs.GetArgs{NoLog: true});res!= zero {
+~~~
+
+
+### PoC
+Scenariusz: Zwykły użytkownik („alicja”) omija ograniczenia katalogów, aby czytać pliki poza autoryzowaną ścieżką.
+
+Konfiguracja środowiska:
+- Montowanie pamięci lokalnej jako „/local”.
+- Plik administratora „adminsecret.txt” jest umieszczony w katalogu /local
+- Alicja ma ścieżkę bazową „/local/alice”.
+
+
+https://github.com/user-attachments/assets/5d73bbec-29e5-4c52-8af3-4c70b26d9d0e
+
+
+
+### Wpływ
+Ta luka umożliwia eskalację uprawnień we współdzielonych środowiskach pamięci masowej.Uwierzytelniony atakujący z podstawowymi uprawnieniami do operacji na plikach (usuwanie/kopiowanie) może ominąć kontrolę autoryzacji na poziomie katalogu, jeśli w tym samym zamontowaniu pamięci masowej znajduje się wielu użytkowników.
+
+Wymagania dotyczące ataku:
+- Uwierzytelnione konto użytkownika (nie gościa)
+- Podstawowe uprawnienia do operacji na plikach (usuwanie/kopiowanie)
+- Środowisko wielu użytkowników w ramach tego samego uchwytu do przechowywania
+- Znajomość (lub umiejętność odgadnięcia) nazwy i ścieżki pliku docelowego
+
+Konsekwencje:
+- Nieautoryzowany dostęp do danych: czytaj, kopiuj i wydobywaj pliki z katalogów innych użytkowników
+- Niszczenie danych: Usuń pliki należące do innych użytkowników
+
+### Uwaga
+
+Luka ta została odkryta przez:
+- Zespół XlabAI z laboratorium Tencent Xuanwu
+- Atuin Automatyczny silnik wykrywania luk w zabezpieczeniach
+
+Preferowane CVE i kredyty.
+
+Jeśli użytkownicy mają jakiekolwiek pytania dotyczące szczegółów luki w zabezpieczeniach, prosimy o kontakt w celu dalszej dyskusji.Wyślij e-mail na adres [xlabai@tencent.com] (mailto:xlabai@tencent.com).
+
+Przestrzegamy branżowego standardu bezpieczeństwa [polityka ujawniania informacji 90+30](https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-policy.html).Jeżeli po 90 dniach od zgłoszenia powyższe luki pozostaną nienaprawione, wszystkie informacje o problemach zostaną upublicznione.</description></item><item><title>CVE-2026-23476</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23476</link><pubDate>Mon, 02 Feb 2026 18:00:43 +0000</pubDate><description># Reflected XSS via SQL Error Messages
 
 ## Summary
 
