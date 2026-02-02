@@ -1,5 +1,25 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2022-50981</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50981</link><pubDate>Mon, 02 Feb 2026 14:12:05 +0000</pubDate><description>Nieuwierzytelniona osoba atakująca zdalnie może uzyskać pełny dostęp do zagrożonych urządzeń, ponieważ domyślnie są one dostarczane bez hasła, a jego ustawienie nie jest wymuszane.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-47402</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47402</link><pubDate>Mon, 02 Feb 2026 15:20:47 +0000</pubDate><description>Przejściowy DOS podczas przetwarzania odebranej ramki ze zbyt dużym elementem informacji uwierzytelniającej.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2025-47399</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47399</link><pubDate>Mon, 02 Feb 2026 15:20:45 +0000</pubDate><description>Uszkodzenie pamięci podczas przetwarzania wywołania IOCTL w celu aktualizacji ustawień właściwości czujnika z nieprawidłowymi parametrami wejściowymi.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-47398</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47398</link><pubDate>Mon, 02 Feb 2026 15:20:44 +0000</pubDate><description>Uszkodzenie pamięci podczas zwalniania buforów pamięci procesora graficznego z powodu niewłaściwej obsługi wskaźników pamięci.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-47397</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47397</link><pubDate>Mon, 02 Feb 2026 15:20:43 +0000</pubDate><description>Uszkodzenie pamięci podczas inicjowania mapowania pamięci GPU przy użyciu list zbierania rozproszonego z powodu niesprawdzonych błędów mapowania IOMMU.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-47366</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47366</link><pubDate>Mon, 02 Feb 2026 15:20:42 +0000</pubDate><description>Problem kryptograficzny, gdy strefa zaufana z nieaktualnym kodem jest wyzwalana przez HLOS dostarczający nieprawidłowe dane wejściowe.
+
+CVSS Score: 7.1 (high)</description></item><item><title>CVE-2025-47364</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47364</link><pubDate>Mon, 02 Feb 2026 15:20:41 +0000</pubDate><description>Uszkodzenie pamięci podczas obliczania przesunięcia od punktu początkowego partycji.
+
+CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2025-47363</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47363</link><pubDate>Mon, 02 Feb 2026 15:20:40 +0000</pubDate><description>Uszkodzenie pamięci podczas obliczania zbyt dużych rozmiarów partycji bez odpowiednich kontroli.
+
+CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2025-47359</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47359</link><pubDate>Mon, 02 Feb 2026 15:20:38 +0000</pubDate><description>Uszkodzenie pamięci, gdy wiele wątków jednocześnie uzyskuje dostęp do interfejsu API bez pamięci.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-47358</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-47358</link><pubDate>Mon, 02 Feb 2026 15:20:37 +0000</pubDate><description>Uszkodzenie pamięci po zmodyfikowaniu adresu przestrzeni użytkownika i przekazaniu go do interfejsu API mem_free, powodując niezamierzone zwolnienie pamięci jądra.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-14914</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14914</link><pubDate>Mon, 02 Feb 2026 15:17:57 +0000</pubDate><description>IBM WebSphere Application Server Liberty w wersjach od 17.0.0.3 do 26.0.0.1 może umożliwiać uprzywilejowanemu użytkownikowi przesyłanie archiwum ZIP zawierającego sekwencje przejścia ścieżek skutkujące nadpisaniem plików prowadzącym do wykonania dowolnego kodu.
+
+CVSS Score: 7.6 (high)</description></item><item><title>CVE-2022-50981</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50981</link><pubDate>Mon, 02 Feb 2026 14:12:05 +0000</pubDate><description>Nieuwierzytelniona osoba atakująca zdalnie może uzyskać pełny dostęp do zagrożonych urządzeń, ponieważ domyślnie są one dostarczane bez hasła, a jego ustawienie nie jest wymuszane.
 
 CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2022-50980</title><link>https://nvd.nist.gov/vuln/detail/CVE-2022-50980</link><pubDate>Mon, 02 Feb 2026 14:11:21 +0000</pubDate><description>Nieuwierzytelniony sąsiad atakujący może potencjalnie zakłócić działanie, przełączając się między wieloma ustawieniami konfiguracji za pośrednictwem magistrali CAN.
 
