@@ -1,5 +1,39 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25526</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25526</link><pubDate>Tue, 03 Feb 2026 17:52:55 +0000</pubDate><description>## Wpływ
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-24887</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24887</link><pubDate>Tue, 03 Feb 2026 19:33:32 +0000</pubDate><description>Z powodu błędu w analizie poleceń możliwe było ominięcie monitu o potwierdzenie kodu Claude'a, aby uruchomić wykonanie niezaufanych poleceń za pomocą polecenia find.Niezawodne wykorzystanie tego wymagało możliwości dodania niezaufanej zawartości do okna kontekstowego Claude Code.
+
+Użytkownicy korzystający ze standardowej automatycznej aktualizacji Claude Code otrzymali już tę poprawkę.Użytkownikom dokonującym ręcznych aktualizacji zaleca się aktualizację do najnowszej wersji.
+
+Claude Code dziękuje https://hackerone.com/alexbernier za zgłoszenie tego problemu!</description></item><item><title>CVE-2025-64438</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64438</link><pubDate>Tue, 03 Feb 2026 19:32:22 +0000</pubDate><description>Fast DDS to implementacja C++ standardu DDS (Data Distribution Service) firmy OMG (Object Management Group)
+).Przed wersjami 3.4.1, 3.3.1 i 2.6.11 w Fast istniała zdalnie wyzwalana odmowa usługi Out-of-Memory (OOM)
+-DDS podczas przetwarzania podkomunikatów RTPS GAP w ramach NIEZAWODNEJ QoS.Wysyłając mały pakiet GAP z ogromnym zakresem przerw (`gapList
+.base - gapStart`), osoba atakująca wprowadza `StatefulReader::processGapMsg()` w nieograniczoną pętlę, która wstawia miliony s
+numery sekwencyjne do `WriterProxy::changes_received_` (`std::set`), powodując wzrost sterty o wielkości wielu GB i zakończenie procesu.
+Żadne uwierzytelnianie nie jest wymagane poza zasięgiem sieci dla czytnika w domenie DDS.W środowiskach bez kanału RSS
+limit (inny niż ASan / nieograniczony) zaobserwowano wzrost zużycia pamięci do ~64 GB.Wersje 3.4.1, 3.3.1 i 2.6.11 łatka t
+on wydał.</description></item><item><title>CVE-2026-24053</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24053</link><pubDate>Tue, 03 Feb 2026 19:32:01 +0000</pubDate><description>Ze względu na błąd sprawdzania poprawności polecenia Bash w składni ZSH clobber, możliwe było ominięcie ograniczeń katalogów i zapisanie plików poza bieżącym katalogiem roboczym bez monitów o pozwolenie użytkownika.Wykorzystanie tego wymagało od użytkownika użycia ZSH i możliwości dodania niezaufanej zawartości do okna kontekstowego Claude Code.
+
+Użytkownicy korzystający ze standardowej automatycznej aktualizacji Claude Code otrzymali już tę poprawkę.Użytkownikom dokonującym ręcznych aktualizacji zaleca się aktualizację do najnowszej wersji.
+
+Claude Code dziękuje https://hackerone.com/alexbernier za zgłoszenie tego problemu!</description></item><item><title>CVE-2026-25616</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25616</link><pubDate>Tue, 03 Feb 2026 19:21:14 +0000</pubDate><description>Blesta 3.x do 5.x przed wersją 5.13.3 błędnie obsługuje sprawdzanie poprawności danych wejściowych, czyli CORE-5665.
+
+CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2026-24427</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24427</link><pubDate>Tue, 03 Feb 2026 19:11:32 +0000</pubDate><description>Wersja oprogramowania sprzętowego Shenzhen Tenda AC7 V03.03.03.01_cn i wcześniejsza ujawnia poufne informacje w odpowiedziach zarządzania siecią.Poświadczenia administracyjne, w tym hasło routera i/lub panelu administracyjnego, są zawarte w postaci zwykłego tekstu w treści odpowiedzi dotyczących konfiguracji.Ponadto w odpowiedziach brakuje odpowiednich dyrektyw dotyczących kontroli pamięci podręcznej, które mogą zezwalać przeglądarkom internetowym na buforowanie stron zawierających te dane uwierzytelniające i umożliwiać ich późniejsze ujawnienie osobie atakującej mającej dostęp do systemu klienckiego lub profilu przeglądarki.</description></item><item><title>CVE-2025-62600</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-62600</link><pubDate>Tue, 03 Feb 2026 19:11:19 +0000</pubDate><description>Fast DDS to implementacja C++ standardu DDS (Data Distribution Service) firmy OMG (Object Management Group)
+).Przed wersjami 3.4.1, 3.3.1 i 2.6.11, gdy tryb bezpieczeństwa jest włączony, modyfikowanie podkomunikatu DATA w
+Pakiet SPDP wysłany przez wydawcę powoduje stan braku pamięci (OOM), co skutkuje zdalnym zakończeniem usługi Fast-DDS.Jeśli t
+pola PID_IDENTITY_TOKEN lub PID_PERMISSION_TOKEN w podkomunikacie DATA — w szczególności poprzez manipulację długością
+pole w readBinaryPropertySeq — są modyfikowane, następuje przepełnienie liczby całkowitej, co prowadzi do OOM podczas operacji zmiany rozmiaru.
+Wersje 3.4.1, 3.3.1 i 2.6.11 łatają ten problem.</description></item><item><title>CVE-2026-24426</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24426</link><pubDate>Tue, 03 Feb 2026 19:09:37 +0000</pubDate><description>Oprogramowanie sprzętowe Shenzhen Tenda AC7 w wersji V03.03.03.01_cn i wcześniejsze zawiera lukę w zabezpieczeniach nieprawidłowego kodowania danych wyjściowych w internetowym interfejsie zarządzania.Dane wprowadzone przez użytkownika są odzwierciedlane w odpowiedziach HTTP bez odpowiedniej ucieczki, umożliwiając wstrzyknięcie dowolnego kodu HTML lub JavaScript do kontekstu przeglądarki ofiary.</description></item><item><title>CVE-2026-1802</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1802</link><pubDate>Tue, 03 Feb 2026 19:02:06 +0000</pubDate><description>W Ziroom ZHOME A0101 1.0.1.0 wykryto lukę w zabezpieczeniach.Ten problem dotyczy funkcji macAddrClone pliku luci\controller\api\zrMacClone.lua.Manipulacja argumentem macType powoduje wstrzyknięcie polecenia.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-23794</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23794</link><pubDate>Tue, 03 Feb 2026 18:30:44 +0000</pubDate><description>Odzwierciedlono XSS na stronie logowania użytkownika końcowego Apache Syncope.
+
+Osoba atakująca, która nakłoni legalnego użytkownika do kliknięcia złośliwego łącza i zalogowania się do programu Syncope Enduser, może ukraść dane uwierzytelniające tego użytkownika.
+
+Ten problem dotyczy Apache Syncope: od 3.0 do 3.0.15, od 4.0 do 4.0.3.
+
+Użytkownikom zaleca się aktualizację do wersji 3.0.16 / 4.0.4, która rozwiązuje ten problem.</description></item><item><title>CVE-2026-23795</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23795</link><pubDate>Tue, 03 Feb 2026 18:30:44 +0000</pubDate><description>Niewłaściwe ograniczenie luki w zabezpieczeniach odwołania do encji zewnętrznej XML w konsoli Apache Syncope.Administrator posiadający odpowiednie uprawnienia do tworzenia lub edytowania parametrów Keymastera za pośrednictwem Konsoli może skonstruować złośliwy tekst XML w celu przeprowadzenia ataku XXE, powodując w ten sposób wyciek wrażliwych danych.
+
+Ten problem dotyczy Apache Syncope: od 3.0 do 3.0.15, od 4.0 do 4.0.3.
+
+Użytkownikom zaleca się aktualizację do wersji 3.0.16 / 4.0.4, która rozwiązuje ten problem.</description></item><item><title>CVE-2026-25526</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25526</link><pubDate>Tue, 03 Feb 2026 17:52:55 +0000</pubDate><description>## Wpływ
 
 **Typ luki**: obejście piaskownicy / zdalne wykonanie kodu
 
@@ -77,7 +111,11 @@ Użytkownicy powinni dokonać aktualizacji do jednej z następujących wersji za
 ### Dodatkowe zasoby
 - [Wstrzykiwanie szablonu OWASP](https://owasp.org/www-community/attacks/Server_Side_Template_Injection)
 - [Bezpieczeństwo deserializacji Java](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
-- [Standardy i procedury CVE](https://cve.mitre.org/)</description></item><item><title>CVE-2025-64712</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64712</link><pubDate>Tue, 03 Feb 2026 17:43:56 +0000</pubDate><description>Luka w zabezpieczeniach Path Traversal w funkcji `partition_msg` umożliwia atakującemu zapisanie lub nadpisanie dowolnych plików w systemie plików podczas przetwarzania złośliwych plików MSG z załącznikami.
+- [Standardy i procedury CVE](https://cve.mitre.org/)</description></item><item><title>CVE-2025-52626</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-52626</link><pubDate>Tue, 03 Feb 2026 17:48:06 +0000</pubDate><description>Potencjalna luka w zabezpieczeniach Command Injection w HCL AION.
+
+Może to pozwolić na niezamierzone wykonanie polecenia, potencjalnie prowadząc do nieautoryzowanych działań w systemie bazowym. Ten problem dotyczy AION: 2.0
+
+CVSS Score: 4.5 (medium)</description></item><item><title>CVE-2025-64712</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64712</link><pubDate>Tue, 03 Feb 2026 17:43:56 +0000</pubDate><description>Luka w zabezpieczeniach Path Traversal w funkcji `partition_msg` umożliwia atakującemu zapisanie lub nadpisanie dowolnych plików w systemie plików podczas przetwarzania złośliwych plików MSG z załącznikami.
 
 ## Wpływ
 Osoba atakująca może stworzyć złośliwy plik .msg z nazwami plików załączników zawierających sekwencje przechodzenia ścieżek (np.
@@ -181,11 +219,34 @@ Po wyodrębnieniu katalog wyjściowy zawiera dowiązanie symboliczne wskazujące
 
 ## Podsumowanie
 
-„kompresja” przywraca dowiązania symboliczne z archiwów TAR bez sprawdzania ich celów.Łącząc złośliwe dowiązanie symboliczne z kolejnym wpisem w pliku, osoba atakująca może przekierować wyodrębnione pliki do dowolnych lokalizacji na hoście.</description></item><item><title>CVE-2026-1568</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1568</link><pubDate>Tue, 03 Feb 2026 16:47:03 +0000</pubDate><description>Wersje Rapid7 InsightVM starsze niż 8.34.0 zawierają problem z weryfikacją podpisu w punkcie końcowym w chmurze Assertion Consumer Service (ACS), który może umożliwić osobie atakującej uzyskanie nieautoryzowanego dostępu do konfiguracji kont InsightVM
+„kompresja” przywraca dowiązania symboliczne z archiwów TAR bez sprawdzania ich celów.Łącząc złośliwe dowiązanie symboliczne z kolejnym wpisem w pliku, osoba atakująca może przekierować wyodrębnione pliki do dowolnych lokalizacji na hoście.</description></item><item><title>CVE-2026-24762</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24762</link><pubDate>Tue, 03 Feb 2026 17:37:33 +0000</pubDate><description>### Podsumowanie
+RustFS rejestruje wrażliwe dane uwierzytelniające (klucz dostępu, tajny klucz, token sesji) w dziennikach aplikacji na poziomie INFO.Powoduje to, że poświadczenia są zapisywane w postaci zwykłego tekstu w wynikach dziennika, które mogą być dostępne dla wewnętrznych lub zewnętrznych odbiorców dzienników i mogą prowadzić do naruszenia poufnych poświadczeń.Luka ta sklasyfikowana jest jako związana z ujawnieniem informacji (CWE-532).
+
+### Szczegóły
+Serwer zapisuje w dziennikach nowo wygenerowane informacje o poświadczeniach STS, w tym klucz dostępu, tajny klucz i token sesji.Świadczą o tym poniższe fragmenty dzienników aplikacji:
+
+```
+[2026-01-17 09:13:23.127767 +11:00] INFORMACJE [rustfs::admin::handlers::sts] [rustfs/src/admin/handlers/sts.rs:138] [rustfs-worker:ThreadId(4)] AssumeRole get new_cred Poświadczenia { access_key:„5UGH6TM44IPA81AH1WZE”, klucz_tajny: „3BQ-KnO_iB5ovmd5SU4wIK6sFfaPTliftvQ_iNLS”, token sesji:"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3Njg2NDQ4MDMsInBhcmVudCI6InJ1c3Rmc2FkbWluIn0.F9ZhARXyU0cB6QoFMElKK5tns_RFQM9WlpMiGVuuDOpOfNrbEKE_9IK1oaJ_yqDsBlK115uYOcQcGohjgUPhOQ",wygaśnięcie: Some(2026-01-17 10:13:23.0 +00:00:00), status: "on", użytkownik_rodzic: "rustfsadmin", grupy: Brak, roszczenia: Brak, nazwa: Brak, opis: Brak }
+```
+Sprawdzając logi, osoba atakująca lub nieautoryzowany użytkownik wewnętrzny mający dostęp do logów może odzyskać te poświadczenia i użyć ich do uwierzytelnienia w usługach RustFS lub wykonania innych nieautoryzowanych działań.
+
+### Wpływ
+- Ekspozycja informacji: dane uwierzytelniające w postaci zwykłego tekstu pojawiają się w plikach dziennika, które mogą być przechowywane, tworzone w kopiach zapasowych lub przekazywane do scentralizowanych systemów rejestrowania.
+- Naruszenie poświadczeń: Klucze dostępu, tajne klucze i tokeny sesji mogą zostać użyte przez nieupoważnione osoby do uwierzytelnienia w usługach RustFS lub przejęcia sesji.
+- Zagrożenie wewnętrzne: Nawet użytkownicy z ograniczonym dostępem, którzy mogą czytać dzienniki, mogą uzyskać podwyższony poziom dostępu, jeśli odzyskają materiały uwierzytelniające.
+- Ryzyko braku zgodności: rejestrowanie wrażliwych materiałów uwierzytelniających może naruszać zasady organizacyjne i standardy zgodności branżowej (np. PCI-DSS, SOC2, ISO 27001), które zabraniają ujawniania tajemnic uwierzytelniania w dziennikach
+
+### Naprawa
+- Nie uwzględniaj wpisów tajnych w wynikach dziennika — zredaguj tajne_klucz, sesyjny token i podobne pola.
+- Rejestruj tylko bezpieczne identyfikatory, takie jak niewrażliwe identyfikatory (np. użytkownik_rodzic, identyfikator śledzenia).</description></item><item><title>CVE-2026-1568</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1568</link><pubDate>Tue, 03 Feb 2026 16:47:03 +0000</pubDate><description>Wersje Rapid7 InsightVM starsze niż 8.34.0 zawierają problem z weryfikacją podpisu w punkcie końcowym w chmurze Assertion Consumer Service (ACS), który może umożliwić osobie atakującej uzyskanie nieautoryzowanego dostępu do konfiguracji kont InsightVM
 poprzez instalacje „Security Console”, co skutkuje pełnym przejęciem konta.Problem występuje, ponieważ aplikacja przetwarza te niepodpisane potwierdzenia i wydaje sesyjne pliki cookie, które udzieliły dostępu do
 ukierunkowane konta użytkowników.Zostało to naprawione w wersji 8.34.0 InsightVM.
 
-CVSS Score: 9.6 (critical)</description></item><item><title>CVE-2025-14550</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14550</link><pubDate>Tue, 03 Feb 2026 14:38:15 +0000</pubDate><description>Problem wykryto w wersjach 6.0 przed 6.0.2, 5.2 przed 5.2.11 i 4.2 przed 4.2.28.
+CVSS Score: 9.6 (critical)</description></item><item><title>CVE-2026-1207</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1207</link><pubDate>Tue, 03 Feb 2026 15:30:23 +0000</pubDate><description>Problem wykryto w wersjach 6.0 przed 6.0.2, 5.2 przed 5.2.11 i 4.2 przed 4.2.28.
+
+Wyszukiwanie rastrowe w ``RasterField`` (zaimplementowane tylko w PostGIS) umożliwia zdalnym atakującym wstrzyknięcie SQL poprzez parametr indeksu pasma.Wcześniej nieobsługiwane serie Django (takie jak 5.0.x, 4.1.x i 3.2.x) nie były oceniane i może to również mieć wpływ.
+
+Django pragnie podziękować Tarekowi Nakkouchowi za zgłoszenie tego problemu.</description></item><item><title>CVE-2025-14550</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14550</link><pubDate>Tue, 03 Feb 2026 14:38:15 +0000</pubDate><description>Problem wykryto w wersjach 6.0 przed 6.0.2, 5.2 przed 5.2.11 i 4.2 przed 4.2.28.
 `ASGIRequest` umożliwia zdalnemu atakującemu spowodowanie potencjalnej odmowy usługi poprzez spreparowane żądanie z wieloma zduplikowanymi nagłówkami.
 Wcześniej nieobsługiwane serie Django (takie jak 5.0.x, 4.1.x i 3.2.x) nie były oceniane i może to również mieć wpływ.
 Django chciałby podziękować Jiyong Yang za zgłoszenie tego problemu.</description></item><item><title>CVE-2026-1312</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1312</link><pubDate>Tue, 03 Feb 2026 14:36:23 +0000</pubDate><description>Problem wykryto w wersjach 6.0 przed 6.0.2, 5.2 przed 5.2.11 i 4.2 przed 4.2.28.
@@ -281,7 +342,9 @@ Ten problem dotyczy CheckUser: od * przed 1.44.1.</description></item><item><tit
 
 Ten problem dotyczy CheckUser: od 7cedd58781d261f110651b6af4f41d2d11ae7309.</description></item><item><title>CVE-2025-61650</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61650</link><pubDate>Tue, 03 Feb 2026 00:15:24 +0000</pubDate><description>Luka w zabezpieczeniach Wikimedia Foundation CheckUser dotycząca nieprawidłowej neutralizacji danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”).Luka ta jest powiązana z plikami programu src/Services/CheckUserUserInfoCardService.Php.
 
-Ten problem dotyczy CheckUser: od * przed 795bf333272206a0189050d975e94b70eb7dc507.</description></item><item><title>CVE-2025-61637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61637</link><pubDate>Mon, 02 Feb 2026 23:54:04 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation MediaWiki.Luka ta jest powiązana z plikami programu Resources/src/mediawiki.Action/mediawiki.Action.Edit.Preview.Js, Resources/src/mediawiki.Page.Preview.Js.
+Ten problem dotyczy CheckUser: od * przed 795bf333272206a0189050d975e94b70eb7dc507.</description></item><item><title>CVE-2025-10878</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-10878</link><pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate><description>W funkcjonalności logowania Fikir Odalari AdminPando 1.0.1 sprzed 26.01.2026 r. istnieje luka umożliwiająca wstrzyknięcie kodu SQL.Parametry nazwy użytkownika i hasła są podatne na wstrzyknięcie SQL, co pozwala nieuwierzytelnionym atakującym całkowicie ominąć uwierzytelnianie.Pomyślna eksploatacja zapewnia pełny dostęp administracyjny do aplikacji, w tym możliwość manipulowania zawartością publicznie dostępnej strony internetowej (manipulacja HTML/DOM).
+
+CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2025-61637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61637</link><pubDate>Mon, 02 Feb 2026 23:54:04 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation MediaWiki.Luka ta jest powiązana z plikami programu Resources/src/mediawiki.Action/mediawiki.Action.Edit.Preview.Js, Resources/src/mediawiki.Page.Preview.Js.
 
 Ten problem dotyczy MediaWiki: od * przed 1.39.14, 1.43.4, 1.44.1.</description></item><item><title>CVE-2025-61638</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61638</link><pubDate>Mon, 02 Feb 2026 23:52:10 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation MediaWiki, Wikimedia Foundation Parsoid.Luka ta jest powiązana z plikami programów, w tym/parser/Sanitizer.Php, src/Core/Sanitizer.Php.
 
