@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1664</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1664</link><pubDate>Tue, 03 Feb 2026 11:39:18 +0000</pubDate><description>Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-7760</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-7760</link><pubDate>Tue, 03 Feb 2026 12:33:23 +0000</pubDate><description>Luka w zabezpieczeniach pakietu internetowego stowarzyszenia Ofisimo Web-Based Software Technologies Association umożliwiająca obsługę XSS za pośrednictwem nagłówków HTTP. Problem dotyczy flory pakietu sieci Web stowarzyszenia: od wersji 3.0 do 03022026. UWAGA: ze sprzedawcą skontaktowano się wcześniej w sprawie tego ujawnienia, ale nie odpowiedział on w żaden sposób.
+
+CVSS Score: 7.6 (high)</description></item><item><title>CVE-2025-6397</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-6397</link><pubDate>Tue, 03 Feb 2026 12:15:05 +0000</pubDate><description>Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) Luka w oprogramowaniu witryny internetowej Ankara Hosting do projektowania witryn internetowych umożliwia odbicie XSS. Ten problem dotyczy oprogramowania witryny internetowej: do numeru 03022026.
+
+UWAGA: Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+
+CVSS Score: 8.6 (high)</description></item><item><title>CVE-2026-1664</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1664</link><pubDate>Tue, 03 Feb 2026 11:39:18 +0000</pubDate><description>Podsumowanie
 
 Stwierdzono, że w funkcji „createHeaderBasedEmailResolver()” w pakiecie SDK Cloudflare Agents istnieje odniesienie do niebezpiecznego obiektu bezpośredniego.Problem występuje, ponieważ nagłówki „Message-ID” i „References” są analizowane w celu uzyskania docelowej nazwy agenta i agentId bez odpowiedniej weryfikacji lub sprawdzenia pochodzenia, co umożliwia zewnętrznemu atakującemu posiadającemu kontrolę nad tymi nagłówkami kierowanie poczty przychodzącej do dowolnych instancji i przestrzeni nazw trwałego obiektu.
 
