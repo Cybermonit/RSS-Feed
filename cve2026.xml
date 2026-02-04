@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23048</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23048</link><pubDate>Wed, 04 Feb 2026 16:00:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25051</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25051</link><pubDate>Wed, 04 Feb 2026 18:15:51 +0000</pubDate><description>## Wpływ
+
+W obsłudze odpowiedzi webhooka i powiązanych punktów końcowych HTTP wykryto lukę w zabezpieczeniach typu Cross-site Scripting (XSS).W pewnych warunkach ochrona piaskownicy w ramach polityki bezpieczeństwa treści (CSP), mająca na celu izolowanie odpowiedzi HTML, może nie zostać poprawnie zastosowana.
+
+Uwierzytelniony użytkownik z uprawnieniami do tworzenia lub modyfikowania przepływów pracy może to wykorzystać w celu wykonania złośliwych skryptów z uprawnieniami tego samego źródła, gdy inni użytkownicy wchodzą w interakcję ze spreparowanym przepływem pracy.Może to prowadzić do przejęcia sesji i przejęcia konta.
+
+## Poprawki
+
+Problem został rozwiązany w wersjach n8n 1.122.5 i 1.123.2.Użytkownicy powinni dokonać aktualizacji do tych wersji lub nowszych, aby zaradzić luce.
+
+## Obejścia
+
+Jeśli aktualizacja nie jest możliwa od razu, administratorzy powinni rozważyć następujące tymczasowe rozwiązania:
+
+- Ogranicz uprawnienia do tworzenia i edytowania przepływu pracy tylko do w pełni zaufanych użytkowników.
+- Nigdy nie wykonuj niezaufanych przepływów pracy.
+- Przejrzyj przepływy pracy, które otrzymują dane za pośrednictwem webhooków, formularzy lub serwerów MCP, aby upewnić się, że komunikują się z zaufanymi jednostkami przed wykonaniem ich ręcznie.
+
+Te obejścia nie eliminują w pełni ryzyka i należy je stosować wyłącznie jako krótkoterminowe środki łagodzące.
+
+---
+Firma n8n przyjęła CVSS 4.0 jako główny wynik wszystkich porad dotyczących bezpieczeństwa.Ciągi wektorów CVSS 3.1 są dostarczane w celu zapewnienia kompatybilności wstecznej.
+
+CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:N</description></item><item><title>CVE-2026-23048</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23048</link><pubDate>Wed, 04 Feb 2026 16:00:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 udp: wywołaj skb_orphan() przed skb_attempt_defer_free()
 
