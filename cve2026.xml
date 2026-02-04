@@ -1,5 +1,241 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-22549</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22549</link><pubDate>Wed, 04 Feb 2026 15:15:36 +0000</pubDate><description>W usługach F5 BIG-IP Container Ingress Services istnieje luka, która może pozwolić na nadmierne uprawnienia do odczytu sekretów klastra.Uwaga: Wersje oprogramowania, które osiągnęły koniec wsparcia technicznego (EoTS), nie są oceniane.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23048</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23048</link><pubDate>Wed, 04 Feb 2026 16:00:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+udp: wywołaj skb_orphan() przed skb_attempt_defer_free()
+
+Standardowa ścieżka odbioru UDP nie używa destruktora skb-&gt;.
+
+Ale warstwa skmsg go używa, ponieważ wywołuje skb_set_owner_sk_safe()
+z udp_read_skb().
+
+To następnie wyzwala to ostrzeżenie w skb_attempt_defer_free():
+
+DEBUG_NET_WARN_ON_ONCE(skb-&gt;destruktor);
+
+Musimy wywołać funkcję skb_orphan(), aby rozwiązać ten problem.</description></item><item><title>CVE-2026-23047</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23047</link><pubDate>Wed, 04 Feb 2026 16:00:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+libceph: ustaw funkcję calc_target() na t-&gt;wstrzymaną, a nie tylko ją wyczyść
+
+Obecnie funkcja calc_target() czyści t-&gt;pauza, jeśli żądanie nie powinno być
+pauzował już, ale nigdy nie ustawia t-&gt;wstrzymany, mimo że jest w stanie
+określić, kiedy żądanie powinno zostać wstrzymane.Pozostaje ustawienie t-&gt;wstrzymane
+do __submit_request(), co jest w porządku w przypadku zwykłych żądań, ale tak nie jest
+działaj w przypadku żądań o przedłużeniu - ponieważ __submit_request() nie działa
+w przypadku żądań opóźnionych nie ma miejsca na ustawienie lreq-&gt;t.paused.
+Jedną z konsekwencji tego jest to, że zegarki nie są ponownie zakładane
+wstrzymane -&gt; wznowione przejścia w przypadkach, gdy żądania zostały wstrzymane
+wystarczająco długo, aby (wstrzymane) żądanie anulowania oglądania przekroczyło limit czasu i nastąpiło
+kolejne żądanie (ponownego) oglądania, aby przejść w stan pauzy.Na górze
+zegarek nie zostaje przywrócony, rbd_reregister_watch() utknie
+rbd_dev-&gt;watch_mutex wstrzymane:
+
+rbd_register_watch
+__rbd_register_watch
+ceph_osdc_watch
+linger_reg_commit_wait
+
+Czeka na zakończenie lreq-&gt;reg_commit_wait, ale na to
+się stanie, odpowiednie żądanie musi znaleźć się na liście need_resend_linger
+i zostaniesz wyrzucony, gdy żądania zostaną wznowione.Nie ma na to szans
+jeśli dane żądanie nigdy nie zostanie oznaczone jako wstrzymane.
+
+Fakt, że rbd_dev-&gt;watch_mutex pozostaje wtedy usunięty na zawsze
+zapobiega odmapowaniu obrazu — nieuchronnie byłoby to „rbd unmap”.
+zawiesza się w stanie D przy próbie przechwycenia muteksu.</description></item><item><title>CVE-2026-23046</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23046</link><pubDate>Wed, 04 Feb 2026 16:00:28 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+virtio_net: napraw niezgodność urządzeń w devm_kzalloc/devm_kfree
+
+Początkowa alokacja rss_hdr wykorzystuje virtio_device-&gt;device,
+ale virtnet_set_queues() zwalnia przy użyciu net_device-&gt;device.
+To niedopasowanie urządzenia powoduje ostrzeżenie poniżej Devres
+
+[ 3788.514041] -------[ wytnij tutaj ]------------
+[3788.514044] OSTRZEŻENIE: sterowniki/base/devres.c:1095 w devm_kfree+0x84/0x98, CPU#16: vdpa/1463
+[ 3788.514054] Moduły powiązane w: octep_vdpa virtio_net virtio_vdpa [ostatnio rozładowane: virtio_vdpa]
+[3788.514064] Procesor: 16 UID: 0 PID: 1463 Comm: vdpa Tainted: G W 6.18.0 #10 PREEMPT
+[3788.514067] Skażony: [W]=OSTRZEŻ
+[ 3788.514069] Nazwa sprzętu: Płyta Marvell CN106XX (DT)
+[ 3788.514071] pstan: 63400009 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
+[ 3788.514074] komputer : devm_kfree+0x84/0x98
+[ 3788.514076] lr : devm_kfree+0x54/0x98
+[3788.514079] sp: ffff800084e2f220
+[ 3788.514080] x29: ffff800084e2f220 x28: ffff0003b2366000 x27: 000000000000003f
+[ 3788.514085] x26: 000000000000003f x25: ffff000106f17c10 x24: 0000000000000080
+[ 3788.514089] x23: ffff00045bb8ab08 x22: ffff00045bb8a000 x21: 0000000000000018
+[ 3788.514093] x20: ffff0004355c3080 x19: ffff00045bb8aa00 x18: 0000000000080000
+[ 3788.514098] x17: 0000000000000040 x16: 000000000000001f x15: 000000000007ffff
+[ 3788.514102] x14: 0000000000000488 x13: 0000000000000005 x12: 00000000000ffffff
+[ 3788.514106] x11: ffffffffffffffff x10: 0000000000000005 x9: ffff800080c8c05c
+[ 3788.514110] x8 : ffff800084e2eeb8 x7 : 0000000000000000 x6 : 000000000000003f
+[ 3788.514115] x5 : ffff8000831bafe0 x4 : ffff800080c8b010 x3 : ffff0004355c3080
+[ 3788.514119] x2 : ffff0004355c3080 x1 : 0000000000000000 x0 : 0000000000000000
+[ 3788.514123] Śledzenie połączeń:
+[ 3788.514125] devm_kfree+0x84/0x98 (P)
+[ 3788.514129] virtnet_set_queues+0x134/0x2e8 [virtio_net]
+[ 3788.514135] virtnet_probe+0x9c0/0xe00 [virtio_net]
+[ 3788.514139] virtio_dev_probe+0x1e0/0x338
+[ 3788.514144] naprawdę_sonda+0xc8/0x3a0
+[ 3788.514149] __driver_probe_device+0x84/0x170
+[ 3788.514152] urządzenie_sondy_sterownika+0x44/0x120
+[ 3788.514155] __device_attach_driver+0xc4/0x168
+[ 3788.514158] bus_for_each_drv+0x8c/0xf0
+[ 3788.514161] __device_attach+0xa4/0x1c0
+[ 3788.514164] urządzenie_initial_probe+0x1c/0x30
+[ 3788.514168] urządzenie_sondy_busu+0xb4/0xc0
+[ 3788.514170] urządzenie_add+0x614/0x828
+[ 3788.514173] Register_virtio_device+0x214/0x258
+[ 3788.514175] virtio_vdpa_probe+0xa0/0x110 [virtio_vdpa]
+[ 3788.514179] vdpa_dev_probe+0xa8/0xd8
+[ 3788.514183] naprawdę_sonda+0xc8/0x3a0
+[ 3788.514186] __driver_probe_device+0x84/0x170
+[ 3788.514189] urządzenie_sondy_sterownika+0x44/0x120
+[ 3788.514192] __device_attach_driver+0xc4/0x168
+[ 3788.514195] bus_for_each_drv+0x8c/0xf0
+[ 3788.514197] __device_attach+0xa4/0x1c0
+[ 3788.514200] urządzenie_initial_probe+0x1c/0x30
+[ 3788.514203] urządzenie_sondy_busu+0xb4/0xc0
+[ 3788.514206] urządzenie_add+0x614/0x828
+[ 3788.514209] _vdpa_register_device+0x58/0x88
+[ 3788.514211] octep_vdpa_dev_add+0x104/0x228 [octep_vdpa]
+[ 3788.514215] vdpa_nl_cmd_dev_add_set_doit+0x2d0/0x3c0
+[ 3788.514218] genl_family_rcv_msg_doit+0xe4/0x158
+[ 3788.514222] genl_rcv_msg+0x218/0x298
+[ 3788.514225] netlink_rcv_skb+0x64/0x138
+[ 3788.514229] genl_rcv+0x40/0x60
+[ 3788.514233] netlink_unicast+0x32c/0x3b0
+[ 3788.514237] netlink_sendmsg+0x170/0x3b8
+[ 3788.514241] __sys_sendto+0x12c/0x1c0
+[ 3788.514246] __arm64_sys_sendto+0x30/0x48
+[3788.514249] invoke_syscall.constprop.0+0x58/0xf8
+[ 3788.514255] do_el0_svc+0x48/0xd0
+[ 3788.514259] el0_svc+0x48/0x210
+[ 3788.514264] el0t_64_sync_handler+0xa0/0xe8
+[ 3788.514268] el0t_64_sync+0x198/0x1a0
+[ 3788.514271] ---[ ślad końcowy 0000000000000000 ]---
+
+Napraw, używając konsekwentnie virtio_device-&gt;device
+alokacja i dealokacja</description></item><item><title>CVE-2026-23045</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23045</link><pubDate>Wed, 04 Feb 2026 16:00:27 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net/ena: napraw brakującą blokadę podczas aktualizacji parametrów devlink
+
+Napraw ostrzeżenie o blokowaniu podczas wywoływania devl_param_driverinit_value_set()
+w Enie.
+
+OSTRZEŻENIE: net/devlink/core.c:261 w devl_assert_locked+0x62/0x90, CPU#0: kworker/0:0/9
+Procesor: 0 UID: 0 PID: 9 Comm: kworker/0:0 Nieskażony 6.19.0-rc2+ #1 PREEMPT(leniwy)
+Nazwa sprzętu: Amazon EC2 m8i-flex.4xlarge/, BIOS 1.0 16.10.2017
+Kolejka robocza: zdarzenia work_for_cpu_fn
+RIP: 0010:devl_assert_locked+0x62/0x90
+
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+devl_param_driverinit_value_set+0x15/0x1c0
+ena_devlink_alloc+0x18c/0x220 [ena]
+?__pfx_ena_devlink_alloc+0x10/0x10 [ena]
+?trace_hardirqs_on+0x18/0x140
+?lockdep_hardirqs_on+0x8c/0x130
+?__raw_spin_unlock_irqrestore+0x5d/0x80
+?__raw_spin_unlock_irqrestore+0x46/0x80
+?devm_ioremap_wc+0x9a/0xd0
+ena_probe+0x4d2/0x1b20 [ena]
+?__lock_acquire+0x56a/0xbd0
+?__pfx_ena_probe+0x10/0x10 [ena]
+?local_clock+0x15/0x30
+?__lock_release.isra.0+0x1c9/0x340
+?mark_held_locks+0x40/0x70
+?lockdep_hardirqs_on_prepare.part.0+0x92/0x170
+?trace_hardirqs_on+0x18/0x140
+?lockdep_hardirqs_on+0x8c/0x130
+?__raw_spin_unlock_irqrestore+0x5d/0x80
+?__raw_spin_unlock_irqrestore+0x46/0x80
+?__pfx_ena_probe+0x10/0x10 [ena]
+......
+&lt;/ZADANIE&gt;</description></item><item><title>CVE-2026-23044</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23044</link><pubDate>Wed, 04 Feb 2026 16:00:27 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+PM: hibernacja: Napraw awarię podczas zwalniania nieprawidłowego kompresora kryptograficznego
+
+Gdy funkcja crypto_alloc_acomp() nie powiedzie się, zwraca wartość ERR_PTR, a nie NULL.
+
+Kod czyszczący w save_compressed_image() i loading_compressed_image()
+bezwarunkowo wywołuje funkcję crypto_free_acomp() bez sprawdzania ERR_PTR,
+co powoduje, że crypto_acomp_tfm() usuwa odwołanie do nieprawidłowego wskaźnika i
+zepsuć jądro.
+
+Można to wywołać, gdy algorytm kompresji jest niedostępny
+(np. CONFIG_CRYPTO_LZO nie jest włączone).
+
+Napraw, dodając kontrole IS_ERR_OR_NULL() przed wywołaniem crypto_free_acomp()
+i acomp_request_free(), podobnie do istniejącego sprawdzania kthread_stop().
+
+[ rjw: Dodano 2 puste linie kodu ]</description></item><item><title>CVE-2026-23043</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23043</link><pubDate>Wed, 04 Feb 2026 16:00:26 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+btrfs: napraw wyłuskiwanie wskaźnika NULL w funkcji do_abort_log_replay()
+
+Coverity zgłosiło problem z wyłuskiwaniem wskaźnika NULL (CID 1666756) w
+do_abort_log_replay().Kiedy btrfs_alloc_path() nie działa
+replay_one_buffer(), wc-&gt;subvol_path ma wartość NULL, ale btrfs_abort_log_replay()
+wywołuje funkcję do_abort_log_replay(), która bezwarunkowo usuwa referencje
+wc-&gt;subvol_path podczas próby wydrukowania informacji debugowania.Napraw to przez
+dodanie sprawdzenia NULL przed wyłuskaniem wc-&gt;subvol_path in
+do_abort_log_replay().</description></item><item><title>CVE-2026-23042</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23042</link><pubDate>Wed, 04 Feb 2026 16:00:25 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+idpf: naprawiono odłączanie urządzenia aux, gdy rdma nie jest obsługiwane przez vport
+
+Jeśli flagi vport nie zawierają VIRTCHNL2_VPORT_ENABLE_RDMA, sterownik nie
+przydziel vdev_info dla tego vportu.Prowadzi to do wskaźnika NULL jądra
+dereferencja w idpf_idc_vport_dev_down(), która odwołuje się do vdev_info dla
+niezależnie od każdego vportu.
+
+Sprawdź, czy vdev_info zostało kiedykolwiek przydzielone przed odłączeniem urządzenia aux.</description></item><item><title>CVE-2026-23041</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23041</link><pubDate>Wed, 04 Feb 2026 16:00:24 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+bnxt_en: Napraw awarię wskaźnika NULL w bnxt_ptp_enable podczas usuwania błędów
+
+Kiedy bnxt_init_one() nie powiedzie się podczas inicjalizacji (np.
+bnxt_init_int_mode zwraca -ENODEV), wywołuje ścieżkę błędu
+bnxt_free_hwrm_resources(), która niszczy pulę DMA i ustawia
+bp-&gt;hwrm_dma_pool na NULL.Następnie wywoływana jest funkcja bnxt_ptp_clear(),
+która wywołuje ptp_clock_unregister().
+
+Ponieważ zatwierdzono a60fc3294a37 („ptp: przerób ptp_clock_unregister() na
+wyłącz zdarzenia”), funkcja ptp_clock_unregister() wywołuje teraz
+ptp_disable_all_events(), co z kolei wywołuje funkcję .enable() sterownika
+wywołanie zwrotne (bnxt_ptp_enable()), aby wyłączyć zdarzenia PTP przed zakończeniem
+wyrejestrowanie.
+
+bnxt_ptp_enable() próbuje wysłać polecenia HWRM poprzez bnxt_ptp_cfg_pin()
+i bnxt_ptp_cfg_event(), oba wywołują funkcję hwrm_req_init().To
+funkcja próbuje przydzielić z bp-&gt;hwrm_dma_pool, powodując NULL
+dereferencja wskaźnika:
+
+bnxt_en 0000:01:00.0 (nienazwane urządzenie_sieciowe) (niezainicjowane): bnxt_init_int_mode err: ffffffed
+KASAN: null-ptr-deref w zakresie [0x0000000000000028-0x000000000000002f]
+Zadzwoń do śledzenia:
+__hwrm_req_init (sterowniki/net/ethernet/broadcom/bnxt/bnxt_hwrm.c:72)
+bnxt_ptp_enable (sterowniki/net/ethernet/broadcom/bnxt/bnxt_ptp.c:323 sterowniki/net/ethernet/broadcom/bnxt/bnxt_ptp.c:517)
+ptp_disable_all_events (drivers/ptp/ptp_chardev.c:66)
+ptp_clock_unregister (drivers/ptp/ptp_clock.c:518)
+bnxt_ptp_clear (sterowniki/net/ethernet/broadcom/bnxt/bnxt_ptp.c:1134)
+bnxt_init_one (sterowniki/net/ethernet/broadcom/bnxt/bnxt.c:16889)
+
+Linie są przeciwko zatwierdzeniu f8f9c1f4d0c7 („Linux 6.19-rc3”)
+
+Napraw to, czyszcząc i wyrejestrowując wcześniej ptp (bnxt_ptp_clear()).
+uwalniając zasoby HWRM.</description></item><item><title>CVE-2026-23040</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23040</link><pubDate>Wed, 04 Feb 2026 16:00:23 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+wifi: mac80211_hwsim: popraw literówkę w powiadomieniu o częstotliwości
+
+Powiadomienie NAN dotyczy częstotliwości 5745 MHz, co odpowiada kanałowi 149
+a nie 5475, który w rzeczywistości nie jest prawidłowym kanałem.Może to skutkować
+wyłuskanie wskaźnika NULL w cfg80211_next_nan_dw_notif.</description></item><item><title>CVE-2025-71192</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71192</link><pubDate>Wed, 04 Feb 2026 16:00:23 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ALSA: ac97: napraw podwójne wolne w snd_ac97_controller_register()
+
+Jeśli ac97_add_adapter() nie powiedzie się, put_device() jest właściwym sposobem na usunięcie
+odniesienie do urządzenia.kfree() nie jest wymagane.
+Dodaj kfree(), jeśli idr_alloc() nie powiedzie się, i wykonaj to w ac97_adapter_release()
+sprzątanie.
+
+Znalezione podczas przeglądu kodu.</description></item><item><title>CVE-2026-22549</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22549</link><pubDate>Wed, 04 Feb 2026 15:15:36 +0000</pubDate><description>W usługach F5 BIG-IP Container Ingress Services istnieje luka, która może pozwolić na nadmierne uprawnienia do odczytu sekretów klastra.Uwaga: Wersje oprogramowania, które osiągnęły koniec wsparcia technicznego (EoTS), nie są oceniane.
 
 CVSS Score: 4.9 (medium)</description></item><item><title>CVE-2026-1642</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1642</link><pubDate>Wed, 04 Feb 2026 15:02:06 +0000</pubDate><description>W NGINX OSS i NGINX Plus występuje luka w zabezpieczeniach, gdy są one skonfigurowane do proxy dla nadrzędnych serwerów Transport Layer Security (TLS).Osoba atakująca zajmująca pozycję „man-in-the-middle” (MITM) po stronie serwera nadrzędnego — w warunkach niezależnych od atakującego — może być w stanie wstrzyknąć dane w postaci zwykłego tekstu do odpowiedzi z serwera proxy nadrzędnego.Uwaga: Wersje oprogramowania, które osiągnęły koniec wsparcia technicznego (EoTS), nie są oceniane.
 
@@ -480,7 +716,7 @@ Ten problem dotyczy CheckUser: od 7cedd58781d261f110651b6af4f41d2d11ae7309.</des
 
 Ten problem dotyczy CheckUser: od * przed 795bf333272206a0189050d975e94b70eb7dc507.</description></item><item><title>CVE-2025-10878</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-10878</link><pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate><description>W funkcjonalności logowania Fikir Odalari AdminPando 1.0.1 sprzed 26.01.2026 r. istnieje luka umożliwiająca wstrzyknięcie kodu SQL.Parametry nazwy użytkownika i hasła są podatne na wstrzyknięcie SQL, co pozwala nieuwierzytelnionym atakującym całkowicie ominąć uwierzytelnianie.Pomyślna eksploatacja zapewnia pełny dostęp administracyjny do aplikacji, w tym możliwość manipulowania zawartością publicznie dostępnej strony internetowej (manipulacja HTML/DOM).
 
-CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2025-70849</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70849</link><pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate><description>Przesyłanie dowolnych plików w podinfo do wersji 6.9.0 umożliwia nieuwierzytelnionym atakującym przesyłanie dowolnych plików za pomocą spreparowanego żądania POST do punktu końcowego /store.Aplikacja renderuje przesłane treści bez restrykcyjnej polityki bezpieczeństwa treści (CSP) lub odpowiedniej walidacji typu zawartości, co prowadzi do przechowywania skryptów między witrynami (XSS).</description></item><item><title>CVE-2025-70560</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70560</link><pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate><description>Boltz 2.0.0 zawiera lukę w zabezpieczeniach związaną z niebezpieczną deserializacją w swojej funkcjonalności ładowania cząsteczek.Aplikacja używa Pythona do deserializacji plików danych cząsteczek bez sprawdzania poprawności.Osoba atakująca, która może umieścić złośliwy plik pickle w katalogu przetwarzanym przez Bolz, może wykonać dowolny kod po załadowaniu pliku.</description></item><item><title>CVE-2025-61637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61637</link><pubDate>Mon, 02 Feb 2026 23:54:04 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation MediaWiki.Luka ta jest powiązana z plikami programu Resources/src/mediawiki.Action/mediawiki.Action.Edit.Preview.Js, Resources/src/mediawiki.Page.Preview.Js.
+CVSS Score: 10.0 (critical)</description></item><item><title>CVE-2025-70849</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70849</link><pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate><description>Przesyłanie dowolnych plików w podinfo do wersji 6.9.0 umożliwia nieuwierzytelnionym atakującym przesyłanie dowolnych plików za pomocą spreparowanego żądania POST do punktu końcowego /store.Aplikacja renderuje przesłane treści bez restrykcyjnej polityki bezpieczeństwa treści (CSP) lub odpowiedniej walidacji typu zawartości, co prowadzi do przechowywania skryptów między witrynami (XSS).</description></item><item><title>CVE-2025-70560</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70560</link><pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate><description>Boltz 2.0.0 zawiera lukę w zabezpieczeniach związaną z niebezpieczną deserializacją w swojej funkcjonalności ładowania cząsteczek.Aplikacja używa Pythona do deserializacji plików danych cząsteczek bez sprawdzania poprawności.Osoba atakująca, która może umieścić złośliwy plik pickle w katalogu przetwarzanym przez Bolz, może wykonać dowolny kod po załadowaniu pliku.</description></item><item><title>CVE-2025-58348</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-58348</link><pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate><description>Wykryto problem w sterowniku Wi-Fi w procesorze mobilnym Samsung i procesorze do noszenia Exynos 980, 850, 1080, 1280, 2200, 1330, 1380, 1480, 1580, W920, W930 i W1000.W operacji zapisu /proc/driver/unifi0/confg_tspec następuje nieograniczona alokacja pamięci poprzez duży bufor, co prowadzi do wyczerpania pamięci jądra.</description></item><item><title>CVE-2025-58347</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-58347</link><pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate><description>Wykryto problem w sterowniku Wi-Fi w procesorze mobilnym Samsung i procesorze do noszenia Exynos 980, 850, 1080, 1280, 2200, 1330, 1380, 1480, 1580, W920, W930 i W1000.W operacji zapisu /proc/driver/unifi0/p2p_certif następuje nieograniczona alokacja pamięci poprzez duży bufor, co prowadzi do wyczerpania pamięci jądra.</description></item><item><title>CVE-2025-61637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61637</link><pubDate>Mon, 02 Feb 2026 23:54:04 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation MediaWiki.Luka ta jest powiązana z plikami programu Resources/src/mediawiki.Action/mediawiki.Action.Edit.Preview.Js, Resources/src/mediawiki.Page.Preview.Js.
 
 Ten problem dotyczy MediaWiki: od * przed 1.39.14, 1.43.4, 1.44.1.</description></item><item><title>CVE-2025-61638</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-61638</link><pubDate>Mon, 02 Feb 2026 23:52:10 +0000</pubDate><description>Luka w zabezpieczeniach Niewłaściwa neutralizacja danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w Wikimedia Foundation MediaWiki, Wikimedia Foundation Parsoid.Luka ta jest powiązana z plikami programów, w tym/parser/Sanitizer.Php, src/Core/Sanitizer.Php.
 
