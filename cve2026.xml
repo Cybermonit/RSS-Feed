@@ -1,5 +1,43 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25585</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25585</link><pubDate>Wed, 04 Feb 2026 22:13:30 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami ICC.Przed wersją 2.3.1.3 występowała luka IccCmm.cpp:5793 podczas odczytywania indeksu podczas przetwarzania profilu ICC.Zniekształcony profil ICC wyzwala niewłaściwą weryfikację granic tablicy w module zarządzania kolorami, co skutkuje odczytem poza zakresem, który może prowadzić do ujawnienia pamięci lub błędu segmentacji w wyniku dostępu do pamięci poza granicą tablicy.Ten problem został naprawiony w wersji 2.3.1.3.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2023-43637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-43637</link><pubDate>Wed, 04 Feb 2026 23:21:25 +0000</pubDate><description>### Wpływ
+
+Funkcja pochodnejVaultKey wywołuje funkcję retrieveCloudKey, która zawsze zwraca wartość „foobarfoobarfoobarfoobarfoobarfo”.Po połączeniu z losowo wygenerowanym 32-bajtowym kluczem za pomocą mergeKeys (16 bajtów z każdego), ostatnie 16 bajtów to zawsze „arfoobarfoobarfo”.Dzięki temu osoba atakująca posiadająca fizyczny dostęp do urządzenia z systemem EVE-OS może podjąć próbę złamania pozostałych 128 bitów klucza metodą brute-force.
+
+### Poprawki
+
+Naprawiono w 7.10 i 8.12.1-lts
+
+### Obejścia
+
+Żadne</description></item><item><title>CVE-2023-43636</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-43636</link><pubDate>Wed, 04 Feb 2026 23:14:42 +0000</pubDate><description>### Wpływ
+
+Zmierzony rozruch sprawdza BIOS, grub, cmdline jądra i initrd, ale nie cały rootfs.W ten sposób osoba atakująca może utworzyć obraz rootfs squashfs systemu EVE-OS ze zmodyfikowanymi niektórymi plikami, wyjąć dysk i zastąpić istniejący obraz rootfs tak, aby nie został on wykryty przez pomiar rozruchu i zdalne poświadczenie.
+
+### Poprawki
+
+Naprawiono w 8.6.0 i 8.12.1-lts
+
+### Obejścia
+
+Żadne</description></item><item><title>CVE-2023-43635</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-43635</link><pubDate>Wed, 04 Feb 2026 23:12:29 +0000</pubDate><description>### Wpływ
+
+Klucz skarbca jest zapieczętowany przy użyciu reakcji PCR SHA1 zamiast reakcji PCR SHA256
+
+W związku z tym osoba atakująca mająca fizyczny dostęp do urządzenia z systemem EVE-OS może spróbować brutalnie wymusić utworzenie obrazu jądra lub rootfs, który generuje ten sam wynik PCR SHA1, ale ze złośliwą zawartością.
+
+### Poprawki
+
+Naprawiono w wersjach 9.4.3-lts i 10.1.0
+
+### Obejścia
+
+Żadne</description></item><item><title>CVE-2025-22873</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-22873</link><pubDate>Wed, 04 Feb 2026 23:05:24 +0000</pubDate><description>Możliwe było nieprawidłowe uzyskanie dostępu do katalogu nadrzędnego os.Root poprzez otwarcie nazwy pliku kończącej się na "../".Na przykład Root.Open("../") otworzy katalog nadrzędny katalogu głównego.Ta ucieczka pozwala tylko na otwarcie samego katalogu nadrzędnego, a nie przodków katalogu nadrzędnego lub plików zawartych w katalogu nadrzędnym.</description></item><item><title>CVE-2026-1895</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1895</link><pubDate>Wed, 04 Feb 2026 23:02:08 +0000</pubDate><description>W WeKanie do wersji 8.20 wykryto wadę.Dotknięta jest funkcja ApplyWipLimit w pliku models/lists.js w komponencie załącznika Storage Handler.Wykonanie manipulacji może prowadzić do nieprawidłowej kontroli dostępu.Atak może zostać przeprowadzony zdalnie.Aktualizacja do wersji 8.21 rozwiązuje ten problem.Ta poprawka nazywa się 8c0b4f79d8582932528ec2fdf2a4487c86770fb9.Zaleca się aktualizację komponentu, którego dotyczy problem.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-1894</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1894</link><pubDate>Wed, 04 Feb 2026 22:32:08 +0000</pubDate><description>W WeKan do wersji 8.20 wykryto lukę.Ma to wpływ na nieznaną funkcję pliku models/checklistItems.js komponentu REST API.Manipulacja argumentem item.cardId/item.checklistId/card.boardId skutkuje nieprawidłową autoryzacją.Możliwe jest zdalne wykorzystanie ataku.Aktualizacja do wersji 8.21 rozwiąże ten problem.Łatka nosi nazwę 251d49eea94834cf351bb395808f4a56fb4dbb44.Zalecana jest aktualizacja komponentu, którego dotyczy problem.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2025-62616</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-62616</link><pubDate>Wed, 04 Feb 2026 22:28:40 +0000</pubDate><description>AutoGPT to platforma umożliwiająca użytkownikom tworzenie, wdrażanie i ciągłe zarządzanie agentami sztucznej inteligencji, które automatyzują złożone przepływy pracy.Przed wersją autogpt-platform-beta-v0.6.34 w SendDiscordFileBlock biblioteka innej firmy aiohttp.ClientSession().get była używana bezpośrednio w celu uzyskania dostępu do adresu URL, ale wejściowy adres URL nie był filtrowany, co powodowało lukę w zabezpieczeniach SSRF.Ten problem został naprawiony w wersji autogpt-platform-beta-v0.6.34.</description></item><item><title>CVE-2025-62615</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-62615</link><pubDate>Wed, 04 Feb 2026 22:28:37 +0000</pubDate><description>AutoGPT to platforma umożliwiająca użytkownikom tworzenie, wdrażanie i ciągłe zarządzanie agentami sztucznej inteligencji, które automatyzują złożone przepływy pracy.Przed wersją autogpt-platform-beta-v0.6.34 w RSSFeedBlock biblioteka innej firmy urllib.request.urlopen była używana bezpośrednio w celu uzyskania dostępu do adresu URL, ale wejściowy adres URL nie był filtrowany, co powodowało lukę w zabezpieczeniach SSRF.Ten problem został naprawiony w wersji autogpt-platform-beta-v0.6.34.</description></item><item><title>CVE-2026-22038</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22038</link><pubDate>Wed, 04 Feb 2026 22:28:20 +0000</pubDate><description>AutoGPT to platforma umożliwiająca użytkownikom tworzenie, wdrażanie i ciągłe zarządzanie agentami sztucznej inteligencji, które automatyzują złożone przepływy pracy.Przed wersją autogpt-platform-beta-v0.6.46 integracja Stagehand platformy AutoGPT blokuje rejestrowanie kluczy API i tajnych informacji uwierzytelniających w postaci zwykłego tekstu przy użyciu instrukcji logger.info().Dzieje się tak w trzech oddzielnych implementacjach bloków (StagehandObserveBlock, StagehandActBlock i StagehandExtractBlock), gdzie kod jawnie wywołuje funkcję api_key.get_secret_value() i rejestruje wynik.Ten problem został naprawiony w wersji autogpt-platform-beta-v0.6.46.
+
+CVSS Score: 8.1 (high)</description></item><item><title>CVE-2026-25585</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25585</link><pubDate>Wed, 04 Feb 2026 22:13:30 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami ICC.Przed wersją 2.3.1.3 występowała luka IccCmm.cpp:5793 podczas odczytywania indeksu podczas przetwarzania profilu ICC.Zniekształcony profil ICC wyzwala niewłaściwą weryfikację granic tablicy w module zarządzania kolorami, co skutkuje odczytem poza zakresem, który może prowadzić do ujawnienia pamięci lub błędu segmentacji w wyniku dostępu do pamięci poza granicą tablicy.Ten problem został naprawiony w wersji 2.3.1.3.
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-25584</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25584</link><pubDate>Wed, 04 Feb 2026 22:11:10 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami ICC.Przed wersją 2.3.1.3 w CIccTagFloatNum&lt;&gt;::GetValues() występowała luka w zabezpieczeniach związana z przepełnieniem bufora stosu.Jest to wyzwalane podczas przetwarzania zniekształconego profilu ICC.Luka umożliwia zapis na stosie poza granicami, co może prowadzić do uszkodzenia pamięci, ujawnienia informacji lub wykonania kodu podczas przetwarzania specjalnie spreparowanych plików ICC.Ten problem został naprawiony w wersji 2.3.1.3.
 
