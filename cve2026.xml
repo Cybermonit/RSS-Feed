@@ -112,7 +112,23 @@ Nie ma żadnego rozwiązania tego problemu.Użytkownicy muszą dokonać aktualiz
 Masz pytania lub uwagi dotyczące tego poradnika:
 
 - Skontaktuj się z [zespołem ds. bezpieczeństwa SUSE Rancher](https://github.com/rancher/rancher/security/policy), aby uzyskać zapytania dotyczące bezpieczeństwa.
-- Otwórz problem w repozytorium [Rancher](https://github.com/rancher/rancher/issues/new/choose).</description></item><item><title>CVE-2026-25505</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25505</link><pubDate>Wed, 04 Feb 2026 20:06:30 +0000</pubDate><description>Bambuddy to samodzielny system archiwizacji wydruków i zarządzania dla drukarek 3D Bambu Lab.Przed wersją 0.1.7 zakodowany na stałe tajny klucz używany do podpisywania tokenów JWT jest wpisywany do kodu źródłowego, a trasy ManyAPI nie sprawdzają uwierzytelnienia.Ten problem został naprawiony w wersji 0.1.7.
+- Otwórz problem w repozytorium [Rancher](https://github.com/rancher/rancher/issues/new/choose).</description></item><item><title>CVE-2026-25593</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25593</link><pubDate>Wed, 04 Feb 2026 20:06:46 +0000</pubDate><description>### Podsumowanie
+
+Nieuwierzytelniony klient lokalny może użyć interfejsu API protokołu Gateway WebSocket do zapisania konfiguracji za pomocą pliku `config.apply` i ustawienia niebezpiecznych wartości `cliPath`, które później wykorzystano do wykrycia poleceń, umożliwiając wstrzyknięcie polecenia jako użytkownik bramy.
+
+### Wpływ
+
+Proces lokalny na tej samej maszynie może wykonywać dowolne polecenia jako użytkownik procesu bramy.
+
+### Szczegóły
+
+- `config.apply` zaakceptował surowy JSON i zapisał go na dysku po sprawdzeniu poprawności schematu.
+- Wartości `cliPath` nie były ograniczone do bezpiecznych nazw/ścieżek plików wykonywalnych.
+— Wykrywanie poleceń wykorzystywało wywołanie powłoki podczas rozwiązywania plików wykonywalnych.
+
+### Łagodzenie
+
+Uaktualnij do wersji poprawionej.Jeśli projektów nie można zaktualizować natychmiast, ustaw `gateway.auth` i unikaj niestandardowych wartości `cliPath`.</description></item><item><title>CVE-2026-25505</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25505</link><pubDate>Wed, 04 Feb 2026 20:06:30 +0000</pubDate><description>Bambuddy to samodzielny system archiwizacji wydruków i zarządzania dla drukarek 3D Bambu Lab.Przed wersją 0.1.7 zakodowany na stałe tajny klucz używany do podpisywania tokenów JWT jest wpisywany do kodu źródłowego, a trasy ManyAPI nie sprawdzają uwierzytelnienia.Ten problem został naprawiony w wersji 0.1.7.
 
 CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-25475</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25475</link><pubDate>Wed, 04 Feb 2026 19:02:51 +0000</pubDate><description>### Podsumowanie
 Funkcja `isValidMedia()` w `src/media/parse.ts` umożliwia dowolne ścieżki plików, w tym ścieżki bezwzględne, ścieżki do katalogów domowych i sekwencje przechodzenia do katalogów.Agent może odczytać dowolny plik w systemie, wypisując `MEDIA:/ścieżka/do/pliku`, wydobywając poufne dane do użytkownika/kanału.
@@ -696,7 +712,17 @@ CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2020-37087</title>
 
 CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-1811</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1811</link><pubDate>Tue, 03 Feb 2026 21:32:07 +0000</pubDate><description>Znaleziono błąd w bolo-blog bolo-solo do wersji 2.6.4.Ma to wpływ na funkcję importFromMarkdown pliku src/main/java/org/b3log/solo/bolo/prop/BackupService.java komponentu Filename Handler.Wykonanie manipulacji argumentem Plik może prowadzić do przejścia ścieżki.Atak może zostać przeprowadzony zdalnie.Exploit został opublikowany i może zostać wykorzystany.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
 
-CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2025-65078</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65078</link><pubDate>Tue, 03 Feb 2026 20:51:20 +0000</pubDate><description>W platformie Embedded Solutions Framework w różnych urządzeniach Lexmarka wykryto lukę w zabezpieczeniach niezaufanej ścieżki wyszukiwania.Osoba atakująca może wykorzystać tę lukę do wykonania dowolnego kodu.</description></item><item><title>CVE-2026-25151</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25151</link><pubDate>Tue, 03 Feb 2026 20:49:58 +0000</pubDate><description>### Podsumowanie
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-25597</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25597</link><pubDate>Tue, 03 Feb 2026 21:13:02 +0000</pubDate><description>### Wpływ
+Luka w zabezpieczeniach polegająca na wyliczaniu użytkowników na podstawie czasu w funkcji uwierzytelniania użytkowników w PrestaShop.Luka ta umożliwia osobie atakującej ustalenie, czy w systemie istnieje konto klienta, poprzez pomiar czasu odpowiedzi.
+
+### Poprawki
+8.2.4 i 9.0.3
+
+### Obejścia
+żaden
+
+### Referencje
+Znaleziony przez Lama Yiu Tunga</description></item><item><title>CVE-2025-65078</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65078</link><pubDate>Tue, 03 Feb 2026 20:51:20 +0000</pubDate><description>W platformie Embedded Solutions Framework w różnych urządzeniach Lexmarka wykryto lukę w zabezpieczeniach niezaufanej ścieżki wyszukiwania.Osoba atakująca może wykorzystać tę lukę do wykonania dowolnego kodu.</description></item><item><title>CVE-2026-25151</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25151</link><pubDate>Tue, 03 Feb 2026 20:49:58 +0000</pubDate><description>### Podsumowanie
 Moduł obsługi żądań po stronie serwera Qwik City niekonsekwentnie interpretuje nagłówki żądań HTTP, które mogą zostać wykorzystane przez osobę atakującą zdalnie w celu obejścia zabezpieczeń CSRF przesyłania formularzy przy użyciu specjalnie spreparowanych lub wielowartościowych nagłówków Content-Type.
 
 ### Wpływ
