@@ -1,5 +1,59 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2010</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2010</link><pubDate>Fri, 06 Feb 2026 08:02:09 +0000</pubDate><description>W Sanluan PublicCMS do wersji 4.0.202506.d/5.202506.d/6.202506.d została odkryta podatność.Dotknięta jest funkcja Paid w pliku publiccms-parent/publiccms-trade/src/main/java/com/publiccms/logic/service/trade/TradePaymentService.java komponentu Trade Payment Handler.Manipulacja argumentem PaymentId prowadzi do nieprawidłowej autoryzacji.Atak może zostać zainicjowany zdalnie.Złożoność ataku jest dość duża.Możliwość wykorzystania jest uważana za trudną.Exploit został ujawniony publicznie i może zostać wykorzystany.Identyfikator poprawki to 7329437e1288540336b1c66c114ed3363adcba02.Zaleca się zastosowanie łatki naprawiającej ten problem.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2012</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2012</link><pubDate>Fri, 06 Feb 2026 09:02:07 +0000</pubDate><description>W kodzie źródłowym Student Management System 1.0 wykryto lukę.Elementem, którego dotyczy problem, jest nieznana funkcja pliku /ramonsys/facultyloading/index.php.Ta manipulacja identyfikatorem argumentu powoduje wstrzyknięcie sql.Atak może zostać zainicjowany zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-24919</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24919</link><pubDate>Fri, 06 Feb 2026 08:53:44 +0000</pubDate><description>Luka w zabezpieczeniach umożliwiająca zapis poza zakresem w module DFX.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 6.0 (medium)</description></item><item><title>CVE-2026-24917</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24917</link><pubDate>Fri, 06 Feb 2026 08:52:10 +0000</pubDate><description>Luka UAF w module bezpieczeństwa.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-24916</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24916</link><pubDate>Fri, 06 Feb 2026 08:48:22 +0000</pubDate><description>Luka w zabezpieczeniach obejścia uwierzytelniania tożsamości w module okna.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 5.9 (medium)</description></item><item><title>CVE-2026-24931</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24931</link><pubDate>Fri, 06 Feb 2026 08:46:30 +0000</pubDate><description>Podatność na nieprawidłowe kryterium kontroli bezpieczeństwa w module karty.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 5.9 (medium)</description></item><item><title>CVE-2026-24930</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24930</link><pubDate>Fri, 06 Feb 2026 08:42:53 +0000</pubDate><description>Luka w zabezpieczeniach współbieżności UAF w module graficznym.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2026-24929</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24929</link><pubDate>Fri, 06 Feb 2026 08:41:47 +0000</pubDate><description>Luka w module graficznym związana z odczytem poza zakresem.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 5.9 (medium)</description></item><item><title>CVE-2026-24923</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24923</link><pubDate>Fri, 06 Feb 2026 08:39:07 +0000</pubDate><description>Luka w kontroli uprawnień w module HDC.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na poufność usług.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-24922</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24922</link><pubDate>Fri, 06 Feb 2026 08:32:12 +0000</pubDate><description>Luka w zabezpieczeniach związana z przepełnieniem bufora w module HDC.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 6.9 (medium)</description></item><item><title>CVE-2026-2011</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2011</link><pubDate>Fri, 06 Feb 2026 08:32:06 +0000</pubDate><description>W kodzie źródłowym Student Management System 1.0 została odkryta luka.Elementem, którego dotyczy problem, jest nieznana funkcja pliku /ramonsys/enrollment/controller.php.Manipulacja identyfikatorem argumentu powoduje wstrzyknięcie sql.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-24921</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24921</link><pubDate>Fri, 06 Feb 2026 08:30:44 +0000</pubDate><description>Zajmij się luką związaną z odczytem w module HDC.
+Zagrożenie: pomyślne wykorzystanie tej luki będzie miało wpływ na dostępność i poufność.
+
+CVSS Score: 4.8 (medium)</description></item><item><title>CVE-2026-24918</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24918</link><pubDate>Fri, 06 Feb 2026 08:29:24 +0000</pubDate><description>Zajmij się luką w odczycie modułu komunikacyjnego.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2026-24915</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24915</link><pubDate>Fri, 06 Feb 2026 08:27:37 +0000</pubDate><description>Problem z odczytem poza zakresem w podsystemie nośników.
+Zagrożenie: pomyślne wykorzystanie tej luki będzie miało wpływ na dostępność i poufność.
+
+CVSS Score: 6.2 (medium)</description></item><item><title>CVE-2026-24914</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24914</link><pubDate>Fri, 06 Feb 2026 08:26:07 +0000</pubDate><description>Wpisz lukę w zabezpieczeniach modułu kamery.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 4.0 (medium)</description></item><item><title>CVE-2026-1252</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1252</link><pubDate>Fri, 06 Feb 2026 08:25:26 +0000</pubDate><description>Wtyczka Events Listing Widget dla WordPressa jest podatna na przechowywane skrypty między witrynami poprzez parametr „Adres URL zdarzenia” we wszystkich wersjach aż do 1.3.4 włącznie z powodu niewystarczającego oczyszczenia danych wejściowych i ucieczki danych wyjściowych.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie autora i wyższym mogą wstrzykiwać dowolne skrypty internetowe na stronach, które będą wykonywane za każdym razem, gdy użytkownik uzyska dostęp do wstrzykniętej strony.
+
+CVSS Score: 6.4 (medium)</description></item><item><title>CVE-2026-1785</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1785</link><pubDate>Fri, 06 Feb 2026 08:25:26 +0000</pubDate><description>Wtyczka Code Snippets do WordPressa jest podatna na fałszowanie żądań między witrynami we wszystkich wersjach aż do wersji 3.9.4 włącznie.Dzieje się tak z powodu braku weryfikacji jednorazowej operacji pobierania i aktualizacji fragmentu kodu w chmurze w klasie Cloud_Search_List_Table.Dzięki temu nieuwierzytelnieni atakujący mogą zmusić zalogowanych administratorów do pobrania lub aktualizacji fragmentów danych w chmurze bez ich zgody za pomocą spreparowanego żądania, pod warunkiem, że mogą nakłonić administratora do odwiedzenia złośliwej strony.
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-1499</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1499</link><pubDate>Fri, 06 Feb 2026 08:25:25 +0000</pubDate><description>Wtyczka WP Duplicate dla WordPressa jest podatna na brakującą autoryzację prowadzącą do arbitralnego przesyłania plików we wszystkich wersjach do 1.1.8 włącznie.Dzieje się tak z powodu braku kontroli możliwości akcji AJAX `process_add_site()` w połączeniu z przechodzeniem ścieżki w funkcji przesyłania plików.Dzięki temu uwierzytelnieni atakujący (na poziomie subskrybenta) mogą ustawić wewnętrzną opcję `prod_key_random_id`, która może być następnie wykorzystana przez nieuwierzytelnionego atakującego do ominięcia kontroli uwierzytelnienia i zapisania dowolnych plików na serwerze za pomocą funkcji `handle_upload_single_big_file()`, co ostatecznie prowadzi do zdalnego wykonania kodu.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-21643</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21643</link><pubDate>Fri, 06 Feb 2026 08:24:43 +0000</pubDate><description>Niewłaściwa neutralizacja specjalnych elementów używanych w luce w zabezpieczeniach polecenia sql („wstrzyknięcie sql”) w Fortinet FortiClientEMS 7.4.4 może pozwolić nieuwierzytelnionemu atakującemu na wykonanie nieautoryzowanego kodu lub poleceń za pośrednictwem specjalnie spreparowanych żądań HTTP.
+
+CVSS Score: 9.1 (critical)</description></item><item><title>CVE-2026-24926</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24926</link><pubDate>Fri, 06 Feb 2026 08:23:45 +0000</pubDate><description>Luka w zabezpieczeniach modułu kamery umożliwiająca zapis poza zakresem.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2026-24925</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24925</link><pubDate>Fri, 06 Feb 2026 08:22:34 +0000</pubDate><description>Luka w module obrazu związana z przepełnieniem bufora oparta na stercie.
+Zagrożenie: pomyślne wykorzystanie tej luki może mieć wpływ na dostępność.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-2010</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2010</link><pubDate>Fri, 06 Feb 2026 08:02:09 +0000</pubDate><description>W Sanluan PublicCMS do wersji 4.0.202506.d/5.202506.d/6.202506.d została odkryta podatność.Dotknięta jest funkcja Paid w pliku publiccms-parent/publiccms-trade/src/main/java/com/publiccms/logic/service/trade/TradePaymentService.java komponentu Trade Payment Handler.Manipulacja argumentem PaymentId prowadzi do nieprawidłowej autoryzacji.Atak może zostać zainicjowany zdalnie.Złożoność ataku jest dość duża.Możliwość wykorzystania jest uważana za trudną.Exploit został ujawniony publicznie i może zostać wykorzystany.Identyfikator poprawki to 7329437e1288540336b1c66c114ed3363adcba02.Zaleca się zastosowanie łatki naprawiającej ten problem.
 
 CVSS Score: 4.2 (medium)</description></item><item><title>CVE-2026-0598</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0598</link><pubDate>Fri, 06 Feb 2026 05:47:57 +0000</pubDate><description>W punktach końcowych konwersacji interfejsu API Ansible Lightspeed, które obsługują interakcje na czacie AI, wykryto lukę w zabezpieczeniach.Interfejsy API nie weryfikują prawidłowo, czy identyfikator konwersacji należy do uwierzytelnionego użytkownika wysyłającego żądanie.W rezultacie osoba atakująca posiadająca prawidłowe dane uwierzytelniające może uzyskać dostęp do rozmów prowadzonych przez innych użytkowników lub wpłynąć na nie.Ujawnia to wrażliwe dane rozmów i umożliwia nieupoważnione manipulowanie wynikami generowanymi przez sztuczną inteligencję.
 
