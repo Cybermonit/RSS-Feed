@@ -1,5 +1,70 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2210</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2210</link><pubDate>Mon, 09 Feb 2026 02:02:14 +0000</pubDate><description>W D-Link DIR-823X 250416 została odkryta podatność. Wpływa ona na funkcję sub_4211C8 pliku /goform/set_filtering.Taka manipulacja prowadzi do wstrzyknięcia polecenia os.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1615</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1615</link><pubDate>Mon, 09 Feb 2026 05:00:09 +0000</pubDate><description>Wszystkie wersje pakietu jsonpath są podatne na wstrzyknięcie dowolnego kodu poprzez niebezpieczną ocenę wyrażeń JSON Path dostarczonych przez użytkownika.Biblioteka opiera się na module static-eval do przetwarzania danych wejściowych JSON Path, który nie jest przeznaczony do bezpiecznego przetwarzania niezaufanych danych.Osoba atakująca może wykorzystać tę lukę, dostarczając złośliwe wyrażenie JSON Path, które po ocenie wykonuje dowolny kod JavaScript, co prowadzi do zdalnego wykonania kodu w środowiskach Node.js lub skryptów krzyżowych (XSS) w kontekstach przeglądarki.Ma to wpływ na wszystkie metody oceniające ścieżki JSON względem obiektów, w tym .query, .nodes, .paths, .value, .parent i .apply.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-2215</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2215</link><pubDate>Mon, 09 Feb 2026 04:32:06 +0000</pubDate><description>W rachelos WeRSS we-mp-rss do wersji 1.4.8 wykryto lukę.Ten problem dotyczy nieznanego przetwarzania pliku core/auth.py komponentu JWT Handler.Manipulacja argumentem SECRET_KEY powoduje użycie domyślnego klucza kryptograficznego.Atak może zostać zainicjowany zdalnie.Uważa się, że atak ma dużą złożoność.Możliwość wykorzystania oceniana jest jako trudna.Exploit jest teraz publiczny i można go wykorzystać.
+
+CVSS Score: 3.7 (low)</description></item><item><title>CVE-2026-2214</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2214</link><pubDate>Mon, 09 Feb 2026 04:02:06 +0000</pubDate><description>W projektach kodu dla wtyczki 1.0 wykryto słabość.Dotyczy to nieznanej części pliku /Administrator/PHP/AdminAddAlbum.php.Ta manipulacja argumentem txtalbum powoduje wykonywanie skryptów krzyżowych.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+
+CVSS Score: 2.4 (low)</description></item><item><title>CVE-2025-66594</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66594</link><pubDate>Mon, 09 Feb 2026 03:37:30 +0000</pubDate><description>W programie FAST/TOOLS firmy Yokogawa Electric Corporation została odkryta podatność.
+
+W przypadku błędu wyświetlane są szczegółowe komunikaty
+strona.Informacje te mogą zostać wykorzystane przez osobę atakującą do innych ataków.
+
+
+
+The
+produkty i wersje, których to dotyczy, są następujące: FAST/TOOLS (pakiety: RVSVRN, UNSVRN, HMIWEB, FTEES, HMIMOB) od R9.01 do
+R10.04</description></item><item><title>CVE-2025-66595</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66595</link><pubDate>Mon, 09 Feb 2026 03:36:38 +0000</pubDate><description>W programie FAST/TOOLS firmy Yokogawa Electric Corporation została odkryta podatność.
+
+
+
+Ten produkt jest
+podatne na fałszowanie żądań między witrynami (CSRF).Gdy użytkownik uzyskuje dostęp do łącza
+spreparowane przez osobę atakującą, konto użytkownika może zostać przejęte.
+
+
+
+The
+produkty i wersje, których to dotyczy, są następujące: FAST/TOOLS (pakiety: RVSVRN, UNSVRN, HMIWEB, FTEES, HMIMOB) od R9.01 do
+R10.04</description></item><item><title>CVE-2025-66596</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66596</link><pubDate>Mon, 09 Feb 2026 03:35:28 +0000</pubDate><description>W programie FAST/TOOLS firmy Yokogawa Electric Corporation została odkryta podatność.
+
+
+
+Ten produkt nie
+poprawnie sprawdź nagłówki żądań.Gdy osoba atakująca wstawi nieprawidłowy host
+nagłówku, użytkownicy mogą zostać przekierowani do złośliwych witryn.
+
+
+
+The
+produkty i wersje, których to dotyczy, są następujące: FAST/TOOLS (pakiety: RVSVRN, UNSVRN, HMIWEB, FTEES, HMIMOB) od R9.01 do
+R10.04</description></item><item><title>CVE-2026-2213</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2213</link><pubDate>Mon, 09 Feb 2026 03:32:07 +0000</pubDate><description>W kodzie-projektach Online Music Site 1.0 wykryto lukę w zabezpieczeniach.Problemem dotknięta jest nieznana funkcja w pliku /Administrator/PHP/AdminAddAlbum.php.Manipulacja argumentem txtimage powoduje nieograniczone przesyłanie.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+
+CVSS Score: 4.7 (medium)</description></item><item><title>CVE-2025-66597</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66597</link><pubDate>Mon, 09 Feb 2026 03:31:24 +0000</pubDate><description>W programie FAST/TOOLS firmy Yokogawa Electric Corporation została odkryta podatność.
+
+
+
+Ten produkt obsługuje
+słabe algorytmy kryptograficzne, potencjalnie umożliwiające atakującemu odszyfrowanie
+komunikację z serwerem WWW.
+
+
+
+The
+produkty i wersje, których to dotyczy, są następujące: FAST/TOOLS (pakiety: RVSVRN, UNSVRN, HMIWEB, FTEES, HMIMOB) od R9.01 do
+R10.04</description></item><item><title>CVE-2025-66598</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-66598</link><pubDate>Mon, 09 Feb 2026 03:26:46 +0000</pubDate><description>W programie FAST/TOOLS firmy Yokogawa Electric Corporation została odkryta podatność.
+
+
+
+Ten produkt obsługuje
+stare wersje protokołu SSL/TLS, które potencjalnie umożliwiają atakującemu odszyfrowanie
+komunikację z serwerem WWW.
+
+
+
+The
+produkty i wersje, których to dotyczy, są następujące: FAST/TOOLS (pakiety: RVSVRN, UNSVRN, HMIWEB, FTEES, HMIMOB) od R9.01 do
+R10.04</description></item><item><title>CVE-2026-2210</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2210</link><pubDate>Mon, 09 Feb 2026 02:02:14 +0000</pubDate><description>W D-Link DIR-823X 250416 została odkryta podatność. Wpływa ona na funkcję sub_4211C8 pliku /goform/set_filtering.Taka manipulacja prowadzi do wstrzyknięcia polecenia os.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
 
 CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-2203</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2203</link><pubDate>Mon, 09 Feb 2026 02:02:10 +0000</pubDate><description>Znaleziono błąd w Tenda AC8 16.03.33.05.Podatnością dotknięta jest nieznana funkcja w pliku /goform/fast_setting_wifi_set w komponencie Embedded Httpd Service.Ta manipulacja argumentem timeZone powoduje przepełnienie bufora.Możliwe jest zdalne wykorzystanie ataku.Exploit został opublikowany i może zostać wykorzystany.
 
