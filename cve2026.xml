@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2223</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2223</link><pubDate>Mon, 09 Feb 2026 08:02:05 +0000</pubDate><description>W kodzie-projektach Online Reviewer System 1.0 wykryto lukę w zabezpieczeniach.Problemem dotknięta jest nieznana funkcja w pliku /system/system/students/assessments/pretest/take/index.php.Manipulacja identyfikatorem argumentu prowadzi do wstrzyknięcia sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został ujawniony publicznie i może zostać wykorzystany.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2225</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2225</link><pubDate>Mon, 09 Feb 2026 09:02:07 +0000</pubDate><description>Znaleziono błąd w kodzie źródłowym News Portal Project 1.0.Podatnością dotknięta jest nieznany kod pliku /admin/index.php komponentu Administrator Login.Ta manipulacja argumentem email powoduje wstrzyknięcie sql.Atak może zostać zainicjowany zdalnie.Exploit został opublikowany i może zostać wykorzystany.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-25905</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25905</link><pubDate>Mon, 09 Feb 2026 09:01:16 +0000</pubDate><description>Kod Pythona uruchamiany przez „runPython” lub „runPythonAsync” nie jest odizolowany od reszty kodu JS, dzięki czemu dowolny kod Pythona może używać interfejsów API Pyodide do modyfikowania środowiska JS.Może to skutkować przejęciem przez osobę atakującą serwera MCP – w złośliwych celach, w tym w celu przesłaniania narzędzia MCP.Uwaga — projekt „mcp-run-python” jest zarchiwizowany i jest mało prawdopodobne, że zostanie naprawiony.
+
+CVSS Score: 5.8 (medium)</description></item><item><title>CVE-2026-25904</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25904</link><pubDate>Mon, 09 Feb 2026 08:51:18 +0000</pubDate><description>Narzędzie Pydantic-AI MCP Run Python konfiguruje piaskownicę Deno w zbyt liberalnej konfiguracji, która umożliwia podstawowemu kodowi Pythona dostęp do interfejsu hosta lokalnego hosta w celu przeprowadzenia ataków SSRF.Uwaga — projekt „mcp-run-python” jest zarchiwizowany i jest mało prawdopodobne, że zostanie naprawiony.
+
+CVSS Score: 5.8 (medium)</description></item><item><title>CVE-2026-2223</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2223</link><pubDate>Mon, 09 Feb 2026 08:02:05 +0000</pubDate><description>W kodzie-projektach Online Reviewer System 1.0 wykryto lukę w zabezpieczeniach.Problemem dotknięta jest nieznana funkcja w pliku /system/system/students/assessments/pretest/take/index.php.Manipulacja identyfikatorem argumentu prowadzi do wstrzyknięcia sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został ujawniony publicznie i może zostać wykorzystany.
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-2218</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2218</link><pubDate>Mon, 09 Feb 2026 06:02:09 +0000</pubDate><description>W D-Link DCS-933L do wersji 1.14.11 została stwierdzona podatność.Problem dotyczy nieznanej funkcji pliku /setSystemAdmin w komponencie alphapd.Ta manipulacja argumentem AdminID powoduje wstrzyknięcie polecenia.Możliwe jest zdalne wykorzystanie ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.Ta luka dotyczy tylko produktów, które nie są już wspierane przez opiekuna.
 
@@ -2319,7 +2325,48 @@ CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-20098</title><l
 
 Przyczyną tej luki jest nieprawidłowa weryfikacja danych wejściowych w niektórych sekcjach internetowego interfejsu zarządzania.Osoba atakująca może wykorzystać tę lukę, wysyłając spreparowane żądanie HTTP do systemu, którego dotyczy luka.Udany exploit może umożliwić atakującemu przesłanie dowolnych plików do systemu, którego dotyczy luka.Złośliwe pliki mogą zastąpić pliki systemowe przetwarzane przez konto systemu root i umożliwić wykonanie dowolnego polecenia z uprawnieniami roota.Aby wykorzystać tę lukę, osoba atakująca musi posiadać ważne dane uwierzytelniające dla konta użytkownika posiadającego co najmniej rolę operatora wideo.
 
-CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-23048</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23048</link><pubDate>Wed, 04 Feb 2026 16:00:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-23110</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23110</link><pubDate>Wed, 04 Feb 2026 16:08:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+scsi: core: Obudź moduł obsługi błędów, gdy końcowe zakończenia ścigają się ze sobą
+
+Kruche uporządkowanie między poleceniami oznaczania zostało ukończonych lub nie
+że procedura obsługi błędów budzi się dopiero po wykonaniu ostatniego polecenia
+kończy lub ma przerwę w wyścigu, ma warunki wyścigowe.Te warunki wyścigu mogą
+spowodować, że warstwa SCSI nie obudzi modułu obsługi błędów, pozostawiając wejścia/wyjścia
+przez host SCSI utknął, ponieważ stan błędu nie może się rozwinąć.
+
+Po pierwsze, występuje problem z porządkowaniem pamięci w funkcji scsi_dec_host_busy().
+Zapis, który czyści SCMD_STATE_INFLIGHT, można zmienić w kolejności odczytów
+zliczanie w scsi_host_busy().Podczas gdy lokalny procesor zobaczy swój własny
+write, zmiana kolejności może pozwolić innym procesorom na funkcję scsi_dec_host_busy() lub
+scsi_eh_inc_host_failed(), aby zobaczyć podwyższony licznik zajętości, powodujący brak procesora
+zobacz, czy host jest zajęty, równy licznikowi host_failed.
+
+Tej sytuacji wyścigu można zapobiec, stosując barierę pamięci na błędzie
+ścieżka, aby wymusić widoczność zapisu przed zliczeniem zajętości hosta
+polecenia.
+
+Po drugie, istnieje ogólny problem z porządkowaniem funkcji scsi_eh_inc_host_failed().Przez
+licząc zajęte polecenia przed zwiększeniem host_failed, może ścigać się z a
+ostatnie polecenie w scsi_dec_host_busy(), tak że robi to scsi_dec_host_busy()
+nie widzę zwiększonego host_failed, ale scsi_eh_inc_host_failed() liczy, że jest zajęty
+polecenia przed wyczyszczeniem SCMD_STATE_INFLIGHT przez scsi_dec_host_busy(),
+co nie powoduje wybudzenia zadania obsługi błędów.
+
+Wymaga to przeniesienia wywołania scsi_host_busy() po wystąpieniu host_failed
+zwiększany, aby zamknąć stan wyścigu.</description></item><item><title>CVE-2026-23109</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23109</link><pubDate>Wed, 04 Feb 2026 16:08:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+fs/writeback: pomiń mapowania AS_NO_DATA_INTEGRITY w Wait_sb_inodes()
+
+Powyżej pętli while() w funkcji wait_sb_inodes() dokumentujemy, że musimy poczekać
+dla wszystkich stron objętych zapisem zwrotnym w celu zapewnienia integralności danych.W związku z tym, jeśli A
+mapowanie, podobnie jak bezpiecznik, tradycyjnie nie posiada semantyki integralności danych,
+w ogóle nie trzeba czekać;możemy po prostu pominąć te i-węzły.
+
+Przywraca to bezpiecznik do poprzedniego zachowania, gdy synchronizacje nie działały.To
+naprawia regresję użytkownika, gdy w systemie działa wadliwy serwer bezpieczników
+który nie odpowiada na wydane żądania zapisu, powoduje to funkcję wait_sb_inodes()
+czekać wiecznie.</description></item><item><title>CVE-2026-23048</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23048</link><pubDate>Wed, 04 Feb 2026 16:00:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 udp: wywołaj skb_orphan() przed skb_attempt_defer_free()
 
