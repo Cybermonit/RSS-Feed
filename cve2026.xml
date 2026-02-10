@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25957</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25957</link><pubDate>Tue, 10 Feb 2026 00:29:13 +0000</pubDate><description>### **Wpływ**
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2099</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2099</link><pubDate>Tue, 10 Feb 2026 07:09:51 +0000</pubDate><description>AgentFlow opracowany przez Flowring zawiera lukę w zabezpieczeniach Stored Cross-Site Scripting, umożliwiającą uwierzytelnionym zdalnym atakującym wstrzykiwanie trwałych kodów JavaScript, które są wykonywane w przeglądarkach użytkowników po załadowaniu strony.
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-2098</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2098</link><pubDate>Tue, 10 Feb 2026 07:06:27 +0000</pubDate><description>AgentFlow opracowany przez Flowring posiada lukę w zabezpieczeniach Reflected Cross-site Scripting, umożliwiającą nieuwierzytelnionym zdalnym atakującym wykonanie dowolnego kodu JavaScript w przeglądarce użytkownika w wyniku ataków phishingowych.
+
+CVSS Score: 6.1 (medium)</description></item><item><title>CVE-2025-12063</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-12063</link><pubDate>Tue, 10 Feb 2026 05:52:35 +0000</pubDate><description>Niezabezpieczone bezpośrednie odwołanie do obiektu umożliwiło użytkownikowi niebędącemu administratorem modyfikowanie lub usuwanie określonych obiektów danych bez posiadania odpowiednich uprawnień.
+
+CVSS Score: 5.7 (medium)</description></item><item><title>CVE-2026-25957</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25957</link><pubDate>Tue, 10 Feb 2026 00:29:13 +0000</pubDate><description>### **Wpływ**
 
 Istnieje możliwość wyłączenia całego interfejsu Cube API poprzez przesłanie specjalnie spreparowanego żądania do punktu końcowego Cube API.
 
