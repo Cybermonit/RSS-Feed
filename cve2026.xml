@@ -1,5 +1,75 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25938</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25938</link><pubDate>Tue, 10 Feb 2026 00:27:31 +0000</pubDate><description>### Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25957</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25957</link><pubDate>Tue, 10 Feb 2026 00:29:13 +0000</pubDate><description>### **Wpływ**
+
+Istnieje możliwość wyłączenia całego interfejsu Cube API poprzez przesłanie specjalnie spreparowanego żądania do punktu końcowego Cube API.
+
+### Wersje, których dotyczy problem:
+
+`&gt;= 1.1.17`
+
+### Łagodzenie:
+
+Uaktualnij do poprawionej wersji:
+
+- 1.5.13 i nowsze (regularne wydanie)
+– 1.4.2 (aktywna [wersja LTS](https://cube.dev/docs/product/administration/distribution#long-term-support))
+
+### **Referencje**
+
+Problem został zgłoszony przez naszego inżyniera Core, Dmitrii Patsurę (@ovr), w naszym wewnętrznym Slacku i został natychmiast załatany w ostatniej aktualizacji.</description></item><item><title>CVE-2026-25958</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25958</link><pubDate>Tue, 10 Feb 2026 00:29:07 +0000</pubDate><description>### **Wpływ**
+
+Możliwe jest złożenie specjalnie spreparowanego żądania z ważnym tokenem API, które prowadzi do eskalacji uprawnień.
+
+### Wersje, których dotyczy problem:
+
+`≥= 0,27,19`
+
+### Łagodzenie:
+
+Uaktualnij do poprawionej wersji:
+
+- 1.5.13 i nowsze (regularne wydanie)
+– 1.4.2 (aktywna [wersja LTS](https://cube.dev/docs/product/administration/distribution#long-term-support))
+- 1.0.14 (wycofana wersja LTS)
+
+### **Referencje**
+
+Problem został zgłoszony przez naszego inżyniera Core, Dmitrii Patsurę (@ovr), w naszym wewnętrznym Slacku i został natychmiast załatany w ostatniej aktualizacji.</description></item><item><title>CVE-2026-25951</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25951</link><pubDate>Tue, 10 Feb 2026 00:29:00 +0000</pubDate><description>### Podsumowanie
+Luka w logice oczyszczania ścieżek umożliwia uwierzytelnionemu atakującemu z uprawnieniami administracyjnymi ominięcie zabezpieczeń przed przeglądaniem katalogów.Używając zagnieżdżonych sekwencji przechodzenia (np. ....//), osoba atakująca może zapisać dowolne pliki w systemie plików serwera, w tym poufne katalogi, takie jak środowisko wykonawcze/skrypty.Prowadzi to do zdalnego wykonania kodu (RCE), gdy serwer ponownie ładuje złośliwe skrypty.Jest to nowa luka, którą w ostatniej wersji można obejść w celu oczyszczenia.
+
+
+### Szczegóły
+W tym raporcie opisano nową, wyraźną lukę, która różni się od poprzednich poradników Path Traversal (takich jak CVE-2023-31718) pod kilkoma względami:
+
+Pominięcie łatki (regresja): Luka ta omija istniejącą logikę oczyszczania wdrożoną w celu naprawienia poprzednich problemów z przechodzeniem.Obecne podejście do wyrażenia regularnego „jednoprzebiegowego” jest niewystarczające w przypadku sekwencji zagnieżdżonych.
+Rozszerzenie zakresu: w przeciwieństwie do poprzednich raportów, które skupiały się głównie na /api/download, to obejście wpływa na wiele krytycznych punktów końcowych, w tym /api/upload, /api/resources/remove i /api/logs.
+Eskalacja do RCE: poprzez kierowanie na
+przesłać
+i usunięcia funkcjonalności, luka ta bezpośrednio prowadzi do zdalnego wykonania kodu, co ma większy wpływ niż ujawnienie informacji zwykle kojarzone z poprzednimi raportami z przeglądania.
+
+
+### Wpływ
+Zdalne wykonanie kodu (RCE): przejście od administratora aplikacji do pełnej kontroli systemu.
+Zakłócenia w działaniu SCADA: Możliwość sabotażu fizycznego lub operacyjnego poprzez manipulowanie znacznikami i alarmami.
+Integralność i dostępność danych: pełny dostęp do projektów, danych uwierzytelniających i dzienników historycznych.</description></item><item><title>CVE-2026-25934</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25934</link><pubDate>Tue, 10 Feb 2026 00:28:53 +0000</pubDate><description>### Wpływ
+
+W `go-git` odkryto lukę polegającą na tym, że wartości integralności danych w plikach `.pack` i `.idx` nie zostały poprawnie zweryfikowane.Spowodowało to potencjalne zużycie przez `go-git` uszkodzonych plików, co prawdopodobnie spowodowałoby nieoczekiwane błędy, takie jak „nie znaleziono obiektu”.
+
+Dla kontekstu klienci pobierają [`packfiles`](https://git-scm.com/docs/pack-protocol#_packfile_data) z nadrzędnych serwerów Git.Pliki te zawierają sumę kontrolną ich zawartości, dzięki czemu klienci mogą sprawdzić integralność przed ich wykorzystaniem.Indeksy pakietów (`.idx`) są [generowane] (https://git-scm.com/docs/pack-format) lokalnie przez `go-git` lub cli `git`, gdy odbierane i przetwarzane są nowe pliki `.pack`.Sprawdzanie integralności obu plików nie zostało poprawnie zweryfikowane.
+
+Należy pamiętać, że brak weryfikacji sumy kontrolnej pliku pakietu nie ma wpływu na relację zaufania pomiędzy klientem a serwerem, która jest wymuszana w oparciu o używany protokół (np. TLS w przypadku `https://` lub znane hosty w przypadku `ssh://`).Innymi słowy, weryfikacja sumy kontrolnej pliku pakietu nie zapewnia żadnych korzyści w zakresie bezpieczeństwa podczas łączenia się ze złośliwym lub zagrożonym serwerem Git.
+
+### Poprawki
+
+Użytkownicy powinni dokonać aktualizacji do wersji 5.16.5 lub najnowszej wersji 6 [pseudo-version] (https://go.dev/ref/mod#pseudo-versions), aby ograniczyć tę lukę.
+
+### Obejścia
+
+W przypadku, gdy aktualizacja do ustalonej wersji `go-git` nie jest możliwa, użytkownicy mogą uruchomić [git fsck](https://git-scm.com/docs/git-fsck) z cli `git`, aby sprawdzić, czy dane w danym repozytorium nie są uszkodzone.
+
+### Kredyt
+
+Dziękujemy @N0zoM1z0 za znalezienie i zgłoszenie tego problemu prywatnie do projektu `go-git`.</description></item><item><title>CVE-2026-25938</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25938</link><pubDate>Tue, 10 Feb 2026 00:27:31 +0000</pubDate><description>### Podsumowanie
 
 **Opis**
 Luka w zabezpieczeniach FUXA umożliwiająca obejście uwierzytelnienia umożliwia nieuwierzytelnionemu zdalnemu atakującemu wykonanie dowolnego kodu na serwerze, gdy włączona jest wtyczka Node-RED.Dotyczy to wersji FUXA od 1.2.8 do wersji 1.2.10.Zostało to poprawione w wersji FUXA 1.2.11.
@@ -309,7 +379,9 @@ CVSS Score: 5.8 (medium)</description></item><item><title>CVE-2026-25491</title>
 
 CVSS Score: 9.1 (critical)</description></item><item><title>CVE-2026-2245</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2245</link><pubDate>Mon, 09 Feb 2026 19:02:10 +0000</pubDate><description>W CCExtractor do 183 została zidentyfikowana podatność. Dotyka ona funkcję parse_PAT/parse_PMT w bibliotece src/lib_ccx/ts_tables.c komponentu MPEG-TS File Parser.Taka manipulacja prowadzi do odczytu spoza zakresu.Atak może zostać przeprowadzony wyłącznie ze środowiska lokalnego.Exploit jest publicznie dostępny i może zostać wykorzystany.Nazwa łatki to fd7271bae238ccb3ae8a71304ea64f0886324925.Najlepszą praktyką jest zastosowanie poprawki rozwiązującej ten problem.
 
-CVSS Score: 3.3 (low)</description></item><item><title>CVE-2026-24900</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24900</link><pubDate>Mon, 09 Feb 2026 18:39:52 +0000</pubDate><description>MarkUs to aplikacja internetowa służąca do przesyłania i oceniania prac uczniów.Przed wersją 2.9.1 kursy/&lt;:course_id&gt;/ przypisania/&lt;: przypisania_id&gt;/submissions/html_content akceptowały parametrselect_file_id do obsługi obiektów SubmissionFile zawierających zapis plików przesłanych przez studentów.Ten parametr nie został poprawnie przypisany do żądającego użytkownika, umożliwiając użytkownikom dostęp do dowolnej zawartości pliku przesyłania według identyfikatora.Ta luka została naprawiona w wersji 2.9.1.
+CVSS Score: 3.3 (low)</description></item><item><title>CVE-2025-14778</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14778</link><pubDate>Mon, 09 Feb 2026 18:58:29 +0000</pubDate><description>Znaleziono błąd w Keycloak.W usłudze UserManagedPermissionService (UMA Protection API) występuje istotna luka w zabezpieczeniach związana z uszkodzoną kontrolą dostępu.Podczas aktualizowania lub usuwania zasady UMA powiązanej z wieloma zasobami kontrola autoryzacji weryfikuje jedynie własność osoby wywołującej w odniesieniu do pierwszego zasobu na liście zasad.Umożliwia to użytkownikowi (właścicielowi A), który jest właścicielem jednego zasobu (RA), aktualizację wspólnej polityki i modyfikowanie reguł autoryzacji dla innych zasobów (np. RB) w tej samej polityce, nawet jeśli te inne zasoby są własnością innego użytkownika (właściciela B).Stanowi to poziomą eskalację przywilejów.
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-24900</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24900</link><pubDate>Mon, 09 Feb 2026 18:39:52 +0000</pubDate><description>MarkUs to aplikacja internetowa służąca do przesyłania i oceniania prac uczniów.Przed wersją 2.9.1 kursy/&lt;:course_id&gt;/ przypisania/&lt;: przypisania_id&gt;/submissions/html_content akceptowały parametrselect_file_id do obsługi obiektów SubmissionFile zawierających zapis plików przesłanych przez studentów.Ten parametr nie został poprawnie przypisany do żądającego użytkownika, umożliwiając użytkownikom dostęp do dowolnej zawartości pliku przesyłania według identyfikatora.Ta luka została naprawiona w wersji 2.9.1.
 
 CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-1529</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1529</link><pubDate>Mon, 09 Feb 2026 18:36:15 +0000</pubDate><description>Znaleziono błąd w Keycloak.Osoba atakująca może wykorzystać tę lukę, modyfikując identyfikator organizacji i docelowy adres e-mail w ładunku JSON Web Token (JWT) prawidłowego tokena zaproszenia.Brak weryfikacji podpisu kryptograficznego umożliwia atakującemu pomyślną samorejestrację w nieautoryzowanej organizacji, co prowadzi do nieautoryzowanego dostępu.
 
