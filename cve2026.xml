@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-25633</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25633</link><pubDate>Wed, 11 Feb 2026 16:53:35 +0000</pubDate><description>### Wpływ
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-69874</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-69874</link><pubDate>Wed, 11 Feb 2026 18:31:30 +0000</pubDate><description>nanotar do 0.2.0 ma lukę w zabezpieczeniach parseTar() i parseTarGzip(), która umożliwia zdalnym atakującym zapisanie dowolnych plików poza zamierzonym katalogiem ekstrakcji za pośrednictwem spreparowanego archiwum tar zawierającego sekwencję przejścia ścieżki.</description></item><item><title>CVE-2026-2314</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2314</link><pubDate>Wed, 11 Feb 2026 18:08:01 +0000</pubDate><description>Przepełnienie buforu sterty w kodekach w przeglądarce Google Chrome przed wersją 145.0.7632.45 umożliwiało zdalnemu atakującemu potencjalne wykorzystanie uszkodzenia sterty za pośrednictwem spreparowanej strony HTML.(Ważność zabezpieczeń Chromu: wysoka)</description></item><item><title>CVE-2026-2313</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2313</link><pubDate>Wed, 11 Feb 2026 18:08:01 +0000</pubDate><description>Użycie po free w CSS w przeglądarce Google Chrome przed wersją 145.0.7632.45 umożliwiło zdalnemu atakującemu potencjalne wykorzystanie uszkodzenia sterty za pośrednictwem spreparowanej strony HTML.(Ważność zabezpieczeń Chromu: wysoka)</description></item><item><title>CVE-2026-25633</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25633</link><pubDate>Wed, 11 Feb 2026 16:53:35 +0000</pubDate><description>### Wpływ
 Użytkownicy bez uprawnień do przeglądania zasobów mogą je pobierać i przeglądać ich metadane.
 
 Nie mogą z tego skorzystać użytkownicy wylogowani oraz użytkownicy bez uprawnień dostępu do panelu administracyjnego.
@@ -194,11 +194,17 @@ CVSS Score: 7.3 (high)</description></item><item><title>CVE-2026-21245</title><l
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-21255</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21255</link><pubDate>Tue, 10 Feb 2026 17:51:38 +0000</pubDate><description>
 
-CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21525</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21525</link><pubDate>Tue, 10 Feb 2026 17:51:34 +0000</pubDate><description>
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21511</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21511</link><pubDate>Tue, 10 Feb 2026 17:51:35 +0000</pubDate><description>
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2026-21525</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21525</link><pubDate>Tue, 10 Feb 2026 17:51:34 +0000</pubDate><description>
 
 CVSS Score: 6.2 (medium)</description></item><item><title>CVE-2026-21514</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21514</link><pubDate>Tue, 10 Feb 2026 17:51:34 +0000</pubDate><description>
 
-CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-21513</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21513</link><pubDate>Tue, 10 Feb 2026 17:51:26 +0000</pubDate><description>
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-21529</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21529</link><pubDate>Tue, 10 Feb 2026 17:51:33 +0000</pubDate><description>
+
+CVSS Score: 5.7 (medium)</description></item><item><title>CVE-2026-21522</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21522</link><pubDate>Tue, 10 Feb 2026 17:51:29 +0000</pubDate><description>
+
+CVSS Score: 6.7 (medium)</description></item><item><title>CVE-2026-21513</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21513</link><pubDate>Tue, 10 Feb 2026 17:51:26 +0000</pubDate><description>
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21517</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21517</link><pubDate>Tue, 10 Feb 2026 17:51:15 +0000</pubDate><description>
 
