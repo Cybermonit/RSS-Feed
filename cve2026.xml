@@ -15433,7 +15433,29 @@ zero -&gt;otwarte;w takim przypadku plik, który otwieramy, jest skazany na zag�
 * mieć zaznaczone i-węzły plików dynamicznych przy usuwaniu (z pliku
 wywołanie zwrotne simple_recursive_removal()) - wyczyść -&gt;i_private tam.
 * otwórz dynamiczne i sprawdź, czy nie zostały już usunięte,
-wraz ze sprawdzeniem, czy stan to FFS_ACTIVE.</description></item><item><title>CVE-2025-68803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68803</link><pubDate>Tue, 13 Jan 2026 15:29:11 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+wraz ze sprawdzeniem, czy stan to FFS_ACTIVE.</description></item><item><title>CVE-2025-68823</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68823</link><pubDate>Tue, 13 Jan 2026 15:29:25 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ublk: napraw zakleszczenie podczas czytania tablicy partycji
+
+Kiedy jeden proces (taki jak udev) otwiera urządzenie blokowe ublk (np. w celu odczytu
+tablicę partycji poprzez bdev_open()), może wystąpić zakleszczenie[1]:
+
+1. bdev_open() chwyta dysk-&gt;open_mutex
+2. Proces wysyła odczyt we/wy do zaplecza ublk w celu odczytania tablicy partycji
+3. W __ublk_complete_rq(), blk_update_request() lub blk_mq_end_request()
+uruchamia wywołania zwrotne bio-&gt;bi_end_io().
+4. Jeśli to wywoła funkcję fput() na deskryptorze pliku urządzenia blokowego ublk, plik
+praca może zostać odroczona do pracy nad bieżącym zadaniem (patrz implementacja fput())
+5. To ostatecznie wywołuje funkcję blkdev_release() w tym samym kontekście
+6. blkdev_release() ponownie próbuje przechwycić dysk-&gt;open_mutex
+7. Zakleszczenie: to samo zadanie czeka na muteks, który już posiada
+
+Rozwiązaniem jest uruchomienie blk_update_request() i blk_mq_end_request() z dolnym
+połowy wyłączone.Zmusza to blkdev_release() do działania w kolejce roboczej jądra
+kontekst zamiast bieżącego kontekstu pracy zadania i umożliwia serwerowi ulk wykonanie
+postępu i pozwala uniknąć impasu.
+
+[axboe: przepisz komentarz w ublk]</description></item><item><title>CVE-2025-68803</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-68803</link><pubDate>Tue, 13 Jan 2026 15:29:11 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 NFSD: podczas tworzenia pliku NFSv4 pomijane jest ustawienie listy ACL
 
