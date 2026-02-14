@@ -1,5 +1,147 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1512</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1512</link><pubDate>Sat, 14 Feb 2026 12:30:26 +0000</pubDate><description>Wtyczka Essential Addons for Elementor – Popular Elementor Templates &amp; Widgets dla WordPress jest podatna na przechowywane skrypty między witrynami za pośrednictwem widżetu Info Box wtyczki we wszystkich wersjach do 6.5.9 włącznie z powodu niewystarczającego oczyszczenia danych wejściowych i ucieczki danych wyjściowych w przypadku atrybutów dostarczonych przez użytkownika.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie współautora i wyższym mogą wstrzykiwać dowolne skrypty internetowe na stronach, które będą wykonywane za każdym razem, gdy użytkownik uzyska dostęp do wstrzykniętej strony.</description></item><item><title>CVE-2026-2312</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2312</link><pubDate>Sat, 14 Feb 2026 12:30:26 +0000</pubDate><description>Wtyczka Media Library Folders dla WordPressa jest podatna na Insecure Direct Object Reference we wszystkich wersjach aż do 8.3.6 włącznie za pośrednictwem funkcji Delete_maxgalleria_media() i maxgalleria_rename_image() z powodu braku sprawdzania poprawności klucza kontrolowanego przez użytkownika.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie autora i wyższym mogą usuwać załączniki należące do innych użytkowników (w tym administratorów) lub zmieniać ich nazwy.Proces zmiany nazwy usuwa również wszystkie postmeta załącznika docelowego, powodując utratę danych.</description></item><item><title>CVE-2026-2312</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2312</link><pubDate>Sat, 14 Feb 2026 11:24:28 +0000</pubDate><description>Wtyczka Media Library Folders dla WordPressa jest podatna na Insecure Direct Object Reference we wszystkich wersjach aż do 8.3.6 włącznie za pośrednictwem funkcji Delete_maxgalleria_media() i maxgalleria_rename_image() z powodu braku sprawdzania poprawności klucza kontrolowanego przez użytkownika.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie autora i wyższym mogą usuwać załączniki należące do innych użytkowników (w tym administratorów) lub zmieniać ich nazwy.Proces zmiany nazwy usuwa również wszystkie postmeta załącznika docelowego, powodując utratę danych.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23140</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23140</link><pubDate>Sat, 14 Feb 2026 15:22:24 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+bpf, test_run: Odejmij rozmiar xdp_frame od dozwolonego rozmiaru metadanych
+
+Struktura xdp_frame zajmuje część zapasu ramki XDP,
+ograniczenie rozmiaru metadanych.Jednak w bpf_test_run tego nie robimy
+wziąć to pod uwagę, co umożliwia zaopatrzenie przestrzeni użytkownika
+zbyt duży rozmiar metadanych (zajmujący cały zapas).
+
+Jeśli przestrzeń użytkownika dostarcza tak duży rozmiar metadanych w trybie pakietu na żywo,
+wywołanie xdp_update_frame_from_buff() w wywołaniu xdp_test_run_init_page()
+zakończy się niepowodzeniem, po czym transmisja pakietu będzie kontynuowana z komunikatem
+niezainicjowana struktura ramki, prowadząca do zwykłych złych rzeczy.
+
+Zatwierdzenie w tagu Fixes naprawiło powiązany błąd polegający na drugim sprawdzeniu
+w xdp_update_frame_from_buff() może się nie udać, ale nie dodał żadnego
+dodatkowe ograniczenia dotyczące rozmiaru metadanych.Zakończ poprawkę, dodając
+dodatkowa kontrola rozmiaru metadanych.Zmień nieco kolejność czeków na
+rozjaśnij logikę i dodaj komentarz.</description></item><item><title>CVE-2026-23139</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23139</link><pubDate>Sat, 14 Feb 2026 15:22:24 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+netfilter: nf_conncount: aktualizuj last_gc tylko wtedy, gdy wykonano GC
+
+Obecnie last_gc jest aktualizowany przy każdym nowym połączeniu
+tracked, co oznacza, że jest aktualizowany nawet jeśli nie wykonano GC.
+Przy wystarczająco dużej szybkości pakietów zawsze można ominąć
+GC, powodując nieskończony wzrost listy.
+
+Aktualizuj wartość last_gc tylko wtedy, gdy faktycznie wykonano GC.</description></item><item><title>CVE-2026-23138</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23138</link><pubDate>Sat, 14 Feb 2026 15:22:23 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+śledzenie: Dodaj ochronę przed rekursją w zapisie śledzenia stosu jądra
+
+Zgłoszono błąd dotyczący nieskończonej rekurencji spowodowanej śledzeniem RCU
+zdarzenia z włączonym wyzwalaczem śledzenia stosu jądra.Kod śledzenia stosu
+wywołany ponownie do RCU, który następnie ponownie wywołał śledzenie stosu.
+
+Rozwiń ochronę przed rekursją ftrace, aby dodać zestaw bitów do ochrony
+zdarzenia z rekurencji.Każdy bit reprezentuje kontekst, w jakim znajduje się zdarzenie
+in (normalny, softirq, przerwanie i NMI).
+
+Niech kod śledzenia stosu użyje kontekstu przerwania w celu ochrony
+rekurencja.
+
+Uwaga: błąd wskazywał na problem zarówno w kodzie RCU, jak i w śledzeniu
+kod śledzenia stosu.Obsługuje to tylko stronę śledzenia stosu śledzenia pliku
+błąd.Poprawka RCU zostanie rozpatrzona osobno.</description></item><item><title>CVE-2026-23137</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23137</link><pubDate>Sat, 14 Feb 2026 15:22:22 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+of: unittest: Napraw wyciek pamięci w unittest_data_add()
+
+W unittest_data_add(), jeśli funkcja of_resolve_phandles() zakończy się niepowodzeniem, przydzielone
+unittest_data nie jest zwalniany, co prowadzi do wycieku pamięci.
+
+Napraw ten problem, używając pomocnika czyszczenia opartego na zakresie __free(kfree) dla trybu automatycznego
+oczyszczanie zasobów.Zapewnia to automatyczne zwolnienie unittest_data, gdy
+wykracza poza zakres w ścieżkach błędów.
+
+Aby osiągnąć sukces, użyj funkcji keep_and_null_ptr() w celu przeniesienia własności
+pamięci do drzewa urządzeń i zapobiec podwójnemu zwolnieniu.</description></item><item><title>CVE-2026-23136</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23136</link><pubDate>Sat, 14 Feb 2026 15:22:21 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+libceph: zresetuj stan rzadkiego odczytu w osd_fault()
+
+W przypadku wystąpienia błędu połączenie zostaje zerwane, ponownie nawiązane i dowolne
+oczekujące operacje są ponawiane.Klient OSD śledzi postęp a
+odpowiedź rzadkiego odczytu przy użyciu oddzielnej maszyny stanu, w dużej mierze niezależnej od
+stan posłańca.
+
+Jeśli połączenie zostanie utracone w połowie ładunku lub maszyna stanu rzadkiego odczytu
+zwraca błąd, stan rzadkiego odczytu nie jest resetowany.Klient OSD
+zinterpretuje wówczas początek nowej odpowiedzi jako kontynuację
+stary.Jeśli to spowoduje, że maszyna odczytu rzadkiego ulegnie awarii
+stanie, może nigdy nie zostać przywrócony, tworząc pętle takie jak:
+
+libceph: [0] ma 0 zakresów
+libceph: długość danych 142248331 != długość długości 0
+libceph: osd0 (1)...:6801 błąd gniazda podczas odczytu
+libceph: długość danych 142248331 != długość długości 0
+libceph: osd0 (1)...:6801 błąd gniazda podczas odczytu
+
+Dlatego zresetuj stan rzadkiego odczytu w osd_fault(), zapewniając ponowne próby
+zacząć od czystego stanu.</description></item><item><title>CVE-2025-71201</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71201</link><pubDate>Sat, 14 Feb 2026 15:22:21 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+netfs: Naprawiono odblokowanie strony z wczesnym odczytem z EOF w środku
+
+Kolekcja wyników odczytu dla odczytów buforowanych wydaje się działać przed
+realizacja podżądań w pewnych okolicznościach, jak widać w
+następujący fragment logu:
+
+9p_client_res: klient 18446612686390831168 odpowiedź P9_TREAD tag 0 err 0
+...
+netfs_sreq: R=00001b55[1] OKRES W DÓŁ f=192 s=0 5fb2/5fb2 s=5 e=0
+...
+netfs_collect_folio: R=00001b55 ix=00004 r=4000-5000 t=4000/5fb2
+netfs_folio: i=157f3 ix=00004-00004 przeczytane
+netfs_folio: i=157f3 ix=00004-00004 odczyt-odblokowanie
+netfs_collect_folio: R=00001b55 ix=00005 r=5000-5fb2 t=5000/5fb2
+netfs_folio: i=157f3 ix=00005-00005 przeczytane
+netfs_folio: i=157f3 ix=00005-00005 odczyt-odblokowanie
+...
+netfs_collect_stream: R=00001b55[0:] cto=5fb2 frn=ffffffff
+netfs_collect_state: R=00001b55 col=5fb2 cln=6000 n=c
+netfs_collect_stream: R=00001b55[0:] cto=5fb2 frn=ffffffff
+netfs_collect_state: R=00001b55 col=5fb2 cln=6000 n=8
+...
+netfs_sreq: R=00001b55[2] ZEROWA PODMT f=000 s=5fb2 0/4e s=0 e=0
+netfs_sreq: R=00001b55[2] CZAS ZEROWY f=102 s=5fb2 4e/4e s=5 e=0
+
+„cto=5fb2” wskazuje pozycję zebranego pliku, do którego zebraliśmy wyniki
+jak dotąd - ale wciąż mamy do wykorzystania 0x4e bajtów - więc nie powinniśmy tego robić
+zebrano już folio ix=00005.Podreq „ZERO”, który czyści ogon
+dzieje się po odblokowaniu folio, umożliwiając aplikacji zobaczenie
+niewyczyszczony ogon przez mmap.
+
+Problem polega na tym, że netfs_read_unlock_folios() odblokuje folio, w którym
+ilość zebranych wyników odczytu osiąga pozycję EOF - ale ZERO
+subreq leży poza tym i tak się dzieje później.
+
+Napraw ten problem, zmieniając zaznaczenie końca tak, aby zawsze oznaczało koniec folio i
+nigdy nie jest końcem pliku.
+
+W przyszłości powinienem raczej przyjrzeć się czyszczeniu folio do końca w tym miejscu
+niż dodanie w tym celu ZERO podreq.Z drugiej strony podwymaganie ZERO może
+działać równolegle z asynchronicznym podwymaganiem READ.Co więcej, podreq ZERO może nadal występować
+konieczne będzie, powiedzmy, obsługa zakresów w pliku ceph, który ich nie ma
+magazyn zapasowy, a zatem w sposób dorozumiany są same zera.
+
+Można to odtworzyć, tworząc plik, którego rozmiar nie jest zgodny
+do granicy strony, np.24998 (0x5fb2) bajtów, a następnie coś robię
+jak:
+
+xfs_io -c "mmap -r 0 0x6000" -c "madvise -d 0 0x6000" \
+-c "mread -v 0 0x6000" /xfstest.test/x
+
+Wszystkie ostatnie bajty 0x4e powinny mieć wartość 00, ale jeśli ogon nie został wyczyszczony
+mimo to możesz zobaczyć tam śmieci.Można to odtworzyć za pomocą kafs by
+modyfikowanie jądra, aby wyłączyć wywołanie netfs_read_subreq_progress()
+i aby zatrzymać funkcję afs_issue_read() przed wykonaniem wywołania asynchronicznego dla NETFS_READAHEAD.
+Reprodukcję można ułatwić, wstawiając funkcję mdelay(100).
+netfs_issue_read() dla przypadku podreq ZERO.
+
+Zwykle jest mało prawdopodobne, aby AFS i CIFS pokazały to podczas wysyłania operacji CZYTAJ
+asynchronicznie, co pozwala, aby podreq ZERO zakończył się jako pierwszy.Opcja CZYTAJ 9P to
+całkowicie synchroniczny, więc podreq ZERO zawsze nastąpi później.To nie jest
+jednak cały czas widać, ponieważ zbiór może odbywać się w pracowniku
+wątek.</description></item><item><title>CVE-2026-1512</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1512</link><pubDate>Sat, 14 Feb 2026 12:30:26 +0000</pubDate><description>Wtyczka Essential Addons for Elementor – Popular Elementor Templates &amp; Widgets dla WordPress jest podatna na przechowywane skrypty między witrynami za pośrednictwem widżetu Info Box wtyczki we wszystkich wersjach do 6.5.9 włącznie z powodu niewystarczającego oczyszczenia danych wejściowych i ucieczki danych wyjściowych w przypadku atrybutów dostarczonych przez użytkownika.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie współautora i wyższym mogą wstrzykiwać dowolne skrypty internetowe na stronach, które będą wykonywane za każdym razem, gdy użytkownik uzyska dostęp do wstrzykniętej strony.</description></item><item><title>CVE-2026-2312</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2312</link><pubDate>Sat, 14 Feb 2026 12:30:26 +0000</pubDate><description>Wtyczka Media Library Folders dla WordPressa jest podatna na Insecure Direct Object Reference we wszystkich wersjach aż do 8.3.6 włącznie za pośrednictwem funkcji Delete_maxgalleria_media() i maxgalleria_rename_image() z powodu braku sprawdzania poprawności klucza kontrolowanego przez użytkownika.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie autora i wyższym mogą usuwać załączniki należące do innych użytkowników (w tym administratorów) lub zmieniać ich nazwy.Proces zmiany nazwy usuwa również wszystkie postmeta załącznika docelowego, powodując utratę danych.</description></item><item><title>CVE-2026-2312</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2312</link><pubDate>Sat, 14 Feb 2026 11:24:28 +0000</pubDate><description>Wtyczka Media Library Folders dla WordPressa jest podatna na Insecure Direct Object Reference we wszystkich wersjach aż do 8.3.6 włącznie za pośrednictwem funkcji Delete_maxgalleria_media() i maxgalleria_rename_image() z powodu braku sprawdzania poprawności klucza kontrolowanego przez użytkownika.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie autora i wyższym mogą usuwać załączniki należące do innych użytkowników (w tym administratorów) lub zmieniać ich nazwy.Proces zmiany nazwy usuwa również wszystkie postmeta załącznika docelowego, powodując utratę danych.
 
 CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-1258</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1258</link><pubDate>Sat, 14 Feb 2026 08:26:48 +0000</pubDate><description>Wtyczka Mail Mint do WordPressa jest podatna na ślepe wstrzykiwanie SQL za pośrednictwem punktów końcowych API „formularze”, „automatyzacja”, „e-mail/szablony” i „kontakty/import/tutorlms/map” we wszystkich wersjach aż do 1.19.2 włącznie.Dzieje się tak z powodu niewystarczającej ucieczki dostarczonych przez użytkownika parametrów „order-by”, „order-type” i „selectedCourses” oraz braku wystarczającego przygotowania istniejących zapytań SQL.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie administratora i wyższym mogą dołączać dodatkowe zapytania SQL do już istniejących zapytań.
 
