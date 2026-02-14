@@ -1,5 +1,208 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23140</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23140</link><pubDate>Sat, 14 Feb 2026 15:22:24 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23210</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23210</link><pubDate>Sat, 14 Feb 2026 16:27:31 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ice: Naprawiono dereferencję wskaźnika PTP NULL podczas przebudowy VSI
+
+Naprawiono sytuację wyścigową, w której okresowe prace PTP trwają podczas działania VSI
+przebudowany, dostęp do NULL vsi-&gt;rx_rings.
+
+Kolejność była następująca:
+1. ice_ptp_prepare_for_reset() anuluje pracę PTP
+2. ice_ptp_rebuild() natychmiast umieszcza w kolejce pracę PTP
+3. Przebudowa VSI następuje PO ice_ptp_rebuild()
+4. Działa PTP i uzyskuje dostęp do NULL vsi-&gt;rx_rings
+
+Poprawka: Anuluj pracę PTP podczas przebudowy, a dopiero potem umieść ją w kolejce
+Odbudowa VSI zostaje zakończona w ice_rebuild().
+
+Dodano funkcję pomocniczą ice_ptp_queue_work() w celu hermetyzacji logiki
+do kolejkowania pracy PTP, upewniając się, że jest ona umieszczana w kolejce tylko wtedy, gdy obsługiwane jest PTP
+a stan to ICE_PTP_READY.
+
+Dziennik błędów:
+[121.392544] ice 0000:60:00.1: Reset PTP udany
+[121.392692] BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 0000000000000000
+[121.392712] #PF: dostęp do odczytu nadzorcy w trybie jądra
+[ 121.392720] #PF: kod_błędu(0x0000) - nieobecna strona
+[121.392727] PGD 0
+[121.392734] Ups: Ups: 0000 [#1] SMP NOPTI
+[121.392746] Procesor: 8 UID: 0 PID: 1005 Comm: ice-ptp-0000:60 Tainted: G S 6.19.0-rc6+ #4 PREEMPT (dobrowolne)
+[121.392761] Zanieczyszczony: [S]=CPU_OUT_OF_SPEC
+[121.392773] RIP: 0010:ice_ptp_update_cached_phctime+0xbf/0x150 [lód]
+[ 121.393042] Śledzenie połączenia:
+[ 121.393047] &lt;ZADANIE&gt;
+[ 121.393055] ice_ptp_periodic_work+0x69/0x180 [lód]
+[ 121.393202] kthread_worker_fn+0xa2/0x260
+[121.393216] ?__pfx_ice_ptp_periodic_work+0x10/0x10 [lód]
+[121.393359] ?__pfx_kthread_worker_fn+0x10/0x10
+[ 121.393371] kwątek+0x10d/0x230
+[121.393382] ?__pfx_kthread+0x10/0x10
+[ 121.393393] ret_from_fork+0x273/0x2b0
+[121.393407] ?__pfx_kthread+0x10/0x10
+[ 121.393417] ret_from_fork_asm+0x1a/0x30
+[121.393432] &lt;/TASK&gt;</description></item><item><title>CVE-2026-23209</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23209</link><pubDate>Sat, 14 Feb 2026 16:27:31 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+macvlan: napraw odzyskiwanie błędów w macvlan_common_newlink()
+
+valis dostarczył niezłą replikę powodującą awarię jądra:
+
+łącze ip dodaj typ p1 veth peer p2
+ip link ustaw adres 00:00:00:00:00:20 dev p1
+konfiguracja łącza ip dla programistów p1
+skonfiguruj łącze ip dla programistów p2
+
+ip link dodaj łącze mv0 p2 wpisz źródło trybu macvlan
+ip link dodaj nieprawidłowy% link p2 typ tryb macvlan źródło macaddr dodaj 00:00:00:00:00:20
+
+ping -c1 -I p1 1.2.3.4
+
+Podał także bardzo szczegółową analizę:
+
+&lt;cytat ważny&gt;
+
+Problem pojawia się po utworzeniu nowego łącza macvlan za pomocą
+Tryb MACVLAN_MODE_SOURCE i MACVLAN_MACADDR_ADD (lub
+MACVLAN_MACADDR_SET), niższe urządzenie ma już macvlan
+port i Register_netdevice() wywoływane z macvlan_common_newlink()
+kończy się niepowodzeniem (np. z powodu nieprawidłowej nazwy łącza).
+
+W tym przypadku wywoływany jest plik macvlan_hash_add_source
+macvlan_change_sources() / macvlan_common_newlink():
+
+Dodaje to odniesienie do vlanu do vlan_source_hash portu using
+macvlan_source_entry.
+
+vlan jest wskaźnikiem do danych prywatnych tworzonego łącza.
+
+W przypadku niepowodzenia funkcji Register_netdevice() zwracany jest błąd
+macvlan_newlink() do rtnl_newlink_create():
+
+if (ops-&gt;nowylink)
+err = ops-&gt;newlink(dev, &amp;params, extack);
+inny
+err = Register_netdevice(dev);
+jeśli (błąd &lt; 0) {
+free_netdev(dev);
+wyjść;
+}
+
+i free_netdev() zostaje wywołane, co powoduje powstanie kvfree() w strukturze
+net_device, do którego nadal odwołuje się wpis źródłowy dołączony do pliku
+port macvlan dolnego urządzenia.
+
+Teraz wszystkie pakiety wysyłane na port macvlan z pasującym źródłem Mac
+adres wywoła użycie po zwolnieniu w macvlan_forward_source().
+
+&lt;/cytat ważny&gt;
+
+W związku z tym moją poprawką jest upewnienie się, że wywołujemy funkcję macvlan_flush_sources()
+niezależnie od wartości @create za każdym razem, gdy „gotozniszcz_macvlan_port;”
+ścieżka jest obrana.
+
+Serdecznie dziękuję firmie Valis za podjęcie dalszych działań w tej sprawie.</description></item><item><title>CVE-2026-23208</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23208</link><pubDate>Sat, 14 Feb 2026 16:27:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ALSA: usb-audio: Zapobiegaj nadmiernej liczbie klatek
+
+W tym przypadku użytkownik skonstruował parametry o wartości maxpacksize 40
+dla stawki 22050 / pps 1000 i packsize[0] 22 packsize[1] 23. Bufor
+size dla każdego URB danych to maxpacksize * pakietów, co w tym przykładzie
+wynosi 40 * 6 = 240;Gdy użytkownik wykonuje operację zapisu w celu wysłania dźwięku
+danych do strumienia odtwarzania ALSA PCM, obliczona liczba klatek
+wynosi packsize[0] * pakietów = 264, co przekracza przydzielony bufor URB
+size, wywołując problem przekroczenia zakresu (OOB) zgłoszony przez syzbot [1].
+
+Dodano kontrolę liczby pojedynczych ramek URB danych podczas obliczeń
+liczba klatek, którym należy zapobiec [1].
+
+[1]
+BŁĄD: KASAN: płyta poza granicami w copy_to_urb+0x261/0x460 sound/usb/pcm.c:1487
+Zapisz rozmiar 264 pod adresem ffff88804337e800 w zadaniu syz.0.17/5506
+Zadzwoń do śledzenia:
+copy_to_urb+0x261/0x460 dźwięk/USB/pcm.c:1487
+przygotowanie_odtwarzania_urb+0x953/0x13d0 dźwięk/usb/pcm.c:1611
+przygotowanie_outbound_urb+0x377/0xc50 dźwięk/usb/punkt końcowy.c:333</description></item><item><title>CVE-2026-23207</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23207</link><pubDate>Sat, 14 Feb 2026 16:27:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+spi: tegra210-quad: Chroń sprawdzanie curr_xfer w procedurze obsługi IRQ
+
+Teraz, gdy wszystkie inne dostępy do curr_xfer są wykonywane pod blokadą,
+chroń kontrolę curr_xfer NULL w tegra_qspi_isr_thread() za pomocą
+spinlock.Bez tej ochrony może wystąpić następujący wyścig:
+
+CPU0 (wątek ISR) CPU1 (ścieżka limitu czasu)
+---------------- -------------------
+if (!tqspi-&gt;curr_xfer)
+// widzi wartość inną niż NULL
+spin_lock()
+tqspi-&gt;curr_xfer = NULL
+spin_unlock()
+handle_*_xfer()
+spin_lock()
+t = tqspi-&gt;curr_xfer // NULL!
+... t-&gt;len ... // NULL dereferencja!
+
+Dzięki tej łatce wszystkie dostępy curr_xfer są teraz poprawnie zsynchronizowane.
+
+Chociaż wszystkie dostępy do curr_xfer odbywają się pod blokadą, in
+tegra_qspi_isr_thread() sprawdza NULL, zwalnia blokadę i
+odzyskuje go później w handle_cpu_based_xfer()/handle_dma_based_xfer().
+Istnieje możliwość aktualizacji pomiędzy, co może spowodować NULL
+dereferencja wskaźnika.
+
+Aby sobie z tym poradzić, po przejęciu dodaj kontrolę NULL do procedur obsługi
+zamek.Zapewnia to, że ścieżka limitu czasu została już wyczyszczona
+curr_xfer, procedura obsługi bezpiecznie powróci bez dereferencji
+Wskaźnik NULL.</description></item><item><title>CVE-2026-23206</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23206</link><pubDate>Sat, 14 Feb 2026 16:27:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+przełącznik dpaa2: zapobiega dereferencji ZERO_SIZE_PTR, gdy num_ifs wynosi zero
+
+Sterownik przydziela tablice dla portów, baz FDB i bloków filtrów za pomocą
+kcalloc() z ethsw-&gt;sw_attr.num_ifs jako liczbą elementów.Kiedy
+urządzenie zgłasza zero interfejsów (albo z powodu konfiguracji sprzętowej
+lub problemy z oprogramowaniem sprzętowym), kcalloc(0, ...) zwraca ZERO_SIZE_PTR (0x10)
+zamiast NULL.
+
+Później w dpaa2_switch_probe() bezwarunkowa inicjalizacja NAPI
+uzyskuje dostęp do ethsw-&gt;ports[0]-&gt;netdev, który próbuje wyłuskać referencje
+ZERO_SIZE_PTR (adres 0x10), co powoduje panikę jądra.
+
+Dodaj kontrolę, aby upewnić się, że po pobraniu wartość num_ifs jest większa od zera
+atrybuty urządzenia.Zapobiega to alokacji o zerowej wielkości i
+późniejsze nieprawidłowe wyłuskanie wskaźnika.</description></item><item><title>CVE-2026-23205</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23205</link><pubDate>Sat, 14 Feb 2026 16:27:28 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+smb/klient: napraw wyciek pamięci w smb2_open_file()
+
+Producent:
+
+1. serwer: katalogi są eksportowane w trybie tylko do odczytu
+2. klient: mount -t cifs //${server_ip}/export /mnt
+3. klient: dd if=/dev/zero of=/mnt/file bs=512 count=1000 oflag=direct
+4. klient: umount /mnt
+5. klient: śpij 1
+6. klient: modprobe -r cifs
+
+Komunikat o błędzie jest następujący:
+
+===============================================================================
+BŁĄD cifs_small_rq (Nieskażony): Obiekty pozostałe w __kmem_cache_shutdown()
+----------------------------------------------------------------------------------------
+
+Obiekt 0x00000000d47521be @offset=14336
+...
+OSTRZEŻENIE: mm/slub.c:1251 w __kmem_cache_shutdown+0x34e/0x440, CPU#0: modprobe/1577
+...
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+kmem_cache_destroy+0x94/0x190
+cifs_destroy_request_bufs+0x3e/0x50 [cifs]
+moduł_czyszczący+0x4e/0x540 [cifs]
+__se_sys_delete_module+0x278/0x400
+__x64_sys_delete_module+0x5f/0x70
+x64_sys_call+0x2299/0x2ff0
+do_syscall_64+0x89/0x350
+wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+...
+kmem_cache_destroy cifs_small_rq: Pamięć podręczna płyty nadal zawiera obiekty, gdy zostanie wywołana z cifs_destroy_request_bufs+0x3e/0x50 [cifs]
+OSTRZEŻENIE: mm/slab_common.c:532 w kmem_cache_destroy+0x16b/0x190, CPU#0: modprobe/1577</description></item><item><title>CVE-2026-23140</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23140</link><pubDate>Sat, 14 Feb 2026 15:22:24 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 bpf, test_run: Odejmij rozmiar xdp_frame od dozwolonego rozmiaru metadanych
 
