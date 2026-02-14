@@ -1,5 +1,669 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23210</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23210</link><pubDate>Sat, 14 Feb 2026 16:27:31 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-23195</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23195</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+cgroup/dmem: unikaj puli UAF
+
+Zaobserwowano problem z UAF:
+
+BŁĄD: KASAN: użycie płyty po zwolnieniu w page_counter_uncharge+0x65/0x150
+Zapisz rozmiar 8 pod adresem ffff888106715440, wykonując zadanie insmod/527
+
+Procesor: 4 UID: 0 PID: 527 Comm: insmod 6.19.0-rc7-next-20260129+ #11
+Skażony: [O]=OOT_MODULE
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+dump_stack_lvl+0x82/0xd0
+kasan_report+0xca/0x100
+kasan_check_range+0x39/0x1c0
+page_counter_uncharge+0x65/0x150
+dmem_cgroup_uncharge+0x1f/0x260
+
+Przydzielone przez zadanie 527:
+
+Uwolniony przez zadanie 0:
+
+Błędny adres należy do obiektu pod adresem ffff888106715400
+który należy do pamięci podręcznej kmalloc-512 o rozmiarze 512
+Błędny adres znajduje się w 64 bajtach
+zwolniony region 512-bajtowy [ffff888106715400, ffff888106715600)
+
+Błędny adres należy do strony fizycznej:
+
+Stan pamięci wokół błędnego adresu:
+ffff888106715300: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ffff888106715380: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+&gt;ffff888106715400: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+^
+ffff888106715480: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ffff888106715500: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+
+Problem występuje, ponieważ po jej zakończeniu obiekt wywołujący może nadal przechowywać pulę
+powiązany obszar pamięci jest niezarejestrowany.Obecna implementacja jest bezpłatna
+pulę, nawet jeśli użytkownicy nadal posiadają do niej odniesienia (np. przed rozładowaniem
+operacje zakończone).
+
+Ta poprawka dodaje licznik referencji do każdej puli, zapewniając, że pula jest
+zwalniany tylko wtedy, gdy liczba odwołań spadnie do zera.</description></item><item><title>CVE-2026-23191</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23191</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ALSA: aloop: Naprawiono niedozwolony dostęp przy wyzwalaczu PCM
+
+Wywołanie zwrotne wyzwalacza PCM sterownika aloop próbuje sprawdzić stan PCM
+i zatrzymaj strumień powiązanego podstrumienia w odpowiednim kablu.
+Ponieważ zarówno operacje sprawdzania, jak i zatrzymywania są wykonywane na zewnątrz kabla
+lock, może to spowodować UAF przy próbie uruchomienia programu
+często podczas otwierania/zamykania powiązanego strumienia, jak zauważył
+fuzzery.
+
+Jeśli chodzi o UAF, ta poprawka zmienia dwie rzeczy:
+- Obejmuje większość kodu w funkcji Loopback_check_format() za pomocą
+kabel-&gt;zablokuj spinlock i dodaj odpowiednie kontrole NULL.To pozwala uniknąć
+już kilka pikantnych dostępów.
+- Ponadto teraz staramy się sprawdzić stan przechwytywanego strumienia PCM
+które można zatrzymać w tej funkcji, co było głównym problemem
+prowadzące do UAF.</description></item><item><title>CVE-2026-23203</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23203</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: cpsw_new: Wykonaj wywołanie zwrotne ndo_set_rx_mode w kolejce roboczej
+
+Zatwierdź 1767bb2d47b7 („ipv6: mcast: Nie trzymaj RTNL przez
+IPV6_ADD_MEMBERSHIP i MCAST_JOIN_GROUP.”) usunięto blokadę RTNL dla
+Operacje IPV6_ADD_MEMBERSHIP i MCAST_JOIN_GROUP.Jednak to
+zmiana spowodowała następujący ślad połączenia na mojej tablicy BeagleBone Black:
+OSTRZEŻENIE: net/8021q/vlan_core.c:236 w vlan_for_each+0x120/0x124, CPU#0: rpcbind/496
+RTNL: potwierdzenie nie powiodło się w net/8021q/vlan_core.c (236)
+Moduły połączone w:
+Procesor: 0 UID: 997 PID: 496 Comm: rpcbind Nieskażony 6.19.0-rc6-next-20260122-yocto-standard+ #8 PREEMPT
+Nazwa sprzętu: Generic AM33XX (spłaszczone drzewo urządzeń)
+Śledzenie połączeń:
+unwind_backtrace z show_stack+0x28/0x2c
+show_stack z dump_stack_lvl+0x30/0x38
+dump_stack_lvl z __warn+0xb8/0x11c
+__ostrzegaj z warn_slowpath_fmt+0x130/0x194
+warn_slowpath_fmt z vlan_for_each+0x120/0x124
+vlan_for_each z cpsw_add_mc_addr+0x54/0xd8
+cpsw_add_mc_addr z __hw_addr_ref_sync_dev+0xc4/0xec
+__hw_addr_ref_sync_dev z __dev_mc_add+0x78/0x88
+__dev_mc_add z igmp6_group_added+0x84/0xec
+igmp6_group_dodano z __ipv6_dev_mc_inc+0x1fc/0x2f0
+__ipv6_dev_mc_inc z __ipv6_sock_mc_join+0x124/0x1b4
+__ipv6_sock_mc_join z do_ipv6_setsockopt+0x84c/0x1168
+do_ipv6_setsockopt z ipv6_setsockopt+0x88/0xc8
+ipv6_setsockopt z do_sock_setsockopt+0xe8/0x19c
+do_sock_setsockopt z __sys_setsockopt+0x84/0xac
+__sys_setsockopt z ret_fast_syscall+0x0/0x5
+
+Ten ślad występuje, ponieważ funkcja vlan_for_each() jest wywoływana w obrębie
+cpsw_ndo_set_rx_mode(), która oczekuje utrzymania blokady RTNL.
+Ponieważ modyfikacja vlan_for_each() tak, aby działała bez blokady RTNL, nie jest
+proste i ponieważ ndo_set_rx_mode() jest wywoływane zarówno z and
+bez blokady RTNL na różnych ścieżkach kodu, po prostu dodając
+rtnl_lock() w cpsw_ndo_set_rx_mode() nie jest realnym rozwiązaniem.
+
+Aby rozwiązać ten problem, decydujemy się na faktyczne przetwarzanie w ramach
+kolejkę roboczą, zgodnie z podejściem stosowanym przez sterownik icssg-prueth.</description></item><item><title>CVE-2026-23176</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23176</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+platform/x86: toshiba_haps: Napraw wycieki pamięci w procedurach dodawania/usuwania
+
+toshiba_haps_add() powoduje wyciek przydzielonego przez siebie obiektu haps, jeśli zwraca
+błąd po pomyślnym przydzieleniu obiektu.
+
+toshiba_haps_remove() nie zwalnia obiektu wskazywanego przez
+toshiba_haps przed wyczyszczeniem tego wskaźnika, więc staje się on nieosiągalny
+przydzieloną pamięć.
+
+Zajmij się tymi wyciekami pamięci, używając devm_kzalloc() do alokacji
+wspomniana pamięć.</description></item><item><title>CVE-2026-23182</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23182</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+spi: tegra: Napraw wyciek pamięci w tegra_slink_probe()
+
+W tegra_slink_probe(), gdy platforma_get_irq() zawiedzie, następuje to bezpośrednio
+wraca z funkcji z kodem błędu, który powoduje wyciek pamięci.
+
+Zastąp go etykietą goto, aby zapewnić prawidłowe czyszczenie.</description></item><item><title>CVE-2026-23178</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23178</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+HID: i2c-hid: napraw potencjalne przepełnienie bufora w i2c_hid_get_report()
+
+`i2c_hid_xfer` służy do odczytu `recv_len + sizeof(__le16)` bajtów danych
+w `ihid-&gt;rawbuf`.
+
+Ten pierwszy może pochodzić z przestrzeni użytkownika w sterowniku hidraw i jest tylko
+domyślnie ograniczony przez HID_MAX_BUFFER_SIZE(16384) (chyba że ustawimy również
+pole `max_buffer_size` w `struct hid_ll_driver`, którego nie robimy).
+
+Ten ostatni ma rozmiar określony w czasie wykonywania przez maksymalny rozmiar
+różne typy raportów, które możesz otrzymać na dowolnym konkretnym urządzeniu i
+może mieć znacznie mniejszą wartość.
+
+Napraw to, obcinając `recv_len` do `ihid-&gt;bufsize - sizeof(__le16)`.
+
+Wpływ jest niewielki, ponieważ dostęp do urządzeń hidraw wymaga rootowania.</description></item><item><title>CVE-2026-23204</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23204</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net/sched: cls_u32: użyj skb_header_pointer_careful()
+
+skb_header_pointer() nie w pełni sprawdza ujemne wartości @offset.
+
+Zamiast tego użyj skb_header_pointer_careful().
+
+GangMin Kim dostarczył raport i powtórzenie oszustwa u32_classify():
+
+BŁĄD: KASAN: płyta poza granicami w u32_classify+0x1180/0x11b0
+net/sched/cls_u32.c:221</description></item><item><title>CVE-2026-23189</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23189</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ceph: napraw wyłuskiwanie wskaźnika NULL w ceph_mds_auth_match()
+
+Klient jądra CephFS ma regresję począwszy od wersji 6.18-rc1.
+Wystąpił problem w ceph_mds_auth_match() jeśli fs_name == NULL:
+
+const char nazwa_fs = mdsc-&gt;fsc-&gt;opcje_montowania-&gt;przestrzeń_nazw_mds;
+...
+if (auth-&gt;match.fs_name &amp;&amp; strcmp(auth-&gt;match.fs_name, fs_name)) {
+/ nazwa fs nie pasuje, spróbuj następnej */
+zwróć 0;
+}
+
+Patrick Donnelly zasugerował, że: Podsumowując, zdecydowanie powinniśmy zacząć
+zdekoduj `nazwa_fs` z MDSMap i wykonaj rygorystyczne sprawdzenie autoryzacji
+przeciwko temu.Należy pamiętać, że `-o mds_namespace=foo` powinno być używane tylko dla
+wybierając system plików do zamontowania i nic więcej.To możliwe
+nie określono przestrzeni nazw mds, ale jądro zamontuje jedyną
+istniejący system plików, który może mieć nazwę „foo”.
+
+Ta poprawka zmienia funkcje funkcji ceph_mdsmap_decode() i namespace_equals().
+cel wsparcia sugerowanej koncepcji.Teraz utwórz ceph_mdsmap
+zawiera pole m_fs_name, które otrzymuje kopię wyodrębnionej nazwy FS
+przez ceph_extract_encoded_string().Dla przypadku „starego” pliku CephFS
+systemów, używana jest nazwa „cephfs”.
+
+[ idryomov: zamień zbędne %*pE na %s w ceph_mdsmap_decode(),
+pozbądź się serii wywołań strlen() w ceph_namespace_match(),
+upuść zmiany w treści namespace_equals(), aby uniknąć traktowania pustej treści
+mds_namespace jako równe, usuń zmiany w ceph_mdsc_handle_fsmap()
+ponieważ namespace_equals() nie jest tam równoważnym podstawieniem]</description></item><item><title>CVE-2026-23183</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23183</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+cgroup/dmem: napraw wyłuskiwanie wskaźnika NULL przy ustawianiu max
+
+Wystąpił problem:
+
+BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 0000000000000000
+#PF: dostęp do odczytu nadzorcy w trybie jądra
+#PF: kod_błędu(0x0000) - nie ma strony
+PGD 0 P4D 0
+Ups: Ups: 0000 [#1] SMP NOPTI
+Procesor: 15 UID: 0 PID: 658 Comm: bash Tainted: 6.19.0-rc6-next-2026012
+Skażony: [O]=OOT_MODULE
+Nazwa sprzętu: QEMU Standard PC (i440FX + PIIX, 1996),
+RIP: 0010:strcmp+0x10/0x30
+RSP: 0018:ffffc900017f7dc0 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffff888107cd4358
+RDX: 0000000019f73907 RSI: ffffffff82cc381a RDI: 0000000000000000
+RBP: ffff8881016bef0d R08: 000000006c0e7145 R09: 0000000056c0e714
+R10: 0000000000000001 R11: ffff888107cd4358 R12: 0007ffffffffffff
+R13: ffff888101399200 R14: ffff888100fcb360 R15: 0007ffffffffffff
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 0000000105c79000 CR4: 00000000000006f0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+dmemcg_limit_write.constprop.0+0x16d/0x390
+?__pfx_set_resource_max+0x10/0x10
+kernfs_fop_write_iter+0x14e/0x200
+vfs_write+0x367/0x510
+ksys_write+0x66/0xe0
+do_syscall_64+0x6b/0x390
+wpis_SYSCALL_64_after_hwframe+0x76/0x7e
+ODP: 0033:0x7f42697e1887
+
+Uruchomiono ustawienie max bez ograniczeń, polecenie wygląda następująco:
+„test echa/region0 &gt; dmem.max”.Aby rozwiązać ten problem, dodaj opcję sprawdź, czy
+opcje są prawidłowe po przeanalizowaniu nazwy regionu.</description></item><item><title>CVE-2026-23200</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23200</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ipv6: Napraw niezgodność liczby rodzeństwa ECMP podczas czyszczenia RTF_ADDRCONF
+
+syzbot zgłosił BŁĄD jądra w fib6_add_rt2node() podczas dodawania protokołu IPv6
+trasa.[0]
+
+Zatwierdź f72514b3c569 („ipv6: wyczyść flagi RA podczas dodawania statycznego
+Route”) wprowadził logikę usuwania RTF_ADDRCONF z istniejących tras
+po dodaniu trasy statycznej z tym samym następnym przeskokiem.Jednak to
+powoduje problem, gdy istniejąca trasa ma bramę.
+
+Kiedy RTF_ADDRCONF zostanie usunięty z trasy, która ma bramę, to
+trasa kwalifikuje się do ECMP, tj. zwraca rt6_qualify_for_ecmp().
+prawda.Problem w tym, że ta trasa nigdy nie została dodana do
+lista fib6_siblings.
+
+Prowadzi to do niezgodności między następującymi liczbami:
+
+- Liczba rodzeństwa obliczona poprzez iterację łańcucha fib6_next, który
+obejmuje trasę nowo kwalifikującą się do ECMP
+
+- Rzeczywiste rodzeństwo na liście fib6_siblings, które nie obejmuje
+ta trasa
+
+Po dodaniu kolejnej trasy ECMP uruchamiana jest funkcja fib6_add_rt2node().
+BUG_ON(sibling-&gt;fib6_nsiblings != rt-&gt;fib6_nsiblings), ponieważ
+liczniki się nie zgadzają.
+
+Napraw to, czyszcząc RTF_ADDRCONF tylko wtedy, gdy robi to istniejąca trasa
+nie mieć bramy.Trasy bez bramki nie kwalifikują się do ECMP
+w każdym razie (rt6_qualify_for_ecmp() wymaga fib_nh_gw_family), więc czyszczenie
+RTF_ADDRCONF na nich jest bezpieczny i zgodny z pierwotnym zamiarem
+popełnić.
+
+[0]:
+BŁĄD jądra w net/ipv6/ip6_fib.c:1217!
+Ups: nieprawidłowy kod operacji: 0000 [#1] SMP KASAN PTI
+Procesor: 0 UID: 0 PID: 6010 Comm: syz.0.17 Nieskażony syzkaller #0 PREEMPT (pełny)
+Nazwa sprzętu: Google Google Compute Engine/Google Compute Engine, BIOS Google 25.10.2025
+RIP: 0010:fib6_add_rt2node+0x3433/0x3470 net/ipv6/ip6_fib.c:1217
+[...]
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+fib6_add+0x8da/0x18a0 net/ipv6/ip6_fib.c:1532
+__ip6_ins_rt net/ipv6/route.c:1351 [w wierszu]
+ip6_route_add+0xde/0x1b0 net/ipv6/route.c:3946
+ipv6_route_ioctl+0x35c/0x480 net/ipv6/route.c:4571
+inet6_ioctl+0x219/0x280 net/ipv6/af_inet6.c:577
+skarpetka_do_ioctl+0xdc/0x300 net/socket.c:1245
+skarpetka_ioctl+0x576/0x790 net/socket.c:1366
+vfs_ioctl fs/ioctl.c:51 [w linii]
+__do_sys_ioctl fs/ioctl.c:597 [w linii]
+__se_sys_ioctl+0xfc/0x170 fs/ioctl.c:583
+do_syscall_x64 arch/x86/entry/syscall_64.c:63 [wbudowane]
+do_syscall_64+0xfa/0xf80 arch/x86/entry/syscall_64.c:94
+wpis_SYSCALL_64_after_hwframe+0x77/0x7f</description></item><item><title>CVE-2026-23180</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23180</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+dpaa2-switch: dodaj kontrolę granic dla if_id w procedurze obsługi przerwań
+
+Procedura obsługi IRQ wyodrębnia if_id z 16 górnych bitów sprzętu
+rejestru stanu i używa go do indeksowania do ethsw-&gt;ports[] bez
+walidacja.Ponieważ if_id może mieć dowolną 16-bitową wartość (0-65535), ale ports
+tablica jest przydzielana tylko z elementami sw_attr.num_ifs, może to prowadzić do tego
+potencjalnie odczyt poza granicami.
+
+Dodaj kontrolę granic przed uzyskaniem dostępu do tablicy, zgodnie z
+istniejąca walidacja w dpaa2_switch_rx().</description></item><item><title>CVE-2026-23196</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23196</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+HID: Intel-thc-hid: Intel-thc: Dodaj kontrolę bezpieczeństwa odczytu bufora DMA
+
+Dodaj kontrolę gotowości bufora DMA przed odczytaniem bufora DMA, aby tego uniknąć
+nieoczekiwany dostęp do wskaźnika NULL.</description></item><item><title>CVE-2026-23197</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23197</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+i2c: ix: zachowaj stan błędu w procedurze obsługi długości danych blokowych
+
+Gdy odczyt bloku zwraca nieprawidłową długość, zero lub &gt;I2C_SMBUS_BLOCK_MAX,
+procedura obsługi długości ustawia stan na IMX_I2C_STATE_FAILED.Jednakże,
+i2c_imx_master_isr() bezwarunkowo zastępuje to za pomocą
+IMX_I2C_STATE_READ_CONTINUE, powodując nieskończoną pętlę odczytu, która się przepełnia
+buforuje i zawiesza system.
+
+Strzeż przejścia stanu, aby zachować stany błędów ustawione przez długość
+opiekun.</description></item><item><title>CVE-2026-23188</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23188</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+net: usb: r8152: napraw zakleszczenie resetowania wznowienia
+
+rtl8152 może wywołać reset urządzenia podczas resetowania, który
+potencjalnie może spowodować impas:
+
+**** Limit czasu urządzenia DPM po 10 sekundach;15 sekund do paniki ****
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+harmonogram+0x483/0x1370
+harmonogram_preempt_disabled+0x15/0x30
+__mutex_lock_common+0x1fd/0x470
+__rtl8152_set_mac_adres+0x80/0x1f0
+dev_set_mac_adres+0x7f/0x150
+rtl8152_post_reset+0x72/0x150
+urządzenie_reset_USB+0x1d0/0x220
+rtl8152_resume+0x99/0xc0
+interfejs_resume_USB+0x3e/0xc0
+usb_resume_both+0x104/0x150
+usb_resume+0x22/0x110
+
+Problem polega na tym, że rtl8152 wznawia połączenia resetowane pod
+tp-&gt;control mutex podczas resetowania zasadniczo powoduje ponowne wejście w rtl8152
+i próbuje raz uzyskać tę samą blokadę tp-&gt;control
+ponownie.
+
+Zresetuj NIEDOSTĘPNE urządzenie poza mutexem tp-&gt;control
+zakres, aby uniknąć rekurencyjnego zakleszczenia mutex_lock().</description></item><item><title>CVE-2026-23199</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23199</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+procfs: unikaj pobierania identyfikatora kompilacji, gdy trzymasz blokadę VMA
+
+Napraw PROCMAP_QUERY, aby pobierał opcjonalny identyfikator kompilacji dopiero po upuszczeniu mmap_lock
+lub blokadę per-VMA, w zależności od tego, która z nich została użyta do zablokowania kwestionowanego VMA, aby tego uniknąć
+zakleszczenie zgłoszone przez syzbot:
+
+-&gt; #1 (&amp;mm-&gt;mmap_lock){++++}-{4:4}:
+__might_fault+0xed/0x170
+_copy_to_iter+0x118/0x1720
+copy_page_to_iter+0x12d/0x1e0
+filemap_read+0x720/0x10a0
+blkdev_read_iter+0x2b5/0x4e0
+vfs_read+0x7f4/0xae0
+ksys_read+0x12a/0x250
+do_syscall_64+0xcb/0xf80
+wpis_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-&gt; #0 (&amp;sb-&gt;s_type-&gt;i_mutex_key#8){++++}-{4:4}:
+__lock_acquire+0x1509/0x26d0
+blokada_nabycia+0x185/0x340
+down_read+0x98/0x490
+blkdev_read_iter+0x2a7/0x4e0
+__kernel_read+0x39a/0xa90
+freader_fetch+0x1d5/0xa80
+__build_id_parse.isra.0+0xea/0x6a0
+do_procmap_query+0xd75/0x1050
+procfs_procmap_ioctl+0x7a/0xb0
+__x64_sys_ioctl+0x18e/0x210
+do_syscall_64+0xcb/0xf80
+wpis_SYSCALL_64_after_hwframe+0x77/0x7f
+
+inne informacje, które mogą nam pomóc w rozwiązaniu problemu:
+
+Możliwy niebezpieczny scenariusz blokowania:
+
+Procesor0 Procesor1
+---- ----
+rlock(&amp;mm-&gt;mmap_lock);
+lock(&amp;sb-&gt;s_type-&gt;i_mutex_key#8);
+lock(&amp;mm-&gt;mmap_lock);
+rlock(&amp;sb-&gt;s_type-&gt;i_mutex_key#8);
+
+*** ZAMKNIĘCIE ***
+
+Wydaje się, że sytuacja się pogłębia (ponieważ nie widzieliśmy raportów syzbota
+wcześniej) przez niedawne:
+
+777a8560fd29 („lib/buildid: użyj __kernel_read() dla kontekstu umożliwiającego spanie”)
+
+Aby było to bezpieczne, musimy pobrać plik refcount, gdy VMA jest nadal zablokowany, ale
+poza tym wszystko jest całkiem proste.Wewnętrzna funkcja build_id_parse()
+Interfejs API zakłada, że VMA został przekazany, ale wymaga jedynie odniesienia do pliku bazowego, tzw
+po prostu dodaj kolejny wariant build_id_parse_file(), który oczekuje przekazania pliku
+bezpośrednio.
+
+[akpm@linux-foundation.org: napraw kerneldoc]</description></item><item><title>CVE-2026-23184</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23184</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+spoiwo: napraw UAF w binder_netlink_report()
+
+Transakcje jednokierunkowe wysyłane do zamrożonych celów za pomocą metody binder_proc_transaction()
+zwróć błąd BR_TRANSACTION_PENDING_FROZEN, ale nadal są one przetwarzane
+jako skuteczne, ponieważ oczekuje się, że cel w pewnym momencie ulegnie rozmrożeniu.To jest
+wówczas dostęp do „t” po błędach BR_TRANSACTION_PENDING_FROZEN nie jest bezpieczny
+ponieważ transakcja mogła zostać skonsumowana przez obecnie rozmrożony cel.
+
+Tak jest w przypadku binder_netlink_report(), która usuwa odwołanie do „t”
+po oczekującym zamrożonym błędzie, jak zauważył następujący KASAN
+raport:
+
+===================================================================
+BŁĄD: KASAN: użycie płyty po zwolnieniu w segregator_netlink_report.isra.0+0x694/0x6c8
+Odczytaj rozmiar 8 pod adresem ffff00000f98ba38 za pomocą zadania binder-util/522
+
+Procesor: 4 UID: 0 PID: 522 Comm: binder-util Nieskażony 6.19.0-rc6-00015-gc03e9c42ae8f #1 PREEMPT
+Nazwa sprzętu: linux, dummy-virt (DT)
+Śledzenie połączeń:
+binder_netlink_report.isra.0+0x694/0x6c8
+transakcja_bindera+0x66e4/0x79b8
+binder_thread_write+0xab4/0x4440
+binder_ioctl+0x1fd4/0x2940
+[...]
+
+Przydzielone przez zadanie 522:
+__kmalloc_cache_noprof+0x17c/0x50c
+transakcja_bindera+0x584/0x79b8
+binder_thread_write+0xab4/0x4440
+binder_ioctl+0x1fd4/0x2940
+[...]
+
+Uwolniony przez zadanie 488:
+kfree+0x1d0/0x420
+binder_free_transaction+0x150/0x234
+binder_thread_read+0x2d08/0x3ce4
+binder_ioctl+0x488/0x2940
+[...]
+===================================================================
+
+Zamiast tego utwórz kopię transakcji, aby umożliwić bezpieczny dostęp do danych
+binder_netlink_report() po oczekującym zawieszeniu błędu.Będąc tutaj, dodaj a
+komentarz na temat nieużywania t-&gt;buffera w binder_netlink_report().</description></item><item><title>CVE-2026-23179</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23179</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+nvmet-tcp: zawieszenie naprawy w nvmet_tcp_listen_data_ready()
+
+Gdy gniazdo jest zamknięte w trybie TCP_LISTEN, uruchamiane jest wywołanie zwrotne
+opróżnij wszystkie zaległe pakiety, co z kolei wywoła
+nvmet_tcp_listen_data_ready() z przytrzymaną sk_callback_lock.
+Musimy więc sprawdzić, czy jesteśmy w TCP_LISTEN przed próbą
+aby uzyskać sk_callback_lock(), aby uniknąć zakleszczenia.</description></item><item><title>CVE-2026-23202</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23202</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+spi: tegra210-quad: Chroń curr_xfer w tegra_qspi_combined_seq_xfer
+
+Pole curr_xfer jest odczytywane przez procedurę obsługi IRQ bez trzymania blokady
+aby sprawdzić, czy transfer jest w toku.Podczas czyszczenia curr_xfer w pliku
+połączona pętla transferu sekwencji, zabezpiecz ją blokadą, aby temu zapobiec
+wyścig z obsługą przerwań.
+
+Chroń polanę curr_xfer na ścieżce wyjściowej
+tegra_qspi_combined_seq_xfer() z blokadą, aby zapobiec wyścigowi
+z obsługą przerwań, która czyta to pole.
+
+Bez tej ochrony procedura obsługi przerwań mogłaby odczytać częściowo zaktualizowany
+curr_xfer, prowadząca do wyłuskania wskaźnika NULL lub użycia po zwolnieniu.</description></item><item><title>CVE-2026-23193</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23193</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+scsi: target: iscsi: Napraw użycie po zwolnieniu w iscsit_dec_session_usage_count()
+
+W iscsit_dec_session_usage_count() funkcja wywołuje funkcjęcomplete() while
+trzymając sess-&gt;session_usage_lock.Podobnie jak licznik wykorzystania połączenia
+logika, kelner sygnalizowany przez Complete() (np. w wydaniu sesji
+path) może natychmiast się obudzić i zwolnić strukturę iscsit_session.
+
+Tworzy to sytuację wyścigu, w której bieżący wątek może podjąć próbę
+wykonaj spin_unlock_bh() na strukturze sesji, która już istniała
+zwolnione, w wyniku czego płyta KASAN jest bezpłatna.
+
+Aby rozwiązać ten problem, zwolnij session_usage_lock przed wywołaniem funkcji Complete()
+aby upewnić się, że wszystkie dereferencje wskaźnika sesyjnego zostały zakończone przed
+kelner może przystąpić do delokalizacji.</description></item><item><title>CVE-2026-23190</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23190</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ASoC: amd: napraw wyciek pamięci w operacjach dma acp3x pdm</description></item><item><title>CVE-2026-23194</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23194</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+rust_binder: poprawnie obsługuje obiekty FDA o długości zerowej
+
+Napraw błąd, w wyniku którego pusty obiekt FDA (tablica fd) z wartością 0 fds powodowałby błąd
+błąd poza zakresem.W poprzedniej implementacji użyto `skip == 0` do
+oznacza „to jest naprawa wskaźnika”, ale 0 to także poprawna długość pominięcia
+dla pustej FDA.Jeśli FDA jest na końcu bufora, to to
+skutkuje próbą zapisania 8 bajtów poza zakresem.To zostało złapane i
+powoduje zwrócenie błędu EINVAL do przestrzeni użytkownika.
+
+Wzorzec używania `skip == 0` jako wartości specjalnej wywodzi się z
+Implementacja C Bindera.W ramach naprawiania tego błędu ten wzorzec jest
+zastąpiony wyliczeniem Rusta.
+
+Rozważałem alternatywną opcję nie przesuwania poprawki, gdy długość
+wynosi zero, ale myślę, że prościej jest po prostu pozbyć się zera-specjalnego
+rzeczy.
+
+Główna przyczyna tego błędu została zdiagnozowana przez Gemini CLI przy pierwszej próbie.ja
+użył następującego monitu:
+
+&gt; Wygląda na to, że w @drivers/Android/binder/thread.rs występuje błąd, gdzie
+&gt; błąd Fixups oob jest wywoływany pod numerem 316 304 316 324. Oznacza to
+&gt; że w jakiś sposób skończyliśmy z poprawką, w której bufor A ma wskaźnik do
+&gt; bufor B, ale wskaźnik znajduje się pod indeksem w buforze A
+&gt; poza granicami.Sprawdź kod, aby znaleźć błąd.Możesz
+&gt; porównaj z @drivers/Android/binder.c, który implementuje to poprawnie.</description></item><item><title>CVE-2026-23192</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23192</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+linkwatch: użyj __dev_put() w obiektach wywołujących, aby zapobiec UAF
+
+Po wywołaniu funkcji linkwatch_do_dev() __dev_put() w celu zwolnienia funkcji linkwatch
+odniesienia, przeliczenie urządzenia może spaść do 1. W tym momencie
+netdev_run_todo() może kontynuować (ponieważ linkwatch_sync_dev() widzi plik
+pusta lista i zwroty bez blokady), poczekaj na przeliczenie
+zmień na 1 poprzez netdev_wait_allrefs_any(), a następnie zwolnij urządzenie
+poprzez kobject_put().
+
+Tworzy to funkcję „use-after-free”, gdy próbuje tego dokonać funkcja __linkwatch_run_queue().
+wywołaj funkcję netdev_unlock_ops() na już zwolnionym urządzeniu.
+
+Zauważ, że dodanie pary netdev_lock_ops()/netdev_unlock_ops() w
+netdev_run_todo() przed kobject_put() nie będzie działać, ponieważ
+netdev_lock_ops() jest warunkowa — blokuje się tylko wtedy, gdy
+netdev_need_ops_lock() zwraca wartość true.Jeśli urządzenie nie wymaga
+ops_lock, linkwatch nie będzie trzymać żadnej blokady i netdev_run_todo()
+uzyskanie blokady nie zapewni synchronizacji.
+
+Napraw to, przenosząc __dev_put() z linkwatch_do_dev() do jego
+dzwoniący.Odniesienie do urządzenia logicznie łączy się z usunięciem z listy
+urządzeniu, więc jest to uzasadnione w przypadku osoby dzwoniącej, która dokonała usunięcia z listy
+go zwolnić.Pozwala to na umieszczenie funkcji __dev_put() po wszystkich urządzeniach
+dostępy są zakończone, uniemożliwiając UAF.
+
+Błąd można odtworzyć, dodając po nim mdelay(2000).
+linkwatch_do_dev() w __linkwatch_run_queue(), a następnie uruchamiając:
+
+ip tuntap dodaj tryb nazwa tun tun_test
+ip link ustaw tun_test
+ip link ustaw operatora tun_test na wyłączony
+ip link ustaw operatora tun_test na włączony
+spać 0,5
+ip tuntap del mode nazwa tun tun_test
+
+Raport KASANA:
+
+===================================================================
+BŁĄD: KASAN: użycie po zwolnieniu w netdev_need_ops_lock include/net/netdev_lock.h:33 [inline]
+BŁĄD: KASAN: użycie po zwolnieniu w netdev_unlock_ops include/net/netdev_lock.h:47 [inline]
+BŁĄD: KASAN: użycie po darmowym w __linkwatch_run_queue+0x865/0x8a0 net/core/link_watch.c:245
+Odczytaj rozmiar 8 pod adresem ffff88804de5c008 za pomocą zadania kworker/u32:10/8123
+
+Procesor: 0 UID: 0 PID: 8123 Comm: kworker/u32:10 Nieskażony syzkaller #0 PREEMPT (pełny)
+Nazwa sprzętu: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 01.04.2014
+Kolejka robocza: zdarzenia_niepowiązane linkwatch_event
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+__dump_stack lib/dump_stack.c:94 [w linii]
+dump_stack_lvl+0x100/0x190 lib/dump_stack.c:120
+print_address_description mm/kasan/report.c:378 [inline]
+print_report+0x156/0x4c9 mm/kasan/report.c:482
+kasan_report+0xdf/0x1a0 mm/kasan/report.c:595
+netdev_need_ops_lock include/net/netdev_lock.h:33 [inline]
+netdev_unlock_ops include/net/netdev_lock.h:47 [w linii]
+__linkwatch_run_queue+0x865/0x8a0 net/core/link_watch.c:245
+linkwatch_event+0x8f/0xc0 net/core/link_watch.c:304
+proces_one_praca+0x9c2/0x1840 jądro/workqueue.c:3257
+Process_scheduled_works kernel/workqueue.c:3340 [inline]
+wątek_pracownika+0x5da/0xe40 jądro/workqueue.c:3421
+kthread+0x3b3/0x730 jądro/kthread.c:463
+ret_from_fork+0x754/0xaf0 arch/x86/kernel/process.c:158
+ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:246
+&lt;/ZADANIE&gt;
+===================================================================</description></item><item><title>CVE-2026-23198</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23198</link><pubDate>Sat, 14 Feb 2026 18:30:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+KVM: Nie mieszaj typu routingu irqfd podczas usuwania przypisania irqfd
+
+Kiedy usuwasz przypisanie KVM_IRQFD, nie niszcz kopii IRQ należącej do irqfd
+wpis routingu, ponieważ powoduje to przerwanie kvm_arch_irq_bypass_del_producer() na x86
+i arm64, które jawnie szukają KVM_IRQ_ROUTING_MSI.Zamiast tego
+obsłużyć współbieżną aktualizację routingu, sprawdź, czy irqfd jest nadal aktywny
+przed wykorzystaniem informacji o routingu.Jak wynika z x86 i
+błędy arm64 i kolejny błąd w kvm_arch_update_irqfd_routing() (patrz poniżej),
+blokowanie typu wpisu bez powiadamiania kodu arch jest zaskakujące i
+podatne na błędy.
+
+Jako bonus, wygodne jest sprawdzenie, czy irqfd jest aktywny
+lokalizacja do dokumentowania _dlaczego_ KVM nie może wykorzystywać pozycji routingu dla
+irqfd, który jest w trakcie przypisywania: gdy irqfd jest
+usunięty z listy (co ma miejsce *przed* odłączeniem eventfd), it
+nie będzie już otrzymywać aktualizacji za pośrednictwem kvm_irq_routing_update(), a więc KVM
+może dostarczyć zdarzenie, korzystając z nieaktualnych informacji o routingu (w stosunku do
+KVM_SET_GSI_ROUTING powracający do przestrzeni użytkownika).
+
+Jako jeszcze lepszy bonus, jawne sprawdzanie, czy irqfd jest aktywny
+naprawia błąd podobny do tego, któremu próbuje zapobiec clobbering: jeśli an
+irqfd jest dezaktywowany, a następnie zmieniany jest jego routing,
+kvm_irq_routing_update() nie wywoła kvm_arch_update_irqfd_routing()
+(ponieważ irqfd nie znajduje się na liście).I tak, jeśli irqfd jest w trybie obejścia
+trybie, przerwania IRQ będą nadal wysyłane przy użyciu starych informacji o routingu.
+
+Jeśli chodzi o kvm_arch_irq_bypass_del_producer(), zakłócanie typu routingu
+powoduje, że KVM nieprawidłowo utrzymuje przerwanie IRQ w trybie obejścia, tzn
+szczególnie problematyczne w przypadku AMD, ponieważ KVM śledzi przerwania, które są wysyłane
+vCPU na liście, którego czas życia jest powiązany z irqfd.
+
+Bez pomocy KASAN wykrywanie użycia po darmowym jest najczęstsze
+sympton na AMD to deref wskaźnika NULL w amd_iommu_update_ga() z powodu
+W rezultacie następuje ponowna alokacja i zerowanie pamięci dla struktury irqfd
+w irqfd-&gt;irq_bypass_data ma wartość NULL podczas odczytu
+avic_update_iommu_vcpu_affinity():
+
+BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 0000000000000018
+#PF: dostęp do odczytu nadzorcy w trybie jądra
+#PF: kod_błędu(0x0000) - nie ma strony
+PGD 40cf2b9067 P4D 40cf2b9067 PUD 408362a067 PMD 0
+Ups: Ups: 0000 [nr 1] SMP
+Procesor: 6 UID: 0 PID: 40383 Comm: vfio_irq_test
+Tainted: G U W O 6.19.0-smp--5dddc257e6b2-irqfd #31 BRAK
+Tainted: [U]=USER, [W]=WARN, [O]=OOT_MODULE
+Nazwa sprzętu: Google, Inc. Arcadia_IT_80/Arcadia_IT_80, BIOS 34.78.2-0 09.05.2025
+RIP: 0010:amd_iommu_update_ga+0x19/0xe0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+avic_update_iommu_vcpu_affinity+0x3d/0x90 [kvm_amd]
+__avic_vcpu_load+0xf4/0x130 [kvm_amd]
+kvm_arch_vcpu_load+0x89/0x210 [kvm]
+vcpu_load+0x30/0x40 [kvm]
+kvm_arch_vcpu_ioctl_run+0x45/0x620 [kvm]
+kvm_vcpu_ioctl+0x571/0x6a0 [kvm]
+__se_sys_ioctl+0x6d/0xb0
+do_syscall_64+0x6f/0x9d0
+wpis_SYSCALL_64_after_hwframe+0x4b/0x53
+RIP: 0033:0x46893b
+&lt;/ZADANIE&gt;
+---[koniec śladu 0000000000000000 ]---
+
+Jeśli AVIC zostanie zablokowany po usunięciu przypisania irfd, błąd zamanifestuje się jako
+uszkodzenie listy, np.przy następnym zadaniu iqfd.
+
+list_add korupcja.następny-&gt;poprzedni powinien być poprzedni (ffff8d474d5cd588),
+ale było 0000000000000000. (next=ffff8d8658f86530).
+------------[przetnij tutaj ]------------
+BŁĄD jądra w lib/list_debug.c:31!
+Ups: nieprawidłowy kod operacji: 0000 [#1] SMP
+Procesor: 128 UID: 0 PID: 80818 Comm: vfio_irq_test
+Tainted: G U W O 6.19.0-smp--f19dc4d680ba-irqfd #28 BRAK
+Tainted: [U]=USER, [W]=WARN, [O]=OOT_MODULE
+Nazwa sprzętu: Google, Inc. Arcadia_IT_80/Arcadia_IT_80, BIOS 34.78.2-0 09.05.2025
+RIP: 0010:__list_add_valid_or_report+0x97/0xc0
+Zadzwoń do śledzenia:
+&lt;ZADANIE&gt;
+avic_pi_update_irte+0x28e/0x2b0 [kvm_amd]
+kvm_pi_update_irte+0xbf/0x190 [kvm]
+kvm_arch_irq_bypass_add_producer+0x72/0x90 [kvm]
+irq_bypass_register_consumer+0xcd/0x170 [irqbypa
+---obcięty---</description></item><item><title>CVE-2026-23177</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23177</link><pubDate>Sat, 14 Feb 2026 18:30:15 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+mm, shmem: zapobiegaj nieskończonej pętli w przypadku obcięcia wyścigu
+
+Podczas obcinania dużego wpisu wymiany, shmem_free_swap() zwraca 0, gdy
+indeks wpisu nie pasuje do podanego indeksu ze względu na wyrównanie wyszukiwania.The
+ścieżka rezerwowa niepowodzenia sprawdza, czy wpis przekracza granicę końcową i
+przerywa działanie, gdy to nastąpi, więc obcięcie nie usunie nieoczekiwanego wpisu lub
+zasięg.Ale jeden scenariusz został zignorowany.
+
+Gdy „indeks” wskazuje środek dużego wpisu wymiany, a duży
+wpis wymiany nie przekracza granicy końcowej, zrobi to funkcja find_get_entries().
+zwróć ten duży wpis wymiany jako pierwszy element w partii
+`indeksy[0]` równe `indeksowi`.Indeks bazowy wpisu będzie mniejszy
+niż `indices[0]`, więc funkcja shmem_free_swap() zakończy się niepowodzeniem i zwróci 0 z powodu
+Sprawdź „baza &lt;indeks”.Następnie kod wywoła shmem_confirm_swap(), get
+zamówienie, sprawdź, czy przekracza granicę END (co nie jest prawdą) i
+spróbuj ponownie z tym samym indeksem.
+
+Następna iteracja spowoduje ponowne odnalezienie tego samego wpisu pod tym samym indeksem
+te same indeksy, co prowadzi do nieskończonej pętli.
+
+Napraw ten problem, ponawiając próbę z zaokrągleniem indeksu w dół i przerwij, jeśli indeks jest taki
+mniejszy niż zakres obcięcia.</description></item><item><title>CVE-2026-23210</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23210</link><pubDate>Sat, 14 Feb 2026 16:27:31 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
 ice: Naprawiono dereferencję wskaźnika PTP NULL podczas przebudowy VSI
 
