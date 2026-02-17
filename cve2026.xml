@@ -1,5 +1,215 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-36376</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36376</link><pubDate>Tue, 17 Feb 2026 20:37:28 +0000</pubDate><description>IBM Security QRadar EDR 3.12 do 3.12.23 nie unieważnia sesji po jej wygaśnięciu, co mogłoby pozwolić uwierzytelnionemu użytkownikowi na podszywanie się pod innego użytkownika w systemie.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2629</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2629</link><pubDate>Tue, 17 Feb 2026 22:02:07 +0000</pubDate><description>A weakness has been identified in jishi node-sonos-http-api up to 3776f0ee2261c924c7b7204de121a38100a08ca7.Affected is the function Promise of the file lib/tts-providers/mac-os.js of the component TTS Provider.This manipulation of the argument phrase causes os command injection.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Ten produkt wykorzystuje wersję ciągłą, aby zapewnić ciągłą dostawę.Dlatego nie są dostępne żadne szczegóły wersji, których dotyczy problem, ani zaktualizowanych wersji.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
+
+CVSS Score: 7.3 (high)</description></item><item><title>CVE-2023-38005</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-38005</link><pubDate>Tue, 17 Feb 2026 21:49:59 +0000</pubDate><description>IBM Cloud Pak System 2.3.3.6, 2.3.3.7, 2.3.4.0, 2.3.4.1 i 2.3.5.0 może umożliwiać uwierzytelnionemu użytkownikowi wykonywanie nieautoryzowanych zadań z powodu niewłaściwej kontroli dostępu.
+
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2026-26326</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26326</link><pubDate>Tue, 17 Feb 2026 21:43:41 +0000</pubDate><description>### Podsumowanie
+
+`skills.status` może ujawnić sekrety klientom `operator.read` poprzez zwrócenie nieprzetworzonych wartości konfiguracji w `configChecks` dla ścieżek umiejętności `requires.config`.
+
+### Dotknięte pakiety/wersje
+
+- Pakiet: `openclaw` (npm)
+- Dotknięty: `&lt;= 2026.2.13`
+- Poprawiono: `2026.2.14`
+
+### Szczegóły
+
+Metoda bramy `skills.status` zwróciła raport wymagań zawierający `configChecks[].value` (rozpoznana wartość dla każdego wpisu `requires.config`).Jeśli umiejętność wymagała szerokiego poddrzewa konfiguracji (na przykład „channels.discord”), raport może zawierać sekrety, takie jak tokeny bota Discord.
+
+`skills.status` można wywołać za pomocą `operator.read`, więc klienci z zakresem odczytu mogą uzyskać wpisy tajne bez dostępu `operator.admin` / `config.*`.
+
+### Napraw
+
+- Zatrzymaj uwzględnianie nieprzetworzonych wartości konfiguracji w sprawdzaniu wymagań (zwróć tylko `{ ścieżka, spełniony }`).
+- Zawęź wymagania dotyczące umiejętności Discord do klucza tokena.
+
+Napraw zatwierdzenia:
+
+- d3428053d95eefbe10ecf04f92218ffcba55ae5a
+- ebc68861a61067fc37f9298bded3eec9de0ba783
+
+### Łagodzenie
+
+Obróć wszystkie tokeny Discord, które mogły zostać ujawnione klientom z zakresem odczytu.
+
+Dziękuję @simecek za zgłoszenie.
+
+---
+
+Naprawiono zatwierdzenia d3428053d95eefbe10ecf04f92218ffcba55ae5a i ebc68861a61067fc37f9298bded3eec9de0ba783 potwierdzone na płycie głównej i w wersji 2026.2.14.Uaktualnij do `openclaw &gt;= 2026.2.14`.</description></item><item><title>CVE-2026-26325</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26325</link><pubDate>Tue, 17 Feb 2026 21:42:49 +0000</pubDate><description>## Podsumowanie
+
+Niezgodność między poleceniami `rawCommand` i `command[]` w procedurze obsługi `system.run` hosta węzła może spowodować wykonanie oceny listy dozwolonych/zatwierdzeń dla jednego polecenia podczas wykonywania innego argv.
+
+## Konfiguracje, których dotyczy problem
+
+Ma to wpływ tylko na wdrożenia, które:
+
+- Użyj ścieżki wykonania węzła hosta/węzła towarzyszącego („system.run” w węźle).
+- Włącz politykę exec opartą na liście dozwolonych („bezpieczeństwo=lista dozwolonych”) z monitami o zatwierdzenie sterowanymi przez braki na liście dozwolonych (na przykład „ask=on-miss”).
+- Zezwól atakującemu na wywołanie `system.run`.
+
+Nie ma to wpływu na konfiguracje domyślne/inne niż węzłowe.
+
+## Wpływ
+
+W konfiguracjach, których to dotyczy, osoba atakująca, która może wywołać plik `system.run`, może ominąć monity o egzekwowanie i zatwierdzenie listy dozwolonych, dostarczając polecenie `rawCommand` z listy dozwolonych, jednocześnie podając inny argv `command[]` do wykonania.
+
+## Dotknięte pakiety/wersje
+
+- Pakiet: `openclaw` (npm)
+- Wersje, których dotyczy problem: `&lt;= 2026.2.13`
+- Wersja poprawiona: `&gt;= 2026.2.14` (planowane kolejne wydanie)
+
+## Napraw
+
+Wymuszaj spójność `rawCommand`/`command[]` (szybka awaria bramy + sprawdzanie poprawności hosta węzła).
+
+## Napraw zatwierdzenia
+
+- cb3290fca32593956638f161d9776266b90ab891
+
+## Uwaga dotycząca procesu wydania
+
+Ten poradnik wstępnie ustawia poprawioną wersję na planowane następne wydanie (`2026.2.14`).Po opublikowaniu `openclaw@2026.2.14` w npm, poradę można opublikować bez dalszych zmian.
+
+Dziękuję @christos-eth za zgłoszenie.</description></item><item><title>CVE-2026-26324</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26324</link><pubDate>Tue, 17 Feb 2026 21:42:40 +0000</pubDate><description>### Podsumowanie
+
+Ochronę SSRF OpenClaw można ominąć, używając pełnoformatowych literałów IPv6 odwzorowanych na IPv4, takich jak `0:0:0:0:0:ffff:7f00:1` (czyli `127.0.0.1`).Może to pozwolić żądaniom, które powinny być blokowane (pętla zwrotna/sieć prywatna/metadane łącza lokalnego) na przejście przez osłonę SSRF.
+
+- Podatny komponent: Strażnik SSRF (`src/infra/net/ssrf.ts`)
+- Typ problemu: obejście zabezpieczenia SSRF
+
+### Dotknięte pakiety/wersje
+
+- Pakiet: `openclaw` (npm)
+- Luka: `&lt;= 2026.2.13`
+- Poprawiono: `&gt;= 2026.2.14` (planowane następne wydanie)
+
+### Szczegóły
+
+Klasyfikacja IP strażnika SSRF nie wykrywała konsekwentnie prywatnych adresów IPv4, gdy były one osadzone w IPv6 przy użyciu pełnej notacji IPv6 mapowanej na IPv4.W rezultacie dane wejściowe takie jak `0:0:0:0:0:ffff:7f00:1` mogą ominąć blokowanie pętli zwrotnej/sieci prywatnej.
+
+### Napraw zatwierdzenia
+
+- `c0c0e0f9aecb913e738742f73e091f2f72d39a19`
+
+### Uwaga dotycząca procesu wydania
+
+Ten poradnik jest utrzymywany w wersji roboczej, a poprawiona wersja jest ustawiona na planowane następne wydanie.Po opublikowaniu `openclaw@2026.2.14` w npm, jedynym pozostałym krokiem powinno być opublikowanie tego poradnika.
+
+Dziękuję @yueyueL za zgłoszenie.</description></item><item><title>CVE-2026-26322</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26322</link><pubDate>Tue, 17 Feb 2026 21:42:15 +0000</pubDate><description>## Podsumowanie
+Narzędzie Gateway zaakceptowało dostarczony przez narzędzie adres `gatewayUrl` bez wystarczających ograniczeń, co mogło spowodować, że host OpenClaw podjął próbę wychodzących połączeń WebSocket z celami określonymi przez użytkownika.
+
+## Dotknięte pakiety/wersje
+- Pakiet: `openclaw` (npm)
+- Wersje, których dotyczy problem: `&lt;= 2026.2.13`
+- Wersje łatane: `&gt;= 2026.2.14` (planowane)
+
+## Co jest potrzebne, aby to wywołać
+Wymaga to możliwości wywoływania narzędzi, które akceptują zastąpienie adresu `gatewayUrl` (bezpośrednio lub pośrednio).W typowych konfiguracjach jest to ograniczone do uwierzytelnionych operatorów, zaufanej automatyzacji lub środowisk, w których wywołania narzędzi są widoczne dla osób niebędących operatorami.
+
+Innymi słowy, nie jest to problem przypadkowych użytkowników Internetu, chyba że wdrożenie wyraźnie pozwala niezaufanym użytkownikom na wyzwalanie wywołań tych narzędzi.
+
+## Szczegóły
+Niektóre ścieżki wywołań narzędzi umożliwiały przepływ nadpisań `gatewayUrl` do klienta Gateway WebSocket bez sprawdzania poprawności i umieszczania na liście dozwolonych.Oznaczało to, że host może zostać poinstruowany, aby próbował nawiązać połączenie z punktami końcowymi innymi niż brama (na przykład usługami hosta lokalnego, adresami sieci prywatnej lub adresami IP metadanych w chmurze).
+
+## Wpływ
+W typowym przypadku skutkuje to próbą połączenia wychodzącego z hosta OpenClaw (i odpowiednimi błędami/przekroczeniami limitu czasu).W środowiskach, w których osoba wywołująca narzędzie może obserwować wyniki, można to również wykorzystać do badania ograniczonej dostępności sieci.Jeśli obiekt docelowy mówi po protokole WebSocket i jest osiągalny, możliwa może być dalsza interakcja.
+
+## Napraw
+Dostarczone przez narzędzie zastąpienia adresu `gatewayUrl` są teraz ograniczone do pętli zwrotnej (na skonfigurowanym porcie bramy) lub skonfigurowanego adresu `gateway.remote.url`.Niedozwolone protokoły, poświadczenia, zapytania/skrót i ścieżki inne niż root są odrzucane.
+
+## Napraw zatwierdzenia
+- c5406e1d2434be2ef6eb4d26d8f1798d718713f4
+
+## Uwaga dotycząca procesu wydania
+`patched_versions` jest ustawione na planowane następne wydanie.Po opublikowaniu wydania npm poradę można opublikować bez dalszych zmian.
+
+Dziękuję @p80n-sec za zgłoszenie.</description></item><item><title>CVE-2026-26321</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26321</link><pubDate>Tue, 17 Feb 2026 21:41:52 +0000</pubDate><description>### Podsumowanie
+Rozszerzenie Feishu pozwalało wcześniej `sendMediaFeishu` na traktowanie kontrolowanych przez atakującego wartości `mediaUrl` jako ścieżek lokalnego systemu plików i bezpośredni ich odczyt.
+
+### Wersje, których dotyczy problem
+- `&lt; 2026.2.14`
+
+### Wersje poprawione
+- `&gt;= 2026.2.14`
+
+### Wpływ
+Jeśli osoba atakująca może wpłynąć na wywołania narzędzi (bezpośrednio lub poprzez wstrzyknięcie podpowiedzi), może być w stanie wydobyć pliki lokalne, podając ścieżki takie jak `/etc/passwd` jako `mediaUrl`.
+
+### Naprawa
+Zaktualizuj do OpenClaw `2026.2.14` lub nowszego.
+
+### Notatki
+Poprawka usuwa bezpośrednie odczyty plików lokalnych z tej ścieżki i kieruje ładowanie multimediów przez wzmocnione pomocniki, które wymuszają ograniczenia lokalnego katalogu głównego.
+
+---
+
+Napraw zatwierdzenie 5b4121d60 potwierdzone na płycie głównej i w wersji 2026.2.14.Uaktualnij do `openclaw &gt;= 2026.2.14`.</description></item><item><title>CVE-2026-26320</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26320</link><pubDate>Tue, 17 Feb 2026 21:41:40 +0000</pubDate><description>### Podsumowanie
+Klient stacjonarny OpenClaw macOS rejestruje schemat adresu URL „openclaw://”.W przypadku precyzyjnych linków „openclaw://agent” bez nienadzorowanego „klucza” aplikacja wyświetla okno dialogowe potwierdzenia, które poprzednio wyświetlało tylko pierwsze 240 znaków wiadomości, ale wykonywało całą wiadomość po kliknięciu przez użytkownika „Uruchom”.
+
+W chwili pisania tego tekstu klient stacjonarny OpenClaw na macOS jest wciąż w fazie beta.
+
+Osoba atakująca może wypełnić wiadomość spacjami, aby wypchnąć szkodliwy ładunek poza widoczny podgląd, zwiększając prawdopodobieństwo, że użytkownik zatwierdzi inną wiadomość niż ta, która jest faktycznie wykonywana.
+
+### Wpływ
+Jeśli użytkownik uruchomi głębokie łącze, agent może wykonać działania, które mogą prowadzić do wykonania dowolnego polecenia, w zależności od zatwierdzeń/list dozwolonych narzędzia skonfigurowanych przez użytkownika.Jest to luka wynikająca z inżynierii społecznej: monit o potwierdzenie może fałszywie przedstawiać wykonywaną wiadomość.
+
+## Wersje, których dotyczy problem
+- Wersje klienta stacjonarnego OpenClaw macOS &gt;= 2026.2.6 i &lt;= 2026.2.13.
+
+## Naprawione wersje
+- 2026.2.14.
+
+### Łagodzenia
+- Nie zatwierdzaj nieoczekiwanego polecenia „Uruchom agenta OpenClaw?”monity wyświetlane podczas przeglądania niezaufanych witryn.
+- Używaj nienadzorowanych precyzyjnych linków tylko z prawidłowym „kluczem” do zaufanych automatyzacji osobistych.
+
+### Rozwiązanie
+Głębokie linki bez klucza wymuszają teraz ścisły limit długości wiadomości dla potwierdzenia i ignorują przyciski dostarczania/trasowania („dostarczanie”, „do”, „kanał”), chyba że podany zostanie prawidłowy „klucz” bez nadzoru.
+
+Napraw zatwierdzenie: 28d9dd7a772501ccc3f71457b4adfee79084fe6f
+
+---
+
+Naprawiono zatwierdzenie 28d9dd7a772501ccc3f71457b4adfee79084fe6f potwierdzone na płycie głównej i w wersji 2026.2.14.Uaktualnij do `openclaw &gt;= 2026.2.14`.</description></item><item><title>CVE-2026-26319</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26319</link><pubDate>Tue, 17 Feb 2026 21:40:46 +0000</pubDate><description>## Podsumowanie
+
+W wersjach, których dotyczy problem, opcjonalna wtyczka OpenClaw `@openclaw/voice-call` obsługa webhooka Telnyx może akceptować niepodpisane przychodzące żądania webhooka, gdy `telnyx.publicKey` nie jest skonfigurowane, umożliwiając nieuwierzytelnionym osobom wywołującym fałszowanie zdarzeń Telnyx.
+
+Ma to wpływ tylko na wdrożenia, w których wtyczka Voice Call jest zainstalowana i włączona, a punkt końcowy elementu webhook jest dostępny dla osoby atakującej (na przykład publicznie udostępniony za pośrednictwem tunelu/serwera proxy).
+
+## Dotknięte pakiety/wersje
+
+- Pakiet: `openclaw` (npm)
+- Dotknięty: `&lt;= 2026.2.13`
+- Naprawiono: `&gt;= 2026.2.14` (planowane)
+
+## Szczegóły
+
+Oczekuje się, że webhooki Telnyx będą uwierzytelniane poprzez weryfikację podpisu Ed25519.
+
+W wersjach, których dotyczy problem, funkcja `TelnyxProvider.verifyWebhook()` mogła skutecznie otworzyć się niepowodzeniem, gdy nie skonfigurowano klucza publicznego Telnyx, co pozwalało na traktowanie dowolnych żądań HTTP POST kierowanych do punktu końcowego webhooka połączeń głosowych jako prawidłowych zdarzeń Telnyx.
+
+## Napraw
+
+Poprawka powoduje, że weryfikacja webhooka Telnyx domyślnie kończy się niepowodzeniem i wymaga skonfigurowania `telnyx.publicKey` (lub `TELNYX_PUBLIC_KEY`).
+
+Obejście weryfikacji podpisu istnieje tylko w przypadku programowania lokalnego poprzez opcję „skipSignatureVerification: true”, która jest domyślnie wyłączona, emituje głośne ostrzeżenie podczas uruchamiania i nie powinna być używana w środowisku produkcyjnym.
+
+To wymaganie jest udokumentowane w dokumentacji wtyczki Voice Call.
+
+## Napraw zatwierdzenia
+
+- `29b587e73cbdc941caec573facd16e87d52f007b`
+- `f47584fec` (scentralizowany pomocnik weryfikacji + silniejsze testy)
+
+## Obejścia
+
+- Skonfiguruj `plugins.entries.voice-call.config.telnyx.publicKey` (lub `TELNYX_PUBLIC_KEY`), aby włączyć weryfikację podpisu.
+- Tylko dla rozwoju lokalnego: ustaw `skipSignatureVerification: true`.
+
+Dziękuję @p80n-sec za zgłoszenie.</description></item><item><title>CVE-2025-36376</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36376</link><pubDate>Tue, 17 Feb 2026 20:37:28 +0000</pubDate><description>IBM Security QRadar EDR 3.12 do 3.12.23 nie unieważnia sesji po jej wygaśnięciu, co mogłoby pozwolić uwierzytelnionemu użytkownikowi na podszywanie się pod innego użytkownika w systemie.
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-2622</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2622</link><pubDate>Tue, 17 Feb 2026 20:32:40 +0000</pubDate><description>W Blossom do wersji 1.17.1 wykryto lukę.Luka ta wpływa na zawartość funkcji pliku Bloom-backend/backend/src/main/Java/com/blossom/backend/server/article/draft/ArticleController.java komponentu Artykuł Title Handler.Manipulacja skutkuje skryptami krzyżowymi.Atak może zostać przeprowadzony zdalnie.Exploit jest teraz publiczny i można go wykorzystać.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
@@ -61,7 +271,9 @@ _Ta luka wymaga od użytkownika uzyskania tajnego tokena dostępu do węzła.Oce
 ### Wpływ
 Pojedynczy token demona węzła Wings, który został skompromitowany (przechowywany w postaci zwykłego tekstu w `/etc/pterodactyl/config.yml`) zapewnia dostęp do wrażliwych danych konfiguracyjnych każdego serwera w panelu, a nie tylko do serwerów, do których węzeł ma dostęp.Osoba atakująca może wykorzystać te informacje do bocznego poruszania się po systemie, wysyłania nadmiernej liczby powiadomień, niszczenia danych serwera w innych węzłach lub w inny sposób wydobywania sekretów, do których nie powinna mieć dostępu wyłącznie za pomocą tokena węzła.
 
-Dodatkowo wyzwolenie fałszywego powodzenia transferu powoduje, że panel usunie serwer z węzła źródłowego, co skutkuje trwałą utratą danych.</description></item><item><title>CVE-2026-25739</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25739</link><pubDate>Tue, 17 Feb 2026 18:54:31 +0000</pubDate><description>### Wpływ
+Dodatkowo wyzwolenie fałszywego powodzenia transferu powoduje, że panel usunie serwer z węzła źródłowego, co skutkuje trwałą utratą danych.</description></item><item><title>CVE-2025-36018</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36018</link><pubDate>Tue, 17 Feb 2026 18:54:45 +0000</pubDate><description>Komponent IBM Concert 1.0.0 do 2.1.0 for Z hub jest podatny na fałszowanie żądań między witrynami, co może umożliwić osobie atakującej wykonanie złośliwych i nieautoryzowanych działań przesłanych od użytkownika, któremu witryna internetowa ufa.
+
+CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-25739</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25739</link><pubDate>Tue, 17 Feb 2026 18:54:31 +0000</pubDate><description>### Wpływ
 Podczas przesyłania niektórych typów plików jako materiałów występuje luka w zabezpieczeniach typu Cross-Site-Scripting.
 
 ### Poprawki
@@ -2270,7 +2482,7 @@ CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-1231</title><
 
 CVSS Score: 6.4 (medium)</description></item><item><title>CVE-2025-15524</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-15524</link><pubDate>Wed, 11 Feb 2026 01:23:33 +0000</pubDate><description>Wtyczka Gallery by FooGallery dla WordPressa jest podatna na nieautoryzowany dostęp do danych z powodu braku kontroli możliwości funkcji ajax_get_gallery_info() we wszystkich wersjach aż do 3.1.9 włącznie.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie subskrybenta i wyższym mogą odzyskać metadane (nazwę, liczbę obrazów, adres URL miniatury) galerii prywatnych, wersji roboczych i chronionych hasłem poprzez wyliczenie identyfikatorów galerii.
 
-CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2025-64075</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64075</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach umożliwiająca przekroczenie ścieżki w funkcji check_token w Shenzhen Zhibotong Electronics ZBT WE2001 23.09.27 umożliwia zdalnym atakującym ominięcie uwierzytelniania i wykonanie działań administracyjnych poprzez dostarczenie spreparowanej wartości pliku cookie sesji.</description></item><item><title>CVE-2025-65127</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65127</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Brak sprawdzania poprawności sesji w komponencie web API Shenzhen Zhibotong Electronics ZBT WE2001 23.09.27 umożliwia zdalnym nieuwierzytelnionym atakującym dostęp do funkcji wyszukiwania informacji administracyjnych przeznaczonych dla uwierzytelnionych użytkowników.Wywołując operację „get_*”, atakujący mogą uzyskać dane konfiguracyjne urządzenia, w tym dane uwierzytelniające w postaci zwykłego tekstu, bez uwierzytelniania lub istniejącej sesji.</description></item><item><title>CVE-2025-65480</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65480</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>W kliencie Pacom Unison 5.13.1 wykryto problem.Uwierzytelnieni użytkownicy mogą umieszczać w szablonach raportów złośliwe skrypty, które są wykonywane po spełnieniu określonych warunków skryptu, co prowadzi do zdalnego wykonania kodu.</description></item><item><title>CVE-2024-26480</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-26480</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Błąd w Statping-ng v.0.91.0 umożliwia atakującemu uzyskanie poufnych informacji poprzez spreparowane żądanie skierowane do parametru admin.</description></item><item><title>CVE-2024-26479</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-26479</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Błąd w Statping-ng v.0.91.0 umożliwia atakującemu uzyskanie poufnych informacji poprzez spreparowane żądanie kierowane do funkcji wykonywania poleceń.</description></item><item><title>CVE-2024-26478</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-26478</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Błąd w Statping-ng v.0.91.0 umożliwia atakującemu uzyskanie poufnych informacji poprzez spreparowane żądanie skierowane do punktu końcowego /api/users.</description></item><item><title>CVE-2024-26477</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-26477</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Błąd w Statping-ng v.0.91.0 umożliwia atakującemu uzyskanie poufnych informacji poprzez spreparowane żądanie skierowane do parametru API punktów końcowych eksportu oauth, amazon_sns.</description></item><item><title>CVE-2024-50619</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-50619</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Luki w komponentach Moje konto i Zarządzanie użytkownikami w CIPPlanner CIPAce przed wersją 9.17 umożliwiają atakującym zwiększenie poziomu dostępu.Uwierzytelniony użytkownik o niskich uprawnieniach może uzyskać dostęp do kont innych osób, modyfikując identyfikator użytkownika klienta w celu zmiany informacji o jego koncie.Uwierzytelniony użytkownik o niskich uprawnieniach może podnieść swoje uprawnienia systemowe, modyfikując informacje o roli użytkownika, która jest wyłączona w kliencie.</description></item><item><title>CVE-2025-67135</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67135</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Słabe zabezpieczenia w pilocie PF-50 1.2 systemu alarmowego PGST PG107 1.25.05.hf umożliwiają atakującym złamanie kontroli dostępu poprzez atak polegający na odtwarzaniu kodu.</description></item><item><title>CVE-2025-64074</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64074</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Luka umożliwiająca przekroczenie ścieżki w funkcji wylogowania w Shenzhen Zhibotong Electronics ZBT WE2001 23.09.27 umożliwia zdalnym atakującym usunięcie dowolnych plików z hosta poprzez dostarczenie spreparowanej wartości pliku cookie sesji.</description></item><item><title>CVE-2026-25872</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25872</link><pubDate>Tue, 10 Feb 2026 22:25:56 +0000</pubDate><description>Oprogramowanie JUNG Smart Panel KNX w wersji L1.12.22 i wcześniejszych zawiera lukę w zabezpieczeniach umożliwiającą nieuwierzytelnione przejście ścieżki we wbudowanym interfejsie internetowym.Aplikacja nie sprawdza prawidłowo wprowadzonej ścieżki pliku, umożliwiając zdalnym, nieuwierzytelnionym atakującym dostęp do dowolnych plików w podstawowym systemie plików w kontekście serwera WWW.Może to skutkować ujawnieniem plików konfiguracyjnych systemu i innych poufnych informacji.
+CVSS Score: 4.3 (medium)</description></item><item><title>CVE-2025-64075</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64075</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Luka w zabezpieczeniach umożliwiająca przekroczenie ścieżki w funkcji check_token w Shenzhen Zhibotong Electronics ZBT WE2001 23.09.27 umożliwia zdalnym atakującym ominięcie uwierzytelniania i wykonanie działań administracyjnych poprzez dostarczenie spreparowanej wartości pliku cookie sesji.</description></item><item><title>CVE-2025-65127</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65127</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Brak sprawdzania poprawności sesji w komponencie web API Shenzhen Zhibotong Electronics ZBT WE2001 23.09.27 umożliwia zdalnym nieuwierzytelnionym atakującym dostęp do funkcji wyszukiwania informacji administracyjnych przeznaczonych dla uwierzytelnionych użytkowników.Wywołując operację „get_*”, atakujący mogą uzyskać dane konfiguracyjne urządzenia, w tym dane uwierzytelniające w postaci zwykłego tekstu, bez uwierzytelniania lub istniejącej sesji.</description></item><item><title>CVE-2025-65480</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65480</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>W kliencie Pacom Unison 5.13.1 wykryto problem.Uwierzytelnieni użytkownicy mogą umieszczać w szablonach raportów złośliwe skrypty, które są wykonywane po spełnieniu określonych warunków skryptu, co prowadzi do zdalnego wykonania kodu.</description></item><item><title>CVE-2024-26480</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-26480</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Błąd w Statping-ng v.0.91.0 umożliwia atakującemu uzyskanie poufnych informacji poprzez spreparowane żądanie skierowane do parametru admin.</description></item><item><title>CVE-2024-26479</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-26479</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Błąd w Statping-ng v.0.91.0 umożliwia atakującemu uzyskanie poufnych informacji poprzez spreparowane żądanie kierowane do funkcji wykonywania poleceń.</description></item><item><title>CVE-2024-26478</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-26478</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Błąd w Statping-ng v.0.91.0 umożliwia atakującemu uzyskanie poufnych informacji poprzez spreparowane żądanie skierowane do punktu końcowego /api/users.</description></item><item><title>CVE-2024-26477</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-26477</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Błąd w Statping-ng v.0.91.0 umożliwia atakującemu uzyskanie poufnych informacji poprzez spreparowane żądanie skierowane do parametru API punktów końcowych eksportu oauth, amazon_sns.</description></item><item><title>CVE-2024-50619</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-50619</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Luki w komponentach Moje konto i Zarządzanie użytkownikami w CIPPlanner CIPAce przed wersją 9.17 umożliwiają atakującym zwiększenie poziomu dostępu.Uwierzytelniony użytkownik o niskich uprawnieniach może uzyskać dostęp do kont innych osób, modyfikując identyfikator użytkownika klienta w celu zmiany informacji o jego koncie.Uwierzytelniony użytkownik o niskich uprawnieniach może podnieść swoje uprawnienia systemowe, modyfikując informacje o roli użytkownika, która jest wyłączona w kliencie.</description></item><item><title>CVE-2025-67135</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67135</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Słabe zabezpieczenia w pilocie PF-50 1.2 systemu alarmowego PGST PG107 1.25.05.hf umożliwiają atakującym złamanie kontroli dostępu poprzez atak polegający na odtwarzaniu kodu.</description></item><item><title>CVE-2025-64074</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-64074</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Luka umożliwiająca przekroczenie ścieżki w funkcji wylogowania w Shenzhen Zhibotong Electronics ZBT WE2001 23.09.27 umożliwia zdalnym atakującym usunięcie dowolnych plików z hosta poprzez dostarczenie spreparowanej wartości pliku cookie sesji.</description></item><item><title>CVE-2025-65128</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-65128</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><description>Brakujący mechanizm uwierzytelniania w komponentach API zarządzania siecią w Shenzhen Zhibotong Electronics ZBT WE2001 23.09.27 umożliwia nieuwierzytelnionym atakującym w sieci lokalnej modyfikowanie konfiguracji routera i sieci.Wywołując operacje, których nazwy kończą się na „*_nocommit” i podając parametry oczekiwane przez wywoływaną funkcję, osoba atakująca może zmienić dane konfiguracyjne, w tym identyfikator SSID, dane uwierzytelniające Wi-Fi i hasła administracyjne, bez uwierzytelniania lub istniejącej sesji.</description></item><item><title>CVE-2026-25872</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25872</link><pubDate>Tue, 10 Feb 2026 22:25:56 +0000</pubDate><description>Oprogramowanie JUNG Smart Panel KNX w wersji L1.12.22 i wcześniejszych zawiera lukę w zabezpieczeniach umożliwiającą nieuwierzytelnione przejście ścieżki we wbudowanym interfejsie internetowym.Aplikacja nie sprawdza prawidłowo wprowadzonej ścieżki pliku, umożliwiając zdalnym, nieuwierzytelnionym atakującym dostęp do dowolnych plików w podstawowym systemie plików w kontekście serwera WWW.Może to skutkować ujawnieniem plików konfiguracyjnych systemu i innych poufnych informacji.
 
 CVSS Score: 5.3 (medium)</description></item><item><title>CVE-2026-25870</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25870</link><pubDate>Tue, 10 Feb 2026 22:16:28 +0000</pubDate><description>DoraCMS w wersji 3.1 i wcześniejszej zawiera lukę w zabezpieczeniach związaną z fałszowaniem żądań po stronie serwera (SSRF) w funkcji zdalnego pobierania obrazów UEditor.Aplikacja akceptuje adresy URL dostarczone przez użytkownika i wykonuje żądania HTTP lub HTTPS po stronie serwera bez wystarczającej weryfikacji lub ograniczeń miejsca docelowego.Implementacja nie wymusza list dozwolonych, nie blokuje wewnętrznych ani prywatnych zakresów adresów IP ani nie stosuje limitów czasu żądań ani limitów rozmiaru odpowiedzi.Osoba atakująca może wykorzystać to zachowanie, aby nakłonić serwer do wysyłania żądań wychodzących do dowolnych hostów, w tym do zasobów sieci wewnętrznej, co potencjalnie umożliwia skanowanie sieci wewnętrznej i odmowę usługi w wyniku wyczerpania zasobów.
 
