@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2629</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2629</link><pubDate>Tue, 17 Feb 2026 22:02:07 +0000</pubDate><description>A weakness has been identified in jishi node-sonos-http-api up to 3776f0ee2261c924c7b7204de121a38100a08ca7.Affected is the function Promise of the file lib/tts-providers/mac-os.js of the component TTS Provider.This manipulation of the argument phrase causes os command injection.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Ten produkt wykorzystuje wersję ciągłą, aby zapewnić ciągłą dostawę.Dlatego nie są dostępne żadne szczegóły wersji, których dotyczy problem, ani zaktualizowanych wersji.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-26119</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26119</link><pubDate>Tue, 17 Feb 2026 22:56:03 +0000</pubDate><description>
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-1670</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1670</link><pubDate>Tue, 17 Feb 2026 22:56:00 +0000</pubDate><description>Produkty, których dotyczy problem, są podatne na nieuwierzytelniony punkt końcowy interfejsu API, co może umożliwić osobie atakującej zdalną zmianę adresu e-mail służącego do odzyskiwania hasła „zapomniałem hasła”.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2026-2629</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2629</link><pubDate>Tue, 17 Feb 2026 22:02:07 +0000</pubDate><description>A weakness has been identified in jishi node-sonos-http-api up to 3776f0ee2261c924c7b7204de121a38100a08ca7.Affected is the function Promise of the file lib/tts-providers/mac-os.js of the component TTS Provider.This manipulation of the argument phrase causes os command injection.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Ten produkt wykorzystuje wersję ciągłą, aby zapewnić ciągłą dostawę.Dlatego nie są dostępne żadne szczegóły wersji, których dotyczy problem, ani zaktualizowanych wersji.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
 
 CVSS Score: 7.3 (high)</description></item><item><title>CVE-2023-38005</title><link>https://nvd.nist.gov/vuln/detail/CVE-2023-38005</link><pubDate>Tue, 17 Feb 2026 21:49:59 +0000</pubDate><description>IBM Cloud Pak System 2.3.3.6, 2.3.3.7, 2.3.4.0, 2.3.4.1 i 2.3.5.0 może umożliwiać uwierzytelnionemu użytkownikowi wykonywanie nieautoryzowanych zadań z powodu niewłaściwej kontroli dostępu.
 
@@ -2586,13 +2590,19 @@ CVSS Score: 3.3 (low)</description></item><item><title>CVE-2026-21250</title><li
 
 CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-21251</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21251</link><pubDate>Tue, 10 Feb 2026 17:51:40 +0000</pubDate><description>
 
-CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-21255</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21255</link><pubDate>Tue, 10 Feb 2026 17:51:38 +0000</pubDate><description>
+CVSS Score: 7.8 (high)</description></item><item><title>CVE-2026-21253</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21253</link><pubDate>Tue, 10 Feb 2026 17:51:39 +0000</pubDate><description>
+
+CVSS Score: 7.0 (high)</description></item><item><title>CVE-2026-21255</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21255</link><pubDate>Tue, 10 Feb 2026 17:51:38 +0000</pubDate><description>
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21256</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21256</link><pubDate>Tue, 10 Feb 2026 17:51:38 +0000</pubDate><description>
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-21257</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21257</link><pubDate>Tue, 10 Feb 2026 17:51:37 +0000</pubDate><description>
 
-CVSS Score: 8.0 (high)</description></item><item><title>CVE-2026-21511</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21511</link><pubDate>Tue, 10 Feb 2026 17:51:35 +0000</pubDate><description>
+CVSS Score: 8.0 (high)</description></item><item><title>CVE-2026-21261</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21261</link><pubDate>Tue, 10 Feb 2026 17:51:37 +0000</pubDate><description>
+
+CVSS Score: 5.5 (medium)</description></item><item><title>CVE-2026-21508</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21508</link><pubDate>Tue, 10 Feb 2026 17:51:36 +0000</pubDate><description>
+
+CVSS Score: 7.0 (high)</description></item><item><title>CVE-2026-21511</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21511</link><pubDate>Tue, 10 Feb 2026 17:51:35 +0000</pubDate><description>
 
 CVSS Score: 7.5 (high)</description></item><item><title>CVE-2026-21516</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-21516</link><pubDate>Tue, 10 Feb 2026 17:51:35 +0000</pubDate><description>
 
