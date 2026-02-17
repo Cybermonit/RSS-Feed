@@ -1,5 +1,647 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-36247</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36247</link><pubDate>Tue, 17 Feb 2026 17:13:06 +0000</pubDate><description>IBM Db2 dla systemów Linux, UNIX i Windows (w tym Db2 Connect Server) w wersjach od 11.5.0 do 11.5.9 i od 12.1.0 do 12.1.3 jest podatny na atak polegający na wstrzyknięciu zewnętrznej jednostki XML (XXE) podczas przetwarzania danych XML.Osoba atakująca zdalnie może wykorzystać tę lukę w celu ujawnienia poufnych informacji lub wykorzystania zasobów pamięci.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-26057</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26057</link><pubDate>Tue, 17 Feb 2026 18:55:39 +0000</pubDate><description>**Opis:**
+Luka w serwerze API narzędzia Skill Scanner może umożliwić nieuwierzytelnionemu zdalnemu atakującemu interakcję z interfejsem API serwera i wywołać stan odmowy usługi (DoS) lub przesłać dowolne pliki.
+
+Ta luka wynika z błędnego powiązania z wieloma interfejsami.Osoba atakująca może wykorzystać tę lukę, wysyłając żądania API do urządzenia ujawniającego serwer API, którego dotyczy luka.Udany exploit może pozwolić atakującemu na zużycie nadmiernej ilości zasobów (głód pamięci) lub przesłanie plików do dowolnych folderów na zaatakowanym urządzeniu.
+
+**Warunki:**
+Ta luka dotyczy Skill-scanner 1.0.1 i wcześniejszych wersji, gdy włączony jest serwer API.Serwer API nie jest domyślnie włączony.
+
+**Naprawione oprogramowanie:**
+Oprogramowanie Skill-Scanner w wersji 1.0.2 i nowszych zawierało poprawkę usuwającą tę lukę.
+
+**Więcej informacji:**
+Jeśli masz jakieś pytania lub uwagi dotyczące tego poradnika:
+- [Otwórz problem w cisco-ai-defense/skill-scanner](https://github.com/cisco-ai-defense/skill-scanner/issues)
+- Wyślij e-mail do Cisco Open Source Security ([oss-security@cisco.com](mailto:oss-security@cisco.com)) i Cisco PSIRT ([psirt@cisco.com](mailto:psirt@cisco.com))
+
+**Kredyty:**
+
+- Badania: Richard Tweed (@RichardoC)
+- Napraw pomysł i wdrożenie: Richard Tweed (@RichardoC)
+- Inżynieria wydania: Vineeth Sai Narajala (@vineethsai7)</description></item><item><title>CVE-2026-26016</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26016</link><pubDate>Tue, 17 Feb 2026 18:54:49 +0000</pubDate><description>### Podsumowanie
+
+Brak kontroli autoryzacji w wielu kontrolerach pozwala każdemu użytkownikowi z dostępem do tajnego tokena węzła na pobranie informacji o dowolnym serwerze w instancji Pterodactyl, nawet jeśli ten serwer jest powiązany z innym węzłem.Ten problem wynika z braku logiki sprawdzającej, czy węzeł żądający danych do serwera jest tym samym węzłem, z którym jest powiązany serwer.
+
+Każdy uwierzytelniony węzeł Wings może pobierać skrypty instalacyjne serwera (potencjalnie zawierające tajne wartości) i manipulować statusem instalacji serwerów należących do innych węzłów.Węzły Wings mogą także manipulować statusem transferu serwerów należących do innych węzłów.
+
+_Ta luka wymaga od użytkownika uzyskania tajnego tokena dostępu do węzła.Oceniliśmy ten problem na podstawie potencjalnego najgorszego wyniku.Jeśli użytkownik nie uzyska dostępu do tajnego tokena dostępu Wings, nie będzie mógł uzyskać dostępu do żadnego z tych wrażliwych punktów końcowych, ponieważ każdy punkt końcowy wymaga ważnego tokena dostępu do węzła._
+
+### Szczegóły
+1. Zdalny punkt końcowy API `GET /api/remote/servers/{uuid}` pobiera serwer według UUID i zwraca jego pełną konfigurację bez sprawdzania, czy węzeł żądający jest właścicielem serwera.
+2. Obie metody Failure() i Success() w `ServerTransferController` pobierają serwery według UUID bez sprawdzania własności węzła.
+3. Brak kontroli autoryzacji w `ServerInstallController` umożliwia każdemu uwierzytelnionemu węzłowi Wings pobieranie skryptów instalacyjnych jaj (zawierających sekrety wdrożenia) i manipulowanie statusem instalacji serwerów należących do innych węzłów.
+
+### Wpływ
+Pojedynczy token demona węzła Wings, który został skompromitowany (przechowywany w postaci zwykłego tekstu w `/etc/pterodactyl/config.yml`) zapewnia dostęp do wrażliwych danych konfiguracyjnych każdego serwera w panelu, a nie tylko do serwerów, do których węzeł ma dostęp.Osoba atakująca może wykorzystać te informacje do bocznego poruszania się po systemie, wysyłania nadmiernej liczby powiadomień, niszczenia danych serwera w innych węzłach lub w inny sposób wydobywania sekretów, do których nie powinna mieć dostępu wyłącznie za pomocą tokena węzła.
+
+Dodatkowo wyzwolenie fałszywego powodzenia transferu powoduje, że panel usunie serwer z węzła źródłowego, co skutkuje trwałą utratą danych.</description></item><item><title>CVE-2026-25739</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25739</link><pubDate>Tue, 17 Feb 2026 18:54:31 +0000</pubDate><description>### Wpływ
+Podczas przesyłania niektórych typów plików jako materiałów występuje luka w zabezpieczeniach typu Cross-Site-Scripting.
+
+### Poprawki
+Powinieneś jak najszybciej dokonać aktualizacji do [Indico 3.3.10](https://github.com/indico/indico/releases/tag/v3.3.10).
+Instrukcje dotyczące aktualizacji znajdziesz w [dokumentacji](https://docs.getindico.io/en/stable/installation/upgrade/).
+
+Należy pamiętać, że aby zastosować samą poprawkę, wystarczy aktualizacja, ale aby skorzystać ze ścisłej Polityki bezpieczeństwa treści, którą teraz domyślnie stosujemy do pobierania plików, musisz zaktualizować konfigurację swojego serwera WWW w przypadku używania Nginx z opcją STATIC_FILE_METHOD Indico ustawioną na `xaccelredirect` i dodać następujący wiersz do bloku lokalizacji `.xsf/indico/` (pełną treść znajdziesz w dokumentacji instalacyjnej Indicofragment konfiguracji):
+
+```nginx
+add_header Polityka bezpieczeństwa treści $upstream_http_content_security_policy;
+```
+
+### Obejścia
+- Użyj konfiguracji serwera WWW, aby zastosować rygorystyczne CSP dla punktów końcowych pobierania materiałów.
+- Pozwól tylko godnym zaufania użytkownikom tworzyć treści (w tym przesyłanie materiałów, co zazwyczaj mogą robić również prelegenci) w Indico.
+
+### Aby uzyskać więcej informacji
+Jeśli masz jakieś pytania lub uwagi dotyczące tego poradnika:
+
+- Otwórz wątek na [naszym forum](https://talk.getindico.io/)
+- Napisz do nas prywatnie na adres [indico-team@cern.ch](mailto:indico-team@cern.ch)</description></item><item><title>CVE-2026-25766</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25766</link><pubDate>Tue, 17 Feb 2026 18:53:58 +0000</pubDate><description>### Podsumowanie
+W systemie Windows oprogramowanie „middleware.Static” firmy Echo korzystające z domyślnego systemu plików umożliwia przechodzenie ścieżek za pomocą ukośników odwrotnych, umożliwiając
+nieuwierzytelniony plik zdalny odczytany poza statycznym katalogiem głównym.
+
+### Szczegóły
+
+W `middleware/static.go` żądana ścieżka nie jest usuwana i normalizowana za pomocą `path.Clean` (semantyka adresu URL).
+`path.Clean` **nie** traktuje `\` jako separatora ścieżki, więc sekwencje `..\` pozostają w oczyszczonej ścieżce.Wynikowy
+ścieżka jest następnie przekazywana do `currentFS.Open(...)`.Gdy system plików pozostanie domyślny (zero), Echo użyje `defaultFS`
+który wywołuje `os.Open` (`echo.go:792`).W systemie Windows `os.Open` traktuje `\` jako separator ścieżki i rozpoznaje `..\`,
+umożliwiając przejście poza statyczny katalog główny.
+
+Odpowiedni kod:
+- `middleware/static.go` (ścieżka unescape + `path.Clean` + `currentFS.Open`)
+- `echo.go` `defaultFS.Open` → `os.Open`
+
+Jest to ta sama klasa, co CVE-2020-36565 (naprawiona w wersji 4 poprzez przejście na czyszczenie uwzględniające system operacyjny), ale w wersji 5 opcja „path.Clean”
++ kombinacja defaultFS ponownie wprowadza przejście z ukośnikiem odwrotnym w systemie Windows.
+
+
+### PoC
+Tylko Windows.
+
+**Przykładowy kod (main.go):**
+idź
+pakiet główny
+
+importować (
+„log”
+„net/http”
+
+„github.com/labstack/echo/v5”
+„github.com/labstack/echo/v5/middleware”
+)
+
+funkcja główna() {
+e := echo.Nowy()
+
+// Ważne: użyj oprogramowania pośredniego.Static z domyślnym systemem plików (zero)
+e.Use(middleware.Static("publiczny"))
+
+e.GET("/healthz", func(c *echo.Context) błąd {
+zwróć c.String(http.StatusOK, "ok")
+})
+
+adres := ":1323"
+log.Printf("słucham na %s", adres)
+jeśli błąd := e.Start(addr);err != zero &amp;&amp; err != http.ErrServerClosed {
+log.Fatal(err)
+}
+}
+```
+Plik statyczny:
+
+public/index.html
+
+(treść może być dowolnym kodem HTML)
+
+**Biegnij:**
+idź biegać.
+
+**Sprawdź:**
+
+zwiń http://localhost:1323/index.html
+curl --path-as-is "http://localhost:1323/..%5c..%5cWindows%5cSystem32%5cdrivers%5cetc%5chosts"
+Oczekiwano: 404
+
+**Zrzut ekranu:**
+&lt;img szerokość="884" wysokość="689" alt="image" src="https://github.com/user-attachments/assets/acb14d70-2a43-47c1-8927-2f3da491a853" /&gt;
+&lt;img szerokość="1022" wysokość="162" alt="image" src="https://github.com/user-attachments/assets/f2b92aa2-541e-461d-81a2-8a5907d7a447" /&gt;
+
+
+
+### Wpływ
+Przejście ścieżki prowadzące do dowolnego pliku odczytanego poza statycznym katalogiem głównym.Może to zrobić każdy nieuwierzytelniony użytkownik zdalny
+czytaj pliki lokalne, do których proces Echo ma dostęp w systemie Windows, jeśli domyślnie używany jest `middleware.Static`
+system plików.</description></item><item><title>CVE-2026-25738</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25738</link><pubDate>Tue, 17 Feb 2026 18:53:25 +0000</pubDate><description>### Wpływ
+Indico wysyła żądania do adresów URL podanych przez użytkownika w różnych miejscach.Jest to w większości zamierzone i stanowi część funkcjonalności Indico, ale oczywiście nigdy nie ma na celu umożliwienia dostępu do „specjalnych” celów, takich jak localhost lub punkty końcowe metadanych w chmurze.
+
+### Poprawki
+Powinieneś jak najszybciej dokonać aktualizacji do [Indico 3.3.10](https://github.com/indico/indico/releases/tag/v3.3.10).
+Instrukcje dotyczące aktualizacji znajdziesz w [dokumentacji](https://docs.getindico.io/en/stable/installation/upgrade/).
+
+### Obejścia
+Jeśli nie masz adresów IP, które ujawniają wrażliwe dane bez uwierzytelnienia (zazwyczaj dlatego, że nie hostujesz Indico na AWS), ta luka nie dotyczy Ciebie i możesz ją zignorować (ale i tak dokonaj aktualizacji).
+Ponadto tylko organizatorzy wydarzeń mają dostęp do punktów końcowych, w których można użyć SSRF do faktycznego wyświetlenia danych zwróconych przez takie żądanie.Jeśli więc ufasz organizatorom wydarzeń, ryzyko jest również bardzo ograniczone.
+
+Dla dodatkowego bezpieczeństwa, zarówno przed, jak i po łataniu, możesz także użyć typowych zmiennych środowiskowych związanych z serwerem proxy (w szczególności `http_proxy` i `https_proxy`), aby wymusić przechodzenie wychodzących żądań przez serwer proxy, który ogranicza żądania w jakikolwiek sposób, który uznasz za przydatny/konieczny.Te zmienne środowiskowe musiałyby być ustawione zarówno w usługach indico-uwsgi, jak i indico-selery.Pamiętaj, że w skonfigurowaniu takiego serwera proxy nie możemy Ci pomóc.
+
+### Aby uzyskać więcej informacji
+Jeśli masz jakieś pytania lub uwagi dotyczące tego poradnika:
+
+- Otwórz wątek na [naszym forum](https://talk.getindico.io/)
+- Napisz do nas prywatnie na adres [indico-team@cern.ch](mailto:indico-team@cern.ch)</description></item><item><title>CVE-2026-25500</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25500</link><pubDate>Tue, 17 Feb 2026 18:46:35 +0000</pubDate><description>## Podsumowanie
+
+`Rack::Directory` generuje indeks katalogu HTML, w którym każdy wpis pliku jest renderowany jako klikalny link.Jeśli na dysku istnieje plik, którego nazwa bazowa zaczyna się od schematu `javascript:` (np. `javascript:alert(1)`), wygenerowany indeks zawiera kotwicę, której atrybut `href` ma dokładnie wartość `javascript:alert(1)`.Kliknięcie tego wpisu powoduje wykonanie dowolnego kodu JavaScript w kontekście aplikacji hostingowej.
+
+Powoduje to wystąpienie warunku XSS po stronie klienta na listach katalogów generowanych przez `Rack::Directory`.
+
+## Szczegóły
+
+`Rack::Directory` renderuje wpisy do katalogu przy użyciu szablonu wiersza HTML podobnego do:
+
+```html
+&lt;a href='%s'&gt;%s&lt;/a&gt;
+```
+
+Symbol zastępczy `%s` jest wypełniany bezpośrednio nazwą bazową pliku.Jeśli nazwa bazowa zaczyna się od `javascript:`, wynikowy kod HTML zawiera wykonywalny adres URL JavaScript:
+
+```html
+&lt;a href='javascript:alert(1)'&gt;javascript:alert(1)&lt;/a&gt;
+```
+
+Ponieważ wartość jest wstawiana bezpośrednio do atrybutu `href` bez sprawdzania poprawności lub normalizacji schematu, przeglądarki interpretują ją jako identyfikator URI JavaScript.Gdy użytkownik kliknie łącze, w źródle aplikacji Rack zostanie wykonany kod JavaScript.
+
+## Wpływ
+
+Jeśli `Rack::Directory` jest używany do ujawniania zawartości systemu plików za pośrednictwem protokołu HTTP, osoba atakująca, która może tworzyć lub przesyłać pliki w tym katalogu, może wprowadzić złośliwą nazwę pliku rozpoczynającą się od `javascript:`.
+
+Kiedy użytkownik odwiedza listę katalogów i klika wpis, w źródle aplikacji wykonywany jest dowolny kod JavaScript.Eksploatacja wymaga interakcji użytkownika (kliknięcie złośliwego wpisu).
+
+## Łagodzenie
+
+* Aktualizacja do poprawionej wersji Rack, w której `Rack::Directory` poprzedza wygenerowane kotwice ze wskaźnikiem względnej ścieżki (np. `./nazwa pliku`).
+* Unikaj ujawniania katalogów kontrolowanych przez użytkownika poprzez `Rack::Directory`.
+* Zastosuj ścisłą Politykę bezpieczeństwa treści (CSP), aby zmniejszyć wpływ potencjalnych problemów z wykonaniem po stronie klienta.
+* Jeśli to możliwe, ogranicz lub oczyść przesyłane nazwy plików, aby uniemożliwić niebezpieczne przedrostki schematów URI.</description></item><item><title>CVE-2026-25474</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25474</link><pubDate>Tue, 17 Feb 2026 18:46:16 +0000</pubDate><description>## Podsumowanie
+
+W trybie webhooka Telegramu, jeśli `channels.telegram.webhookSecret` nie jest ustawione, OpenClaw może akceptować żądania HTTP webhooka bez sprawdzania nagłówka tajnego tokena Telegramu.W przypadku wdrożeń, w których atakujący może osiągnąć punkt końcowy webhooka, może to pozwolić na sfałszowanie aktualizacji Telegramu (na przykład fałszowanie „message.from.id”).
+
+Uwaga: tryb webhooka Telegramu nie jest domyślnie włączony.Jest włączone tylko wtedy, gdy skonfigurowany jest `channels.telegram.webhookUrl`.
+
+## Dotknięte pakiety/wersje
+
+- Pakiet: `openclaw` (npm)
+- Dotknięty: `&lt;= 2026.1.30`
+- Poprawiono: `&gt;= 2026.2.1`
+
+## Wpływ
+
+Jeśli atakujący zdoła dotrzeć do punktu końcowego webhooka, może wysłać fałszywe aktualizacje, które będą przetwarzane tak, jakby pochodziły z Telegramu.W zależności od włączonych poleceń/narzędzi i konfiguracji może to prowadzić do niezamierzonych działań bota.
+
+## Środki zaradcze/obejścia
+
+- Ustaw silny `channels.telegram.webhookSecret` i upewnij się, że Twoje odwrotne proxy przekazuje nagłówek `X-Telegram-Bot-Api-Secret-Token` bez zmian.
+- Ogranicz dostęp sieciowy do punktu końcowego elementu webhook (na przykład powiąż z pętlą zwrotną i udostępniaj tylko za pośrednictwem odwrotnego proxy).
+
+## Napraw zatwierdzenia
+
+- ca92597e1f9593236ad86810b66633144b69314d (weryfikacja konfiguracji: `webhookUrl` wymaga `webhookSecret`)
+
+Poprawki dogłębne/wspierające:
+
+- 5643a934799dc523ec2ef18c007e1aa2c386b670 (domyślny słuchacz webhooka wiąże hosta z pętlą zwrotną)
+- 3cbcba10cf30c2ffb898f0d8c7dfb929f15f8930 (rozmiar treści/czas powiązanego żądania webhooka)
+- 633fe8b9c17f02fcc68ecdb5ec212a5ace932f09 (ochrona środowiska wykonawczego: odrzuć uruchomienie webhooka, gdy brakuje sekretu/pusty)
+
+Dziękuję @yueyueL za zgłoszenie.</description></item><item><title>CVE-2026-25242</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25242</link><pubDate>Tue, 17 Feb 2026 18:44:07 +0000</pubDate><description>Porada dotycząca bezpieczeństwa: Nieuwierzytelnione przesyłanie plików na Gogs
+Typ luki: Nieuwierzytelnione przesłanie pliku
+Data: 5 sierpnia 2025 r
+Odkrywca: badania nad bezpieczeństwem OpenAI
+
+## Podsumowanie
+Gogs domyślnie udostępnia nieuwierzytelnione punkty końcowe przesyłania plików.Gdy globalne ustawienie RequireSigninView jest wyłączone (domyślnie), każdy użytkownik zdalny może przesyłać dowolne pliki na serwer za pośrednictwem /releases/attachments i /issues/attachments.Umożliwia to wykorzystywanie instancji jako publicznego hosta plików, co może prowadzić do wyczerpania dysku, hostowania treści lub dostarczania złośliwego oprogramowania.Tokeny CSRF nie łagodzą tego ataku ze względu na wydawanie plików cookie tego samego pochodzenia.
+
+## Wersje, których dotyczy problem
+
+- Oprogramowanie: [Gogs](https://github.com/gogs/gogs/tree/main)
+- Potwierdzone wersje: 28f83626d4ed0aa7b89493be2ea8b79ca038331e
+- Prawdopodobny problem: wszystkie wersje od 2020-04-05 z nieuwierzytelnionymi punktami końcowymi załączników
+- Wprowadzono zatwierdzenie: 07818d5fa
+
+## Szczegóły luki w zabezpieczeniach
+Router web.go udostępnia następujące punkty końcowe w grupie tras ignSignIn:
+
+### Fragment kodu zawierającego lukę
+```
+m.Post("/problemy/załączniki", repo.UploadIssueAttachment)
+m.Post("/releases/attachments", repo.UploadReleaseAttachment)
+```
+Te punkty końcowe są dostępne dla nieuwierzytelnionych użytkowników, jeśli zmienna konfiguracyjna RequireSigninView ma wartość false (wartość domyślna).Umożliwia to przesyłanie dowolnych plików do danych/załączników i zwracanie w odpowiedzi identyfikatora UUID.
+
+Gdy ochrona CSRF jest włączona, osoby atakujące mogą anonimowo uzyskać ważny token z witryny i użyć go w żądaniu przesłania bez uwierzytelniania.
+## Opis
+Anonimowe przesyłanie plików przy użyciu wyłącznie domyślnej konfiguracji i tokena CSRF uzyskanego ze strony głównej.
+## POC
+```
+# Okno dokowane Uruchom Gogs
+Gogi startowe dokera
+
+# Oprogramowanie będzie uruchamiane na http://localhost:10880/.Zakończ konfigurację przy użyciu lokalnej bazy danych Sqlite
+
+# Pobierz plik cookie CSRF do słoika
+curl -sS -c cookies.txt http://localhost:10880/ -o /dev/null
+
+# Wyodrębnij wartość _csrf ze słoika
+CSRF="$(awk '$6=="_csrf"{print $7}' cookies.txt | tail -n1)"
+
+# Prześlij plik, wysyłając słoik z ciasteczkami + nagłówek
+zwijanie -sS \
+-b pliki cookie.txt -c pliki cookie.txt \
+-H "Token X-CSRF: $CSRF" \
+-H "Odsyłający: http://localhost:10880/" \
+-F "plik=@obraz.png" \
+http://localhost:10880/issues/attachments
+
+=&gt; {"uuid":"&lt;UUID&gt;"}
+```
+Załącznik będzie dostępny pod adresem: http://localhost:10880/attachments/&lt;uuid&gt;
+
+## Wpływ
+**Nieograniczone przesyłanie plików:** osoby atakujące mogą przechowywać dowolną zawartość na serwerze.
+**Odmowa usługi:** Powtarzające się przesyłanie może wyczerpać miejsce na dysku.
+**Hosting złośliwego oprogramowania:** Gogi mogą przypadkowo udostępniać w swojej domenie ładunki hostowane przez atakującego.
+
+## Realistyczne scenariusze eksploatacji
+
+- Spamerzy lub złośliwi aktorzy wykorzystują instancję Gogs do hostowania ładunków phishingowych lub złośliwego oprogramowania.
+- Atakujący zapełniają dysk powtarzającymi się plikami.
+- Atakujący wykorzystują hostowane instancje Gogs jako publiczne zrzuty plików (np. do P2P, eksfiltracji)
+
+## Potencjalny wpływ
+Ten nieuwierzytelniony wektor przesyłania skutecznie zamienia dowolną instancję Gogs w platformę hostingu plików otwartą dla publiczności.Jest to szczególnie niebezpieczne w przypadku instalacji produkcyjnych lub narażonych na dostęp do Internetu.Połączenie braku wymogu logowania, obsługi symboli wieloznacznych MIME i nieograniczonego dostępu do załączników umożliwia zarówno nadużywanie zasobów, jak i potencjalną dystrybucję złośliwego oprogramowania.
+
+## Oś czasu
+
+– sierpień 2025: odkrycie poprzez GPT5
+– sierpień 2025 r.: odtworzono i potwierdzono za pomocą PoC i środka dezynfekującego
+– 6 sierpnia 2025 r. – Wysłano do Gogs za pośrednictwem https://github.com/gogs/gogs/security/advisories/new</description></item><item><title>CVE-2026-25232</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25232</link><pubDate>Tue, 17 Feb 2026 18:43:00 +0000</pubDate><description>## Summary
+
+An access control bypass vulnerability in Gogs web interface allows any repository collaborator with Write permissions to delete protected branches (including the default branch) by sending a direct POST request, completely bypassing the branch protection mechanism. This vulnerability enables privilege escalation from Write to Admin level, allowing low-privilege users to perform dangerous operations that should be restricted to administrators only.
+
+Although Git Hook layer correctly prevents protected branch deletion via SSH push, the web interface deletion operation does not trigger Git Hooks, resulting in complete bypass of protection mechanisms.
+
+## Details
+
+### Affected Component
+
+- **File**: `internal/route/repo/branch.go`
+- **Function**: `DeleteBranchPost` (lines 110-155)
+- **Route Configuration**: `internal/cmd/web.go:589`
+  ```go
+  m.Post("/delete/*", reqSignIn, reqRepoWriter, repo.DeleteBranchPost)
+  ```
+
+### Root Cause
+
+The `DeleteBranchPost` function performs the following checks when deleting a branch:
+1. ✅ User authentication (`reqSignIn`)
+2. ✅ Write permission check (`reqRepoWriter`)
+3. ✅ Branch existence verification
+4. ✅ CommitID matching (optional parameter)
+5. ❌ **Missing protected branch check**
+6. ❌ **Missing default branch check**
+
+While the UI layer (`internal/route/repo/issue.go:646-658`) correctly checks protected branch status and hides the delete button, attackers can directly construct POST requests to bypass UI restrictions.
+
+### Vulnerable Code
+
+**Vulnerable implementation** (`internal/route/repo/branch.go:110-155`):
+
+```110:155:internal/route/repo/branch.go
+func DeleteBranchPost(c *context.Context) {
+	branchName := c.Params("*")
+	commitID := c.Query("commit")
+
+	defer func() {
+		redirectTo := c.Query("redirect_to")
+		if !tool.IsSameSiteURLPath(redirectTo) {
+			redirectTo = c.Repo.RepoLink
+		}
+		c.Redirect(redirectTo)
+	}()
+
+	if !c.Repo.GitRepo.HasBranch(branchName) {
+		return
+	}
+	if len(commitID) &gt; 0 {
+		branchCommitID, err := c.Repo.GitRepo.BranchCommitID(branchName)
+		if err != nil {
+			log.Error("Failed to get commit ID of branch %q: %v", branchName, err)
+			return
+		}
+
+		if branchCommitID != commitID {
+			c.Flash.Error(c.Tr("repo.pulls.delete_branch_has_new_commits"))
+			return
+		}
+	}
+
+	// 🔴 Vulnerability: Missing protected branch check here
+	// Should add check like:
+	// protectBranch, err := database.GetProtectBranchOfRepoByName(c.Repo.Repository.ID, branchName)
+	// if protectBranch != nil &amp;&amp; protectBranch.Protected { ... }
+
+	if err := c.Repo.GitRepo.DeleteBranch(branchName, git.DeleteBranchOptions{
+		Force: true,
+	}); err != nil {
+		log.Error("Failed to delete branch %q: %v", branchName, err)
+		return
+	}
+
+	if err := database.PrepareWebhooks(c.Repo.Repository, database.HookEventTypeDelete, &amp;api.DeletePayload{
+		Ref:        branchName,
+		RefType:    "branch",
+		PusherType: api.PUSHER_TYPE_USER,
+		Repo:       c.Repo.Repository.APIFormatLegacy(nil),
+		Sender:     c.User.APIFormat(),
+	}); err != nil {
+		log.Error("Failed to prepare webhooks for %q: %v", database.HookEventTypeDelete, err)
+		return
+	}
+}
+```
+
+**Correct implementation in Git Hook** (`internal/cmd/hook.go:122-125`):
+
+```go
+// check and deletion
+if newCommitID == git.EmptyID {
+    fail(fmt.Sprintf("Branch '%s' is protected from deletion", branchName), "")
+}
+```
+
+**Correct UI layer check** (`internal/route/repo/issue.go:646-658`):
+
+```go
+protectBranch, err := database.GetProtectBranchOfRepoByName(pull.BaseRepoID, pull.HeadBranch)
+if err != nil {
+	if !database.IsErrBranchNotExist(err) {
+		c.Error(err, "get protect branch of repository by name")
+		return
+	}
+} else {
+	branchProtected = protectBranch.Protected
+}
+
+c.Data["IsPullBranchDeletable"] = pull.BaseRepoID == pull.HeadRepoID &amp;&amp;
+	c.Repo.IsWriter() &amp;&amp; c.Repo.GitRepo.HasBranch(pull.HeadBranch) &amp;&amp;
+	!branchProtected  // UI layer has check, but backend doesn't
+```
+## PoC
+
+### Prerequisites
+
+1. Have Write permissions to the target repository (collaborator or team member)
+2. Target repository has protected branches configured (e.g., main, master, develop)
+3. Access to Gogs web interface
+
+#### Send Malicious POST Request
+```bash
+# Directly send DELETE request bypassing UI protection
+curl -X POST \
+  -b cookies.txt \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "_csrf=YOUR_CSRF_TOKEN" \
+  "https://gogs.example.com/username/repo/branches/delete/main"
+```
+&lt;img width="1218" height="518" alt="image" src="https://github.com/user-attachments/assets/745da7c3-6139-408c-9747-ccbe9ea8548f" /&gt;
+
+## Impact
+- **Bypass branch protection mechanism**: The core function of protected branches is to prevent deletion, and this vulnerability completely undermines this mechanism
+- **Delete default branch**: Can cause repository to become inaccessible (git clone/pull failures)
+- **Bypass code review**: After deleting protected branch, can push new branch bypassing Pull Request requirements
+- **Privilege escalation**: Writer permission users can perform operations that should only be allowed for Admins</description></item><item><title>CVE-2026-25229</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25229</link><pubDate>Tue, 17 Feb 2026 18:42:08 +0000</pubDate><description>### **Podsumowanie**
+Zepsuta luka w kontroli dostępu w Gogs pozwala uwierzytelnionym użytkownikom z uprawnieniami do zapisu w dowolnym repozytorium na modyfikowanie etykiet należących do innych repozytoriów.Funkcja `UpdateLabel` w interfejsie WWW (`internal/route/repo/issue.go`) nie sprawdza, czy modyfikowana etykieta należy do repozytorium określonego w ścieżce URL, umożliwiając ataki polegające na manipulacji etykietami między repozytoriami.
+
+### **Szczegóły**
+Luka występuje w punkcie końcowym aktualizacji etykiet interfejsu WWW „POST /:username/:reponame/labels/edit”.Funkcja obsługi `UpdateLabel` wykorzystuje niepoprawną funkcję zapytania do bazy danych, która omija weryfikację własności repozytorium:
+
+**Kod luki** (`internal/route/repo/issue.go:1040-1054`):
+
+„zwykły
+func UpdateLabel(c *context.Context, f form.CreateLabel) {
+l, err := baza danych.GetLabelByID(f.ID) // ❌ Brak sprawdzania poprawności repozytorium
+jeśli błąd!= zero {
+c.NotFoundOrError(err, „pobierz etykietę według identyfikatora”)
+wrócić
+}
+
+// ❌ Brak walidacji: l.RepoID != c.Repo.Repository.ID
+l.Nazwa = f.Tytuł
+l.Kolor = f.Kolor
+jeśli błąd:= baza danych.UpdateLabel(l);błąd!= zero {
+c.Error(err, "aktualizuj etykietę")
+wrócić
+}
+c.RawRedirect(c.Repo.MakeURL("etykiety"))
+}
+```
+
+**Główna przyczyna**:
+
+1. Funkcja wywołuje `database.GetLabelByID(f.ID)`, która wewnętrznie przekazuje `repoID=0` do warstwy ORM
+2. Zgodnie z komentarzami do kodu w `internal/database/issue_label.go:147-166`, przekazanie `repoID=0` powoduje, że ORM ignoruje ograniczenia repozytorium
+3. Żadna walidacja nie sprawdza, czy `l.RepoID == c.Repo.Repository.ID` przed aktualizacją
+4. Oprogramowanie pośrednie „reqRepoWriter()” sprawdza jedynie dostęp do zapisu w repozytorium w ścieżce URL, a nie w rzeczywistym repozytorium etykiety
+
+**Niezgodność z innymi funkcjami**:
+
++ `NewLabel`: Poprawnie ustawia `RepoID = c.Repo.Repository.ID`
++ `DeleteLabel`: Poprawnie używa `database.DeleteLabel(c.Repo.Repository.ID, id)`
++ API `EditLabel`: Poprawnie używa `database.GetLabelOfRepoByID(c.Repo.Repository.ID, id)`
+
+- ****Tylko „UpdateLabel” w ****interfejsie internetowym**** używa wzorca podatnego na ataki****
+
+### **PoC**
+**Warunki wstępne**:
+
++ Dwa konta użytkowników: Alice (napastnik) i Bob (ofiara)
++ alice ma pisemny dostęp do repo-a
++ Bob jest właścicielem repo-b z etykietami
+
+**Krok 1: Zidentyfikuj identyfikator etykiety docelowej**
+
+1. Zaloguj się jako bob, przejdź do bob/repo-b/labels
+2. Otwórz przeglądarkę DevTools (F12) → zakładka Sieć
+3. Kliknij opcję edycji na dowolnej etykiecie
+4. Zwróć uwagę na dane formularza: id=&lt;LABEL_ID&gt;
+5. Przykład: id=1
+
+**Krok 2: Wykonaj atak**
+
+„zwykły
+# Zaloguj się jako Alicja, uzyskaj plik cookie sesji
+# Otwórz DevTools → Aplikacja → Ciasteczka → i_like_gogs
+# Skopiuj wartość pliku cookie
+
+# Wyślij złośliwe żądanie
+curl -X POST "http://localhost:3000/alice/repo-a/labels/edit" \
+-H "Plik cookie: i_like_gogs=&lt;ALICE_SESSION_COOKIE&gt;" \
+-H "Typ zawartości: aplikacja/x-www-form-urlencoded" \
+-d "id=1&amp;title=HAKOWANY PRZEZ-ALICE&amp;color=%23000000"
+
+# Oczekiwana odpowiedź: Znaleziono 302 (przekierowanie)
+```
+
+**Krok 3: Zweryfikuj wpływ**
+
+1. Zaloguj się jako bob
+2. Przejdź do bob/repo-b/labels
+3. Zwróć uwagę: Etykieta „P0-Krytyczny” to teraz „HACKED-BY-ALICE” w kolorze czarnym
+
+### **Wpływ**
+1. **Zakłócenie w klasyfikacji problemu**: Zmodyfikuj etykiety krytyczne (np. „P0-Krytyczny” → „P3-Niski”), powodując utratę priorytetu pilnych problemów
+
+2. **Ukrywanie problemów związanych z bezpieczeństwem**: Zmień etykiety „bezpieczeństwa” na „dokumentacja”, aby ukryć raporty o lukach w zabezpieczeniach przed zespołami ds. bezpieczeństwa
+
+3. **Przepływ pracy**** Sabotaż**: Zmień etykiety używane w automatyzacji CI/CD, zakłócając potoki wdrażania
+
+4. **Masowe zakłócenie**: Wsadowa modyfikacja wszystkich etykiet w wielu repozytoriach przy użyciu wyliczania identyfikatorów
+
+**Zalecana poprawka**:
+
+„zwykły
+func UpdateLabel(c *context.Context, f form.CreateLabel) {
+l, err := baza danych.GetLabelOfRepoByID(c.Repo.Repository.ID, f.ID)
+jeśli błąd!= zero {
+c.NotFoundOrError(err, "pobierz etykietę repozytorium według identyfikatora")
+wrócić
+}
+// Teraz własność etykiety jest sprawdzana w warstwie bazy danych
+l.Nazwa = f.Tytuł
+l.Kolor = f.Kolor
+jeśli błąd:= baza danych.UpdateLabel(l);błąd!= zero {
+c.Error(err, "aktualizuj etykietę")
+wrócić
+}
+c.RawRedirect(c.Repo.MakeURL("etykiety"))
+}
+```</description></item><item><title>CVE-2026-25120</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25120</link><pubDate>Tue, 17 Feb 2026 18:40:44 +0000</pubDate><description># IDOR: Usuwanie komentarzy między repozytoriami za pomocą opcji DeleteComment
+
+## Podsumowanie
+
+Punkt końcowy `POST /:owner/:repo/issues/comments/:id/delete` nie sprawdza, czy komentarz należy do repozytorium określonego w adresie URL.Umożliwia to administratorowi repozytorium usuwanie komentarzy z dowolnego innego repozytorium poprzez podanie dowolnego identyfikatora komentarza z pominięciem kontroli autoryzacji.
+
+## Szczegóły luki w zabezpieczeniach
+
+|Pole |Wartość |
+|-------|-------|
+|Dotknięty plik |`internal/route/repo/issue.go` |
+|Dotknięta funkcja |`DeleteComment` (linie 955-968) |
+|Plik dodatkowy |`wewnętrzna/baza danych/komentarz.go` |
+|Funkcja drugorzędna |`DeleteCommentByID` (linie 505-520) |
+
+## Główna przyczyna
+
+Luka wynika z niewystarczającej weryfikacji autoryzacji w procesie usuwania komentarzy:
+
+### 1. Brak własności repozytorium Sprawdź w Usuń komentarz
+
+W `internal/route/repo/issue.go` funkcja pobiera komentarz według identyfikatora bez weryfikacji własności repozytorium:
+
+idź
+func UsuńKomentarz(c *kontekst.Kontekst) {
+komentarz, błąd := baza danych.GetCommentByID(c.ParamsInt64(:id"))
+jeśli błąd!= zero {
+c.NotFoundOrError(err, „pobierz komentarz według identyfikatora”)
+wrócić
+}
+
+// Sprawdza tylko, czy użytkownik jest autorem komentarza LUB administratorem BIEŻĄCEGO repozytorium (z adresu URL)
+if c.UserID() != komentarz.PosterID &amp;&amp; !c.Repo.IsAdmin() {
+c.Nie znaleziono()
+wrócić
+} else jeśli komentarz.Typ != baza danych.CommentTypeComment {
+c.Status(http.StatusNoContent)
+wrócić
+}
+
+// Brak weryfikacji, czy komentarz.IssueID należy do c.Repo.Repository.ID!
+if err = baza danych.DeleteCommentByID(c.User, komentarz.ID);błąd!= zero {
+c.Error(err, "usuń komentarz według identyfikatora")
+wrócić
+}
+
+c.Stan(http.StanOK)
+}
+```
+
+### 2. Warstwa bazy danych nie przeprowadza autoryzacji
+
+W `internal/database/comment.go` funkcja usuwania nie sprawdza poprawności repozytorium:
+
+idź
+func DeleteCommentByID(wykonawca *Użytkownik, id int64) błąd {
+komentarz, błąd := GetCommentByID(id)
+jeśli błąd!= zero {
+if IsErrCommentNotExist(err) {
+zwróć zero
+}
+wróć błąd
+}
+
+// Usuwa bezpośrednio bez sprawdzania własności repozytorium
+sesja := x.NowaSesja()
+odrocz sesję.Close()
+if err = sess.Begin();błąd!= zero {
+wróć błąd
+}
+
+if _, err = sess.ID(komentarz.ID).Delete(nowy(Komentarz));błąd!= zero {
+// ...
+}
+// ...
+}
+```
+
+## Dowód koncepcji
+
+### Warunki wstępne
+
+1. Dwóch użytkowników: **Alice** (napastnik) i **Bob** (ofiara)
+2. Alice jest administratorem `lice/attacker-repo`
+3. Bob utworzył problem z komentarzem na temat `bob/victim-repo`
+4. Osoba atakująca musi uzyskać identyfikator komentarza z repozytorium ofiary (np. ID: 42)
+
+### Żądanie HTTP
+
+```http
+POST /alice/atttacker-repo/issues/comments/42/delete HTTP/1.1
+Gospodarz: gogs.example.com
+Plik cookie: i_like_gogs=&lt;alice_session_token&gt;
+
+```</description></item><item><title>CVE-2026-24764</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24764</link><pubDate>Tue, 17 Feb 2026 18:40:11 +0000</pubDate><description>## Podsumowanie
+Gdy włączona jest integracja ze Slackiem, metadane kanału Slack (temat/opis) można włączyć do zachęty systemowej modelu.
+
+## Wpływ
+Natychmiastowy zastrzyk stanowi udokumentowane ryzyko w przypadku systemów opartych na LLM.Ten problem zwiększył powierzchnię wstrzykiwania, umożliwiając traktowanie niezaufanych metadanych kanału Slack jako danych wejściowych systemu o wyższym poziomie zaufania.
+
+Dotyczy to tylko wdrożeń obsługujących Slack.We wdrożeniach, w których włączone jest wykonywanie narzędzi, pomyślne wstrzyknięcie może prowadzić do niezamierzonych wywołań narzędzi i/lub niezamierzonego ujawnienia danych.
+
+## Dotknięte pakiety/wersje
+- npm: `openclaw` &lt; 2026.2.3
+
+## Poprawione wersje
+- npm: `openclaw` &gt;= 2026.2.3
+
+## Łagodzenie
+- Jeśli nie korzystasz ze Slacka: nie jest wymagane żadne działanie.
+- Jeśli używasz Slacka: uaktualnij do wersji poprawionej.
+
+## Napraw zatwierdzenia
+-35eb40a7000b59085e9c638a80fd03917c7a095e
+
+Dziękuję @KonstantinMirin za zgłoszenie.</description></item><item><title>CVE-2025-36425</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36425</link><pubDate>Tue, 17 Feb 2026 18:32:58 +0000</pubDate><description>IBM Db2 dla systemów Linux, UNIX i Windows (w tym Db2 Connect Server) w wersjach od 11.5.0 do 11.5.9 i od 12.1.0 do 12.1.3 może umożliwić uwierzytelnionemu użytkownikowi uzyskanie poufnych informacji w ramach określonej konfiguracji HADR.</description></item><item><title>CVE-2025-14689</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-14689</link><pubDate>Tue, 17 Feb 2026 18:32:58 +0000</pubDate><description>IBM Db2 dla systemów Linux, UNIX i Windows (w tym Db2 Connect Server) w wersjach od 12.1.0 do 12.1.3 może pozwolić uwierzytelnionemu użytkownikowi na spowodowanie odmowy usługi z powodu nieprawidłowej neutralizacji specjalnych elementów logiki zapytań o dane z obiektami stowarzyszonymi.</description></item><item><title>CVE-2025-13867</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-13867</link><pubDate>Tue, 17 Feb 2026 18:32:57 +0000</pubDate><description>IBM Db2 dla systemów Linux, UNIX i Windows (w tym Db2 Connect Server) w wersjach od 11.5.0 do 11.5.9 i od 12.1.0 do 12.1.3 może pozwolić uwierzytelnionemu użytkownikowi na spowodowanie odmowy usługi z powodu niewłaściwej neutralizacji specjalnych elementów w logice zapytań o dane</description></item><item><title>CVE-2025-70830</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70830</link><pubDate>Tue, 17 Feb 2026 18:32:57 +0000</pubDate><description>Luka w zabezpieczeniach polegająca na wstrzykiwaniu szablonów po stronie serwera (SSTI) w silniku szablonów Freemarker w Dataart v1.0.0-rc.3 umożliwia uwierzytelnionym atakującym wykonanie dowolnego kodu poprzez wstrzyknięcie spreparowanej składni szablonu Freemarker do pola skryptu SQL.</description></item><item><title>CVE-2024-55271</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-55271</link><pubDate>Tue, 17 Feb 2026 18:32:57 +0000</pubDate><description>W phpgurukul Gym Management System 1.0 wykryto lukę w zabezpieczeniach typu Cross-Site Request Forgery (CSRF).Ten problem występuje w funkcjonalności aktualizacji profilu w Panelu Użytkownika, w szczególności w punkcie końcowym /profile.php.</description></item><item><title>CVE-2024-55270</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-55270</link><pubDate>Tue, 17 Feb 2026 18:32:57 +0000</pubDate><description>phpgurukul Student Management System 1.0 jest podatny na wstrzykiwanie SQL w studentms/admin/search.php poprzez parametr searchdata.</description></item><item><title>CVE-2025-36247</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-36247</link><pubDate>Tue, 17 Feb 2026 17:13:06 +0000</pubDate><description>IBM Db2 dla systemów Linux, UNIX i Windows (w tym Db2 Connect Server) w wersjach od 11.5.0 do 11.5.9 i od 12.1.0 do 12.1.3 jest podatny na atak polegający na wstrzyknięciu zewnętrznej jednostki XML (XXE) podczas przetwarzania danych XML.Osoba atakująca zdalnie może wykorzystać tę lukę w celu ujawnienia poufnych informacji lub wykorzystania zasobów pamięci.
 
 CVSS Score: 7.1 (high)</description></item><item><title>CVE-2026-24126</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24126</link><pubDate>Tue, 17 Feb 2026 16:37:55 +0000</pubDate><description>### Wpływ
 Konsola zarządzania SSH nie zweryfikowała przekazanych danych wejściowych podczas dodawania klucza hosta SSH, co może prowadzić do wstrzyknięcia argumentu do `ssh-add`.
@@ -15,7 +657,7 @@ Ten problem został nam zgłoszony przez [alexb_616](https://hackerone.com/alexb
 
 CVSS Score: 3.7 (low)</description></item><item><title>CVE-2026-23648</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23648</link><pubDate>Tue, 17 Feb 2026 16:30:33 +0000</pubDate><description>Systemy recyklingu Glory RBG-100 korzystające z komponentu oprogramowania ISPK-08 zawierają wiele systemowych plików binarnych ze zbyt liberalnymi uprawnieniami do plików.Kilka plików binarnych wykonywanych przez użytkownika root może być zapisywanych i wykonywanych przez nieuprzywilejowanych użytkowników lokalnych.Osoba atakująca z dostępem lokalnym może zastąpić lub zmodyfikować te pliki binarne, aby wykonać dowolne polecenia z uprawnieniami roota, umożliwiając lokalną eskalację uprawnień.</description></item><item><title>CVE-2026-23647</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23647</link><pubDate>Tue, 17 Feb 2026 16:30:06 +0000</pubDate><description>Systemy recyklingu Glory RBG-100 wykorzystujące komponent oprogramowania ISPK-08 zawierają zakodowane na stałe dane uwierzytelniające systemu operacyjnego, które umożliwiają zdalne uwierzytelnianie w podstawowym systemie Linux.Stwierdzono, że wiele kont użytkowników lokalnych, w tym konta z uprawnieniami administracyjnymi, ma stałe, osadzone hasła.Osoba atakująca mająca dostęp sieciowy do ujawnionych usług, takich jak SSH, może uwierzytelnić się przy użyciu tych poświadczeń i uzyskać nieautoryzowany dostęp do systemu.Pomyślne wykorzystanie umożliwia zdalny dostęp z podwyższonymi uprawnieniami i może skutkować pełnym naruszeniem bezpieczeństwa systemu.</description></item><item><title>CVE-2026-2617</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2617</link><pubDate>Tue, 17 Feb 2026 15:32:06 +0000</pubDate><description>W Beetel 777VR1 do 01.00.09 odkryto lukę.Problem dotyczy nieznanej funkcji w komponencie Usługa Telnet/Usługa SSH.Manipulacja powoduje niebezpieczną domyślną inicjalizację zasobu.Atak może zostać przeprowadzony wyłącznie z sieci lokalnej.Exploit został upubliczniony i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
-CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-2608</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2608</link><pubDate>Tue, 17 Feb 2026 12:31:08 +0000</pubDate><description>Wtyczka Kadence Blocks — Page Builder Toolkit for Gutenberg Editor dla WordPress jest podatna na nieautoryzowany dostęp z powodu braku kontroli możliwości funkcji we wszystkich wersjach aż do 3.5.32 włącznie.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie Kontrybutora i wyższym mogą wykonać nieautoryzowane działanie.</description></item><item><title>CVE-2026-2247</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2247</link><pubDate>Tue, 17 Feb 2026 12:31:07 +0000</pubDate><description>Luka w zabezpieczeniach polegająca na wstrzykiwaniu kodu SQL (SQLi) w Clicldeu SaaS, szczególnie przy generowaniu raportów, która pojawia się, gdy wcześniej uwierzytelniona osoba atakująca zdalnie wykonuje złośliwy ładunek w adresie URL wygenerowanym po pobraniu karty raportu ucznia w sekcji „Codzienne” z aplikacji mobilnej.
+CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2025-70829</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-70829</link><pubDate>Tue, 17 Feb 2026 15:31:35 +0000</pubDate><description>Luka w zabezpieczeniach Dataart v1.0.0-rc.3 umożliwiająca ujawnienie informacji umożliwia uwierzytelnionym atakującym dostęp do poufnych danych za pośrednictwem niestandardowego ciągu połączenia H2 JDBC.</description></item><item><title>CVE-2026-2608</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2608</link><pubDate>Tue, 17 Feb 2026 12:31:08 +0000</pubDate><description>Wtyczka Kadence Blocks — Page Builder Toolkit for Gutenberg Editor dla WordPress jest podatna na nieautoryzowany dostęp z powodu braku kontroli możliwości funkcji we wszystkich wersjach aż do 3.5.32 włącznie.Dzięki temu uwierzytelnieni atakujący z dostępem na poziomie Kontrybutora i wyższym mogą wykonać nieautoryzowane działanie.</description></item><item><title>CVE-2026-2247</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2247</link><pubDate>Tue, 17 Feb 2026 12:31:07 +0000</pubDate><description>Luka w zabezpieczeniach polegająca na wstrzykiwaniu kodu SQL (SQLi) w Clicldeu SaaS, szczególnie przy generowaniu raportów, która pojawia się, gdy wcześniej uwierzytelniona osoba atakująca zdalnie wykonuje złośliwy ładunek w adresie URL wygenerowanym po pobraniu karty raportu ucznia w sekcji „Codzienne” z aplikacji mobilnej.
 
 W adresie URL wygenerowanego pliku PDF zastosowany token sesji nie wygasa, zatem pozostaje ważny przez kilka dni po jego wygenerowaniu, a po parametrze „id_alu” można wpisać nietypowe znaki, co skutkuje dwoma rodzajami SQLi: ślepą na podstawie wartości logicznych i niewidomą na podstawie czasu.Wykorzystanie tej luki może umożliwić osobie atakującej dostęp do poufnych informacji w bazie danych.</description></item><item><title>CVE-2025-7631</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-7631</link><pubDate>Tue, 17 Feb 2026 12:31:07 +0000</pubDate><description>Luka w zabezpieczeniach nieprawidłowej neutralizacji elementów specjalnych używanych w poleceniu SQL („wstrzyknięcie SQL”) w oprogramowaniu Tumeva Internet Technologies Information Advertising and Consulting Services Trade Ltd. Co. Tumeva News Software umożliwia wstrzykiwanie SQL. Ten problem dotyczy oprogramowania Tumeva News Software: do numeru 17022026. UWAGA: ze sprzedawcą skontaktowano się wcześniej w sprawie tego ujawnienia, ale nie odpowiedział on w żaden sposób.</description></item><item><title>CVE-2025-8303</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-8303</link><pubDate>Tue, 17 Feb 2026 12:31:07 +0000</pubDate><description>Luka w zabezpieczeniach nieprawidłowej neutralizacji danych wejściowych podczas generowania strony internetowej (XSS lub „Cross-site Scripting”) w oprogramowaniu EKA Computer Information Advertising Services Ltd. Skrypt nieruchomości w wersji 5 (z modułem dopingowym – moduł sklepu – nowy system językowy) umożliwia obsługę skryptów między witrynami (XSS). Ten problem dotyczy skryptu nieruchomości w wersji 5 (z modułem dopingowym – modułem sklepu – nowy system językowy): do 17022026.
 
@@ -2695,7 +3337,9 @@ CVSS Score: 7.2 (high)</description></item><item><title>CVE-2026-2203</title><li
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-2202</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2202</link><pubDate>Mon, 09 Feb 2026 01:32:09 +0000</pubDate><description>W Tenda AC8 16.03.33.05 została wykryta luka.Dotknięta jest funkcja fromSetWifiGusetBasic w pliku /goform/WifiGuestSet komponentu httpd.Manipulacja argumentem shareSpeed ​​powoduje przepełnienie bufora.Atak może zostać przeprowadzony zdalnie.Exploit jest teraz publiczny i można go wykorzystać.
 
-CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-2193</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2193</link><pubDate>Sun, 08 Feb 2026 23:02:11 +0000</pubDate><description>W D-Link DI-7100G C1 24.04.18D1 została wykryta podatność.Problemem dotknięta jest funkcja set_jhttpd_info.Manipulacja argumentem nazwa_użytkownika usb powoduje wstrzyknięcie polecenia.Możliwe jest zdalne wykorzystanie ataku.
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-2200</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2200</link><pubDate>Mon, 09 Feb 2026 01:02:05 +0000</pubDate><description>W heyewei JFinalCMS 5.0.0 wykryto słabość.Dotyczy to nieznanej funkcji pliku /admin/admin/save komponentu API Endpoint.Wykonanie manipulacji może prowadzić do wykonywania skryptów krzyżowych.Atak może zostać przeprowadzony zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.
+
+CVSS Score: 2.4 (low)</description></item><item><title>CVE-2026-2193</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2193</link><pubDate>Sun, 08 Feb 2026 23:02:11 +0000</pubDate><description>W D-Link DI-7100G C1 24.04.18D1 została wykryta podatność.Problemem dotknięta jest funkcja set_jhttpd_info.Manipulacja argumentem nazwa_użytkownika usb powoduje wstrzyknięcie polecenia.Możliwe jest zdalne wykorzystanie ataku.
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-2192</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2192</link><pubDate>Sun, 08 Feb 2026 23:02:07 +0000</pubDate><description>W Tenda AC9 15.03.06.42_multi została wykryta luka w zabezpieczeniach.Podatnością dotknięta jest funkcja formGetRebootTimer.Taka manipulacja argumentem sys.schedulereboot.start_time/sys.schedulereboot.end_time prowadzi do przepełnienia bufora stosu.Atak może zostać przeprowadzony zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
 
