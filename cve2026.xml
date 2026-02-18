@@ -1,5 +1,282 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-1344</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1344</link><pubDate>Tue, 17 Feb 2026 23:43:30 +0000</pubDate><description>Tanium rozwiązało lukę w zabezpieczeniach dostępu do niebezpiecznych plików w portalu Enforce Recovery Key Portal.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-26960</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26960</link><pubDate>Wed, 18 Feb 2026 00:57:13 +0000</pubDate><description>### Podsumowanie
+`tar.extract()` w węźle `tar` umożliwia archiwum kontrolowanemu przez atakującego utworzenie twardego dowiązania w katalogu ekstrakcji, które wskazuje plik poza katalogiem głównym ekstrakcji, przy użyciu opcji domyślnych.
+
+Umożliwia to **dowolny odczyt i zapis pliku** jako użytkownik rozpakowujący (bez roota, bez chmod, bez `preservePaths`).
+
+Ważność jest wysoka, ponieważ prymityw omija zabezpieczenia ścieżek i zamienia wyodrębnianie archiwum w prymityw bezpośredniego dostępu do systemu plików.
+
+### Szczegóły
+Łańcuch obejścia wykorzystuje dwa dowiązania symboliczne i jedno łącze twarde:
+
+1. `a/b/c/w górę -&gt; ../..`
+2. `a/b/ucieczka -&gt; c/w górę/../..`
+3. `exfil` (hardlink) -&gt; `a/b/escape/&lt;cel-względny-rodzica-ekstraktu&gt;`
+
+Dlaczego to działa:
+
+- Sprawdzanie ścieżki łącza opiera się na ciągach znaków i nie rozwiązuje dowiązań symbolicznych na dysku ze względu na bezpieczeństwo docelowego łącza twardego.
+- Zobacz logikę `STRIPABSOLUTEPATH` w:
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/unpack.js:255`
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/unpack.js:268`
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/unpack.js:281`
+
+- Ekstrakcja twardego łącza rozpoznaje cel jako `path.resolve(cwd, Entry.linkpath)`, a następnie wywołuje `fs.link(target, Destination)`.
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/unpack.js:566`
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/unpack.js:567`
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/unpack.js:703`
+
+- Kontrole bezpieczeństwa katalogu nadrzędnego (`mkdir` + wykrywanie dowiązania symbolicznego) są stosowane do ścieżki docelowej wyodrębnionego wpisu, a nie do ustalonej ścieżki docelowej twardego łącza.
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/unpack.js:617`
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/unpack.js:619`
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/mkdir.js:27`
+- `../tar-audit-setuid - CVE/node_modules/tar/dist/commonjs/mkdir.js:101`
+
+W rezultacie plik `exfil` jest tworzony w katalogu głównym ekstrakcji, ale jest powiązany z plikiem zewnętrznym.PoC potwierdza współdzielony i-węzeł oraz pomyślny odczyt i zapis poprzez `exfil`.
+
+### PoC
+[hardlink.js](https://github.com/user-attachments/files/25240082/hardlink.js)
+Środowisko użyte do walidacji:
+
+- Węzeł: `v25.4.0`
+- tar: `7.5.7`
+- System operacyjny: macOS Darwin 25.2.0
+- Opcje wyodrębniania: domyślne (`tar.extract({file, cwd })`)
+
+Kroki:
+
+1. Przygotuj/zlokalizuj moduł tar.Jeśli `require('tar')' nie jest dostępne lokalnie, ustaw `TAR_MODULE` na bezwzględną ścieżkę do katalogu pakietu tar.
+
+2. Uruchom:
+
+,,bicie
+TAR_MODULE="$(cd '../tar-audit-setuid - CVE/node_modules/tar' &amp;&amp; pwd)" węzeł hardlink.js
+```
+
+3. Oczekiwane słabe wyniki (kluczowe kwestie):
+
+```tekst
+same_inode=true
+czytaj_ok=prawda
+write_ok=prawda
+wynik=BEZPIECZNY
+```
+
+Interpretacja:
+
+- `same_inode=true`: wyodrębniony `exfil` i sekret zewnętrzny są tym samym obiektem pliku.
+- `read_ok=true`: czytanie `exfil` powoduje wyciek zawartości zewnętrznej.
+- `write_ok=true`: wpisanie `exfil` modyfikuje plik zewnętrzny.
+
+### Wpływ
+Typ luki:
+
+- Dowolny odczyt/zapis pliku poprzez pomieszanie ścieżki wyodrębniania archiwum i rozpoznawanie łączy.
+
+Na kogo wpływa:
+
+- Dowolna aplikacja/usługa, która wyodrębnia kontrolowane przez atakującego archiwa tar z domyślnymi ustawieniami węzła „tar”.
+- Zakres wpływu to uprawnienia użytkownika procesu wyodrębniającego.
+
+Potencjalne wyniki:
+
+- Czytaj poufne pliki dostępne dla użytkownika procesu.
+- Zastąp zapisywalne pliki poza katalogiem głównym.
+- Zwiększ wpływ w zależności od kontekstu wdrożenia (klucze, konfiguracje, skrypty, dane aplikacji).</description></item><item><title>CVE-2026-26957</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26957</link><pubDate>Wed, 18 Feb 2026 00:56:30 +0000</pubDate><description>**Data:** 2025-12-07
+**Luka:** Fałszowanie żądań po stronie serwera (SSRF)
+**Komponent:** Moduł webhooków
+
+## Podsumowanie wykonawcze
+W module LibreDesk Webhooks występuje krytyczna luka w zabezpieczeniach, która umożliwia uwierzytelnionemu „administratorowi aplikacji” złamanie zabezpieczeń podstawowej infrastruktury chmury lub wewnętrznej sieci firmowej, w której hostowana jest ta usługa.
+
+Aplikacja nie sprawdza docelowych adresów URL dla webhooków.Umożliwia to osobie atakującej zmuszenie serwera do wysyłania żądań HTTP do dowolnych wewnętrznych miejsc docelowych.
+
+## Potwierdzone wektory ataku
+
+### 1. Skanowanie portów wewnętrznych (mapowanie sieci)
+Osoby atakujące mogą mapować sieć wewnętrzną, obserwując różnicę między udanymi połączeniami a błędami połączenia.Działa to nawet wtedy, gdy treść odpowiedzi nie zostanie zwrócona.
+
+**Dowód wykorzystania (z dzienników serwera):**
+* **Otwarty port (8890)**: Serwer nawiązał pomyślne połączenie.
+```tekst
+timestamp=... poziom=info message="webhook dostarczony pomyślnie" ... status_code=200
+```
+* **Zamknięty port (8891)**: Serwer nie może się połączyć.
+```tekst
+timestamp=... poziom=komunikat o błędzie="dostarczenie webhooka nie powiodło się" ... error="...połącz: połączenie odrzucone"
+```
+
+**Wpływ**: osoba atakująca może zidentyfikować działające usługi (bazy danych, pamięci podręczne, aplikacje wewnętrzne) w sieci lokalnej (np. „localhost”, „192.168.x.x”).
+
+### 2. Wyciek informacji (w oparciu o błędy)
+Jeśli usługa wewnętrzna zwróci odpowiedź inną niż 2xx (np. 403 Forbidden, 404 Not Found, 500 Error), aplikacja **rejestruje pełną treść odpowiedzi**.
+
+**Dowód wykorzystania (z dzienników serwera):**
+```tekst
+timestamp=... poziom=komunikat o błędzie="dostarczenie elementu webhook nie powiodło się" ...
+odpowiedź="{\"secret_key\": \"xxx123\", \"rola\": \"administrator\"}"
+```
+
+**Wpływ**: osoba atakująca może wyodrębnić poufne dane, obierając za cel punkty końcowe zwracające błędy lub wymuszając błędy w usługach wewnętrznych.
+
+## Przyczyna techniczna
+1. **Weryfikacja brakujących danych wejściowych**: `cmd/webhooks.go` sprawdza tylko, czy adres URL jest pusty, a nie czy jest to prywatny adres IP.
+2. **Nieograniczony klient HTTP**: `internal/webhook/webhook.go` używa domyślnego `http.Client`, który podąża za przekierowaniami i łączy się z dowolnym adresem IP.
+3. **Rozszerzone rejestrowanie błędów**: aplikacja rejestruje pełną treść odpowiedzi w przypadku niepowodzenia, tworząc boczny kanał do ekstrakcji danych.
+
+## Wymagane działanie naprawcze
+Aby temu zapobiec, aplikacja musi wdrożyć **Defense in Depth**:
+
+1. **Weryfikacja danych wejściowych**: Blokuj adresy URL odpowiadające prywatnym zakresom adresów IP (RFC 1918) i adresom Link-Local.
+2. **Bezpieczny klient HTTP**: Użyj niestandardowego `http.Transport`, który weryfikuje docelowy adres IP *po* rozpoznaniu DNS, aby zapobiec atakom polegającym na ponownym wiązaniu DNS.</description></item><item><title>CVE-2026-26317</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26317</link><pubDate>Wed, 18 Feb 2026 00:53:59 +0000</pubDate><description>## Podsumowanie
+Trasy mutacji hosta lokalnego skierowane do przeglądarki akceptowały żądania przeglądarki pochodzące z różnych źródeł bez wyraźnej weryfikacji źródła/strony odsyłającej.Powiązanie pętli zwrotnej zmniejsza zdalne narażenie, ale nie zapobiega żądaniom inicjowanym przez przeglądarkę ze złośliwych źródeł.
+
+## Wpływ
+Złośliwa witryna internetowa może wywołać nieautoryzowane zmiany stanu w lokalnej płaszczyźnie kontrolnej przeglądarki OpenClaw ofiary (na przykład otwieranie kart, uruchamianie/zatrzymywanie przeglądarki, modyfikowanie pamięci/plików cookie), jeśli usługa kontroli przeglądarki jest osiągalna poprzez pętlę zwrotną w kontekście przeglądarki ofiary.
+
+## Dotknięte pakiety/wersje
+- openclaw (npm): &lt;= 2026.2.13
+- clawdbot (npm): &lt;= 2026.1.24-3
+
+## Szczegóły
+Serwery kontroli przeglądarki łączą się z pętlą zwrotną, ale ujawniają mutujące punkty końcowe HTTP bez osłony w stylu CSRF.Przeglądarki mogą wysyłać żądania cross-origin na adresy pętli zwrotnej;bez wyraźnej walidacji operacje zmiany stanu mogą zostać wyzwolone z źródła/referera bez sprzężenia zwrotnego.
+
+## Napraw
+Mutujące metody HTTP (POST/PUT/PATCH/DELETE) są odrzucane, gdy żądanie wskazuje źródło/stronę odsyłającą bez sprzężenia zwrotnego (lub „Sec-Fetch-Site: cross-site”).
+
+## Napraw zatwierdzenia
+- otwarty pazur/otwarty pazur: b566b09f81e2b704bf9398d8d97d5f7a90aa94c3
+
+## Obejścia/łagodzenia
+- Włącz autoryzację kontroli przeglądarki (token/hasło) i unikaj uruchamiania z wyłączoną autoryzacją.
+— Uaktualnij do wersji zawierającej poprawkę.
+
+## Kredyty
+- Reporter: @vincentkoc
+
+## Uwaga dotycząca procesu wydania
+`patched_versions` jest ustawione na planowaną wersję następnego wydania.Po opublikowaniu tej wersji npm poradnik powinien być gotowy do publikacji bez dalszych zmian.</description></item><item><title>CVE-2026-26323</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26323</link><pubDate>Wed, 18 Feb 2026 00:46:54 +0000</pubDate><description>### Podsumowanie
+Wstrzyknięcie polecenia do skryptu opiekuna/dev `scripts/update-clawtributors.ts`.
+
+### Wpływ
+Wpływa na współpracowników/opiekunów (lub CI), którzy uruchamiają `bun scripts/update-clawtributors.ts` w kasie źródłowej zawierającej wiadomość e-mail od autora złośliwego zatwierdzenia (np. spreparowane wartości `@users.noreply.github.com`).
+
+Nie ma to wpływu na normalne użycie CLI (`npm i -g openclaw`): ten skrypt nie jest częścią dostarczonego CLI i nie jest wykonywany podczas rutynowych operacji.
+
+### Wersje, których dotyczy problem
+- Pobieranie źródeł: tagi od `v2026.1.8` do `v2026.2.13` (włącznie)
+- Zakres wersji (ustrukturyzowany): `&gt;= 2026.1.8, &lt; 2026.2.14`
+
+### Szczegóły
+Skrypt uzyskał login GitHub z metadanych autora `git log` i interpolował je do polecenia powłoki (poprzez `execSync`).Złośliwy rekord zatwierdzenia może wstrzyknąć metaznaki powłoki i wykonać dowolne polecenia podczas uruchamiania skryptu.
+
+### Napraw
+- Napraw zatwierdzenie: `a429380e337152746031d290432a4b93aa553d55`
+- Planowana wersja łatki: `2026.2.14`
+
+### Kredyty
+Dziękujemy @scanleale i @MegaManSec (https://joshua.hu) z [zespołu badawczego AISLE] (https://aisle.com/) za zgłoszenie.</description></item><item><title>CVE-2026-26329</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26329</link><pubDate>Wed, 18 Feb 2026 00:46:49 +0000</pubDate><description>## Podsumowanie
+
+Uwierzytelnieni atakujący mogą odczytać dowolne pliki z hosta bramy, podając ścieżki bezwzględne lub sekwencje przejścia ścieżek do akcji „prześlij” narzędzia przeglądarki.Serwer przekazał te ścieżki do interfejsów API `setInputFiles()` firmy Playwright, nie ograniczając ich do bezpiecznego katalogu głównego.
+
+Poziom ważności pozostaje **Wysoki** ze względu na wpływ (dowolny plik lokalny odczytany na hoście bramy), mimo że wykorzystanie wymaga uwierzytelnionego dostępu.
+
+## Możliwość wykorzystania / warunki wstępne
+
+To nie jest kwestia „przejazdu”.
+
+Atakujący musi:
+
+- Dotrzyj do powierzchni HTTP bramy (lub w inny sposób wywołaj te same punkty końcowe przechwytywania kontroli przeglądarki).
+- Przedstaw prawidłowe uwierzytelnienie bramy (token nośnika/hasło), zgodnie z wymaganiami konfiguracji bramy.
+- W typowych konfiguracjach domyślnych Brama łączy się z pętlą zwrotną, a kreator dołączania generuje token bramy nawet dla pętli zwrotnej.
+- Czy narzędzie „przeglądarka” jest dozwolone zgodnie z polityką narzędzia dla docelowej sesji/kontekstu (i ma włączoną obsługę przeglądarki).
+
+Jeśli operator udostępni bramkę poza pętlą zwrotną (LAN/sieć końcowa/niestandardowe połączenie, odwrotne proxy, tunele itp.), wpływ odpowiednio wzrasta.
+
+## Dotknięte pakiety/wersje
+
+- Pakiet: `openclaw` (npm)
+- Luka: `&lt; 2026.2.14` (obejmuje ostatnio opublikowaną wersję `2026.2.13`)
+- Poprawiono: `&gt;= 2026.2.14` (planowane następne wydanie)
+
+## Szczegóły
+
+**Punkty wejścia**:
+
+- `POST /tools/invoke` z `{"tool":"przeglądarką","akcją":"przesłaniem",...}`
+- `POST /hooks/file-chooser` (hak kontroli przeglądarki)
+
+Jeśli ścieżki przesyłania nie zostaną zweryfikowane, Playwright odczytuje wskazane pliki z lokalnego systemu plików i dołącza je do `&lt;input type="file"&gt;` na poziomie strony.Treść można następnie wyodrębnić za pomocą JavaScript strony (np. za pomocą `FileReader`) lub za pomocą migawek agenta/przeglądarki.
+
+Zagrożenie: odczytanie dowolnego pliku lokalnego na hoście Gateway (wpływ na poufność).
+
+## Napraw
+
+Ścieżki przesyłania są teraz ograniczone do tymczasowego katalogu głównego przesyłania OpenClaw (`DEFAULT_UPLOAD_DIR`), a ścieżki przejścia/ucieczki są odrzucane.
+
+Ta poprawka została wdrożona wewnętrznie;reporter przedstawił jasną analizę reprodukcji i wpływu.
+
+Napraw zatwierdzenia:
+
+- 3aa94afcfd12104c683c9cad81faf434d0dadf87
+
+Dziękuję @p80n-sec za zgłoszenie.</description></item><item><title>CVE-2026-26328</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26328</link><pubDate>Wed, 18 Feb 2026 00:43:54 +0000</pubDate><description>## Podsumowanie
+W iMessage „groupPolicy=allowlist” autoryzacja grupy może być realizowana poprzez tożsamość nadawców pochodzącą z magazynu parowania DM, poszerzając zaufanie DM na konteksty grupowe.
+
+## Szczegóły
+Dotknięty komponent: `src/imessage/monitor/monitor-provider.ts`.
+
+Luka w zabezpieczeniach wywodzi się z `efektywnejGroupAllowFrom` przy użyciu zarówno statycznej listy dozwolonych grup, jak i tożsamości sklepu z parami DM (`storeAllowFrom`).Pozwoliło to nadawcy zatwierdzonemu przez parowanie DM na spełnienie autoryzacji grupowej w grupach, nawet jeśli nadawca/czat nie był jawnie obecny w `groupAllowFrom`.
+
+Osłabia to separację granic między parowaniem DM a autoryzacją na liście dozwolonych grup.
+
+## Dotknięte pakiety/wersje
+- `openclaw` (npm): dotyczy `&lt;= 2026.2.13`
+- `clawdbot` (npm): wpływ `&lt;= 2026.1.24-3`
+
+## Napraw zatwierdzenia
+- `openclaw/openclaw@872079d42fe105ece2900a1dd6ab321b92da2d59`
+- `openclaw/openclaw@90d1e9cd71419168b2faa54a759b124a3eacfae7`
+
+Dziękuję @vincentkoc za zgłoszenie.</description></item><item><title>CVE-2026-26327</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26327</link><pubDate>Wed, 18 Feb 2026 00:33:35 +0000</pubDate><description>## Podsumowanie
+
+Sygnały nawigacyjne wykrywania (Bonjour/mDNS i DNS-SD) obejmują rekordy TXT, takie jak `lanHost`, `tailnetDns`, `gatewayPort` i `gatewayTlsSha256`.Rekordy TXT są nieuwierzytelnione.
+
+Przed poprawką niektórzy klienci traktowali wartości TXT jako wiarygodne dane wejściowe dotyczące routingu/przypinania:
+
+- iOS i macOS: użyto wskazówek hosta dostarczonych przez TXT (`lanHost`/`tailnetDns`) i portów (`gatewayPort`) do zbudowania adresu URL połączenia.
+- iOS i Android: umożliwiły odciskowi palca TLS dostarczonemu przez wykrywanie (`gatewayTlsSha256`) zastąpienie wcześniej zapisanego kodu PIN TLS.
+
+We współdzielonej/niezaufanej sieci LAN osoba atakująca może zareklamować fałszywą usługę `_openclaw-gw._tcp`.Może to spowodować, że klient połączy się z punktem końcowym kontrolowanym przez osobę atakującą i/lub zaakceptuje certyfikat atakującego, potencjalnie wydobywając poświadczenia bramy („auth.token” / „auth.password”) podczas połączenia.
+
+## Dystrybucja/ekspozycja
+
+Aplikacje na iOS i Androida są obecnie w wersji alfa/nie są powszechnie dostarczane (brak publicznej wersji w App Store/Play Store).Praktyczny wpływ ogranicza się głównie do programistów/testerów obsługujących te kompilacje, a także innych dostarczonych klientów polegających na wykrywaniu we współdzielonej/niezaufanej sieci LAN.
+
+CVSS może być nadal używany do określania technicznej (podstawowej) ważności błędu;ograniczona dystrybucja wpływa przede wszystkim na ryzyko dla środowiska.
+
+## Dotknięte pakiety/wersje
+
+- Pakiet: `openclaw` (npm)
+- Dotknięty problem: `&lt;= 2026.2.13` (ostatnia publikacja na npm z dnia 14.02.2026 r.)
+- Poprawiony: planowany na `&gt;= 2026.2.14` (jeszcze nieopublikowany w momencie pisania)
+
+## Napraw
+
+— Klienci wolą teraz rozwiązany punkt końcowy usługi (SRV + A/AAAA) niż wskazówki dotyczące routingu dostarczane przez TXT.
+- Odciski palców dostarczone przez Discovery nie zastępują już zapisanych kodów PIN TLS.
+- iOS/Android: piny TLS po raz pierwszy wymagają wyraźnego potwierdzenia użytkownika (pokazany jest odcisk palca; brak cichego TOFU).
+- iOS/Android: bezpośrednie połączenia oparte na wykrywaniu są obsługiwane wyłącznie przez TLS.
+- Android: weryfikacja nazwy hosta nie jest już wyłączona globalnie (pomijana tylko podczas przypinania).
+
+## Napraw zatwierdzenia
+
+- d583782ee322a6faa1fe87ae52455e0d349de586
+
+## Kredyty
+
+Dziękuję @simecek za zgłoszenie.</description></item><item><title>CVE-2025-33088</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33088</link><pubDate>Wed, 18 Feb 2026 00:30:16 +0000</pubDate><description>IBM Concert 1.0.0 do 2.1.0 może umożliwić użytkownikowi lokalnemu posiadającemu konkretną wiedzę na temat architektury systemu eskalację swoich uprawnień z powodu nieprawidłowych uprawnień do plików dotyczących krytycznych zasobów.</description></item><item><title>CVE-2026-22048</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-22048</link><pubDate>Wed, 18 Feb 2026 00:30:16 +0000</pubDate><description>Wersje StorageGRID (dawniej StorageGRID Webscale) starsze niż 11.9.0.12 i 12.0.0.4 z włączonym logowaniem jednokrotnym i skonfigurowane do używania Microsoft Entra ID (dawniej Azure AD) jako dostawcy tożsamości są podatne na lukę w zabezpieczeniach polegającą na fałszowaniu żądań po stronie serwera (SSRF).Udany exploit może umożliwić uwierzytelnionemu atakującemu z niskimi uprawnieniami usunięcie danych konfiguracyjnych lub odmowę dostępu do niektórych zasobów.</description></item><item><title>CVE-2026-2627</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2627</link><pubDate>Wed, 18 Feb 2026 00:30:16 +0000</pubDate><description>W Softland FBackup do wersji 9.9 wykryto lukę w zabezpieczeniach.Ma to wpływ na nieznaną funkcję w bibliotece C:\Program Files\Common Files\microsoftshared\ink\HID.dll komponentu Backup/Restore.Manipulacja skutkuje następującym linkiem.Do ataku należy podejść lokalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.</description></item><item><title>CVE-2026-1344</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-1344</link><pubDate>Tue, 17 Feb 2026 23:43:30 +0000</pubDate><description>Tanium rozwiązało lukę w zabezpieczeniach dostępu do niebezpiecznych plików w portalu Enforce Recovery Key Portal.
 
 CVSS Score: 6.5 (medium)</description></item><item><title>CVE-2026-26119</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26119</link><pubDate>Tue, 17 Feb 2026 22:56:03 +0000</pubDate><description>
 
