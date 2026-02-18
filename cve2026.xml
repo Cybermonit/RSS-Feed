@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-26960</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26960</link><pubDate>Wed, 18 Feb 2026 00:57:13 +0000</pubDate><description>### Podsumowanie
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-27171</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-27171</link><pubDate>Wed, 18 Feb 2026 02:36:19 +0000</pubDate><description>zlib przed wersją 1.3.2 umożliwia wykorzystanie procesora przez crc32_combine64 i crc32_combine_gen64, ponieważ x2nmodp może wykonywać przesunięcia w prawo w pętli, która nie ma warunku zakończenia.
+
+CVSS Score: 2.9 (low)</description></item><item><title>CVE-2026-26960</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26960</link><pubDate>Wed, 18 Feb 2026 00:57:13 +0000</pubDate><description>### Podsumowanie
 `tar.extract()` w węźle `tar` umożliwia archiwum kontrolowanemu przez atakującego utworzenie twardego dowiązania w katalogu ekstrakcji, które wskazuje plik poza katalogiem głównym ekstrakcji, przy użyciu opcji domyślnych.
 
 Umożliwia to **dowolny odczyt i zapis pliku** jako użytkownik rozpakowujący (bez roota, bez chmod, bez `preservePaths`).
