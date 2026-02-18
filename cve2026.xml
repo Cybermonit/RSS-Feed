@@ -1,5 +1,89 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2656</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2656</link><pubDate>Wed, 18 Feb 2026 14:32:07 +0000</pubDate><description>Znaleziono błąd w ChaiScript do wersji 6.1.0.Ma to wpływ na funkcję chaiscript::Type_Info::bare_equal pliku include/chaiscript/dispatchkit/type_info.hpp.Ta manipulacja powoduje użycie po free.Atak wymaga dostępu lokalnego.Złożoność ataku została oceniona jako wysoka.Możliwość wykorzystania jest określana jako trudna.Exploit został opublikowany i może zostać wykorzystany.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2019-25401</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25401</link><pubDate>Wed, 18 Feb 2026 21:55:11 +0000</pubDate><description>Drukarka Bematech (dawniej Logic Controls, obecnie Elgin) MP-4200 TH zawiera lukę w zabezpieczeniach umożliwiającą odmowę usługi na stronie konfiguracji administratora.Zdalni atakujący mogą wysyłać spreparowane żądania POST ze źle sformułowanymi parametrami „admin” i „person”, aby spowodować awarię usługi internetowej drukarki, powodując stan odmowy usługi.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25365</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25365</link><pubDate>Wed, 18 Feb 2026 21:55:11 +0000</pubDate><description>ChaosPro 2.0 zawiera lukę w zabezpieczeniach związaną z przepełnieniem bufora w obsłudze ścieżki pliku konfiguracyjnego, która umożliwia atakującym wykonanie dowolnego kodu poprzez nadpisanie procedury obsługi wyjątków strukturalnych.Osoby atakujące mogą utworzyć złośliwy plik konfiguracyjny ze starannie skonstruowanym ładunkiem w celu nadpisania pamięci i uzyskania zdalnego wykonania kodu w systemach Windows XP podatnych na ataki.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2019-25364</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25364</link><pubDate>Wed, 18 Feb 2026 21:55:10 +0000</pubDate><description>MailCarrier 2.51 zawiera lukę w zabezpieczeniach związaną z przepełnieniem bufora w poleceniu POP3 USER, która umożliwia zdalnym atakującym wykonanie dowolnego kodu.Osoby atakujące mogą wysłać spreparowany, zbyt duży bufor do usługi POP3, nadpisując pamięć i potencjalnie uzyskując zdalny dostęp do systemu.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2019-25363</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25363</link><pubDate>Wed, 18 Feb 2026 21:55:09 +0000</pubDate><description>WMV to AVI MPEG DVD WMV Converter 4.6.1217 zawiera lukę w zabezpieczeniach związaną z przepełnieniem bufora, która umożliwia atakującym zawieszenie aplikacji poprzez podanie zbyt dużych danych wejściowych licencji.Atakujący mogą wygenerować 6000-bajtowy ładunek i wkleić go w polu „Nazwa licencji i kod licencji”, aby wywołać awarię aplikacji.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25362</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25362</link><pubDate>Wed, 18 Feb 2026 21:55:08 +0000</pubDate><description>WMV to AVI MPEG DVD WMV Convertor 4.6.1217 zawiera lukę w zabezpieczeniach związaną z przepełnieniem bufora, która umożliwia atakującym wykonanie dowolnego kodu poprzez nadpisanie pól nazwy licencji i kodu licencji.Atakujący mogą stworzyć szkodliwy ładunek o rozmiarze 6000 bajtów, aby uruchomić powłokę wiązania na porcie 4444, wykorzystując przepełnienie bufora opartego na stosie w obsłudze danych wejściowych aplikacji.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2019-25361</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25361</link><pubDate>Wed, 18 Feb 2026 21:55:07 +0000</pubDate><description>Klient NFTP Ayukov 1.71 zawiera lukę w zabezpieczeniach związaną z przepełnieniem bufora w obsłudze poleceń SYST, która umożliwia zdalnym atakującym wykonanie dowolnego kodu.Atakujący mogą wysłać specjalnie spreparowane polecenie SYST z nadmiernym ładunkiem, aby wywołać przepełnienie bufora i wykonać powłokę wiązania na porcie 5150.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2019-25360</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25360</link><pubDate>Wed, 18 Feb 2026 21:55:06 +0000</pubDate><description>Aida64 Engineer 6.10.5200 zawiera lukę w zabezpieczeniach związaną z przepełnieniem bufora w konfiguracji rejestrowania CSV, która umożliwia atakującym wykonanie złośliwego kodu poprzez utworzenie specjalnie zaprojektowanego ładunku.Osoby atakujące mogą wykorzystać tę lukę, tworząc zniekształcony plik dziennika ze starannie skonstruowanymi technikami nadpisywania SEH (Structured wyjątków) w celu zdalnego wykonania kodu.
+
+CVSS Score: 9.8 (critical)</description></item><item><title>CVE-2019-25359</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25359</link><pubDate>Wed, 18 Feb 2026 21:55:05 +0000</pubDate><description>Wersje SD.NET RIM starsze niż 4.7.3c zawierają lukę w zabezpieczeniach polegającą na wstrzykiwaniu kodu SQL, która umożliwia atakującym wstrzykiwanie złośliwych instrukcji SQL za pomocą parametrów POST „idtyp” i „idgremium”.Osoby atakujące mogą wykorzystać tę lukę, tworząc specjalnie utworzone żądania POST kierowane do punktu końcowego /vorlagen/, umożliwiając nieautoryzowaną manipulację bazami danych i potencjalne ujawnienie informacji.
+
+CVSS Score: 8.2 (high)</description></item><item><title>CVE-2019-25358</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25358</link><pubDate>Wed, 18 Feb 2026 21:55:04 +0000</pubDate><description>FileOptimizer 14.00.2524 zawiera lukę umożliwiającą odmowę usługi, która umożliwia atakującym zawieszenie aplikacji poprzez manipulację plikiem konfiguracyjnym FileOptimizer32.ini.Osoby atakujące mogą zastąpić parametr TempDirectory buforem o długości 5000 znaków, co spowoduje awarię aplikacji podczas otwierania opcji.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25357</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25357</link><pubDate>Wed, 18 Feb 2026 21:55:03 +0000</pubDate><description>Control Center PRO 6.2.9 zawiera lukę w zabezpieczeniach związaną z przepełnieniem bufora stosu w polu nazwy użytkownika modułu tworzenia użytkowników, która umożliwia atakującym nadpisanie procedury obsługi wyjątków strukturalnych (SEH).Atakujący mogą stworzyć szkodliwy ładunek przekraczający 664 bajty, aby wstrzyknąć kod powłoki i potencjalnie wykonać dowolny kod w podatnych na ataki systemach Windows.
+
+CVSS Score: 8.4 (high)</description></item><item><title>CVE-2019-25356</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25356</link><pubDate>Wed, 18 Feb 2026 21:55:02 +0000</pubDate><description>Drukarka Bematech (dawniej Logic Controls, obecnie Elgin) MP-4200 TH zawiera lukę w zabezpieczeniach związaną z wykonywaniem skryptów krzyżowych na stronie konfiguracji administratora.Atakujący mogą wstrzykiwać złośliwe skrypty za pośrednictwem spreparowanych żądań POST ze źle sformułowanymi parametrami „admin” i „person”, umożliwiając wykonanie dowolnego kodu JavaScript w kontekście sesji przeglądarki uwierzytelnionego użytkownika.
+
+CVSS Score: 6.1 (medium)</description></item><item><title>CVE-2019-25355</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25355</link><pubDate>Wed, 18 Feb 2026 21:55:01 +0000</pubDate><description>gSOAP 2.8 zawiera lukę w zabezpieczeniach związaną z przeglądaniem katalogów, która umożliwia nieuwierzytelnionym atakującym dostęp do plików systemowych poprzez manipulowanie technikami przeglądania ścieżek HTTP.Atakujący mogą odzyskać poufne pliki, takie jak /etc/passwd, wysyłając spreparowane żądania GET z wieloma sekwencjami przeglądania katalogów „../”.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25354</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25354</link><pubDate>Wed, 18 Feb 2026 21:55:00 +0000</pubDate><description>iSmartViewPro 1.3.34 zawiera lukę umożliwiającą odmowę usługi, która umożliwia atakującym zawieszenie aplikacji poprzez przepełnienie pola wejściowego identyfikatora kamery.Atakujący mogą wkleić bufor o długości 257 znaków do pól DID i hasła kamery, aby wywołać awarię aplikacji na urządzeniach z systemem iOS.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25353</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25353</link><pubDate>Wed, 18 Feb 2026 21:54:59 +0000</pubDate><description>Foscam Video Management System 1.1.4.9 zawiera lukę w zabezpieczeniach umożliwiającą odmowę usługi w polu wprowadzania nazwy użytkownika, która umożliwia atakującym zawieszenie aplikacji.Atakujący mogą zastąpić nazwę użytkownika 520-bajtowym buforem składającym się z powtarzających się znaków „A”, aby spowodować awarię aplikacji podczas logowania się na urządzeniu.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25352</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25352</link><pubDate>Wed, 18 Feb 2026 21:54:58 +0000</pubDate><description>Serwer Crystal Live HTTP Server 6.01 zawiera lukę w zabezpieczeniach umożliwiającą przeglądanie katalogów, która umożliwia zdalnym atakującym dostęp do plików systemowych poprzez manipulowanie segmentami ścieżek URL.Osoby atakujące mogą użyć wielu sekwencji „../”, aby wyjść poza katalog główny i pobrać poufne pliki konfiguracyjne, takie jak pliki systemowe Windows.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25351</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25351</link><pubDate>Wed, 18 Feb 2026 21:54:57 +0000</pubDate><description>Centova Cast 3.2.11 zawiera lukę umożliwiającą pobieranie plików, która umożliwia uwierzytelnionym osobom atakującym pobranie dowolnych plików systemowych za pośrednictwem punktu końcowego API server.copyfile.Osoby atakujące mogą wykorzystać tę lukę, dostarczając spreparowane parametry w celu pobrania wrażliwych plików, takich jak /etc/passwd, za pomocą żądań curl i wget.
+
+CVSS Score: 8.8 (high)</description></item><item><title>CVE-2019-25350</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25350</link><pubDate>Wed, 18 Feb 2026 21:54:56 +0000</pubDate><description>XMedia Recode 3.4.8.6 zawiera lukę umożliwiającą odmowę usługi, która umożliwia atakującym zawieszenie aplikacji poprzez załadowanie specjalnie spreparowanego pliku listy odtwarzania .m3u.Osoby atakujące mogą utworzyć złośliwy plik .m3u z zbyt dużym buforem, aby spowodować awarię aplikacji po otwarciu pliku.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25349</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25349</link><pubDate>Wed, 18 Feb 2026 21:54:56 +0000</pubDate><description>ScadaApp dla iOS 1.1.4.0 zawiera lukę w zabezpieczeniach umożliwiającą odmowę usługi, która umożliwia atakującym zawieszenie aplikacji poprzez wprowadzenie zbyt dużego bufora w polu Nazwa serwera.Osoby atakujące mogą podczas logowania wkleić bufor o długości 257 znaków, aby spowodować awarię aplikacji na urządzeniach z systemem iOS.
+
+CVSS Score: 7.5 (high)</description></item><item><title>CVE-2019-25326</title><link>https://nvd.nist.gov/vuln/detail/CVE-2019-25326</link><pubDate>Wed, 18 Feb 2026 21:54:55 +0000</pubDate><description>ipPulse 1.92 zawiera lukę umożliwiającą odmowę usługi, która umożliwia lokalnym atakującym zawieszenie aplikacji poprzez wprowadzenie zbyt dużych danych wejściowych w polu Enter Key.Osoby atakujące mogą wygenerować 256-bajtowy bufor składający się z powtarzających się znaków „A”, aby wywołać awarię aplikacji podczas wklejania złośliwej zawartości.
+
+CVSS Score: 6.2 (medium)</description></item><item><title>CVE-2026-26280</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26280</link><pubDate>Wed, 18 Feb 2026 21:51:26 +0000</pubDate><description>### Podsumowanie
+Luka w zabezpieczeniach umożliwiająca wstrzykiwanie poleceń w funkcji `wifiNetworks()` umożliwia osobie atakującej wykonanie dowolnych poleceń systemu operacyjnego za pośrednictwem niezakażonego parametru interfejsu sieciowego w ścieżce kodu ponownej próby.
+
+### Szczegóły
+W `lib/wifi.js` funkcja `wifiNetworks()` oczyszcza parametr `iface` podczas pierwszego wywołania (linia 437).Jednakże, gdy początkowe skanowanie zwróci puste wyniki, ponowna próba `setTimeout` (wiersze 440-441) wywołuje metodę `getWifiNetworkListIw(iface)` z **oryginalną, niezatwierdzoną** wartością `iface`, która jest przekazywana bezpośrednio do `execSync('iwlist ${iface} scan')`.
+
+### PoC
+1. Zainstaluj `informacje o systemie@5.30.7`
+2. Wywołaj `si.wifiNetworks('eth0; id')'
+3. Pierwsze wywołanie oczyszcza dane wejściowe, ale jeśli wyniki są puste, ponowienie wykonuje: `iwlist eth0;skanowanie identyfikatora`
+
+### Wpływ
+Zdalne wykonanie kodu (RCE).Każda aplikacja przekazująca dane wejściowe kontrolowane przez użytkownika do `si.wifiNetworks()` jest podatna na wykonanie dowolnego polecenia z uprawnieniami procesu Node.js.</description></item><item><title>CVE-2026-26980</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26980</link><pubDate>Wed, 18 Feb 2026 21:50:23 +0000</pubDate><description>### Wpływ
+
+W interfejsie Ghost Content API istniała luka umożliwiająca wstrzykiwanie kodu SQL, która umożliwiała nieuwierzytelnionym atakującym odczytanie dowolnych danych z bazy danych.
+
+### Wersje podatne na ataki
+
+Luka ta występuje w Ghost w wersjach od 3.24.0 do 6.19.0.
+
+### Poprawki
+
+Wersja 6.19.1 zawiera poprawkę tego problemu.
+
+### Obejścia
+
+Nie ma obejścia na poziomie aplikacji.Klucz Content API jest z założenia publiczny, więc ograniczenie dostępu do klucza nie łagodzi tej luki.
+
+Jako tymczasowe rozwiązanie można zastosować odwrotne proxy lub regułę WAF do blokowania żądań Content API zawierających „slug%3A%5B” lub „slug:[” w parametrze filtru ciągu zapytania.Należy pamiętać, że może to spowodować uszkodzenie legalnej funkcjonalności filtra ślimakowego.
+
+### Referencje
+
+Dziękujemy Nicholasowi Carliniemu, korzystającemu z Claude, Anthropic, za odpowiedzialne ujawnienie tej luki.
+
+### Aby uzyskać więcej informacji
+Jeśli masz jakieś pytania lub uwagi dotyczące tego poradnika, napisz do nas na adres [security@ghost.org](mailto:security@ghost.org).</description></item><item><title>CVE-2026-26974</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26974</link><pubDate>Wed, 18 Feb 2026 21:45:06 +0000</pubDate><description>### Wpływ
+Jest to **luka umożliwiająca zdalne wykonanie kodu (RCE)**.Node.js automatycznie importuje pliki `**/*.plugin.{js,mjs}`, w tym te z `node_modules`, więc każdy złośliwy pakiet z plikiem `.plugin.js` może wykonać dowolny kod, gdy jest zainstalowany lub wymagany.**Dotyczy to wszystkich projektów korzystających z tego sposobu ładowania**, zwłaszcza tych instalujących niezaufane pakiety.
+
+### Poprawki
+Problem został **naprawiony w wersji 0.0.5**.Użytkownicy powinni dokonać aktualizacji do wersji **v0.0.5 lub nowszej**, aby ograniczyć lukę.
+
+### Obejścia
+- Kontroluj i ograniczaj, które pakiety są instalowane w `node_modules`.
+
+### Referencje
+- [CWE-94: Niewłaściwa kontrola generowania kodu](https://cwe.mitre.org/data/definitions/94.html)
+- Dokumentacja porad dotyczących bezpieczeństwa GitHub: [https://docs.github.com/en/code-security/security-advisories](https://docs.github.com/en/code-security/security-advisories)</description></item><item><title>CVE-2026-2650</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2650</link><pubDate>Wed, 18 Feb 2026 21:39:04 +0000</pubDate><description>Przepełnienie buforu sterty w multimediach w przeglądarce Google Chrome przed wersją 145.0.7632.109 umożliwiało zdalnemu atakującemu potencjalne wykorzystanie uszkodzenia sterty za pośrednictwem spreparowanej strony HTML.(Ważność zabezpieczeń Chromu: Średnia)</description></item><item><title>CVE-2026-2649</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2649</link><pubDate>Wed, 18 Feb 2026 21:39:03 +0000</pubDate><description>Przepełnienie liczb całkowitych w wersji 8 przeglądarki Google Chrome przed wersją 145.0.7632.109 umożliwiało zdalnemu atakującemu potencjalne wykorzystanie uszkodzenia sterty za pośrednictwem spreparowanej strony HTML.(Ważność zabezpieczeń Chromu: wysoka)</description></item><item><title>CVE-2026-2656</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2656</link><pubDate>Wed, 18 Feb 2026 14:32:07 +0000</pubDate><description>Znaleziono błąd w ChaiScript do wersji 6.1.0.Ma to wpływ na funkcję chaiscript::Type_Info::bare_equal pliku include/chaiscript/dispatchkit/type_info.hpp.Ta manipulacja powoduje użycie po free.Atak wymaga dostępu lokalnego.Złożoność ataku została oceniona jako wysoka.Możliwość wykorzystania jest określana jako trudna.Exploit został opublikowany i może zostać wykorzystany.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
 
 CVSS Score: 2.5 (low)</description></item><item><title>CVE-2026-23219</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23219</link><pubDate>Wed, 18 Feb 2026 14:21:57 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
