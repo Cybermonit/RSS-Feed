@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2961</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2961</link><pubDate>Mon, 23 Feb 2026 00:02:17 +0000</pubDate><description>W D-Link DWR-M960 1.01.07 została odkryta podatność.Ma to wpływ na funkcję sub_4196C4 pliku /boafrm/formVpnConfigSetup komponentu Punkt końcowy konfiguracji VPN.Manipulacja argumentem Submit-url prowadzi do przepełnienia bufora stosu.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-2965</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2965</link><pubDate>Mon, 23 Feb 2026 03:30:22 +0000</pubDate><description>W 07FLYCMS, 07FLY-CMS i 07FlyCRM do wersji 1.2.9 wykryto lukę w zabezpieczeniach.Elementem, którego dotyczy problem, jest nieznana funkcja w pliku /admin/SysModule/edit.html komponentu System Extension Module.Manipulacja argumentem Tytuł powoduje wystąpienie skryptów krzyżowych.Atak może zostać zainicjowany zdalnie.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Ten produkt jest publikowany pod wieloma nazwami.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.</description></item><item><title>CVE-2026-2997</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2997</link><pubDate>Mon, 23 Feb 2026 03:30:22 +0000</pubDate><description>Tronclass opracowany przez WisdomGarden zawiera lukę w zabezpieczeniach Insecure Direct Object Reference.Po uzyskaniu identyfikatora kursu uwierzytelnieni atakujący zdalnie modyfikują określony parametr w celu uzyskania kodu zaproszenia na kurs, dołączając w ten sposób do dowolnego kursu.</description></item><item><title>CVE-2026-2962</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2962</link><pubDate>Mon, 23 Feb 2026 03:30:22 +0000</pubDate><description>W D-Link DWR-M960 1.01.07 została odkryta podatność.Podatnością dotknięta jest funkcja sub_460F30 pliku /boafrm/formDateReboot komponentu Scheduled Reboot Configuration Endpoint.Manipulacja argumentem Submit-url powoduje przepełnienie bufora stosu.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.</description></item><item><title>CVE-2026-2963</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2963</link><pubDate>Mon, 23 Feb 2026 03:30:22 +0000</pubDate><description>W Jinher OA C6 do 20260210 została stwierdzona luka. Problem dotyczy nieznanego przetwarzania pliku /C6/Jhsoft.Web.officesupply/OfficeSupplyTypeRight.aspx.Ta manipulacja argumentem id/offsnum powoduje wstrzyknięcie sql.Istnieje możliwość zdalnego zainicjowania ataku.Exploit został publicznie ujawniony i może zostać wykorzystany.Sugeruje się zainstalowanie łatki rozwiązującej ten problem.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.</description></item><item><title>CVE-2026-2966</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2966</link><pubDate>Mon, 23 Feb 2026 03:30:22 +0000</pubDate><description>W Cesanta Mongoose zidentyfikowano słabość do 7,20.Elementem, którego to dotyczy, jest funkcja mg_sendnsreq pliku /src/dns.c komponentu DNS Transaction ID Handler.Wykonywanie manipulacji argumentem random może prowadzić do niewystarczająco losowych wartości.Atak może zostać przeprowadzony zdalnie.Atak wymaga wysokiego poziomu złożoności.Możliwość wykorzystania jest uważana za trudną.Exploit został udostępniony publicznie i może zostać wykorzystany do ataków.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.</description></item><item><title>CVE-2026-24494</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-24494</link><pubDate>Mon, 23 Feb 2026 03:30:22 +0000</pubDate><description>Luka w zabezpieczeniach typu SQL Injection w punkcie końcowym /api/integrations/getintegrations systemu zamówień online Order Up 1.0 umożliwia nieuwierzytelnionemu atakującemu dostęp do wrażliwych danych bazy danych zaplecza za pośrednictwem spreparowanego parametru store_id w żądaniu POST.</description></item><item><title>CVE-2026-2964</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2964</link><pubDate>Mon, 23 Feb 2026 03:30:22 +0000</pubDate><description>W higuma web-audio-recorder-js 0.1/0.1.1 została zidentyfikowana luka.Dotknięte jest rozszerzenie funkcji w bibliotece lib/WebAudioRecorder.js komponentu Dynamic Config Handling.Manipulacja taka prowadzi do niewłaściwie kontrolowanej modyfikacji atrybutów prototypu obiektu.Istnieje możliwość zdalnego przeprowadzenia ataku.Ataki tego rodzaju są bardzo złożone.Możliwość wykorzystania jest uważana za trudną.Exploit jest publicznie dostępny i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.</description></item><item><title>CVE-2026-2997</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2997</link><pubDate>Mon, 23 Feb 2026 01:55:37 +0000</pubDate><description>Tronclass opracowany przez WisdomGarden zawiera lukę w zabezpieczeniach Insecure Direct Object Reference.Po uzyskaniu identyfikatora kursu uwierzytelnieni atakujący zdalnie modyfikują określony parametr w celu uzyskania kodu zaproszenia na kurs, dołączając w ten sposób do dowolnego kursu.
+
+CVSS Score: 5.4 (medium)</description></item><item><title>CVE-2026-2961</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2961</link><pubDate>Mon, 23 Feb 2026 00:02:17 +0000</pubDate><description>W D-Link DWR-M960 1.01.07 została odkryta podatność.Ma to wpływ na funkcję sub_4196C4 pliku /boafrm/formVpnConfigSetup komponentu Punkt końcowy konfiguracji VPN.Manipulacja argumentem Submit-url prowadzi do przepełnienia bufora stosu.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został ujawniony publicznie i może zostać wykorzystany.
 
 CVSS Score: 8.8 (high)</description></item><item><title>CVE-2026-2960</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2960</link><pubDate>Mon, 23 Feb 2026 00:02:11 +0000</pubDate><description>Znaleziono wadę w D-Link DWR-M960 1.01.07.Problemem dotknięta jest funkcja sub_468D64 w pliku /boafrm/formDhcpv6s.Wykonanie manipulacji argumentem Submit-url może prowadzić do przepełnienia bufora stosu.Atak może zostać przeprowadzony zdalnie.Exploit został opublikowany i może zostać wykorzystany.
 
@@ -825,7 +827,490 @@ CVSS Score: 5.7 (medium)</description></item><item><title>CVE-2026-23491</title>
 
 CVSS Score: 6.8 (medium)</description></item><item><title>CVE-2026-20137</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-20137</link><pubDate>Wed, 18 Feb 2026 16:45:17 +0000</pubDate><description>W wersjach Splunk Enterprise poniżej 10.2.0, 10.0.3, 9.4.5, 9.3.7 i 9.2.9 oraz w wersjach Splunk Cloud Platform poniżej 10.1.2507.0, 10.0.2503.9, 9.3.2411.112 i 9.3.2408.122 użytkownik o niskich uprawnieniach, którynie posiada ról „administratora” ani „władzy”. Splunk mógłby ominąć zabezpieczenia SPL dla ryzykownych poleceń podczas tworzenia modelu danych zawierającego wstrzyknięte zapytanie SPL w obiekcie.Mogą ominąć zabezpieczenia, wykorzystując lukę w zabezpieczeniach związaną z przejściem ścieżki.
 
-CVSS Score: 3.5 (low)</description></item><item><title>CVE-2025-33253</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33253</link><pubDate>Wed, 18 Feb 2026 15:31:26 +0000</pubDate><description>NVIDIA NeMo Framework zawiera lukę, dzięki której osoba atakująca może spowodować zdalne wykonanie kodu, przekonując użytkownika do załadowania złośliwie spreparowanego pliku.Pomyślne wykorzystanie tej luki może doprowadzić do wykonania kodu, odmowy usługi, ujawnienia informacji i naruszenia danych.</description></item><item><title>CVE-2025-33245</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33245</link><pubDate>Wed, 18 Feb 2026 15:31:25 +0000</pubDate><description>NVIDIA NeMo Framework zawiera lukę, w wyniku której złośliwe dane mogą spowodować zdalne wykonanie kodu.Pomyślne wykorzystanie tej luki może doprowadzić do wykonania kodu, eskalacji uprawnień, ujawnienia informacji i manipulowania danymi.</description></item><item><title>CVE-2026-2656</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2656</link><pubDate>Wed, 18 Feb 2026 14:32:07 +0000</pubDate><description>Znaleziono błąd w ChaiScript do wersji 6.1.0.Ma to wpływ na funkcję chaiscript::Type_Info::bare_equal pliku include/chaiscript/dispatchkit/type_info.hpp.Ta manipulacja powoduje użycie po free.Atak wymaga dostępu lokalnego.Złożoność ataku została oceniona jako wysoka.Możliwość wykorzystania jest określana jako trudna.Exploit został opublikowany i może zostać wykorzystany.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
+CVSS Score: 3.5 (low)</description></item><item><title>CVE-2025-33253</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33253</link><pubDate>Wed, 18 Feb 2026 15:31:26 +0000</pubDate><description>NVIDIA NeMo Framework zawiera lukę, dzięki której osoba atakująca może spowodować zdalne wykonanie kodu, przekonując użytkownika do załadowania złośliwie spreparowanego pliku.Pomyślne wykorzystanie tej luki może doprowadzić do wykonania kodu, odmowy usługi, ujawnienia informacji i naruszenia danych.</description></item><item><title>CVE-2025-33245</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-33245</link><pubDate>Wed, 18 Feb 2026 15:31:25 +0000</pubDate><description>NVIDIA NeMo Framework zawiera lukę, w wyniku której złośliwe dane mogą spowodować zdalne wykonanie kodu.Pomyślne wykorzystanie tej luki może doprowadzić do wykonania kodu, eskalacji uprawnień, ujawnienia informacji i manipulowania danymi.</description></item><item><title>CVE-2026-23230</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23230</link><pubDate>Wed, 18 Feb 2026 14:53:34 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+smb: klient: podziel pola bitowe cached_fid, aby uniknąć wyścigów RMW na podstawie współdzielonych bajtów
+
+is_open, has_lease i on_list są przechowywane w tym samym bajcie pola bitowego
+struct cached_fid, ale są aktualizowane w różnych ścieżkach kodu, które mogą działać
+jednocześnie.Przypisania pól bitowych generują bajty do odczytu – modyfikacji – zapisu
+operacje (np. `orb $mask, adres` na x86_64), więc aktualizacja jednej flagi może
+przywróć nieaktualne wartości innych.
+
+Możliwe przeplatanie to:
+CPU1: załaduj stary bajt (has_lease=1, on_list=1)
+CPU2: wyczyść obie flagi (zapisz 0)
+CPU1: Magazyn RMW (stary | IS_OPEN) -&gt; ponownie wprowadza wyczyszczone bity
+
+Aby uniknąć tej klasy ras, przekonwertuj te flagi na oddzielne bool
+pola.</description></item><item><title>CVE-2026-23229</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23229</link><pubDate>Wed, 18 Feb 2026 14:53:33 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+crypto: virtio — Dodaj ochronę typu spinlock z powiadomieniem o virtqueue
+
+Kiedy maszyna wirtualna uruchamia się z jednym urządzeniem PCI virtio-crypto i wbudowanym backendem,
+uruchom polecenie openssl benchmark z wieloma procesami, takimi jak
+prędkość openssl -evp aes-128-cbc -silnik afalg -sekundy 10 -multi 32
+
+procesy openssl zawieszą się i zostanie zgłoszony następujący błąd:
+virtio_crypto virtio0: dataq.0:id 3 to nie głowa!
+
+Wydaje się, że wirtualna kolejka danych wymaga ochrony podczas obsługi
+dla powiadomienia o zakończeniu virtio.Jeśli dodano zabezpieczenie typu spinlock
+w virtcrypto_done_task(), test porównawczy openssl z wieloma procesami
+działa dobrze.</description></item><item><title>CVE-2026-23228</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23228</link><pubDate>Wed, 18 Feb 2026 14:53:31 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+smb: serwer: napraw wyciek active_num_conn w ksmbd_tcp_new_connection()
+
+W przypadku niepowodzenia kthread_run() w ksmbd_tcp_new_connection() transport jest
+zwolniony przez free_transport(), który nie zmniejsza active_num_conn,
+wyciek tego licznika.
+
+Zamień free_transport() na ksmbd_tcp_disconnect().</description></item><item><title>CVE-2026-23227</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23227</link><pubDate>Wed, 18 Feb 2026 14:53:30 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+drm/exynos: vidi: użyj ctx-&gt;lock, aby chronić zmienne członkowskie struktury vidi_context związane z alokacją/wolnością pamięci
+
+Sterownik Exynos Virtual Display wykonuje operacje alokacji/zwolnienia pamięci
+bez ochrony przed blokadą, co łatwo powoduje problem współbieżności.
+
+Na przykład użycie po zwolnieniu może wystąpić w następującym scenariuszu wyścigu:
+```
+Procesor0 Procesor1 Procesor2
+---- ---- ----
+vidi_connection_ioctl()
+if (vidi-&gt;połączenie) // true
+drm_edid = drm_edid_alloc();// przydziel drm_edid
+...
+ctx-&gt;raw_edid = drm_edid;
+...
+drm_mode_getconnector()
+drm_helper_probe_single_connector_modes()
+vidi_get_modes()
+if (ctx-&gt;raw_edid) // prawda
+drm_edid_dup(ctx-&gt;raw_edid);
+if (!drm_edid) // fałsz
+...
+vidi_connection_ioctl()
+if (vidi-&gt;połączenie) // fałsz
+drm_edid_free(ctx-&gt;raw_edid);// darmowy drm_edid
+...
+drm_edid_alloc(drm_edid-&gt;edid)
+kmemdup(edyt);//UAF!!
+...
+```
+
+Aby zapobiec tym lukom, przynajmniej w vidi_context, powiązane zmienne członkowskie
+do pamięci alloc/free należy zabezpieczyć za pomocą ctx-&gt;lock.</description></item><item><title>CVE-2026-23226</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23226</link><pubDate>Wed, 18 Feb 2026 14:53:29 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ksmbd: dodaj chann_lock, aby chronić ksmbd_chann_list xarray
+
+ksmbd_chann_list xarray nie ma synchronizacji, co pozwala na użycie po zwolnieniu
+sesje wielokanałowe (pomiędzy lookup_chann_list() i ksmbd_chann_del).
+
+Dodaje rw_semaphore chann_lock do struktury ksmbd_session i chroni
+wszystkie dostępy xa_load/xa_store/xa_erase.</description></item><item><title>CVE-2026-23225</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23225</link><pubDate>Wed, 18 Feb 2026 14:53:28 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+sched/mmcid: Nie zakładaj, że CID jest własnością procesora przy przełączaniu trybu
+
+Shinichiro zgłosił UAF KASAN, który w rzeczywistości jest obiektem niedostępnym
+w kodzie zarządzającym MMCID.
+
+Procesor0 Procesor1
+T1 działa w przestrzeni użytkownika
+T0: fork(T4) -&gt; Przełącz na tryb CID na procesor
+fixup() ustaw MM_CID_TRANSIT na T1/CPU1
+Wyjście T4()
+Wyjście T3()
+Wyjście T2()
+T1 exit() przełącza do trybu na zadanie
+---&gt; Dostęp poza granicami.
+
+Ponieważ T1 nie zaplanował, po ustawieniu przez T0 bitu TRANSIT, kończy się z
+Zestaw bitów TRANSIT.sched_mm_cid_remove_user() czyści bit TRANSIT
+zadanie i usuwa identyfikator CID, ale nie wpływa to na pamięć przypadającą na procesor.
+Jest to funkcjonalnie poprawne, ponieważ identyfikator CID jest własnością procesora tylko wtedy, gdy
+ustawiony jest bit ONCPU, który wyklucza się wzajemnie z flagą TRANSIT.
+
+Teraz funkcja sched_mm_cid_exit() zakłada, że identyfikator CID należy do procesora, ponieważ
+poprzedni tryb dotyczył procesora.Wywołuje mm_drop_cid_on_cpu(), która czyści plik
+nie ustaw bitu ONCPU, a następnie wywołaj funkcję clear_bit() z niesamowicie dużą wartością
+numer bitu, ponieważ ustawiony jest TRANSIT (bit 29).
+
+Zapobiegnij temu, faktycznie sprawdzając, czy identyfikator CID należy do procesora
+mm_drop_cid_on_cpu().</description></item><item><title>CVE-2026-23224</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23224</link><pubDate>Wed, 18 Feb 2026 14:53:27 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+erofs: naprawiono problem UAF dla montowań opartych na plikach z opcją directio
+
+[ 9.269940][ T3222] Śledzenie połączenia:
+[ 9.269948][ T3222] ext4_file_read_iter+0xac/0x108
+[ 9.269979][ T3222] vfs_iocb_iter_read+0xac/0x198
+[ 9.269993][ T3222] erofs_fileio_rq_submit+0x12c/0x180
+[ 9.270008][ T3222] erofs_fileio_submit_bio+0x14/0x24
+[ 9.270030][ T3222] z_erofs_runqueue+0x834/0x8ac
+[ 9.270054][ T3222] z_erofs_read_folio+0x120/0x220
+[ 9.270083][ T3222] filemap_read_folio+0x60/0x120
+[ 9.270102][ T3222] filemap_fault+0xcac/0x1060
+[ 9.270119][ T3222] do_pte_missing+0x2d8/0x1554
+[ 9.270131][ T3222] uchwyt_mm_fault+0x5ec/0x70c
+[ 9.270142][ T3222] do_page_fault+0x178/0x88c
+[ 9.270167][ T3222] do_translation_fault+0x38/0x54
+[ 9.270183][ T3222] do_mem_abort+0x54/0xac
+[ 9.270208][ T3222] el0_da+0x44/0x7c
+[ 9.270227][ T3222] el0t_64_sync_handler+0x5c/0xf4
+[ 9.270253][ T3222] el0t_64_sync+0x1bc/0x1c0
+
+EROFS może napotkać powyższą panikę podczas włączania montowania opartego na plikach z/
+opcję montażu directio, główną przyczyną jest to, że UAF poniżej
+stan wyścigu:
+
+- z_erofs_read_folio wq s_dio_done_wq
+- z_erofs_runqueue
+- erofs_fileio_submit_bio
+- erofs_fileio_rq_submit
+- vfs_iocb_iter_read
+- ext4_file_read_iter
+- ext4_dio_read_iter
+- iomap_dio_rw
+: biografia została przesłana i zwrócona -EIOOCBQUEUED
+- dio_aio_complete_work
+- dio_kompletny
+- dio-&gt;iocb-&gt;ki_complete (erofs_fileio_ki_complete())
+- kfree(rq)
+: zwalnia iocb, iocb.ki_filp może być UAF w file_accessed().
+- dostęp do pliku
+: dostęp do punktu pliku NULL
+
+Wprowadź liczbę referencji w strukturze erofs_fileio_rq i zainicjuj ją
+jako dwa, zarówno erofs_fileio_ki_complete() i erofs_fileio_rq_submit() będą
+zmniejsz liczbę referencji, ostatnia zmniejsza liczbę referencji
+do zera zwolni rq.</description></item><item><title>CVE-2026-23223</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23223</link><pubDate>Wed, 18 Feb 2026 14:53:26 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+xfs: napraw UAF w xchk_btree_check_block_owner
+
+Nie możemy dereferować bs-&gt;cur, próbując określić, czy bs-&gt;cur
+aliasy bs-&gt;sc-&gt;sa.{bno,rmap}_cur po zwolnieniu tego ostatniego.
+Napraw ten problem, próbkując przed typem, zanim nastąpi jakiekolwiek uwolnienie.
+Prawidłowe uporządkowanie czasowe zostało zerwane, gdy usunęliśmy xfs_btnum_t.</description></item><item><title>CVE-2026-23222</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23222</link><pubDate>Wed, 18 Feb 2026 14:53:25 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+crypto: omap — Poprawnie przydzielaj listy rozproszone OMAP_CRYPTO_FORCE_COPY
+
+Istniejąca alokacja list scatterlist w omap_crypto_copy_sg_lists()
+przydzielał tablicę wskaźników listy rozproszenia, a nie obiekty listy rozproszenia,
+co skutkuje 4x za małą alokacją.
+
+Użyj sizeof(*new_sg), aby uzyskać prawidłowy rozmiar obiektu.</description></item><item><title>CVE-2026-23221</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23221</link><pubDate>Wed, 18 Feb 2026 14:53:24 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+autobus: fsl-mc: napraw użycie po zwolnieniu w sterowniku_override_show()
+
+Funkcja Driver_override_show() odczytuje ciąg Driver_override
+bez trzymania blokady urządzenia.Jednak Driver_override_store() używa
+Driver_set_override(), która modyfikuje i zwalnia ciąg znaków podczas przytrzymywania
+blokada_urządzenia.
+
+Może to skutkować równoczesnym użyciem po zwolnieniu, jeśli ciąg zostanie zwolniony
+przez funkcję store podczas odczytywania przez funkcję show.
+
+Napraw to, przytrzymując urządzenie_lock podczas operacji odczytu.</description></item><item><title>CVE-2026-23220</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23220</link><pubDate>Wed, 18 Feb 2026 14:53:23 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+ksmbd: napraw nieskończoną pętlę spowodowaną resetem next_smb2_rcv_hdr_off w ścieżkach błędów
+
+Problem występuje, gdy podpisane żądanie nie przeszło weryfikacji podpisu smb2
+sprawdź.W __process_request(), jeśli check_sign_req() zwróci błąd,
+set_smb2_rsp_status(work, STATUS_ACCESS_DENIED) jest wywoływane.
+set_smb2_rsp_status() ustawia work-&gt;next_smb2_rcv_hdr_off na zero.Resetując
+next_smb2_rcv_hdr_off do zera, wskaźnik do następnego polecenia w łańcuchu
+jest stracony.W związku z tym is_chained_smb2_message() nadal wskazuje
+ten sam nagłówek żądania zamiast przechodzić dalej.Jeśli w nagłówku znajduje się NextCommand
+pole jest niezerowe, funkcja zwraca wartość true, powodując __handle_ksmbd_work()
+wielokrotnie przetwarzać to samo nieudane żądanie w nieskończonej pętli.
+Powoduje to zalanie dziennika jądra „złym podpisem smb2”
+wiadomości i duże obciążenie procesora.
+
+Ta poprawka rozwiązuje problem, zmieniając wartość zwracaną z
+SERVER_HANDLER_CONTINUE do SERVER_HANDLER_ABORT.To gwarantuje
+pętla przetwarzania kończy się natychmiast, zamiast próbować
+kontynuuj od unieważnionego przesunięcia.</description></item><item><title>CVE-2025-71237</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71237</link><pubDate>Wed, 18 Feb 2026 14:53:22 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+nilfs2: Napraw potencjalne przepełnienie bloku, które powoduje zawieszenie systemu
+
+Gdy użytkownik wykona polecenie FITRIM, może wystąpić niedomiar, gdy
+obliczanie nbloków, jeśli blok_końcowy jest za mały.Ponieważ nblocks jest z
+wpisz sektor_t, czyli u64, ujemna wartość nblocks stanie się a
+bardzo duża dodatnia liczba całkowita.To ostatecznie prowadzi do warstwy blokowej
+funkcja __blkdev_issue_discard() zajmuje zbyt dużo czasu
+przetworzyć łańcuch biologiczny, a blokada ns_segctor_sem pozostaje utrzymana przez a
+długi okres.Uniemożliwia to innym zadaniom uzyskanie ns_segctor_sem
+lock, co skutkuje zawieszeniem zgłoszonym przez syzbota w [1].
+
+Jeśli blok końcowy jest za mały, zazwyczaj jest mniejszy niż 4 KB
+zakresie, w zależności od wykorzystania segmentu 0, może to być możliwe
+spróbuj wykonać żądanie odrzucenia przekraczające rozmiar urządzenia, powodując zawieszenie.
+
+Pomyślne wyjście i przypisanie odrzuconego rozmiaru (w tym przypadku 0)
+do zakresu-&gt;len.
+
+Chociaż wartości początkowe i len w zakresie wprowadzonym przez użytkownika są zbyt małe,
+przyjęto tu konserwatywną strategię polegającą na ich bezpiecznym ignorowaniu, tj
+odpowiednik braku operacji;nie będzie wykonywać żadnego przycinania i nie będzie
+wyrzucić błąd.
+
+[1]
+zadanie:segctord stan:D stos:28968 pid:6093 tgid:6093 ppid:2 task_flags:0x200040 flags:0x00080000
+Zadzwoń do śledzenia:
+rwbase_write_lock+0x3dd/0x750 jądro/blokowanie/rwbase_rt.c:272
+nilfs_transaction_lock+0x253/0x4c0 fs/nilfs2/segment.c:357
+nilfs_segctor_thread_construct fs/nilfs2/segment.c:2569 [w linii]
+nilfs_segctor_thread+0x6ec/0xe00 fs/nilfs2/segment.c:2684
+
+[ryusuke: poprawiona część komunikatu zatwierdzenia dotycząca konsekwencji]</description></item><item><title>CVE-2025-71236</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71236</link><pubDate>Wed, 18 Feb 2026 14:53:21 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+scsi: qla2xxx: Sprawdź sp przed zwolnieniem powiązanej pamięci
+
+Awaria systemu z następującym podpisem
+[154563.214890] nvme nvme2: NVME-FC{1}: połączenie kontrolera zakończone
+[154564.169363] qla2xxx [0000:b0:00.1]-3002:2: nvme: Sched: Ustaw próg wymiany ZIO na 3.
+[154564.169405] qla2xxx [0000:b0:00.1]-ffffff:2: USTAW próg wymiany aktywności ZIO na 5.
+[154565.539974] qla2xxx [0000:b0:00.1]-5013:2: Zmieniono bazę danych RSCN – 0078 0080 0000.
+[154565.545744] qla2xxx [0000:b0:00.1]-5013:2: Zmieniono bazę danych RSCN – 0078 00a0 0000.
+[154565.545857] qla2xxx [0000:b0:00.1]-11a2:2: FEC=włączone (szybkość transmisji danych).
+[154565.552760] qla2xxx [0000:b0:00.1]-11a2:2: FEC=włączone (szybkość transmisji danych).
+[154565.553079] BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 00000000000000f8
+[154565.553080] #PF: Dostęp do odczytu nadzorcy w trybie jądra
+[154565.553082] #PF: kod_błędu(0x0000) - nieobecna strona
+[154565.553084] PGD 80000010488ab067 P4D 80000010488ab067 PUD 104978a067 PMD 0
+[154565.553089] Ups: 0000 1 PREEMPT SMP PTI
+[154565.553092] Procesor: 10 PID: 858 Comm: qla2xxx_2_dpc Kdump: załadowany Tainted: G OE --- --- 5.14.0-503.11.1.el9_5.x86_64 #1
+[154565.553096] Nazwa sprzętu: Moduł obliczeniowy HPE Synergy 660 Gen10/Synergy 660 Gen10, BIOS I43 30.09.2024
+[154565.553097] RIP: 0010:qla_fab_async_scan.part.0+0x40b/0x870 [qla2xxx]
+[154565.553141] Kod: 00 00 e8 58 a3 ec d4 49 89 e9 ba 12 20 00 00 4c 89 e6 49 c7 c0 00 ee a8 c0 48 c7 c1 66 c0 a9 c0 bf 00 80 00 10 e8 15 6900 00 &lt;4c&gt; 8b 8d f8 00 00 00 4d 85 c9 74 35 49 8b 84 24 00 19 00 00 48 8b
+[154565.553143] RSP: 0018:ffffb4dbc8aebdd0 EFLAGS: 00010286
+[154565.553145] RAX: 0000000000000000 RBX: ffff8ec2cf0908d0 RCX: 0000000000000002
+[154565.553147] RDX: 0000000000000000 RSI: ffffffffc0a9c896 RDI: ffffb4dbc8aebd47
+[154565.553148] RBP: 0000000000000000 R08: ffffb4dbc8aebd45 R09: 0000000000ffff0a
+[154565.553150] R10: 0000000000000000 R11: 000000000000000f R12: ffff8ec2cf0908d0
+[154565.553151] R13: ffff8ec2cf090900 R14: 0000000000000102 R15: ffff8ec2cf084000
+[154565.553152] FS: 0000000000000000(0000) GS:ffff8ed27f800000(0000) knlGS:00000000000000000
+[154565.553154] CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[154565.553155] CR2: 00000000000000f8 CR3: 000000113ae0a005 CR4: 00000000007706f0
+[154565.553157] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 000000000000000
+[154565.553158] DR3: 0000000000000000 DR6: 00000000ffe0ff0 DR7: 0000000000000400
+[154565.553159] PKRU: 55555554
+[154565.553160] Śledzenie połączenia:
+[154565.553162] &lt;ZADANIE&gt;
+[154565.553165] ?show_trace_log_lvl+0x1c4/0x2df
+[154565.553172] ?show_trace_log_lvl+0x1c4/0x2df
+[154565.553177] ?qla_fab_async_scan.part.0+0x40b/0x870 [qla2xxx]
+[154565.553215] ?__die_body.cold+0x8/0xd
+[154565.553218] ?page_fault_oops+0x134/0x170
+[154565.553223] ?snprintf+0x49/0x70
+[154565.553229] ?exc_page_fault+0x62/0x150
+[154565.553238] ?asm_exc_page_fault+0x22/0x30
+
+Przed zwolnieniem powiązanej pamięci sprawdź, czy sp nie ma wartości NULL</description></item><item><title>CVE-2025-71235</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71235</link><pubDate>Wed, 18 Feb 2026 14:53:20 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+scsi: qla2xxx: Opóźnij rozładowanie modułu podczas skanowania sieci
+
+Awaria systemu zaobserwowana podczas testu ładowania/rozładowywania w pętli.
+
+[105954.384919] RBP: ffff914589838dc0 R08: 0000000000000000 R09: 0000000000000086
+[105954.384920] R10: 000000000000000f R11: ffffa31240904be5 R12: ffff914605f868e0
+[105954.384921] R13: ffff914605f86910 R14: 000000000008010 R15: 00000000ddb7c000
+[105954.384923] FS: 0000000000000000(0000) GS:ffff9163fec40000(0000) knlGS:00000000000000000
+[105954.384925] CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[105954.384926] CR2: 000055d31ce1d6a0 CR3: 0000000119f5e001 CR4: 0000000000770ee0
+[105954.384928] PKRU: 55555554
+[105954.384929] Śledzenie połączeń:
+[105954.384931] &lt;IRQ&gt;
+[105954.384934] qla24xx_sp_unmap+0x1f3/0x2a0 [qla2xxx]
+[105954.384962] ?qla_async_scan_sp_done+0x114/0x1f0 [qla2xxx]
+[105954.384980] ?qla24xx_els_ct_entry+0x4de/0x760 [qla2xxx]
+[105954.384999] ?__wake_up_common+0x80/0x190
+[105954.385004] ?qla24xx_process_response_queue+0xc2/0xaa0 [qla2xxx]
+[105954.385023] ?qla24xx_msix_rsp_q+0x44/0xb0 [qla2xxx]
+[105954.385040] ?__handle_irq_event_percpu+0x3d/0x190
+[105954.385044] ?handle_irq_event+0x58/0xb0
+[105954.385046] ?handle_edge_irq+0x93/0x240
+[105954.385050] ?__common_interrupt+0x41/0xa0
+[105954.385055] ?wspólne_przerwanie+0x3e/0xa0
+[105954.385060] ?asm_common_interrupt+0x22/0x40
+
+Główną przyczyną tego było to, że w pliku
+przerwać kontekst.Nastąpiło wykrycie urządzenia/skanowanie tkaniny
+postęp.Wydano polecenie rozładowywania modułu, które ustawia flagę UNLOADING.jako
+częścią odkrycia, po otrzymaniu przerwania, była kolejka robocza
+zaplanowane (co wiązało się z pracą oczekującą w kolejce).Od ROZŁADUNKU
+flaga jest ustawiona, element roboczy nie został przydzielony, a zamapowana pamięć tak
+zostać uwolnionym.Wolne zdarzenie wystąpiło w kontekście przerwania prowadzącego do systemu
+awaria.Opóźnij wyładowanie sterownika do momentu zakończenia skanowania tkaniny
+uniknąć wypadku.</description></item><item><title>CVE-2025-71234</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71234</link><pubDate>Wed, 18 Feb 2026 14:53:18 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+Wi-Fi: rtl8xxxu: napraw blokadę płyty poza granicami w rtl8xxxu_sta_add
+
+Sterownik nie ustawia hw-&gt;sta_data_size, co powoduje, że mac80211 działa
+przydzielić niewystarczającą ilość miejsca na dane stacji prywatnej kierowcy
+__sta_info_alloc().Kiedy rtl8xxxu_sta_add() uzyskuje dostęp do członków
+struct rtl8xxxu_sta_info poprzez sta-&gt;drv_priv, spowoduje to a
+zapis poza granicami płyty.
+
+Raport KASAN dotyczący RISC-V (VisionFive 2) z adapterem RTL8192EU:
+
+BŁĄD: KASAN: płyta poza granicami w rtl8xxxu_sta_add+0x31c/0x346
+Zapisz rozmiar 8 pod adresem ffffffd6d3e9ae88 za pomocą zadania kworker/u16:0/12
+
+Ustaw hw-&gt;sta_data_size na sizeof(struct rtl8xxxu_sta_info) podczas
+sonda, podobnie do konfiguracji hw-&gt;vif_data_size.To zapewnia
+mac80211 przydziela wystarczającą ilość miejsca na stanowisko kierowcy
+dane prywatne.
+
+Testowane na płycie StarFive VisionFive 2 v1.2A.</description></item><item><title>CVE-2025-71233</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71233</link><pubDate>Wed, 18 Feb 2026 14:53:17 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+PCI: punkt końcowy: Unikaj asynchronicznego tworzenia podgrup
+
+Asynchroniczne tworzenie podgrup w wyniku opóźnionej pracy może prowadzić do:
+Dereferencja wskaźnika NULL, gdy katalog sterownika zostanie usunięty przed
+praca się kończy.
+
+Awarię można łatwo odtworzyć za pomocą następujących poleceń:
+
+# cd /sys/kernel/config/pci_ep/functions/pci_epf_test
+# dla i w {1..20};wykonaj test mkdir &amp;&amp; test rmdir;zrobione
+
+BŁĄD: wyłuskiwanie wskaźnika NULL jądra, adres: 0000000000000088
+...
+Zadzwoń do śledzenia:
+configfs_register_group+0x3d/0x190
+pci_epf_cfs_work+0x41/0x110
+proces_one_work+0x18f/0x350
+wątek_pracownika+0x25a/0x3a0
+
+Napraw ten problem, używając interfejsu API configfs_add_default_group(), który tego nie robi
+mają problem z zakleszczeniem jako configfs_register_group() i nie wymagają
+osoba zajmująca się opóźnioną pracą.
+
+[mani: lekko przeredagowałem opis i dodałem listę stabilnych]</description></item><item><title>CVE-2025-71232</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71232</link><pubDate>Wed, 18 Feb 2026 14:53:16 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+scsi: qla2xxx: Bezpłatne sp w ścieżce błędu, aby naprawić awarię systemu
+
+Awaria systemu widoczna podczas testu ładowania/rozładowywania w pętli,
+
+[61110.449331] qla2xxx [0000:27:00.0]-0042:0: Wyłączono MSI-X.
+[61110.467494] =============================================================================
+[61110.467498] BŁĄD qla2xxx_srbs (Tainted: G OE -------- --- ): Obiekty pozostałe w qla2xxx_srbs w __kmem_cache_shutdown()
+[61110.467501] ----------------------------------------------------------------------------------------
+
+[61110.467502] Płyta 0x000000000ffc8162 obiektów=51 użyta=1 fp=0x00000000e25d3d85 flags=0x57ffffc0010200(slab|head|node=1|zone=2|lastcpupid=0x1fffff)
+[61110.467509] Procesor: 53 PID: 455206 Comm: rmmod Kdump: załadowany Tainted: G OE -------- --- 5.14.0-284.11.1.el9_2.x86_64 #1
+[61110.467513] Nazwa sprzętu: HPE ProLiant DL385 Gen10 Plus v2/ProLiant DL385 Gen10 Plus v2, BIOS A42 17.08.2023
+[61110.467515] Śledzenie połączeń:
+[61110.467516] &lt;ZADANIE&gt;
+[61110.467519] dump_stack_lvl+0x34/0x48
+[61110.467526] płyta_err.cold+0x53/0x67
+[61110.467534] __kmem_cache_shutdown+0x16e/0x320
+[61110.467540] kmem_cache_destroy+0x51/0x160
+[61110.467544] qla2x00_module_exit+0x93/0x99 [qla2xxx]
+[61110.467607] ?__do_sys_delete_module.constprop.0+0x178/0x280
+[61110.467613] ?syscall_trace_enter.constprop.0+0x145/0x1d0
+[61110.467616] ?do_syscall_64+0x5c/0x90
+[61110.467619] ?exc_page_fault+0x62/0x150
+[61110.467622] ?wpis_SYSCALL_64_after_hwframe+0x63/0xcd
+[61110.467626] &lt;/TASK&gt;
+[61110.467627] Wyłączanie debugowania blokady z powodu skażenia jądra
+[61110.467635] Obiekt 0x0000000026f7e6e6 @offset=16000
+[61110.467639] -------[wytnij tutaj ]------------
+[61110.467639] kmem_cache_destroy qla2xxx_srbs: Pamięć podręczna płyty nadal zawiera obiekty po wywołaniu z qla2x00_module_exit+0x93/0x99 [qla2xxx]
+[61110.467659] OSTRZEŻENIE: Procesor: 53 PID: 455206 w mm/slab_common.c:520 kmem_cache_destroy+0x14d/0x160
+[61110.467718] Procesor: 53 PID: 455206 Comm: rmmod Kdump: załadowany Tainted: G B OE -------- --- 5.14.0-284.11.1.el9_2.x86_64 #1
+[61110.467720] Nazwa sprzętu: HPE ProLiant DL385 Gen10 Plus v2/ProLiant DL385 Gen10 Plus v2, BIOS A42 17.08.2023
+[61110.467721] RIP: 0010:kmem_cache_destroy+0x14d/0x160
+[61110.467724] Kod: 99 7d 07 00 48 89 ef e8 e1 6a 07 00 eb b3 48 8b 55 60 48 8b 4c 24 20 48 c7 c6 70 fc 66 90 48 c7 c7 f8 ef a1 90 e8e1 ed 7c 00 &lt;0f&gt; 0b eb 93 c3 cc cc cc cc 66 2e 0f 1f 84 00 00 00 00 00 55 48 89
+[61110.467725] RSP: 0018:ffffa304e489fe80 EFLAGS: 00010282
+[61110.467727] RAX: 0000000000000000 RBX: ffffffffc0d9a860 RCX: 00000000000000027
+[61110.467729] RDX: ffff8fd5ff9598a8 RSI: 000000000000001 RDI: ffff8fd5ff9598a0
+[61110.467730] RBP: ffff8fb6aaf78700 R08: 0000000000000000 R09: 0000000100d863b7
+[61110.467731] R10: ffffa304e489fd20 R11: ffffffff913bef48 R12: 0000000040002000
+[61110.467731] R13: 0000000000000000 R14: 0000000000000000 R15: 000000000000000
+[61110.467733] FS: 00007f64c89fb740(0000) GS:ffff8fd5ff940000(0000) knlGS:0000000000000000
+[61110.467734] CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[61110.467735] CR2: 00007f0f02bfe000 CR3: 00000020ad6dc005 CR4: 0000000000770ee0
+[61110.467736] PKRU: 55555554
+[61110.467737] Śledzenie połączeń:
+[61110.467738] &lt;ZADANIE&gt;
+[61110.467739] qla2x00_module_exit+0x93/0x99 [qla2xxx]
+[61110.467755] ?__do_sys_delete_module.constprop.0+0x178/0x280
+
+Bezpłatne sp w ścieżce błędu, aby naprawić awarię.</description></item><item><title>CVE-2025-71231</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71231</link><pubDate>Wed, 18 Feb 2026 14:53:15 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+crypto: iaa — Napraw indeks poza granicami w trybie find_empty_iaa_compression_mode
+
+Zmienna lokalna „i” jest inicjowana przez -EINVAL, ale pętla for
+natychmiast go zastępuje, a opcja -EINVAL nigdy nie jest zwracana.
+
+Jeśli nie można znaleźć pustego trybu kompresji, funkcja zwróci wartość
+indeks poza granicami IAA_COMP_MODES_MAX, co spowodowałoby niepoprawność
+dostęp do tablicy w add_iaa_compression_mode().
+
+Napraw oba problemy, zwracając prawidłowy indeks lub -EINVAL.</description></item><item><title>CVE-2025-71230</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71230</link><pubDate>Wed, 18 Feb 2026 14:53:14 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+hfs: upewnij się, że sb-&gt;s_fs_info jest zawsze czyszczone
+
+Kiedy hfs został przekonwertowany na nowy interfejs API mount, wprowadzono błąd
+zmiana wzorca alokacji sb-&gt;s_fs_info.Jeśli setup_bdev_super()
+kończy się niepowodzeniem po przydzieleniu nowego superbloku przez sget_fc(), ale wcześniej
+hfs_fill_super() przejmuje na własność s_fs_info specyficzne dla systemu plików
+dane, które wyciekły.
+
+Napraw to, zwalniając sb-&gt;s_fs_info w hfs_kill_super().</description></item><item><title>CVE-2025-71229</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-71229</link><pubDate>Wed, 18 Feb 2026 14:53:13 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
+
+Wi-Fi: rtw88: Napraw błąd wyrównania w rtw_core_enable_beacon()
+
+rtw_core_enable_beacon() odczytuje 4 bajty z adresu, który nie jest a
+wielokrotność liczby 4. Powoduje to awarię niektórych systemów.
+
+Zamiast tego wykonaj 1-bajtowy odczyt/zapis.
+
+Nie można obsłużyć żądania stronicowania jądra pod adresem wirtualnym ffff8000827e0522
+Informacje o przerwaniu pamięci:
+ESR = 0x0000000096000021
+EC = 0x25: DABT (prąd EL), IL = 32 bity
+USTAW = 0, FnV = 0
+EA = 0, S1PTW = 0
+FSC = 0x21: błąd wyrównania
+Informacje o przerwaniu danych:
+ISV = 0, ISS = 0x00000021, ISS2 = 0x00000000
+CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+GCS = 0, Nakładka = 0, DirtyBit = 0, Xs = 0
+swapper pgtable: 4 tys. stron, 48-bitowe urządzenia wirtualne, pgdp=0000000005492000
+[ffff8000827e0522] pgd=000000000000000, p4d=10000001021d9403, pud=10000001021da403, pmd=100000011061c403, pte=00780000f3200f13
+Błąd wewnętrzny: Ups: 0000000096000021 [#1] SMP
+Moduły połączone w: [...] rtw88_8822ce rtw88_8822c rtw88_pci rtw88_core [...]
+Procesor: 0 UID: 0 PID: 73 Comm: kworker/u32:2 Tainted: G W 6.17.9 #1-NixOS DOBROWOLNY
+Skażony: [W]=OSTRZEŻ
+Nazwa sprzętu: FriendlyElec NanoPC-T6 LTS (DT)
+Kolejka robocza: phy0 rtw_c2h_work [rtw88_core]
+stan p: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+szt: rtw_pci_read32+0x18/0x40 [rtw88_pci]
+lr: rtw_core_enable_beacon+0xe0/0x148 [rtw88_core]
+sp: ffff800080cc3ca0
+x29: ffff800080cc3ca0 x28: ffff0001031fc240 x27: ffff000102100828
+x26: ffffd2cb7c9b4088 x25: ffff0001031fc2c0 x24: ffff000112fdef00
+x23: ffff000112fdef18 x22: ffff000111c29970 x21: 00000000000000001
+x20: 0000000000000001 x19: ffff000111c22040 x18: 0000000000000000
+x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+x11: 0000000000000000 x10: 0000000000000000 x9: ffffd2cb6507c090
+x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
+x2 : 0000000000007f10 x1 : 0000000000000522 x0 : ffff8000827e0522
+Śledzenie połączeń:
+rtw_pci_read32+0x18/0x40 [rtw88_pci] (P)
+rtw_hw_scan_chan_switch+0x124/0x1a8 [rtw88_core]
+rtw_fw_c2h_cmd_handle+0x254/0x290 [rtw88_core]
+rtw_c2h_work+0x50/0x98 [rtw88_core]
+proces_one_work+0x178/0x3f8
+wątek_pracownika+0x208/0x418
+kwątek+0x120/0x220
+ret_from_fork+0x10/0x20
+Kod: d28fe202 8b020000 f9524400 8b214000 (b9400000)
+---[koniec śladu 0000000000000000 ]---</description></item><item><title>CVE-2026-2656</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-2656</link><pubDate>Wed, 18 Feb 2026 14:32:07 +0000</pubDate><description>Znaleziono błąd w ChaiScript do wersji 6.1.0.Ma to wpływ na funkcję chaiscript::Type_Info::bare_equal pliku include/chaiscript/dispatchkit/type_info.hpp.Ta manipulacja powoduje użycie po free.Atak wymaga dostępu lokalnego.Złożoność ataku została oceniona jako wysoka.Możliwość wykorzystania jest określana jako trudna.Exploit został opublikowany i może zostać wykorzystany.Projekt został wcześnie poinformowany o problemie poprzez raport o problemie, ale jeszcze nie udzielił odpowiedzi.
 
 CVSS Score: 2.5 (low)</description></item><item><title>CVE-2026-23219</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-23219</link><pubDate>Wed, 18 Feb 2026 14:21:57 +0000</pubDate><description>W jądrze Linuksa usunięto następującą lukę:
 
