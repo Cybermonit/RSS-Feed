@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-40540</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40540</link><pubDate>Tue, 24 Feb 2026 07:41:17 +0000</pubDate><description>W Serv-U występuje luka w zabezpieczeniach umożliwiająca pomylenie typów, która po wykorzystaniu umożliwia złośliwemu aktorowi wykonanie dowolnego kodu natywnego jako konto uprzywilejowane.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2025-40541</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40541</link><pubDate>Tue, 24 Feb 2026 09:31:21 +0000</pubDate><description>W Serv-U występuje luka w zabezpieczeniach Insecure Direct Object Reference (IDOR), która po wykorzystaniu umożliwia złośliwemu aktorowi wykonanie kodu natywnego jako konto uprzywilejowane.
+
+Ten problem wymaga uprawnień administracyjnych do nadużyć.W przypadku wdrożeń systemu Windows ryzyko jest oceniane średnio, ponieważ usługi często domyślnie działają w ramach kont usług o niższych uprawnieniach.</description></item><item><title>CVE-2024-1524</title><link>https://nvd.nist.gov/vuln/detail/CVE-2024-1524</link><pubDate>Tue, 24 Feb 2026 09:31:21 +0000</pubDate><description>Po włączeniu funkcji „Cichego udostępniania na czas” dla federacyjnego dostawcy tożsamości (IDP) istnieje ryzyko, że informacje o użytkowniku lokalnego magazynu użytkowników mogą zostać zastąpione podczas procesu udostępniania konta w przypadkach, gdy użytkownicy stowarzyszeni mają tę samą nazwę użytkownika co użytkownicy lokalni.
+
+Jeśli którykolwiek z warunków wstępnych wymienionych poniżej nie zostanie spełniony, nie będzie to miało żadnego wpływu na wdrożenie.Tylko wtedy, gdy zostaną spełnione wszystkie warunki wstępne wymienione poniżej, złośliwy aktor może powiązać docelowe konto użytkownika lokalnego z kontrolowanym przez siebie kontem użytkownika federacyjnego dostawcy tożsamości.
+
+Wdrożenie powinno mieć:
+— Dostawca tożsamości skonfigurowany do uwierzytelniania federacyjnego z włączoną obsługą cichego JIT.
+
+Złośliwy aktor powinien posiadać:
+— Świeże, ważne konto użytkownika w federacyjnym dostawcy tożsamości, które nie było wcześniej używane.
+- Znajomość nazwy użytkownika prawidłowego użytkownika w lokalnym dostawcy tożsamości.
+-Konto u federacyjnego dostawcy tożsamości odpowiadające docelowej lokalnej nazwie użytkownika.</description></item><item><title>CVE-2025-11165</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-11165</link><pubDate>Tue, 24 Feb 2026 09:31:21 +0000</pubDate><description>W silniku skryptowym Velocity (VTools) dotCMS istnieje luka umożliwiająca ucieczkę z piaskownicy, która umożliwia uwierzytelnionym użytkownikom z uprawnieniami do tworzenia skryptów ominięcie ograniczeń klas i pakietów narzuconych przez SecureUberspectorImpl.
+
+Dynamicznie modyfikując konfigurację środowiska wykonawczego silnika Velocity i ponownie inicjując Uberspect, złośliwy aktor może usunąć zabezpieczenia introspector.restrict.classes i introspector.restrict.packages.
+
+Po usunięciu tych ograniczeń osoba atakująca może uzyskać dostęp do dowolnych klas Java, w tym java.lang.Runtime, i wykonywać dowolne polecenia systemowe w ramach uprawnień procesu aplikacji (np. użytkownik dotCMS lub Tomcat).</description></item><item><title>CVE-2025-40540</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-40540</link><pubDate>Tue, 24 Feb 2026 07:41:17 +0000</pubDate><description>W Serv-U występuje luka w zabezpieczeniach umożliwiająca pomylenie typów, która po wykorzystaniu umożliwia złośliwemu aktorowi wykonanie dowolnego kodu natywnego jako konto uprzywilejowane.
 
 Ten problem wymaga uprawnień administracyjnych do nadużyć.W przypadku wdrożeń systemu Windows ryzyko jest oceniane średnio, ponieważ usługi często domyślnie działają w ramach kont usług o niższych uprawnieniach.
 
