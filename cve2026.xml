@@ -1,5 +1,78 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-3102</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-3102</link><pubDate>Tue, 24 Feb 2026 14:32:13 +0000</pubDate><description>W exiftool do wersji 13.49 na macOS wykryto lukę.Ten problem dotyczy funkcji SetMacOSTags pliku lib/Image/ExifTool/MacOS.pm komponentu PNG File Parser.Ta manipulacja argumentem DateTimeOriginal powoduje wstrzyknięcie polecenia os.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.Aktualizacja do wersji 13.50 może rozwiązać ten problem.Nazwa poprawki: e9609a9bcc0d32bd252a709a562fb822d6dd86f7.Zalecana jest aktualizacja komponentu, którego dotyczy problem.
+<rss version="2.0"><channel><title>CVE 2026 Feed</title><link>https://cve.circl.lu</link><description>CVE z roku 2026</description><item><title>CVE-2026-26983</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26983</link><pubDate>Tue, 24 Feb 2026 15:46:49 +0000</pubDate><description>Interpreter MSL ulega awarii podczas przetwarzania nieprawidłowego elementu `&lt;map&gt;`, który powoduje użycie obrazu po jego zwolnieniu.</description></item><item><title>CVE-2026-26283</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26283</link><pubDate>Tue, 24 Feb 2026 15:46:25 +0000</pubDate><description>Instrukcja „kontynuuj” w pętli wyszukiwania binarnego zakresu JPEG w koderze JPEG powoduje nieskończoną pętlę w przypadku ciągłego niepowodzenia zapisu.Osoba atakująca może wywołać 100% użycie procesora i zawieszenie procesu (odmowa usługi) za pomocą spreparowanego obrazu.</description></item><item><title>CVE-2026-26066</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-26066</link><pubDate>Tue, 24 Feb 2026 15:46:03 +0000</pubDate><description>Stworzony profil zawiera nieprawidłowe dane IPTC może spowodować nieskończoną pętlę podczas zapisywania go za pomocą `IPTCTEXT`.</description></item><item><title>CVE-2026-25989</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25989</link><pubDate>Tue, 24 Feb 2026 15:45:35 +0000</pubDate><description>Stworzony plik SVG może spowodować odmowę usługi.Kontrola granic o jeden punkt (`&gt;` zamiast `&gt;=`), która umożliwia ominięcie osłony i dotarcie do niezdefiniowanej obsady `&gt;`.</description></item><item><title>CVE-2026-25799</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25799</link><pubDate>Tue, 24 Feb 2026 15:37:53 +0000</pubDate><description>Błąd logiczny w walidacji współczynnika próbkowania YUV umożliwia nieprawidłowemu współczynnikowi próbkowania ominięcie kontroli i wyzwolenie dzielenia przez zero podczas ładowania obrazu, co skutkuje niezawodną odmową usługi.
+
+```
+coders/yuv.c:210:47: błąd wykonania: dzielenie przez zero
+AdresSanitizer:DEADLYSIGNAL
+==================================================================
+==3543373==BŁĄD: AddressSanitizer: NIEZNANY SYGNAŁ na nieznanym adresie 0x000000000000 (pc 0x55deeb4d723c bp 0x7fffc28d34d0 sp 0x7fffc28d3320 T0)
+#0 0x55deeb4d723c w koderach ReadYUVImage/yuv.c:210
+#1 0x55deeb751dff w ReadImage MagickCore/konstytucja.c:743
+#2 0x55deeb756374 w ReadImages MagickCore/konstytucja.c:1082
+#3 0x55deec682375 w CLINoImageOperator MagickWand/operacja.c:4959
+#4 0x55deec6887ed w CLIOption MagickWand/operacja.c:5473
+#5 0x55deec32843b w ProcessCommandOptions MagickWand/magick-cli.c:653
+#6 0x55deec32b99b w MagickImageCommand MagickWand/magick-cli.c:1392
+#7 0x55deec324d58 w MagickCommandGenesis MagickWand/magick-cli.c:177
+#8 0x55deead82519 w narzędziach MagickMain/magick.c:162
+#9 0x55deead828be w głównych narzędziach/magick.c:193
+#10 0x7fb90807fd8f w __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+#11 0x7fb90807fe3f w __libc_start_main_impl ../csu/libc-start.c:392
+#12 0x55deead81974 w _start (/data/ylwang/LargeScan/targets/ImageMagick/utilities/magick+0x22fb974)
+
+AddressSanitizer nie może dostarczyć dodatkowych informacji.
+PODSUMOWANIE: AddressSanitizer: NIEZNANY kodery sygnału/yuv.c:210 w ReadYUVImage
+==3543373==Przerywanie
+```</description></item><item><title>CVE-2026-25798</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25798</link><pubDate>Tue, 24 Feb 2026 15:36:08 +0000</pubDate><description>Dereferencja wskaźnika NULL w ClonePixelCacheRepository umożliwia zdalnemu atakującemu zawieszenie dowolnej aplikacji połączonej z ImageMagick poprzez dostarczenie spreparowanego pliku obrazu, co skutkuje odmową usługi.
+
+```
+AdresSanitizer:DEADLYSIGNAL
+==================================================================
+==3704942==BŁĄD: AddressSanitizer: NIEZNANY SYGNAŁ na nieznanym adresie 0x000000000000 (pc 0x7f9d141239e0 bp 0x7ffd4c5711e0 sp 0x7ffd4c571148 T0)
+#0 0x7f9d141239e0 (/lib/x86_64-linux-gnu/libc.so.6+0xc49e0)
+#1 0x558a25e4f08d w ClonePixelCacheRepository._omp_fn.0 MagickCore/cache.c:784
+#2 0x7f9d14c06a15 w GOMP_parallel (/lib/x86_64-linux-gnu/libgomp.so.1+0x14a15)
+#3 0x558a25e43151 w ClonePixelCacheRepository MagickCore/cache.c:753
+#4 0x558a25e49a96 w OpenPixelCache MagickCore/cache.c:3849
+#5 0x558a25e45117 w GetImagePixelCache MagickCore/cache.c:1829
+#6 0x558a25e4dde3 w SyncImagePixelCache MagickCore/cache.c:5647
+#7 0x558a256ba57d w SetImageExtent MagickCore/image.c:2713
+```</description></item><item><title>CVE-2026-25797</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25797</link><pubDate>Tue, 24 Feb 2026 15:34:26 +0000</pubDate><description>Kodery ps, odpowiedzialne za zapisywanie plików PostScript, nie oczyszczają danych wejściowych przed zapisaniem ich w nagłówku PostScript.Osoba atakująca może dostarczyć złośliwy plik i wstrzyknąć dowolny kod PostScript.Kiedy wynikowy plik jest przetwarzany przez drukarkę lub przeglądarkę (np. Ghostscript), wstrzyknięty kod jest interpretowany i wykonywany.
+
+Koder HTML nie pozwala prawidłowo uniknąć ciągów znaków zapisanych w dokumencie HTML.Osoba atakująca może dostarczyć złośliwy plik i wstrzyknąć dowolny kod HTML.</description></item><item><title>CVE-2026-25796</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25796</link><pubDate>Tue, 24 Feb 2026 15:33:56 +0000</pubDate><description>### Podsumowanie
+
+W `ReadSTEGANOImage()` (`coders/stegano.c`) obiekt Image `watermark` nie jest zwalniany w trzech ścieżkach wczesnego powrotu, co powoduje wyraźny wyciek pamięci (~13,5 KB+ na wywołanie), który można wykorzystać do odmowy usługi.
+
+```
+Bezpośredni wyciek 13512 bajtów w 1 obiekcie(ach) przydzielonym z:
+#0 0x7f5c11e27887 w __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+#1 0x55cdc38f65c4 w AcquireMagickMemory MagickCore/memory.c:536
+#2 0x55cdc38f65eb w AcquireCriticalMemory MagickCore/memory.c:612
+#3 0x55cdc3899e91 w AcquireImage MagickCore/image.c:154
+```</description></item><item><title>CVE-2026-25795</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25795</link><pubDate>Tue, 24 Feb 2026 15:32:34 +0000</pubDate><description>W `ReadSFWImage()` (`coders/sfw.c`), gdy utworzenie pliku tymczasowego nie powiedzie się, `read_info` zostanie zniszczone przed uzyskaniem dostępu do jego elementu `filename`, co powoduje wyłuskanie wskaźnika NULL i awarię.
+
+```
+AdresSanitizer:DEADLYSIGNAL
+==================================================================
+==1414421==BŁĄD: AddressSanitizer: NIEZNANY SYGNAŁ na nieznanym adresie 0x000000000000 (pc 0x56260222912f bp 0x7ffec0a193b0 sp 0x7ffec0a19360 T0)
+#0 0x56260222912f (/data/ylwang/LargeScan/targets/ImageMagick/utilities/magick+0x235f12f)
+```</description></item><item><title>CVE-2026-25794</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25794</link><pubDate>Tue, 24 Feb 2026 15:31:57 +0000</pubDate><description>`WriteUHDRImage` w `coders/uhdr.c` wykorzystuje arytmetykę `int` do obliczenia rozmiaru bufora pikseli.Gdy wymiary obrazu są duże, mnożenie przekracza 32-bitowy parametr „int”, powodując alokację sterty o zbyt małym rozmiarze, po której następuje zapis poza dopuszczalnym zakresem.Może to spowodować awarię procesu lub potencjalnie doprowadzić do zapisu na stercie poza dopuszczalnym zakresem.
+```
+==1575126==BŁĄD: AddressSanitizer: przepełnienie bufora sterty na adresie 0x7fc382ef3820 na komputerze 0x5560d31f229f bp 0x7ffe865f9530 sp 0x7ffe865f9520
+ZAPISZ rozmiar 8 na gwincie 0x7fc382ef3820 T0
+#0 0x5560d31f229e w koderach WriteUHDRImage/uhdr.c:807
+```</description></item><item><title>CVE-2026-25638</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-25638</link><pubDate>Tue, 24 Feb 2026 15:30:54 +0000</pubDate><description>Występuje wyciek pamięci w `coders/msl.c`.W funkcji `WriteMSLImage` pliku `msl.c` przydzielane są zasoby.Jednak funkcja powraca wcześniej, nie zwalniając przydzielonych zasobów.
+
+```
+==78983== Memcheck, wykrywacz błędów pamięci
+==78983== Prawa autorskie (C) 2002–2022 i licencja GNU GPL autorstwa Juliana Sewarda i in.
+==78983== Używanie Valgrind-3.22.0 i LibVEX;uruchom ponownie z -h, aby uzyskać informacje o prawach autorskich
+==78983==
+==78983== 177 196 (13 512 bezpośrednich, 163 684 pośrednich) bajtów w 1 bloku zostało zdecydowanie utraconych w rekordzie utraty 21 z 21
+==78983== pod adresem 0x4846828: malloc (w /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+```</description></item><item><title>CVE-2026-0401</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0401</link><pubDate>Tue, 24 Feb 2026 15:30:33 +0000</pubDate><description>Luka w zabezpieczeniach systemu SonicOS umożliwiająca wyłuskanie wskaźnika NULL po uwierzytelnieniu umożliwia zdalnemu atakującemu awarię zapory sieciowej.</description></item><item><title>CVE-2025-67445</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-67445</link><pubDate>Tue, 24 Feb 2026 15:30:33 +0000</pubDate><description>TOTOLINK X5000R V9.1.0cu.2415_B20250515 zawiera lukę umożliwiającą odmowę usługi w pliku /cgi-bin/cstecgi.cgi.CGI odczytuje zmienną środowiskową CONTENT_LENGTH i przydziela pamięć przy użyciu malloc (CONTENT_LENGTH + 1) bez wystarczającego sprawdzania granic.Gdy limit rozmiaru żądania lighttpd nie jest egzekwowany, spreparowane duże żądanie POST może spowodować wyczerpanie pamięci lub błąd segmentacji, co prowadzi do awarii CGI zarządzania i utraty dostępności interfejsu sieciowego.</description></item><item><title>CVE-2026-0402</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0402</link><pubDate>Tue, 24 Feb 2026 15:30:33 +0000</pubDate><description>Luka w zabezpieczeniach Out-ofbounds Read po uwierzytelnieniu w SonicOS umożliwia zdalnemu atakującemu awarię zapory sieciowej.</description></item><item><title>CVE-2026-0399</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-0399</link><pubDate>Tue, 24 Feb 2026 15:30:33 +0000</pubDate><description>Liczne luki w zabezpieczeniach związane z przepełnieniem bufora po uwierzytelnieniu w interfejsie zarządzania SonicOS spowodowane nieprawidłowym sprawdzaniem granic w punkcie końcowym API.</description></item><item><title>CVE-2025-10010</title><link>https://nvd.nist.gov/vuln/detail/CVE-2025-10010</link><pubDate>Tue, 24 Feb 2026 15:30:33 +0000</pubDate><description>Aplikacja CPSD CryptoPro Secure Disk uruchamia mały system operacyjny Linux w celu przeprowadzenia uwierzytelnienia użytkownika przed użyciem funkcji BitLocker do odszyfrowania partycji Windows.System znajduje się na osobnej niezaszyfrowanej partycji, do której dostęp może uzyskać każdy, kto ma dostęp do dysku twardego.
+
+Przeprowadzanych jest wiele kontroli w celu sprawdzenia integralności systemu operacyjnego Linux i plików aplikacji CryptoPro Secure Disk.Gdy pliki zostaną zmienione, przy uruchomieniu systemu zostanie wyświetlony komunikat o błędzie.Jedną z kontroli jest architektura pomiaru integralności (IMA) jądra Linuksa.Stwierdzono, że pliki konfiguracyjne nie są sprawdzane przez IMA i można je następnie (jeśli nie zostaną sprawdzone innymi środkami) zostać zmienione.Umożliwia to osobie atakującej wykonanie dowolnego kodu w kontekście użytkownika root i umożliwia mu np. zainstalowanie backdoora i uzyskanie dostępu do danych podczas wykonywania.</description></item><item><title>CVE-2026-3102</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-3102</link><pubDate>Tue, 24 Feb 2026 14:32:13 +0000</pubDate><description>W exiftool do wersji 13.49 na macOS wykryto lukę.Ten problem dotyczy funkcji SetMacOSTags pliku lib/Image/ExifTool/MacOS.pm komponentu PNG File Parser.Ta manipulacja argumentem DateTimeOriginal powoduje wstrzyknięcie polecenia os.Atak jest możliwy do przeprowadzenia zdalnie.Exploit został publicznie ujawniony i może zostać wykorzystany.Aktualizacja do wersji 13.50 może rozwiązać ten problem.Nazwa poprawki: e9609a9bcc0d32bd252a709a562fb822d6dd86f7.Zalecana jest aktualizacja komponentu, którego dotyczy problem.
 
 CVSS Score: 6.3 (medium)</description></item><item><title>CVE-2026-3101</title><link>https://nvd.nist.gov/vuln/detail/CVE-2026-3101</link><pubDate>Tue, 24 Feb 2026 14:32:08 +0000</pubDate><description>W Intelbras TIP 635G 1.12.3.5 odkryto lukę.Podatnością dotknięta jest nieznany kod w komponencie Ping Handler.Manipulacja skutkuje wstrzyknięciem polecenia os.Atak może zostać przeprowadzony zdalnie.Exploit został upubliczniony i może zostać wykorzystany.Skontaktowano się ze sprzedawcą w sprawie tego ujawnienia wcześniej, ale nie udzielił on żadnej odpowiedzi.
 
